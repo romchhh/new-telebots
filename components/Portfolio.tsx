@@ -88,9 +88,9 @@ export default function Portfolio() {
     'v12-auto': { image: '/v12-auto.png', caseId: 'v12-auto', category: 'websites' },
     'tripvibe': { image: '/tripvibe.png', caseId: 'tripvibe', category: 'websites' },
     'tron-energy-bot': { image: '/IMAGE 2025-10-13 22:39:19.jpg', caseId: 'tron-energy-bot', category: 'chatbots' },
-    'chars-kyiv': { image: '/Знімок екрана 2025-11-03 о 01.49.01.png', caseId: 'chars-kyiv', category: 'websites' },
+    'chars-kyiv': { image: '/screenshot-2025-11-03-01-49-01.png', caseId: 'chars-kyiv', category: 'websites' },
     'style-chat-vakhula': { image: '/IMAGE 2025-11-03 02:12:02.jpg', caseId: 'style-chat-vakhula', category: 'chatbots' },
-    'landscaper-academy': { image: '/Знімок екрана 2025-12-20 о 03.02.08.png', caseId: 'landscaper-academy', category: 'websites' }
+    'landscaper-academy': { image: '/screenshot-2025-12-20-03-02-08.png', caseId: 'landscaper-academy', category: 'websites' }
   };
 
   // Паттерни розмірів для створення красивої сітки з однаковими висотами в межах блоку

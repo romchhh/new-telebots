@@ -60,7 +60,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   const last4CaseIds = allCaseIds.slice(-4); // Останні 4 кейси
   
   const imageMap: { [key: string]: { image: string; category: string } } = {
-    'chars-kyiv': { image: '/Знімок екрана 2025-11-03 о 01.49.01.png', category: 'websites' },
+    'chars-kyiv': { image: '/screenshot-2025-11-03-01-49-01.png', category: 'websites' },
     'style-chat-vakhula': { image: '/IMAGE 2025-11-03 02:12:02.jpg', category: 'chatbots' },
     'tron-energy-bot': { image: '/IMAGE 2025-10-13 22:39:19.jpg', category: 'chatbots' },
     'tripvibe': { image: '/tripvibe.png', category: 'websites' },
@@ -68,7 +68,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
     'vsk-technology': { image: '/vsk-technology.png', category: 'websites' },
     'offer-dpuchkov': { image: '/IMAGE 2025-10-04 04:56:47.jpg', category: 'websites' },
     'alexandraaleksiuk': { image: '/IMAGE 2025-10-04 04:56:05.jpg', category: 'websites' },
-    'landscaper-academy': { image: '/Знімок екрана 2025-12-20 о 03.02.08.png', category: 'websites' }
+    'landscaper-academy': { image: '/screenshot-2025-12-20-03-02-08.png', category: 'websites' }
   };
   
   const projects = last4CaseIds.map((caseId) => {
