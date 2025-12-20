@@ -90,16 +90,12 @@ export default function AboutPage() {
       <div className="bg-black text-white py-24 px-6 mt-16">
         <div className="max-w-7xl mx-auto">
           <div className={`max-w-5xl mx-auto scroll-animate-up ${isQuoteVisible ? 'animate' : ''}`} ref={quoteRef}>
-            <blockquote className="relative pl-12 md:pl-16">
-              <span className="absolute left-0 top-0 text-5xl md:text-7xl lg:text-8xl text-white/30 font-black leading-none" style={{ fontFamily: 'serif' }}>
-                &ldquo;
-              </span>
-              <p className="text-2xl md:text-3xl lg:text-4xl font-black leading-relaxed relative z-10 italic pl-4">
+            <blockquote>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-black leading-relaxed italic">
+                <span className="text-5xl md:text-7xl lg:text-8xl text-white/30 font-black leading-none" style={{ fontFamily: 'serif' }}>&ldquo;</span>
                 {t.about.quote}
+                <span className="text-5xl md:text-7xl lg:text-8xl text-white/30 font-black leading-none" style={{ fontFamily: 'serif' }}>&rdquo;</span>
               </p>
-              <span className="inline-block text-5xl md:text-7xl lg:text-8xl text-white/30 font-black leading-none mt-2" style={{ fontFamily: 'serif' }}>
-                &rdquo;
-              </span>
             </blockquote>
           </div>
         </div>
