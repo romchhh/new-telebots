@@ -32,7 +32,7 @@ function PortfolioProject({ project, index, lang }: { project: { image: string; 
           height={800}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+        <div className="absolute inset-0 bg-black/60 opacity-100 flex items-end">
           <div className="p-8">
             <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-2">
               {project.category}
@@ -61,13 +61,13 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   
   const imageMap: { [key: string]: { image: string; category: string } } = {
     'chars-kyiv': { image: '/screenshot-2025-11-03-01-49-01.png', category: 'websites' },
-    'style-chat-vakhula': { image: '/IMAGE 2025-11-03 02:12:02.jpg', category: 'chatbots' },
-    'tron-energy-bot': { image: '/IMAGE 2025-10-13 22:39:19.jpg', category: 'chatbots' },
+    'style-chat-vakhula': { image: '/image-2025-11-03-02-12-02.jpg', category: 'chatbots' },
+    'tron-energy-bot': { image: '/image-2025-10-13-22-39-19.jpg', category: 'chatbots' },
     'tripvibe': { image: '/tripvibe.png', category: 'websites' },
     'v12-auto': { image: '/v12-auto.png', category: 'websites' },
     'vsk-technology': { image: '/vsk-technology.png', category: 'websites' },
-    'offer-dpuchkov': { image: '/IMAGE 2025-10-04 04:56:47.jpg', category: 'websites' },
-    'alexandraaleksiuk': { image: '/IMAGE 2025-10-04 04:56:05.jpg', category: 'websites' },
+    'offer-dpuchkov': { image: '/image-2025-10-04-04-56-47.jpg', category: 'websites' },
+    'alexandraaleksiuk': { image: '/image-2025-10-04-04-56-05.jpg', category: 'websites' },
     'landscaper-academy': { image: '/screenshot-2025-12-20-03-02-08.png', category: 'websites' }
   };
   

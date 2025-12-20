@@ -74,22 +74,22 @@ export default function Portfolio() {
     'nieznany-piekarz': { image: '/Group 1000007023.png', caseId: 'nieznany-piekarz', category: 'websites' },
     'nutritionist-bot': { image: '/nutritionist-bot.jpg', caseId: 'nutritionist-bot', category: 'chatbots' },
     'cats-fresh': { image: '/cats-fresh-project.jpg', caseId: 'cats-fresh', category: 'websites' },
-    'applum-bot': { image: '/IMAGE 2025-10-04 03:26:23.jpg', caseId: 'applum-bot', category: 'chatbots' },
-    'easyplay': { image: '/IMAGE 2025-12-20 03:07:17.jpg', caseId: 'easyplay', category: 'websites' },
+    'applum-bot': { image: '/image-2025-10-04-03-26-23.jpg', caseId: 'applum-bot', category: 'chatbots' },
+    'easyplay': { image: '/image-2025-12-20-03-07-17.jpg', caseId: 'easyplay', category: 'websites' },
     'webinar-bot': { image: '/port44.png', caseId: 'webinar-bot', category: 'chatbots' },
     'normalnoauto': { image: '/port77.png', caseId: 'normalnoauto', category: 'chatbots' },
     'kvartyrant': { image: '/port99.png', caseId: 'kvartyrant', category: 'chatbots' },
     'cosmy': { image: '/port1010.png', caseId: 'cosmy', category: 'chatbots' },
-    'newlineschool': { image: '/IMAGE 2025-10-04 04:24:06.jpg', caseId: 'newlineschool', category: 'websites' },
-    'flixmarket': { image: '/IMAGE 2025-10-04 03:34:02.jpg', caseId: 'flixmarket', category: 'chatbots' },
-    'alexandraaleksiuk': { image: '/IMAGE 2025-10-04 04:56:05.jpg', caseId: 'alexandraaleksiuk', category: 'websites' },
-    'offer-dpuchkov': { image: '/IMAGE 2025-10-04 04:56:47.jpg', caseId: 'offer-dpuchkov', category: 'websites' },
+    'newlineschool': { image: '/image-2025-10-04-04-24-06.jpg', caseId: 'newlineschool', category: 'websites' },
+    'flixmarket': { image: '/image-2025-10-04-03-34-02.jpg', caseId: 'flixmarket', category: 'chatbots' },
+    'alexandraaleksiuk': { image: '/image-2025-10-04-04-56-05.jpg', caseId: 'alexandraaleksiuk', category: 'websites' },
+    'offer-dpuchkov': { image: '/image-2025-10-04-04-56-47.jpg', caseId: 'offer-dpuchkov', category: 'websites' },
     'vsk-technology': { image: '/vsk-technology.png', caseId: 'vsk-technology', category: 'websites' },
     'v12-auto': { image: '/v12-auto.png', caseId: 'v12-auto', category: 'websites' },
     'tripvibe': { image: '/tripvibe.png', caseId: 'tripvibe', category: 'websites' },
-    'tron-energy-bot': { image: '/IMAGE 2025-10-13 22:39:19.jpg', caseId: 'tron-energy-bot', category: 'chatbots' },
+    'tron-energy-bot': { image: '/image-2025-10-13-22-39-19.jpg', caseId: 'tron-energy-bot', category: 'chatbots' },
     'chars-kyiv': { image: '/screenshot-2025-11-03-01-49-01.png', caseId: 'chars-kyiv', category: 'websites' },
-    'style-chat-vakhula': { image: '/IMAGE 2025-11-03 02:12:02.jpg', caseId: 'style-chat-vakhula', category: 'chatbots' },
+    'style-chat-vakhula': { image: '/image-2025-11-03-02-12-02.jpg', caseId: 'style-chat-vakhula', category: 'chatbots' },
     'landscaper-academy': { image: '/screenshot-2025-12-20-03-02-08.png', caseId: 'landscaper-academy', category: 'websites' }
   };
 
@@ -297,7 +297,7 @@ export default function Portfolio() {
                     />
                     <Link
                       href={getCaseUrl(work.caseId)}
-                      className='absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6'
+                      className='absolute inset-0 bg-black/60 opacity-100 flex items-end p-6'
                       onClick={(e) => {
                         e.stopPropagation();
                       }}

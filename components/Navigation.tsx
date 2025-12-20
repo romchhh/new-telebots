@@ -46,15 +46,17 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
       isScrolled ? 'bg-white/95 backdrop-blur-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-2 lg:py-3 flex justify-between items-center">
-        <Link href={`/${currentLanguage}`} className="relative h-10 lg:h-16 w-auto">
-          <Image
-            src={isScrolled ? '/blacklogo.png' : '/whitelogo.png'}
-            alt="TeleBots"
-            width={200}
-            height={40}
-            className="h-full w-auto object-contain"
-            priority
-          />
+        <Link href={`/${currentLanguage}`} className="relative h-10 lg:h-16 w-[140px] lg:w-[200px] flex items-center justify-start">
+          <div className="relative w-full h-full">
+            <Image
+              src={isScrolled ? '/blacklogo.png' : '/whitelogo.png'}
+              alt="TeleBots"
+              fill
+              className="object-contain object-left"
+              sizes="(max-width: 1024px) 140px, 200px"
+              priority
+            />
+          </div>
         </Link>
 
         <div className="hidden lg:flex items-center space-x-10">
