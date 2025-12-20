@@ -90,12 +90,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     icons: {
       icon: [
-        { url: '/favicon.ico', sizes: 'any' },
-        { url: '/icon-16x16.png', sizes: '16x16', type: 'image/png' },
-        { url: '/icon-32x32.png', sizes: '32x32', type: 'image/png' },
+        { url: '/whitelogo.png', sizes: 'any', type: 'image/png' },
       ],
       apple: [
-        { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+        { url: '/whitelogo.png', sizes: '180x180', type: 'image/png' },
+      ],
+      shortcut: [
+        { url: '/whitelogo.png', type: 'image/png' },
       ],
     },
     manifest: '/manifest.json',
