@@ -57,6 +57,11 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
                 </Link>
               </li>
               <li>
+                <Link href={`/${currentLanguage}/blog`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
+                  {t.nav.blog}
+                </Link>
+              </li>
+              <li>
                 <Link href={`/${currentLanguage}/contact`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
                   {t.nav.contact}
                 </Link>

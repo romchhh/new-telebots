@@ -33,11 +33,11 @@ function PortfolioProject({ project, index, lang }: { project: { image: string; 
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-black/60 opacity-100 flex items-end">
-          <div className="p-8">
-            <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-2">
+          <div className="p-4 md:p-8">
+            <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-1 md:mb-2">
               {project.category}
             </p>
-            <h3 className="text-xl font-black">
+            <h3 className="text-base md:text-xl font-black leading-tight">
               {project.title}
             </h3>
           </div>
@@ -98,10 +98,12 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
           </h2>
           <Link 
             href={`/${validLang}/portfolio`}
-            className="group flex items-center justify-center w-48 h-48 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300"
+            className="group flex items-center justify-center w-48 h-48 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
           >
-            <span className="mr-3 text-sm font-semibold tracking-wider">{t.portfolio.viewPortfolio}</span>
-            <ArrowRight className="w-5 h-5" />
+            <div className="flex items-center justify-center flex-wrap gap-1">
+              <span className="text-sm font-semibold tracking-wider text-center leading-tight">{t.portfolio.viewPortfolio}</span>
+              <ArrowRight className="w-5 h-5 flex-shrink-0" />
+            </div>
           </Link>
         </div>
 

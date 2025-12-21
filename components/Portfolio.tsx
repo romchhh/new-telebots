@@ -297,26 +297,26 @@ export default function Portfolio() {
                     />
                     <Link
                       href={getCaseUrl(work.caseId)}
-                      className='absolute inset-0 bg-black/60 opacity-100 flex items-end p-6'
+                      className='absolute inset-0 bg-black/60 opacity-100 flex items-end p-3 md:p-6'
                       onClick={(e) => {
                         e.stopPropagation();
                       }}
                     >
-                      <div className='text-white'>
-                        <h3 className='text-xl font-black mb-2'>
+                      <div className='text-white w-full'>
+                        <h3 className='text-base md:text-xl font-black mb-1 md:mb-2 leading-tight'>
                           {work.title}
                         </h3>
-                        <p className='text-sm text-gray-300 mb-4'>
+                        <p className='text-xs md:text-sm text-gray-300 mb-2 md:mb-4 leading-snug'>
                           {work.alt}
                         </p>
-                        <div className='flex items-center gap-2 text-white'>
-                          <span className="text-sm font-semibold">
+                        <div className='flex items-center gap-1 md:gap-2 text-white'>
+                          <span className="text-xs md:text-sm font-semibold">
                             {validLang === 'uk' ? 'Детальніше' :
                              validLang === 'en' ? 'View Details' :
                              validLang === 'ru' ? 'Подробнее' :
                              'Zobacz szczegóły'}
                           </span>
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
                         </div>
