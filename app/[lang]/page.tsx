@@ -49,7 +49,7 @@ export default function Home() {
     <>
       <StructuredData type="organization" />
       <StructuredData type="website" />
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white overflow-x-hidden w-full">
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
         <HeroSection t={t} />
         <AboutSection t={t} />

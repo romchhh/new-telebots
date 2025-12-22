@@ -87,8 +87,8 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   });
 
   return (
-    <section id="portfolio" className="bg-black text-white">
-      <div className="grid lg:grid-cols-2">
+    <section id="portfolio" className="bg-black text-white h-screen">
+      <div className="grid lg:grid-cols-2 h-full">
         <div className={`p-16 lg:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
           <p className="text-xs tracking-[0.3em] text-gray-400 mb-6">
             {t.portfolio.recent}
@@ -107,11 +107,11 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
           </Link>
         </div>
 
-        <div className={`relative h-[600px] lg:h-auto scroll-animate-right ${isImageVisible ? 'animate' : ''}`} ref={imageRef}>
+        <div className={`relative h-full scroll-animate-right ${isImageVisible ? 'animate' : ''}`} ref={imageRef}>
           <img
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
             alt="Featured project"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-110"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-8">
             <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-2">

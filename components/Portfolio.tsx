@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { ArrowRight } from 'lucide-react';
 import { cases } from './cases';
 import { translations, Language } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
@@ -161,8 +162,8 @@ export default function Portfolio() {
   return (
     <div className='min-h-screen bg-white'>
       {/* Чорний блок зверху */}
-      <section className="bg-black text-white">
-        <div className="grid lg:grid-cols-2">
+      <section className="bg-black text-white h-screen">
+        <div className="grid lg:grid-cols-2 h-full">
           <div className={`p-16 lg:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
             <p className="text-xs tracking-[0.3em] text-gray-400 mb-6">
               {t.portfolio.recent}
@@ -170,14 +171,28 @@ export default function Portfolio() {
             <h2 className="text-5xl lg:text-6xl font-black mb-12 leading-tight">
               {t.portfolio.title}
             </h2>
+            <button
+              onClick={() => {
+                const portfolioSection = document.getElementById('portfolio');
+                if (portfolioSection) {
+                  portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+              className="group flex items-center justify-center w-48 h-48 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
+            >
+              <div className="flex items-center justify-center flex-wrap gap-1">
+                <span className="text-sm font-semibold tracking-wider text-center leading-tight">{t.portfolio.viewPortfolio}</span>
+                <ArrowRight className="w-5 h-5 flex-shrink-0" />
+              </div>
+            </button>
           </div>
 
-          <div className={`relative h-[600px] lg:h-auto overflow-hidden scroll-animate-right ${isImageVisible ? 'animate' : ''}`} ref={imageRef}>
+          <div className={`relative h-full overflow-hidden scroll-animate-right ${isImageVisible ? 'animate' : ''}`} ref={imageRef}>
             <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-black via-black/70 via-black/40 to-transparent z-10"></div>
             <img
               src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
               alt="Featured project"
-              className="w-full h-full object-cover translate-y-8"
+              className="w-full h-full object-cover object-top scale-110 translate-y-16"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-8 z-10">
               <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-2">

@@ -8,8 +8,10 @@ interface HeroSectionProps {
 
 export default function HeroSection({ t }: HeroSectionProps) {
   const [displayedTitle, setDisplayedTitle] = useState('');
+  const [displayedTitleItalic, setDisplayedTitleItalic] = useState('');
   const [displayedSubtitle, setDisplayedSubtitle] = useState('');
   const [isTitleComplete, setIsTitleComplete] = useState(false);
+  const [isTitleItalicComplete, setIsTitleItalicComplete] = useState(false);
   const [isContentComplete, setIsContentComplete] = useState(false);
 
   const handleScrollDown = () => {
@@ -22,29 +24,47 @@ export default function HeroSection({ t }: HeroSectionProps) {
   };
 
   useEffect(() => {
+    // Розділяємо title на дві частини
+    const titleParts = t.hero.title.split(' до ');
+    const titleFirst = titleParts[0] + (titleParts.length > 1 ? ' до ' : '');
+    const titleSecond = titleParts.length > 1 ? titleParts[1] : '';
+    
     let titleIndex = 0;
+    let titleItalicIndex = 0;
     let subtitleIndex = 0;
     
+    // Перша частина заголовка - швидко (50ms)
     const titleInterval = setInterval(() => {
-      if (titleIndex < t.hero.title.length) {
-        setDisplayedTitle(t.hero.title.slice(0, titleIndex + 1));
+      if (titleIndex < titleFirst.length) {
+        setDisplayedTitle(titleFirst.slice(0, titleIndex + 1));
         titleIndex++;
       } else {
         clearInterval(titleInterval);
         setIsTitleComplete(true);
         
-        // Починаємо друкувати підзаголовок після завершення заголовка
-        const subtitleInterval = setInterval(() => {
-          if (subtitleIndex < t.hero.subtitle.length) {
-            setDisplayedSubtitle(t.hero.subtitle.slice(0, subtitleIndex + 1));
-            subtitleIndex++;
+        // Друга частина заголовка (курсив) - повільніше (80ms)
+        const titleItalicInterval = setInterval(() => {
+          if (titleItalicIndex < titleSecond.length) {
+            setDisplayedTitleItalic(titleSecond.slice(0, titleItalicIndex + 1));
+            titleItalicIndex++;
           } else {
-            clearInterval(subtitleInterval);
-            setIsContentComplete(true);
+            clearInterval(titleItalicInterval);
+            setIsTitleItalicComplete(true);
+            
+            // Підзаголовок - середня швидкість (60ms)
+            const subtitleInterval = setInterval(() => {
+              if (subtitleIndex < t.hero.subtitle.length) {
+                setDisplayedSubtitle(t.hero.subtitle.slice(0, subtitleIndex + 1));
+                subtitleIndex++;
+              } else {
+                clearInterval(subtitleInterval);
+                setIsContentComplete(true);
+              }
+            }, 60);
           }
-        }, 30);
+        }, 80);
       }
-    }, 100);
+    }, 50);
 
     return () => {
       clearInterval(titleInterval);
@@ -63,14 +83,20 @@ export default function HeroSection({ t }: HeroSectionProps) {
       <div
         className="absolute inset-0 bg-black/70"
       />
-      <div className="relative z-10 text-center px-6 max-w-5xl">
-        <h1 className="text-white text-5xl md:text-7xl font-black mb-6 tracking-tight">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 py-32 text-center">
+        <h1 className="text-5xl md:text-7xl font-black text-white mb-8">
           {displayedTitle}
-          {!isTitleComplete && <span className="animate-pulse">|</span>}
+          {displayedTitleItalic && (
+            <>
+              <br />
+              <span className="italic font-normal">{displayedTitleItalic}</span>
+            </>
+          )}
+          {(!isTitleComplete || !isTitleItalicComplete) && <span className="animate-pulse">|</span>}
         </h1>
-        <p className="text-white text-lg md:text-xl font-normal leading-relaxed">
+        <p className="text-xl text-gray-300 leading-relaxed font-semibold">
           {displayedSubtitle}
-          {isTitleComplete && displayedSubtitle.length < t.hero.subtitle.length && (
+          {isTitleItalicComplete && displayedSubtitle.length < t.hero.subtitle.length && (
             <span className="animate-pulse">|</span>
           )}
         </p>
