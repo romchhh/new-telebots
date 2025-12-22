@@ -20,13 +20,13 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
-          <div className="md:col-span-1">
-            <div className="relative h-12 w-auto mb-4">
+          <div className="md:col-span-1 text-center md:text-left">
+            <div className="relative h-3 w-auto mb-8 max-w-[50px] mx-auto md:mx-0">
               <Image
                 src="/whitelogo.png"
                 alt="TeleBots"
-                width={200}
-                height={48}
+                width={50}
+                height={12}
                 className="h-full w-auto object-contain"
               />
             </div>
@@ -36,7 +36,7 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-sm font-black tracking-wider mb-6">
               {t.footer.quickLinks}
             </h4>
@@ -70,7 +70,7 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="text-center md:text-left">
             <h4 className="text-sm font-black tracking-wider mb-6">
               {t.footer.contact}
             </h4>
@@ -92,7 +92,7 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
                 Kyiv, Ukraine
               </li>
             </ul>
-            <div className="flex space-x-4 pt-4">
+            <div className="flex space-x-4 pt-4 justify-center md:justify-start">
               <a
                 href="https://www.instagram.com/telebotsnowayrm/"
                 target="_blank"
@@ -115,7 +115,7 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm font-semibold mb-4 md:mb-0">
+          <p className="text-gray-500 text-sm font-semibold mb-4 md:mb-0 text-center md:text-left">
             © 2025 TeleBots. {t.footer.rights}
           </p>
           <div className="flex space-x-6">

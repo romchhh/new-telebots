@@ -87,8 +87,8 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   });
 
   return (
-    <section id="portfolio" className="bg-black text-white h-screen">
-      <div className="grid lg:grid-cols-2 h-full">
+    <section id="portfolio" className="bg-black text-white">
+      <div className="grid lg:grid-cols-2 min-h-screen">
         <div className={`p-16 lg:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
           <p className="text-xs tracking-[0.3em] text-gray-400 mb-6">
             {t.portfolio.recent}
