@@ -116,7 +116,7 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm font-semibold mb-4 md:mb-0 text-center md:text-left">
-            © 2025 TeleBots. {t.footer.rights}
+            © 2026 TeleBots. {t.footer.rights}
           </p>
           <div className="flex space-x-6">
             <Link href={`/${currentLanguage}/privacy`} className="text-gray-500 hover:text-white transition text-sm font-semibold">

@@ -25,7 +25,7 @@ export default function ServicesSection({ t }: ServicesSectionProps) {
         </p>
         <Link
           href="/services"
-          className={`inline-block bg-white text-black px-8 py-4 hover:bg-gray-100 transition-all duration-300 font-black tracking-wider rounded-md scroll-animate-scale ${isButtonVisible ? 'animate' : ''}`}
+          className={`inline-block bg-white text-black px-8 py-4 hover:bg-gray-100 transition-all duration-300 font-black tracking-wider rounded-full scroll-animate-scale ${isButtonVisible ? 'animate' : ''}`}
           ref={buttonRef}
         >
           {t.services.toServices}

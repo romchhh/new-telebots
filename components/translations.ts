@@ -8,8 +8,17 @@ export const translations = {
       contact: 'КОНТАКТИ'
     },
     hero: {
-      title: 'Ласкаво просимо до TeleBots',
-      subtitle: 'Розробка телеграм ботів, сайтів, лендінгів, інтернет магазинів, парсерів та ботів з AI під ключ'
+      title: 'Покращуємо бізнеси, що стають №1',
+      subtitle: 'Боти, AI, сайти — технології для зростання.',
+      viewButton: 'Переглянути',
+      startDate: {
+        label: 'швидкий старт',
+        value: 'за 24 години'
+      },
+      duration: {
+        label: 'готове рішення',
+        value: 'за 2 тижні'
+      }
     },
     about: {
       title: 'TeleBots - Професійна розробка цифрових рішень',
@@ -65,6 +74,39 @@ export const translations = {
         chatbot: 'Чат бот з ШІ',
         ecommerce: 'Інтернет магазин',
         parser: 'Парсер'
+      },
+      faq: {
+        title: 'Часті запитання',
+        items: [
+          {
+            question: 'Як почати роботу над проектом?',
+            answer: 'Надішліть нам заявку через форму на сайті або зв\'яжіться з нами в Telegram/WhatsApp. Ми проведимо безкоштовну консультацію для визначення найкращого рішення для вашого бізнесу.'
+          },
+          {
+            question: 'Скільки часу займає розробка?',
+            answer: 'Термін розробки залежить від складності проекту. Прості рішення можуть бути готові за 2-4 тижні, складніші проекти займають 1-3 місяці. Після консультації ми надамо точну оцінку термінів.'
+          },
+          {
+            question: 'Які технології ви використовуєте?',
+            answer: 'Ми працюємо з сучасними технологіями: Python, JavaScript/TypeScript, React, Next.js для веб-розробки, Telegram Bot API для ботів, та різні AI інтеграції для розумних рішень.'
+          },
+          {
+            question: 'Чи надаєте ви підтримку після запуску?',
+            answer: 'Так, ми надаємо технічну підтримку та обслуговування після запуску проекту. Можемо налаштувати різні пакети підтримки залежно від ваших потреб.'
+          },
+          {
+            question: 'Як працює оплата?',
+            answer: 'Оплата зазвичай відбувається в два етапи: перед початком роботи та після завершення. Для великих проектів можливий індивідуальний графік платежів. Працюємо з різними платіжними системами.'
+          },
+          {
+            question: 'Чи можна інтегрувати з існуючими системами?',
+            answer: 'Так, ми маємо досвід інтеграції з CRM системами, платіжними сервісами (Monobank, LiqPay, WayForPay), Google сервісами та іншими API. Можемо адаптувати рішення під ваші існуючі інструменти.'
+          },
+          {
+            question: 'Чи працюєте ви з зарубіжними клієнтами?',
+            answer: 'Так, ми працюємо з клієнтами з різних країн. Підтримуємо різні мови та часові пояси, можливі різні форми оплати та комунікації.'
+          }
+        ]
       }
     },
     portfolio: {
@@ -234,8 +276,17 @@ export const translations = {
       contact: 'CONTACT'
     },
     hero: {
-      title: 'Welcome to TeleBots',
-      subtitle: 'Development of Telegram bots, websites, landing pages, e-commerce stores, parsers and AI bots - turnkey custom solutions'
+      title: 'Покращуємо бізнеси, що стають №1',
+      subtitle: 'Боти, AI, сайти — технології для зростання.',
+      viewButton: 'Переглянути',
+      startDate: {
+        label: 'швидкий старт',
+        value: 'за 24 години'
+      },
+      duration: {
+        label: 'готове рішення',
+        value: 'за 2 тижні'
+      }
     },
     about: {
       title: 'TeleBots - Professional Digital Solutions Development',
@@ -291,6 +342,39 @@ export const translations = {
         chatbot: 'Chatbot with AI',
         ecommerce: 'Online store',
         parser: 'Parser'
+      },
+      faq: {
+        title: 'Frequently Asked Questions',
+        items: [
+          {
+            question: 'How to start working on a project?',
+            answer: 'Send us a request through the form on the website or contact us via Telegram/WhatsApp. We will conduct a free consultation to determine the best solution for your business.'
+          },
+          {
+            question: 'How long does development take?',
+            answer: 'The development time depends on the complexity of the project. Simple solutions can be ready in 2-4 weeks, more complex projects take 1-3 months. After consultation, we will provide an accurate time estimate.'
+          },
+          {
+            question: 'What technologies do you use?',
+            answer: 'We work with modern technologies: Python, JavaScript/TypeScript, React, Next.js for web development, Telegram Bot API for bots, and various AI integrations for smart solutions.'
+          },
+          {
+            question: 'Do you provide support after launch?',
+            answer: 'Yes, we provide technical support and maintenance after project launch. We can set up various support packages depending on your needs.'
+          },
+          {
+            question: 'How does payment work?',
+            answer: 'Payment usually occurs in two stages: before starting work and after completion. For large projects, an individual payment schedule is possible. We work with various payment systems.'
+          },
+          {
+            question: 'Can you integrate with existing systems?',
+            answer: 'Yes, we have experience integrating with CRM systems, payment services (Monobank, LiqPay, WayForPay), Google services, and other APIs. We can adapt solutions to your existing tools.'
+          },
+          {
+            question: 'Do you work with foreign clients?',
+            answer: 'Yes, we work with clients from different countries. We support different languages and time zones, various forms of payment and communication are possible.'
+          }
+        ]
       }
     },
     portfolio: {
@@ -460,8 +544,17 @@ export const translations = {
       contact: 'KONTAKT'
     },
     hero: {
-      title: 'Witamy w TeleBots',
-      subtitle: 'Rozwój botów Telegram, stron internetowych, landing page, sklepów e-commerce, parserów i botów AI - kompleksowe rozwiązania na zamówienie'
+      title: 'Покращуємо бізнеси, що стають №1',
+      subtitle: 'Боти, AI, сайти — технології для зростання.',
+      viewButton: 'Переглянути',
+      startDate: {
+        label: 'швидкий старт',
+        value: 'за 24 години'
+      },
+      duration: {
+        label: 'готове рішення',
+        value: 'за 2 тижні'
+      }
     },
     about: {
       title: 'TeleBots - Profesjonalny rozwój rozwiązań cyfrowych',
@@ -517,6 +610,39 @@ export const translations = {
         chatbot: 'Chatbot z AI',
         ecommerce: 'Sklep internetowy',
         parser: 'Parser'
+      },
+      faq: {
+        title: 'Najczęściej zadawane pytania',
+        items: [
+          {
+            question: 'Jak zacząć pracę nad projektem?',
+            answer: 'Wyślij nam zapytanie poprzez formularz na stronie lub skontaktuj się z nami przez Telegram/WhatsApp. Przeprowadzimy bezpłatną konsultację, aby określić najlepsze rozwiązanie dla Twojego biznesu.'
+          },
+          {
+            question: 'Ile czasu zajmuje rozwój?',
+            answer: 'Czas rozwoju zależy od złożoności projektu. Proste rozwiązania mogą być gotowe w 2-4 tygodnie, bardziej złożone projekty trwają 1-3 miesiące. Po konsultacji przedstawimy dokładną ocenę terminów.'
+          },
+          {
+            question: 'Jakich technologii używacie?',
+            answer: 'Pracujemy z nowoczesnymi technologiami: Python, JavaScript/TypeScript, React, Next.js do tworzenia stron internetowych, Telegram Bot API do botów oraz różne integracje AI dla inteligentnych rozwiązań.'
+          },
+          {
+            question: 'Czy zapewniacie wsparcie po uruchomieniu?',
+            answer: 'Tak, zapewniamy wsparcie techniczne i konserwację po uruchomieniu projektu. Możemy skonfigurować różne pakiety wsparcia w zależności od Twoich potrzeb.'
+          },
+          {
+            question: 'Jak działa płatność?',
+            answer: 'Płatność zazwyczaj odbywa się w dwóch etapach: przed rozpoczęciem pracy i po zakończeniu. W przypadku dużych projektów możliwy jest indywidualny harmonogram płatności. Współpracujemy z różnymi systemami płatności.'
+          },
+          {
+            question: 'Czy można zintegrować z istniejącymi systemami?',
+            answer: 'Tak, mamy doświadczenie w integracji z systemami CRM, serwisami płatniczymi (Monobank, LiqPay, WayForPay), usługami Google i innymi API. Możemy dostosować rozwiązania do Twoich istniejących narzędzi.'
+          },
+          {
+            question: 'Czy pracujecie z zagranicznymi klientami?',
+            answer: 'Tak, pracujemy z klientami z różnych krajów. Obsługujemy różne języki i strefy czasowe, możliwe są różne formy płatności i komunikacji.'
+          }
+        ]
       }
     },
     portfolio: {
@@ -686,8 +812,17 @@ export const translations = {
       contact: 'КОНТАКТЫ'
     },
     hero: {
-      title: 'Добро пожаловать в TeleBots',
-      subtitle: 'Разработка телеграм ботов, сайтов, лендингов, интернет магазинов, парсеров и ботов с AI на заказ под ключ'
+      title: 'Покращуємо бізнеси, що стають №1',
+      subtitle: 'Боти, AI, сайти — технології для зростання.',
+      viewButton: 'Переглянути',
+      startDate: {
+        label: 'швидкий старт',
+        value: 'за 24 години'
+      },
+      duration: {
+        label: 'готове рішення',
+        value: 'за 2 тижні'
+      }
     },
     about: {
       title: 'TeleBots - Профессиональная разработка цифровых решений',
@@ -743,6 +878,39 @@ export const translations = {
         chatbot: 'Чат бот с ИИ',
         ecommerce: 'Интернет магазин',
         parser: 'Парсер'
+      },
+      faq: {
+        title: 'Часто задаваемые вопросы',
+        items: [
+          {
+            question: 'Как начать работу над проектом?',
+            answer: 'Отправьте нам заявку через форму на сайте или свяжитесь с нами в Telegram/WhatsApp. Мы проведем бесплатную консультацию для определения лучшего решения для вашего бизнеса.'
+          },
+          {
+            question: 'Сколько времени занимает разработка?',
+            answer: 'Срок разработки зависит от сложности проекта. Простые решения могут быть готовы за 2-4 недели, более сложные проекты занимают 1-3 месяца. После консультации мы предоставим точную оценку сроков.'
+          },
+          {
+            question: 'Какие технологии вы используете?',
+            answer: 'Мы работаем с современными технологиями: Python, JavaScript/TypeScript, React, Next.js для веб-разработки, Telegram Bot API для ботов, и различные AI интеграции для умных решений.'
+          },
+          {
+            question: 'Предоставляете ли вы поддержку после запуска?',
+            answer: 'Да, мы предоставляем техническую поддержку и обслуживание после запуска проекта. Можем настроить различные пакеты поддержки в зависимости от ваших потребностей.'
+          },
+          {
+            question: 'Как работает оплата?',
+            answer: 'Оплата обычно происходит в два этапа: перед началом работы и после завершения. Для крупных проектов возможен индивидуальный график платежей. Работаем с различными платежными системами.'
+          },
+          {
+            question: 'Можно ли интегрировать с существующими системами?',
+            answer: 'Да, у нас есть опыт интеграции с CRM системами, платежными сервисами (Monobank, LiqPay, WayForPay), Google сервисами и другими API. Можем адаптировать решения под ваши существующие инструменты.'
+          },
+          {
+            question: 'Работаете ли вы с зарубежными клиентами?',
+            answer: 'Да, мы работаем с клиентами из разных стран. Поддерживаем разные языки и часовые пояса, возможны различные формы оплаты и коммуникации.'
+          }
+        ]
       }
     },
     portfolio: {

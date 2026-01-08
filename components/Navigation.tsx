@@ -43,13 +43,13 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm' : 'bg-transparent'
+      isScrolled ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-2 lg:py-3 flex justify-between items-center">
         <Link href={`/${currentLanguage}`} className="relative h-10 lg:h-16 w-[140px] lg:w-[200px] flex items-center justify-start">
           <div className="relative w-full h-full">
             <Image
-              src={isScrolled ? '/blacklogo.png' : '/whitelogo.png'}
+              src={isScrolled ? '/whitelogo.png' : '/whitelogo.png'}
               alt="TeleBots"
               fill
               className="object-contain object-left"
@@ -61,27 +61,27 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
 
         <div className="hidden lg:flex items-center space-x-10">
           <Link href={`/${currentLanguage}/about`} className={`text-xs tracking-[0.2em] font-black transition ${
-            isScrolled ? 'text-black hover:text-gray-600' : 'text-white hover:text-gray-400'
+            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.about}
           </Link>
           <Link href={`/${currentLanguage}/services`} className={`text-xs tracking-[0.2em] font-black transition ${
-            isScrolled ? 'text-black hover:text-gray-600' : 'text-white hover:text-gray-400'
+            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.services}
           </Link>
           <Link href={`/${currentLanguage}/portfolio`} className={`text-xs tracking-[0.2em] font-black transition ${
-            isScrolled ? 'text-black hover:text-gray-600' : 'text-white hover:text-gray-400'
+            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.portfolio}
           </Link>
           <Link href={`/${currentLanguage}/blog`} className={`text-xs tracking-[0.2em] font-black transition ${
-            isScrolled ? 'text-black hover:text-gray-600' : 'text-white hover:text-gray-400'
+            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.blog}
           </Link>
           <Link href={`/${currentLanguage}/contact`} className={`text-xs tracking-[0.2em] font-black transition ${
-            isScrolled ? 'text-black hover:text-gray-600' : 'text-white hover:text-gray-400'
+            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.contact}
           </Link>
@@ -96,7 +96,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
             setIsMenuOpen(!isMenuOpen);
           }}
           className={`lg:hidden z-50 relative transition ${
-            isScrolled ? 'text-black' : 'text-white'
+            isScrolled ? 'text-white' : 'text-white'
           }`}
           aria-label="Toggle menu"
         >

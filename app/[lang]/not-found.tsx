@@ -71,7 +71,7 @@ export default function NotFound() {
 
           <Link
             href={`/${lang}`}
-            className="group inline-flex items-center justify-center bg-black text-white px-8 py-4 hover:bg-gray-900 transition-all duration-300 rounded-md"
+            className="group inline-flex items-center justify-center bg-black text-white px-8 py-4 hover:bg-gray-900 transition-all duration-300 rounded-full"
           >
             <span className="tracking-wider font-black">{t.footer.backHome}</span>
             <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">

@@ -114,10 +114,10 @@ export default function ContactPage() {
                 </h2>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-8">
+              <form onSubmit={handleSubmit} className="space-y-10">
                 <div>
-                  <label className="block text-sm font-black text-black mb-3 tracking-wider">
-                    {t.contact.name}
+                  <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+                    {t.contact.name} *
                   </label>
                   <input
                     type="text"
@@ -126,13 +126,13 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     placeholder={t.contact.namePlaceholder}
-                    className="w-full px-4 py-4 border-2 border-gray-200 focus:border-black outline-none transition text-black font-semibold rounded-md"
+                    className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-black text-black mb-3 tracking-wider">
-                    {t.contact.phone}
+                  <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+                    {t.contact.phone} *
                   </label>
                   <input
                     type="tel"
@@ -141,32 +141,29 @@ export default function ContactPage() {
                     onChange={handleChange}
                     required
                     placeholder={t.contact.phonePlaceholder}
-                    className="w-full px-4 py-4 border-2 border-gray-200 focus:border-black outline-none transition text-black font-semibold rounded-md"
+                    className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-black text-black mb-3 tracking-wider">
+                  <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
                     {t.contact.project}
                   </label>
                   <textarea
                     name="project"
                     value={formData.project}
                     onChange={handleChange}
-                    rows={6}
+                    rows={4}
                     placeholder={t.contact.projectPlaceholder}
-                    className="w-full px-4 py-4 border-2 border-gray-200 focus:border-black outline-none transition resize-none text-black font-semibold rounded-md"
+                    className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="group flex items-center justify-center bg-black text-white px-8 py-4 hover:bg-gray-900 transition-all duration-300 w-fit rounded-md"
+                  className="w-full md:w-auto px-12 py-4 text-white font-normal text-base rounded-full transition hover:opacity-90 bg-black"
                 >
-                  <span className="tracking-wider font-black">{t.contact.submit}</span>
-                  <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">
-                    <div className="w-8 h-px bg-white"></div>
-                  </div>
+                  {t.contact.submit}
                 </button>
               </form>
 
@@ -203,7 +200,7 @@ export default function ContactPage() {
                     href="https://api.whatsapp.com/send/?phone=380960908006&text&type=phone_number&app_absent=0"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-center bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-md"
+                    className="group flex items-center justify-center bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
                   >
                     <span className="tracking-wider font-black">{t.contact.whatsapp}</span>
                     <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">
@@ -215,7 +212,7 @@ export default function ContactPage() {
                     href="https://t.me/telebotsnowayrm"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-center bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-md"
+                    className="group flex items-center justify-center bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
                   >
                     <span className="tracking-wider font-black">{t.contact.telegram}</span>
                     <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">

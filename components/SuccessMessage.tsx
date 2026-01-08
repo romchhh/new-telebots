@@ -50,7 +50,7 @@ export default function SuccessMessage({ isOpen, onClose, message, description }
           
           <button
             onClick={onClose}
-            className="mt-4 w-full bg-black text-white py-4 hover:bg-gray-900 transition-all duration-300 tracking-wider font-black rounded-lg"
+            className="mt-4 w-full bg-black text-white py-4 hover:bg-gray-900 transition-all duration-300 tracking-wider font-black rounded-full"
           >
             Зрозуміло
           </button>

@@ -84,6 +84,9 @@ export default function RootLayout({
   return (
     <html lang="uk">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
         <link rel="icon" href="/whitelogo.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/whitelogo.png" />
         <link rel="manifest" href="/manifest.json" />

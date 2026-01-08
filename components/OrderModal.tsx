@@ -28,77 +28,73 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div 
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/60 backdrop-blur-md"
         onClick={onClose}
       />
       
-      <div className="relative bg-white max-w-lg w-full p-8 md:p-12 shadow-2xl rounded-lg">
+      <div className="relative bg-white max-w-lg w-full p-8 md:p-12 rounded-xl shadow-2xl">
+        {/* Кнопка закриття */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 text-gray-400 hover:text-black transition"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center border border-gray-300 rounded-sm hover:border-gray-400 transition"
         >
-          <X className="w-6 h-6" />
+          <X className="w-4 h-4 text-black" />
         </button>
 
-        <h2 className="text-3xl md:text-4xl font-black text-black mb-2">
+        {/* Заголовок */}
+        <h2 className="text-4xl md:text-5xl font-black text-black mb-8 pr-12">
           {t.modal.title}
         </h2>
-        <p className="text-gray-400 mb-8 font-semibold">{serviceName}</p>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-10">
+          {/* Поле імені */}
           <div>
-            <label className="block text-sm font-black text-black mb-2 tracking-wider">
-              {t.modal.name}
+            <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+              {t.modal.name} *
             </label>
             <input
               type="text"
               name="name"
               required
               placeholder={t.modal.namePlaceholder}
-              className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black outline-none transition text-black font-semibold rounded-md"
+              className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
             />
           </div>
 
+          {/* Поле телефону */}
           <div>
-            <label className="block text-sm font-black text-black mb-2 tracking-wider">
-              {t.modal.phone}
+            <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+              {t.modal.phone} *
             </label>
             <input
               type="tel"
               name="phone"
               required
               placeholder={t.modal.phonePlaceholder}
-              className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black outline-none transition text-black font-semibold rounded-md"
+              className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
             />
           </div>
 
+          {/* Поле запиту */}
           <div>
-            <label className="block text-sm font-black text-black mb-2 tracking-wider">
+            <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
               {t.modal.request}
             </label>
             <textarea
               name="request"
               rows={4}
               placeholder={t.modal.requestPlaceholder}
-              className="w-full px-4 py-3 border-2 border-gray-200 focus:border-black outline-none transition resize-none text-black font-semibold rounded-md"
+              className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent resize-none"
             />
           </div>
 
-          <div className="flex gap-4 pt-4">
-            <button
-              type="submit"
-              className="flex-1 bg-black text-white py-4 hover:bg-gray-900 transition tracking-wider font-black rounded-md"
-            >
-              {t.modal.submit}
-            </button>
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-8 py-4 border-2 border-black text-black hover:bg-black hover:text-white transition tracking-wider font-black rounded-md"
-            >
-              {t.modal.close}
-            </button>
-          </div>
+          {/* Кнопка відправки */}
+          <button
+            type="submit"
+            className="w-full py-4 text-white font-normal text-base rounded-full transition hover:opacity-90 bg-black"
+          >
+            {t.modal.submit}
+          </button>
         </form>
       </div>
     </div>

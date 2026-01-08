@@ -68,7 +68,7 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
         onClick={() => setIsOpen(!isOpen)}
         className={`flex items-center space-x-2 text-sm tracking-widest transition ${
           isScrolled 
-            ? 'text-black hover:text-gray-600' 
+            ? 'text-white hover:text-gray-400' 
             : 'text-white hover:text-gray-300'
         }`}
       >
@@ -81,7 +81,7 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
           <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
           <div className={`absolute right-0 mt-3 border shadow-xl z-20 min-w-[80px] rounded-md overflow-hidden ${
             isScrolled 
-              ? 'bg-white border-gray-200' 
+              ? 'bg-black border-gray-800' 
               : 'bg-black border-gray-800'
           }`}>
             {languages.map(language => (
@@ -94,8 +94,8 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
                 className={`w-full px-5 py-3 text-left text-sm tracking-wider transition ${
                   isScrolled
                     ? currentLanguage === language.code
-                      ? 'text-black bg-gray-100'
-                      : 'text-gray-600 hover:text-black hover:bg-gray-100'
+                      ? 'text-white bg-gray-900'
+                      : 'text-gray-400 hover:text-white hover:bg-gray-900'
                     : currentLanguage === language.code
                       ? 'text-white bg-gray-900'
                       : 'text-gray-400 hover:text-white hover:bg-gray-900'
