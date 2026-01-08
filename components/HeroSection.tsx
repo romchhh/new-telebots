@@ -51,7 +51,7 @@ export default function HeroSection({ t }: HeroSectionProps) {
             setIsTitleItalicComplete(true);
             // Підзаголовок відразу з'являється після заголовку
             setDisplayedSubtitle(t.hero.subtitle);
-            setIsContentComplete(true);
+                setIsContentComplete(true);
           }
         }, 80);
       }
@@ -122,9 +122,9 @@ export default function HeroSection({ t }: HeroSectionProps) {
         <div className="max-w-5xl mx-auto text-center">
           {/* Заголовок */}
           <h1 className="font-bold text-white mb-4 md:mb-6 uppercase text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl" style={{ letterSpacing: '0.15em', fontFamily: 'Montserrat, sans-serif' }}>
-            {displayedTitle}
-            {(!isTitleComplete || !isTitleItalicComplete) && <span className="animate-pulse">|</span>}
-          </h1>
+          {displayedTitle}
+          {(!isTitleComplete || !isTitleItalicComplete) && <span className="animate-pulse">|</span>}
+        </h1>
           
           {/* Підзаголовок */}
           {isTitleItalicComplete && (
@@ -146,14 +146,14 @@ export default function HeroSection({ t }: HeroSectionProps) {
                 
                 return subtitleText;
               })()}
-            </p>
+        </p>
           )}
           
           {/* Кнопка Переглянути */}
           {isContentComplete && (
             <div className="flex justify-center">
-              <button
-                onClick={handleScrollDown}
+      <button
+        onClick={handleScrollDown}
                 className="font-normal border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
                 style={{ fontFamily: 'Montserrat, sans-serif' }}
                 aria-label={t.hero.viewButton}

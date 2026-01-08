@@ -118,6 +118,7 @@ export default function ServicesPage() {
   return (
     <>
       <StructuredData type="organization" />
+      <StructuredData type="localBusiness" />
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
@@ -125,9 +126,18 @@ export default function ServicesPage() {
           { name: t.nav.services, url: `/${lang}/services` },
         ]}
       />
+      {services.map((service) => (
+        <StructuredData
+          key={service.key}
+          type="product"
+          serviceName={service.key}
+          serviceDescription={t.services[service.key]?.description || ''}
+        />
+      ))}
       <div className="min-h-screen bg-white">
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
-      <ServicesPassionSection t={t} />
+        <main id="main-content">
+        <ServicesPassionSection t={t} />
       
       {services.map((service, index) => (
         <ServiceItem
@@ -141,6 +151,7 @@ export default function ServicesPage() {
       ))}
 
       <StatsSection t={t} />
+        </main>
       <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
       
       <OrderModal

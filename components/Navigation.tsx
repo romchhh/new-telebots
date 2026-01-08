@@ -45,18 +45,23 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 py-2 lg:py-3 flex justify-between items-center">
-        <Link href={`/${currentLanguage}`} className="relative h-10 lg:h-16 w-[140px] lg:w-[200px] flex items-center justify-start">
-          <div className="relative w-full h-full">
+      <div className="max-w-7xl mx-auto px-6 py-2 lg:py-3 flex justify-between items-center lg:items-end">
+        <Link href={`/${currentLanguage}`} className="flex items-end group">
+          <div className="relative h-10 lg:h-16 w-[140px] lg:w-[200px] flex items-end overflow-hidden">
             <Image
               src={isScrolled ? '/whitelogo.png' : '/whitelogo.png'}
-              alt="TeleBots"
+              alt="TeleBots - Професійна розробка телеграм ботів, чат-ботів та сайтів"
               fill
               className="object-contain object-left"
               sizes="(max-width: 1024px) 140px, 200px"
               priority
             />
           </div>
+          <span className={`text-lg lg:text-xl font-bold uppercase tracking-[0.2em] transition-colors pb-1 whitespace-nowrap -ml-16 lg:-ml-24 ${
+            isScrolled ? 'text-white' : 'text-white'
+          }`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
+            TeleBots
+          </span>
         </Link>
 
         <div className="hidden lg:flex items-center space-x-10">

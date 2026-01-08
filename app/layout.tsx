@@ -82,17 +82,37 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk">
+    <html lang="uk" prefix="og: https://ogp.me/ns#">
       <head>
+        {/* DNS Prefetch для швидкості */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://t.me" />
+        <link rel="dns-prefetch" href="https://www.instagram.com" />
+        
+        {/* Preconnect для критичних ресурсів */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+        
+        {/* Icons */}
         <link rel="icon" href="/whitelogo.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/whitelogo.png" />
         <link rel="manifest" href="/manifest.json" />
+        
+        {/* Meta tags */}
         <meta name="theme-color" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="google-site-verification" content="B6RsISu82MaHNjyNFTkfGrgB0SFwQDHLNrlGh0RoQe4" />
+        
+        {/* Additional SEO meta tags */}
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="geo.region" content="UA-32" />
+        <meta name="geo.placename" content="Kyiv" />
+        <meta name="language" content="Ukrainian" />
+        <meta name="revisit-after" content="7 days" />
       </head>
       <body className="antialiased">
         {children}

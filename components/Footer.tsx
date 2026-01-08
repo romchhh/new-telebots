@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { Instagram, Send } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import { Language } from './translations';
 
@@ -21,14 +22,19 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1 text-center md:text-left">
-            <div className="relative h-3 w-auto mb-8 max-w-[50px] mx-auto md:mx-0">
-              <Image
-                src="/whitelogo.png"
-                alt="TeleBots"
-                width={50}
-                height={12}
-                className="h-full w-auto object-contain"
-              />
+            <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
+              <div className="relative h-3 w-auto max-w-[50px]">
+                <Image
+                  src="/whitelogo.png"
+                  alt="TeleBots - Професійна розробка цифрових рішень"
+                  width={50}
+                  height={12}
+                  className="h-full w-auto object-contain"
+                />
+              </div>
+              <span className="text-white text-2xl font-bold uppercase tracking-wider" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>
+                TeleBots
+              </span>
             </div>
             <p className="text-gray-400 text-sm font-semibold leading-relaxed">
               {t.footer.description}
@@ -40,33 +46,35 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
             <h4 className="text-sm font-black tracking-wider mb-6">
               {t.footer.quickLinks}
             </h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href={`/${currentLanguage}/about`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
-                  {t.nav.about}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${currentLanguage}/services`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
-                  {t.nav.services}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${currentLanguage}#portfolio`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
-                  {t.nav.portfolio}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${currentLanguage}/blog`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
-                  {t.nav.blog}
-                </Link>
-              </li>
-              <li>
-                <Link href={`/${currentLanguage}/contact`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
-                  {t.nav.contact}
-                </Link>
-              </li>
-            </ul>
+            <nav aria-label="Footer navigation">
+              <ul className="space-y-3">
+                <li>
+                  <Link href={`/${currentLanguage}/about`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.about} - TeleBots`}>
+                    {t.nav.about}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/services`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.services} - TeleBots`}>
+                    {t.nav.services}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/portfolio`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.portfolio} - TeleBots`}>
+                    {t.nav.portfolio}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/blog`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.blog} - TeleBots`}>
+                    {t.nav.blog}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/contact`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.contact} - TeleBots`}>
+                    {t.nav.contact}
+                  </Link>
+                </li>
+              </ul>
+            </nav>
           </div>
 
           {/* Contact */}
@@ -77,13 +85,13 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
             <ul className="space-y-3 mb-6">
               <li className="text-gray-400 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.email}</span>
-                <a href="mailto:roman.fedoniuk@gmail.com" className="hover:text-white transition">
+                <a href="mailto:roman.fedoniuk@gmail.com" className="hover:text-white transition" aria-label="Email TeleBots - roman.fedoniuk@gmail.com">
                   roman.fedoniuk@gmail.com
                 </a>
               </li>
               <li className="text-gray-400 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.phone}</span>
-                <a href="tel:+380960908006" className="hover:text-white transition">
+                <a href="tel:+380960908006" className="hover:text-white transition" aria-label="Phone TeleBots - +380960908006">
                   +38 0 96 090 80 06
                 </a>
               </li>
@@ -97,17 +105,21 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
                 href="https://www.instagram.com/telebotsnowayrm/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition text-sm font-semibold"
+                className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full border border-gray-600 hover:border-white hover:bg-white/10"
+                aria-label="Instagram - TeleBots"
+                title="Instagram"
               >
-                Instagram
+                <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="https://t.me/TeleBotsNowayrmChannel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition text-sm font-semibold"
+                className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full border border-gray-600 hover:border-white hover:bg-white/10"
+                aria-label="Telegram - TeleBots"
+                title="Telegram"
               >
-                Telegram
+                <Send className="w-5 h-5" />
               </a>
             </div>
           </div>

@@ -58,6 +58,7 @@ export default function BlogPage() {
   return (
     <>
       <StructuredData type="organization" />
+      <StructuredData type="localBusiness" />
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
@@ -164,16 +165,16 @@ export default function BlogPage() {
         </section>
 
         {/* Посилання на соціальні мережі */}
-        <section className="py-32 px-6 bg-gradient-to-br from-gray-50 to-white">
+        <section className="py-32 px-6 bg-black">
           <div className="max-w-7xl mx-auto">
             <div className={`mb-20 text-center scroll-animate-up ${isChannelsVisible ? 'animate' : ''}`} ref={channelsRef}>
               <div className="flex items-center justify-center mb-8">
-                <div className="w-16 h-px bg-black mr-4"></div>
-                <h2 className="text-sm font-black text-black tracking-wider uppercase">
+                <div className="w-16 h-px bg-white mr-4"></div>
+                <h2 className="text-sm font-black text-white tracking-wider uppercase">
                   {t.blog?.channelsTitle || 'Слідкуйте за нами'}
                 </h2>
               </div>
-              <p className="text-2xl md:text-3xl text-gray-900 font-black leading-tight max-w-4xl mx-auto mb-4">
+              <p className="text-2xl md:text-3xl text-white font-black leading-tight max-w-4xl mx-auto mb-4">
                 {t.blog?.channelsSubtitle || 'Підписуйтесь на наші канали, щоб отримувати найсвіжіші новини та корисний контент'}
               </p>
             </div>
@@ -184,22 +185,21 @@ export default function BlogPage() {
                 href={t.blog?.instagramUrl || 'https://www.instagram.com/telebotsnowayrm/'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-white border-2 border-gray-200 hover:border-black hover:shadow-2xl transition-all duration-500 p-10 lg:p-14 overflow-hidden rounded-3xl"
+                className="group relative bg-black border-2 border-gray-700 hover:border-white transition-all duration-500 p-10 lg:p-14 overflow-hidden rounded-3xl"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500 transform rotate-45 translate-x-8 -translate-y-8 rounded-full"></div>
                 <div className="relative z-10 text-center">
                   <div className="flex flex-col items-center mb-8">
-                    <div className="mb-6 p-5 bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 rounded-full group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <div className="mb-6 p-5 bg-black border-2 border-white rounded-full group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <Instagram className="w-10 h-10 text-white" strokeWidth={2} />
                     </div>
-                    <h3 className="text-3xl font-black text-black mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-pink-600 transition-all duration-300">
+                    <h3 className="text-3xl font-black text-white mb-3 transition-all duration-300">
                       {t.blog?.instagramTitle || 'Instagram'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed text-lg font-semibold">
+                    <p className="text-gray-300 leading-relaxed text-lg font-semibold">
                       {t.blog?.instagramDesc || 'Візуальний контент, кейси проєктів та закулісся нашої роботи'}
                     </p>
                   </div>
-                  <div className="flex items-center justify-center text-black font-black group-hover:translate-x-3 transition-transform duration-300 mt-6">
+                  <div className="flex items-center justify-center text-white font-black group-hover:translate-x-3 transition-transform duration-300 mt-6">
                     <span className="tracking-wider text-sm uppercase">{t.blog?.followButton || 'Підписатися'}</span>
                     <div className="w-0 group-hover:w-12 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-4">
                       <div className="w-12 h-0.5 bg-gradient-to-r from-purple-600 to-pink-600"></div>
@@ -214,22 +214,21 @@ export default function BlogPage() {
                 href={t.blog?.telegramUrl || 'https://t.me/telebotsnowayrmchannel'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative bg-white border-2 border-gray-200 hover:border-black hover:shadow-2xl transition-all duration-500 p-10 lg:p-14 overflow-hidden rounded-3xl"
+                className="group relative bg-black border-2 border-gray-700 hover:border-white transition-all duration-500 p-10 lg:p-14 overflow-hidden rounded-3xl"
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 transform rotate-45 translate-x-8 -translate-y-8 rounded-full"></div>
                 <div className="relative z-10 text-center">
                   <div className="flex flex-col items-center mb-8">
-                    <div className="mb-6 p-5 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <div className="mb-6 p-5 bg-black border-2 border-white rounded-full group-hover:scale-110 transition-transform duration-300 shadow-lg">
                       <Send className="w-10 h-10 text-white" strokeWidth={2} />
                     </div>
-                    <h3 className="text-3xl font-black text-black mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-blue-700 transition-all duration-300">
+                    <h3 className="text-3xl font-black text-white mb-3 transition-all duration-300">
                       {t.blog?.telegramTitle || 'Telegram канал'}
                     </h3>
-                    <p className="text-gray-700 leading-relaxed text-lg font-semibold">
+                    <p className="text-gray-300 leading-relaxed text-lg font-semibold">
                       {t.blog?.telegramDesc || 'Аналітика, поради з розробки та новини зі світу технологій'}
                     </p>
                   </div>
-                  <div className="flex items-center justify-center text-black font-black group-hover:translate-x-3 transition-transform duration-300 mt-6">
+                  <div className="flex items-center justify-center text-white font-black group-hover:translate-x-3 transition-transform duration-300 mt-6">
                     <span className="tracking-wider text-sm uppercase">{t.blog?.followButton || 'Підписатися'}</span>
                     <div className="w-0 group-hover:w-12 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-4">
                       <div className="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-700"></div>

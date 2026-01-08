@@ -23,6 +23,9 @@ export default function Home() {
 
   const t = translations[lang];
 
+  // FAQ для головної сторінки (перші 3-4 питання)
+  const mainPageFAQs = t.about.faq?.items?.slice(0, 4) || [];
+
   useEffect(() => {
     // Синхронізуємо мову з URL
     if (langParam && langParam !== lang && ['uk', 'en', 'pl', 'ru'].includes(langParam)) {
@@ -48,16 +51,33 @@ export default function Home() {
   return (
     <>
       <StructuredData type="organization" />
+      <StructuredData type="localBusiness" />
       <StructuredData type="website" />
+      <StructuredData type="aggregateRating" rating={5.0} reviewCount={200} />
+      {mainPageFAQs.length > 0 && (
+        <StructuredData type="faq" faqs={mainPageFAQs} />
+      )}
       <div className="min-h-screen bg-white overflow-x-hidden w-full">
+        {/* Skip to main content link for accessibility */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded"
+          aria-label="Skip to main content"
+        >
+          Skip to main content
+        </a>
+        
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
-        <HeroSection t={t} />
-        <AboutSection t={t} />
-        <ServicesSection t={t} />
-        <PortfolioSection t={t} />
+        
+        <main id="main-content">
+          <HeroSection t={t} />
+          <AboutSection t={t} />
+          <ServicesSection t={t} />
+          <PortfolioSection t={t} />
+        </main>
+        
         <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
       </div>
     </>
   );
 }
-

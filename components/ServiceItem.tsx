@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useScrollAnimation } from './useScrollAnimation';
 
 interface ServiceItemProps {
@@ -48,10 +49,15 @@ export default function ServiceItem({ serviceKey, image, imagePosition, t, onOrd
         </div>
 
         <div className={`relative h-[400px] lg:h-[600px] ${imagePosition === 'left' ? 'lg:col-start-1 lg:row-start-1' : ''} ${imagePosition === 'left' ? 'scroll-animate-left' : 'scroll-animate-right'} ${isImageVisible ? 'animate' : ''}`} ref={imageRef}>
-          <img
+          <Image
             src={image}
-            alt={service.title}
+            alt={`${service.title} - ${service.subtitle} | TeleBots`}
+            width={1200}
+            height={800}
             className="w-full h-full object-cover"
+            loading="lazy"
+            quality={85}
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
       </div>

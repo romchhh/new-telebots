@@ -176,11 +176,13 @@ export default function CasePage({ caseId }: CasePageProps) {
             <div className="relative w-full flex items-center justify-center">
               <Image
                 src={caseData.mainImage}
-                alt={caseData.title}
+                alt={`${caseData.title} - ${caseData.subtitle || ''} | TeleBots Portfolio`}
                 width={1200}
                 height={800}
                 className="w-full h-auto object-contain max-h-[80vh]"
                 priority
+                quality={90}
+                sizes="100vw"
               />
             </div>
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/50 to-transparent z-10"></div>

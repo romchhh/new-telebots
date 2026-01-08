@@ -276,16 +276,16 @@ export const translations = {
       contact: 'CONTACT'
     },
     hero: {
-      title: 'Покращуємо бізнеси, що стають №1',
-      subtitle: 'Боти, AI, сайти — технології для зростання.',
-      viewButton: 'Переглянути',
+      title: 'Improving businesses that become #1',
+      subtitle: 'Bots, AI, websites — technologies for growth.',
+      viewButton: 'View',
       startDate: {
-        label: 'швидкий старт',
-        value: 'за 24 години'
+        label: 'quick start',
+        value: 'in 24 hours'
       },
       duration: {
-        label: 'готове рішення',
-        value: 'за 2 тижні'
+        label: 'ready solution',
+        value: 'in 2 weeks'
       }
     },
     about: {
@@ -544,16 +544,16 @@ export const translations = {
       contact: 'KONTAKT'
     },
     hero: {
-      title: 'Покращуємо бізнеси, що стають №1',
-      subtitle: 'Боти, AI, сайти — технології для зростання.',
-      viewButton: 'Переглянути',
+      title: 'Ulepszamy biznesy, które stają się nr 1',
+      subtitle: 'Boty, AI, strony — technologie dla wzrostu.',
+      viewButton: 'Zobacz',
       startDate: {
-        label: 'швидкий старт',
-        value: 'за 24 години'
+        label: 'szybki start',
+        value: 'w 24 godziny'
       },
       duration: {
-        label: 'готове рішення',
-        value: 'за 2 тижні'
+        label: 'gotowe rozwiązanie',
+        value: 'w 2 tygodnie'
       }
     },
     about: {
@@ -812,16 +812,16 @@ export const translations = {
       contact: 'КОНТАКТЫ'
     },
     hero: {
-      title: 'Покращуємо бізнеси, що стають №1',
-      subtitle: 'Боти, AI, сайти — технології для зростання.',
-      viewButton: 'Переглянути',
+      title: 'Улучшаем бизнесы, которые становятся №1',
+      subtitle: 'Боты, AI, сайты — технологии для роста.',
+      viewButton: 'Смотреть',
       startDate: {
-        label: 'швидкий старт',
-        value: 'за 24 години'
+        label: 'быстрый старт',
+        value: 'за 24 часа'
       },
       duration: {
-        label: 'готове рішення',
-        value: 'за 2 тижні'
+        label: 'готовое решение',
+        value: 'за 2 недели'
       }
     },
     about: {

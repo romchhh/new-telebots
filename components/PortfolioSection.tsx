@@ -27,10 +27,13 @@ function PortfolioProject({ project, index, lang }: { project: { image: string; 
       >
         <Image
           src={project.image}
-          alt={project.title}
+          alt={`${project.title} - ${project.category} проєкт від TeleBots`}
           width={800}
           height={800}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+          quality={85}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
         <div className="absolute inset-0 bg-black/60 opacity-100 flex items-end">
           <div className="p-4 md:p-8">
@@ -108,10 +111,15 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
         </div>
 
         <div className={`relative h-full scroll-animate-right ${isImageVisible ? 'animate' : ''}`} ref={imageRef}>
-          <img
+          <Image
             src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
-            alt="Featured project"
+            alt="Вибрані проєкти розробки сайтів та телеграм ботів від TeleBots"
+            width={2070}
+            height={1380}
             className="w-full h-full object-cover scale-110"
+            loading="lazy"
+            quality={85}
+            sizes="50vw"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-8">
             <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-2">

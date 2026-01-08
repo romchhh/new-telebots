@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { Instagram, MessageCircle } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import SuccessMessage from '@/components/SuccessMessage';
@@ -80,9 +81,28 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
-      
+    <>
+      <StructuredData type="organization" />
+      <StructuredData type="localBusiness" />
+      <StructuredData type="contactPage" />
+      <StructuredData
+        type="breadcrumb"
+        breadcrumbs={[
+          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.contact, url: `/${lang}/contact` },
+        ]}
+      />
+      <div className="min-h-screen bg-white">
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded"
+          aria-label="Skip to main content"
+        >
+          Skip to main content
+        </a>
+        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        
+        <main id="main-content">
       <div className="bg-black text-white py-3 px-6 mt-16">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-sm font-semibold tracking-wider">
@@ -258,7 +278,7 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
+        </main>
       <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
       
       <SuccessMessage
@@ -267,6 +287,7 @@ export default function ContactPage() {
         message={t.contact.success}
       />
       </div>
+    </>
   );
 }
 

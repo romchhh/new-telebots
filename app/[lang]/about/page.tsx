@@ -65,9 +65,18 @@ export default function AboutPage() {
   const [faqRef, isFaqVisible] = useScrollAnimation();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
+  const howToSteps = [
+    { name: t.about.process.step1.split('.')[0], text: t.about.process.step1 },
+    { name: t.about.process.step2.split('.')[0], text: t.about.process.step2 },
+    { name: t.about.process.step3.split('.')[0], text: t.about.process.step3 },
+    { name: t.about.process.step4.split('.')[0], text: t.about.process.step4 },
+    { name: t.about.process.step5.split('.')[0], text: t.about.process.step5 },
+  ];
+
   return (
     <>
       <StructuredData type="organization" />
+      <StructuredData type="localBusiness" />
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
@@ -75,9 +84,23 @@ export default function AboutPage() {
           { name: t.about.pageTitle, url: `/${lang}/about` },
         ]}
       />
+      <StructuredData
+        type="howTo"
+        howToSteps={howToSteps}
+      />
+      {t.about.faq?.items && t.about.faq.items.length > 0 && (
+        <StructuredData type="faq" faqs={t.about.faq.items} />
+      )}
       <div className="min-h-screen bg-white">
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded"
+          aria-label="Skip to main content"
+        >
+          Skip to main content
+        </a>
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
-      
+        <main id="main-content">
       {/* Чорний банер з цитатою */}
       <div className="bg-black text-white py-24 md:py-32 px-6 mt-16">
         <div className="max-w-7xl mx-auto">
@@ -105,79 +128,79 @@ export default function AboutPage() {
 
           {/* Сітка з трьома колонками */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20 lg:gap-24">
-            {/* Ліва колонка — Наша робота */}
+          {/* Ліва колонка — Наша робота */}
             <div className="flex flex-col">
               <h2 className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase text-black mb-6">
-                {t.about.ourWork}
-              </h2>
+              {t.about.ourWork}
+            </h2>
               <p className="text-[16px] md:text-[18px] lg:text-[20px] text-black leading-[1.75] font-normal mb-8 flex-grow">
-                {t.about.ourWorkDesc}
-              </p>
-              <Link
-                href={`/${lang}#portfolio`}
+              {t.about.ourWorkDesc}
+            </p>
+            <Link
+              href={`/${lang}#portfolio`}
                 className="inline-flex items-center text-[13px] md:text-[14px] font-medium text-black hover:opacity-60 transition-opacity duration-200 uppercase tracking-[0.1em]"
-              >
+            >
                 <span className="mr-2">—</span>
-                {t.about.portfolio}
-              </Link>
-            </div>
+              {t.about.portfolio}
+            </Link>
+          </div>
 
-            {/* Середня колонка — Кейси розробок */}
+          {/* Середня колонка — Кейси розробок */}
             <div className="flex flex-col">
               <h2 className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase text-black mb-6">
                 {t.about.portfolio}
               </h2>
               <div className="space-y-4 flex-grow">
-                {(() => {
-                  const casesData = cases[validLang] || cases.uk;
-                  const allCaseIds = Object.keys(casesData);
-                  const last3CaseIds = allCaseIds.slice(-3);
-                  
-                  const imageMap: { [key: string]: string } = {
-                    'dr-tolstikova-bot': '/dr-tolstikova-bot.jpg',
-                    'nieznany-piekarz': '/Group 1000007023.png',
-                    'nutritionist-bot': '/nutritionist-bot.jpg',
-                    'cats-fresh': '/cats-fresh-project.jpg',
-                    'tripvibe': '/tripvibe.png',
-                    'v12-auto': '/v12-auto.png',
-                    'vsk-technology': '/vsk-technology.png',
-                    'chars-kyiv': '/screenshot-2025-11-03-01-49-01.png',
-                    'style-chat-vakhula': '/image-2025-11-03-02-12-02.jpg',
-                    'tron-energy-bot': '/image-2025-10-13-22-39-19.jpg',
-                    'offer-dpuchkov': '/image-2025-10-04-04-56-47.jpg',
-                    'alexandraaleksiuk': '/image-2025-10-04-04-56-05.jpg',
-                    'landscaper-academy': '/screenshot-2025-12-20-03-02-08.png'
-                  };
+            {(() => {
+              const casesData = cases[validLang] || cases.uk;
+              const allCaseIds = Object.keys(casesData);
+              const last3CaseIds = allCaseIds.slice(-3);
+              
+              const imageMap: { [key: string]: string } = {
+                'dr-tolstikova-bot': '/dr-tolstikova-bot.jpg',
+                'nieznany-piekarz': '/Group 1000007023.png',
+                'nutritionist-bot': '/nutritionist-bot.jpg',
+                'cats-fresh': '/cats-fresh-project.jpg',
+                'tripvibe': '/tripvibe.png',
+                'v12-auto': '/v12-auto.png',
+                'vsk-technology': '/vsk-technology.png',
+                'chars-kyiv': '/screenshot-2025-11-03-01-49-01.png',
+                'style-chat-vakhula': '/image-2025-11-03-02-12-02.jpg',
+                'tron-energy-bot': '/image-2025-10-13-22-39-19.jpg',
+                'offer-dpuchkov': '/image-2025-10-04-04-56-47.jpg',
+                'alexandraaleksiuk': '/image-2025-10-04-04-56-05.jpg',
+                'landscaper-academy': '/screenshot-2025-12-20-03-02-08.png'
+              };
 
-                  return last3CaseIds.map((caseId, index) => {
-                    const caseData = (casesData as any)[caseId];
-                    const image = imageMap[caseId] || caseData?.mainImage || '/dr-tolstikova-bot.jpg';
-                    return (
-                      <Link
-                        key={caseId}
-                        href={`/${lang}/portfolio/${caseId}`}
+              return last3CaseIds.map((caseId, index) => {
+                const caseData = (casesData as any)[caseId];
+                const image = imageMap[caseId] || caseData?.mainImage || '/dr-tolstikova-bot.jpg';
+                return (
+                  <Link
+                    key={caseId}
+                    href={`/${lang}/portfolio/${caseId}`}
                         className="group block relative bg-gray-100 overflow-hidden hover:opacity-90 transition-opacity duration-200"
-                      >
+                  >
                         <div className="relative w-full aspect-[4/3]">
-                          <Image
-                            src={image}
-                            alt={caseData?.title || 'Project'}
-                            fill
-                            className="object-cover"
-                          />
-                        </div>
-                      </Link>
-                    );
-                  });
-                })()}
+                      <Image
+                        src={image}
+                        alt={caseData?.title || 'Project'}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  </Link>
+                );
+              });
+            })()}
               </div>
-            </div>
+          </div>
 
-            {/* Права колонка — Послуги */}
+          {/* Права колонка — Послуги */}
             <div className="flex flex-col">
               <h2 className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase text-black mb-6">
-                {t.about.services}
-              </h2>
+              {t.about.services}
+            </h2>
               <div className="grid grid-cols-2 gap-x-12 gap-y-2.5 text-black mb-8 flex-grow">
                 <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.chatbots}</span>
                 <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.websites}</span>
@@ -185,16 +208,16 @@ export default function AboutPage() {
                 <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.ecommerce}</span>
                 <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.ai}</span>
                 <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.automation}</span>
-              </div>
-              <Link
-                href={`/${lang}/services`}
-                className="inline-flex items-center text-[13px] md:text-[14px] font-medium text-black hover:opacity-60 transition-opacity duration-200 uppercase tracking-[0.1em]"
-              >
-                <span className="mr-2">—</span>
-                {t.about.services}
-              </Link>
             </div>
+            <Link
+              href={`/${lang}/services`}
+                className="inline-flex items-center text-[13px] md:text-[14px] font-medium text-black hover:opacity-60 transition-opacity duration-200 uppercase tracking-[0.1em]"
+            >
+                <span className="mr-2">—</span>
+              {t.about.services}
+            </Link>
           </div>
+        </div>
         </div>
       </section>
       
@@ -487,8 +510,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+        </main>
+        <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
       </div>
     </>
   );

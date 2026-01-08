@@ -89,12 +89,12 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
           </div>
 
           {/* Кнопка відправки */}
-          <button
-            type="submit"
+            <button
+              type="submit"
             className="w-full py-4 text-white font-normal text-base rounded-full transition hover:opacity-90 bg-black"
-          >
-            {t.modal.submit}
-          </button>
+            >
+              {t.modal.submit}
+            </button>
         </form>
       </div>
     </div>

@@ -17,20 +17,20 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     : 'TeleBots - Разработка телеграм ботов, сайтов и цифровых решений';
 
   const description = lang === 'uk'
-    ? 'Професійна розробка телеграм ботів, чат-ботів, сайтів, інтернет-магазинів, парсерів та ботів з AI. 200+ реалізованих проєктів. Автоматизація бізнесу під ключ.'
+    ? 'Покращуємо бізнеси, що стають №1. Професійна розробка телеграм ботів, чат-ботів з AI, сайтів та інтернет-магазинів. Швидкий старт за 24 години, готове рішення за 2 тижні. 200+ проєктів.'
     : lang === 'en'
-    ? 'Professional development of Telegram bots, chatbots, websites, e-commerce stores, parsers and AI bots. 200+ completed projects. Turnkey business automation.'
+    ? 'Improving businesses that become #1. Professional development of Telegram bots, AI chatbots, websites and e-commerce stores. Quick start in 24 hours, ready solution in 2 weeks. 200+ projects.'
     : lang === 'pl'
-    ? 'Profesjonalny rozwój botów Telegram, chatbotów, stron internetowych, sklepów internetowych, parserów i botów AI. 200+ ukończonych projektów. Automatyzacja biznesu pod klucz.'
-    : 'Профессиональная разработка телеграм ботов, чат-ботов, сайтов, интернет-магазинов, парсеров и ботов с AI. 200+ реализованных проектов. Автоматизация бизнеса под ключ.';
+    ? 'Ulepszamy biznesy, które stają się nr 1. Profesjonalny rozwój botów Telegram, chatbotów AI, stron internetowych. Szybki start w 24 godziny, gotowe rozwiązanie w 2 tygodnie. 200+ projektów.'
+    : 'Улучшаем бизнесы, которые становятся №1. Профессиональная разработка телеграм ботов, AI чат-ботов, сайтов. Быстрый старт за 24 часа, готовое решение за 2 недели. 200+ проектов.';
 
   const keywords = lang === 'uk'
-    ? 'телеграм бот, розробка ботів, чат-бот, розробка сайтів, інтернет-магазин, парсер, AI бот, автоматизація бізнесу, Telegram бот розробка, веб-розробка'
+    ? 'телеграм бот, розробка ботів, чат-бот, AI бот, розробка сайтів, інтернет-магазин, парсер, автоматизація бізнесу, Telegram бот розробка, веб-розробка, швидкий старт 24 години, готове рішення 2 тижні, автоматизація бізнесу під ключ, цифрові рішення, боти для бізнесу, чат-боти з AI'
     : lang === 'en'
-    ? 'telegram bot, bot development, chatbot, website development, e-commerce, parser, AI bot, business automation, Telegram bot development, web development'
+    ? 'telegram bot, bot development, chatbot, AI bot, website development, e-commerce, parser, business automation, Telegram bot development, web development, quick start 24 hours, ready solution 2 weeks, turnkey business automation, digital solutions, business bots, AI chatbots'
     : lang === 'pl'
-    ? 'bot telegram, rozwój botów, chatbot, rozwój stron internetowych, e-commerce, parser, bot AI, automatyzacja biznesu, rozwój botów Telegram, rozwój stron internetowych'
-    : 'телеграм бот, разработка ботов, чат-бот, разработка сайтов, интернет-магазин, парсер, AI бот, автоматизация бизнеса, разработка Telegram ботов, веб-разработка';
+    ? 'bot telegram, rozwój botów, chatbot, bot AI, rozwój stron internetowych, e-commerce, parser, automatyzacja biznesu, rozwój botów Telegram, rozwój stron internetowych, szybki start 24 godziny, gotowe rozwiązanie 2 tygodnie, automatyzacja biznesu pod klucz, rozwiązania cyfrowe, boty biznesowe, chatboty AI'
+    : 'телеграм бот, разработка ботов, чат-бот, AI бот, разработка сайтов, интернет-магазин, парсер, автоматизация бизнеса, разработка Telegram ботов, веб-разработка, быстрый старт 24 часа, готовое решение 2 недели, автоматизация бизнеса под ключ, цифровые решения, боты для бизнеса, чат-боты с AI';
 
   return {
     title,
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     metadataBase: new URL(baseUrl),
     alternates: {
-      canonical: `/${lang}`,
+      canonical: `${baseUrl}/${lang}`,
       languages: {
         'uk': `${baseUrl}/uk`,
         'en': `${baseUrl}/en`,
@@ -76,6 +76,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description,
       images: [`${baseUrl}/og-image.jpg`],
       creator: '@telebotsnowayrm',
+      site: '@telebotsnowayrm',
     },
     robots: {
       index: true,
