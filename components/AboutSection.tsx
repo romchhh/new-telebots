@@ -17,7 +17,7 @@ export default function AboutSection({ t }: AboutSectionProps) {
       <div className="max-w-[1600px] mx-auto">
         {/* Великий заголовок - стиль як DESIGNING TOMORROW TODAY */}
         <div className="mb-20 md:mb-28 lg:mb-36">
-          <h1 className="text-[clamp(2.5rem,9vw,9rem)] font-black text-black leading-[0.88] tracking-[-0.025em] uppercase">
+          <h1 className="text-[clamp(3rem,10vw,10rem)] font-black text-black leading-[0.88] tracking-[-0.02em] uppercase">
             {t.about.title}
           </h1>
         </div>

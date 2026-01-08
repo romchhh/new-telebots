@@ -36,7 +36,7 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
                 TeleBots
               </span>
             </div>
-            <p className="text-gray-400 text-sm font-semibold leading-relaxed">
+            <p className="text-gray-400 text-[15px] md:text-[16px] lg:text-[17px] font-normal leading-[1.65]">
               {t.footer.description}
             </p>
           </div>

@@ -70,23 +70,26 @@ export default function BlogPage() {
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
         
         {/* Hero Section в стилі послуг */}
-        <section className="relative h-screen flex items-center pt-24 overflow-hidden">
+        <section className="relative min-h-screen flex items-end justify-center overflow-hidden">
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: 'url(/glass-items-business-modern-office.jpg)',
             }}
           />
-          <div className="absolute inset-0 bg-black/70" />
-          <div className={`relative z-10 max-w-4xl mx-auto px-6 py-32 scroll-animate-up ${isHeroVisible ? 'animate' : ''}`} ref={heroRef}>
-            <h1 className="text-5xl md:text-7xl font-black text-white mb-8">
-              {t.blog?.title || 'Блог'}
-              <br />
-              <span className="italic font-normal">{t.blog?.subtitle || 'Дізнавайтеся про останні новини, кейси та корисні поради від нашої команди'}</span>
-            </h1>
-            <p className="text-xl text-gray-300 leading-relaxed font-semibold">
-              {t.blog?.description || 'У нашому блозі ми ділимося досвідом розробки, кейсами успішних проєктів, корисними порадами та останніми новинами зі світу технологій. Слідкуйте за нами в соціальних мережах, щоб не пропустити нові публікації!'}
-            </p>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+          <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
+            <div className={`max-w-5xl mx-auto text-center scroll-animate-up ${isHeroVisible ? 'animate' : ''}`} ref={heroRef}>
+              <h1 className="font-bold text-white mb-4 md:mb-6 uppercase text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl" style={{ letterSpacing: '0.15em', fontFamily: 'Montserrat, sans-serif' }}>
+                {t.blog?.title || 'Блог'}
+              </h1>
+              <p className="font-normal text-white mb-8 md:mb-10 text-lg sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl leading-relaxed" style={{ letterSpacing: '0.2em', fontFamily: 'Montserrat, sans-serif' }}>
+                {t.blog?.subtitle || 'Дізнавайтеся про останні новини, кейси та корисні поради від нашої команди'}
+              </p>
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed font-normal max-w-4xl mx-auto">
+                {t.blog?.description || 'У нашому блозі ми ділимося досвідом розробки, кейсами успішних проєктів, корисними порадами та останніми новинами зі світу технологій. Слідкуйте за нами в соціальних мережах, щоб не пропустити нові публікації!'}
+              </p>
+            </div>
           </div>
         </section>
 

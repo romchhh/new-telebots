@@ -139,6 +139,7 @@ export default function ServicesPage() {
         <main id="main-content">
         <ServicesPassionSection t={t} />
       
+      <div id="services-list">
       {services.map((service, index) => (
         <ServiceItem
           key={index}
@@ -149,6 +150,7 @@ export default function ServicesPage() {
           onOrderClick={openModal}
         />
       ))}
+      </div>
 
       <StatsSection t={t} />
         </main>
