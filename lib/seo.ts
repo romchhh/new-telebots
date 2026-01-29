@@ -1,5 +1,6 @@
 import { Language } from '@/components/translations';
 import { cases } from '@/components/cases';
+import { legal } from '@/lib/legal';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://telebotsnowayrm.com';
 
@@ -79,9 +80,9 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
       : 'Professional development of Telegram bots, chatbots, websites, e-commerce stores, parsers and AI bots',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+380960908006',
+      telephone: legal.phone,
       contactType: 'customer service',
-      email: 'roman.fedoniuk@gmail.com',
+      email: legal.email,
       areaServed: ['UA', 'US', 'PL', 'EU'],
       availableLanguage: ['uk', 'en', 'pl', 'ru'],
     },
@@ -92,6 +93,7 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
     ],
     address: {
       '@type': 'PostalAddress',
+      streetAddress: legal.legalAddress,
       addressCountry: 'UA',
     },
     aggregateRating: {
@@ -118,13 +120,13 @@ export function generateLocalBusinessSchema(lang: Language = 'uk') {
     image: `${baseUrl}/whitelogo.png`,
     logo: `${baseUrl}/whitelogo.png`,
     url: `${baseUrl}/${lang}`,
-    telephone: '+380960908006',
-    email: 'roman.fedoniuk@gmail.com',
+    telephone: legal.phone,
+    email: legal.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Kyiv',
-      addressLocality: 'Kyiv',
-      addressRegion: 'Kyiv',
+      streetAddress: legal.legalAddress,
+      addressLocality: 'Київ',
+      addressRegion: 'Київ',
       postalCode: '01000',
       addressCountry: 'UA',
     },
@@ -342,8 +344,8 @@ export function generateContactPageSchema(lang: Language = 'uk') {
     mainEntity: {
       '@type': 'Organization',
       name: 'TeleBots',
-      email: 'roman.fedoniuk@gmail.com',
-      telephone: '+380960908006',
+      email: legal.email,
+      telephone: legal.phone,
     },
   };
 }

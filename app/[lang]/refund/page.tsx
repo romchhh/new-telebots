@@ -8,12 +8,12 @@ import Footer from '@/components/Footer';
 import { translations, Language } from '@/components/translations';
 import { legal } from '@/lib/legal';
 
-export default function TermsPage() {
+export default function RefundPage() {
   const params = useParams();
   const router = useRouter();
   const langParam = params?.lang as string;
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(validLang);
 
@@ -29,14 +29,14 @@ export default function TermsPage() {
     const checkScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     checkScroll();
     window.scrollTo(0, 0);
-    
+
     const handleScroll = () => {
       checkScroll();
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -59,36 +59,26 @@ export default function TermsPage() {
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
             <div className="flex items-center mb-6">
-              <div className="w-12 h-px bg-black mr-4"></div>
+              <div className="w-12 h-px bg-black mr-4" />
               <h1 className="text-sm font-black text-black tracking-wider">
-                {t.footer.terms}
+                {t.footer.refund}
               </h1>
             </div>
             <h2 className="text-4xl lg:text-5xl font-black text-black leading-tight mb-8">
-              {t.footer.termsTitle}
+              {t.footer.refundTitle}
             </h2>
           </div>
 
-          <div className="prose prose-lg max-w-none space-y-10">
+          <div className="prose prose-lg max-w-none space-y-8">
             <p className="text-gray-700 font-semibold leading-relaxed text-lg">
-              {t.footer.termsIntro}
+              {t.footer.refundIntro}
             </p>
-            <div>
-              <h3 className="text-xl font-black text-black mb-3">{t.footer.termsOrderTitle}</h3>
-              <p className="text-gray-700 font-semibold leading-relaxed">{t.footer.termsOrderContent}</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-black text-black mb-3">{t.footer.termsPaymentTitle}</h3>
-              <p className="text-gray-700 font-semibold leading-relaxed">{t.footer.termsPaymentContent}</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-black text-black mb-3">{t.footer.termsDeliveryTitle}</h3>
-              <p className="text-gray-700 font-semibold leading-relaxed">{t.footer.termsDeliveryContent}</p>
-            </div>
-            <div>
-              <h3 className="text-xl font-black text-black mb-3">{t.footer.termsOtherTitle}</h3>
-              <p className="text-gray-700 font-semibold leading-relaxed">{t.footer.termsOtherContent}</p>
-            </div>
+            <p className="text-gray-700 font-semibold leading-relaxed">
+              {t.footer.refundNoProcedure}
+            </p>
+            <p className="text-gray-700 font-semibold leading-relaxed">
+              {t.footer.refundExceptions}
+            </p>
             <div className="pt-6 border-t border-gray-200">
               <h3 className="text-xl font-black text-black mb-4">{t.footer.legalBlockTitle}</h3>
               <ul className="text-gray-700 font-semibold leading-relaxed space-y-1 text-base">
@@ -105,7 +95,7 @@ export default function TermsPage() {
             href={`/${lang}`}
             className="group inline-flex items-center text-black font-semibold hover:text-gray-600 transition mt-12"
           >
-            <div className="w-8 h-px bg-black mr-3 group-hover:w-12 transition-all"></div>
+            <div className="w-8 h-px bg-black mr-3 group-hover:w-12 transition-all" />
             {t.footer.backHome}
           </Link>
         </div>
@@ -115,4 +105,3 @@ export default function TermsPage() {
     </div>
   );
 }
-

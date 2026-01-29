@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation';
 import { translations, Language } from './translations';
 import { cases } from './cases';
+import { legal } from '@/lib/legal';
 
 interface SEOHeadProps {
   title?: string;
@@ -48,7 +49,8 @@ export default function SEOHead({ title, description, image, type = 'website', c
     } : {
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+380960908006',
+        telephone: legal.phone,
+        email: legal.email,
         contactType: 'customer service',
         areaServed: ['UA', 'US', 'PL', 'EU'],
         availableLanguage: ['uk', 'en', 'pl', 'ru'],

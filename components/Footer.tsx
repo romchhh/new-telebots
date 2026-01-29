@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Instagram, Send } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import { Language } from './translations';
+import { legal } from '@/lib/legal';
 
 interface FooterProps {
   t: typeof import('./translations').translations.uk;
@@ -77,27 +78,32 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
             </nav>
           </div>
 
-          {/* Contact */}
+          {/* Contact / Legal */}
           <div className="text-center md:text-left">
             <h4 className="text-sm font-black tracking-wider mb-6">
               {t.footer.contact}
             </h4>
             <ul className="space-y-3 mb-6">
               <li className="text-gray-400 text-sm font-semibold">
-                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.email}</span>
-                <a href="mailto:roman.fedoniuk@gmail.com" className="hover:text-white transition" aria-label="Email TeleBots - roman.fedoniuk@gmail.com">
-                  roman.fedoniuk@gmail.com
-                </a>
-              </li>
-              <li className="text-gray-400 text-sm font-semibold">
-                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.phone}</span>
-                <a href="tel:+380960908006" className="hover:text-white transition" aria-label="Phone TeleBots - +380960908006">
-                  +38 0 96 090 80 06
-                </a>
+                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.legalBlockTitle}</span>
+                <span className="text-white">{legal.companyName}</span>
+                <span className="block text-gray-400 mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</span>
               </li>
               <li className="text-gray-400 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.address}</span>
-                Kyiv, Ukraine
+                <span className="text-white">{legal.legalAddress}</span>
+              </li>
+              <li className="text-gray-400 text-sm font-semibold">
+                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.phone}</span>
+                <a href={`tel:${legal.phoneRaw}`} className="hover:text-white transition" aria-label={`Phone - ${legal.phone}`}>
+                  {legal.phone}
+                </a>
+              </li>
+              <li className="text-gray-400 text-sm font-semibold">
+                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.email}</span>
+                <a href={`mailto:${legal.email}`} className="hover:text-white transition break-all" aria-label={`Email - ${legal.email}`}>
+                  {legal.email}
+                </a>
               </li>
             </ul>
             <div className="flex space-x-4 pt-4 justify-center md:justify-start">
@@ -130,12 +136,15 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
           <p className="text-gray-500 text-sm font-semibold mb-4 md:mb-0 text-center md:text-left">
             © 2026 TeleBots. {t.footer.rights}
           </p>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
             <Link href={`/${currentLanguage}/privacy`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
               {t.footer.privacy}
             </Link>
             <Link href={`/${currentLanguage}/terms`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
               {t.footer.terms}
+            </Link>
+            <Link href={`/${currentLanguage}/refund`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
+              {t.footer.refund}
             </Link>
           </div>
         </div>

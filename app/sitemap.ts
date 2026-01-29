@@ -46,6 +46,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
       changeFrequency: 'yearly' as const,
     },
+    {
+      path: '/refund',
+      priority: 0.3,
+      changeFrequency: 'yearly' as const,
+    },
   ];
 
   const sitemapEntries: MetadataRoute.Sitemap = [];

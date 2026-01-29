@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, FormEvent } from 'react';
+import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { Instagram, MessageCircle } from 'lucide-react';
 import Navigation from '@/components/Navigation';
@@ -9,6 +10,7 @@ import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import SuccessMessage from '@/components/SuccessMessage';
+import { legal } from '@/lib/legal';
 
 export default function ContactPage() {
   const params = useParams();
@@ -202,22 +204,29 @@ export default function ContactPage() {
               
               <div className="space-y-8">
                 <div className="pb-6 border-b border-gray-200">
+                  <p className="text-xs font-normal text-gray-500 mb-3 tracking-wider">{t.footer.legalBlockTitle}</p>
+                  <p className="text-lg font-black text-black">{legal.companyName}</p>
+                  <p className="text-gray-600 font-semibold mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</p>
+                  <p className="text-gray-600 font-semibold mt-2">{t.footer.address}: {legal.legalAddress}</p>
+                </div>
+
+                <div className="pb-6 border-b border-gray-200">
                   <p className="text-xs font-normal text-gray-500 mb-3 tracking-wider">{t.footer.phone}</p>
-                  <a href="tel:+380960908006" className="text-2xl font-black text-black hover:text-gray-600 transition">
-                    +38 0 96 090 80 06
+                  <a href={`tel:${legal.phoneRaw}`} className="text-2xl font-black text-black hover:text-gray-600 transition">
+                    {legal.phone}
                   </a>
                 </div>
 
                 <div className="pb-6 border-b border-gray-200">
                   <p className="text-xs font-normal text-gray-500 mb-3 tracking-wider">{t.footer.email}</p>
-                  <a href="mailto:roman.fedoniuk@gmail.com" className="text-xl font-black text-black hover:text-gray-600 transition break-all">
-                    roman.fedoniuk@gmail.com
+                  <a href={`mailto:${legal.email}`} className="text-xl font-black text-black hover:text-gray-600 transition break-all">
+                    {legal.email}
                   </a>
                 </div>
 
                 <div className="pt-4 space-y-4">
                   <a
-                    href="https://api.whatsapp.com/send/?phone=380960908006&text&type=phone_number&app_absent=0"
+                    href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex items-center justify-center bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
@@ -267,11 +276,19 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                <div className="pt-12 border-t border-gray-200">
-                  <a href="#" className="group inline-flex items-center text-gray-500 hover:text-black transition font-semibold">
-                    <div className="w-8 h-px bg-gray-300 mr-3 group-hover:w-12 group-hover:bg-black transition-all"></div>
+                <div className="pt-12 border-t border-gray-200 flex flex-wrap gap-x-6 gap-y-2">
+                  <Link href={`/${lang}/privacy`} className="group inline-flex items-center text-gray-500 hover:text-black transition font-semibold">
+                    <div className="w-8 h-px bg-gray-300 mr-3 group-hover:w-12 group-hover:bg-black transition-all" />
                     {t.footer.privacy}
-                  </a>
+                  </Link>
+                  <Link href={`/${lang}/terms`} className="group inline-flex items-center text-gray-500 hover:text-black transition font-semibold">
+                    <div className="w-8 h-px bg-gray-300 mr-3 group-hover:w-12 group-hover:bg-black transition-all" />
+                    {t.footer.terms}
+                  </Link>
+                  <Link href={`/${lang}/refund`} className="group inline-flex items-center text-gray-500 hover:text-black transition font-semibold">
+                    <div className="w-8 h-px bg-gray-300 mr-3 group-hover:w-12 group-hover:bg-black transition-all" />
+                    {t.footer.refund}
+                  </Link>
                 </div>
               </div>
             </div>

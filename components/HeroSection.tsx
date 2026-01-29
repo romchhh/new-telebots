@@ -74,21 +74,40 @@ export default function HeroSection({ t }: HeroSectionProps) {
       <div
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
       />
+      {/* Блок зліва — слоган */}
+      <div className="absolute top-72 md:top-28 lg:top-32 xl:top-36 left-4 md:left-6 lg:left-10 z-20 w-[320px] md:w-[340px] lg:w-[400px] xl:w-[440px]">
+        <div className="relative rounded-lg overflow-hidden min-h-[110px] md:min-h-[120px] lg:min-h-[130px] xl:min-h-[140px]">
+          <div
+            className="absolute inset-0 pointer-events-none rounded-lg"
+            style={{
+              background: 'linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.25) 70%, transparent 100%)',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)',
+            }}
+          />
+          <p
+            className="relative p-5 md:p-5 lg:p-6 xl:p-7 text-white font-normal leading-snug text-[18px] md:text-[19px] lg:text-[20px] xl:text-[22px]"
+            style={{ fontFamily: 'Montserrat, sans-serif' }}
+          >
+            Розробляємо чат-боти та сайти, якими хочеться користуватися
+          </p>
+        </div>
+      </div>
       {/* Блок з інформацією про початок та тривалість - справа в кутку */}
       <div className="absolute top-20 md:top-24 right-4 md:right-6 lg:right-10 z-20">
-        {/* Радіальний градієнтний blur - плавний перехід з центру */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-[200px] h-[200px] md:w-[240px] md:h-[240px] lg:w-[280px] lg:h-[280px]" 
+        {/* Радіальний градієнтний blur — мʼякий перехід, сильніше розмиття по краях */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-[260px] h-[260px] md:w-[280px] md:h-[280px] lg:w-[380px] lg:h-[380px] xl:w-[420px] xl:h-[420px]" 
              style={{
-               background: 'radial-gradient(circle, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.3) 45%, rgba(0,0,0,0.1) 65%, transparent 85%)',
-               backdropFilter: 'blur(4px)',
-               WebkitBackdropFilter: 'blur(4px)',
+               background: 'radial-gradient(circle, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 20%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.12) 60%, rgba(0,0,0,0.05) 75%, transparent 90%)',
+               backdropFilter: 'blur(8px)',
+               WebkitBackdropFilter: 'blur(8px)',
                borderRadius: '50%'
              }}>
         </div>
         
         {/* Основний блок */}
-        <div className="relative bg-transparent p-4 md:p-6 lg:p-8">
-          <div className="relative w-32 md:w-40 lg:w-48 h-32 md:h-40 lg:h-48">
+        <div className="relative bg-transparent p-5 md:p-6 lg:p-8 xl:p-10">
+          <div className="relative w-44 h-44 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-64 xl:h-64">
             {/* Дві лінії, що розділяють на квадранти */}
             <div className="absolute inset-0">
               <div className="absolute top-1/2 left-0 right-0 h-px bg-gray-600/40"></div>
@@ -96,21 +115,21 @@ export default function HeroSection({ t }: HeroSectionProps) {
             </div>
             
             {/* Верхній правий квадрант - Початок (справа) */}
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 p-2 md:p-3 lg:p-4 flex flex-col justify-end items-end">
-              <span className="text-[8px] md:text-[9px] lg:text-[10px] text-gray-300 uppercase tracking-[0.15em] mb-1">
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 p-3 md:p-3 lg:p-5 xl:p-6 flex flex-col justify-end items-end">
+              <span className="text-[12px] md:text-[9px] lg:text-[12px] xl:text-[13px] text-gray-300 uppercase tracking-[0.15em] mb-1">
                 {t.hero.startDate.label}
               </span>
-              <span className="text-[11px] md:text-[13px] lg:text-[15px] text-white font-medium uppercase tracking-[0.1em]">
+              <span className="text-[16px] md:text-[13px] lg:text-[18px] xl:text-[20px] text-white font-medium uppercase tracking-[0.1em]">
                 {t.hero.startDate.value}
               </span>
             </div>
             
             {/* Нижній лівий квадрант - Тривалість (зліва) */}
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 p-2 md:p-3 lg:p-4 flex flex-col justify-start items-start">
-              <span className="text-[8px] md:text-[9px] lg:text-[10px] text-gray-300 uppercase tracking-[0.15em] mb-1">
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 p-3 md:p-3 lg:p-5 xl:p-6 flex flex-col justify-start items-start">
+              <span className="text-[12px] md:text-[9px] lg:text-[12px] xl:text-[13px] text-gray-300 uppercase tracking-[0.15em] mb-1">
                 {t.hero.duration.label}
               </span>
-              <span className="text-[11px] md:text-[13px] lg:text-[15px] text-white font-medium uppercase tracking-[0.1em]">
+              <span className="text-[16px] md:text-[13px] lg:text-[18px] xl:text-[20px] text-white font-medium uppercase tracking-[0.1em]">
                 {t.hero.duration.value}
               </span>
             </div>

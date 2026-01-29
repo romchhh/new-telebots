@@ -10,6 +10,7 @@ import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { cases } from '@/components/cases';
 import Image from 'next/image';
+import { legal } from '@/lib/legal';
 
 export default function AboutPage() {
   const params = useParams();
@@ -121,7 +122,7 @@ export default function AboutPage() {
         <div className="max-w-[1600px] mx-auto">
           {/* Великий заголовок */}
           <div className="mb-20 md:mb-28 lg:mb-32">
-            <h1 className="text-[clamp(3rem,10vw,10rem)] font-black text-black leading-[0.88] tracking-[-0.02em] uppercase">
+            <h1 className="text-[clamp(4.25rem,11vw,10rem)] md:text-[clamp(3.5rem,9.5vw,9.5rem)] font-black text-black leading-[0.88] tracking-[-0.02em] uppercase">
               {t.about.title}
             </h1>
           </div>
@@ -130,15 +131,15 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20 lg:gap-24">
           {/* Ліва колонка — Наша робота */}
             <div className="flex flex-col">
-              <h2 className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase text-black mb-6">
+              <h2 className="text-[14px] md:text-[13px] lg:text-[14px] font-bold tracking-[0.3em] uppercase text-black mb-6">
               {t.about.ourWork}
             </h2>
-              <p className="text-[16px] md:text-[18px] lg:text-[20px] text-black leading-[1.75] font-normal mb-8 flex-grow">
+              <p className="text-[19px] md:text-[19px] lg:text-[21px] text-black leading-[1.75] font-normal mb-8 flex-grow">
               {t.about.ourWorkDesc}
             </p>
             <Link
               href={`/${lang}#portfolio`}
-                className="inline-flex items-center text-[13px] md:text-[14px] font-medium text-black hover:opacity-60 transition-opacity duration-200 uppercase tracking-[0.1em]"
+              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[16px] md:text-[15px] lg:text-[16px] font-medium px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors duration-200 uppercase tracking-[0.1em] w-fit"
             >
                 <span className="mr-2">—</span>
               {t.about.portfolio}
@@ -147,7 +148,7 @@ export default function AboutPage() {
 
           {/* Середня колонка — Кейси розробок */}
             <div className="flex flex-col">
-              <h2 className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase text-black mb-6">
+              <h2 className="text-[14px] md:text-[13px] lg:text-[14px] font-bold tracking-[0.3em] uppercase text-black mb-6">
                 {t.about.portfolio}
               </h2>
               <div className="space-y-4 flex-grow">
@@ -198,20 +199,20 @@ export default function AboutPage() {
 
           {/* Права колонка — Послуги */}
             <div className="flex flex-col">
-              <h2 className="text-[10px] md:text-[11px] font-bold tracking-[0.3em] uppercase text-black mb-6">
+              <h2 className="text-[14px] md:text-[13px] lg:text-[14px] font-bold tracking-[0.3em] uppercase text-black mb-6">
               {t.about.services}
             </h2>
               <div className="grid grid-cols-2 gap-x-12 gap-y-2.5 text-black mb-8 flex-grow">
-                <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.chatbots}</span>
-                <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.websites}</span>
-                <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.parsers}</span>
-                <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.ecommerce}</span>
-                <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.ai}</span>
-                <span className="text-[11px] md:text-[12px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.automation}</span>
+                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.chatbots}</span>
+                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.websites}</span>
+                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.parsers}</span>
+                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.ecommerce}</span>
+                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.ai}</span>
+                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.automation}</span>
             </div>
             <Link
               href={`/${lang}/services`}
-                className="inline-flex items-center text-[13px] md:text-[14px] font-medium text-black hover:opacity-60 transition-opacity duration-200 uppercase tracking-[0.1em]"
+              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[16px] md:text-[15px] lg:text-[16px] font-medium px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors duration-200 uppercase tracking-[0.1em] w-fit"
             >
                 <span className="mr-2">—</span>
               {t.about.services}
@@ -460,7 +461,7 @@ export default function AboutPage() {
               <span className="text-[12px] md:text-[13px] font-medium">{t.contact.telegram}</span>
             </a>
             <a
-              href="https://api.whatsapp.com/send/?phone=380960908006&text&type=phone_number&app_absent=0"
+              href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center bg-black text-white px-10 py-4 hover:opacity-80 transition-opacity duration-200 rounded-full uppercase tracking-[0.1em]"
