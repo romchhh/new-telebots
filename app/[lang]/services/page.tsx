@@ -6,6 +6,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ServicesPassionSection from '@/components/ServicesPassionSection';
 import ServiceItem from '@/components/ServiceItem';
+import PricingTable from '@/components/PricingTable';
 import StatsSection from '@/components/StatsSection';
 import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
@@ -151,6 +152,17 @@ export default function ServicesPage() {
         />
       ))}
       </div>
+
+      <PricingTable
+        pricing={t.services.pricingChatbots}
+        lang={lang}
+        onContactClick={() => openModal(t.services.chatbotsPage.title)}
+      />
+      <PricingTable
+        pricing={t.services.pricingWebsites}
+        lang={lang}
+        onContactClick={() => openModal(t.services.websitesPage.title)}
+      />
 
       <StatsSection t={t} />
         </main>

@@ -65,7 +65,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
 
   return (
     <section id="portfolio" className="bg-black text-white">
-      <div className="grid lg:grid-cols-2 min-h-0">
+      <div className="grid lg:grid-cols-2 min-h-0 min-w-0">
         <div
           className={`p-8 sm:p-12 lg:p-16 xl:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`}
           ref={contentRef}
@@ -87,10 +87,10 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
           </Link>
         </div>
 
-        <div className="relative flex flex-col justify-center min-h-[400px] lg:min-h-[500px]">
+        <div className="relative flex flex-col justify-center min-h-[400px] lg:min-h-[500px] overflow-hidden w-full min-w-0">
           <div
-            className="flex overflow-x-auto overflow-y-hidden gap-4 sm:gap-5 pl-6 pr-6 sm:pl-8 sm:pr-8 lg:pl-10 lg:pr-10 py-8 sm:py-10 scroll-smooth snap-x snap-mandatory [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_transparent]"
-            style={{ WebkitOverflowScrolling: 'touch' }}
+            className="flex overflow-x-scroll overflow-y-hidden gap-4 sm:gap-5 pl-6 pr-6 sm:pl-8 sm:pr-8 lg:pl-10 lg:pr-10 py-8 sm:py-10 scroll-smooth snap-x snap-mandatory min-w-0 w-full [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_transparent] overscroll-x-contain"
+            style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
           >
             {projects.map((project, index) => (
               <PortfolioProject key={project.caseId} project={project} lang={validLang} />

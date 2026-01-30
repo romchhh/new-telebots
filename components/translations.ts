@@ -190,6 +190,38 @@ export const translations = {
         step3Desc: 'Створення рішення згідно з вашими потребами',
         step4: 'Підтримка',
         step4Desc: 'Постійна підтримка та оптимізація після запуску'
+      },
+      pricingChatbots: {
+        categoryLabel: 'Чат-боти',
+        title: 'Тарифні плани',
+        subtitle: 'Оберіть ідеальне рішення для автоматизації вашого бізнесу',
+        popularBadge: 'ПОПУЛЯРНИЙ',
+        featuresLabel: 'Функціонал',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Не впевнені, який план обрати?',
+        contactLink: 'Зв\'яжіться з нами',
+        contactSuffix: 'для консультації',
+        plans: [
+          { name: 'LITE', price: '150-200', description: 'Ідеальний варіант для малого бізнесу, експертів або кав\'ярень. Бот замінює лендінг або менеджера на першому етапі.', features: ['Привітальне повідомлення', 'Відповіді на часті питання', 'Кнопка «Зв\'язатися з менеджером»', 'Збір заявок у чат'], forWhom: 'Локальний бізнес, інфобізнес (лікувальні воронки)' },
+          { name: 'PRO', price: '200-300', popular: true, description: 'Повноцінний робочий інструмент, який автоматизує рутину. Бот сам продає, приймає гроші та заносить дані в базу.', features: ['Кошик товарів', 'Інтеграція з платіжними системами', 'Автоматичне сповіщення про нове замовлення', 'Робота з базою клієнтів у Google Sheets'], forWhom: 'Інтернет-магазини в Telegram, салони краси, доставка їжі' },
+          { name: 'CUSTOM', price: 'Індивідуально', description: 'Тут немає стандартів, бо кожен проєкт унікальний. Це розробка «під ключ» зі складною архітектурою.', features: ['Використання GPT-4 для розумних відповідей', 'Багатомовність', 'Глибока аналітика дій користувачів', 'Робота з великими базами даних'], forWhom: 'Корпорації, стартапи, складні сервіси (наприклад, боти для пошуку нерухомості або вакансій)' }
+        ]
+      },
+      pricingWebsites: {
+        categoryLabel: 'Веб-сайти',
+        title: 'Тарифні плани',
+        subtitle: 'Професійні веб-рішення для вашого бізнесу',
+        popularBadge: 'ПОПУЛЯРНИЙ',
+        featuresLabel: 'Функціонал',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Потрібне індивідуальне рішення?',
+        contactLink: 'Зв\'яжіться з нами',
+        contactSuffix: 'для обговорення проєкту',
+        plans: [
+          { name: 'LANDING', price: '300-500', description: 'Односторінковий сайт для презентації продукту або послуги. Швидкий запуск та максимальна конверсія.', features: ['Адаптивний дизайн', 'Форма зворотного зв\'язку', 'Оптимізація швидкості', 'Базове SEO', 'Інтеграція з Google Analytics'], forWhom: 'Стартапи, локальний бізнес, просування послуг' },
+          { name: 'BUSINESS', price: '500-800', popular: true, description: 'Багатосторінковий корпоративний сайт з розширеним функціоналом. Повноцінна онлайн-присутність вашого бізнесу.', features: ['До 10 сторінок', 'CMS для управління контентом', 'Розширене SEO', 'Інтеграція з соцмережами', 'Форми та калькулятори', 'Мультимовність'], forWhom: 'Середній бізнес, агенції, компанії з широким асортиментом' },
+          { name: 'E-COMMERCE', price: '800+', description: 'Повноцінний інтернет-магазин з системою оплати, каталогом товарів та особистим кабінетом.', features: ['Каталог товарів з фільтрами', 'Кошик та оформлення замовлення', 'Інтеграція платіжних систем', 'Особистий кабінет', 'Система знижок та промокодів', 'Адмін-панель для управління'], forWhom: 'Онлайн-магазини, e-commerce проєкти, роздрібна торгівля' }
+        ]
       }
     },
     modal: {
@@ -477,6 +509,38 @@ export const translations = {
         step3Desc: 'Creating a solution according to your needs',
         step4: 'Support',
         step4Desc: 'Ongoing support and optimization after launch'
+      },
+      pricingChatbots: {
+        categoryLabel: 'Chatbots',
+        title: 'Pricing Plans',
+        subtitle: 'Choose the ideal solution for your business automation',
+        popularBadge: 'POPULAR',
+        featuresLabel: 'Features',
+        forWhomLabel: 'For whom',
+        contactNote: 'Not sure which plan to choose?',
+        contactLink: 'Contact us',
+        contactSuffix: 'for a consultation',
+        plans: [
+          { name: 'LITE', price: '150-200', description: 'Ideal for small businesses, experts or cafés. The bot replaces a landing page or manager at the first stage.', features: ['Welcome message', 'Answers to frequently asked questions', '«Contact manager» button', 'Lead collection in chat'], forWhom: 'Local business, info-business (treatment funnels)' },
+          { name: 'PRO', price: '200-300', popular: true, description: 'A full-fledged working tool that automates routine. The bot sells, accepts payments and logs data into the database.', features: ['Product cart', 'Payment system integration', 'Automatic notification of new orders', 'Client database in Google Sheets'], forWhom: 'Telegram shops, beauty salons, food delivery' },
+          { name: 'CUSTOM', price: 'Individual', description: 'No standards here, as every project is unique. Turnkey development with complex architecture.', features: ['GPT-4 for smart responses', 'Multilingual support', 'In-depth user analytics', 'Work with large databases'], forWhom: 'Corporations, startups, complex services (e.g. bots for real estate or job search)' }
+        ]
+      },
+      pricingWebsites: {
+        categoryLabel: 'Websites',
+        title: 'Pricing Plans',
+        subtitle: 'Professional web solutions for your business',
+        popularBadge: 'POPULAR',
+        featuresLabel: 'Features',
+        forWhomLabel: 'For whom',
+        contactNote: 'Need a custom solution?',
+        contactLink: 'Contact us',
+        contactSuffix: 'to discuss your project',
+        plans: [
+          { name: 'LANDING', price: '300-500', description: 'One-page site for product or service presentation. Fast launch and maximum conversion.', features: ['Responsive design', 'Contact form', 'Speed optimization', 'Basic SEO', 'Google Analytics integration'], forWhom: 'Startups, local business, service promotion' },
+          { name: 'BUSINESS', price: '500-800', popular: true, description: 'Multi-page corporate site with extended functionality. Full online presence for your business.', features: ['Up to 10 pages', 'CMS for content management', 'Advanced SEO', 'Social media integration', 'Forms and calculators', 'Multilingual'], forWhom: 'SMB, agencies, companies with wide range' },
+          { name: 'E-COMMERCE', price: '800+', description: 'Full online store with payment system, product catalog and personal account.', features: ['Product catalog with filters', 'Cart and checkout', 'Payment system integration', 'Personal account', 'Discounts and promo codes', 'Admin panel'], forWhom: 'Online stores, e-commerce, retail' }
+        ]
       }
     },
     modal: {
@@ -764,6 +828,38 @@ export const translations = {
         step3Desc: 'Tworzenie rozwiązania zgodnie z Twoimi potrzebami',
         step4: 'Wsparcie',
         step4Desc: 'Ciągłe wsparcie i optymalizacja po uruchomieniu'
+      },
+      pricingChatbots: {
+        categoryLabel: 'Chatboty',
+        title: 'Plany cenowe',
+        subtitle: 'Wybierz idealne rozwiązanie do automatyzacji Twojego biznesu',
+        popularBadge: 'POPULARNE',
+        featuresLabel: 'Funkcjonalność',
+        forWhomLabel: 'Dla kogo',
+        contactNote: 'Nie wiesz, który plan wybrać?',
+        contactLink: 'Skontaktuj się z nami',
+        contactSuffix: 'w celu konsultacji',
+        plans: [
+          { name: 'LITE', price: '150-200', description: 'Idealny dla małych firm, ekspertów lub kawiarni. Bot zastępuje landing lub menedżera na pierwszym etapie.', features: ['Wiadomość powitalna', 'Odpowiedzi na częste pytania', 'Przycisk «Skontaktuj się z menedżerem»', 'Zbieranie zapytań w chacie'], forWhom: 'Biznes lokalny, infobiznes (lejki leczenia)' },
+          { name: 'PRO', price: '200-300', popular: true, description: 'Pełnoprawny instrument roboczy automatyzujący rutynę. Bot sprzedaje, przyjmuje płatności i wprowadza dane do bazy.', features: ['Koszyk produktów', 'Integracja z systemami płatności', 'Automatyczne powiadomienie o nowym zamówieniu', 'Baza klientów w Google Sheets'], forWhom: 'Sklepy w Telegram, salony piękności, dostawa jedzenia' },
+          { name: 'CUSTOM', price: 'Indywidualnie', description: 'Nie ma tutaj standardów, bo każdy projekt jest unikalny. Rozwój „pod klucz” ze złożoną architekturą.', features: ['GPT-4 do inteligentnych odpowiedzi', 'Wielojęzyczność', 'Głęboka analityka działań użytkowników', 'Praca z dużymi bazami danych'], forWhom: 'Korporacje, startupy, złożone usługi (np. boty do wyszukiwania nieruchomości lub ofert pracy)' }
+        ]
+      },
+      pricingWebsites: {
+        categoryLabel: 'Strony internetowe',
+        title: 'Plany cenowe',
+        subtitle: 'Profesjonalne rozwiązania webowe dla Twojego biznesu',
+        popularBadge: 'POPULARNE',
+        featuresLabel: 'Funkcjonalność',
+        forWhomLabel: 'Dla kogo',
+        contactNote: 'Potrzebujesz indywidualnego rozwiązania?',
+        contactLink: 'Skontaktuj się z nami',
+        contactSuffix: 'w celu omówienia projektu',
+        plans: [
+          { name: 'LANDING', price: '300-500', description: 'Jednostronicowa strona do prezentacji produktu lub usługi. Szybki start i maksymalna konwersja.', features: ['Responsywny design', 'Formularz kontaktowy', 'Optymalizacja prędkości', 'Podstawowe SEO', 'Integracja z Google Analytics'], forWhom: 'Startupy, biznes lokalny, promocja usług' },
+          { name: 'BUSINESS', price: '500-800', popular: true, description: 'Wielostronicowa strona korporacyjna z rozszerzonym funkcjonalnością. Pełna obecność online Twojego biznesu.', features: ['Do 10 stron', 'CMS do zarządzania treścią', 'Zaawansowane SEO', 'Integracja z social media', 'Formularze i kalkulatory', 'Wielojęzyczność'], forWhom: 'Średni biznes, agencje, firmy z szerokim asortymentem' },
+          { name: 'E-COMMERCE', price: '800+', description: 'Pełnoprawny sklep internetowy z systemem płatności, katalogiem produktów i kontem osobistym.', features: ['Katalog produktów z filtrami', 'Koszyk i realizacja zamówienia', 'Integracja systemów płatności', 'Konto osobiste', 'System rabatów i kodów promocyjnych', 'Panel administracyjny'], forWhom: 'Sklepy online, projekty e-commerce, sprzedaż detaliczna' }
+        ]
       }
     },
     modal: {
@@ -1051,6 +1147,38 @@ export const translations = {
         step3Desc: 'Создание решения согласно вашим потребностям',
         step4: 'Поддержка',
         step4Desc: 'Постоянная поддержка и оптимизация после запуска'
+      },
+      pricingChatbots: {
+        categoryLabel: 'Чат-боты',
+        title: 'Тарифные планы',
+        subtitle: 'Выберите идеальное решение для автоматизации вашего бизнеса',
+        popularBadge: 'ПОПУЛЯРНЫЙ',
+        featuresLabel: 'Функционал',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Не уверены, какой план выбрать?',
+        contactLink: 'Свяжитесь с нами',
+        contactSuffix: 'для консультации',
+        plans: [
+          { name: 'LITE', price: '150-200', description: 'Идеальный вариант для малого бизнеса, экспертов или кафе. Бот заменяет лендинг или менеджера на первом этапе.', features: ['Приветственное сообщение', 'Ответы на частые вопросы', 'Кнопка «Связаться с менеджером»', 'Сбор заявок в чате'], forWhom: 'Локальный бизнес, инфобизнес (лечебные воронки)' },
+          { name: 'PRO', price: '200-300', popular: true, description: 'Полноценный рабочий инструмент, автоматизирующий рутину. Бот сам продаёт, принимает деньги и заносит данные в базу.', features: ['Корзина товаров', 'Интеграция с платёжными системами', 'Автоматическое уведомление о новом заказе', 'Работа с базой клиентов в Google Sheets'], forWhom: 'Интернет-магазины в Telegram, салоны красоты, доставка еды' },
+          { name: 'CUSTOM', price: 'Индивидуально', description: 'Здесь нет стандартов, ведь каждый проект уникален. Разработка «под ключ» со сложной архитектурой.', features: ['Использование GPT-4 для умных ответов', 'Многоязычность', 'Глубокая аналитика действий пользователей', 'Работа с большими базами данных'], forWhom: 'Корпорации, стартапы, сложные сервисы (например, боты для поиска недвижимости или вакансий)' }
+        ]
+      },
+      pricingWebsites: {
+        categoryLabel: 'Веб-сайты',
+        title: 'Тарифные планы',
+        subtitle: 'Профессиональные веб-решения для вашего бизнеса',
+        popularBadge: 'ПОПУЛЯРНЫЙ',
+        featuresLabel: 'Функционал',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Нужно индивидуальное решение?',
+        contactLink: 'Свяжитесь с нами',
+        contactSuffix: 'для обсуждения проекта',
+        plans: [
+          { name: 'LANDING', price: '300-500', description: 'Одностраничный сайт для презентации продукта или услуги. Быстрый запуск и максимальная конверсия.', features: ['Адаптивный дизайн', 'Форма обратной связи', 'Оптимизация скорости', 'Базовое SEO', 'Интеграция с Google Analytics'], forWhom: 'Стартапы, локальный бизнес, продвижение услуг' },
+          { name: 'BUSINESS', price: '500-800', popular: true, description: 'Многостраничный корпоративный сайт с расширенным функционалом. Полноценное онлайн-присутствие вашего бизнеса.', features: ['До 10 страниц', 'CMS для управления контентом', 'Расширенное SEO', 'Интеграция с соцсетями', 'Формы и калькуляторы', 'Мультиязычность'], forWhom: 'Средний бизнес, агентства, компании с широким ассортиментом' },
+          { name: 'E-COMMERCE', price: '800+', description: 'Полноценный интернет-магазин с системой оплаты, каталогом товаров и личным кабинетом.', features: ['Каталог товаров с фильтрами', 'Корзина и оформление заказа', 'Интеграция платёжных систем', 'Личный кабинет', 'Система скидок и промокодов', 'Админ-панель для управления'], forWhom: 'Онлайн-магазины, e-commerce проекты, розничная торговля' }
+        ]
       }
     },
     modal: {

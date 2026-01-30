@@ -18,11 +18,10 @@ export default function ServiceItem({ serviceKey, image, imagePosition, t, onOrd
   const animationClass = imagePosition === 'left' ? 'scroll-animate-right' : 'scroll-animate-left';
 
   return (
-    <section className="bg-white border-t border-gray-200">
+    <section className="bg-white">
       <div className={`grid lg:grid-cols-2 ${imagePosition === 'left' ? 'lg:grid-flow-dense' : ''}`}>
         <div className={`p-12 lg:p-24 flex flex-col justify-center ${imagePosition === 'left' ? 'lg:col-start-2' : ''} ${animationClass} ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-px bg-black"></div>
             <span className="text-xs font-black text-black tracking-[0.3em] uppercase">
               {service.title}
             </span>
@@ -42,9 +41,6 @@ export default function ServiceItem({ serviceKey, image, imagePosition, t, onOrd
             className="group flex items-center justify-center bg-black text-white px-8 py-4 hover:bg-gray-900 transition-all duration-300 w-fit rounded-full"
           >
             <span className="tracking-wider font-black">{service.button}</span>
-            <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">
-              <div className="w-8 h-px bg-white"></div>
-            </div>
           </button>
         </div>
 

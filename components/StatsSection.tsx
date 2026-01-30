@@ -26,7 +26,7 @@ export default function StatsSection({ t }: StatsSectionProps) {
           </div>
         </div>
         
-        <div className="text-center border-t border-gray-800 pt-12">
+        <div className="text-center pt-12">
           <h3 className="text-3xl md:text-4xl font-black">
             {t.services.stats.cta}
           </h3>
