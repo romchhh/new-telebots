@@ -3,13 +3,15 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import OrderModal from '@/components/OrderModal';
+import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
+import { sendToTelegram } from '@/lib/telegram';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
-import { cases } from '@/components/cases';
-import Image from 'next/image';
 import { legal } from '@/lib/legal';
 
 export default function AboutPage() {
@@ -60,11 +62,37 @@ export default function AboutPage() {
   const [servicesRef, isServicesVisible] = useScrollAnimation();
   const [buttonsRef, isButtonsVisible] = useScrollAnimation();
   const [mediaRef, isMediaVisible] = useScrollAnimation();
-  const [mediaImageRef, isMediaImageVisible] = useScrollAnimation();
   const [mediaContentRef, isMediaContentVisible] = useScrollAnimation();
   const [quoteRef, isQuoteVisible] = useScrollAnimation();
   const [faqRef, isFaqVisible] = useScrollAnimation();
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
+
+  useEffect(() => {
+    if (isModalOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isModalOpen]);
+
+  const openModal = () => {
+    setSelectedService(t.modal.title);
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedService('');
+  };
+  const handleSubmit = async (data: { name: string; phone: string; request: string }) => {
+    const success = await sendToTelegram({ name: data.name, phone: data.phone, request: data.request, service: selectedService });
+    if (success) {
+      closeModal();
+      setIsSuccessOpen(true);
+    } else {
+      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+    }
+  };
 
   const howToSteps = [
     { name: t.about.process.step1.split('.')[0], text: t.about.process.step1 },
@@ -117,366 +145,255 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Триколонковий блок під цитатою */}
-      <section className="py-20 md:py-28 lg:py-36 px-6 md:px-10 lg:px-16 bg-white relative">
+      {/* Основний блок під цитатою */}
+      <section className="py-16 md:py-24 lg:py-28 px-6 md:px-10 lg:px-16 bg-white">
         <div className="max-w-[1600px] mx-auto">
-          {/* Великий заголовок */}
-          <div className="mb-20 md:mb-28 lg:mb-32">
-            <h1 className="text-[clamp(4.25rem,11vw,10rem)] md:text-[clamp(3.5rem,9.5vw,9.5rem)] font-black text-black leading-[0.88] tracking-[-0.02em] uppercase">
+          <div className="mb-20 md:mb-28 lg:mb-36 min-w-0 overflow-hidden">
+            <h1 className="text-[clamp(3rem,12vw,6rem)] sm:text-[clamp(2.5rem,9vw,5rem)] md:text-[clamp(3.5rem,9.5vw,9.5rem)] font-black text-black leading-[0.88] tracking-[-0.02em] uppercase break-words max-w-full">
               {t.about.title}
             </h1>
           </div>
-
-          {/* Сітка з трьома колонками */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20 lg:gap-24">
-          {/* Ліва колонка — Наша робота */}
-            <div className="flex flex-col">
-              <h2 className="text-[14px] md:text-[13px] lg:text-[14px] font-bold tracking-[0.3em] uppercase text-black mb-6">
-              {t.about.ourWork}
-            </h2>
-              <p className="text-[19px] md:text-[19px] lg:text-[21px] text-black leading-[1.75] font-normal mb-8 flex-grow">
-              {t.about.ourWorkDesc}
-            </p>
-            <Link
-              href={`/${lang}#portfolio`}
-              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[16px] md:text-[15px] lg:text-[16px] font-medium px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors duration-200 uppercase tracking-[0.1em] w-fit"
-            >
-                <span className="mr-2">—</span>
-              {t.about.portfolio}
-            </Link>
-          </div>
-
-          {/* Середня колонка — Кейси розробок */}
-            <div className="flex flex-col">
-              <h2 className="text-[14px] md:text-[13px] lg:text-[14px] font-bold tracking-[0.3em] uppercase text-black mb-6">
-                {t.about.portfolio}
-              </h2>
-              <div className="space-y-4 flex-grow">
-            {(() => {
-              const casesData = cases[validLang] || cases.uk;
-              const allCaseIds = Object.keys(casesData);
-              const last3CaseIds = allCaseIds.slice(-3);
-              
-              const imageMap: { [key: string]: string } = {
-                'dr-tolstikova-bot': '/dr-tolstikova-bot.jpg',
-                'nieznany-piekarz': '/Group 1000007023.png',
-                'nutritionist-bot': '/nutritionist-bot.jpg',
-                'cats-fresh': '/cats-fresh-project.jpg',
-                'tripvibe': '/tripvibe.png',
-                'v12-auto': '/v12-auto.png',
-                'vsk-technology': '/vsk-technology.png',
-                'chars-kyiv': '/screenshot-2025-11-03-01-49-01.png',
-                'style-chat-vakhula': '/image-2025-11-03-02-12-02.jpg',
-                'tron-energy-bot': '/image-2025-10-13-22-39-19.jpg',
-                'offer-dpuchkov': '/image-2025-10-04-04-56-47.jpg',
-                'alexandraaleksiuk': '/image-2025-10-04-04-56-05.jpg',
-                'landscaper-academy': '/screenshot-2025-12-20-03-02-08.png'
-              };
-
-              return last3CaseIds.map((caseId, index) => {
-                const caseData = (casesData as any)[caseId];
-                const image = imageMap[caseId] || caseData?.mainImage || '/dr-tolstikova-bot.jpg';
-                return (
-                  <Link
-                    key={caseId}
-                    href={`/${lang}/portfolio/${caseId}`}
-                        className="group block relative bg-gray-100 overflow-hidden hover:opacity-90 transition-opacity duration-200"
-                  >
-                        <div className="relative w-full aspect-[4/3]">
-                      <Image
-                        src={image}
-                        alt={caseData?.title || 'Project'}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  </Link>
-                );
-              });
-            })()}
-              </div>
-          </div>
-
-          {/* Права колонка — Послуги */}
-            <div className="flex flex-col">
-              <h2 className="text-[14px] md:text-[13px] lg:text-[14px] font-bold tracking-[0.3em] uppercase text-black mb-6">
-              {t.about.services}
-            </h2>
-              <div className="grid grid-cols-2 gap-x-12 gap-y-2.5 text-black mb-8 flex-grow">
-                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.chatbots}</span>
-                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.websites}</span>
-                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.parsers}</span>
-                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.ecommerce}</span>
-                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.ai}</span>
-                <span className="text-[13px] md:text-[13px] lg:text-[14px] leading-[1.8] font-normal uppercase tracking-[0.2em]">{t.services.automation}</span>
-            </div>
-            <Link
-              href={`/${lang}/services`}
-              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[16px] md:text-[15px] lg:text-[16px] font-medium px-5 py-2.5 rounded-full hover:bg-gray-100 transition-colors duration-200 uppercase tracking-[0.1em] w-fit"
-            >
-                <span className="mr-2">—</span>
-              {t.about.services}
-            </Link>
-          </div>
-        </div>
         </div>
       </section>
+
+      {/* Фото на 100% ширини екрану з блюром */}
+      <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden">
+        <div className="relative w-full aspect-[1500/565]">
+          <Image
+            src="/iPhone 15 Pro.jpg"
+            alt="TeleBots"
+            fill
+            className="object-contain"
+            sizes="100vw"
+            priority
+          />
+          <div className="absolute inset-0 backdrop-blur-md bg-black/15" />
+          <div className="absolute inset-x-0 top-0 h-40 md:h-52 bg-gradient-to-b from-black/80 via-black/50 to-transparent" />
+          <div className="absolute inset-0 flex flex-col justify-between">
+            <div className="pt-10 md:pt-14">
+                <p className="text-center text-white font-normal leading-relaxed text-lg sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl px-6 md:px-16 max-w-5xl mx-auto drop-shadow-2xl" style={{ letterSpacing: '0.2em', fontFamily: 'Montserrat, sans-serif' }}>
+                  {t.about.ourWorkDesc}
+                </p>
+            </div>
+            <div className="flex justify-center pb-10 md:pb-14">
+              <button
+                onClick={openModal}
+                className="inline-flex items-center justify-center bg-black border-2 border-black text-white text-lg md:text-xl font-medium px-12 py-5 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-colors duration-200 uppercase tracking-wider"
+              >
+                {t.modal.title}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       
-      <section className="pt-20 md:pt-28 pb-32 px-6 md:px-10 lg:px-16 bg-white">
-        <div className="max-w-[1600px] mx-auto">
-          <div className={`mb-24 md:mb-32 lg:mb-40 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`} ref={titleRef}>
-            <h2 className="text-[10px] md:text-[11px] font-bold text-black tracking-[0.3em] uppercase mb-8">
+      <section className="py-20 md:py-28 lg:py-32 px-6 md:px-10 lg:px-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <div className={`mb-16 md:mb-20 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`} ref={titleRef}>
+            <p className="text-sm font-bold text-gray-500 tracking-[0.3em] uppercase mb-6">
               {t.about.pageTitle}
-            </h2>
-            <p className={`text-[16px] md:text-[18px] lg:text-[20px] text-black font-normal leading-[1.75] max-w-4xl scroll-animate-up ${isIntroVisible ? 'animate' : ''}`} ref={introRef}>
+            </p>
+            <p className={`text-2xl md:text-3xl lg:text-4xl text-gray-800 font-normal leading-[1.6] max-w-3xl scroll-animate-up ${isIntroVisible ? 'animate' : ''}`} ref={introRef}>
               {t.about.pageIntro}
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-20 lg:gap-24 mb-32 lg:mb-40">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
             <div className={`scroll-animate-left ${isLeftVisible ? 'animate' : ''}`} ref={leftRef}>
-              <h2 className="text-[10px] md:text-[11px] font-bold text-black tracking-[0.3em] uppercase mb-6">
+              <h2 className="text-sm font-bold text-black tracking-[0.3em] uppercase mb-8">
                 {t.about.weDevelop}
               </h2>
-              <ul className="space-y-5">
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.weDevelopServices.telegramBots}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.weDevelopServices.chatbots}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.weDevelopServices.websites}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.weDevelopServices.parsers}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.weDevelopServices.funnels}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.weDevelopServices.leadGen}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.weDevelopServices.ecommerce}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.weDevelopServices.ai}
-                </li>
+              <ul className="space-y-4">
+                {[
+                  t.about.weDevelopServices.telegramBots,
+                  t.about.weDevelopServices.chatbots,
+                  t.about.weDevelopServices.websites,
+                  t.about.weDevelopServices.parsers,
+                  t.about.weDevelopServices.funnels,
+                  t.about.weDevelopServices.leadGen,
+                  t.about.weDevelopServices.ecommerce,
+                  t.about.weDevelopServices.ai,
+                ].map((text, i) => (
+                  <li key={i} className="flex gap-3 text-gray-700 text-lg md:text-xl leading-[1.7]">
+                    <span className="text-black font-bold mt-1">—</span>
+                    <span>{text}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className={`scroll-animate-right ${isRightVisible ? 'animate' : ''}`} ref={rightRef}>
-              <h2 className="text-[10px] md:text-[11px] font-bold text-black tracking-[0.3em] uppercase mb-6">
+              <h2 className="text-sm font-bold text-black tracking-[0.3em] uppercase mb-8">
                 {t.about.whyChoose}
               </h2>
-              <ul className="space-y-5">
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.advantages.experience}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.advantages.crm}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.advantages.stores}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.advantages.payments}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.advantages.speed}
-                </li>
-                <li className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                  {t.about.advantages.individual}
-                </li>
+              <ul className="space-y-4">
+                {[
+                  t.about.advantages.experience,
+                  t.about.advantages.crm,
+                  t.about.advantages.stores,
+                  t.about.advantages.payments,
+                  t.about.advantages.speed,
+                  t.about.advantages.individual,
+                ].map((text, i) => (
+                  <li key={i} className="flex gap-3 text-gray-700 text-lg md:text-xl leading-[1.7]">
+                    <span className="text-black font-bold mt-1">—</span>
+                    <span>{text}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Чорна секція з медіа */}
-          <div className="mb-20 lg:mb-32" ref={mediaRef}>
-            <div className="grid lg:grid-cols-2 bg-black">
-              <div className={`relative h-[500px] lg:h-[600px] scroll-animate-left ${isMediaImageVisible ? 'animate' : ''}`} ref={mediaImageRef}>
-                <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015"
-                  alt="Development"
-                  className="w-full h-full object-cover"
-                />
+      {/* Чорна секція Чому обирають нас? — на всю ширину, як на сторінці послуг */}
+      <section className="w-full bg-black text-white py-20 md:py-24 lg:py-28 px-6 md:px-10 lg:px-16" ref={mediaRef}>
+        <div className={`max-w-7xl mx-auto scroll-animate-up ${isMediaContentVisible ? 'animate' : ''}`} ref={mediaContentRef}>
+          <h2 className="text-sm font-bold text-white/80 tracking-[0.3em] uppercase mb-6">
+            {t.about.whyChoose}
+          </h2>
+          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-normal leading-[1.75] mb-16 max-w-4xl">
+            {t.about.pageIntro}
+          </p>
+          <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-16">
+            <div>
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 leading-none">
+                200+
               </div>
-              <div className={`p-12 md:p-16 lg:p-24 flex flex-col justify-center text-white scroll-animate-right ${isMediaContentVisible ? 'animate' : ''}`} ref={mediaContentRef}>
-                <h2 className="text-[10px] md:text-[11px] font-bold text-white tracking-[0.3em] uppercase mb-8">
-                  {t.about.whyChoose}
-                </h2>
-                <p className="text-[16px] md:text-[18px] lg:text-[20px] text-gray-300 font-normal leading-[1.75] mb-12">
-                  {t.about.pageIntro}
-                </p>
-                <div className="space-y-8">
-                  <div className="pb-8 border-b border-gray-700">
-                    <div className="text-[clamp(3rem,6vw,5rem)] font-black text-white mb-4 leading-none">
-                      200+
-                    </div>
-                    <p className="text-gray-400 font-normal text-[16px] md:text-[18px]">{t.about.stats.projects}</p>
-                  </div>
-                  <div className="pb-8 border-b border-gray-700">
-                    <div className="text-[clamp(3rem,6vw,5rem)] font-black text-white mb-4 leading-none">
-                      4
-                    </div>
-                    <p className="text-gray-400 font-normal text-[16px] md:text-[18px]">{t.about.stats.years}</p>
-                  </div>
-                  <div className="pt-4">
-                    <p className="text-[16px] md:text-[18px] lg:text-[20px] text-gray-300 font-normal leading-[1.75] mb-4">
-                      {t.about.stats.support}
-                    </p>
-                    <p className="text-[16px] md:text-[18px] lg:text-[20px] font-black text-white">
-                      {t.about.stats.cta}
-                    </p>
-                  </div>
-                </div>
+              <p className="text-gray-400 font-normal text-lg md:text-xl">{t.about.stats.projects}</p>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 leading-none">
+                4
               </div>
+              <p className="text-gray-400 font-normal text-lg md:text-xl">{t.about.stats.years}</p>
+            </div>
+            <div>
+              <p className="text-xl md:text-2xl text-gray-300 font-normal leading-[1.75]">
+                {t.about.stats.support}
+              </p>
             </div>
           </div>
+          <div className="text-center pt-4">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white">
+              {t.about.stats.cta}
+            </h3>
+          </div>
+        </div>
+      </section>
 
-          <div className={`mb-32 lg:mb-40 scroll-animate-up ${isProcessVisible ? 'animate' : ''}`} ref={processRef}>
-            <h2 className="text-[10px] md:text-[11px] font-bold text-black tracking-[0.3em] uppercase mb-12">
+      <section className="pt-20 md:pt-28 pb-32 px-6 md:px-10 lg:px-16 bg-white">
+        <div className="max-w-[1600px] mx-auto">
+          <div className={`mb-20 lg:mb-28 scroll-animate-up ${isProcessVisible ? 'animate' : ''}`} ref={processRef}>
+            <h2 className="text-sm font-bold text-black tracking-[0.3em] uppercase mb-12">
               {t.about.howItWorks}
             </h2>
-            <div className="grid lg:grid-cols-2 gap-20 lg:gap-24">
-              <div className="space-y-8">
-                <div className="pb-8 border-b border-gray-300">
-                  <p className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                    {t.about.process.step1}
+            <div className="space-y-6">
+              {[
+                t.about.process.step1,
+                t.about.process.step2,
+                t.about.process.step3,
+                t.about.process.step4,
+                t.about.process.step5,
+              ].map((step, i) => (
+                <div key={i} className="flex gap-6 items-start group">
+                  <span className="flex-shrink-0 w-12 h-12 rounded-full bg-black text-white flex items-center justify-center text-base font-bold">
+                    {i + 1}
+                  </span>
+                  <p className="text-gray-700 text-lg md:text-xl leading-[1.75] pt-1.5 group-hover:text-black transition-colors">
+                    {step}
                   </p>
                 </div>
-                <div className="pb-8 border-b border-gray-300">
-                  <p className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                    {t.about.process.step2}
-                  </p>
-                </div>
-                <div className="pb-8 border-b border-gray-300">
-                  <p className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                    {t.about.process.step3}
-                  </p>
-                </div>
-              </div>
-              <div className="space-y-8">
-                <div className="pb-8 border-b border-gray-300">
-                  <p className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                    {t.about.process.step4}
-                  </p>
-                </div>
-                <div className="pb-8 border-b border-gray-300">
-                  <p className="text-black font-normal leading-[1.75] text-[16px] md:text-[18px] lg:text-[20px]">
-                    {t.about.process.step5}
-                  </p>
-                </div>
-                <div className="relative h-[350px] lg:h-[450px] mt-4">
-                  <img
-                    src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070"
-                    alt="Process"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* Секція Послуги */}
-          <div className={`mb-32 lg:mb-40 scroll-animate-up ${isServicesVisible ? 'animate' : ''}`} ref={servicesRef}>
-            <h2 className="text-[10px] md:text-[11px] font-bold text-black tracking-[0.3em] uppercase mb-8">
+          <div className={`mb-20 lg:mb-28 scroll-animate-up ${isServicesVisible ? 'animate' : ''}`} ref={servicesRef}>
+            <h2 className="text-sm font-bold text-black tracking-[0.3em] uppercase mb-6">
               {t.about.services}
             </h2>
-            <p className="text-[16px] md:text-[18px] lg:text-[20px] text-black font-normal leading-[1.75] mb-16 max-w-4xl">
+            <p className="text-xl md:text-2xl text-gray-600 leading-[1.7] mb-12 max-w-2xl">
               {t.about.servicesDesc}
             </p>
-            <div className="grid md:grid-cols-3 gap-8 md:gap-10 mb-16">
-              <div className="p-8 md:p-10">
-                <h3 className="text-[18px] md:text-[20px] font-normal text-black mb-6">
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
+              <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
+                <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
                   {t.services.websites}
                 </h3>
-                <p className="text-[16px] md:text-[18px] text-black leading-[1.75] mb-8">
+                <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
                   {t.services.websitesDesc}
                 </p>
-                <Link
-                  href={`/${lang}/services`}
-                  className="group inline-flex items-center text-[13px] md:text-[14px] text-black font-medium hover:opacity-60 transition-opacity duration-200 uppercase tracking-[0.1em]"
-                >
-                  <span className="mr-2">—</span>
-                  <span>{t.services.learnMore}</span>
-                </Link>
-              </div>
-              <div className="p-8 md:p-10">
-                <h3 className="text-[18px] md:text-[20px] font-normal text-black mb-6">
+                <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
+                  {t.services.learnMore}
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+              </Link>
+              <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
+                <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
                   {t.services.chatbots}
                 </h3>
-                <p className="text-[16px] md:text-[18px] text-black leading-[1.75] mb-8">
+                <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
                   {t.services.chatbotsDesc}
                 </p>
-                <Link
-                  href={`/${lang}/services`}
-                  className="group inline-flex items-center text-[13px] md:text-[14px] text-black font-medium hover:opacity-60 transition-opacity duration-200 uppercase tracking-[0.1em]"
-                >
-                  <span className="mr-2">—</span>
-                  <span>{t.services.learnMore}</span>
-                </Link>
-              </div>
-              <div className="p-8 md:p-10">
-                <h3 className="text-[18px] md:text-[20px] font-normal text-black mb-6">
+                <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
+                  {t.services.learnMore}
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+              </Link>
+              <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
+                <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
                   {t.services.parsers}
                 </h3>
-                <p className="text-[16px] md:text-[18px] text-black leading-[1.75] mb-8">
+                <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
                   {t.services.parsersDesc}
                 </p>
-                <Link
-                  href={`/${lang}/services`}
-                  className="group inline-flex items-center text-[13px] md:text-[14px] text-black font-medium hover:opacity-60 transition-opacity duration-200 uppercase tracking-[0.1em]"
-                >
-                  <span className="mr-2">—</span>
-                  <span>{t.services.learnMore}</span>
-                </Link>
-              </div>
-            </div>
-            <div className="text-center">
-              <Link
-                href={`/${lang}/services`}
-                className="inline-flex items-center justify-center bg-black text-white px-8 py-4 hover:opacity-80 transition-opacity duration-200 rounded-full"
-              >
-                <span className="text-[14px] md:text-[15px] font-medium">{t.services.mainTitle}</span>
+                <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
+                  {t.services.learnMore}
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </span>
               </Link>
             </div>
+            <Link
+              href={`/${lang}/services`}
+              className="inline-flex items-center justify-center bg-black text-white px-10 py-5 hover:bg-gray-800 transition-colors rounded-full font-medium text-base md:text-lg"
+            >
+              {t.services.mainTitle}
+            </Link>
           </div>
 
-          <div className={`flex flex-col md:flex-row gap-6 justify-center items-center pt-16 border-t border-gray-200 scroll-animate-up ${isButtonsVisible ? 'animate' : ''}`} ref={buttonsRef}>
+          <div className={`flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center pt-20 scroll-animate-up ${isButtonsVisible ? 'animate' : ''}`} ref={buttonsRef}>
             <Link
               href={`/${lang}/contact`}
-              className="inline-flex items-center justify-center bg-black text-white px-10 py-4 hover:opacity-80 transition-opacity duration-200 rounded-full uppercase tracking-[0.1em]"
+              className="inline-flex items-center justify-center bg-black text-white px-10 py-5 hover:bg-gray-800 transition-colors rounded-full font-medium text-base md:text-lg uppercase tracking-wider w-full sm:w-auto"
             >
-              <span className="text-[12px] md:text-[13px] font-medium">{t.about.getInTouch}</span>
+              {t.about.getInTouch}
             </Link>
             <a
               href="https://t.me/telebotsnowayrm"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-black text-white px-10 py-4 hover:opacity-80 transition-opacity duration-200 rounded-full uppercase tracking-[0.1em]"
+              className="inline-flex items-center justify-center bg-black text-white px-10 py-5 hover:bg-gray-800 transition-colors rounded-full font-medium text-base md:text-lg uppercase tracking-wider w-full sm:w-auto"
             >
-              <span className="text-[12px] md:text-[13px] font-medium">{t.contact.telegram}</span>
+              {t.contact.telegram}
             </a>
             <a
               href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-black text-white px-10 py-4 hover:opacity-80 transition-opacity duration-200 rounded-full uppercase tracking-[0.1em]"
+              className="inline-flex items-center justify-center bg-black text-white px-10 py-5 hover:bg-gray-800 transition-colors rounded-full font-medium text-base md:text-lg uppercase tracking-wider w-full sm:w-auto"
             >
-              <span className="text-[12px] md:text-[13px] font-medium">{t.contact.whatsapp}</span>
+              {t.contact.whatsapp}
             </a>
           </div>
         </div>
       </section>
 
       {/* Секція FAQ */}
-      <section className="py-20 md:py-32 px-6 md:px-10 lg:px-16 bg-black">
-        <div className="max-w-[1600px] mx-auto">
-          <div className={`mb-12 md:mb-16 scroll-animate-up ${isFaqVisible ? 'animate' : ''}`} ref={faqRef}>
-            <h2 className="text-[10px] md:text-[11px] font-bold text-white tracking-[0.3em] uppercase mb-12">
+      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-black">
+        <div className="max-w-4xl mx-auto">
+          <div className={`scroll-animate-up ${isFaqVisible ? 'animate' : ''}`} ref={faqRef}>
+            <h2 className="text-sm font-bold text-white/80 tracking-[0.3em] uppercase mb-10">
               {t.about.faq?.title || 'Часті запитання'}
             </h2>
             
@@ -487,7 +404,7 @@ export default function AboutPage() {
                     onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                     className="w-full flex items-center justify-between py-6 md:py-8 text-left group"
                   >
-                    <span className="text-white text-[16px] md:text-[18px] lg:text-[20px] font-normal pr-8">
+                    <span className="text-white text-lg md:text-xl lg:text-2xl font-normal pr-8">
                       {item.question}
                     </span>
                     <span className="text-white text-2xl md:text-3xl font-light flex-shrink-0 transition-transform duration-300" style={{ transform: openFaqIndex === index ? 'rotate(45deg)' : 'rotate(0deg)' }}>
@@ -500,7 +417,7 @@ export default function AboutPage() {
                     }`}
                   >
                     <div className="pb-6 md:pb-8 pr-12">
-                      <p className="text-gray-300 text-[15px] md:text-[17px] lg:text-[19px] font-normal leading-relaxed">
+                      <p className="text-gray-300 text-base md:text-lg lg:text-xl font-normal leading-relaxed">
                         {item.answer}
                       </p>
                     </div>
@@ -514,6 +431,19 @@ export default function AboutPage() {
         </main>
         <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
       </div>
+
+      <OrderModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        serviceName={selectedService}
+        t={t}
+        onSubmit={handleSubmit}
+      />
+      <SuccessMessage
+        isOpen={isSuccessOpen}
+        onClose={() => setIsSuccessOpen(false)}
+        message={t.modal.success}
+      />
     </>
   );
 }

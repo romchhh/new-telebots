@@ -1,6 +1,61 @@
 // Детальні описи кейсів для всіх мов
 export const cases = {
   uk: {
+    'tradeground-bot': {
+      title: "TradeGroundBot — маркетплейс у Telegram",
+      subtitle: "Повноцінний маркетплейс: бот + міні-додаток для продажу та купівлі товарів",
+      mainImage: "/Group 1000007098 1.png",
+      description: "TradeGroundBot — це повноцінний маркетплейс у Telegram: бот + міні-додаток, де можна продавати й купувати товари, не виходячи з месенджера.\n\nМи зібрали все в одному місці: каталог оголошень, профілі продавців, оплату через Monobank та зручну адмінку.\n\nБот відповідає за оголошення, модерацію, розсилки, реферали та платні пакети. Міні-додаток — за каталог, фільтри, обране, рекомендації та профілі.\n\nУ результаті — простий, зрозумілий і масштабований маркетплейс із мультимовністю, аналітикою та просуванням оголошень.",
+      duration: "6 тижнів",
+      client: "TradeGround",
+      category: "Telegram Bot + Mini App",
+      portfolioCategory: "chatbots",
+      liveUrl: "https://t.me/TradeGroundBot",
+      features: [
+        "Каталог оголошлень",
+        "Профілі продавців",
+        "Оплата через Monobank",
+        "Модерація оголошлень",
+        "Розсилки та реферальна програма",
+        "Платні пакети для просування",
+        "Міні-додаток: фільтри, обране, рекомендації",
+        "Мультимовність та аналітика",
+        "Зручна адмін-панель"
+      ],
+      results: [
+        { value: "100%", label: "Все в одному місці" },
+        { value: "2", label: "Бот + міні-додаток" },
+        { value: "↑", label: "Масштабованість" },
+        { value: "↑", label: "Просування оголошлень" }
+      ]
+    },
+    '13vplus': {
+      title: "13VPLUS: Як ми створили магазин для бренду жіночого одягу",
+      subtitle: "13VPLUS — магазин про стиль та індивідуальність.",
+      mainImage: "/Group 1000007094.jpg",
+      description: "13VPLUS — магазин про стиль та індивідуальність.\n\nНашою метою було створити платформу, яка виглядає так само вишукано, як і колекції бренду, але при цьому працює швидко, стабільно й без компромісів. Особливу увагу приділили деталям: продуманий UX, акуратна стилі та ефекти.\n\nМи реалізували зручний та надійний прийом платежів: WayForPay для банківських карток і Plisio для криптоплатежів.\n\nЗ технічного боку сайт готовий до росту: інтегровано Meta Pixel, налаштовані структуровані дані та SEO-база для ефективного просування.\n\nУ результаті вийшов не просто інтернет-магазин, а повноцінний інструмент для бізнесу — від прийому оплат до роботи з лояльністю клієнтів.",
+      duration: "4 тижні",
+      client: "13VPLUS",
+      category: "E-commerce",
+      portfolioCategory: "websites",
+      liveUrl: "https://13vplus.com/",
+      features: [
+        "Вишуканий дизайн у стилі бренду",
+        "WayForPay — оплата банківськими картками",
+        "Plisio — прийом криптоплатежів",
+        "Інтеграція Meta Pixel для реклами",
+        "Структуровані дані та SEO-оптимізація",
+        "Продуманий UX та анімації",
+        "Система лояльності клієнтів",
+        "Адаптивний дизайн для всіх пристроїв"
+      ],
+      results: [
+        { value: "100%", label: "Готовність до масштабування" },
+        { value: "2", label: "Платіжні системи" },
+        { value: "↑", label: "SEO-база для просування" },
+        { value: "↑", label: "Лояльність клієнтів" }
+      ]
+    },
     'dr-tolstikova-bot': {
       title: "Бот для доступу до закритого комюніті",
       subtitle: "Повна автоматизація бізнес-процесів для Dr. Толстікової",
@@ -580,6 +635,61 @@ export const cases = {
   },
   
   en: {
+    'tradeground-bot': {
+      title: "TradeGroundBot — Marketplace in Telegram",
+      subtitle: "Full marketplace: bot + mini app for selling and buying goods",
+      mainImage: "/Group 1000007098 1.png",
+      description: "TradeGroundBot is a full-fledged marketplace in Telegram: bot + mini app where you can sell and buy goods without leaving the messenger.\n\nWe brought everything together in one place: classifieds catalog, seller profiles, Monobank payments and a convenient admin panel.\n\nThe bot handles listings, moderation, newsletters, referrals and paid promotion packages. The mini app covers the catalog, filters, favorites, recommendations and profiles.\n\nThe result — a simple, clear and scalable marketplace with multilingual support, analytics and listing promotion.",
+      duration: "6 weeks",
+      client: "TradeGround",
+      category: "Telegram Bot + Mini App",
+      portfolioCategory: "chatbots",
+      liveUrl: "https://t.me/TradeGroundBot",
+      features: [
+        "Classifieds catalog",
+        "Seller profiles",
+        "Monobank payment integration",
+        "Listing moderation",
+        "Newsletters and referral program",
+        "Paid promotion packages",
+        "Mini app: filters, favorites, recommendations",
+        "Multilingual support and analytics",
+        "Convenient admin panel"
+      ],
+      results: [
+        { value: "100%", label: "All in one place" },
+        { value: "2", label: "Bot + mini app" },
+        { value: "↑", label: "Scalability" },
+        { value: "↑", label: "Listing promotion" }
+      ]
+    },
+    '13vplus': {
+      title: "13VPLUS: How We Built a Store for a Women's Fashion Brand",
+      subtitle: "13VPLUS — a store about style and individuality.",
+      mainImage: "/Group 1000007094.jpg",
+      description: "13VPLUS — a store about style and individuality.\n\nOur goal was to create a platform that looks as refined as the brand's collections, while working fast, reliably and without compromise. Special attention was paid to details: thoughtful UX, clean styling and effects.\n\nWe implemented convenient and reliable payment processing: WayForPay for bank cards and Plisio for crypto payments.\n\nTechnically, the site is ready for growth: Meta Pixel integrated, structured data and SEO base configured for effective promotion.\n\nThe result is not just an online store, but a full-fledged business tool — from payment processing to customer loyalty management.",
+      duration: "4 weeks",
+      client: "13VPLUS",
+      category: "E-commerce",
+      portfolioCategory: "websites",
+      liveUrl: "https://13vplus.com/",
+      features: [
+        "Elegant design in brand style",
+        "WayForPay — bank card payments",
+        "Plisio — crypto payments",
+        "Meta Pixel integration for advertising",
+        "Structured data and SEO optimization",
+        "Thoughtful UX and animations",
+        "Customer loyalty system",
+        "Responsive design for all devices"
+      ],
+      results: [
+        { value: "100%", label: "Ready for scaling" },
+        { value: "2", label: "Payment systems" },
+        { value: "↑", label: "SEO base for promotion" },
+        { value: "↑", label: "Customer loyalty" }
+      ]
+    },
     'dr-tolstikova-bot': {
       title: "Bot for Closed Community Access",
       subtitle: "Complete business process automation for Dr. Tolstikova",
@@ -1158,6 +1268,61 @@ export const cases = {
   },
   
   pl: {
+    'tradeground-bot': {
+      title: "TradeGroundBot — marketplace w Telegramie",
+      subtitle: "Pełny marketplace: bot + mini-aplikacja do sprzedaży i kupna",
+      mainImage: "/Group 1000007098 1.png",
+      description: "TradeGroundBot to pełnoprawny marketplace w Telegramie: bot + mini-aplikacja, gdzie można sprzedawać i kupować towary bez wychodzenia z messengera.\n\nPołączyliśmy wszystko w jednym miejscu: katalog ogłoszeń, profile sprzedawców, płatności Monobank i wygodny panel administracyjny.\n\nBot obsługuje ogłoszenia, moderację, newsletter, program poleceń i płatne pakiety promocyjne. Mini-aplikacja — katalog, filtry, ulubione, rekomendacje i profile.\n\nRezultat — prosty, zrozumiały i skalowalny marketplace z wielojęzycznością, analityką i promocją ogłoszeń.",
+      duration: "6 tygodni",
+      client: "TradeGround",
+      category: "Bot Telegram + Mini App",
+      portfolioCategory: "chatbots",
+      liveUrl: "https://t.me/TradeGroundBot",
+      features: [
+        "Katalog ogłoszeń",
+        "Profile sprzedawców",
+        "Płatności przez Monobank",
+        "Moderacja ogłoszeń",
+        "Newsletter i program poleceń",
+        "Płatne pakiety promocyjne",
+        "Mini-app: filtry, ulubione, rekomendacje",
+        "Wielojęzyczność i analityka",
+        "Wygodny panel administracyjny"
+      ],
+      results: [
+        { value: "100%", label: "Wszystko w jednym miejscu" },
+        { value: "2", label: "Bot + mini-app" },
+        { value: "↑", label: "Skalowalność" },
+        { value: "↑", label: "Promocja ogłoszeń" }
+      ]
+    },
+    '13vplus': {
+      title: "13VPLUS: Jak stworzyliśmy sklep dla marki odzieży damskiej",
+      subtitle: "13VPLUS — sklep o stylu i indywidualności.",
+      mainImage: "/Group 1000007094.jpg",
+      description: "13VPLUS — sklep o stylu i indywidualności.\n\nNaszym celem było stworzenie platformy, która wygląda tak samo wyrafinowanie jak kolekcje marki, a przy tym działa szybko, stabilnie i bez kompromisów. Szczególną uwagę poświęciliśmy szczegółom: przemyślany UX, schludna stylizacja i efekty.\n\nZrealizowaliśmy wygodny i niezawodny przyjmowanie płatności: WayForPay dla kart bankowych i Plisio dla płatności kryptowalutowych.\n\nTechnicznie strona jest gotowa do wzrostu: zintegrowany Meta Pixel, skonfigurowane dane strukturalne i baza SEO do skutecznej promocji.\n\nRezultatem jest nie tylko sklep internetowy, ale pełnoprawny instrument biznesowy — od przyjmowania płatności po pracę z lojalnością klientów.",
+      duration: "4 tygodnie",
+      client: "13VPLUS",
+      category: "E-commerce",
+      portfolioCategory: "websites",
+      liveUrl: "https://13vplus.com/",
+      features: [
+        "Elegancki design w stylu marki",
+        "WayForPay — płatności kartami bankowymi",
+        "Plisio — płatności kryptowalutowe",
+        "Integracja Meta Pixel do reklam",
+        "Dane strukturalne i optymalizacja SEO",
+        "Przemyślany UX i animacje",
+        "System lojalności klientów",
+        "Responsywny design dla wszystkich urządzeń"
+      ],
+      results: [
+        { value: "100%", label: "Gotowość do skalowania" },
+        { value: "2", label: "Systemy płatności" },
+        { value: "↑", label: "Baza SEO do promocji" },
+        { value: "↑", label: "Lojalność klientów" }
+      ]
+    },
     'dr-tolstikova-bot': {
       title: "Bot dostępu do zamkniętej społeczności",
       subtitle: "Pełna automatyzacja procesów biznesowych dla Dr. Tolstikova",
@@ -1737,6 +1902,61 @@ export const cases = {
   },
   
   ru: {
+    'tradeground-bot': {
+      title: "TradeGroundBot — маркетплейс в Telegram",
+      subtitle: "Полноценный маркетплейс: бот + мини-приложение для продажи и покупки",
+      mainImage: "/Group 1000007098 1.png",
+      description: "TradeGroundBot — это полноценный маркетплейс в Telegram: бот + мини-приложение, где можно продавать и покупать товары, не выходя из мессенджера.\n\nМы собрали всё в одном месте: каталог объявлений, профили продавцов, оплата через Monobank и удобная админка.\n\nБот отвечает за объявления, модерацию, рассылки, рефералы и платные пакеты продвижения. Мини-приложение — за каталог, фильтры, избранное, рекомендации и профили.\n\nВ результате — простой, понятный и масштабируемый маркетплейс с мультиязычностью, аналитикой и продвижением объявлений.",
+      duration: "6 недель",
+      client: "TradeGround",
+      category: "Telegram Bot + Mini App",
+      portfolioCategory: "chatbots",
+      liveUrl: "https://t.me/TradeGroundBot",
+      features: [
+        "Каталог объявлений",
+        "Профили продавцов",
+        "Оплата через Monobank",
+        "Модерация объявлений",
+        "Рассылки и реферальная программа",
+        "Платные пакеты продвижения",
+        "Мини-приложение: фильтры, избранное, рекомендации",
+        "Мультиязычность и аналитика",
+        "Удобная админ-панель"
+      ],
+      results: [
+        { value: "100%", label: "Всё в одном месте" },
+        { value: "2", label: "Бот + мини-приложение" },
+        { value: "↑", label: "Масштабируемость" },
+        { value: "↑", label: "Продвижение объявлений" }
+      ]
+    },
+    '13vplus': {
+      title: "13VPLUS: Как мы создали магазин для бренда женской одежды",
+      subtitle: "13VPLUS — магазин о стиле и индивидуальности.",
+      mainImage: "/Group 1000007094.jpg",
+      description: "13VPLUS — магазин о стиле и индивидуальности.\n\nНашей целью было создать платформу, которая выглядит так же изысканно, как и коллекции бренда, но при этом работает быстро, стабильно и без компромиссов. Особое внимание уделили деталям: продуманный UX, аккуратная стилистика и эффекты.\n\nМы реализовали удобный и надёжный приём платежей: WayForPay для банковских карт и Plisio для криптоплатежей.\n\nС технической стороны сайт готов к росту: интегрирован Meta Pixel, настроены структурированные данные и SEO-база для эффективного продвижения.\n\nВ результате получился не просто интернет-магазин, а полноценный инструмент для бизнеса — от приёма оплат до работы с лояльностью клиентов.",
+      duration: "4 недели",
+      client: "13VPLUS",
+      category: "E-commerce",
+      portfolioCategory: "websites",
+      liveUrl: "https://13vplus.com/",
+      features: [
+        "Изысканный дизайн в стиле бренда",
+        "WayForPay — оплата банковскими картами",
+        "Plisio — приём криптоплатежей",
+        "Интеграция Meta Pixel для рекламы",
+        "Структурированные данные и SEO-оптимизация",
+        "Продуманный UX и анимации",
+        "Система лояльности клиентов",
+        "Адаптивный дизайн для всех устройств"
+      ],
+      results: [
+        { value: "100%", label: "Готовность к масштабированию" },
+        { value: "2", label: "Платёжные системы" },
+        { value: "↑", label: "SEO-база для продвижения" },
+        { value: "↑", label: "Лояльность клиентов" }
+      ]
+    },
     'dr-tolstikova-bot': {
       title: "Бот для доступа к закрытому сообществу",
       subtitle: "Полная автоматизация бизнес-процессов для Dr. Толстиковой",

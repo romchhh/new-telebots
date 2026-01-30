@@ -43,6 +43,8 @@ export default function Portfolio() {
   }, [lightboxOpen]);
 
   const imageMap: Record<string, { image: string; category: string }> = {
+    'tradeground-bot': { image: '/Group 1000007098 1.png', category: 'chatbots' },
+    '13vplus': { image: '/Group 1000007094.jpg', category: 'websites' },
     'dr-tolstikova-bot': { image: '/dr-tolstikova-bot.jpg', category: 'chatbots' },
     'nieznany-piekarz': { image: '/Group 1000007023.png', category: 'websites' },
     'nutritionist-bot': { image: '/nutritionist-bot.jpg', category: 'chatbots' },
@@ -148,8 +150,8 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-black text-white h-screen">
-        <div className="grid lg:grid-cols-2 h-full">
+      <section className="bg-black text-white pt-16 md:pt-24 pb-8 md:pb-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div
             className={`p-8 sm:p-12 lg:p-16 xl:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`}
             ref={contentRef}
@@ -172,16 +174,16 @@ export default function Portfolio() {
           </div>
 
           <div
-            className={`relative h-full overflow-hidden scroll-animate-right ${isImageVisible ? 'animate' : ''}`}
+            className={`relative w-full aspect-[1500/970] overflow-hidden rounded-lg scroll-animate-right ${isImageVisible ? 'animate' : ''}`}
             ref={imageRef}
           >
             <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
             <Image
-              src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070"
+              src="/Group 1000007099.jpg"
               alt="Featured project"
               fill
-              className="object-cover object-center"
-              sizes="50vw"
+              className="object-contain"
+              sizes="100vw"
               priority
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6 sm:p-8 z-10">

@@ -8,8 +8,11 @@ import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/ServicesSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import Footer from '@/components/Footer';
+import OrderModal from '@/components/OrderModal';
+import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import StructuredData from '@/components/StructuredData';
+import { sendToTelegram } from '@/lib/telegram';
 
 export default function Home() {
   const params = useParams();
@@ -48,6 +51,32 @@ export default function Home() {
     router.push(newPath);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
+  useEffect(() => {
+    if (isModalOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = 'unset';
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [isModalOpen]);
+  const openModal = () => {
+    setSelectedService(t.modal.title);
+    setIsModalOpen(true);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedService('');
+  };
+  const handleSubmit = async (data: { name: string; phone: string; request: string }) => {
+    const success = await sendToTelegram({ name: data.name, phone: data.phone, request: data.request, service: selectedService });
+    if (success) {
+      closeModal();
+      setIsSuccessOpen(true);
+    } else {
+      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+    }
+  };
+
   return (
     <>
       <StructuredData type="organization" />
@@ -71,13 +100,16 @@ export default function Home() {
         
         <main id="main-content">
           <HeroSection t={t} />
-          <AboutSection t={t} />
+          <AboutSection t={t} onOrderClick={openModal} />
           <ServicesSection t={t} />
           <PortfolioSection t={t} />
         </main>
         
         <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
       </div>
+
+      <OrderModal isOpen={isModalOpen} onClose={closeModal} serviceName={selectedService} t={t} onSubmit={handleSubmit} />
+      <SuccessMessage isOpen={isSuccessOpen} onClose={() => setIsSuccessOpen(false)} message={t.modal.success} />
     </>
   );
 }

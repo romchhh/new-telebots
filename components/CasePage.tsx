@@ -79,6 +79,10 @@ export default function CasePage({ caseId }: CasePageProps) {
 
   const getCaseIcon = (caseId: string) => {
     switch (caseId) {
+      case 'tradeground-bot':
+        return <FaShoppingCart className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black" />;
+      case '13vplus':
+        return <FaStore className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black" />;
       case 'dr-tolstikova-bot':
         return <FaChartLine className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black" />;
       case 'nieznany-piekarz':
@@ -137,10 +141,10 @@ export default function CasePage({ caseId }: CasePageProps) {
       {/* Чорний блок зверху з назвою, описом та фото */}
       <section className="bg-black text-white">
         <div className="grid lg:grid-cols-2">
-          <div className="p-16 lg:p-24 flex flex-col justify-center">
+          <div className="p-8 sm:p-12 lg:p-20 xl:p-24 flex flex-col justify-center">
             <Link 
               href={`/${validLang}/portfolio`}
-              className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition mb-8 text-sm tracking-[0.2em]"
+              className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition mb-5 text-base tracking-[0.2em]"
             >
               <FaArrowLeft className="w-4 h-4" />
               {validLang === 'uk' ? 'Повернутися до портфоліо' :
@@ -149,11 +153,11 @@ export default function CasePage({ caseId }: CasePageProps) {
                'Powrót do portfolio'}
             </Link>
             
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black mb-6 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 leading-tight">
               {caseData.title}
             </h1>
             
-            <p className="text-lg lg:text-xl text-gray-300 mb-8 leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-300 mb-6 leading-relaxed">
               {caseData.subtitle}
             </p>
 
@@ -190,83 +194,57 @@ export default function CasePage({ caseId }: CasePageProps) {
         </div>
       </section>
 
-      {/* Project Information */}
-      <section className="bg-white py-16 lg:py-24">
+      {/* Project Information - Buttons */}
+      <section className="bg-white py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {caseData.duration && (
-              <div>
-                <p className="text-xs tracking-[0.2em] text-gray-400 mb-2">
-                  {validLang === 'uk' ? 'Тривалість' :
-                   validLang === 'en' ? 'Duration' :
-                   validLang === 'ru' ? 'Длительность' :
-                   'Czas trwania'}
-                </p>
-                <p className="text-xl font-black text-black">{caseData.duration}</p>
-              </div>
-            )}
-
-            {caseData.client && (
-              <div>
-                <p className="text-xs tracking-[0.2em] text-gray-400 mb-2">
-                  {validLang === 'uk' ? 'Клієнт' :
-                   validLang === 'en' ? 'Client' :
-                   validLang === 'ru' ? 'Клиент' :
-                   'Klient'}
-                </p>
-                <p className="text-xl font-black text-black">{caseData.client}</p>
-              </div>
-            )}
-
-            {caseData.category && (
-              <div>
-                <p className="text-xs tracking-[0.2em] text-gray-400 mb-2">
-                  {validLang === 'uk' ? 'Категорія' :
-                   validLang === 'en' ? 'Category' :
-                   validLang === 'ru' ? 'Категория' :
-                   'Kategoria'}
-                </p>
-                <p className="text-xl font-black text-black">{caseData.category}</p>
-              </div>
-            )}
-          </div>
-
-          {caseData.liveUrl && (
-            <div>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
+            {caseData.liveUrl && (
               <a
                 href={caseData.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 bg-black text-white px-8 py-4 rounded-full hover:bg-gray-800 transition-all duration-300 group"
+                className="inline-flex items-center justify-center gap-4 bg-black text-white px-14 py-6 rounded-full hover:bg-gray-800 transition-all duration-300 group text-xl font-black w-full sm:w-auto min-w-[280px] sm:min-w-0"
               >
-                <FaExternalLinkAlt className="w-4 h-4 transition-transform duration-300 group-hover:rotate-12" />
-                <span className="text-sm font-semibold tracking-wider">
-                  {validLang === 'uk' ? 'Переглянути проект' :
+                <FaExternalLinkAlt className="w-7 h-7 flex-shrink-0 transition-transform duration-300 group-hover:rotate-12" />
+                <span className="tracking-wider">
+                  {validLang === 'uk' ? 'Переглянути проєкт' :
                    validLang === 'en' ? 'View Project' :
                    validLang === 'ru' ? 'Посмотреть проект' :
                    'Zobacz projekt'}
                 </span>
               </a>
-            </div>
-          )}
+            )}
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="inline-flex items-center justify-center gap-4 bg-white text-black border-2 border-black px-14 py-6 rounded-full hover:bg-black hover:text-white transition-all duration-300 group text-xl font-black w-full sm:w-auto min-w-[280px] sm:min-w-0"
+            >
+              <span className="tracking-wider">
+                {validLang === 'uk' ? 'Замовити розробку' :
+                 validLang === 'en' ? 'Order Development' :
+                 validLang === 'ru' ? 'Заказать разработку' :
+                 'Zamów rozwój'}
+              </span>
+              <FaArrowRight className="w-7 h-7 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="bg-white py-16 lg:py-24">
+      <section className="bg-white py-12 lg:py-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Description */}
           {caseData.description && (
-            <div className="mb-20">
-              <h2 className="text-4xl lg:text-5xl font-black text-black mb-8">
-                {validLang === 'uk' ? 'Опис проекту' :
+            <div className="mb-12">
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-black mb-5">
+                {validLang === 'uk' ? 'Опис проєкту' :
                  validLang === 'en' ? 'Project Description' :
                  validLang === 'ru' ? 'Описание проекта' :
                  'Opis projektu'}
               </h2>
               <div className="prose prose-lg max-w-none">
                 {caseData.description.split('\n').map((paragraph: string, index: number) => (
-                  <p key={index} className="text-gray-700 mb-6 leading-relaxed text-lg">
+                  <p key={index} className="text-gray-700 mb-4 leading-relaxed text-xl lg:text-2xl">
                     {paragraph}
                   </p>
                 ))}
@@ -276,18 +254,18 @@ export default function CasePage({ caseId }: CasePageProps) {
 
           {/* Features */}
           {caseData.features && (
-            <div className="mb-20">
-              <h2 className="text-4xl lg:text-5xl font-black text-black mb-12">
+            <div className="mb-12">
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-black mb-6">
                 {validLang === 'uk' ? 'Основні функції' :
                  validLang === 'en' ? 'Key Features' :
                  validLang === 'ru' ? 'Основные функции' :
                  'Kluczowe funkcje'}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {caseData.features.map((feature: string, index: number) => (
-                  <div key={index} className="flex items-start gap-4 p-6 border-b border-gray-200">
-                    <div className="w-2 h-2 bg-black rounded-full mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-700 font-normal text-base leading-relaxed">{feature}</p>
+                  <div key={index} className="flex items-start gap-3 p-4 border-b border-gray-200">
+                    <div className="w-2 h-2 bg-black rounded-full mt-2.5 flex-shrink-0"></div>
+                    <p className="text-gray-700 font-normal text-lg lg:text-xl leading-relaxed">{feature}</p>
                   </div>
                 ))}
               </div>
@@ -296,20 +274,20 @@ export default function CasePage({ caseId }: CasePageProps) {
 
           {/* Results */}
           {caseData.results && (
-            <div className="mb-20">
-              <h2 className="text-4xl lg:text-5xl font-black text-black mb-12 text-center">
+            <div className="mb-12">
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-black mb-6 text-center">
                 {validLang === 'uk' ? 'Результати' :
                  validLang === 'en' ? 'Results' :
                  validLang === 'ru' ? 'Результаты' :
                  'Wyniki'}
               </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {caseData.results.map((result: { value: string; label: string }, index: number) => (
                   <div key={index} className="text-center">
-                    <div className="text-4xl lg:text-5xl font-black text-black mb-3">
+                    <div className="text-4xl lg:text-5xl xl:text-6xl font-black text-black mb-2">
                       {result.value}
                     </div>
-                    <p className="text-gray-600 font-normal text-sm tracking-[0.1em] uppercase">{result.label}</p>
+                    <p className="text-gray-600 font-normal text-base tracking-[0.1em] uppercase">{result.label}</p>
                   </div>
                 ))}
               </div>
@@ -320,15 +298,15 @@ export default function CasePage({ caseId }: CasePageProps) {
           <div className="text-center">
             <button 
               onClick={() => setIsModalOpen(true)}
-              className="group flex items-center justify-center gap-4 bg-black text-white px-12 py-6 rounded-full hover:bg-gray-800 transition-all duration-300 mx-auto"
+              className="group flex items-center justify-center gap-4 bg-black text-white px-14 py-6 rounded-full hover:bg-gray-800 transition-all duration-300 mx-auto text-xl font-black"
             >
-              <span className="text-sm font-semibold tracking-wider">
+              <span className="tracking-wider">
                 {validLang === 'uk' ? 'Замовити розробку' :
                  validLang === 'en' ? 'Order Development' :
                  validLang === 'ru' ? 'Заказать разработку' :
                  'Zamów rozwój'}
               </span>
-              <FaArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+              <FaArrowRight className="w-7 h-7 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
           </div>
         </div>

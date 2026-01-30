@@ -87,15 +87,34 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
           </Link>
         </div>
 
-        <div className="relative flex flex-col justify-center min-h-[400px] lg:min-h-[500px] overflow-hidden w-full min-w-0">
-          <div
-            className="flex overflow-x-scroll overflow-y-hidden gap-4 sm:gap-5 pl-6 pr-6 sm:pl-8 sm:pr-8 lg:pl-10 lg:pr-10 py-8 sm:py-10 scroll-smooth snap-x snap-mandatory min-w-0 w-full [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_transparent] overscroll-x-contain"
-            style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
-          >
-            {projects.map((project, index) => (
-              <PortfolioProject key={project.caseId} project={project} lang={validLang} />
-            ))}
+        <div className="relative flex flex-col justify-center w-full min-w-0 p-6 sm:p-8 lg:p-10">
+          <div className="relative w-full aspect-[1500/970] rounded-lg overflow-hidden">
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+            <Image
+              src="/Group 1000007099.jpg"
+              alt="Featured project"
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 sm:p-6 z-10">
+              <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-1">{t.portfolio.website}</p>
+              <h3 className="text-lg sm:text-xl font-black">Featured Project</h3>
+            </div>
           </div>
+        </div>
+      </div>
+
+      {/* Портфоліо — горизонтальний скрол знизу */}
+      <div className="overflow-hidden w-full min-w-0">
+        <div
+          className="flex overflow-x-scroll overflow-y-hidden gap-4 sm:gap-5 pl-6 pr-6 sm:pl-8 sm:pr-8 lg:pl-10 lg:pr-10 py-8 sm:py-10 scroll-smooth snap-x snap-mandatory min-w-0 w-full [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_transparent] overscroll-x-contain"
+          style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
+        >
+          {projects.map((project) => (
+            <PortfolioProject key={project.caseId} project={project} lang={validLang} />
+          ))}
         </div>
       </div>
     </section>
