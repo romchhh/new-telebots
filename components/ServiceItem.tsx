@@ -21,11 +21,6 @@ export default function ServiceItem({ serviceKey, image, imagePosition, t, onOrd
     <section className="bg-white">
       <div className={`grid lg:grid-cols-2 ${imagePosition === 'left' ? 'lg:grid-flow-dense' : ''}`}>
         <div className={`p-12 lg:p-24 flex flex-col justify-center ${imagePosition === 'left' ? 'lg:col-start-2' : ''} ${animationClass} ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
-          <div className="flex items-center gap-4 mb-6">
-            <span className="text-xs font-black text-black tracking-[0.3em] uppercase">
-              {service.title}
-            </span>
-          </div>
           <h2 className="text-4xl md:text-6xl font-black text-black mb-6 leading-tight">
             {service.title}
           </h2>

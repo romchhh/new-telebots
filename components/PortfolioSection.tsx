@@ -56,7 +56,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
     const caseData = (casesData as Record<string, { mainImage?: string; portfolioCategory?: string; title?: string }>)[caseId];
     const category = caseData?.portfolioCategory === 'chatbots' ? t.portfolio.telegram : t.portfolio.website;
     return {
-      image: caseData?.mainImage || '/dr-tolstikova-bot.jpg',
+      image: caseData?.mainImage || '/portfolio-dr-tolstikova-bot.jpg',
       category,
       title: caseData?.title || 'Project',
       caseId,
@@ -91,7 +91,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
           <div className="relative w-full aspect-[1500/970] rounded-lg overflow-hidden">
             <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
             <Image
-              src="/Group 1000007099.jpg"
+              src="/portfolio-default.jpg"
               alt="Featured project"
               fill
               className="object-contain"

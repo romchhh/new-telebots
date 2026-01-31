@@ -14,7 +14,7 @@ export default function ServicesSection({ t }: ServicesSectionProps) {
   const [buttonRef, isButtonVisible] = useScrollAnimation<HTMLAnchorElement>();
   
   return (
-    <section id="services" className="relative min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center">
+    <section id="services" className="relative min-h-screen flex items-center" style={{ background: 'linear-gradient(to bottom right, rgba(254, 172, 214, 0.3) 0%, black 30%, black 70%, rgba(254, 172, 214, 0.3) 100%)' }}>
       <div className="max-w-4xl mx-auto px-6 py-32">
         <h2 className={`font-bold text-white mb-4 md:mb-6 uppercase text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl scroll-animate-up ${isTitleVisible ? 'animate' : ''}`} ref={titleRef} style={{ letterSpacing: '0.15em', fontFamily: 'Montserrat, sans-serif' }}>
           {t.services.passion}

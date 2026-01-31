@@ -130,15 +130,20 @@ export default function AboutPage() {
         </a>
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
         <main id="main-content">
-      {/* Чорний банер з цитатою */}
-      <div className="bg-black text-white py-24 md:py-32 px-6 mt-16">
-        <div className="max-w-7xl mx-auto">
+      {/* Hero з фото та цитатою */}
+      <div className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden -mt-16 pt-16">
+        <div
+          className="absolute inset-0 bg-cover bg-top"
+          style={{ backgroundImage: 'url(/about-hero-macbook.jpg)' }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20 backdrop-blur-[2px]" style={{ WebkitBackdropFilter: 'blur(2px)' }} />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32">
           <div className={`max-w-5xl mx-auto scroll-animate-up ${isQuoteVisible ? 'animate' : ''}`} ref={quoteRef}>
             <blockquote>
-              <p className="text-2xl md:text-3xl lg:text-4xl font-black leading-relaxed italic">
-                <span className="text-5xl md:text-7xl lg:text-8xl text-white/30 font-black leading-none" style={{ fontFamily: 'serif' }}>&ldquo;</span>
+              <p className="text-2xl md:text-3xl lg:text-4xl font-black leading-relaxed italic text-white drop-shadow-lg">
+                <span className="text-5xl md:text-7xl lg:text-8xl text-white/40 font-black leading-none" style={{ fontFamily: 'serif' }}>&ldquo;</span>
                 {t.about.quote}
-                <span className="text-5xl md:text-7xl lg:text-8xl text-white/30 font-black leading-none" style={{ fontFamily: 'serif' }}>&rdquo;</span>
+                <span className="text-5xl md:text-7xl lg:text-8xl text-white/40 font-black leading-none" style={{ fontFamily: 'serif' }}>&rdquo;</span>
               </p>
             </blockquote>
           </div>
@@ -156,34 +161,55 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Фото на 100% ширини екрану з блюром */}
+      {/* Фото з текстом і кнопкою */}
       <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden">
-        <div className="relative w-full aspect-[1500/565]">
+        <div className="relative w-full aspect-[4031/2981]">
           <Image
-            src="/iPhone 15 Pro.jpg"
+            src="/about-hero.png"
             alt="TeleBots"
             fill
-            className="object-contain"
+            className="object-cover"
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 backdrop-blur-md bg-black/15" />
-          <div className="absolute inset-x-0 top-0 h-40 md:h-52 bg-gradient-to-b from-black/80 via-black/50 to-transparent" />
-          <div className="absolute inset-0 flex flex-col justify-between">
-            <div className="pt-10 md:pt-14">
-                <p className="text-center text-white font-normal leading-relaxed text-lg sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl px-6 md:px-16 max-w-5xl mx-auto drop-shadow-2xl" style={{ letterSpacing: '0.2em', fontFamily: 'Montserrat, sans-serif' }}>
-                  {t.about.ourWorkDesc}
-                </p>
-            </div>
-            <div className="flex justify-center pb-10 md:pb-14">
-              <button
-                onClick={openModal}
-                className="inline-flex items-center justify-center bg-black border-2 border-black text-white text-lg md:text-xl font-medium px-12 py-5 rounded-full hover:bg-gray-800 hover:border-gray-800 transition-colors duration-200 uppercase tracking-wider"
-              >
-                {t.modal.title}
-              </button>
-            </div>
+          {/* Градієнтне затемнення зверху — комп і mobile */}
+          <div 
+            className="absolute inset-x-0 top-0 h-[30%] md:h-[25%] pointer-events-none w-full"
+            style={{
+              background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.08) 60%, transparent 100%)',
+              backdropFilter: 'blur(4px)',
+              WebkitBackdropFilter: 'blur(4px)'
+            }}
+          />
+          {/* Текст і кнопка поверх фото */}
+          <div className="absolute inset-0 flex flex-col items-center justify-between pt-[4%] md:pt-[3%] pb-[4%] md:pb-[2%]">
+            <p 
+              className="text-center text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-[1.5] max-w-4xl md:max-w-5xl px-6 md:px-8 lg:px-12 tracking-[0.02em]"
+              style={{ 
+                fontFamily: 'Montserrat, sans-serif',
+                textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)'
+              }}
+            >
+              {t.about.ourWorkDesc}
+            </p>
+            {/* Кнопка на фото — тільки desktop */}
+            <button
+              onClick={openModal}
+              className="hidden md:inline-flex items-center justify-center bg-transparent border-2 border-white text-white text-lg md:text-xl font-medium px-12 py-5 rounded-full hover:bg-white hover:text-black transition-colors duration-200 uppercase tracking-wider"
+            >
+              {t.modal.title}
+            </button>
           </div>
+        </div>
+        
+        {/* Кнопка під фото — тільки mobile */}
+        <div className="md:hidden flex justify-center py-8 bg-white">
+          <button
+            onClick={openModal}
+            className="inline-flex items-center justify-center bg-black border-2 border-black text-white text-lg font-medium px-10 py-4 rounded-full hover:bg-white hover:text-black hover:border-black transition-colors duration-200 uppercase tracking-wider"
+          >
+            {t.modal.title}
+          </button>
         </div>
       </div>
       

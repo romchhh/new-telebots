@@ -101,17 +101,17 @@ export default function ServicesPage() {
   const services = [
     {
       key: 'websitesPage' as const,
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070',
+      image: '/services-websites.jpg',
       imagePosition: 'right' as const
     },
     {
       key: 'chatbotsPage' as const,
-      image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=2070',
+      image: '/services-chatbots.jpg',
       imagePosition: 'left' as const
     },
     {
       key: 'parsersPage' as const,
-      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015',
+      image: '/services-parsers.jpg',
       imagePosition: 'right' as const
     }
   ];

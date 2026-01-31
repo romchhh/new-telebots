@@ -43,35 +43,35 @@ export default function Portfolio() {
   }, [lightboxOpen]);
 
   const imageMap: Record<string, { image: string; category: string }> = {
-    'tradeground-bot': { image: '/Group 1000007098 1.png', category: 'chatbots' },
-    '13vplus': { image: '/Group 1000007094.jpg', category: 'websites' },
-    'dr-tolstikova-bot': { image: '/dr-tolstikova-bot.jpg', category: 'chatbots' },
-    'nieznany-piekarz': { image: '/Group 1000007023.png', category: 'websites' },
-    'nutritionist-bot': { image: '/nutritionist-bot.jpg', category: 'chatbots' },
-    'cats-fresh': { image: '/cats-fresh-project.jpg', category: 'websites' },
-    'applum-bot': { image: '/image-2025-10-04-03-26-23.jpg', category: 'chatbots' },
-    'easyplay': { image: '/image-2025-12-20-03-07-17.jpg', category: 'websites' },
-    'webinar-bot': { image: '/port44.png', category: 'chatbots' },
-    'normalnoauto': { image: '/port77.png', category: 'chatbots' },
-    'kvartyrant': { image: '/port99.png', category: 'chatbots' },
-    'cosmy': { image: '/port1010.png', category: 'chatbots' },
-    'newlineschool': { image: '/image-2025-10-04-04-24-06.jpg', category: 'websites' },
-    'flixmarket': { image: '/image-2025-10-04-03-34-02.jpg', category: 'chatbots' },
-    'alexandraaleksiuk': { image: '/image-2025-10-04-04-56-05.jpg', category: 'websites' },
-    'offer-dpuchkov': { image: '/image-2025-10-04-04-56-47.jpg', category: 'websites' },
-    'vsk-technology': { image: '/vsk-technology.png', category: 'websites' },
-    'v12-auto': { image: '/v12-auto.png', category: 'websites' },
-    'tripvibe': { image: '/tripvibe.png', category: 'websites' },
-    'tron-energy-bot': { image: '/image-2025-10-13-22-39-19.jpg', category: 'chatbots' },
-    'chars-kyiv': { image: '/screenshot-2025-11-03-01-49-01.png', category: 'websites' },
-    'style-chat-vakhula': { image: '/image-2025-11-03-02-12-02.jpg', category: 'chatbots' },
-    'landscaper-academy': { image: '/screenshot-2025-12-20-03-02-08.png', category: 'websites' },
+    'tradeground-bot': { image: '/portfolio-tradeground-bot.png', category: 'chatbots' },
+    '13vplus': { image: '/portfolio-13vplus.jpg', category: 'websites' },
+    'dr-tolstikova-bot': { image: '/portfolio-dr-tolstikova-bot.jpg', category: 'chatbots' },
+    'nieznany-piekarz': { image: '/portfolio-nieznany-piekarz.png', category: 'websites' },
+    'nutritionist-bot': { image: '/portfolio-nutritionist-bot.jpg', category: 'chatbots' },
+    'cats-fresh': { image: '/portfolio-cats-fresh.jpg', category: 'websites' },
+    'applum-bot': { image: '/portfolio-applum-bot.jpg', category: 'chatbots' },
+    'easyplay': { image: '/portfolio-easyplay.jpg', category: 'websites' },
+    'webinar-bot': { image: '/portfolio-webinar-bot.png', category: 'chatbots' },
+    'normalnoauto': { image: '/portfolio-normalnoauto.png', category: 'chatbots' },
+    'kvartyrant': { image: '/portfolio-kvartyrant.png', category: 'chatbots' },
+    'cosmy': { image: '/portfolio-cosmy.png', category: 'chatbots' },
+    'newlineschool': { image: '/portfolio-newlineschool.jpg', category: 'websites' },
+    'flixmarket': { image: '/portfolio-flixmarket.jpg', category: 'chatbots' },
+    'alexandraaleksiuk': { image: '/portfolio-alexandraaleksiuk.jpg', category: 'websites' },
+    'offer-dpuchkov': { image: '/portfolio-offer-dpuchkov.jpg', category: 'websites' },
+    'vsk-technology': { image: '/portfolio-vsk-technology.png', category: 'websites' },
+    'v12-auto': { image: '/portfolio-v12-auto.png', category: 'websites' },
+    'tripvibe': { image: '/portfolio-tripvibe.png', category: 'websites' },
+    'tron-energy-bot': { image: '/portfolio-tron-energy-bot.jpg', category: 'chatbots' },
+    'chars-kyiv': { image: '/portfolio-chars-kyiv.png', category: 'websites' },
+    'style-chat-vakhula': { image: '/portfolio-style-chat-vakhula.jpg', category: 'chatbots' },
+    'landscaper-academy': { image: '/portfolio-landscaper-academy.png', category: 'websites' },
   };
 
   const works = Object.keys(casesData).map((caseId) => {
     const caseData = (casesData as Record<string, { mainImage?: string; portfolioCategory?: string; title?: string; subtitle?: string }>)[caseId];
     const map = imageMap[caseId] || {
-      image: caseData?.mainImage || '/dr-tolstikova-bot.jpg',
+      image: caseData?.mainImage || '/portfolio-dr-tolstikova-bot.jpg',
       category: (caseData?.portfolioCategory as string) || 'websites',
     };
     return {
@@ -179,7 +179,7 @@ export default function Portfolio() {
           >
             <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
             <Image
-              src="/Group 1000007099.jpg"
+              src="/portfolio-default.jpg"
               alt="Featured project"
               fill
               className="object-contain"
