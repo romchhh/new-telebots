@@ -9,8 +9,34 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-      // Додайте інші зовнішні домени зображень за потреби
     ],
+    formats: ['image/avif', 'image/webp'],
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+        ],
+      },
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=3600',
+          },
+        ],
+      },
+    ];
   },
 };
 

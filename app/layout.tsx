@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description: "Professional development of Telegram bots, chatbots, websites, e-commerce stores, parsers and AI bots",
     images: [
       {
-        url: `${baseUrl}/og-image.jpg`,
+        url: `${baseUrl}/services-hero.png`,
         width: 1200,
         height: 630,
         alt: "TeleBots - Professional Digital Solutions",
@@ -39,8 +39,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TeleBots - Professional Digital Solutions",
     description: "Professional development of Telegram bots, chatbots, websites, e-commerce stores, parsers and AI bots",
-    images: [`${baseUrl}/og-image.jpg`],
+    images: [`${baseUrl}/services-hero.png`],
     creator: "@telebotsnowayrm",
+    site: "@telebotsnowayrm",
   },
   robots: {
     index: true,
@@ -68,6 +69,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: baseUrl,
     languages: {
+      "x-default": `${baseUrl}/uk`,
       "uk": `${baseUrl}/uk`,
       "en": `${baseUrl}/en`,
       "pl": `${baseUrl}/pl`,
@@ -108,11 +110,16 @@ export default function RootLayout({
         <meta name="google-site-verification" content="B6RsISu82MaHNjyNFTkfGrgB0SFwQDHLNrlGh0RoQe4" />
         
         {/* Additional SEO meta tags */}
+        <meta name="application-name" content="TeleBots" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="geo.region" content="UA-32" />
         <meta name="geo.placename" content="Kyiv" />
+        <meta name="geo.position" content="50.4501;30.5234" />
+        <meta name="ICBM" content="50.4501, 30.5234" />
         <meta name="language" content="Ukrainian" />
         <meta name="revisit-after" content="7 days" />
+        <meta name="rating" content="general" />
+        <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className="antialiased">
         {children}

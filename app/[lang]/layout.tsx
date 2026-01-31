@@ -48,6 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     alternates: {
       canonical: `${baseUrl}/${lang}`,
       languages: {
+        'x-default': `${baseUrl}/uk`,
         'uk': `${baseUrl}/uk`,
         'en': `${baseUrl}/en`,
         'pl': `${baseUrl}/pl`,
@@ -63,7 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: 'TeleBots',
       images: [
         {
-          url: `${baseUrl}/og-image.jpg`,
+          url: `${baseUrl}/services-hero.png`,
           width: 1200,
           height: 630,
           alt: title,
@@ -74,7 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       card: 'summary_large_image',
       title,
       description,
-      images: [`${baseUrl}/og-image.jpg`],
+      images: [`${baseUrl}/services-hero.png`],
       creator: '@telebotsnowayrm',
       site: '@telebotsnowayrm',
     },
@@ -101,10 +102,6 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       ],
     },
     manifest: '/manifest.json',
-    verification: {
-      google: 'your-google-verification-code',
-      yandex: 'your-yandex-verification-code',
-    },
   };
 }
 

@@ -5,10 +5,9 @@ import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://telebotsnowayrm.com';
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { lang: string; caseId: string };
+export async function generateMetadata(params: {
+  lang: string;
+  caseId: string;
 }): Promise<Metadata> {
   const lang = (['uk', 'en', 'pl', 'ru'].includes(params.lang) ? params.lang : 'uk') as Language;
   const casesData = cases[lang] || cases.uk;

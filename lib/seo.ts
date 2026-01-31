@@ -20,13 +20,14 @@ export function generateMetadata(config: SEOConfig) {
     title,
     description,
     keywords,
-    image = `${baseUrl}/og-image.jpg`,
+    image = `${baseUrl}/services-hero.png`,
     type = 'website',
     url,
     lang = 'uk',
   } = config;
 
   const currentUrl = url || `${baseUrl}/${lang}`;
+  const pathSuffix = url ? url.replace(`${baseUrl}/${lang}`, '') : '';
 
   return {
     title,
@@ -59,10 +60,22 @@ export function generateMetadata(config: SEOConfig) {
     alternates: {
       canonical: currentUrl,
       languages: {
-        uk: `${baseUrl}/uk${url?.replace(`/${lang}`, '') || ''}`,
-        en: `${baseUrl}/en${url?.replace(`/${lang}`, '') || ''}`,
-        pl: `${baseUrl}/pl${url?.replace(`/${lang}`, '') || ''}`,
-        ru: `${baseUrl}/ru${url?.replace(`/${lang}`, '') || ''}`,
+        'x-default': `${baseUrl}/uk${pathSuffix}`,
+        uk: `${baseUrl}/uk${pathSuffix}`,
+        en: `${baseUrl}/en${pathSuffix}`,
+        pl: `${baseUrl}/pl${pathSuffix}`,
+        ru: `${baseUrl}/ru${pathSuffix}`,
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large' as const,
+        'max-snippet': -1,
       },
     },
   };

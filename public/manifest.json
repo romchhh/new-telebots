@@ -1,31 +1,33 @@
 {
   "name": "TeleBots - Professional Digital Solutions",
   "short_name": "TeleBots",
-  "description": "Development of Telegram bots, websites, landing pages, e-commerce stores, parsers and AI bots",
-  "start_url": "/",
+  "description": "Development of Telegram bots, websites, landing pages, e-commerce stores, parsers and AI bots. 200+ projects. Quick start in 24 hours.",
+  "start_url": "/uk",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
   "theme_color": "#000000",
+  "lang": "uk",
+  "categories": ["business", "productivity"],
   "icons": [
     {
-      "src": "/icon-16x16.png",
-      "sizes": "16x16",
-      "type": "image/png"
+      "src": "/whitelogo.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "/icon-32x32.png",
-      "sizes": "32x32",
-      "type": "image/png"
+      "src": "/whitelogo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
     },
     {
-      "src": "/apple-icon.png",
-      "sizes": "180x180",
-      "type": "image/png"
-    },
-    {
-      "src": "/icon-512x512.png",
+      "src": "/whitelogo.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
