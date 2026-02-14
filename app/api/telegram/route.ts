@@ -1,9 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const TELEGRAM_BOT_TOKEN = '7879990803:AAFUsmy_hGfhhKNCk_ipRfDHudbFOA5MtuA';
-const TELEGRAM_CHAT_ID = '7119952932';
-
 export async function POST(request: NextRequest) {
+  const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+  const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+
+  if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
+    console.error('Telegram: TELEGRAM_BOT_TOKEN або TELEGRAM_CHAT_ID не задані в .env');
+    return NextResponse.json(
+      { success: false, error: 'Service not configured' },
+      { status: 503 }
+    );
+  }
+
   try {
     const body = await request.json();
     const { name, phone, request: requestText, service, caseId, project } = body;

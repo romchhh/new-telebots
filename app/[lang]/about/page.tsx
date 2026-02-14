@@ -150,6 +150,16 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* Посилання під hero: Портфоліо, Про нас */}
+      <div className="bg-white border-b border-gray-100 py-4 px-6 md:px-10 lg:px-16">
+        <p className="max-w-4xl mx-auto text-center text-lg text-gray-600">
+          {t.about.seoLinksIntro}
+          <Link href={`/${lang}/portfolio`} className="text-black font-medium underline hover:no-underline">{t.nav.portfolio}</Link>
+          {' — '}
+          <Link href={`/${lang}/services`} className="text-black font-medium underline hover:no-underline">{t.nav.services}</Link>.
+        </p>
+      </div>
+
       {/* Основний блок під цитатою */}
       <section className="py-16 md:py-24 lg:py-28 px-6 md:px-10 lg:px-16 bg-white">
         <div className="max-w-[1600px] mx-auto">
@@ -221,12 +231,6 @@ export default function AboutPage() {
             </p>
             <p className={`text-2xl md:text-3xl lg:text-4xl text-gray-800 font-normal leading-[1.6] max-w-3xl scroll-animate-up ${isIntroVisible ? 'animate' : ''}`} ref={introRef}>
               {t.about.pageIntro}
-            </p>
-            <p className="mt-6 text-lg md:text-xl text-gray-600 leading-[1.6]">
-              {t.about.seoLinksIntro}
-              <Link href={`/${lang}/services`} className="text-black font-medium underline hover:no-underline">{t.nav.services}</Link>
-              {', '}
-              <Link href={`/${lang}/portfolio`} className="text-black font-medium underline hover:no-underline">{t.nav.portfolio}</Link>.
             </p>
           </div>
 
