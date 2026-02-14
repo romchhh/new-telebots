@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://telebotsnowayrm.com';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
 
   return {
     rules: [
@@ -20,11 +20,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: '/',
         disallow: ['/api/', '/_next/', '/admin/'],
       },
-      {
-        userAgent: 'Yandex',
-        allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/'],
-      },
+
     ],
     host: baseUrl,
     sitemap: `${baseUrl}/sitemap.xml`,

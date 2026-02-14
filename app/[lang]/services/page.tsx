@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ServicesPassionSection from '@/components/ServicesPassionSection';
@@ -101,18 +102,23 @@ export default function ServicesPage() {
   const services = [
     {
       key: 'websitesPage' as const,
-      image: '/services-websites.jpg',
+      image: '/services/services-websites.jpg',
       imagePosition: 'right' as const
     },
     {
       key: 'chatbotsPage' as const,
-      image: '/services-chatbots.jpg',
+      image: '/services/services-chatbots.jpg',
       imagePosition: 'left' as const
     },
     {
       key: 'parsersPage' as const,
-      image: '/services-parsers.jpg',
+      image: '/services/services-parsers.jpg',
       imagePosition: 'right' as const
+    },
+    {
+      key: 'designPage' as const,
+      image: '/services/services-design.jpg',
+      imagePosition: 'left' as const
     }
   ];
 
@@ -139,7 +145,11 @@ export default function ServicesPage() {
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
         <main id="main-content">
         <ServicesPassionSection t={t} />
-      
+      <p className="max-w-4xl mx-auto px-6 mb-10 text-lg text-gray-600 text-center">
+        <Link href={`/${lang}/portfolio`} className="text-black font-medium underline hover:no-underline">{t.nav.portfolio}</Link>
+        {' — '}
+        <Link href={`/${lang}/about`} className="text-black font-medium underline hover:no-underline">{t.nav.about}</Link>.
+      </p>
       <div id="services-list">
       {services.map((service, index) => (
         <ServiceItem

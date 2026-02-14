@@ -82,9 +82,9 @@ export default function RefundPage() {
             <div className="pt-6 border-t border-gray-200">
               <h3 className="text-xl font-black text-black mb-4">{t.footer.legalBlockTitle}</h3>
               <ul className="text-gray-700 font-semibold leading-relaxed space-y-1 text-base">
-                <li>{legal.companyName}</li>
+                <li>{t.footer.companyName}</li>
                 <li>{t.footer.footerEdrpou}: {legal.edrpou}</li>
-                <li>{t.footer.address}: {legal.legalAddress}</li>
+                <li>{t.footer.address}: {t.footer.legalAddress}</li>
                 <li>{t.footer.phone}: <a href={`tel:${legal.phoneRaw}`} className="text-black hover:underline">{legal.phone}</a></li>
                 <li>{t.footer.email}: <a href={`mailto:${legal.email}`} className="text-black hover:underline">{legal.email}</a></li>
               </ul>

@@ -2,7 +2,15 @@ import { Language } from '@/components/translations';
 import { cases } from '@/components/cases';
 import { legal } from '@/lib/legal';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://telebotsnowayrm.com';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
+
+/** Обмежує description для meta (Google ~150–160 символів) */
+export function trimDescriptionForMeta(description: string, maxLength = 160): string {
+  if (!description || description.length <= maxLength) return description;
+  const trimmed = description.slice(0, maxLength - 3).trim();
+  const lastSpace = trimmed.lastIndexOf(' ');
+  return lastSpace > maxLength * 0.7 ? trimmed.slice(0, lastSpace) + '...' : trimmed + '...';
+}
 
 export interface SEOConfig {
   title: string;
@@ -20,7 +28,7 @@ export function generateMetadata(config: SEOConfig) {
     title,
     description,
     keywords,
-    image = `${baseUrl}/services-hero.png`,
+    image = `${baseUrl}/portfolio/portfolio-default.jpg`,
     type = 'website',
     url,
     lang = 'uk',
@@ -28,17 +36,18 @@ export function generateMetadata(config: SEOConfig) {
 
   const currentUrl = url || `${baseUrl}/${lang}`;
   const pathSuffix = url ? url.replace(`${baseUrl}/${lang}`, '') : '';
+  const metaDescription = trimDescriptionForMeta(description);
 
   return {
     title,
-    description,
+    description: metaDescription,
     keywords,
     openGraph: {
       type,
       locale: lang === 'uk' ? 'uk_UA' : lang === 'en' ? 'en_US' : lang === 'pl' ? 'pl_PL' : 'ru_RU',
       url: currentUrl,
       title,
-      description,
+      description: metaDescription,
       siteName: 'TeleBots',
       images: [
         {
@@ -52,7 +61,7 @@ export function generateMetadata(config: SEOConfig) {
     twitter: {
       card: 'summary_large_image',
       title,
-      description,
+      description: metaDescription,
       images: [image],
       creator: '@telebotsnowayrm',
       site: '@telebotsnowayrm',
@@ -260,6 +269,12 @@ export function generateProductSchema(serviceName: string, description: string, 
       pl: 'Rozwój parserów',
       ru: 'Разработка парсеров',
     },
+    'designPage': {
+      uk: 'Дизайн (лого, айдентика, UI/UX)',
+      en: 'Design (logo, identity, UI/UX)',
+      pl: 'Design (logo, identyfikacja, UI/UX)',
+      ru: 'Дизайн (логотипы, айдентика, UI/UX)',
+    },
   };
 
   const name = serviceNames[serviceName]?.[lang] || serviceName;
@@ -375,6 +390,7 @@ export function generateAggregateRatingSchema(rating: number = 5.0, reviewCount:
 }
 
 export function generateItemListSchema(items: Array<{ name: string; url: string; description?: string }>, lang: Language = 'uk') {
+  const toAbsoluteUrl = (url: string) => (url.startsWith('http') ? url : `${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`);
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -386,7 +402,7 @@ export function generateItemListSchema(items: Array<{ name: string; url: string;
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      url: item.url,
+      url: toAbsoluteUrl(item.url),
       description: item.description,
     })),
   };

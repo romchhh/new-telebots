@@ -17,7 +17,7 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(/services-hero.png)',
+          backgroundImage: 'url(/services/services-hero.png)',
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[3px]" style={{ WebkitBackdropFilter: 'blur(3px)' }} />

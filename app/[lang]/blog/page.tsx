@@ -74,7 +74,7 @@ export default function BlogPage() {
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
-              backgroundImage: 'url(/blog-hero.jpg)',
+              backgroundImage: 'url(/other/blog-hero.jpg)',
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[3px]" style={{ WebkitBackdropFilter: 'blur(3px)' }} />

@@ -27,7 +27,7 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
         {/* Фото з текстом і кнопкою */}
         <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-16 md:mb-20">
           <div className="relative w-full aspect-[4031/2981]">
-            <Image src="/about-hero.png" alt="TeleBots" fill className="object-cover" sizes="100vw" priority />
+            <Image src="/other/about-hero.png" alt="TeleBots" fill className="object-cover" sizes="100vw" priority />
             {/* Градієнтне затемнення зверху — комп і mobile */}
             <div 
               className="absolute inset-x-0 top-0 h-[30%] md:h-[25%] pointer-events-none w-full"

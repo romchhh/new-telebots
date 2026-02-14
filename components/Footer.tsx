@@ -86,12 +86,12 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
             <ul className="space-y-3 mb-6">
               <li className="text-gray-400 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.legalBlockTitle}</span>
-                <span className="text-white">{legal.companyName}</span>
+                <span className="text-white">{t.footer.companyName}</span>
                 <span className="block text-gray-400 mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</span>
               </li>
               <li className="text-gray-400 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.address}</span>
-                <span className="text-white">{legal.legalAddress}</span>
+                <span className="text-white">{t.footer.legalAddress}</span>
               </li>
               <li className="text-gray-400 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.phone}</span>

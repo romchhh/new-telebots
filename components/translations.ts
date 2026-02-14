@@ -9,7 +9,8 @@ export const translations = {
     },
     hero: {
       title: 'Покращуємо бізнеси, що стають №1',
-      subtitle: 'Боти, AI, сайти — технології для зростання.',
+      subtitle: 'Боти, AI, сайти та дизайн — технології для зростання.',
+      tagline: 'Розробляємо чат-боти та сайти, якими хочеться користуватися.',
       viewButton: 'Переглянути',
       startDate: {
         label: 'швидкий старт',
@@ -29,7 +30,7 @@ export const translations = {
       contactDesc: 'Будь ласка, зв\'яжіться з нами з будь-якими питаннями.',
       getInTouch: 'Зв\'язатися',
       services: 'Послуги',
-      servicesDesc: '200+ реалізованих проєктів. 4 роки оптимізації. Разом з Вами від старту до фінішу й навіть після. Автоматизуй свій бізнес з нами.',
+      servicesDesc: '200+ реалізованих проєктів. 4 роки оптимізації. Разом з Вами від старту до фінішу й навіть після. Розробка та дизайн під ключ. Автоматизуй свій бізнес з нами.',
       stats: {
         projects: '200+ реалізованих проєктів',
         years: '4 роки оптимізації',
@@ -37,7 +38,7 @@ export const translations = {
         cta: 'Автоматизуй свій бізнес з нами'
       },
       pageTitle: 'ПРО НАС',
-      pageIntro: 'Шукаєте рішення для бізнесу чи особистих потреб? Ми-команда розробників телеграм ботів, чат-ботів, сайтів, інтернет магазинів, воронок, тощо.',
+      pageIntro: 'Шукаєте рішення для бізнесу чи особистих потреб? Ми — команда розробників та дизайнерів: телеграм боти, чат-боти, сайти, інтернет-магазини, воронки. В команді є UI/UX дизайнер: розробляємо лого, айдентику, дизайн сайтів та додатків.',
       quote: 'Кожний проєкт є унікальним кейсом, що створений вирішувати проблему саме для вашого випадку.',
       weDevelop: 'Ми розробляємо:',
       weDevelopServices: {
@@ -48,11 +49,13 @@ export const translations = {
         funnels: 'Автоворонки для автоматизації продажів і комунікації з клієнтами.',
         leadGen: 'Маємо безліч готових скриптів для генерації лідів.',
         ecommerce: 'Інтернет магазини.',
-        ai: 'Зможемо інтегрувати штучний інтелект в будь який з ваших сервісів.'
+        ai: 'Зможемо інтегрувати штучний інтелект в будь який з ваших сервісів.',
+        design: 'Дизайн: лого, айдентика, дизайн сайтів та додатків. В команді є UI/UX дизайнер.'
       },
       whyChoose: 'Чому обирають нас?',
       advantages: {
         experience: 'Досвід: більше 2 років роботи та десятки успішних проєктів.',
+        designer: 'В команді є UI/UX дизайнер: лого, фірмовий стиль, дизайн сайтів та мобільних додатків.',
         crm: 'Вміння працювати з СРМ системами, Google сервісами для документування, іншими сервісами які мають API.',
         stores: 'Створюємо різі інтернет магазини для збільшення продаж.',
         payments: 'Маємо досвід в роботі з різними платіжними сервісами, такими як MonoPay, LiqPay, WayForPay, зможемо інтегрувати крипто оплати в ваш сервіс.',
@@ -73,8 +76,10 @@ export const translations = {
         website: 'Сайт',
         chatbot: 'Чат бот з ШІ',
         ecommerce: 'Інтернет магазин',
-        parser: 'Парсер'
+        parser: 'Парсер',
+        design: 'Дизайн (UI/UX)'
       },
+      seoLinksIntro: 'Дивіться також: ',
       faq: {
         title: 'Часті запитання',
         items: [
@@ -124,10 +129,12 @@ export const translations = {
     services: {
       passion: 'Наша пристрасть',
       passionTitle: 'Це цифрові рішення',
-      passionDesc: 'У TeleBots ми пишаємося тим, що є лідером у розробці цифрових рішень, створенні чат-ботів та автоматизації бізнес-процесів',
+      passionDesc: 'У TeleBots ми пишаємося тим, що є лідером у розробці цифрових рішень, створенні чат-ботів та автоматизації бізнес-процесів. Також розробляємо дизайн: лого, айдентика, дизайн сайтів та додатків — в команді є UI/UX дизайнер.',
       toServices: 'До послуг',
       mainTitle: 'Наші послуги',
       subtitle: 'Обирайте рішення, яке найкраще підходить для вашого бізнесу',
+      designService: 'Дизайн',
+      designServiceDesc: 'Лого, айдентика, дизайн сайтів та додатків. В команді є UI/UX дизайнер.',
       chatbots: 'Розробка чат-ботів',
       chatbotsDesc: 'Створюємо ефективних чат-ботів для автоматизації комунікації з вашими клієнтами',
       websites: 'Розробка веб-сайтів',
@@ -158,6 +165,12 @@ export const translations = {
         subtitle: 'Створюємо ефективні парсери - інструменти для автоматизації збору та обробки даних з будь-яких сайтів, платформ чи маркетплейсів',
         description: 'Парсери економлять години рутинної роботи та відкривають доступ до даних, які приносять прибуток',
         button: 'Замовити розробку'
+      },
+      designPage: {
+        title: 'Дизайн',
+        subtitle: 'Лого, айдентика, дизайн сайтів та додатків. В команді є UI/UX дизайнер — створюємо зручні та стильні інтерфейси.',
+        description: 'Фірмовий стиль, брендбуки, макети сайтів і мобільних застосунків. Працюємо в Figma, створюємо прототипи та фінальні макети для розробки.',
+        button: 'Замовити дизайн'
       },
       stats: {
         projects: '200+ реалізованих проєктів',
@@ -237,7 +250,7 @@ export const translations = {
       success: 'Дякуємо! Ми зв\'яжемося з вами найближчим часом.'
     },
     footer: {
-      description: 'Професійна розробка цифрових рішень для вашого бізнесу',
+      description: 'Професійна розробка та дизайн для вашого бізнесу: боти, сайти, лого, айдентика, UI/UX. В команді є дизайнер.',
       quickLinks: 'Швидкі посилання',
       services: 'Послуги',
       contact: 'Контакти',
@@ -266,6 +279,8 @@ export const translations = {
       refundExceptions: 'У виключних випадках (суттєва помилка виконавця, невиконання домовленостей з його боку) питання може бути розглянуто індивідуально. Звертайтеся за контактними даними, вказаними на сайті (email, телефон, месенджери).',
       footerEdrpou: 'ЄДРПОУ',
       legalBlockTitle: 'Контактна інформація виконавця',
+      companyName: 'ФОП Федонюк І.П.',
+      legalAddress: 'м. Київ, Україна',
       backHome: 'Повернутися на головну',
       notFound: 'СТОРІНКА НЕ ЗНАЙДЕНА',
       notFoundDesc: 'Схоже, що сторінка, яку ви шукаєте, не існує або була переміщена.'
@@ -328,7 +343,8 @@ export const translations = {
     },
     hero: {
       title: 'Improving businesses that become #1',
-      subtitle: 'Bots, AI, websites — technologies for growth.',
+      subtitle: 'Bots, AI, websites and design — technologies for growth.',
+      tagline: 'We build chatbots and websites people love to use.',
       viewButton: 'View',
       startDate: {
         label: 'quick start',
@@ -348,7 +364,7 @@ export const translations = {
       contactDesc: 'Please reach out with any questions or inquiries.',
       getInTouch: 'Get in touch',
       services: 'Services',
-      servicesDesc: '200+ completed projects. 4 years of optimization. Together with you from start to finish and even after. Automate your business with us.',
+      servicesDesc: '200+ completed projects. 4 years of optimization. Together with you from start to finish and even after. Development and design under one roof. Automate your business with us.',
       stats: {
         projects: '200+ completed projects',
         years: '4 years of optimization',
@@ -356,7 +372,7 @@ export const translations = {
         cta: 'Automate your business with us'
       },
       pageTitle: 'ABOUT US',
-      pageIntro: 'Looking for a solution for business or personal needs? We are a team of developers of Telegram bots, chatbots, websites, online stores, funnels, and more.',
+      pageIntro: 'Looking for a solution for business or personal needs? We are a team of developers and designers: Telegram bots, chatbots, websites, online stores, funnels. Our team includes a UI/UX designer: we create logos, brand identity, and design for websites and apps.',
       quote: 'Each project is a unique case, created to solve a problem specifically for your situation.',
       weDevelop: 'We develop:',
       weDevelopServices: {
@@ -367,11 +383,13 @@ export const translations = {
         funnels: 'Sales funnels for sales automation and customer communication.',
         leadGen: 'We have many ready-made scripts for lead generation.',
         ecommerce: 'Online stores.',
-        ai: 'We can integrate artificial intelligence into any of your services.'
+        ai: 'We can integrate artificial intelligence into any of your services.',
+        design: 'Design: logos, brand identity, website and app design. Our team includes a UI/UX designer.'
       },
       whyChoose: 'Why choose us?',
       advantages: {
         experience: 'Experience: more than 2 years of work and dozens of successful projects.',
+        designer: 'Our team includes a UI/UX designer: logos, brand identity, website and mobile app design.',
         crm: 'Ability to work with CRM systems, Google services for documentation, and other services that have API.',
         stores: 'We create various online stores to increase sales.',
         payments: 'We have experience working with various payment services such as MonoPay, LiqPay, WayForPay, and can integrate crypto payments into your service.',
@@ -392,8 +410,10 @@ export const translations = {
         website: 'Website',
         chatbot: 'Chatbot with AI',
         ecommerce: 'Online store',
-        parser: 'Parser'
+        parser: 'Parser',
+        design: 'Design (UI/UX)'
       },
+      seoLinksIntro: 'See also: ',
       faq: {
         title: 'Frequently Asked Questions',
         items: [
@@ -443,10 +463,12 @@ export const translations = {
     services: {
       passion: 'Our Passion',
       passionTitle: 'Is Digital Solutions',
-      passionDesc: 'At TeleBots, we pride ourselves on being a leader in digital solutions development, chatbot creation, and business process automation',
+      passionDesc: 'At TeleBots, we pride ourselves on being a leader in digital solutions development, chatbot creation, and business process automation. We also do design: logos, brand identity, website and app design — our team includes a UI/UX designer.',
       toServices: 'To Services',
       mainTitle: 'Our Services',
       subtitle: 'Choose the solution that best fits your business',
+      designService: 'Design',
+      designServiceDesc: 'Logos, brand identity, website and app design. Our team includes a UI/UX designer.',
       chatbots: 'Chatbot Development',
       chatbotsDesc: 'We create effective chatbots to automate communication with your customers',
       websites: 'Website Development',
@@ -477,6 +499,12 @@ export const translations = {
         subtitle: 'We create effective parsers - tools for automating data collection and processing from any sites, platforms or marketplaces',
         description: 'Parsers save hours of routine work and open access to data that brings profit',
         button: 'Order Development'
+      },
+      designPage: {
+        title: 'Design',
+        subtitle: 'Logos, brand identity, website and app design. Our team includes a UI/UX designer — we create user-friendly and stylish interfaces.',
+        description: 'Brand identity, brand books, website and mobile app mockups. We work in Figma, create prototypes and final layouts for development.',
+        button: 'Order Design'
       },
       stats: {
         projects: '200+ completed projects',
@@ -556,7 +584,7 @@ export const translations = {
       success: 'Thank you! We will contact you soon.'
     },
     footer: {
-      description: 'Professional digital solutions development for your business',
+      description: 'Professional development and design for your business: bots, websites, logos, brand identity, UI/UX. Our team includes a designer.',
       quickLinks: 'Quick Links',
       services: 'Services',
       contact: 'Contact',
@@ -585,6 +613,8 @@ export const translations = {
       refundExceptions: 'In exceptional cases (material error or breach by the Provider), the matter may be considered individually. Contact us using the details on the website (email, phone, messengers).',
       footerEdrpou: 'EDRPOU',
       legalBlockTitle: 'Provider contact information',
+      companyName: 'FOP Fedoniuk I.P.',
+      legalAddress: 'Kyiv, Ukraine',
       backHome: 'Back to Home',
       notFound: 'PAGE NOT FOUND',
       notFoundDesc: 'It seems the page you are looking for does not exist or has been moved.'
@@ -647,7 +677,8 @@ export const translations = {
     },
     hero: {
       title: 'Ulepszamy biznesy, które stają się nr 1',
-      subtitle: 'Boty, AI, strony — technologie dla wzrostu.',
+      subtitle: 'Boty, AI, strony i design — technologie dla wzrostu.',
+      tagline: 'Tworzymy chatboty i strony, z których chce się korzystać.',
       viewButton: 'Zobacz',
       startDate: {
         label: 'szybki start',
@@ -667,7 +698,7 @@ export const translations = {
       contactDesc: 'Prosimy o kontakt w przypadku jakichkolwiek pytań.',
       getInTouch: 'Skontaktuj się',
       services: 'Usługi',
-      servicesDesc: '200+ zrealizowanych projektów. 4 lata optymalizacji. Razem z Tobą od startu do mety i nawet po. Automatyzuj swój biznes z nami.',
+      servicesDesc: '200+ zrealizowanych projektów. 4 lata optymalizacji. Razem z Tobą od startu do mety i nawet po. Realizacja i design w jednym miejscu. Automatyzuj swój biznes z nami.',
       stats: {
         projects: '200+ zrealizowanych projektów',
         years: '4 lata optymalizacji',
@@ -675,7 +706,7 @@ export const translations = {
         cta: 'Automatyzuj swój biznes z nami'
       },
       pageTitle: 'O NAS',
-      pageIntro: 'Szukasz rozwiązania dla biznesu lub potrzeb osobistych? Jesteśmy zespołem deweloperów botów Telegram, chatbotów, stron internetowych, sklepów online, lejków sprzedażowych i nie tylko.',
+      pageIntro: 'Szukasz rozwiązania dla biznesu lub potrzeb osobistych? Jesteśmy zespołem deweloperów i projektantów: boty Telegram, chatboty, strony, sklepy online, lejki. W zespole mamy projektanta UI/UX: tworzymy logo, identyfikację wizualną, projektowanie stron i aplikacji.',
       quote: 'Każdy projekt to unikalny przypadek, stworzony, aby rozwiązać problem konkretnie dla Twojej sytuacji.',
       weDevelop: 'Rozwijamy:',
       weDevelopServices: {
@@ -686,11 +717,13 @@ export const translations = {
         funnels: 'Lejki sprzedażowe do automatyzacji sprzedaży i komunikacji z klientami.',
         leadGen: 'Mamy wiele gotowych skryptów do generowania leadów.',
         ecommerce: 'Sklepy internetowe.',
-        ai: 'Możemy zintegrować sztuczną inteligencję w dowolny z Twoich serwisów.'
+        ai: 'Możemy zintegrować sztuczną inteligencję w dowolny z Twoich serwisów.',
+        design: 'Design: logo, identyfikacja wizualna, projektowanie stron i aplikacji. W zespole mamy projektanta UI/UX.'
       },
       whyChoose: 'Dlaczego wybierają nas?',
       advantages: {
         experience: 'Doświadczenie: ponad 2 lata pracy i dziesiątki udanych projektów.',
+        designer: 'W zespole mamy projektanta UI/UX: logo, identyfikacja wizualna, projektowanie stron i aplikacji mobilnych.',
         crm: 'Umiejętność pracy z systemami CRM, usługami Google do dokumentacji i innymi serwisami, które mają API.',
         stores: 'Tworzymy różne sklepy internetowe, aby zwiększyć sprzedaż.',
         payments: 'Mamy doświadczenie w pracy z różnymi serwisami płatniczymi, takimi jak MonoPay, LiqPay, WayForPay, i możemy zintegrować płatności kryptowalutowe w Twoim serwisie.',
@@ -711,8 +744,10 @@ export const translations = {
         website: 'Strona internetowa',
         chatbot: 'Chatbot z AI',
         ecommerce: 'Sklep internetowy',
-        parser: 'Parser'
+        parser: 'Parser',
+        design: 'Design (UI/UX)'
       },
+      seoLinksIntro: 'Zobacz także: ',
       faq: {
         title: 'Najczęściej zadawane pytania',
         items: [
@@ -762,10 +797,12 @@ export const translations = {
     services: {
       passion: 'Nasza pasja',
       passionTitle: 'To rozwiązania cyfrowe',
-      passionDesc: 'W TeleBots jesteśmy dumni z bycia liderem w tworzeniu rozwiązań cyfrowych, chatbotów i automatyzacji procesów biznesowych',
+      passionDesc: 'W TeleBots jesteśmy dumni z bycia liderem w tworzeniu rozwiązań cyfrowych, chatbotów i automatyzacji procesów biznesowych. Oferujemy także projektowanie: logo, identyfikacja wizualna, projektowanie stron i aplikacji — w zespole mamy projektanta UI/UX.',
       toServices: 'Do usług',
       mainTitle: 'Nasze usługi',
       subtitle: 'Wybierz rozwiązanie najlepiej pasujące do Twojego biznesu',
+      designService: 'Design',
+      designServiceDesc: 'Logo, identyfikacja wizualna, projektowanie stron i aplikacji. W zespole mamy projektanta UI/UX.',
       chatbots: 'Rozwój chatbotów',
       chatbotsDesc: 'Tworzymy skuteczne chatboty do automatyzacji komunikacji z klientami',
       websites: 'Rozwój stron internetowych',
@@ -796,6 +833,12 @@ export const translations = {
         subtitle: 'Tworzymy skuteczne parsery - narzędzia do automatyzacji zbierania i przetwarzania danych z dowolnych stron, platform lub marketplace\'ów',
         description: 'Parsery oszczędzają godziny rutynowej pracy i otwierają dostęp do danych, które przynoszą zysk',
         button: 'Zamów rozwój'
+      },
+      designPage: {
+        title: 'Design',
+        subtitle: 'Logo, identyfikacja wizualna, projektowanie stron i aplikacji. W zespole mamy projektanta UI/UX — tworzymy wygodne i stylowe interfejsy.',
+        description: 'Identyfikacja wizualna, księgi znaku, makety stron i aplikacji mobilnych. Pracujemy w Figma, tworzymy prototypy i finalne makety do rozwoju.',
+        button: 'Zamów projekt'
       },
       stats: {
         projects: '200+ zrealizowanych projektów',
@@ -875,7 +918,7 @@ export const translations = {
       success: 'Dziękujemy! Skontaktujemy się z Tobą wkrótce.'
     },
     footer: {
-      description: 'Profesjonalne tworzenie rozwiązań cyfrowych dla Twojego biznesu',
+      description: 'Profesjonalna realizacja i design dla Twojego biznesu: boty, strony, logo, identyfikacja wizualna, UI/UX. W zespole mamy projektanta.',
       quickLinks: 'Szybkie linki',
       services: 'Usługi',
       contact: 'Kontakt',
@@ -904,6 +947,8 @@ export const translations = {
       refundExceptions: 'W wyjątkowych przypadkach (istotny błąd lub naruszenie po stronie Wykonawcy) sprawa może być rozpatrzona indywidualnie. Skontaktuj się z nami, korzystając z danych kontaktowych na stronie (e-mail, telefon, messengery).',
       footerEdrpou: 'EDRPOU',
       legalBlockTitle: 'Dane kontaktowe wykonawcy',
+      companyName: 'FOP Fedoniuk I.P.',
+      legalAddress: 'Kijów, Ukraina',
       backHome: 'Powrót do strony głównej',
       notFound: 'STRONA NIE ZNALEZIONA',
       notFoundDesc: 'Wygląda na to, że strona, której szukasz, nie istnieje lub została przeniesiona.'
@@ -966,7 +1011,8 @@ export const translations = {
     },
     hero: {
       title: 'Улучшаем бизнесы, которые становятся №1',
-      subtitle: 'Боты, AI, сайты — технологии для роста.',
+      subtitle: 'Боты, AI, сайты и дизайн — технологии для роста.',
+      tagline: 'Разрабатываем чат-ботов и сайты, которыми хочется пользоваться.',
       viewButton: 'Смотреть',
       startDate: {
         label: 'быстрый старт',
@@ -986,7 +1032,7 @@ export const translations = {
       contactDesc: 'Пожалуйста, свяжитесь с нами с любыми вопросами.',
       getInTouch: 'Связаться',
       services: 'Услуги',
-      servicesDesc: '200+ реализованных проектов. 4 года оптимизации. Вместе с вами от старта до финиша и даже после. Автоматизируй свой бизнес с нами.',
+      servicesDesc: '200+ реализованных проектов. 4 года оптимизации. Вместе с вами от старта до финиша и даже после. Разработка и дизайн под ключ. Автоматизируй свой бизнес с нами.',
       stats: {
         projects: '200+ реализованных проектов',
         years: '4 года оптимизации',
@@ -994,7 +1040,7 @@ export const translations = {
         cta: 'Автоматизируй свой бизнес с нами'
       },
       pageTitle: 'О НАС',
-      pageIntro: 'Ищете решение для бизнеса или личных потребностей? Мы - команда разработчиков телеграм ботов, чат-ботов, сайтов, интернет магазинов, воронок и т.д.',
+      pageIntro: 'Ищете решение для бизнеса или личных потребностей? Мы — команда разработчиков и дизайнеров: телеграм боты, чат-боты, сайты, интернет-магазины, воронки. В команде есть UI/UX дизайнер: создаём логотипы, айдентику, дизайн сайтов и приложений.',
       quote: 'Каждый проект - это уникальный кейс, созданный решать проблему именно для вашего случая.',
       weDevelop: 'Мы разрабатываем:',
       weDevelopServices: {
@@ -1005,11 +1051,13 @@ export const translations = {
         funnels: 'Автоворонки для автоматизации продаж и коммуникации с клиентами.',
         leadGen: 'Имеем множество готовых скриптов для генерации лидов.',
         ecommerce: 'Интернет магазины.',
-        ai: 'Сможем интегрировать искусственный интеллект в любой из ваших сервисов.'
+        ai: 'Сможем интегрировать искусственный интеллект в любой из ваших сервисов.',
+        design: 'Дизайн: логотипы, айдентика, дизайн сайтов и приложений. В команде есть UI/UX дизайнер.'
       },
       whyChoose: 'Почему выбирают нас?',
       advantages: {
         experience: 'Опыт: более 2 лет работы и десятки успешных проектов.',
+        designer: 'В команде есть UI/UX дизайнер: логотипы, фирменный стиль, дизайн сайтов и мобильных приложений.',
         crm: 'Умение работать с CRM системами, Google сервисами для документирования, другими сервисами которые имеют API.',
         stores: 'Создаем различные интернет магазины для увеличения продаж.',
         payments: 'Имеем опыт в работе с различными платежными сервисами, такими как MonoPay, LiqPay, WayForPay, сможем интегрировать крипто оплаты в ваш сервис.',
@@ -1030,8 +1078,10 @@ export const translations = {
         website: 'Сайт',
         chatbot: 'Чат бот с ИИ',
         ecommerce: 'Интернет магазин',
-        parser: 'Парсер'
+        parser: 'Парсер',
+        design: 'Дизайн (UI/UX)'
       },
+      seoLinksIntro: 'Смотрите также: ',
       faq: {
         title: 'Часто задаваемые вопросы',
         items: [
@@ -1081,10 +1131,12 @@ export const translations = {
     services: {
       passion: 'Наша страсть',
       passionTitle: 'Это цифровые решения',
-      passionDesc: 'В TeleBots мы гордимся тем, что являемся лидером в разработке цифровых решений, создании чат-ботов и автоматизации бизнес-процессов',
+      passionDesc: 'В TeleBots мы гордимся тем, что являемся лидером в разработке цифровых решений, создании чат-ботов и автоматизации бизнес-процессов. Также делаем дизайн: логотипы, айдентика, дизайн сайтов и приложений — в команде есть UI/UX дизайнер.',
       toServices: 'К услугам',
       mainTitle: 'Наши услуги',
       subtitle: 'Выберите решение, которое лучше всего подходит для вашего бизнеса',
+      designService: 'Дизайн',
+      designServiceDesc: 'Логотипы, айдентика, дизайн сайтов и приложений. В команде есть UI/UX дизайнер.',
       chatbots: 'Разработка чат-ботов',
       chatbotsDesc: 'Создаем эффективных чат-ботов для автоматизации коммуникации с вашими клиентами',
       websites: 'Разработка веб-сайтов',
@@ -1115,6 +1167,12 @@ export const translations = {
         subtitle: 'Создаем эффективные парсеры - инструменты для автоматизации сбора и обработки данных с любых сайтов, платформ или маркетплейсов',
         description: 'Парсеры экономят часы рутинной работы и открывают доступ к данным, которые приносят прибыль',
         button: 'Заказать разработку'
+      },
+      designPage: {
+        title: 'Дизайн',
+        subtitle: 'Логотипы, айдентика, дизайн сайтов и приложений. В команде есть UI/UX дизайнер — создаём удобные и стильные интерфейсы.',
+        description: 'Фирменный стиль, брендбуки, макеты сайтов и мобильных приложений. Работаем в Figma, создаём прототипы и финальные макеты для разработки.',
+        button: 'Заказать дизайн'
       },
       stats: {
         projects: '200+ реализованных проектов',
@@ -1194,7 +1252,7 @@ export const translations = {
       success: 'Спасибо! Мы свяжемся с вами в ближайшее время.'
     },
     footer: {
-      description: 'Профессиональная разработка цифровых решений для вашего бизнеса',
+      description: 'Профессиональная разработка и дизайн для вашего бизнеса: боты, сайты, логотипы, айдентика, UI/UX. В команде есть дизайнер.',
       quickLinks: 'Быстрые ссылки',
       services: 'Услуги',
       contact: 'Контакты',
@@ -1223,6 +1281,8 @@ export const translations = {
       refundExceptions: 'В исключительных случаях (существенная ошибка или неисполнение обязательств Исполнителем) вопрос может быть рассмотрен индивидуально. Обращайтесь по контактным данным, указанным на сайте (email, телефон, мессенджеры).',
       footerEdrpou: 'ЄДРПОУ',
       legalBlockTitle: 'Контактная информация исполнителя',
+      companyName: 'ФОП Федонюк И.П.',
+      legalAddress: 'г. Киев, Украина',
       backHome: 'Вернуться на главную',
       notFound: 'СТРАНИЦА НЕ НАЙДЕНА',
       notFoundDesc: 'Похоже, что страница, которую вы ищете, не существует или была перемещена.'

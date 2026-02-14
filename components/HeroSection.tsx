@@ -63,33 +63,39 @@ export default function HeroSection({ t }: HeroSectionProps) {
   }, [t.hero.title, t.hero.subtitle]);
 
   return (
-    <section className="relative min-h-screen flex items-end justify-center overflow-hidden">
+    <section className="relative min-h-screen flex flex-col overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: 'url(/hero-background.jpeg)',
+          backgroundImage: 'url(/other/hero-background.jpeg)',
         }}
       />
       {/* Градієнт затемнення знизу */}
       <div
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
       />
-      {/* Блок зліва — слоган */}
-      <div className="absolute top-72 md:top-28 lg:top-32 xl:top-36 left-4 md:left-6 lg:left-10 z-20 w-[320px] md:w-[340px] lg:w-[400px] xl:w-[440px]">
-        <div className="relative rounded-lg overflow-hidden min-h-[110px] md:min-h-[120px] lg:min-h-[130px] xl:min-h-[140px]">
+      {/* Зона для таглайна — контент героя завжди нижче, щоб ніколи не налазив */}
+      <div className="relative z-0 flex-shrink-0 h-[460px] sm:h-[400px] md:h-[260px] lg:h-[280px] xl:h-[300px]" aria-hidden />
+      {/* Блок зліва — слоган (tagline), лише у верхній зоні */}
+      <div
+        className={`absolute top-72 sm:top-64 md:top-28 lg:top-32 xl:top-36 left-4 md:left-6 lg:left-10 z-20 w-[320px] md:w-[340px] lg:w-[400px] xl:w-[440px] transition-all duration-700 ${
+          isContentComplete ? 'opacity-100 translate-y-0' : 'opacity-60 translate-y-2'
+        }`}
+      >
+        <div className="relative rounded-xl overflow-hidden min-h-[110px] md:min-h-[120px] lg:min-h-[130px] xl:min-h-[140px] border-l-2 border-white/30">
           <div
-            className="absolute inset-0 pointer-events-none rounded-lg"
+            className="absolute inset-0 pointer-events-none rounded-xl"
             style={{
-              background: 'linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 40%, rgba(0,0,0,0.25) 70%, transparent 100%)',
-              backdropFilter: 'blur(4px)',
-              WebkitBackdropFilter: 'blur(4px)',
+              background: 'linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 40%, rgba(0,0,0,0.28) 70%, transparent 100%)',
+              backdropFilter: 'blur(6px)',
+              WebkitBackdropFilter: 'blur(6px)',
             }}
           />
           <p
-            className="relative p-5 md:p-5 lg:p-6 xl:p-7 text-white font-normal leading-snug text-[18px] md:text-[19px] lg:text-[20px] xl:text-[22px]"
-            style={{ fontFamily: 'Montserrat, sans-serif' }}
+            className="relative p-5 md:p-5 lg:p-6 xl:p-7 text-white font-normal leading-relaxed text-[17px] md:text-[18px] lg:text-[19px] xl:text-[21px]"
+            style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.02em' }}
           >
-            Розробляємо чат-боти та сайти, якими хочеться користуватися
+            {t.hero.tagline}
           </p>
         </div>
       </div>
@@ -137,8 +143,8 @@ export default function HeroSection({ t }: HeroSectionProps) {
         </div>
       </div>
 
-      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
-        <div className="max-w-5xl mx-auto text-center">
+      <div className="relative z-10 w-full flex-1 flex items-end justify-center px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
+        <div className="max-w-5xl mx-auto text-center w-full">
           {/* Заголовок */}
           <h1 className="font-bold text-white mb-4 md:mb-6 uppercase text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl" style={{ letterSpacing: '0.15em', fontFamily: 'Montserrat, sans-serif' }}>
           {displayedTitle}

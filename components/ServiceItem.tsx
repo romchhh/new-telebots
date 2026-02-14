@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useScrollAnimation } from './useScrollAnimation';
 
 interface ServiceItemProps {
-  serviceKey: 'websitesPage' | 'chatbotsPage' | 'parsersPage';
+  serviceKey: 'websitesPage' | 'chatbotsPage' | 'parsersPage' | 'designPage';
   image: string;
   imagePosition: 'left' | 'right';
   t: typeof import('./translations').translations.uk;

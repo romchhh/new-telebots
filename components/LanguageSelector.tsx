@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
-import { ChevronDown } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { Language } from './translations';
 
 interface LanguageSelectorProps {
@@ -19,86 +19,64 @@ const languages = [
   { code: 'pl' as Language, name: 'PL' }
 ];
 
-const allLanguages = [
-  { code: 'uk' as Language, name: 'UA' },
-  { code: 'en' as Language, name: 'EN' },
-  { code: 'pl' as Language, name: 'PL' },
-  { code: 'ru' as Language, name: 'RU' }
-];
-
 export default function LanguageSelector({ lang, setLang, isMobile = false, isScrolled = false, currentLang }: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const pathname = usePathname();
-  
   const currentLanguage = currentLang || lang;
-  const currentLangObj = allLanguages.find(l => l.code === currentLanguage);
+
+  useEffect(() => {
+    const close = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setIsOpen(false);
+    };
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
+  }, []);
 
   const handleLanguageChange = (newLang: Language) => {
     setLang(newLang);
+    setIsOpen(false);
     if (pathname) {
       const newPath = pathname.replace(/^\/(uk|en|pl|ru)/, `/${newLang}`);
       router.push(newPath);
     }
   };
 
-  if (isMobile) {
-    return (
-      <div className="flex space-x-3">
-        {languages.map(language => (
-          <button
-            key={language.code}
-            onClick={() => handleLanguageChange(language.code)}
-            className={`px-4 py-2 text-sm font-medium tracking-wider transition ${
-              currentLanguage === language.code 
-                ? 'text-white border-b-2 border-white' 
-                : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            {language.name}
-          </button>
-        ))}
-      </div>
-    );
-  }
+  const iconClass = `p-2 rounded-full transition ${
+    isScrolled ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'
+  }`;
 
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center space-x-2 text-sm tracking-widest transition ${
-          isScrolled 
-            ? 'text-white hover:text-gray-400' 
-            : 'text-white hover:text-gray-300'
-        }`}
+        className={iconClass}
+        aria-label="Оберіть мову"
+        aria-expanded={isOpen}
+        aria-haspopup="true"
       >
-        <span>{currentLangObj?.name}</span>
-        <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <Globe className="w-5 h-5" strokeWidth={1.8} />
       </button>
-      
+
       {isOpen && (
         <>
-          <div className="fixed inset-0 z-10" onClick={() => setIsOpen(false)} />
-          <div className={`absolute right-0 mt-3 border shadow-xl z-20 min-w-[80px] rounded-md overflow-hidden ${
-            isScrolled 
-              ? 'bg-black border-gray-800' 
-              : 'bg-black border-gray-800'
-          }`}>
-            {languages.map(language => (
+          <div className="fixed inset-0 z-10" aria-hidden onClick={() => setIsOpen(false)} />
+          <div
+            className={`absolute right-0 z-20 mt-2 min-w-[100px] rounded-lg border border-white/15 bg-black/95 backdrop-blur-md shadow-xl overflow-hidden ${
+              isMobile ? 'top-full mt-3' : 'top-full'
+            }`}
+          >
+            {languages.map((language) => (
               <button
                 key={language.code}
-                onClick={() => {
-                  handleLanguageChange(language.code);
-                  setIsOpen(false);
-                }}
-                className={`w-full px-5 py-3 text-left text-sm tracking-wider transition ${
-                  isScrolled
-                    ? currentLanguage === language.code
-                      ? 'text-white bg-gray-900'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-900'
-                    : currentLanguage === language.code
-                      ? 'text-white bg-gray-900'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-900'
+                type="button"
+                onClick={() => handleLanguageChange(language.code)}
+                className={`w-full px-4 py-3 text-left text-sm font-medium tracking-wider transition ${
+                  currentLanguage === language.code
+                    ? 'text-white bg-white/15'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {language.name}

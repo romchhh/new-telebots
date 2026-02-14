@@ -82,7 +82,9 @@ export default function Home() {
       <StructuredData type="organization" />
       <StructuredData type="localBusiness" />
       <StructuredData type="website" />
-      <StructuredData type="aggregateRating" rating={5.0} reviewCount={200} />
+      {process.env.NEXT_PUBLIC_SHOW_AGGREGATE_RATING !== 'false' && (
+        <StructuredData type="aggregateRating" rating={5.0} reviewCount={200} />
+      )}
       {mainPageFAQs.length > 0 && (
         <StructuredData type="faq" faqs={mainPageFAQs} />
       )}

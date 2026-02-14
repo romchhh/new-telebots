@@ -18,7 +18,7 @@ export default function SEOHead({ title, description, image, type = 'website', c
   const langParam = params?.lang as string;
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const t = translations[validLang];
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://telebotsnowayrm.com';
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://new.telebots.site';
 
   // Отримуємо дані кейсу, якщо вказано caseId
   let caseData = null;
@@ -29,7 +29,7 @@ export default function SEOHead({ title, description, image, type = 'website', c
 
   const finalTitle = title || caseData?.title || t.hero.title;
   const finalDescription = description || caseData?.subtitle || t.hero.subtitle;
-  const finalImage = image || caseData?.mainImage || `${baseUrl}/services-hero.png`;
+  const finalImage = image || caseData?.mainImage || `${baseUrl}/portfolio/portfolio-default.jpg`;
 
   const structuredData = {
     '@context': 'https://schema.org',

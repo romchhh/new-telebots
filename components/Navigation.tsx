@@ -91,7 +91,9 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
             {t.nav.contact}
           </Link>
           {showLanguageSelector && (
-            <LanguageSelector lang={lang} setLang={setLang} isScrolled={isScrolled} currentLang={currentLanguage} />
+            <span className="ml-4 pl-4 border-l border-white/20 flex items-center">
+              <LanguageSelector lang={lang} setLang={setLang} isScrolled={isScrolled} currentLang={currentLanguage} />
+            </span>
           )}
         </div>
 
@@ -173,8 +175,8 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
             </Link>
             
             {showLanguageSelector && (
-              <div className="pt-6">
-                <LanguageSelector lang={lang} setLang={setLang} isMobile={true} currentLang={currentLanguage} />
+              <div className="pt-6 flex justify-center">
+                <LanguageSelector lang={lang} setLang={setLang} isMobile={true} isScrolled={true} currentLang={currentLanguage} />
               </div>
             )}
           </div>

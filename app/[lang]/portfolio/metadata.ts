@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { translations, Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://telebotsnowayrm.com';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
 
 export async function generateMetadata({
   params,

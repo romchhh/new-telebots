@@ -43,35 +43,35 @@ export default function Portfolio() {
   }, [lightboxOpen]);
 
   const imageMap: Record<string, { image: string; category: string }> = {
-    'tradeground-bot': { image: '/portfolio-tradeground-bot.png', category: 'chatbots' },
-    '13vplus': { image: '/portfolio-13vplus.jpg', category: 'websites' },
-    'dr-tolstikova-bot': { image: '/portfolio-dr-tolstikova-bot.jpg', category: 'chatbots' },
-    'nieznany-piekarz': { image: '/portfolio-nieznany-piekarz.png', category: 'websites' },
-    'nutritionist-bot': { image: '/portfolio-nutritionist-bot.jpg', category: 'chatbots' },
-    'cats-fresh': { image: '/portfolio-cats-fresh.jpg', category: 'websites' },
-    'applum-bot': { image: '/portfolio-applum-bot.jpg', category: 'chatbots' },
-    'easyplay': { image: '/portfolio-easyplay.jpg', category: 'websites' },
-    'webinar-bot': { image: '/portfolio-webinar-bot.png', category: 'chatbots' },
-    'normalnoauto': { image: '/portfolio-normalnoauto.png', category: 'chatbots' },
-    'kvartyrant': { image: '/portfolio-kvartyrant.png', category: 'chatbots' },
-    'cosmy': { image: '/portfolio-cosmy.png', category: 'chatbots' },
-    'newlineschool': { image: '/portfolio-newlineschool.jpg', category: 'websites' },
-    'flixmarket': { image: '/portfolio-flixmarket.jpg', category: 'chatbots' },
-    'alexandraaleksiuk': { image: '/portfolio-alexandraaleksiuk.jpg', category: 'websites' },
-    'offer-dpuchkov': { image: '/portfolio-offer-dpuchkov.jpg', category: 'websites' },
-    'vsk-technology': { image: '/portfolio-vsk-technology.png', category: 'websites' },
-    'v12-auto': { image: '/portfolio-v12-auto.png', category: 'websites' },
-    'tripvibe': { image: '/portfolio-tripvibe.png', category: 'websites' },
-    'tron-energy-bot': { image: '/portfolio-tron-energy-bot.jpg', category: 'chatbots' },
-    'chars-kyiv': { image: '/portfolio-chars-kyiv.png', category: 'websites' },
-    'style-chat-vakhula': { image: '/portfolio-style-chat-vakhula.jpg', category: 'chatbots' },
-    'landscaper-academy': { image: '/portfolio-landscaper-academy.png', category: 'websites' },
+    'tradeground-bot': { image: '/portfolio/portfolio-tradeground-bot.png', category: 'chatbots' },
+    '13vplus': { image: '/portfolio/portfolio-13vplus.jpg', category: 'websites' },
+    'dr-tolstikova-bot': { image: '/portfolio/portfolio-dr-tolstikova-bot.jpg', category: 'chatbots' },
+    'nieznany-piekarz': { image: '/portfolio/portfolio-nieznany-piekarz.png', category: 'websites' },
+    'nutritionist-bot': { image: '/portfolio/portfolio-nutritionist-bot.jpg', category: 'chatbots' },
+    'cats-fresh': { image: '/portfolio/portfolio-cats-fresh.jpg', category: 'websites' },
+    'applum-bot': { image: '/portfolio/portfolio-applum-bot.jpg', category: 'chatbots' },
+    'easyplay': { image: '/portfolio/portfolio-easyplay.jpg', category: 'websites' },
+    'webinar-bot': { image: '/portfolio/portfolio-webinar-bot.png', category: 'chatbots' },
+    'normalnoauto': { image: '/portfolio/portfolio-normalnoauto.png', category: 'chatbots' },
+    'kvartyrant': { image: '/portfolio/portfolio-kvartyrant.png', category: 'chatbots' },
+    'cosmy': { image: '/portfolio/portfolio-cosmy.png', category: 'chatbots' },
+    'newlineschool': { image: '/portfolio/portfolio-newlineschool.jpg', category: 'websites' },
+    'flixmarket': { image: '/portfolio/portfolio-flixmarket.jpg', category: 'chatbots' },
+    'alexandraaleksiuk': { image: '/portfolio/portfolio-alexandraaleksiuk.jpg', category: 'websites' },
+    'offer-dpuchkov': { image: '/portfolio/portfolio-offer-dpuchkov.jpg', category: 'websites' },
+    'vsk-technology': { image: '/portfolio/portfolio-vsk-technology.png', category: 'websites' },
+    'v12-auto': { image: '/portfolio/portfolio-v12-auto.png', category: 'websites' },
+    'tripvibe': { image: '/portfolio/portfolio-tripvibe.png', category: 'websites' },
+    'tron-energy-bot': { image: '/portfolio/portfolio-tron-energy-bot.jpg', category: 'chatbots' },
+    'chars-kyiv': { image: '/portfolio/portfolio-chars-kyiv.png', category: 'websites' },
+    'style-chat-vakhula': { image: '/portfolio/portfolio-style-chat-vakhula.jpg', category: 'chatbots' },
+    'landscaper-academy': { image: '/portfolio/portfolio-landscaper-academy.png', category: 'websites' },
   };
 
   const works = Object.keys(casesData).map((caseId) => {
     const caseData = (casesData as Record<string, { mainImage?: string; portfolioCategory?: string; title?: string; subtitle?: string }>)[caseId];
     const map = imageMap[caseId] || {
-      image: caseData?.mainImage || '/portfolio-dr-tolstikova-bot.jpg',
+      image: caseData?.mainImage || '/portfolio/portfolio-dr-tolstikova-bot.jpg',
       category: (caseData?.portfolioCategory as string) || 'websites',
     };
     return {
@@ -179,7 +179,7 @@ export default function Portfolio() {
           >
             <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
             <Image
-              src="/portfolio-default.jpg"
+              src="/portfolio/portfolio-default.jpg"
               alt="Featured project"
               fill
               className="object-contain"

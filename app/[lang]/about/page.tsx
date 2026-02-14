@@ -134,7 +134,7 @@ export default function AboutPage() {
       <div className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden -mt-16 pt-16">
         <div
           className="absolute inset-0 bg-cover bg-top"
-          style={{ backgroundImage: 'url(/about-hero-macbook.jpg)' }}
+          style={{ backgroundImage: 'url(/other/about-hero-macbook.jpg)' }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20 backdrop-blur-[2px]" style={{ WebkitBackdropFilter: 'blur(2px)' }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32">
@@ -165,7 +165,7 @@ export default function AboutPage() {
       <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden">
         <div className="relative w-full aspect-[4031/2981]">
           <Image
-            src="/about-hero.png"
+            src="/other/about-hero.png"
             alt="TeleBots"
             fill
             className="object-cover"
@@ -222,6 +222,12 @@ export default function AboutPage() {
             <p className={`text-2xl md:text-3xl lg:text-4xl text-gray-800 font-normal leading-[1.6] max-w-3xl scroll-animate-up ${isIntroVisible ? 'animate' : ''}`} ref={introRef}>
               {t.about.pageIntro}
             </p>
+            <p className="mt-6 text-lg md:text-xl text-gray-600 leading-[1.6]">
+              {t.about.seoLinksIntro}
+              <Link href={`/${lang}/services`} className="text-black font-medium underline hover:no-underline">{t.nav.services}</Link>
+              {', '}
+              <Link href={`/${lang}/portfolio`} className="text-black font-medium underline hover:no-underline">{t.nav.portfolio}</Link>.
+            </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-20">
@@ -239,6 +245,7 @@ export default function AboutPage() {
                   t.about.weDevelopServices.leadGen,
                   t.about.weDevelopServices.ecommerce,
                   t.about.weDevelopServices.ai,
+                  t.about.weDevelopServices.design,
                 ].map((text, i) => (
                   <li key={i} className="flex gap-3 text-gray-700 text-lg md:text-xl leading-[1.7]">
                     <span className="text-black font-bold mt-1">—</span>
@@ -255,6 +262,7 @@ export default function AboutPage() {
               <ul className="space-y-4">
                 {[
                   t.about.advantages.experience,
+                  t.about.advantages.designer,
                   t.about.advantages.crm,
                   t.about.advantages.stores,
                   t.about.advantages.payments,
@@ -342,7 +350,7 @@ export default function AboutPage() {
             <p className="text-xl md:text-2xl text-gray-600 leading-[1.7] mb-12 max-w-2xl">
               {t.about.servicesDesc}
             </p>
-            <div className="grid md:grid-cols-3 gap-6 md:gap-8 mb-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
               <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
                 <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
                   {t.services.websites}
@@ -373,6 +381,18 @@ export default function AboutPage() {
                 </h3>
                 <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
                   {t.services.parsersDesc}
+                </p>
+                <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
+                  {t.services.learnMore}
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </span>
+              </Link>
+              <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
+                <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
+                  {t.services.designService}
+                </h3>
+                <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
+                  {t.services.designServiceDesc}
                 </p>
                 <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
                   {t.services.learnMore}

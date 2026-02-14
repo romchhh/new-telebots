@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { translations, Language } from "@/components/translations";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://telebotsnowayrm.com';
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: langParam } = await params;
@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       siteName: 'TeleBots',
       images: [
         {
-          url: `${baseUrl}/services-hero.png`,
+          url: `${baseUrl}/portfolio/portfolio-default.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -75,7 +75,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       card: 'summary_large_image',
       title,
       description,
-      images: [`${baseUrl}/services-hero.png`],
+      images: [`${baseUrl}/portfolio/portfolio-default.jpg`],
       creator: '@telebotsnowayrm',
       site: '@telebotsnowayrm',
     },
