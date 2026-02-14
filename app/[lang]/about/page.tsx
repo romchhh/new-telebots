@@ -150,16 +150,6 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* Посилання під hero: Портфоліо, Про нас */}
-      <div className="bg-white border-b border-gray-100 py-4 px-6 md:px-10 lg:px-16">
-        <p className="max-w-4xl mx-auto text-center text-lg text-gray-600">
-          {t.about.seoLinksIntro}
-          <Link href={`/${lang}/portfolio`} className="text-black font-medium underline hover:no-underline">{t.nav.portfolio}</Link>
-          {' — '}
-          <Link href={`/${lang}/services`} className="text-black font-medium underline hover:no-underline">{t.nav.services}</Link>.
-        </p>
-      </div>
-
       {/* Основний блок під цитатою */}
       <section className="py-16 md:py-24 lg:py-28 px-6 md:px-10 lg:px-16 bg-white">
         <div className="max-w-[1600px] mx-auto">

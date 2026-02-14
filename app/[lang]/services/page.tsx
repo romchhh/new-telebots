@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ServicesPassionSection from '@/components/ServicesPassionSection';
@@ -145,11 +144,6 @@ export default function ServicesPage() {
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
         <main id="main-content">
         <ServicesPassionSection t={t} />
-      <p className="max-w-4xl mx-auto px-6 mb-10 text-lg text-gray-600 text-center">
-        <Link href={`/${lang}/portfolio`} className="text-black font-medium underline hover:no-underline">{t.nav.portfolio}</Link>
-        {' — '}
-        <Link href={`/${lang}/about`} className="text-black font-medium underline hover:no-underline">{t.nav.about}</Link>.
-      </p>
       <div id="services-list">
       {services.map((service, index) => (
         <ServiceItem

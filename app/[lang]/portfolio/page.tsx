@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import Portfolio from '@/components/Portfolio';
@@ -88,11 +87,6 @@ export default function PortfolioPage() {
         </a>
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
         <main id="main-content">
-        <p className="max-w-4xl mx-auto px-6 pt-6 pb-4 text-lg text-gray-600 text-center">
-          <Link href={`/${lang}/services`} className="text-black font-medium underline hover:no-underline">{t.nav.services}</Link>
-          {' — '}
-          <Link href={`/${lang}/contact`} className="text-black font-medium underline hover:no-underline">{t.nav.contact}</Link>.
-        </p>
         <Portfolio />
         </main>
         <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
