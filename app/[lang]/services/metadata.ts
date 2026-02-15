@@ -14,28 +14,28 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Послуги - TeleBots | Розробка ботів, сайтів та автоматизація бізнесу'
+    ? 'Послуги | Розробка телеграм ботів, сайтів під ключ — TeleBots'
     : lang === 'en'
-    ? 'Services - TeleBots | Bot Development, Websites & Business Automation'
+    ? 'Services | Telegram Bots, Websites Turnkey — TeleBots'
     : lang === 'pl'
-    ? 'Usługi - TeleBots | Rozwój botów, stron internetowych i automatyzacja biznesu'
-    : 'Услуги - TeleBots | Разработка ботов, сайтов и автоматизация бизнеса';
+    ? 'Usługi | Boty Telegram, strony pod klucz — TeleBots'
+    : 'Услуги | Разработка телеграм ботов, сайтов под ключ — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Розробка чат-ботів, веб-сайтів, парсерів та AI інтеграцій. Швидкий старт за 24 години, готове рішення за 2 тижні. Замовити розробку для вашого бізнесу.'
+    ? 'Замовити телеграм бота, чат-бот для бізнесу, розробка сайту під ключ, парсер даних, дизайн логотипу. Ціни, швидкий старт за 24 години. 200+ проєктів.'
     : lang === 'en'
-    ? 'Chatbot development, websites, parsers and AI integrations. Quick start in 24 hours, ready solution in 2 weeks. Order development for your business today!'
+    ? 'Order Telegram bot, chatbot for business, website development turnkey, data parser, logo design. Pricing, quick start in 24 hours. 200+ projects.'
     : lang === 'pl'
-    ? 'Rozwój chatbotów, stron internetowych, parserów i integracji AI. Szybki start w 24 godziny, gotowe rozwiązanie w 2 tygodnie. Zamów rozwój dziś!'
-    : 'Разработка чат-ботов, сайтов, парсеров и AI интеграций. Быстрый старт за 24 часа, готовое решение за 2 недели. Заказать разработку сегодня!';
+    ? 'Zamów bota Telegram, chatbot dla biznesu, strona pod klucz, parser danych, projekt logo. Ceny, szybki start w 24 godziny. 200+ projektów.'
+    : 'Заказать телеграм бота, чат-бот для бизнеса, разработка сайта под ключ, парсер данных, дизайн логотипа. Цены, быстрый старт за 24 часа. 200+ проектов.';
 
   const keywords = lang === 'uk'
-    ? 'послуги, розробка чат-ботів, розробка сайтів, розробка парсерів, AI інтеграції, автоматизація бізнесу, веб-розробка, телеграм бот розробка'
+    ? 'послуги, замовлення телеграм бота, розробка телеграм бота ціна, створити бота для Telegram, чат-бот для бізнесу, розробка сайту під ключ, створити інтернет-магазин, розробка парсера, дизайн логотипу, UI/UX дизайн, автоматизація бізнесу'
     : lang === 'en'
-    ? 'services, chatbot development, website development, parser development, AI integrations, business automation, web development, telegram bot development'
+    ? 'services, order telegram bot, telegram bot development price, create Telegram bot, chatbot for business, website development turnkey, create online store, parser development, logo design, UI/UX design, business automation'
     : lang === 'pl'
-    ? 'usługi, rozwój chatbotów, rozwój stron internetowych, rozwój parserów, integracje AI, automatyzacja biznesu, rozwój stron internetowych, rozwój botów Telegram'
-    : 'услуги, разработка чат-ботов, разработка сайтов, разработка парсеров, AI интеграции, автоматизация бизнеса, веб-разработка, разработка телеграм ботов';
+    ? 'usługi, zamówienie bota Telegram, cena rozwoju bota, stworzyć bota Telegram, chatbot dla biznesu, strona pod klucz, sklep internetowy, rozwój parsera, projekt logo, UI/UX, automatyzacja biznesu'
+    : 'услуги, заказать телеграм бота, разработка телеграм бота цена, создать бота Telegram, чат-бот для бизнеса, разработка сайта под ключ, создать интернет-магазин, разработка парсера, дизайн логотипа, UI/UX, автоматизация бизнеса';
 
   return {
     ...generateSEOMetadata({

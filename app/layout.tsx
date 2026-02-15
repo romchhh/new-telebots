@@ -7,11 +7,11 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "TeleBots - Professional Digital Solutions",
+    default: "TeleBots - Розробка телеграм ботів, сайтів та цифрових рішень",
     template: "%s | TeleBots",
   },
-  description: "Professional development of Telegram bots, chatbots, websites, e-commerce stores, parsers and AI bots. 200+ completed projects. Turnkey business automation.",
-  keywords: ["telegram bot", "bot development", "chatbot", "website development", "e-commerce", "parser", "AI bot", "business automation", "design", "UI/UX", "logo", "brand identity", "web design"],
+  description: "Розробка телеграм ботів, чат-ботів з AI, сайтів та інтернет-магазинів. Швидкий старт за 24 години, готове рішення за 2 тижні. 200+ проєктів. Автоматизація бізнесу під ключ.",
+  keywords: ["телеграм бот розробка", "розробка чат-ботів", "розробка сайтів", "інтернет-магазин під ключ", "автоматизація бізнесу", "цифрові рішення для бізнесу", "TeleBots", "замовлення телеграм бота", "веб-розробка", "AI чат-бот", "дизайн логотипу", "UI/UX"],
   authors: [{ name: "TeleBots" }],
   creator: "TeleBots",
   publisher: "TeleBots",
@@ -25,8 +25,8 @@ export const metadata: Metadata = {
     locale: "uk_UA",
     url: baseUrl,
     siteName: "TeleBots",
-    title: "TeleBots - Professional Digital Solutions",
-    description: "Professional development of Telegram bots, chatbots, websites, e-commerce stores, parsers and AI bots",
+    title: "TeleBots - Розробка телеграм ботів, сайтів та цифрових рішень",
+    description: "Розробка телеграм ботів, чат-ботів з AI, сайтів та інтернет-магазинів. 200+ проєктів. Швидкий старт за 24 години.",
     images: [
       {
         url: `${baseUrl}/portfolio/portfolio-default.jpg`,
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TeleBots - Professional Digital Solutions",
-    description: "Professional development of Telegram bots, chatbots, websites, e-commerce stores, parsers and AI bots",
+    title: "TeleBots - Розробка телеграм ботів, сайтів та цифрових рішень",
+    description: "Розробка телеграм ботів, чат-ботів з AI, сайтів та інтернет-магазинів. 200+ проєктів. Швидкий старт за 24 години.",
     images: [`${baseUrl}/portfolio/portfolio-default.jpg`],
     creator: "@telebotsnowayrm",
     site: "@telebotsnowayrm",
@@ -57,13 +57,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/whitelogo.png", sizes: "any", type: "image/png" },
+      { url: "/other/favicon.png", sizes: "any", type: "image/png" },
     ],
     apple: [
-      { url: "/whitelogo.png", sizes: "180x180", type: "image/png" },
+      { url: "/other/favicon.png", sizes: "180x180", type: "image/png" },
     ],
     shortcut: [
-      { url: "/whitelogo.png", type: "image/png" },
+      { url: "/other/favicon.png", type: "image/png" },
     ],
   },
   manifest: "/manifest.json",
@@ -103,9 +103,9 @@ export default function RootLayout({
         {/* Fonts */}
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
         
-        {/* Icons */}
-        <link rel="icon" href="/whitelogo.png" type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href="/whitelogo.png" />
+        {/* Icons — вкладка браузера та іконка в пошуку Google */}
+        <link rel="icon" href="/other/favicon.png" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/other/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
         
         {/* Meta tags */}

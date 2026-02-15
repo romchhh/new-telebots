@@ -157,9 +157,9 @@ export default function Portfolio() {
             ref={contentRef}
           >
             <p className="text-xs tracking-[0.3em] text-gray-400 mb-4 sm:mb-6">{t.portfolio.recent}</p>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
               {t.portfolio.title}
-            </h2>
+            </h1>
             <button
               onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
               className="group flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
@@ -188,7 +188,7 @@ export default function Portfolio() {
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6 sm:p-8 z-10">
               <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-2">{t.portfolio.website}</p>
-              <h3 className="text-xl sm:text-2xl font-black">Featured Project</h3>
+              <h3 className="text-xl sm:text-2xl font-black">{t.portfolio.featuredProject}</h3>
             </div>
           </div>
         </div>

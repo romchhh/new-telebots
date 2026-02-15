@@ -14,28 +14,28 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Портфоліо - TeleBots | Успішні проєкти та кейси розробки'
+    ? 'Кейси розробки телеграм ботів та сайтів — TeleBots'
     : lang === 'en'
-    ? 'Portfolio - TeleBots | Successful Projects & Development Cases'
+    ? 'Telegram Bot & Website Development Cases — TeleBots'
     : lang === 'pl'
-    ? 'Portfolio - TeleBots | Udane projekty i przypadki rozwoju'
-    : 'Портфолио - TeleBots | Успешные проекты и кейсы разработки';
+    ? 'Przypadki rozwoju botów Telegram i stron — TeleBots'
+    : 'Кейсы разработки телеграм ботов и сайтов — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Перегляньте успішні проєкти: телеграм боти, чат-боти, сайти, інтернет-магазини. 200+ реалізованих проєктів. Дізнайтеся, як ми допомагаємо бізнесам.'
+    ? 'Кейси розробки телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. Приклади проєктів: бот з оплатою, маркетплейс, e-commerce. 200+ реалізованих проєктів.'
     : lang === 'en'
-    ? 'View successful projects: Telegram bots, chatbots, websites, online stores. 200+ completed projects. Learn how we help businesses.'
+    ? 'Cases: Telegram bots, chatbots, websites, online stores. Examples: bot with payment, marketplace, e-commerce. 200+ completed projects.'
     : lang === 'pl'
-    ? 'Zobacz udane projekty: boty Telegram, chatboty, strony internetowe. 200+ projektów. Dowiedz się, jak pomagamy.'
-    : 'Посмотрите успешные проекты: телеграм боты, чат-боты, сайты. 200+ проектов. Узнайте, как мы помогаем.';
+    ? 'Przypadki: boty Telegram, chatboty, strony, sklepy online. Przykłady: bot z płatnościami, marketplace. 200+ projektów.'
+    : 'Кейсы разработки телеграм ботов, чат-ботов, сайтов и интернет-магазинов. Примеры проектов. 200+ реализованных проектов.';
 
   const keywords = lang === 'uk'
-    ? 'портфоліо, кейси, проєкти, телеграм бот, чат-бот, сайт, інтернет-магазин, успішні роботи, приклади розробки'
+    ? 'кейси розробки телеграм ботів, приклади інтернет-магазинів, портфоліо, проєкти, телеграм бот, чат-бот, сайт, інтернет-магазин, телеграм бот для інтернет-магазину, успішні кейси'
     : lang === 'en'
-    ? 'portfolio, cases, projects, telegram bot, chatbot, website, online store, successful works, development examples'
+    ? 'telegram bot development cases, online store examples, portfolio, projects, telegram bot, chatbot, website, e-commerce, successful cases'
     : lang === 'pl'
-    ? 'portfolio, przypadki, projekty, bot telegram, chatbot, strona internetowa, sklep internetowy, udane prace, przykłady rozwoju'
-    : 'портфолио, кейсы, проекты, телеграм бот, чат-бот, сайт, интернет-магазин, успешные работы, примеры разработки';
+    ? 'przypadki rozwoju botów Telegram, przykłady sklepów online, portfolio, projekty, bot Telegram, chatbot, strona, sklep internetowy, udane przypadki'
+    : 'кейсы разработки телеграм ботов, примеры интернет-магазинов, портфолио, проекты, телеграм бот, чат-бот, сайт, успешные кейсы';
 
   return {
     ...generateSEOMetadata({

@@ -30,12 +30,12 @@ export async function generateMetadata({
     : 'Узнайте о новостях, кейсах проектов и советах от TeleBots. Подписывайтесь на наши каналы!';
 
   const keywords = lang === 'uk'
-    ? 'блог, кейси, поради, новини, розробка, телеграм бот, чат-бот, автоматизація, веб-розробка, технології'
+    ? 'блог, кейси розробки телеграм ботів, поради з розробки, телеграм бот, чат-бот, автоматизація бізнесу, веб-розробка, технології'
     : lang === 'en'
-    ? 'blog, cases, tips, news, development, telegram bot, chatbot, automation, web development, technologies'
+    ? 'blog, telegram bot development cases, development tips, telegram bot, chatbot, business automation, web development, technologies'
     : lang === 'pl'
-    ? 'blog, przypadki, wskazówki, wiadomości, rozwój, bot telegram, chatbot, automatyzacja, rozwój stron internetowych, technologie'
-    : 'блог, кейсы, советы, новости, разработка, телеграм бот, чат-бот, автоматизация, веб-разработка, технологии';
+    ? 'blog, przypadki rozwoju botów, wskazówki, bot telegram, chatbot, automatyzacja biznesu, rozwój stron, technologie'
+    : 'блог, кейсы разработки телеграм ботов, советы по разработке, телеграм бот, чат-бот, автоматизация бизнеса, веб-разработка, технологии';
 
   return {
     ...generateSEOMetadata({

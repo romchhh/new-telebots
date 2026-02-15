@@ -14,28 +14,28 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Контакти - TeleBots | Зв\'яжіться з нами для розробки проєкту'
+    ? 'Контакти | Замовити розробку, консультація — TeleBots'
     : lang === 'en'
-    ? 'Contact - TeleBots | Get in Touch for Project Development'
+    ? 'Contact | Order Development, Consultation — TeleBots'
     : lang === 'pl'
-    ? 'Kontakt - TeleBots | Skontaktuj się z nami w sprawie rozwoju projektu'
-    : 'Контакты - TeleBots | Свяжитесь с нами для разработки проекта';
+    ? 'Kontakt | Zamów rozwój, konsultacja — TeleBots'
+    : 'Контакты | Заказать разработку, консультация — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Зв\'яжіться з TeleBots для обговорення проєкту. Безкоштовна консультація, швидкий відгук. Telegram, WhatsApp, Email. Отримайте консультацію сьогодні!'
+    ? 'Замовити розробку телеграм бота або сайту. Безкоштовна консультація, швидкий відгук. Telegram, WhatsApp, Email. Київ, Україна.'
     : lang === 'en'
-    ? 'Contact TeleBots to discuss your project. Free consultation, quick response. Telegram, WhatsApp, Email. Get consultation today!'
+    ? 'Order Telegram bot or website development. Free consultation, quick response. Telegram, WhatsApp, Email.'
     : lang === 'pl'
-    ? 'Skontaktuj się z TeleBots, aby omówić projekt. Bezpłatna konsultacja, szybka odpowiedź. Telegram, WhatsApp. Skontaktuj się dziś!'
-    : 'Свяжитесь с TeleBots для обсуждения проекта. Бесплатная консультация, быстрый ответ. Telegram, WhatsApp, Email. Получите консультацию сегодня!';
+    ? 'Zamów rozwój bota Telegram lub strony. Bezpłatna konsultacja, szybka odpowiedź. Telegram, WhatsApp.'
+    : 'Заказать разработку телеграм бота или сайта. Бесплатная консультация, быстрый ответ. Telegram, WhatsApp, Email.';
 
   const keywords = lang === 'uk'
-    ? 'контакти, зв\'язатися, залишити заявку, консультація, телеграм, whatsapp, email, розробка проєкту'
+    ? 'контакти, замовити розробку, консультація, залишити заявку, телеграм, whatsapp, TeleBots, Київ, Україна'
     : lang === 'en'
-    ? 'contact, get in touch, leave a request, consultation, telegram, whatsapp, email, project development'
+    ? 'contact, order development, consultation, leave request, telegram, whatsapp, TeleBots'
     : lang === 'pl'
-    ? 'kontakt, skontaktuj się, zostaw wniosek, konsultacja, telegram, whatsapp, email, rozwój projektu'
-    : 'контакты, связаться, оставить заявку, консультация, телеграм, whatsapp, email, разработка проекта';
+    ? 'kontakt, zamów rozwój, konsultacja, zostaw wniosek, telegram, whatsapp, TeleBots'
+    : 'контакты, заказать разработку, консультация, оставить заявку, телеграм, whatsapp, TeleBots';
 
   return {
     ...generateSEOMetadata({

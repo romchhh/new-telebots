@@ -14,28 +14,28 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Про нас - TeleBots | Професійна розробка цифрових рішень'
+    ? 'Про нас | Розробка ботів для бізнесу — TeleBots'
     : lang === 'en'
-    ? 'About Us - TeleBots | Professional Digital Solutions Development'
+    ? 'About Us | Bot Development for Business — TeleBots'
     : lang === 'pl'
-    ? 'O nas - TeleBots | Profesjonalny rozwój rozwiązań cyfrowych'
-    : 'О нас - TeleBots | Профессиональная разработка цифровых решений';
+    ? 'O nas | Boty dla biznesu — TeleBots'
+    : 'О нас | Разработка ботов для бизнеса — TeleBots';
 
   const description = lang === 'uk'
-    ? 'TeleBots - команда розробників телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. 200+ реалізованих проєктів. Дізнайтеся про наші послуги та процес роботи. Зв\'яжіться сьогодні!'
+    ? 'Досвід та автоматизація бізнесу. Команда TeleBots: розробка телеграм ботів, чат-ботів, сайтів. 200+ проєктів. Безкоштовна консультація.'
     : lang === 'en'
-    ? 'TeleBots - team of developers specializing in Telegram bots, chatbots, websites and online stores. 200+ completed projects. Learn about our services. Contact us today!'
+    ? 'Experience and business automation. TeleBots team: Telegram bots, chatbots, websites development. 200+ projects. Free consultation.'
     : lang === 'pl'
-    ? 'TeleBots - zespół deweloperów specjalizujących się w botach Telegram, chatbotach, stronach internetowych i sklepach online. 200+ projektów. Dowiedz się więcej. Skontaktuj się dziś!'
-    : 'TeleBots - команда разработчиков телеграм ботов, чат-ботов, сайтов и интернет-магазинов. 200+ проектов. Узнайте о наших услугах. Свяжитесь сегодня!';
+    ? 'Doświadczenie i automatyzacja biznesu. Zespół TeleBots: boty Telegram, chatboty, strony. 200+ projektów. Bezpłatna konsultacja.'
+    : 'Опыт и автоматизация бизнеса. Команда TeleBots: разработка телеграм ботов, чат-ботов, сайтов. 200+ проектов. Бесплатная консультация.';
 
   const keywords = lang === 'uk'
-    ? 'про нас, TeleBots, розробка ботів, команда розробників, телеграм бот розробка, чат-бот розробка, веб-розробка, цифрові рішення'
+    ? 'про нас, TeleBots, розробка ботів для бізнесу, команда розробників, автоматизація бізнесу, досвід, консультація, телеграм бот розробка, веб-розробка, цифрові рішення'
     : lang === 'en'
-    ? 'about us, TeleBots, bot development, development team, telegram bot development, chatbot development, web development, digital solutions'
+    ? 'about us, TeleBots, bot development for business, development team, business automation, experience, consultation, telegram bot development, web development, digital solutions'
     : lang === 'pl'
-    ? 'o nas, TeleBots, rozwój botów, zespół deweloperów, rozwój botów Telegram, rozwój chatbotów, rozwój stron internetowych, rozwiązania cyfrowe'
-    : 'о нас, TeleBots, разработка ботов, команда разработчиков, разработка телеграм ботов, разработка чат-ботов, веб-разработка, цифровые решения';
+    ? 'o nas, TeleBots, boty dla biznesu, zespół deweloperów, automatyzacja biznesu, doświadczenie, konsultacja, rozwój botów Telegram, rozwój stron, rozwiązania cyfrowe'
+    : 'о нас, TeleBots, разработка ботов для бизнеса, команда разработчиков, автоматизация бизнеса, опыт, консультация, разработка телеграм ботов, веб-разработка, цифровые решения';
 
   return {
     ...generateSEOMetadata({

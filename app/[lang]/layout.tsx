@@ -8,29 +8,29 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const t = translations[lang];
 
-  const title = lang === 'uk' 
-    ? 'TeleBots - Розробка телеграм ботів, сайтів та цифрових рішень'
+  const title = lang === 'uk'
+    ? 'Розробка телеграм ботів — TeleBots'
     : lang === 'en'
-    ? 'TeleBots - Telegram Bots, Websites & Digital Solutions Development'
+    ? 'Telegram Bot Development — TeleBots'
     : lang === 'pl'
-    ? 'TeleBots - Rozwój botów Telegram, stron internetowych i rozwiązań cyfrowych'
-    : 'TeleBots - Разработка телеграм ботов, сайтов и цифровых решений';
+    ? 'Rozwój botów Telegram — TeleBots'
+    : 'Разработка телеграм ботов — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Покращуємо бізнеси, що стають №1. Професійна розробка телеграм ботів, чат-ботів з AI, сайтів та інтернет-магазинів. Швидкий старт за 24 години, готове рішення за 2 тижні. 200+ проєктів.'
+    ? 'Телеграм бот розробка, чат-боти, сайти, інтернет-магазини. Автоматизація бізнесу під ключ. Швидкий старт за 24 години, готове рішення за 2 тижні. 200+ проєктів.'
     : lang === 'en'
-    ? 'Improving businesses that become #1. Professional development of Telegram bots, AI chatbots, websites and e-commerce stores. Quick start in 24 hours, ready solution in 2 weeks. 200+ projects.'
+    ? 'Telegram bot development, chatbots, websites, e-commerce. Turnkey business automation. Quick start in 24 hours, ready solution in 2 weeks. 200+ projects.'
     : lang === 'pl'
-    ? 'Ulepszamy biznesy, które stają się nr 1. Profesjonalny rozwój botów Telegram, chatbotów AI, stron internetowych. Szybki start w 24 godziny, gotowe rozwiązanie w 2 tygodnie. 200+ projektów.'
-    : 'Улучшаем бизнесы, которые становятся №1. Профессиональная разработка телеграм ботов, AI чат-ботов, сайтов. Быстрый старт за 24 часа, готовое решение за 2 недели. 200+ проектов.';
+    ? 'Rozwój botów Telegram, chatboty, strony, sklepy online. Automatyzacja biznesu pod klucz. Szybki start w 24 godziny, gotowe rozwiązanie w 2 tygodnie. 200+ projektów.'
+    : 'Разработка телеграм ботов, чат-боты, сайты, интернет-магазины. Автоматизация бизнеса под ключ. Быстрый старт за 24 часа, готовое решение за 2 недели. 200+ проектов.';
 
   const keywords = lang === 'uk'
-    ? 'телеграм бот, розробка ботів, чат-бот, AI бот, розробка сайтів, інтернет-магазин, парсер, автоматизація бізнесу, Telegram бот розробка, веб-розробка, швидкий старт 24 години, готове рішення 2 тижні, автоматизація бізнесу під ключ, цифрові рішення, боти для бізнесу, чат-боти з AI'
+    ? 'телеграм бот розробка, розробка чат-ботів, розробка ботів для бізнесу, розробка сайтів, інтернет-магазин під ключ, автоматизація бізнесу, цифрові рішення для бізнесу, TeleBots, замовлення телеграм бота, веб-розробка, AI чат-бот, швидкий старт 24 години, готове рішення 2 тижні, 200+ проєктів'
     : lang === 'en'
-    ? 'telegram bot, bot development, chatbot, AI bot, website development, e-commerce, parser, business automation, Telegram bot development, web development, quick start 24 hours, ready solution 2 weeks, turnkey business automation, digital solutions, business bots, AI chatbots'
+    ? 'telegram bot development, chatbot development, bot development for business, website development, e-commerce turnkey, business automation, digital solutions, TeleBots, order telegram bot, web development, AI chatbot, quick start 24 hours, ready solution 2 weeks, 200+ projects'
     : lang === 'pl'
-    ? 'bot telegram, rozwój botów, chatbot, bot AI, rozwój stron internetowych, e-commerce, parser, automatyzacja biznesu, rozwój botów Telegram, rozwój stron internetowych, szybki start 24 godziny, gotowe rozwiązanie 2 tygodnie, automatyzacja biznesu pod klucz, rozwiązania cyfrowe, boty biznesowe, chatboty AI'
-    : 'телеграм бот, разработка ботов, чат-бот, AI бот, разработка сайтов, интернет-магазин, парсер, автоматизация бизнеса, разработка Telegram ботов, веб-разработка, быстрый старт 24 часа, готовое решение 2 недели, автоматизация бизнеса под ключ, цифровые решения, боты для бизнеса, чат-боты с AI';
+    ? 'rozwój botów Telegram, rozwój chatbotów, boty dla biznesu, rozwój stron, sklep internetowy pod klucz, automatyzacja biznesu, rozwiązania cyfrowe, TeleBots, zamówienie bota Telegram, rozwój stron internetowych, chatbot AI, szybki start 24 godziny, gotowe rozwiązanie 2 tygodnie, 200+ projektów'
+    : 'разработка телеграм ботов, разработка чат-ботов, боты для бизнеса, разработка сайтов, интернет-магазин под ключ, автоматизация бизнеса, цифровые решения, TeleBots, заказать телеграм бота, веб-разработка, AI чат-бот, быстрый старт 24 часа, готовое решение 2 недели, 200+ проектов';
 
   return {
     title,
@@ -92,13 +92,13 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     icons: {
       icon: [
-        { url: '/whitelogo.png', sizes: 'any', type: 'image/png' },
+        { url: '/other/favicon.png', sizes: 'any', type: 'image/png' },
       ],
       apple: [
-        { url: '/whitelogo.png', sizes: '180x180', type: 'image/png' },
+        { url: '/other/favicon.png', sizes: '180x180', type: 'image/png' },
       ],
       shortcut: [
-        { url: '/whitelogo.png', type: 'image/png' },
+        { url: '/other/favicon.png', type: 'image/png' },
       ],
     },
     manifest: '/manifest.json',
