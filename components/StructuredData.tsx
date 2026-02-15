@@ -25,6 +25,7 @@ interface StructuredDataProps {
   caseId?: string;
   serviceName?: string;
   serviceDescription?: string;
+  serviceUrl?: string;
   breadcrumbs?: Array<{ name: string; url: string }>;
   faqs?: Array<{ question: string; answer: string }>;
   howToSteps?: Array<{ name: string; text: string }>;
@@ -41,6 +42,7 @@ export default function StructuredData({
   caseId,
   serviceName,
   serviceDescription,
+  serviceUrl,
   breadcrumbs,
   faqs,
   howToSteps,
@@ -81,7 +83,7 @@ export default function StructuredData({
       break;
     case 'service':
       if (serviceName && serviceDescription) {
-        schema = generateServiceSchema(serviceName, serviceDescription, validLang);
+        schema = generateServiceSchema(serviceName, serviceDescription, validLang, serviceUrl);
       }
       break;
     case 'product':

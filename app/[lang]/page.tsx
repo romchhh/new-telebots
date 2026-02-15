@@ -54,11 +54,6 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
-  useEffect(() => {
-    if (isModalOpen) document.body.style.overflow = 'hidden';
-    else document.body.style.overflow = 'unset';
-    return () => { document.body.style.overflow = 'unset'; };
-  }, [isModalOpen]);
   const openModal = () => {
     setSelectedService(t.modal.title);
     setIsModalOpen(true);

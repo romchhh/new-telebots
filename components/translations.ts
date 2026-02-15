@@ -151,28 +151,32 @@ export const translations = {
       learnMore: 'Дізнатися більше',
       websitesPage: {
         title: 'Сайти',
-        subtitle: 'Розробляємо сучасні, швидкі та ефективні веб-сайти, які працюють на ваш бізнес і приносять реальні результати',
-        description: 'Від стильних лендінгів до потужних інтернет-магазинів - кожен сайт заточений під ваші бізнес-цілі',
+        subtitle: 'Мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce',
+        description: 'Розробляємо мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce рішення. Швидкі, зручний адмін, SEO та інтеграції під ключ. За потреби підключаємо AI-функції — чат-боти, аналітику та автоматизацію бізнес-процесів. Маєте ідею? Будемо раді обговорити та підказати найкраще рішення. Багато запитів у клієнтів? Можемо співпрацювати як підрядники — разом реалізуємо більше проєктів і збільшимо прибуток.',
         button: 'Замовити розробку'
       },
       chatbotsPage: {
         title: 'Чат-боти',
-        subtitle: 'Розробляємо ефективних чат-ботів для Telegram, Instagram, Facebook Messenger, WhatsApp та Viber',
-        description: 'Ми легко підключимо бота до будь-якої платіжки, CRM-ки, тощо щоб усе працювало як годинник. Ваш бізнес стане ближчим до клієнтів, а рутина - це вже не ваша проблема!',
+        subtitle: 'Боти, які ведуть клієнта до покупки: оплата, CRM, підтвердження. Telegram, WhatsApp, Viber, Messenger',
+        description: 'Бот, який не просто відповідає — а веде клієнта до покупки: приймає оплату (Mono, WayForPay, LiqPay), записує в CRM або Google Sheets, надсилає підтвердження. Автоматизація продажів у месенджері без втрати особистого підходу; за бажанням — AI-відповіді та аналітика. Швидкий старт за 24 години, перевірено на 200+ проєктах. Маєте ідею? Обговоримо та підкажемо найкраще рішення. Працюємо і як підрядники: багато заявок — разом реалізуємо більше і збільшимо прибуток.',
         button: 'Замовити розробку'
       },
       parsersPage: {
         title: 'Парсери',
-        subtitle: 'Створюємо ефективні парсери - інструменти для автоматизації збору та обробки даних з будь-яких сайтів, платформ чи маркетплейсів',
-        description: 'Парсери економлять години рутинної роботи та відкривають доступ до даних, які приносять прибуток',
+        subtitle: 'Збір даних з будь-яких джерел: маркетплейси, оголошення, соцмереж. Excel, Sheets, API',
+        description: 'Дані з будь-якого джерела — без годин ручного копіювання. Парсери під ваш сценарій: ціни, товари, контакти; експорт в Excel, Google Sheets, базу або API. Планувальник запусків та обробка даних. Економія часу для аналітики, ціноутворення та моніторингу ринку. Маєте ідею або складне завдання? Обговоримо та підкажемо оптимальне рішення. Агенціям з багатьма запитами — співпраця як підрядники, щоб разом робити більше проєктів.',
         button: 'Замовити розробку'
       },
       designPage: {
         title: 'Дизайн',
-        subtitle: 'Лого, айдентика, дизайн сайтів та додатків. В команді є UI/UX дизайнер — створюємо зручні та стильні інтерфейси.',
-        description: 'Фірмовий стиль, брендбуки, макети сайтів і мобільних застосунків. Працюємо в Figma, створюємо прототипи та фінальні макети для розробки.',
+        subtitle: 'Лого, айдентика, UI/UX для сайтів та додатків. Зручні інтерфейси, що працюють на конверсію',
+        description: 'Логотип і фірмовий стиль, які запам\'ятовуються. UI/UX для сайтів та додатків: прототипи в Figma, айдентика, брендбуки, візитки та соцмережі. Інтерфейс не лише виглядає — а й працює на конверсію та впізнаваність. В команді досвідчений UI/UX дизайнер — від ідеї до макетів під передачу в розробку. Маєте ідею? Раді обговорити та підказати найкраще рішення. Готові співпрацювати як підрядники для агенцій з великим потоком проєктів.',
         button: 'Замовити дизайн'
       },
+      serviceLearnMore: 'Дізнатися детальніше',
+      servicePagePortfolioTitle: 'Приклади робіт',
+      servicePageIndividualPricingTitle: 'Індивідуальний розрахунок',
+      servicePageIndividualPricingDesc: 'Вартість залежить від обсягу та складності проєкту. Зв\'яжіться з нами для безкоштовної консультації та розрахунку.',
       stats: {
         projects: '200+ реалізованих проєктів',
         years: '4 роки оптимізації',
@@ -236,6 +240,68 @@ export const translations = {
           { name: 'BUSINESS', price: '500-800', popular: true, description: 'Багатосторінковий корпоративний сайт з розширеним функціоналом. Повноцінна онлайн-присутність вашого бізнесу.', features: ['До 10 сторінок', 'CMS для управління контентом', 'Розширене SEO', 'Інтеграція з соцмережами', 'Форми та калькулятори', 'Мультимовність'], forWhom: 'Середній бізнес, агенції, компанії з широким асортиментом' },
           { name: 'E-COMMERCE', price: '800+', description: 'Повноцінний інтернет-магазин з системою оплати, каталогом товарів та особистим кабінетом.', features: ['Каталог товарів з фільтрами', 'Кошик та оформлення замовлення', 'Інтеграція платіжних систем', 'Особистий кабінет', 'Система знижок та промокодів', 'Адмін-панель для управління'], forWhom: 'Онлайн-магазини, e-commerce проєкти, роздрібна торгівля' }
         ]
+      },
+      pricingParsers: {
+        categoryLabel: 'Парсери',
+        title: 'Тарифні плани',
+        subtitle: 'Збір та обробка даних з будь-яких джерел',
+        popularBadge: 'ПОПУЛЯРНИЙ',
+        featuresLabel: 'Функціонал',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Потрібен складний сценарій?',
+        contactLink: 'Зв\'яжіться з нами',
+        contactSuffix: 'для розрахунку',
+        plans: [
+          { name: 'BASIC', price: '200-400', description: 'Парсер одного джерела: сайт, категорія або список сторінок. Результат у Excel або CSV.', features: ['Один джерело даних', 'Експорт в Excel/CSV', 'Налаштування полів', 'Запуск за запитом'], forWhom: 'Малий бізнес, моніторинг цін, збір контактів' },
+          { name: 'PRO', price: '400-700', popular: true, description: 'Кілька джерел, розклад збору, обробка та дедуплікація. Експорт в Google Sheets або базу.', features: ['Декілька джерел', 'Планувальник (cron)', 'Обробка та фільтри', 'Експорт в Sheets/API', 'Обхід базової захисту'], forWhom: 'Маркетплейси, агрегатори, аналітика ринку' },
+          { name: 'CUSTOM', price: '700+', description: 'Складні сценарії: багато сторінок, анти-блок, великі обсяги, інтеграція з вашою системою.', features: ['Необмежена складність', 'Проксі та ротація', 'Великі обсяги даних', 'Інтеграція з вашою CRM/ERP', 'Підтримка після запуску'], forWhom: 'Корпорації, e-commerce, дослідження ринку' }
+        ]
+      },
+      pricingDesign: {
+        categoryLabel: 'Дизайн',
+        title: 'Тарифні плани',
+        subtitle: 'Логотип, айдентика та UI/UX для сайтів і додатків',
+        popularBadge: 'ПОПУЛЯРНИЙ',
+        featuresLabel: 'Що входить',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Потрібен комплексний проєкт?',
+        contactLink: 'Зв\'яжіться з нами',
+        contactSuffix: 'для обговорення',
+        plans: [
+          { name: 'LOGO', price: '150-300', description: 'Логотип та базова айдентика: основний знак, кольори, шрифт. Файли для друку та вебу.', features: ['Логотип (2–3 варіанти)', 'Палітра кольорів', 'Рекомендації по шрифтах', 'Файли PNG, SVG, PDF'], forWhom: 'Стартапи, фрілансери, локальний бізнес' },
+          { name: 'BRAND', price: '300-600', popular: true, description: 'Повний фірмовий стиль: лого, візитки, бланки, соцмережі. Брендбук або стиль-гайд.', features: ['Усе з тарифу LOGO', 'Візитка, бланк, конверт', 'Оформлення соцмереж', 'Брендбук / стиль-гайд'], forWhom: 'Середній бізнес, бренди, агенції' },
+          { name: 'UI/UX', price: '500+', description: 'Дизайн інтерфейсів: прототипи в Figma, макети сайту або додатку, адаптив, передача в розробку.', features: ['Прототипи в Figma', 'Макети ключових екранів', 'Адаптив (desktop + mobile)', 'Специфікація для розробників'], forWhom: 'Стартапи з продуктом, сайти та додатки під ключ' }
+        ]
+      },
+      servicePageBlocks: {
+        whatWeDoTitle: 'Що ми робимо',
+        termsTitle: 'Умови співпраці',
+        integrationsTitle: 'Інтеграції та інструменти',
+        techTitle: 'Технології',
+        websites: {
+          whatWeDo: ['Лендинги та посадочні сторінки з високою конверсією', 'Корпоративні сайти з CMS (адмін-панель для контенту)', 'Інтернет-магазини з оплатою, кошиком та каталогом', 'Адаптивна верстка під мобільні та планшети', 'Базова та розширена SEO-оптимізація', 'Інтеграція форм, чат-ботів та аналітики'],
+          terms: ['Оплата зазвичай у 2 етапи: аванс перед стартом та після приймання', 'Термін: лендинг 1–2 тижні, сайт 2–4 тижні, магазин від 4 тижнів', 'Правки в межах ТЗ без додаткової плати', 'Підтримка та навчання після запуску за домовленістю', 'Хостинг та домен можна підключити окремо або ми підберемо'],
+          integrations: ['Google Analytics, Tag Manager, Search Console', 'Платіжні системи: LiqPay, WayForPay, Mono (для e-commerce)', 'CRM та email-розсилки (інтеграція за запитом)', 'Telegram / WhatsApp для форм зворотного зв’язку', 'Figma — імпорт макетів від вашого дизайнера'],
+          tech: ['Next.js, React — швидкі та SEO-дружні сайти', 'Node.js або інший backend за потреби', 'Headless CMS або власна адмінка', 'Vercel, Netlify або ваш хостинг']
+        },
+        chatbots: {
+          whatWeDo: ['Чат-боти для Telegram, Viber, WhatsApp, Facebook Messenger', 'Автоматизація продажів: каталог, кошик, оплата в месенджері', 'Збір заявок та лідів з подальшим записом у CRM або таблиці', 'Інтеграція з платіжними системами (Mono, LiqPay, WayForPay)', 'Розумні відповіді з підключенням AI (GPT) за бажанням', 'Розсилки та нотифікації для клієнтів'],
+          terms: ['Безкоштовна консультація та оцінка перед стартом', 'Оплата: аванс + після здачі; для великих проєктів — поетапно', 'Термін: прості боти 1–2 тижні, з оплатою та інтеграціями 2–4 тижні', 'Навчання роботі з ботом та передача доступу включені', 'Гарантійна підтримка після запуску (термін за домовленістю)'],
+          integrations: ['Платежі: Mono (Monobank), LiqPay, WayForPay, Stripe', 'CRM: AmoCRM, HubSpot, Google Sheets', 'Бази: PostgreSQL, MongoDB, Google Sheets як легка база', 'AI: OpenAI GPT для розумних відповідей та класифікації', 'Розсилки: власний механізм у боті або інтеграція з сервісами'],
+          tech: ['Python (aiogram, python-telegram-bot) або Node.js', 'Telegram Bot API, Viber/WhatsApp Business API', 'Бази даних та черги для стабільності', 'Деплой на VPS або хмарі (AWS, DigitalOcean тощо)']
+        },
+        parsers: {
+          whatWeDo: ['Збір даних з сайтів, маркетплейсів, соцмереж та API', 'Парсери під ваш сценарій: ціни, товари, оголошення, контакти', 'Планувальник запусків (cron) та автоматичний експорт', 'Обробка та очищення даних, дедуплікація', 'Поставка даних у Excel, Google Sheets, базу або API', 'Обхід обмежень та анти-блок за потреби (етично)'],
+          terms: ['Оцінка складності та вартості після опису джерел і цілей', 'Оплата за сценарій: аванс + після успішного тесту', 'Термін залежить від кількості джерел і обсягу (від тижня)', 'Результат: скрипт/сервіс у вас або хостинг з підтримкою', 'Можлива підтримка та доопрацювання після запуску'],
+          integrations: ['Експорт: Excel, CSV, Google Sheets, API (REST/webhook)', 'Бази даних: PostgreSQL, MySQL, MongoDB для великих обсягів', 'Проксі та ротація IP для складних джерел', 'Інтеграція з вашою CRM або внутрішньою системою за ТЗ'],
+          tech: ['Python (Beautiful Soup, Scrapy, Playwright), Node.js за потреби', 'Планувальники (cron, Celery), черги для стабільності', 'Проксі, обробка cookies та user-agent', 'Docker для розгортання у вас або на нашому хостингу']
+        },
+        design: {
+          whatWeDo: ['Логотип та фірмовий стиль: знак, кольори, шрифти, носії', 'Візитки, бланки, конверти, оформлення соцмереж', 'UI/UX для сайтів та мобільних додатків', 'Прототипи та макети в Figma з передачею в розробку', 'Брендбуки та гайди по стилю для консистентності', 'Адаптивні макети під різні екрани'],
+          terms: ['Оплата: 50% перед стартом, 50% після приймання макетів', 'Термін: лого 3–7 днів, бренд 1–2 тижні, UI/UX залежить від обсягу', '2–3 раунди правок у межах ТЗ включені', 'Файли в потрібних форматах (PNG, SVG, PDF, Figma)', 'Можливість продовжити з нами розробку по вашим макетам'],
+          integrations: ['Figma — основне середовище для макетів та прототипів', 'Експорт у формати для розробки та друку', 'Передача стилів і компонентів у код (за потреби)', 'Інтеграція з вашим бренд-гайдом або існуючими матеріалами'],
+          tech: ['Figma — прототипування та UI/UX', 'Adobe Illustrator / Photoshop для лого та поліграфії', 'Системний підхід: компоненти, стилі, варіанти для адаптиву']
+        }
       }
     },
     modal: {
@@ -248,7 +314,8 @@ export const translations = {
       requestPlaceholder: 'Опишіть ваш проєкт...',
       submit: 'Відправити заявку',
       close: 'Закрити',
-      success: 'Дякуємо! Ми зв\'яжемося з вами найближчим часом.'
+      success: 'Дякуємо! Ми зв\'яжемося з вами найближчим часом.',
+      orWriteDirectly: 'Або напишіть нам напряму:'
     },
     footer: {
       description: 'Професійна розробка та дизайн для вашого бізнесу: боти, сайти, лого, айдентика, UI/UX.',
@@ -486,28 +553,32 @@ export const translations = {
       learnMore: 'Learn more',
       websitesPage: {
         title: 'Websites',
-        subtitle: 'We develop modern, fast and effective websites that work for your business and bring real results',
-        description: 'From stylish landing pages to powerful online stores - every website is tailored to your business goals',
+        subtitle: 'Minimalist premium sites with free consultation: landings, business card sites and premium e-commerce',
+        description: 'We build minimalist premium sites with free consultation: landings, business card sites and premium e-commerce solutions. Fast, easy admin, SEO and integrations turnkey. When needed we add AI — chatbots, analytics and business process automation. Got an idea? We\'re happy to discuss and suggest the best approach. Lots of client requests? We can work as subcontractors to deliver more projects and grow revenue together.',
         button: 'Order Development'
       },
       chatbotsPage: {
         title: 'Chatbots',
-        subtitle: 'We develop effective chatbots for Telegram, Instagram, Facebook Messenger, WhatsApp and Viber',
-        description: 'We can easily connect the bot to any payment system, CRM, etc. so everything works like clockwork. Your business will become closer to customers, and routine is no longer your problem!',
+        subtitle: 'Bots that lead the customer to purchase: payments, CRM, confirmations. Telegram, WhatsApp, Viber, Messenger',
+        description: 'A bot that doesn\'t just reply — it leads the customer to purchase: accepts payments (Mono, WayForPay, LiqPay), logs to CRM or Google Sheets, sends confirmations. Sales automation in the messenger without losing a personal touch; optionally AI replies and analytics. Quick start in 24 hours, proven on 200+ projects. Got an idea? Let\'s discuss and we\'ll suggest the best solution. We also work as subcontractors: more leads — we deliver more together and grow profit.',
         button: 'Order Development'
       },
       parsersPage: {
         title: 'Parsers',
-        subtitle: 'We create effective parsers - tools for automating data collection and processing from any sites, platforms or marketplaces',
-        description: 'Parsers save hours of routine work and open access to data that brings profit',
+        subtitle: 'Data from any source: marketplaces, classifieds, social networks. Excel, Sheets, API',
+        description: 'Data from any source — no more hours of manual copying. Parsers tailored to your scenario: prices, products, contacts; export to Excel, Google Sheets, database or API. Scheduler and data processing. Save time for analytics, pricing and market monitoring. Got an idea or a complex task? We\'ll discuss and suggest the best approach. For agencies with many requests — we work as subcontractors so we can deliver more projects together.',
         button: 'Order Development'
       },
       designPage: {
         title: 'Design',
-        subtitle: 'Logos, brand identity, website and app design. Our team includes a UI/UX designer — we create user-friendly and stylish interfaces.',
-        description: 'Brand identity, brand books, website and mobile app mockups. We work in Figma, create prototypes and final layouts for development.',
+        subtitle: 'Logo, identity, UI/UX for websites and apps. Interfaces that work for conversion',
+        description: 'A logo and brand identity that stick in people\'s minds. UI/UX for websites and apps: Figma prototypes, identity, brand books, business cards and socials. The interface doesn\'t just look good — it works for conversion and recognition. Experienced UI/UX designer on the team — from idea to handoff-ready mockups. Got an idea? We\'re happy to discuss and suggest the best solution. We also partner as subcontractors for agencies with a strong project flow.',
         button: 'Order Design'
       },
+      serviceLearnMore: 'Learn more',
+      servicePagePortfolioTitle: 'Our work',
+      servicePageIndividualPricingTitle: 'Individual pricing',
+      servicePageIndividualPricingDesc: 'Cost depends on scope and complexity. Contact us for a free consultation and quote.',
       stats: {
         projects: '200+ completed projects',
         years: '4 years of optimization',
@@ -571,6 +642,68 @@ export const translations = {
           { name: 'BUSINESS', price: '500-800', popular: true, description: 'Multi-page corporate site with extended functionality. Full online presence for your business.', features: ['Up to 10 pages', 'CMS for content management', 'Advanced SEO', 'Social media integration', 'Forms and calculators', 'Multilingual'], forWhom: 'SMB, agencies, companies with wide range' },
           { name: 'E-COMMERCE', price: '800+', description: 'Full online store with payment system, product catalog and personal account.', features: ['Product catalog with filters', 'Cart and checkout', 'Payment system integration', 'Personal account', 'Discounts and promo codes', 'Admin panel'], forWhom: 'Online stores, e-commerce, retail' }
         ]
+      },
+      pricingParsers: {
+        categoryLabel: 'Parsers',
+        title: 'Pricing Plans',
+        subtitle: 'Data collection and processing from any sources',
+        popularBadge: 'POPULAR',
+        featuresLabel: 'Features',
+        forWhomLabel: 'For whom',
+        contactNote: 'Need a complex scenario?',
+        contactLink: 'Contact us',
+        contactSuffix: 'for a quote',
+        plans: [
+          { name: 'BASIC', price: '200-400', description: 'Single-source parser: one site, category or URL list. Output to Excel or CSV.', features: ['One data source', 'Export to Excel/CSV', 'Field mapping', 'On-demand run'], forWhom: 'Small business, price monitoring, contact scraping' },
+          { name: 'PRO', price: '400-700', popular: true, description: 'Multiple sources, scheduling, processing and deduplication. Export to Google Sheets or API.', features: ['Multiple sources', 'Scheduler (cron)', 'Processing and filters', 'Export to Sheets/API', 'Basic anti-block'], forWhom: 'Marketplaces, aggregators, market analytics' },
+          { name: 'CUSTOM', price: '700+', description: 'Complex scenarios: many pages, anti-block, large volume, integration with your system.', features: ['Unlimited complexity', 'Proxies and rotation', 'Large data volumes', 'CRM/ERP integration', 'Post-launch support'], forWhom: 'Enterprises, e-commerce, market research' }
+        ]
+      },
+      pricingDesign: {
+        categoryLabel: 'Design',
+        title: 'Pricing Plans',
+        subtitle: 'Logo, brand identity and UI/UX for websites and apps',
+        popularBadge: 'POPULAR',
+        featuresLabel: 'What\'s included',
+        forWhomLabel: 'For whom',
+        contactNote: 'Need a full-scope project?',
+        contactLink: 'Contact us',
+        contactSuffix: 'to discuss',
+        plans: [
+          { name: 'LOGO', price: '150-300', description: 'Logo and basic identity: main mark, colors, font. Files for print and web.', features: ['Logo (2–3 options)', 'Color palette', 'Font recommendations', 'PNG, SVG, PDF files'], forWhom: 'Startups, freelancers, local business' },
+          { name: 'BRAND', price: '300-600', popular: true, description: 'Full brand identity: logo, business cards, letterhead, socials. Brand book or style guide.', features: ['Everything in LOGO', 'Business card, letterhead, envelope', 'Social media kit', 'Brand book / style guide'], forWhom: 'SMB, brands, agencies' },
+          { name: 'UI/UX', price: '500+', description: 'Interface design: Figma prototypes, website or app mockups, responsive, handoff to development.', features: ['Figma prototypes', 'Key screen mockups', 'Responsive (desktop + mobile)', 'Specs for developers'], forWhom: 'Product startups, turnkey sites and apps' }
+        ]
+      },
+      servicePageBlocks: {
+        whatWeDoTitle: 'What we do',
+        termsTitle: 'Terms of cooperation',
+        integrationsTitle: 'Integrations & tools',
+        techTitle: 'Technologies',
+        websites: {
+          whatWeDo: ['Landing pages and high-conversion pages', 'Corporate sites with CMS (admin panel for content)', 'Online stores with payment, cart and catalog', 'Responsive layout for mobile and tablet', 'Basic and advanced SEO optimization', 'Forms, chatbots and analytics integration'],
+          terms: ['Payment usually in 2 stages: advance before start and after acceptance', 'Timeline: landing 1–2 weeks, site 2–4 weeks, store from 4 weeks', 'Revisions within scope at no extra cost', 'Support and training after launch by agreement', 'Hosting and domain can be added separately or we can recommend'],
+          integrations: ['Google Analytics, Tag Manager, Search Console', 'Payment systems: LiqPay, WayForPay, Mono (for e-commerce)', 'CRM and email (integration on request)', 'Telegram / WhatsApp for contact forms', 'Figma — import layouts from your designer'],
+          tech: ['Next.js, React — fast and SEO-friendly sites', 'Node.js or other backend when needed', 'Headless CMS or custom admin', 'Vercel, Netlify or your hosting']
+        },
+        chatbots: {
+          whatWeDo: ['Chatbots for Telegram, Viber, WhatsApp, Facebook Messenger', 'Sales automation: catalog, cart, payment inside messenger', 'Lead and request collection with CRM or sheet logging', 'Payment integrations (Mono, LiqPay, WayForPay)', 'Smart replies with AI (GPT) on request', 'Broadcasts and notifications to customers'],
+          terms: ['Free consultation and quote before start', 'Payment: advance + on delivery; for large projects — in stages', 'Timeline: simple bots 1–2 weeks, with payment and integrations 2–4 weeks', 'Training and access handover included', 'Warranty support after launch (period by agreement)'],
+          integrations: ['Payments: Mono (Monobank), LiqPay, WayForPay, Stripe', 'CRM: AmoCRM, HubSpot, Google Sheets', 'Databases: PostgreSQL, MongoDB, Google Sheets as light DB', 'AI: OpenAI GPT for smart replies and classification', 'Broadcasts: built-in in bot or integration with services'],
+          tech: ['Python (aiogram, python-telegram-bot) or Node.js', 'Telegram Bot API, Viber/WhatsApp Business API', 'Databases and queues for stability', 'Deploy on VPS or cloud (AWS, DigitalOcean, etc.)']
+        },
+        parsers: {
+          whatWeDo: ['Data collection from sites, marketplaces, social networks and APIs', 'Parsers for your scenario: prices, products, listings, contacts', 'Scheduled runs (cron) and automatic export', 'Processing, cleaning and deduplication', 'Delivery to Excel, Google Sheets, database or API', 'Respectful bypass of limits and anti-block when needed'],
+          terms: ['Complexity and cost estimate after describing sources and goals', 'Payment per scenario: advance + after successful test', 'Timeline depends on number of sources and volume (from one week)', 'Result: script/service at your side or hosted with support', 'Ongoing support and tweaks after launch possible'],
+          integrations: ['Export: Excel, CSV, Google Sheets, API (REST/webhook)', 'Databases: PostgreSQL, MySQL, MongoDB for large volumes', 'Proxies and IP rotation for tough sources', 'Integration with your CRM or internal system per spec'],
+          tech: ['Python (Beautiful Soup, Scrapy, Playwright), Node.js when needed', 'Schedulers (cron, Celery), queues for stability', 'Proxies, cookies and user-agent handling', 'Docker for deployment on your or our hosting']
+        },
+        design: {
+          whatWeDo: ['Logo and brand identity: mark, colors, fonts, applications', 'Business cards, letterhead, envelopes, social media kit', 'UI/UX for websites and mobile apps', 'Figma prototypes and mockups with dev handoff', 'Brand books and style guides for consistency', 'Responsive layouts for different screens'],
+          terms: ['Payment: 50% before start, 50% after approval of deliverables', 'Timeline: logo 3–7 days, brand 1–2 weeks, UI/UX by scope', '2–3 revision rounds within scope included', 'Files in required formats (PNG, SVG, PDF, Figma)', 'Option to continue with us for development from your mockups'],
+          integrations: ['Figma — main tool for mockups and prototypes', 'Export for development and print', 'Handoff of styles and components to code when needed', 'Alignment with your brand guide or existing assets'],
+          tech: ['Figma — prototyping and UI/UX', 'Adobe Illustrator / Photoshop for logo and print', 'System approach: components, styles, variants for responsive']
+        }
       }
     },
     modal: {
@@ -583,7 +716,8 @@ export const translations = {
       requestPlaceholder: 'Describe your project...',
       submit: 'Submit Request',
       close: 'Close',
-      success: 'Thank you! We will contact you soon.'
+      success: 'Thank you! We will contact you soon.',
+      orWriteDirectly: 'Or write to us directly:'
     },
     footer: {
       description: 'Professional development and design for your business: bots, websites, logos, brand identity, UI/UX.',
@@ -821,28 +955,32 @@ export const translations = {
       learnMore: 'Dowiedz się więcej',
       websitesPage: {
         title: 'Strony internetowe',
-        subtitle: 'Tworzymy nowoczesne, szybkie i skuteczne strony internetowe, które działają na Twoją korzyść i przynoszą realne rezultaty',
-        description: 'Od stylowych landing page\'ów po potężne sklepy internetowe - każda strona jest dostosowana do Twoich celów biznesowych',
+        subtitle: 'Minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i premium e-commerce',
+        description: 'Tworzymy minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i rozwiązania e-commerce. Szybko, wygodny panel, SEO i integracje pod klucz. W razie potrzeby dołączamy AI — chatboty, analitykę i automatyzację procesów. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Dużo zapytań od klientów? Możemy współpracować jako podwykonawcy — razem zrealizujemy więcej projektów i zwiększymy zyski.',
         button: 'Zamów rozwój'
       },
       chatbotsPage: {
         title: 'Chatboty',
-        subtitle: 'Tworzymy skuteczne chatboty dla Telegram, Instagram, Facebook Messenger, WhatsApp i Viber',
-        description: 'Łatwo podłączymy bota do dowolnego systemu płatności, CRM itp., aby wszystko działało jak w zegarku. Twój biznes stanie się bliższy klientom, a rutyna to już nie Twój problem!',
+        subtitle: 'Boty, które prowadzą klienta do zakupu: płatności, CRM, potwierdzenia. Telegram, WhatsApp, Viber, Messenger',
+        description: 'Bot, który nie tylko odpowiada — lecz prowadzi klienta do zakupu: przyjmuje płatności (Mono, WayForPay, LiqPay), zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja sprzedaży w messangerze bez utraty osobistego podejścia; opcjonalnie odpowiedzi AI i analityka. Szybki start w 24 godziny, sprawdzone na 200+ projektach. Macie pomysł? Omówimy i podpowiemy najlepsze rozwiązanie. Pracujemy też jako podwykonawcy: dużo zleceń — razem zrealizujemy więcej i zwiększymy zysk.',
         button: 'Zamów rozwój'
       },
       parsersPage: {
         title: 'Parsery',
-        subtitle: 'Tworzymy skuteczne parsery - narzędzia do automatyzacji zbierania i przetwarzania danych z dowolnych stron, platform lub marketplace\'ów',
-        description: 'Parsery oszczędzają godziny rutynowej pracy i otwierają dostęp do danych, które przynoszą zysk',
+        subtitle: 'Zbieranie danych z dowolnych źródeł: marketplace\'y, ogłoszenia, social media. Excel, Sheets, API',
+        description: 'Dane z dowolnego źródła — bez godzin ręcznego kopiowania. Parsery pod Wasz scenariusz: ceny, produkty, kontakty; eksport do Excel, Google Sheets, bazy lub API. Harmonogram i przetwarzanie danych. Oszczędność czasu dla analityki, cen i monitoringu rynku. Macie pomysł lub złożone zadanie? Omówimy i podpowiemy optymalne rozwiązanie. Agencjom z wieloma zapytaniami — współpraca jako podwykonawcy, żeby razem robić więcej projektów.',
         button: 'Zamów rozwój'
       },
       designPage: {
         title: 'Design',
-        subtitle: 'Logo, identyfikacja wizualna, projektowanie stron i aplikacji. W zespole mamy projektanta UI/UX — tworzymy wygodne i stylowe interfejsy.',
-        description: 'Identyfikacja wizualna, księgi znaku, makety stron i aplikacji mobilnych. Pracujemy w Figma, tworzymy prototypy i finalne makety do rozwoju.',
+        subtitle: 'Logo, identyfikacja, UI/UX dla stron i aplikacji. Interfejsy, które działają na konwersję',
+        description: 'Logo i identyfikacja wizualna, które zapadają w pamięć. UI/UX dla stron i aplikacji: prototypy w Figma, identyfikacja, księgi znaku, wizytówki i social media. Interfejs nie tylko wygląda — lecz działa na konwersję i rozpoznawalność. W zespole doświadczony projektant UI/UX — od pomysłu do makiet pod przekazanie w rozwój. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Gotowi współpracować jako podwykonawcy dla agencji z dużym przepływem projektów.',
         button: 'Zamów projekt'
       },
+      serviceLearnMore: 'Dowiedz się więcej',
+      servicePagePortfolioTitle: 'Przykłady prac',
+      servicePageIndividualPricingTitle: 'Wycena indywidualna',
+      servicePageIndividualPricingDesc: 'Koszt zależy od zakresu i złożoności. Skontaktuj się z nami po bezpłatną konsultację i wycenę.',
       stats: {
         projects: '200+ zrealizowanych projektów',
         years: '4 lata optymalizacji',
@@ -906,6 +1044,68 @@ export const translations = {
           { name: 'BUSINESS', price: '500-800', popular: true, description: 'Wielostronicowa strona korporacyjna z rozszerzonym funkcjonalnością. Pełna obecność online Twojego biznesu.', features: ['Do 10 stron', 'CMS do zarządzania treścią', 'Zaawansowane SEO', 'Integracja z social media', 'Formularze i kalkulatory', 'Wielojęzyczność'], forWhom: 'Średni biznes, agencje, firmy z szerokim asortymentem' },
           { name: 'E-COMMERCE', price: '800+', description: 'Pełnoprawny sklep internetowy z systemem płatności, katalogiem produktów i kontem osobistym.', features: ['Katalog produktów z filtrami', 'Koszyk i realizacja zamówienia', 'Integracja systemów płatności', 'Konto osobiste', 'System rabatów i kodów promocyjnych', 'Panel administracyjny'], forWhom: 'Sklepy online, projekty e-commerce, sprzedaż detaliczna' }
         ]
+      },
+      pricingParsers: {
+        categoryLabel: 'Parsery',
+        title: 'Plany cenowe',
+        subtitle: 'Zbieranie i przetwarzanie danych z dowolnych źródeł',
+        popularBadge: 'POPULARNE',
+        featuresLabel: 'Funkcjonalność',
+        forWhomLabel: 'Dla kogo',
+        contactNote: 'Potrzebujesz złożonego scenariusza?',
+        contactLink: 'Skontaktuj się z nami',
+        contactSuffix: 'po wycenę',
+        plans: [
+          { name: 'BASIC', price: '200-400', description: 'Parser jednego źródła: jedna strona, kategoria lub lista URLi. Wynik do Excel lub CSV.', features: ['Jedno źródło danych', 'Eksport do Excel/CSV', 'Mapowanie pól', 'Uruchomienie na żądanie'], forWhom: 'Mały biznes, monitoring cen, zbieranie kontaktów' },
+          { name: 'PRO', price: '400-700', popular: true, description: 'Wiele źródeł, harmonogram zbierania, przetwarzanie i deduplikacja. Eksport do Google Sheets lub API.', features: ['Wiele źródeł', 'Harmonogram (cron)', 'Przetwarzanie i filtry', 'Eksport do Sheets/API', 'Podstawowa ochrona anty-blok'], forWhom: 'Marketplace\'y, agregatory, analityka rynku' },
+          { name: 'CUSTOM', price: '700+', description: 'Złożone scenariusze: wiele stron, anty-blok, duże wolumeny, integracja z Twoim systemem.', features: ['Nieograniczona złożoność', 'Proxy i rotacja', 'Duże wolumeny danych', 'Integracja z CRM/ERP', 'Wsparcie po uruchomieniu'], forWhom: 'Korporacje, e-commerce, badania rynku' }
+        ]
+      },
+      pricingDesign: {
+        categoryLabel: 'Design',
+        title: 'Plany cenowe',
+        subtitle: 'Logo, identyfikacja wizualna i UI/UX dla stron i aplikacji',
+        popularBadge: 'POPULARNE',
+        featuresLabel: 'Co wchodzi w skład',
+        forWhomLabel: 'Dla kogo',
+        contactNote: 'Potrzebujesz kompleksowego projektu?',
+        contactLink: 'Skontaktuj się z nami',
+        contactSuffix: 'do omówienia',
+        plans: [
+          { name: 'LOGO', price: '150-300', description: 'Logo i podstawowa identyfikacja: znak główny, kolory, font. Pliki do druku i web.', features: ['Logo (2–3 warianty)', 'Paleta kolorów', 'Rekomendacje fontów', 'Pliki PNG, SVG, PDF'], forWhom: 'Startupy, freelancerzy, biznes lokalny' },
+          { name: 'BRAND', price: '300-600', popular: true, description: 'Pełna identyfikacja wizualna: logo, wizytówki, papier firmowy, social media. Księga znaku lub styl guide.', features: ['Wszystko z LOGO', 'Wizytówka, papier firmowy, koperta', 'Opackowanie social media', 'Księga znaku / styl guide'], forWhom: 'Średni biznes, marki, agencje' },
+          { name: 'UI/UX', price: '500+', description: 'Design interfejsów: prototypy w Figma, makety strony lub aplikacji, responsywność, przekazanie do rozwoju.', features: ['Prototypy w Figma', 'Makety kluczowych ekranów', 'Responsywność (desktop + mobile)', 'Specyfikacja dla deweloperów'], forWhom: 'Startupy z produktem, strony i aplikacje pod klucz' }
+        ]
+      },
+      servicePageBlocks: {
+        whatWeDoTitle: 'Co robimy',
+        termsTitle: 'Warunki współpracy',
+        integrationsTitle: 'Integracje i narzędzia',
+        techTitle: 'Technologie',
+        websites: {
+          whatWeDo: ['Landingi i strony z wysoką konwersją', 'Strony firmowe z CMS (panel do treści)', 'Sklepy internetowe z płatnościami, koszykiem i katalogiem', 'Responsywny layout na mobile i tablet', 'Podstawowe i zaawansowane SEO', 'Formularze, chatboty i analityka'],
+          terms: ['Płatność zwykle w 2 etapach: zaliczka + po odbiorze', 'Czas: landing 1–2 tyg., strona 2–4 tyg., sklep od 4 tyg.', 'Poprawki w ramach zakresu w cenie', 'Wsparcie i szkolenie po starcie do ustalenia', 'Hosting i domena osobno lub pomożemy dobrać'],
+          integrations: ['Google Analytics, Tag Manager, Search Console', 'Płatności: LiqPay, WayForPay, Mono (dla e-commerce)', 'CRM i e-mail (integracja na życzenie)', 'Telegram / WhatsApp w formularzach', 'Figma — import makiet od Twojego projektanta'],
+          tech: ['Next.js, React — szybkie i SEO-friendly strony', 'Node.js lub inny backend w razie potrzeby', 'Headless CMS lub własny panel', 'Vercel, Netlify lub Twój hosting']
+        },
+        chatbots: {
+          whatWeDo: ['Chatboty dla Telegram, Viber, WhatsApp, Facebook Messenger', 'Automatyzacja sprzedaży: katalog, koszyk, płatność w messangerze', 'Zbieranie leadów i zapytań do CRM lub arkuszy', 'Integracje płatności (Mono, LiqPay, WayForPay)', 'Odpowiedzi z AI (GPT) na życzenie', 'Rozsyłki i powiadomienia do klientów'],
+          terms: ['Bezpłatna konsultacja i wycena przed startem', 'Płatność: zaliczka + po odbiorze; duże projekty — etapami', 'Czas: proste boty 1–2 tyg., z płatnościami 2–4 tyg.', 'Szkolenie i przekazanie dostępu w cenie', 'Wsparcie gwarancyjne po starcie (okres do ustalenia)'],
+          integrations: ['Płatności: Mono, LiqPay, WayForPay, Stripe', 'CRM: AmoCRM, HubSpot, Google Sheets', 'Bazy: PostgreSQL, MongoDB, Google Sheets', 'AI: OpenAI GPT do odpowiedzi i klasyfikacji', 'Rozsyłki: wbudowane w bota lub integracje'],
+          tech: ['Python (aiogram) lub Node.js', 'Telegram Bot API, Viber/WhatsApp Business API', 'Bazy danych i kolejki', 'Deploy na VPS lub chmurze']
+        },
+        parsers: {
+          whatWeDo: ['Zbieranie danych ze stron, marketplace\'ów, social mediów i API', 'Parsery pod Twój scenariusz: ceny, produkty, ogłoszenia, kontakty', 'Harmonogram uruchomień (cron) i automatyczny eksport', 'Przetwarzanie, czyszczenie i deduplikacja', 'Dostawa do Excel, Google Sheets, bazy lub API', 'Obejście ograniczeń i anti-block gdy potrzeba'],
+          terms: ['Ocena złożoności i kosztu po opisie źródeł i celów', 'Płatność za scenariusz: zaliczka + po udanym teście', 'Czas zależy od liczby źródeł i wolumenu (od tygodnia)', 'Wynik: skrypt/serwis u Ciebie lub hosting z wsparciem', 'Możliwe wsparcie i dopracowanie po starcie'],
+          integrations: ['Eksport: Excel, CSV, Google Sheets, API (REST/webhook)', 'Bazy: PostgreSQL, MySQL, MongoDB', 'Proxy i rotacja IP dla trudnych źródeł', 'Integracja z Twoją CRM lub systemem wewnętrznym'],
+          tech: ['Python (Beautiful Soup, Scrapy, Playwright), Node.js', 'Harmonogramy (cron, Celery), kolejki', 'Proxy, cookies, user-agent', 'Docker do wdrożenia']
+        },
+        design: {
+          whatWeDo: ['Logo i identyfikacja: znak, kolory, fonty, nośniki', 'Wizytówki, papier firmowy, koperty, social media', 'UI/UX dla stron i aplikacji mobilnych', 'Prototypy i makety w Figma z przekazaniem do dev', 'Księgi znaku i style guide\'y', 'Responsywne makety pod różne ekrany'],
+          terms: ['Płatność: 50% przed startem, 50% po akceptacji', 'Czas: logo 3–7 dni, brand 1–2 tyg., UI/UX wg zakresu', '2–3 rundy poprawek w zakresie w cenie', 'Pliki w formatach PNG, SVG, PDF, Figma', 'Możliwość dalszej współpracy przy rozwoju z naszych makiet'],
+          integrations: ['Figma — główne narzędzie do makiet i prototypów', 'Eksport do rozwoju i druku', 'Przekazanie stylów i komponentów do kodu', 'Dopasowanie do Twojego brand guide lub materiałów'],
+          tech: ['Figma — prototypowanie i UI/UX', 'Adobe Illustrator / Photoshop do logo i druku', 'Podejście systemowe: komponenty, style, warianty']
+        }
       }
     },
     modal: {
@@ -918,7 +1118,8 @@ export const translations = {
       requestPlaceholder: 'Opisz swój projekt...',
       submit: 'Wyślij zapytanie',
       close: 'Zamknij',
-      success: 'Dziękujemy! Skontaktujemy się z Tobą wkrótce.'
+      success: 'Dziękujemy! Skontaktujemy się z Tobą wkrótce.',
+      orWriteDirectly: 'Lub napisz do nas bezpośrednio:'
     },
     footer: {
       description: 'Profesjonalna realizacja i design dla Twojego biznesu: boty, strony, logo, identyfikacja wizualna, UI/UX.',
@@ -1156,28 +1357,32 @@ export const translations = {
       learnMore: 'Узнать больше',
       websitesPage: {
         title: 'Сайты',
-        subtitle: 'Разрабатываем современные, быстрые и эффективные веб-сайты, которые работают на ваш бизнес и приносят реальные результаты',
-        description: 'От стильных лендингов до мощных интернет-магазинов - каждый сайт заточен под ваши бизнес-цели',
+        subtitle: 'Минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальный e-commerce',
+        description: 'Делаем минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальные e-commerce решения. Быстро, удобная админка, SEO и интеграции под ключ. При необходимости подключаем AI — чат-боты, аналитику и автоматизацию бизнес-процессов. Есть идея? Будем рады обсудить и подсказать лучшее решение. Много запросов от клиентов? Можем сотрудничать как подрядчики — вместе реализуем больше проектов и увеличим прибыль.',
         button: 'Заказать разработку'
       },
       chatbotsPage: {
         title: 'Чат-боты',
-        subtitle: 'Разрабатываем эффективных чат-ботов для Telegram, Instagram, Facebook Messenger, WhatsApp и Viber',
-        description: 'Мы легко подключим бота к любой платежке, CRM-ке и т.д., чтобы всё работало как часы. Ваш бизнес станет ближе к клиентам, а рутина - это уже не ваша проблема!',
+        subtitle: 'Боты, которые ведут клиента к покупке: оплата, CRM, подтверждения. Telegram, WhatsApp, Viber, Messenger',
+        description: 'Бот, который не просто отвечает — а ведёт клиента к покупке: принимает оплату (Mono, WayForPay, LiqPay), записывает в CRM или Google Sheets, отправляет подтверждения. Автоматизация продаж в мессенджере без потери личного подхода; по желанию — AI-ответы и аналитика. Быстрый старт за 24 часа, проверено на 200+ проектах. Есть идея? Обсудим и подскажем лучшее решение. Работаем и как подрядчики: много заявок — вместе реализуем больше и увеличим прибыль.',
         button: 'Заказать разработку'
       },
       parsersPage: {
         title: 'Парсеры',
-        subtitle: 'Создаем эффективные парсеры - инструменты для автоматизации сбора и обработки данных с любых сайтов, платформ или маркетплейсов',
-        description: 'Парсеры экономят часы рутинной работы и открывают доступ к данным, которые приносят прибыль',
+        subtitle: 'Сбор данных из любых источников: маркетплейсы, объявления, соцсети. Excel, Sheets, API',
+        description: 'Данные из любого источника — без часов ручного копирования. Парсеры под ваш сценарий: цены, товары, контакты; экспорт в Excel, Google Sheets, базу или API. Планировщик запусков и обработка данных. Экономия времени для аналитики, ценообразования и мониторинга рынка. Есть идея или сложная задача? Обсудим и подскажем оптимальное решение. Агентствам с большим потоком запросов — сотрудничество как подрядчики, чтобы вместе делать больше проектов.',
         button: 'Заказать разработку'
       },
       designPage: {
         title: 'Дизайн',
-        subtitle: 'Логотипы, айдентика, дизайн сайтов и приложений. В команде есть UI/UX дизайнер — создаём удобные и стильные интерфейсы.',
-        description: 'Фирменный стиль, брендбуки, макеты сайтов и мобильных приложений. Работаем в Figma, создаём прототипы и финальные макеты для разработки.',
+        subtitle: 'Лого, айдентика, UI/UX для сайтов и приложений. Интерфейсы, которые работают на конверсию',
+        description: 'Логотип и фирменный стиль, которые запоминаются. UI/UX для сайтов и приложений: прототипы в Figma, айдентика, брендбуки, визитки и соцсети. Интерфейс не только выглядит — а работает на конверсию и узнаваемость. В команде опытный UI/UX дизайнер — от идеи до макетов под передачу в разработку. Есть идея? Рады обсудить и подсказать лучшее решение. Готовы сотрудничать как подрядчики для агентств с большим потоком проектов.',
         button: 'Заказать дизайн'
       },
+      serviceLearnMore: 'Узнать подробнее',
+      servicePagePortfolioTitle: 'Примеры работ',
+      servicePageIndividualPricingTitle: 'Индивидуальный расчёт',
+      servicePageIndividualPricingDesc: 'Стоимость зависит от объёма и сложности. Свяжитесь с нами для бесплатной консультации и расчёта.',
       stats: {
         projects: '200+ реализованных проектов',
         years: '4 года оптимизации',
@@ -1241,6 +1446,68 @@ export const translations = {
           { name: 'BUSINESS', price: '500-800', popular: true, description: 'Многостраничный корпоративный сайт с расширенным функционалом. Полноценное онлайн-присутствие вашего бизнеса.', features: ['До 10 страниц', 'CMS для управления контентом', 'Расширенное SEO', 'Интеграция с соцсетями', 'Формы и калькуляторы', 'Мультиязычность'], forWhom: 'Средний бизнес, агентства, компании с широким ассортиментом' },
           { name: 'E-COMMERCE', price: '800+', description: 'Полноценный интернет-магазин с системой оплаты, каталогом товаров и личным кабинетом.', features: ['Каталог товаров с фильтрами', 'Корзина и оформление заказа', 'Интеграция платёжных систем', 'Личный кабинет', 'Система скидок и промокодов', 'Админ-панель для управления'], forWhom: 'Онлайн-магазины, e-commerce проекты, розничная торговля' }
         ]
+      },
+      pricingParsers: {
+        categoryLabel: 'Парсеры',
+        title: 'Тарифные планы',
+        subtitle: 'Сбор и обработка данных из любых источников',
+        popularBadge: 'ПОПУЛЯРНЫЙ',
+        featuresLabel: 'Функционал',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Нужен сложный сценарий?',
+        contactLink: 'Свяжитесь с нами',
+        contactSuffix: 'для расчёта',
+        plans: [
+          { name: 'BASIC', price: '200-400', description: 'Парсер одного источника: один сайт, категория или список страниц. Результат в Excel или CSV.', features: ['Один источник данных', 'Экспорт в Excel/CSV', 'Настройка полей', 'Запуск по запросу'], forWhom: 'Малый бизнес, мониторинг цен, сбор контактов' },
+          { name: 'PRO', price: '400-700', popular: true, description: 'Несколько источников, расписание сбора, обработка и дедупликация. Экспорт в Google Sheets или API.', features: ['Несколько источников', 'Планировщик (cron)', 'Обработка и фильтры', 'Экспорт в Sheets/API', 'Базовый обход защиты'], forWhom: 'Маркетплейсы, агрегаторы, аналитика рынка' },
+          { name: 'CUSTOM', price: '700+', description: 'Сложные сценарии: много страниц, анти-блок, большие объёмы, интеграция с вашей системой.', features: ['Неограниченная сложность', 'Прокси и ротация', 'Большие объёмы данных', 'Интеграция с вашей CRM/ERP', 'Поддержка после запуска'], forWhom: 'Корпорации, e-commerce, исследование рынка' }
+        ]
+      },
+      pricingDesign: {
+        categoryLabel: 'Дизайн',
+        title: 'Тарифные планы',
+        subtitle: 'Логотип, айдентика и UI/UX для сайтов и приложений',
+        popularBadge: 'ПОПУЛЯРНЫЙ',
+        featuresLabel: 'Что входит',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Нужен комплексный проект?',
+        contactLink: 'Свяжитесь с нами',
+        contactSuffix: 'для обсуждения',
+        plans: [
+          { name: 'LOGO', price: '150-300', description: 'Логотип и базовая айдентика: основной знак, цвета, шрифт. Файлы для печати и веба.', features: ['Логотип (2–3 варианта)', 'Палитра цветов', 'Рекомендации по шрифтам', 'Файлы PNG, SVG, PDF'], forWhom: 'Стартапы, фрилансеры, локальный бизнес' },
+          { name: 'BRAND', price: '300-600', popular: true, description: 'Полный фирменный стиль: лого, визитки, бланки, соцсети. Брендбук или стайл-гайд.', features: ['Всё из тарифа LOGO', 'Визитка, бланк, конверт', 'Оформление соцсетей', 'Брендбук / стайл-гайд'], forWhom: 'Средний бизнес, бренды, агентства' },
+          { name: 'UI/UX', price: '500+', description: 'Дизайн интерфейсов: прототипы в Figma, макеты сайта или приложения, адаптив, передача в разработку.', features: ['Прототипы в Figma', 'Макеты ключевых экранов', 'Адаптив (desktop + mobile)', 'Спецификация для разработчиков'], forWhom: 'Стартапы с продуктом, сайты и приложения под ключ' }
+        ]
+      },
+      servicePageBlocks: {
+        whatWeDoTitle: 'Что мы делаем',
+        termsTitle: 'Условия сотрудничества',
+        integrationsTitle: 'Интеграции и инструменты',
+        techTitle: 'Технологии',
+        websites: {
+          whatWeDo: ['Лендинги и посадочные с высокой конверсией', 'Корпоративные сайты с CMS (админка для контента)', 'Интернет-магазины с оплатой, корзиной и каталогом', 'Адаптивная вёрстка под мобильные и планшеты', 'Базовая и расширенная SEO-оптимизация', 'Интеграция форм, чат-ботов и аналитики'],
+          terms: ['Оплата обычно в 2 этапа: аванс перед стартом и после приёмки', 'Сроки: лендинг 1–2 нед., сайт 2–4 нед., магазин от 4 нед.', 'Правки в рамках ТЗ без доплаты', 'Поддержка и обучение после запуска по договорённости', 'Хостинг и домен отдельно или подберём'],
+          integrations: ['Google Analytics, Tag Manager, Search Console', 'Платёжные системы: LiqPay, WayForPay, Mono (для e-commerce)', 'CRM и рассылки (интеграция по запросу)', 'Telegram / WhatsApp для форм обратной связи', 'Figma — импорт макетов от вашего дизайнера'],
+          tech: ['Next.js, React — быстрые и SEO-дружественные сайты', 'Node.js или другой backend при необходимости', 'Headless CMS или своя админка', 'Vercel, Netlify или ваш хостинг']
+        },
+        chatbots: {
+          whatWeDo: ['Чат-боты для Telegram, Viber, WhatsApp, Facebook Messenger', 'Автоматизация продаж: каталог, корзина, оплата в мессенджере', 'Сбор заявок и лидов с записью в CRM или таблицы', 'Интеграция с платёжными системами (Mono, LiqPay, WayForPay)', 'Умные ответы с AI (GPT) по желанию', 'Рассылки и уведомления для клиентов'],
+          terms: ['Бесплатная консультация и оценка перед стартом', 'Оплата: аванс + после сдачи; крупные проекты — по этапам', 'Сроки: простые боты 1–2 нед., с оплатой и интеграциями 2–4 нед.', 'Обучение работе с ботом и передача доступа включены', 'Гарантийная поддержка после запуска (срок по договорённости)'],
+          integrations: ['Платежи: Mono (Monobank), LiqPay, WayForPay, Stripe', 'CRM: AmoCRM, HubSpot, Google Sheets', 'Базы: PostgreSQL, MongoDB, Google Sheets', 'AI: OpenAI GPT для умных ответов и классификации', 'Рассылки: в боте или интеграция с сервисами'],
+          tech: ['Python (aiogram, python-telegram-bot) или Node.js', 'Telegram Bot API, Viber/WhatsApp Business API', 'Базы данных и очереди для стабильности', 'Деплой на VPS или облаке (AWS, DigitalOcean и т.д.)']
+        },
+        parsers: {
+          whatWeDo: ['Сбор данных с сайтов, маркетплейсов, соцсетей и API', 'Парсеры под ваш сценарий: цены, товары, объявления, контакты', 'Планировщик запусков (cron) и автоматический экспорт', 'Обработка и очистка данных, дедупликация', 'Поставка в Excel, Google Sheets, базу или API', 'Обход ограничений и анти-блок при необходимости'],
+          terms: ['Оценка сложности и стоимости после описания источников и целей', 'Оплата за сценарий: аванс + после успешного теста', 'Срок зависит от числа источников и объёма (от недели)', 'Результат: скрипт/сервис у вас или хостинг с поддержкой', 'Поддержка и доработки после запуска возможны'],
+          integrations: ['Экспорт: Excel, CSV, Google Sheets, API (REST/webhook)', 'Базы: PostgreSQL, MySQL, MongoDB для больших объёмов', 'Прокси и ротация IP для сложных источников', 'Интеграция с вашей CRM или внутренней системой по ТЗ'],
+          tech: ['Python (Beautiful Soup, Scrapy, Playwright), Node.js при необходимости', 'Планировщики (cron, Celery), очереди', 'Прокси, cookies, user-agent', 'Docker для развёртывания у вас или на нашем хостинге']
+        },
+        design: {
+          whatWeDo: ['Логотип и фирменный стиль: знак, цвета, шрифты, носители', 'Визитки, бланки, конверты, оформление соцсетей', 'UI/UX для сайтов и мобильных приложений', 'Прототипы и макеты в Figma с передачей в разработку', 'Брендбуки и гайды по стилю', 'Адаптивные макеты под разные экраны'],
+          terms: ['Оплата: 50% перед стартом, 50% после приёмки макетов', 'Сроки: лого 3–7 дней, бренд 1–2 нед., UI/UX по объёму', '2–3 раунда правок в рамках ТЗ включены', 'Файлы в нужных форматах (PNG, SVG, PDF, Figma)', 'Возможность продолжить с нами разработку по вашим макетам'],
+          integrations: ['Figma — основная среда для макетов и прототипов', 'Экспорт для разработки и печати', 'Передача стилей и компонентов в код при необходимости', 'Согласование с вашим бренд-гайдом или материалами'],
+          tech: ['Figma — прототипирование и UI/UX', 'Adobe Illustrator / Photoshop для лого и полиграфии', 'Системный подход: компоненты, стили, варианты для адаптива']
+        }
       }
     },
     modal: {
@@ -1253,7 +1520,8 @@ export const translations = {
       requestPlaceholder: 'Опишите ваш проект...',
       submit: 'Отправить заявку',
       close: 'Закрыть',
-      success: 'Спасибо! Мы свяжемся с вами в ближайшее время.'
+      success: 'Спасибо! Мы свяжемся с вами в ближайшее время.',
+      orWriteDirectly: 'Или напишите нам напрямую:'
     },
     footer: {
       description: 'Профессиональная разработка и дизайн для вашего бизнеса: боты, сайты, логотипы, айдентика, UI/UX. В команде есть дизайнер.',

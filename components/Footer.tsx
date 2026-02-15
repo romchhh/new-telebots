@@ -60,6 +60,26 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
                   </Link>
                 </li>
                 <li>
+                  <Link href={`/${currentLanguage}/services/websites`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
+                    {t.services.websitesPage.title}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
+                    {t.services.chatbotsPage.title}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/services/parsers`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
+                    {t.services.parsersPage.title}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/services/design`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
+                    {t.services.designPage.title}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${currentLanguage}/portfolio`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.portfolio} - TeleBots`}>
                     {t.nav.portfolio}
                   </Link>

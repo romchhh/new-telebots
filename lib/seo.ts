@@ -234,8 +234,8 @@ export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
   };
 }
 
-export function generateServiceSchema(serviceName: string, description: string, lang: Language = 'uk') {
-  return {
+export function generateServiceSchema(serviceName: string, description: string, lang: Language = 'uk', serviceUrl?: string) {
+  const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: serviceName,
@@ -251,6 +251,8 @@ export function generateServiceSchema(serviceName: string, description: string, 
     },
     serviceType: serviceName,
   };
+  if (serviceUrl) schema.url = serviceUrl;
+  return schema;
 }
 
 export function generateProductSchema(serviceName: string, description: string, lang: Language = 'uk') {

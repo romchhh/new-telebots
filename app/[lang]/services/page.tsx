@@ -54,17 +54,6 @@ export default function ServicesPage() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isModalOpen]);
-
   const handleLangChange = (newLang: Language) => {
     setLang(newLang);
     const currentPath = window.location.pathname;
@@ -151,6 +140,7 @@ export default function ServicesPage() {
           serviceKey={service.key}
           image={service.image}
           imagePosition={service.imagePosition}
+          lang={lang}
           t={t}
           onOrderClick={openModal}
         />
