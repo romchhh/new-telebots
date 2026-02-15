@@ -8,8 +8,8 @@ export const translations = {
       contact: 'КОНТАКТИ'
     },
     hero: {
-      title: 'Розробка телеграм ботів та чат-ботів',
-      subtitle: 'Швидкий старт за 24 години, готове рішення за 2 тижні. 200+ проєктів. Автоматизація бізнесу під ключ.',
+      title: 'Покращуємо бізнеси, що стають №1',
+      subtitle: 'Боти, AI, сайти та дизайн — технології для зростання.',
       tagline: 'Розробляємо чат-боти та сайти, якими хочеться користуватися.',
       viewButton: 'Переглянути',
       startDate: {
@@ -22,7 +22,7 @@ export const translations = {
       }
     },
     about: {
-      title: 'Розробка ботів для бізнесу',
+      title: 'TeleBots - Професійна розробка цифрових рішень',
       ourWork: 'Наша робота',
       ourWorkDesc: 'Ми реалізуємо проєкти, які відповідають потребам наших клієнтів і забезпечують довгострокову цінність для вашого бізнесу.',
       portfolio: 'Портфоліо',
@@ -343,8 +343,8 @@ export const translations = {
       contact: 'CONTACT'
     },
     hero: {
-      title: 'Telegram Bot and Chatbot Development',
-      subtitle: 'Quick start in 24 hours, ready solution in 2 weeks. 200+ projects. Turnkey business automation.',
+      title: 'Improving businesses that become #1',
+      subtitle: 'Bots, AI, websites and design — technologies for growth.',
       tagline: 'We build chatbots and websites people love to use.',
       viewButton: 'View',
       startDate: {
@@ -357,7 +357,7 @@ export const translations = {
       }
     },
     about: {
-      title: 'Bot Development for Business',
+      title: 'TeleBots - Professional Digital Solutions Development',
       ourWork: 'Our Work',
       ourWorkDesc: 'We selectively pursue opportunities that fit our clients\' needs and provide long-term value to your business.',
       portfolio: 'Portfolio',
@@ -678,8 +678,8 @@ export const translations = {
       contact: 'KONTAKT'
     },
     hero: {
-      title: 'Rozwój botów Telegram i chatbotów',
-      subtitle: 'Szybki start w 24 godziny, gotowe rozwiązanie w 2 tygodnie. 200+ projektów. Automatyzacja biznesu pod klucz.',
+      title: 'Ulepszamy biznesy, które stają się nr 1',
+      subtitle: 'Boty, AI, strony i design — technologie dla wzrostu.',
       tagline: 'Tworzymy chatboty i strony, z których chce się korzystać.',
       viewButton: 'Zobacz',
       startDate: {
@@ -692,7 +692,7 @@ export const translations = {
       }
     },
     about: {
-      title: 'Boty dla biznesu',
+      title: 'TeleBots - Profesjonalny rozwój rozwiązań cyfrowych',
       ourWork: 'Nasza praca',
       ourWorkDesc: 'Selektywnie realizujemy projekty, które odpowiadają potrzebom naszych klientów i zapewniają długoterminową wartość dla Twojego biznesu.',
       portfolio: 'Portfolio',
@@ -1013,8 +1013,8 @@ export const translations = {
       contact: 'КОНТАКТЫ'
     },
     hero: {
-      title: 'Разработка телеграм ботов и чат-ботов',
-      subtitle: 'Быстрый старт за 24 часа, готовое решение за 2 недели. 200+ проектов. Автоматизация бизнеса под ключ.',
+      title: 'Улучшаем бизнесы, которые становятся №1',
+      subtitle: 'Боты, AI, сайты и дизайн — технологии для роста.',
       tagline: 'Разрабатываем чат-ботов и сайты, которыми хочется пользоваться.',
       viewButton: 'Смотреть',
       startDate: {
@@ -1027,7 +1027,7 @@ export const translations = {
       }
     },
     about: {
-      title: 'Разработка ботов для бизнеса',
+      title: 'TeleBots - Профессиональная разработка цифровых решений',
       ourWork: 'Наша работа',
       ourWorkDesc: 'Мы избирательно реализуем проекты, которые соответствуют потребностям наших клиентов и обеспечивают долгосрочную ценность для вашего бизнеса.',
       portfolio: 'Портфолио',
