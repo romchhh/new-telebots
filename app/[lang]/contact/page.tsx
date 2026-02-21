@@ -8,6 +8,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
+import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
 import SuccessMessage from '@/components/SuccessMessage';
 import { legal } from '@/lib/legal';
@@ -65,6 +66,11 @@ export default function ContactPage() {
     });
   };
 
+  const [stripRef, isStripVisible] = useScrollAnimation();
+  const [titleRef, isTitleVisible] = useScrollAnimation();
+  const [formRef, isFormVisible] = useScrollAnimation();
+  const [contactsRef, isContactsVisible] = useScrollAnimation();
+
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
@@ -105,7 +111,7 @@ export default function ContactPage() {
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
         
         <main id="main-content">
-      <div className="bg-black text-white py-3 px-6 mt-16">
+      <div ref={stripRef} className={`bg-black text-white py-3 px-6 mt-16 scroll-animate-up ${isStripVisible ? 'animate' : ''}`}>
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-sm font-semibold tracking-wider">
             {t.contact.cta}
@@ -115,7 +121,7 @@ export default function ContactPage() {
       
       <section className="pt-20 pb-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-20">
+          <div ref={titleRef} className={`mb-20 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`}>
             <h1 className="text-4xl lg:text-6xl font-black text-black leading-tight mb-8">
               {t.contact.title}
             </h1>
@@ -128,7 +134,7 @@ export default function ContactPage() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div>
+            <div ref={formRef} className={`scroll-animate-left ${isFormVisible ? 'animate' : ''}`}>
               <div className="flex items-center mb-8">
                 <div className="w-12 h-px bg-black mr-4"></div>
                 <h2 className="text-sm font-black text-black tracking-wider">
@@ -194,7 +200,7 @@ export default function ContactPage() {
               </p>
             </div>
 
-            <div>
+            <div ref={contactsRef} className={`scroll-animate-right ${isContactsVisible ? 'animate' : ''}`}>
               <div className="flex items-center mb-8">
                 <div className="w-12 h-px bg-black mr-4"></div>
                 <h2 className="text-sm font-black text-black tracking-wider">

@@ -294,6 +294,31 @@ export default function CasePage({ caseId }: CasePageProps) {
             </div>
           )}
 
+          {/* Внутрішня перелінковка: повʼязана послуга (SEO + користувач) */}
+          {caseData.portfolioCategory && (
+            <div className="mb-12 text-center">
+              <p className="text-gray-600 font-semibold text-base mb-4">
+                {validLang === 'uk' ? 'Повʼязана послуга:' :
+                 validLang === 'en' ? 'Related service:' :
+                 validLang === 'ru' ? 'Связанная услуга:' :
+                 'Powiązana usługa:'}
+              </p>
+              <Link
+                href={['chatbots', 'websites', 'parsers', 'design'].includes(caseData.portfolioCategory)
+                  ? `/${validLang}/services/${caseData.portfolioCategory}`
+                  : `/${validLang}/services`}
+                className="inline-flex items-center gap-2 text-black font-black border-2 border-black px-6 py-3 rounded-full hover:bg-black hover:text-white transition-colors"
+              >
+                {caseData.portfolioCategory === 'chatbots' && (t.services?.chatbotsPage?.title ?? 'Чат-боти')}
+                {caseData.portfolioCategory === 'websites' && (t.services?.websitesPage?.title ?? 'Сайти')}
+                {caseData.portfolioCategory === 'parsers' && (t.services?.parsersPage?.title ?? 'Парсери')}
+                {caseData.portfolioCategory === 'design' && (t.services?.designPage?.title ?? 'Дизайн')}
+                {!['chatbots', 'websites', 'parsers', 'design'].includes(caseData.portfolioCategory) && (t.nav?.services ?? 'Послуги')}
+                <FaExternalLinkAlt className="w-4 h-4" />
+              </Link>
+            </div>
+          )}
+
           {/* Кнопка замовлення */}
           <div className="text-center">
             <button 

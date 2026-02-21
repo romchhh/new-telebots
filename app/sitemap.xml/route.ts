@@ -14,6 +14,8 @@ function escapeXml(str: string): string {
 
 export async function GET() {
   const languages = ['uk', 'en', 'pl', 'ru'];
+  const serviceIds = ['websites', 'chatbots', 'parsers', 'design'];
+
   const routes: Array<{
     path: string;
     priority: number;
@@ -44,6 +46,18 @@ export async function GET() {
       lines.push(`    <lastmod>${now}</lastmod>`);
       lines.push(`    <changefreq>${route.changeFrequency}</changefreq>`);
       lines.push(`    <priority>${route.priority}</priority>`);
+      lines.push('  </url>');
+    }
+  }
+
+  for (const lang of languages) {
+    for (const serviceId of serviceIds) {
+      const url = `${baseUrl}/${lang}/services/${serviceId}`;
+      lines.push('  <url>');
+      lines.push(`    <loc>${escapeXml(url)}</loc>`);
+      lines.push(`    <lastmod>${now}</lastmod>`);
+      lines.push('    <changefreq>weekly</changefreq>');
+      lines.push('    <priority>0.85</priority>');
       lines.push('  </url>');
     }
   }

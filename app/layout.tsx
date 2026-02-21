@@ -108,6 +108,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/other/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
         
+        {/* Meta description (fallback; сторінки [lang] додають свій через generateMetadata) */}
+        <meta name="description" content="TeleBots — розробка Telegram ботів, сайтів та автоматизації бізнесу. 200+ проєктів. Швидкий старт за 24 години. Київ, Україна." />
         {/* Meta tags */}
         <meta name="theme-color" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
@@ -116,6 +118,20 @@ export default function RootLayout({
           <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />
         )}
         
+        {/* WebSite schema — офіційна назва сайту для Google (поряд з favicon) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'WebSite',
+              name: 'TeleBots',
+              url: baseUrl,
+            }),
+          }}
+        />
+        {/* og:site_name задано в metadata.openGraph — дублюємо для явності */}
+        <meta property="og:site_name" content="TeleBots" />
         {/* Additional SEO meta tags */}
         <meta name="application-name" content="TeleBots" />
         <meta name="format-detection" content="telephone=no" />

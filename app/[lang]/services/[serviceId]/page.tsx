@@ -12,6 +12,7 @@ import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
+import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
 import {
   SERVICE_IDS,
@@ -68,6 +69,12 @@ export default function ServicePage() {
   };
 
   const closeModal = () => setIsModalOpen(false);
+
+  const [descRef, isDescVisible] = useScrollAnimation();
+  const [blocksRef, isBlocksVisible] = useScrollAnimation();
+  const [portfolioRef, isPortfolioVisible] = useScrollAnimation();
+  const [pricingRef, isPricingVisible] = useScrollAnimation();
+  const [ctaRef, isCtaVisible] = useScrollAnimation();
 
   const handleSubmit = async (data: { name: string; phone: string; request: string }) => {
     const success = await sendToTelegram({
@@ -143,16 +150,16 @@ export default function ServicePage() {
             </div>
           </section>
 
-          {/* Short description */}
-          <section className="py-20 md:py-24 px-6 md:px-10 lg:px-16 bg-white">
+          {/* Short description — типографіка та ефект при скролі */}
+          <section ref={descRef} className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white scroll-animate-up ${isDescVisible ? 'animate' : ''}`}>
             <div className="max-w-4xl mx-auto">
-              <p className="text-xl md:text-2xl lg:text-3xl text-gray-700 leading-relaxed">
+              <p className="text-xl md:text-2xl lg:text-[1.75rem] text-gray-700 leading-[1.7] tracking-tight font-normal">
                 {service.description}
               </p>
             </div>
           </section>
 
-          {/* Info blocks: what we do, terms, integrations */}
+          {/* Info blocks: what we do, terms, integrations — типографіка + скрол */}
           {(() => {
             const blocksRaw = (t.services as { servicePageBlocks?: Record<string, unknown> }).servicePageBlocks;
             if (!blocksRaw || typeof blocksRaw !== 'object') return null;
@@ -163,15 +170,15 @@ export default function ServicePage() {
               terms: (blocksRaw.termsTitle as string) || 'Умови',
               integrations: (blocksRaw.integrationsTitle as string) || 'Інтеграції',
             };
-            const listClass = 'space-y-3';
-            const itemClass = 'flex items-start gap-3';
-            const dotClass = 'text-black mt-1.5 w-1.5 h-1.5 rounded-full bg-black flex-shrink-0';
-            const textClass = 'text-gray-700 text-base md:text-lg leading-relaxed';
-            const headingClass = 'text-sm font-black text-black tracking-[0.2em] uppercase mb-6';
+            const listClass = 'space-y-4';
+            const itemClass = 'flex items-start gap-4';
+            const dotClass = 'text-black mt-2 w-2 h-2 rounded-full bg-black flex-shrink-0';
+            const textClass = 'text-gray-700 text-base md:text-lg leading-[1.65] tracking-tight';
+            const headingClass = 'text-xs font-black text-black tracking-[0.25em] uppercase mb-6';
             return (
-              <section className="py-16 md:py-24 px-6 md:px-10 lg:px-16 bg-gray-50">
+              <section ref={blocksRef} className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-gray-50/90 scroll-animate-up ${isBlocksVisible ? 'animate' : ''}`}>
                 <div className="max-w-6xl mx-auto">
-                  <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-14">
                     <div>
                       <h2 className={headingClass}>{titles.whatWeDo}</h2>
                       <ul className={listClass}>
@@ -194,7 +201,7 @@ export default function ServicePage() {
                         ))}
                       </ul>
                     </div>
-                    <div>
+                    <div className="md:col-span-2 lg:col-span-1">
                       <h2 className={headingClass}>{titles.integrations}</h2>
                       <ul className={listClass}>
                         {(content.integrations || []).map((item, i) => (
@@ -211,8 +218,8 @@ export default function ServicePage() {
             );
           })()}
 
-          {/* Portfolio link — стиль як на головній, з фото справа (desktop) / знизу (mobile) */}
-          <section className="bg-black text-white py-16 md:py-20 lg:py-24 px-6 md:px-10 lg:px-16">
+          {/* Portfolio link — стиль як на головній + ефект при скролі */}
+          <section ref={portfolioRef} className={`bg-black text-white py-16 md:py-20 lg:py-24 px-6 md:px-10 lg:px-16 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
             <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-0 min-w-0">
               <div className="flex flex-col justify-center">
                 <p className="text-xs tracking-[0.3em] text-gray-400 mb-4 sm:mb-6">
@@ -250,17 +257,19 @@ export default function ServicePage() {
             </div>
           </section>
 
-          {/* Pricing */}
+          {/* Pricing + ефект при скролі */}
           {hasPricing(serviceId) && (
-            <PricingTable
-              pricing={t.services[getPricingKey(serviceId)]}
-              lang={lang}
-              onContactClick={openModal}
-            />
+            <div ref={pricingRef} className={`scroll-animate-up ${isPricingVisible ? 'animate' : ''}`}>
+              <PricingTable
+                pricing={t.services[getPricingKey(serviceId)]}
+                lang={lang}
+                onContactClick={openModal}
+              />
+            </div>
           )}
 
-          {/* CTA block */}
-          <section className="py-16 md:py-20 px-6 md:px-10 lg:px-16 bg-black text-white">
+          {/* CTA block + ефект при скролі */}
+          <section ref={ctaRef} className={`py-16 md:py-20 px-6 md:px-10 lg:px-16 bg-black text-white scroll-animate-scale ${isCtaVisible ? 'animate' : ''}`}>
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="text-2xl md:text-3xl font-black mb-6">
                 {t.modal.title}

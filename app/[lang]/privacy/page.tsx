@@ -6,12 +6,14 @@ import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { translations, Language } from '@/components/translations';
+import { useScrollAnimation } from '@/components/useScrollAnimation';
 
 export default function PrivacyPage() {
   const params = useParams();
   const router = useRouter();
   const langParam = params?.lang as string;
   const [isScrolled, setIsScrolled] = useState(false);
+  const [contentRef, isContentVisible] = useScrollAnimation();
   
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(validLang);
@@ -52,7 +54,7 @@ export default function PrivacyPage() {
       <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
       
       <section className="pt-32 pb-32 px-6 bg-white">
-        <div className="max-w-4xl mx-auto">
+        <div ref={contentRef} className={`max-w-4xl mx-auto scroll-animate-up ${isContentVisible ? 'animate' : ''}`}>
           <div className="mb-12">
             <div className="flex items-center mb-6">
               <div className="w-12 h-px bg-black mr-4"></div>

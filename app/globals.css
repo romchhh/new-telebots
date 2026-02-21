@@ -217,4 +217,11 @@ img, video, iframe {
   animation: fadeInScale 0.4s ease-out;
 }
 
+/* Затримка для послідовної появи елементів при скролі */
+.scroll-animate-delay-1 { transition-delay: 0.1s; }
+.scroll-animate-delay-2 { transition-delay: 0.2s; }
+.scroll-animate-delay-3 { transition-delay: 0.3s; }
+.scroll-animate-delay-4 { transition-delay: 0.4s; }
+.scroll-animate-delay-5 { transition-delay: 0.5s; }
+
 

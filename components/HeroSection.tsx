@@ -145,11 +145,14 @@ export default function HeroSection({ t }: HeroSectionProps) {
 
       <div className="relative z-10 w-full flex-1 flex items-end justify-center px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
         <div className="max-w-5xl mx-auto text-center w-full">
-          {/* Заголовок */}
+          {/* Заголовок: повний текст для SEO/Google (sr-only), анімація для користувача (aria-hidden) */}
           <h1 className="font-bold text-white mb-4 md:mb-6 uppercase text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl" style={{ letterSpacing: '0.15em', fontFamily: 'Montserrat, sans-serif' }}>
-          {displayedTitle}
-          {(!isTitleComplete || !isTitleItalicComplete) && <span className="animate-pulse">|</span>}
-        </h1>
+            <span className="sr-only">{t.hero.title}</span>
+            <span aria-hidden="true">
+              {displayedTitle}{displayedTitleItalic}
+              {(!isTitleComplete || !isTitleItalicComplete) && <span className="animate-pulse">|</span>}
+            </span>
+          </h1>
           
           {/* Підзаголовок */}
           {isTitleItalicComplete && (

@@ -1,13 +1,16 @@
 'use client';
 
+import { useScrollAnimation } from './useScrollAnimation';
+
 interface StatsSectionProps {
   t: typeof import('./translations').translations.uk;
 }
 
 export default function StatsSection({ t }: StatsSectionProps) {
+  const [ref, isVisible] = useScrollAnimation();
   return (
     <section className="bg-black text-white py-20 px-6">
-      <div className="max-w-7xl mx-auto">
+      <div ref={ref} className={`max-w-7xl mx-auto scroll-animate-up ${isVisible ? 'animate' : ''}`}>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="text-center md:text-left">
             <div className="text-4xl md:text-5xl font-black mb-2">
