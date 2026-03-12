@@ -117,7 +117,14 @@ export default function ServicePage() {
         serviceUrl={process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/services/${serviceId}` : undefined}
       />
       <div className="min-h-screen bg-white">
-        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        <Navigation
+          isScrolled={isScrolled}
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
         <main id="main-content">
           {/* Hero: photo + info + CTA */}
           <section className="relative min-h-[70vh] flex items-end justify-center overflow-hidden">
@@ -284,7 +291,13 @@ export default function ServicePage() {
           </section>
         </main>
 
-        <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+        <Footer
+          t={t}
+          lang={lang}
+          setLang={handleLangChange}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
 
         <OrderModal
           isOpen={isModalOpen}

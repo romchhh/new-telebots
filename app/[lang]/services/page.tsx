@@ -130,7 +130,14 @@ export default function ServicesPage() {
         />
       ))}
       <div className="min-h-screen bg-white">
-        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        <Navigation
+          isScrolled={isScrolled}
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+          onConsultClick={() => openModal(t.modal.title)}
+        />
         <main id="main-content">
         <ServicesPassionSection t={t} />
       <div id="services-list">
@@ -160,7 +167,13 @@ export default function ServicesPage() {
 
       <StatsSection t={t} />
         </main>
-      <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+      <Footer
+        t={t}
+        lang={lang}
+        setLang={handleLangChange}
+        currentLang={lang}
+        onConsultClick={() => openModal(t.modal.title)}
+      />
       
       <OrderModal
         isOpen={isModalOpen}

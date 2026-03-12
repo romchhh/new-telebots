@@ -5,7 +5,8 @@ export const translations = {
       services: 'ПОСЛУГИ',
       portfolio: 'ПОРТФОЛІО',
       blog: 'БЛОГ',
-      contact: 'КОНТАКТИ'
+      contact: 'КОНТАКТИ',
+      consultation: 'КОНСУЛЬТАЦІЯ'
     },
     hero: {
       title: 'Покращуємо бізнеси, що стають №1',
@@ -407,7 +408,8 @@ export const translations = {
       services: 'SERVICES',
       portfolio: 'PORTFOLIO',
       blog: 'BLOG',
-      contact: 'CONTACT'
+      contact: 'CONTACT',
+      consultation: 'CONSULTATION'
     },
     hero: {
       title: 'Improving businesses that become #1',
@@ -809,7 +811,8 @@ export const translations = {
       services: 'USŁUGI',
       portfolio: 'PORTFOLIO',
       blog: 'BLOG',
-      contact: 'KONTAKT'
+      contact: 'KONTAKT',
+      consultation: 'KONSULTACJA'
     },
     hero: {
       title: 'Ulepszamy biznesy, które stają się nr 1',
@@ -1211,7 +1214,8 @@ export const translations = {
       services: 'УСЛУГИ',
       portfolio: 'ПОРТФОЛИО',
       blog: 'БЛОГ',
-      contact: 'КОНТАКТЫ'
+      contact: 'КОНТАКТЫ',
+      consultation: 'КОНСУЛЬТАЦИЯ'
     },
     hero: {
       title: 'Улучшаем бизнесы, которые становятся №1',

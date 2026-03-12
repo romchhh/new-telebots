@@ -14,9 +14,10 @@ interface NavigationProps {
   setLang: (lang: Language) => void;
   t: typeof import('./translations').translations.uk;
   currentLang?: Language;
+  onConsultClick?: () => void;
 }
 
-export default function Navigation({ isScrolled, lang, setLang, t, currentLang }: NavigationProps) {
+export default function Navigation({ isScrolled, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const currentLanguage = currentLang || lang;
@@ -90,6 +91,15 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
           }`}>
             {t.nav.contact}
           </Link>
+          {onConsultClick && (
+            <button
+              type="button"
+              onClick={onConsultClick}
+              className="ml-6 px-8 py-3 text-sm tracking-[0.25em] font-black uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
+            >
+              {t.nav.consultation}
+            </button>
+          )}
           {showLanguageSelector && (
             <span className="ml-4 pl-4 border-l border-white/20 flex items-center">
               <LanguageSelector lang={lang} setLang={setLang} isScrolled={isScrolled} currentLang={currentLanguage} />
@@ -173,6 +183,18 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang }
             >
               {t.nav.contact}
             </Link>
+            {onConsultClick && (
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  onConsultClick();
+                }}
+                className="mt-6 px-10 py-4 text-xl tracking-[0.25em] font-black uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
+              >
+                {t.nav.consultation}
+              </button>
+            )}
             
             {showLanguageSelector && (
               <div className="pt-6 flex justify-center">

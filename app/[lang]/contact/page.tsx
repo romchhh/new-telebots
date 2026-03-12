@@ -7,10 +7,11 @@ import { Instagram, MessageCircle } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
+import OrderModal from '@/components/OrderModal';
+import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
-import SuccessMessage from '@/components/SuccessMessage';
 import { legal } from '@/lib/legal';
 
 export default function ContactPage() {
@@ -22,6 +23,7 @@ export default function ContactPage() {
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(validLang);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -88,6 +90,30 @@ export default function ContactPage() {
     }
   };
 
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalSubmit = async (data: { name: string; phone: string; request: string }) => {
+    const success = await sendToTelegram({
+      name: data.name,
+      phone: data.phone,
+      request: data.request,
+      service: t.modal.title,
+    });
+
+    if (success) {
+      closeModal();
+      setIsSuccessOpen(true);
+    } else {
+      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+    }
+  };
+
   return (
     <>
       <StructuredData type="organization" />
@@ -108,7 +134,14 @@ export default function ContactPage() {
         >
           Skip to main content
         </a>
-        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        <Navigation
+          isScrolled={isScrolled}
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
         
         <main id="main-content">
       <div ref={stripRef} className={`bg-black text-white py-3 px-6 mt-16 scroll-animate-up ${isStripVisible ? 'animate' : ''}`}>
@@ -302,8 +335,21 @@ export default function ContactPage() {
         </div>
       </section>
         </main>
-      <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+      <Footer
+        t={t}
+        lang={lang}
+        setLang={handleLangChange}
+        currentLang={lang}
+        onConsultClick={openModal}
+      />
       
+      <OrderModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        serviceName={t.modal.title}
+        t={t}
+        onSubmit={handleModalSubmit}
+      />
       <SuccessMessage
         isOpen={isSuccessOpen}
         onClose={() => setIsSuccessOpen(false)}

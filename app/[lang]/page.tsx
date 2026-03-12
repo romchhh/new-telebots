@@ -93,16 +93,29 @@ export default function Home() {
           Skip to main content
         </a>
         
-        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        <Navigation
+          isScrolled={isScrolled}
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
         
         <main id="main-content">
-          <HeroSection t={t} />
+          <HeroSection t={t} onOrderClick={openModal} />
           <AboutSection t={t} onOrderClick={openModal} />
           <ServicesSection t={t} />
           <PortfolioSection t={t} />
         </main>
         
-        <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+        <Footer
+          t={t}
+          lang={lang}
+          setLang={handleLangChange}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
       </div>
 
       <OrderModal isOpen={isModalOpen} onClose={closeModal} serviceName={selectedService} t={t} onSubmit={handleSubmit} />

@@ -51,7 +51,13 @@ export default function PrivacyPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+      <Navigation
+        isScrolled={isScrolled}
+        lang={lang}
+        setLang={handleLangChange}
+        t={t}
+        currentLang={lang}
+      />
       
       <section className="pt-32 pb-32 px-6 bg-white">
         <div ref={contentRef} className={`max-w-4xl mx-auto scroll-animate-up ${isContentVisible ? 'animate' : ''}`}>

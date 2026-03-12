@@ -5,9 +5,10 @@ import Image from 'next/image';
 
 interface HeroSectionProps {
   t: typeof import('./translations').translations.uk;
+  onOrderClick?: () => void;
 }
 
-export default function HeroSection({ t }: HeroSectionProps) {
+export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
   const [displayedTitle, setDisplayedTitle] = useState('');
   const [displayedTitleItalic, setDisplayedTitleItalic] = useState('');
   const [displayedSubtitle, setDisplayedSubtitle] = useState('');
@@ -182,17 +183,27 @@ export default function HeroSection({ t }: HeroSectionProps) {
         </p>
           )}
           
-          {/* Кнопка Переглянути */}
+          {/* Кнопки Переглянути / Замовити розробку */}
           {isContentComplete && (
-            <div className="flex justify-center">
-      <button
-        onClick={handleScrollDown}
-                className="font-normal border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
+            <div className="flex justify-center gap-4 md:gap-6 flex-wrap">
+              <button
+                onClick={handleScrollDown}
+                className="min-w-[220px] font-normal border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
                 style={{ fontFamily: 'Montserrat, sans-serif' }}
                 aria-label={t.hero.viewButton}
               >
                 {t.hero.viewButton}
               </button>
+              {onOrderClick && (
+                <button
+                  onClick={onOrderClick}
+                  className="min-w-[220px] font-normal bg-white text-black px-8 py-3 md:px-10 md:py-4 uppercase hover:bg-black hover:text-white transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
+                  style={{ fontFamily: 'Montserrat, sans-serif' }}
+                  aria-label={t.modal.title}
+                >
+                  {t.modal.title}
+                </button>
+              )}
             </div>
           )}
         </div>

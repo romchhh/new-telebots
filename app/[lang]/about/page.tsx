@@ -122,7 +122,14 @@ export default function AboutPage() {
         >
           Skip to main content
         </a>
-        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        <Navigation
+          isScrolled={isScrolled}
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
         <main id="main-content">
       {/* Hero з фото та цитатою */}
       <div className="relative min-h-[50vh] md:minh-[60vh] flex items-center justify-center overflow-hidden -mt-16 pt-16">
@@ -469,7 +476,13 @@ export default function AboutPage() {
         </div>
       </section>
         </main>
-        <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+        <Footer
+          t={t}
+          lang={lang}
+          setLang={handleLangChange}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
       </div>
 
       <OrderModal

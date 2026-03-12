@@ -12,9 +12,10 @@ interface FooterProps {
   lang: Language;
   setLang: (lang: Language) => void;
   currentLang?: Language;
+  onConsultClick?: () => void;
 }
 
-export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
+export default function Footer({ t, lang, setLang, currentLang, onConsultClick }: FooterProps) {
   const currentLanguage = currentLang || lang;
   const showLanguageSelector = currentLanguage !== 'ru';
   return (
@@ -148,6 +149,17 @@ export default function Footer({ t, lang, setLang, currentLang }: FooterProps) {
                 <Send className="w-5 h-5" />
               </a>
             </div>
+            {onConsultClick && (
+              <div className="mt-8 flex justify-center md:justify-start">
+                <button
+                  type="button"
+                  onClick={onConsultClick}
+                  className="px-10 py-4 text-sm md:text-base tracking-[0.25em] font-black uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
+                >
+                  {t.nav.consultation}
+                </button>
+              </div>
+            )}
           </div>
         </div>
 

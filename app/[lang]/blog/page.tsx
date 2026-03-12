@@ -67,7 +67,16 @@ export default function BlogPage() {
         ]}
       />
       <div className="min-h-screen bg-white">
-        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        <Navigation
+          isScrolled={isScrolled}
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+          onConsultClick={() => {
+            window.location.href = `/${lang}#main-content`;
+          }}
+        />
         
         {/* Hero Section в стилі послуг */}
         <section className="relative min-h-screen flex items-end justify-center overflow-hidden">

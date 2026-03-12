@@ -61,7 +61,13 @@ export default function CasePageRoute() {
         ]}
       />
       <div className="min-h-screen bg-white">
-        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        <Navigation
+          isScrolled={isScrolled}
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+        />
         <CasePage caseId={caseId} />
         <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
       </div>

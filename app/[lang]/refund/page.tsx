@@ -55,7 +55,13 @@ export default function RefundPage() {
       <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded" aria-label="Skip to main content">
         Skip to main content
       </a>
-      <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+      <Navigation
+        isScrolled={isScrolled}
+        lang={lang}
+        setLang={handleLangChange}
+        t={t}
+        currentLang={lang}
+      />
       <main id="main-content">
       <section className="pt-32 pb-32 px-6 bg-white">
         <div ref={contentRef} className={`max-w-4xl mx-auto scroll-animate-up ${isContentVisible ? 'animate' : ''}`}>
