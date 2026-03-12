@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
@@ -146,6 +147,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <SpeedInsights />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
           <>
             <Script
