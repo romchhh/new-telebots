@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 interface HeroSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -64,12 +65,16 @@ export default function HeroSection({ t }: HeroSectionProps) {
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: 'url(/other/hero-background.jpeg)',
-        }}
-      />
+      <div className="absolute inset-0">
+        <Image
+          src="/other/hero-background.jpeg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
       {/* Градієнт затемнення знизу */}
       <div
         className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"

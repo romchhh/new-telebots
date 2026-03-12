@@ -125,11 +125,17 @@ export default function AboutPage() {
         <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
         <main id="main-content">
       {/* Hero з фото та цитатою */}
-      <div className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden -mt-16 pt-16">
-        <div
-          className="absolute inset-0 bg-cover bg-top"
-          style={{ backgroundImage: 'url(/other/about-hero-macbook.jpg)' }}
-        />
+      <div className="relative min-h-[50vh] md:minh-[60vh] flex items-center justify-center overflow-hidden -mt-16 pt-16">
+        <div className="absolute inset-0">
+          <Image
+            src="/other/about-hero-macbook.jpg"
+            alt=""
+            fill
+            priority={false}
+            sizes="100vw"
+            className="object-cover object-top"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20 backdrop-blur-[2px]" style={{ WebkitBackdropFilter: 'blur(2px)' }} />
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32">
           <div className={`max-w-5xl mx-auto scroll-animate-up ${isQuoteVisible ? 'animate' : ''}`} ref={quoteRef}>
