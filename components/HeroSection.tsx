@@ -184,28 +184,26 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
           )}
           
           {/* Кнопки Переглянути / Замовити розробку */}
-          {isContentComplete && (
-            <div className="flex justify-center gap-4 md:gap-6 flex-wrap">
+          <div className="flex justify-center gap-4 md:gap-6 flex-wrap">
+            <button
+              onClick={handleScrollDown}
+              className="min-w-[220px] font-normal border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
+              style={{ fontFamily: 'Montserrat, sans-serif' }}
+              aria-label={t.hero.viewButton}
+            >
+              {t.hero.viewButton}
+            </button>
+            {onOrderClick && (
               <button
-                onClick={handleScrollDown}
-                className="min-w-[220px] font-normal border border-white text-white px-8 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
+                onClick={onOrderClick}
+                className="min-w-[220px] font-normal bg-white text-black px-8 py-3 md:px-10 md:py-4 uppercase hover:bg-black hover:text-white transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
                 style={{ fontFamily: 'Montserrat, sans-serif' }}
-                aria-label={t.hero.viewButton}
+                aria-label={t.modal.title}
               >
-                {t.hero.viewButton}
+                {t.modal.title}
               </button>
-              {onOrderClick && (
-                <button
-                  onClick={onOrderClick}
-                  className="min-w-[220px] font-normal bg-white text-black px-8 py-3 md:px-10 md:py-4 uppercase hover:bg-black hover:text-white transition-all duration-300 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
-                  style={{ fontFamily: 'Montserrat, sans-serif' }}
-                  aria-label={t.modal.title}
-                >
-                  {t.modal.title}
-                </button>
-              )}
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
     </section>
