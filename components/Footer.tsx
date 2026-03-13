@@ -49,49 +49,44 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
               {t.footer.quickLinks}
             </h4>
             <nav aria-label="Footer navigation">
-              <ul className="space-y-3">
+              <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 md:flex-col md:items-start md:space-y-3 md:gap-0">
                 <li>
-                  <Link href={`/${currentLanguage}/about`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.about} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/about`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.about} - TeleBots`}>
                     {t.nav.about}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/services`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.services} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/services`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.services} - TeleBots`}>
                     {t.nav.services}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/services/websites`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
+                  <Link href={`/${currentLanguage}/services/websites`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
                     {t.services.websitesPage.title}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
+                  <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
                     {t.services.chatbotsPage.title}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/services/parsers`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
-                    {t.services.parsersPage.title}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/services/design`} className="text-gray-400 hover:text-white transition text-sm font-semibold">
+                  <Link href={`/${currentLanguage}/services/design`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
                     {t.services.designPage.title}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/portfolio`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.portfolio} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/portfolio`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.portfolio} - TeleBots`}>
                     {t.nav.portfolio}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/blog`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.blog} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/blog`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.blog} - TeleBots`}>
                     {t.nav.blog}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/contact`} className="text-gray-400 hover:text-white transition text-sm font-semibold" aria-label={`${t.nav.contact} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/contact`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.contact} - TeleBots`}>
                     {t.nav.contact}
                   </Link>
                 </li>

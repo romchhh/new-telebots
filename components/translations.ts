@@ -154,25 +154,53 @@ export const translations = {
         title: 'Сайти',
         subtitle: 'Мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce',
         description: 'Розробляємо мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce рішення. Швидкі, зручний адмін, SEO та інтеграції під ключ. За потреби підключаємо AI-функції — чат-боти, аналітику та автоматизацію бізнес-процесів. Маєте ідею? Будемо раді обговорити та підказати найкраще рішення. Багато запитів у клієнтів? Можемо співпрацювати як підрядники — разом реалізуємо більше проєктів і збільшимо прибуток.',
-        button: 'Замовити розробку'
+        button: 'Замовити розробку',
+        structure: {
+          mainTitle: 'Розробка сайтів для бізнесу',
+          leadGenTitle: 'Лендинги та посадкові сторінки',
+          supportTitle: 'Корпоративні та іміджеві сайти',
+          salesTitle: 'Інтернет-магазини та e-commerce',
+          crmTitle: 'SEO, аналітика та інтеграції',
+        },
       },
       chatbotsPage: {
         title: 'Чат-боти',
         subtitle: 'Боти, які ведуть клієнта до покупки: оплата, CRM, підтвердження. Telegram, WhatsApp, Viber, Messenger',
         description: 'Бот, який не просто відповідає — а веде клієнта до покупки: приймає оплату (Mono, WayForPay, LiqPay), записує в CRM або Google Sheets, надсилає підтвердження. Автоматизація продажів у месенджері без втрати особистого підходу; за бажанням — AI-відповіді та аналітика. Швидкий старт за 24 години, перевірено на 200+ проєктах. Маєте ідею? Обговоримо та підкажемо найкраще рішення. Працюємо і як підрядники: багато заявок — разом реалізуємо більше і збільшимо прибуток.',
-        button: 'Замовити розробку'
+        button: 'Замовити розробку',
+        structure: {
+          mainTitle: 'Телеграм-боти для бізнесу',
+          leadGenTitle: 'Боти для генерації лідів',
+          supportTitle: 'Боти для підтримки клієнтів',
+          salesTitle: 'Боти для автоматизації продажів',
+          crmTitle: 'Інтеграція Telegram з CRM',
+        },
       },
       parsersPage: {
         title: 'Парсери',
         subtitle: 'Збір даних з будь-яких джерел: маркетплейси, оголошення, соцмереж. Excel, Sheets, API',
         description: 'Дані з будь-якого джерела — без годин ручного копіювання. Парсери під ваш сценарій: ціни, товари, контакти; експорт в Excel, Google Sheets, базу або API. Планувальник запусків та обробка даних. Економія часу для аналітики, ціноутворення та моніторингу ринку. Маєте ідею або складне завдання? Обговоримо та підкажемо оптимальне рішення. Агенціям з багатьма запитами — співпраця як підрядники, щоб разом робити більше проєктів.',
-        button: 'Замовити розробку'
+        button: 'Замовити розробку',
+        structure: {
+          mainTitle: 'Парсери та збір даних для бізнесу',
+          leadGenTitle: 'Моніторинг цін та конкурентів',
+          supportTitle: 'Збір товарів і каталогів з сайтів',
+          salesTitle: 'Парсинг маркетплейсів та оголошень',
+          crmTitle: 'Експорт у Excel, Google Sheets та CRM',
+        },
       },
       designPage: {
         title: 'Дизайн',
         subtitle: 'Лого, айдентика, UI/UX для сайтів та додатків. Зручні інтерфейси, що працюють на конверсію',
         description: 'Логотип і фірмовий стиль, які запам\'ятовуються. UI/UX для сайтів та додатків: прототипи в Figma, айдентика, брендбуки, візитки та соцмережі. Інтерфейс не лише виглядає — а й працює на конверсію та впізнаваність. В команді досвідчений UI/UX дизайнер — від ідеї до макетів під передачу в розробку. Маєте ідею? Раді обговорити та підказати найкраще рішення. Готові співпрацювати як підрядники для агенцій з великим потоком проєктів.',
-        button: 'Замовити дизайн'
+        button: 'Замовити дизайн',
+        structure: {
+          mainTitle: 'Брендинг та UI/UX дизайн для бізнесу',
+          leadGenTitle: 'Розробка логотипу та айдентики',
+          supportTitle: 'Дизайн сайтів і лендингів',
+          salesTitle: 'UI/UX для веб та мобільних додатків',
+          crmTitle: 'Дизайн-системи та передача в розробку',
+        },
       },
       serviceLearnMore: 'Дізнатися детальніше',
       servicePagePortfolioTitle: 'Приклади робіт',
@@ -557,25 +585,53 @@ export const translations = {
         title: 'Websites',
         subtitle: 'Minimalist premium sites with free consultation: landings, business card sites and premium e-commerce',
         description: 'We build minimalist premium sites with free consultation: landings, business card sites and premium e-commerce solutions. Fast, easy admin, SEO and integrations turnkey. When needed we add AI — chatbots, analytics and business process automation. Got an idea? We\'re happy to discuss and suggest the best approach. Lots of client requests? We can work as subcontractors to deliver more projects and grow revenue together.',
-        button: 'Order Development'
+        button: 'Order Development',
+        structure: {
+          mainTitle: 'Conversion-Focused Websites for Business',
+          leadGenTitle: 'Landing Pages & One-Page Websites',
+          supportTitle: 'Corporate & Content-Rich Websites',
+          salesTitle: 'E-commerce Websites & Online Stores',
+          crmTitle: 'SEO, Analytics & Third-Party Integrations',
+        },
       },
       chatbotsPage: {
         title: 'Chatbots',
         subtitle: 'Bots that lead the customer to purchase: payments, CRM, confirmations. Telegram, WhatsApp, Viber, Messenger',
         description: 'A bot that doesn\'t just reply — it leads the customer to purchase: accepts payments (Mono, WayForPay, LiqPay), logs to CRM or Google Sheets, sends confirmations. Sales automation in the messenger without losing a personal touch; optionally AI replies and analytics. Quick start in 24 hours, proven on 200+ projects. Got an idea? Let\'s discuss and we\'ll suggest the best solution. We also work as subcontractors: more leads — we deliver more together and grow profit.',
-        button: 'Order Development'
+        button: 'Order Development',
+        structure: {
+          mainTitle: 'Telegram Bots for Business',
+          leadGenTitle: 'Lead Generation Bots',
+          supportTitle: 'Customer Support Bots',
+          salesTitle: 'Sales Automation Bots',
+          crmTitle: 'Telegram CRM Integration',
+        },
       },
       parsersPage: {
         title: 'Parsers',
         subtitle: 'Data from any source: marketplaces, classifieds, social networks. Excel, Sheets, API',
         description: 'Data from any source — no more hours of manual copying. Parsers tailored to your scenario: prices, products, contacts; export to Excel, Google Sheets, database or API. Scheduler and data processing. Save time for analytics, pricing and market monitoring. Got an idea or a complex task? We\'ll discuss and suggest the best approach. For agencies with many requests — we work as subcontractors so we can deliver more projects together.',
-        button: 'Order Development'
+        button: 'Order Development',
+        structure: {
+          mainTitle: 'Web Scrapers and Data Parsers for Business',
+          leadGenTitle: 'Price Monitoring & Competitor Tracking',
+          supportTitle: 'Product & Catalog Data Collection',
+          salesTitle: 'Marketplaces and Classifieds Parsing',
+          crmTitle: 'Export to Excel, Google Sheets & CRM',
+        },
       },
       designPage: {
         title: 'Design',
         subtitle: 'Logo, identity, UI/UX for websites and apps. Interfaces that work for conversion',
         description: 'A logo and brand identity that stick in people\'s minds. UI/UX for websites and apps: Figma prototypes, identity, brand books, business cards and socials. The interface doesn\'t just look good — it works for conversion and recognition. Experienced UI/UX designer on the team — from idea to handoff-ready mockups. Got an idea? We\'re happy to discuss and suggest the best solution. We also partner as subcontractors for agencies with a strong project flow.',
-        button: 'Order Design'
+        button: 'Order Design',
+        structure: {
+          mainTitle: 'Branding and UI/UX Design for Business',
+          leadGenTitle: 'Logo and Brand Identity Design',
+          supportTitle: 'Website and Landing Page Design',
+          salesTitle: 'Web & Mobile App UI/UX',
+          crmTitle: 'Design Systems and Developer Handoff',
+        },
       },
       serviceLearnMore: 'Learn more',
       servicePagePortfolioTitle: 'Our work',
@@ -960,25 +1016,53 @@ export const translations = {
         title: 'Strony internetowe',
         subtitle: 'Minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i premium e-commerce',
         description: 'Tworzymy minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i rozwiązania e-commerce. Szybko, wygodny panel, SEO i integracje pod klucz. W razie potrzeby dołączamy AI — chatboty, analitykę i automatyzację procesów. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Dużo zapytań od klientów? Możemy współpracować jako podwykonawcy — razem zrealizujemy więcej projektów i zwiększymy zyski.',
-        button: 'Zamów rozwój'
+        button: 'Zamów rozwój',
+        structure: {
+          mainTitle: 'Tworzenie stron internetowych dla biznesu',
+          leadGenTitle: 'Landingi i strony jednorazowe',
+          supportTitle: 'Strony firmowe i wizerunkowe',
+          salesTitle: 'Sklepy internetowe i e-commerce',
+          crmTitle: 'SEO, analityka i integracje zewnętrzne',
+        },
       },
       chatbotsPage: {
         title: 'Chatboty',
         subtitle: 'Boty, które prowadzą klienta do zakupu: płatności, CRM, potwierdzenia. Telegram, WhatsApp, Viber, Messenger',
         description: 'Bot, który nie tylko odpowiada — lecz prowadzi klienta do zakupu: przyjmuje płatności (Mono, WayForPay, LiqPay), zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja sprzedaży w messangerze bez utraty osobistego podejścia; opcjonalnie odpowiedzi AI i analityka. Szybki start w 24 godziny, sprawdzone na 200+ projektach. Macie pomysł? Omówimy i podpowiemy najlepsze rozwiązanie. Pracujemy też jako podwykonawcy: dużo zleceń — razem zrealizujemy więcej i zwiększymy zysk.',
-        button: 'Zamów rozwój'
+        button: 'Zamów rozwój',
+        structure: {
+          mainTitle: 'Boty Telegram dla biznesu',
+          leadGenTitle: 'Boty do generowania leadów',
+          supportTitle: 'Boty do obsługi klienta',
+          salesTitle: 'Boty do automatyzacji sprzedaży',
+          crmTitle: 'Integracja Telegram z CRM',
+        },
       },
       parsersPage: {
         title: 'Parsery',
         subtitle: 'Zbieranie danych z dowolnych źródeł: marketplace\'y, ogłoszenia, social media. Excel, Sheets, API',
         description: 'Dane z dowolnego źródła — bez godzin ręcznego kopiowania. Parsery pod Wasz scenariusz: ceny, produkty, kontakty; eksport do Excel, Google Sheets, bazy lub API. Harmonogram i przetwarzanie danych. Oszczędność czasu dla analityki, cen i monitoringu rynku. Macie pomysł lub złożone zadanie? Omówimy i podpowiemy optymalne rozwiązanie. Agencjom z wieloma zapytaniami — współpraca jako podwykonawcy, żeby razem robić więcej projektów.',
-        button: 'Zamów rozwój'
+        button: 'Zamów rozwój',
+        structure: {
+          mainTitle: 'Parsery i zbieranie danych dla biznesu',
+          leadGenTitle: 'Monitoring cen i konkurencji',
+          supportTitle: 'Zbieranie produktów i katalogów ze stron',
+          salesTitle: 'Parsing marketplace\'ów i ogłoszeń',
+          crmTitle: 'Eksport do Excel, Google Sheets i CRM',
+        },
       },
       designPage: {
         title: 'Design',
         subtitle: 'Logo, identyfikacja, UI/UX dla stron i aplikacji. Interfejsy, które działają na konwersję',
         description: 'Logo i identyfikacja wizualna, które zapadają w pamięć. UI/UX dla stron i aplikacji: prototypy w Figma, identyfikacja, księgi znaku, wizytówki i social media. Interfejs nie tylko wygląda — lecz działa na konwersję i rozpoznawalność. W zespole doświadczony projektant UI/UX — od pomysłu do makiet pod przekazanie w rozwój. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Gotowi współpracować jako podwykonawcy dla agencji z dużym przepływem projektów.',
-        button: 'Zamów projekt'
+        button: 'Zamów projekt',
+        structure: {
+          mainTitle: 'Branding i projektowanie UI/UX dla biznesu',
+          leadGenTitle: 'Projekt logo i identyfikacji wizualnej',
+          supportTitle: 'Projekt stron internetowych i landingów',
+          salesTitle: 'UI/UX dla aplikacji webowych i mobilnych',
+          crmTitle: 'Systemy designu i przekazanie do deweloperów',
+        },
       },
       serviceLearnMore: 'Dowiedz się więcej',
       servicePagePortfolioTitle: 'Przykłady prac',
@@ -1363,25 +1447,53 @@ export const translations = {
         title: 'Сайты',
         subtitle: 'Минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальный e-commerce',
         description: 'Делаем минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальные e-commerce решения. Быстро, удобная админка, SEO и интеграции под ключ. При необходимости подключаем AI — чат-боты, аналитику и автоматизацию бизнес-процессов. Есть идея? Будем рады обсудить и подсказать лучшее решение. Много запросов от клиентов? Можем сотрудничать как подрядчики — вместе реализуем больше проектов и увеличим прибыль.',
-        button: 'Заказать разработку'
+        button: 'Заказать разработку',
+        structure: {
+          mainTitle: 'Разработка сайтов для бизнеса',
+          leadGenTitle: 'Лендинги и одностраничные сайты',
+          supportTitle: 'Корпоративные и имиджевые сайты',
+          salesTitle: 'Интернет-магазины и e-commerce решения',
+          crmTitle: 'SEO, аналитика и интеграции',
+        },
       },
       chatbotsPage: {
         title: 'Чат-боты',
         subtitle: 'Боты, которые ведут клиента к покупке: оплата, CRM, подтверждения. Telegram, WhatsApp, Viber, Messenger',
         description: 'Бот, который не просто отвечает — а ведёт клиента к покупке: принимает оплату (Mono, WayForPay, LiqPay), записывает в CRM или Google Sheets, отправляет подтверждения. Автоматизация продаж в мессенджере без потери личного подхода; по желанию — AI-ответы и аналитика. Быстрый старт за 24 часа, проверено на 200+ проектах. Есть идея? Обсудим и подскажем лучшее решение. Работаем и как подрядчики: много заявок — вместе реализуем больше и увеличим прибыль.',
-        button: 'Заказать разработку'
+        button: 'Заказать разработку',
+        structure: {
+          mainTitle: 'Телеграм-боты для бизнеса',
+          leadGenTitle: 'Боты для генерации лидов',
+          supportTitle: 'Боты для поддержки клиентов',
+          salesTitle: 'Боты для автоматизации продаж',
+          crmTitle: 'Интеграция Telegram с CRM',
+        },
       },
       parsersPage: {
         title: 'Парсеры',
         subtitle: 'Сбор данных из любых источников: маркетплейсы, объявления, соцсети. Excel, Sheets, API',
         description: 'Данные из любого источника — без часов ручного копирования. Парсеры под ваш сценарий: цены, товары, контакты; экспорт в Excel, Google Sheets, базу или API. Планировщик запусков и обработка данных. Экономия времени для аналитики, ценообразования и мониторинга рынка. Есть идея или сложная задача? Обсудим и подскажем оптимальное решение. Агентствам с большим потоком запросов — сотрудничество как подрядчики, чтобы вместе делать больше проектов.',
-        button: 'Заказать разработку'
+        button: 'Заказать разработку',
+        structure: {
+          mainTitle: 'Парсеры и сбор данных для бизнеса',
+          leadGenTitle: 'Мониторинг цен и конкурентов',
+          supportTitle: 'Сбор товаров и каталогов с сайтов',
+          salesTitle: 'Парсинг маркетплейсов и объявлений',
+          crmTitle: 'Экспорт в Excel, Google Sheets и CRM',
+        },
       },
       designPage: {
         title: 'Дизайн',
         subtitle: 'Лого, айдентика, UI/UX для сайтов и приложений. Интерфейсы, которые работают на конверсию',
         description: 'Логотип и фирменный стиль, которые запоминаются. UI/UX для сайтов и приложений: прототипы в Figma, айдентика, брендбуки, визитки и соцсети. Интерфейс не только выглядит — а работает на конверсию и узнаваемость. В команде опытный UI/UX дизайнер — от идеи до макетов под передачу в разработку. Есть идея? Рады обсудить и подсказать лучшее решение. Готовы сотрудничать как подрядчики для агентств с большим потоком проектов.',
-        button: 'Заказать дизайн'
+        button: 'Заказать дизайн',
+        structure: {
+          mainTitle: 'Брендинг и UI/UX дизайн для бизнеса',
+          leadGenTitle: 'Разработка логотипа и фирменного стиля',
+          supportTitle: 'Дизайн сайтов и лендингов',
+          salesTitle: 'UI/UX для веб и мобильных приложений',
+          crmTitle: 'Дизайн-системы и передача в разработку',
+        },
       },
       serviceLearnMore: 'Узнать подробнее',
       servicePagePortfolioTitle: 'Примеры работ',

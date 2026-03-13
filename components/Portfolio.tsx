@@ -177,7 +177,7 @@ export default function Portfolio() {
             className={`relative w-full aspect-[1500/970] overflow-hidden rounded-lg scroll-animate-right ${isImageVisible ? 'animate' : ''}`}
             ref={imageRef}
           >
-            <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+          <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
             <Image
               src="/portfolio/portfolio-default.jpg"
               alt="Featured project"
@@ -195,7 +195,7 @@ export default function Portfolio() {
       </section>
 
       <section id="portfolio" className="py-16 sm:py-20 px-4 sm:px-6 bg-white" ref={portfolioRef}>
-        <div className="w-full max-w-none mx-0">
+        <div className="w-full max-w-6xl mx-auto">
           {/* Category switcher */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
             <button
@@ -274,15 +274,16 @@ export default function Portfolio() {
                       blurDataURL={BLUR_DATA}
                     />
                   </div>
+                  <div className="absolute inset-0 bg-black/45" />
                   <Link
                     href={`/${validLang}/portfolio/${work.caseId}`}
-                    className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 via-black/30 to-transparent p-3 sm:p-4 md:p-5"
+                    className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/70 to-transparent p-3 sm:p-4 md:p-5"
                     onClick={(e) => e.stopPropagation()}
                   >
-                    <h3 className="text-sm sm:text-base md:text-lg font-black text-white leading-tight line-clamp-2 mb-1">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white leading-tight line-clamp-2 mb-1">
                       {work.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-gray-300 line-clamp-2 mb-2 sm:mb-3 leading-snug">
+                    <p className="text-base sm:text-lg text-gray-300 line-clamp-2 mb-2 sm:mb-3 leading-snug">
                       {work.alt}
                     </p>
                     <span className="inline-flex items-center gap-1.5 text-white text-xs sm:text-sm font-semibold">

@@ -91,23 +91,18 @@ export default function ServicesPage() {
     {
       key: 'websitesPage' as const,
       image: '/services/services-websites.jpg',
-      imagePosition: 'right' as const
+      imagePosition: 'right' as const,
     },
     {
       key: 'chatbotsPage' as const,
       image: '/services/services-chatbots.jpg',
-      imagePosition: 'left' as const
-    },
-    {
-      key: 'parsersPage' as const,
-      image: '/services/services-parsers.jpg',
-      imagePosition: 'right' as const
+      imagePosition: 'left' as const,
     },
     {
       key: 'designPage' as const,
       image: '/services/services-design.jpg',
-      imagePosition: 'left' as const
-    }
+      imagePosition: 'left' as const,
+    },
   ];
 
   return (

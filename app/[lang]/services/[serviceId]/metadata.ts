@@ -1,4 +1,4 @@
-export const SERVICE_IDS = ['websites', 'chatbots', 'parsers', 'design'] as const;
+export const SERVICE_IDS = ['websites', 'chatbots', 'design'] as const;
 export type ServiceId = (typeof SERVICE_IDS)[number];
 
 export const SERVICE_KEY_MAP: Record<ServiceId, 'websitesPage' | 'chatbotsPage' | 'parsersPage' | 'designPage'> = {

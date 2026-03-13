@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
+import { cases } from '@/components/cases';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import PricingTable from '@/components/PricingTable';
@@ -41,6 +42,16 @@ export default function ServicePage() {
   const t = translations[lang];
   const service = serviceKey ? t.services[serviceKey] : null;
   const serviceTitle = service?.title ?? '';
+  const serviceStructure =
+    service && (service as any).structure
+      ? (service as any).structure as {
+          mainTitle: string;
+          leadGenTitle: string;
+          supportTitle: string;
+          salesTitle: string;
+          crmTitle: string;
+        }
+      : null;
 
   useEffect(() => {
     if (langParam && langParam !== lang && ['uk', 'en', 'pl', 'ru'].includes(langParam)) {
@@ -97,6 +108,18 @@ export default function ServicePage() {
   }
 
   const imageSrc = SERVICE_IMAGES[serviceId];
+  const casesData = (cases as any)[lang] || (cases as any).uk;
+  const caseEntries = Object.entries(casesData) as [string, { portfolioCategory?: string; mainImage?: string; title?: string; subtitle?: string }][];
+  const desiredCategory = serviceId === 'chatbots' ? 'chatbots' : 'websites';
+  const serviceCases = caseEntries
+    .filter(([, data]) => (data.portfolioCategory || 'websites') === desiredCategory)
+    .slice(0, 3)
+    .map(([caseId, data]) => ({
+      caseId,
+      image: data.mainImage || '/portfolio/portfolio-dr-tolstikova-bot.jpg',
+      title: data.title || 'Project',
+      subtitle: data.subtitle || '',
+    }));
 
   return (
     <>
@@ -159,10 +182,32 @@ export default function ServicePage() {
 
           {/* Short description — типографіка та ефект при скролі */}
           <section ref={descRef} className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white scroll-animate-up ${isDescVisible ? 'animate' : ''}`}>
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl mx-auto space-y-10">
               <p className="text-xl md:text-2xl lg:text-[1.75rem] text-gray-700 leading-[1.7] tracking-tight font-normal">
                 {service.description}
               </p>
+
+              {serviceStructure && (
+                <div className="space-y-6">
+                  <h1 className="text-3xl md:text-4xl font-black text-black">
+                    {serviceStructure.mainTitle}
+                  </h1>
+                  <div className="space-y-3">
+                    <h2 className="text-xl md:text-2xl font-semibold text-black">
+                      {serviceStructure.leadGenTitle}
+                    </h2>
+                    <h2 className="text-xl md:text-2xl font-semibold text-black">
+                      {serviceStructure.supportTitle}
+                    </h2>
+                    <h2 className="text-xl md:text-2xl font-semibold text-black">
+                      {serviceStructure.salesTitle}
+                    </h2>
+                    <h2 className="text-xl md:text-2xl font-semibold text-black">
+                      {serviceStructure.crmTitle}
+                    </h2>
+                  </div>
+                </div>
+              )}
             </div>
           </section>
 
@@ -225,7 +270,7 @@ export default function ServicePage() {
             );
           })()}
 
-          {/* Portfolio link — стиль як на головній + ефект при скролі */}
+          {/* Portfolio link + мікро-кейси — стиль як на головній + ефект при скролі */}
           <section ref={portfolioRef} className={`bg-black text-white py-16 md:py-20 lg:py-24 px-6 md:px-10 lg:px-16 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
             <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-0 min-w-0">
               <div className="flex flex-col justify-center">
@@ -260,6 +305,43 @@ export default function ServicePage() {
                     <h3 className="text-lg sm:text-xl font-black">{t.portfolio.featuredProject}</h3>
                   </div>
                 </div>
+
+                {serviceCases.length > 0 && (
+                  <div className="mt-8 overflow-hidden w-full min-w-0">
+                    <div
+                      className="flex overflow-x-scroll overflow-y-hidden gap-4 sm:gap-5 py-4 sm:py-5 scroll-smooth snap-x snap-mandatory min-w-0 w-full [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_transparent] overscroll-x-contain"
+                      style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
+                    >
+                      {serviceCases.map((item) => (
+                        <Link
+                          key={item.caseId}
+                          href={`/${lang}/portfolio/${item.caseId}`}
+                          className="group flex-shrink-0 w-[260px] min-w-[260px] sm:w-[300px] sm:min-w-[300px] aspect-[4/3] relative overflow-hidden rounded-lg snap-start bg-white/5 border border-white/10 hover:border-white/40 transition-colors"
+                        >
+                          <div className="absolute inset-0">
+                            <Image
+                              src={item.image}
+                              alt={item.title}
+                              fill
+                              className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                              sizes="(max-width: 640px) 260px, 300px"
+                              loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                          </div>
+                          <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+                            <h3 className="text-sm sm:text-base font-semibold mb-1 line-clamp-2">
+                              {item.title}
+                            </h3>
+                            <p className="text-xs sm:text-sm text-gray-300 line-clamp-2">
+                              {item.subtitle}
+                            </p>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </section>
