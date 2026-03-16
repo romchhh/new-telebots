@@ -14,7 +14,7 @@ function escapeXml(str: string): string {
 
 export async function GET() {
   const languages = ['uk', 'en', 'pl', 'ru'];
-  const serviceIds = ['websites', 'chatbots', 'parsers', 'design'];
+  const serviceIds = ['websites', 'chatbots', 'design'];
 
   const routes: Array<{
     path: string;

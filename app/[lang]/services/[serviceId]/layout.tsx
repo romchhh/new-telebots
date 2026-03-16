@@ -44,22 +44,6 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): { title: string; d
           'разработка сайта под ключ, создать интернет-магазин, лендинг на заказ, веб-разработка, сайт для бизнеса, интернет-магазин с оплатой, корпоративный сайт'
         ),
       };
-    case 'parsers':
-      return {
-        title: u('Розробка парсера на замовлення', 'Parser Development on Request', 'Rozwój parsera na zamówienie', 'Разработка парсера на заказ') + ` | ${servicesLabel} — TeleBots`,
-        description: u(
-          'Розробка парсера на замовлення. Парсер даних з сайтів, автоматизація збору даних, парсер для маркетплейсу. ' + utp,
-          'Parser development on request. Data parser from sites, data collection automation, marketplace parser. ' + utp,
-          'Rozwój parsera na zamówienie. Parser danych ze stron, automatyzacja zbierania, parser dla marketplace. ' + utp,
-          'Разработка парсера на заказ. Парсер данных с сайтов, автоматизация сбора данных, парсер для маркетплейса. ' + utp
-        ),
-        keywords: u(
-          'розробка парсера на замовлення, парсер даних з сайтів, збір даних з інтернету, автоматизація збору даних, парсер для маркетплейсу',
-          'parser development on request, data parser from websites, web data collection, data collection automation, marketplace parser',
-          'rozwój parsera na zamówienie, parser danych ze stron, zbieranie danych, automatyzacja zbierania, parser dla marketplace',
-          'разработка парсера на заказ, парсер данных с сайтов, сбор данных из интернета, автоматизация сбора данных, парсер для маркетплейса'
-        ),
-      };
     case 'design':
       return {
         title: u('Дизайн логотипу, UI/UX, фірмовий стиль', 'Logo & UI/UX Design, Brand Identity', 'Design logo, UI/UX, identyfikacja', 'Дизайн логотипа, UI/UX, фирменный стиль') + ` | ${servicesLabel} — TeleBots`,

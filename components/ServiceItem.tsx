@@ -5,15 +5,14 @@ import Link from 'next/link';
 import { useScrollAnimation } from './useScrollAnimation';
 import { Language } from './translations';
 
-const SERVICE_SLUG: Record<'websitesPage' | 'chatbotsPage' | 'parsersPage' | 'designPage', string> = {
+const SERVICE_SLUG: Record<'websitesPage' | 'chatbotsPage' | 'designPage', string> = {
   websitesPage: 'websites',
   chatbotsPage: 'chatbots',
-  parsersPage: 'parsers',
   designPage: 'design',
 };
 
 interface ServiceItemProps {
-  serviceKey: 'websitesPage' | 'chatbotsPage' | 'parsersPage' | 'designPage';
+  serviceKey: 'websitesPage' | 'chatbotsPage' | 'designPage';
   image: string;
   imagePosition: 'left' | 'right';
   lang: Language;
