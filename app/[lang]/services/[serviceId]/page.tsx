@@ -158,6 +158,7 @@ export default function ServicePage() {
                 fill
                 className="object-cover"
                 sizes="100vw"
+                quality={80}
                 priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" />
@@ -299,6 +300,8 @@ export default function ServicePage() {
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
+                    quality={80}
+                    loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 sm:p-6 z-10">
                     <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-1">{t.portfolio.website}</p>

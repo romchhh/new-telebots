@@ -20,8 +20,9 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
           src="/services/services-hero.jpg"
           alt=""
           fill
-          priority={false}
+          priority
           sizes="100vw"
+          quality={80}
           className="object-cover"
         />
       </div>

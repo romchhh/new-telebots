@@ -132,13 +132,13 @@ export default function AboutPage() {
         />
         <main id="main-content">
       {/* Hero з фото та цитатою */}
-      <div className="relative min-h-[50vh] md:minh-[60vh] flex items-center justify-center overflow-hidden -mt-16 pt-16">
+      <div className="relative min-h-[50vh] md:min-h-[60vh] flex items-center justify-center overflow-hidden -mt-16 pt-16">
         <div className="absolute inset-0">
           <Image
             src="/other/about-hero-macbook.jpg"
             alt=""
             fill
-            priority={false}
+            priority
             sizes="100vw"
             className="object-cover object-top"
           />

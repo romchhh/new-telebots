@@ -47,18 +47,18 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
       isScrolled ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-2 lg:py-3 flex justify-between items-center lg:items-end">
-        <Link href={`/${currentLanguage}`} className="flex items-end group lg:items-end justify-center lg:justify-start w-full lg:w-auto">
-          <div className="relative h-10 lg:h-16 w-[140px] lg:w-[200px] flex items-end overflow-hidden">
+        <Link href={`/${currentLanguage}`} className="flex items-end group lg:items-end justify-center lg:justify-start w-full lg:w-auto gap-2 lg:gap-3">
+          <div className="flex items-end">
             <Image
               src={isScrolled ? '/whitelogo.png' : '/whitelogo.png'}
               alt="TeleBots - Професійна розробка телеграм ботів, чат-ботів та сайтів"
-              fill
-              className="object-contain object-left"
-              sizes="(max-width: 1024px) 140px, 200px"
+              width={100}
+              height={20}
+              className="object-contain object-left w-[70px] lg:w-[100px] h-auto"
               priority
             />
           </div>
-          <span className={`text-2xl lg:text-xl font-bold uppercase tracking-[0.2em] transition-colors pb-1 whitespace-nowrap -ml-16 lg:-ml-24 ${
+          <span className={`text-2xl lg:text-xl font-bold uppercase tracking-[0.2em] transition-colors pb-1 whitespace-nowrap ${
             isScrolled ? 'text-white' : 'text-white'
           }`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
             TeleBots

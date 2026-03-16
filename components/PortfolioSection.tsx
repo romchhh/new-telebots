@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
@@ -87,23 +88,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
           </Link>
         </div>
 
-        <div className="relative flex flex-col justify-center w-full min-w-0 p-6 sm:p-8 lg:p-10">
-          <div className="relative w-full aspect-[1500/970] rounded-lg overflow-hidden">
-            <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
-            <Image
-              src="/portfolio/portfolio-default.jpg"
-              alt="Featured project"
-              fill
-              className="object-contain"
-              sizes="100vw"
-              priority
-            />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 sm:p-6 z-10">
-              <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-1">{t.portfolio.website}</p>
-              <h3 className="text-lg sm:text-xl font-black">Featured Project</h3>
-            </div>
-          </div>
-        </div>
+        <ZoomingImageBlock t={t} />
       </div>
 
       {/* Портфоліо — горизонтальний скрол знизу */}
@@ -118,5 +103,75 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
         </div>
       </div>
     </section>
+  );
+}
+
+function ZoomingImageBlock({ t }: { t: typeof import('./translations').translations.uk }) {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = containerRef.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+
+      // Нормалізуємо положення блоку від 0 (виходить знизу) до 1 (вийшов нагорі)
+      const visibleStart = viewportHeight * 0.1;
+      const visibleEnd = viewportHeight * 0.9;
+      const centerY = rect.top + rect.height / 2;
+
+      const raw =
+        rect.height <= 0
+          ? 0
+          : (visibleEnd - centerY) / (visibleEnd - visibleStart);
+
+      const clamped = Math.max(0, Math.min(1, raw));
+      setProgress(clamped);
+    };
+
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, []);
+
+  // Робимо масштаб максимумом у середині прокрутки (ефект "наблизився" → "віддалився")
+  const peakFactor = 1 - Math.abs(progress - 0.5) * 2; // 0 → 1 → 0
+  const scale = 1 + peakFactor * 0.15; // від 1 до 1.15
+
+  return (
+    <div className="relative flex flex-col justify-center w-full min-w-0 p-6 sm:p-8 lg:p-10" ref={containerRef}>
+      <div
+        className="relative w-full aspect-[1500/970] rounded-lg overflow-hidden will-change-transform"
+        style={{
+          transform: `scale(${scale})`,
+          transition: 'transform 80ms linear',
+        }}
+      >
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+        <Image
+          src="/portfolio/portfolio-default.jpg"
+          alt="Featured project"
+          fill
+          className="object-contain"
+          sizes="(max-width: 1024px) 100vw, 50vw"
+          priority
+          quality={80}
+        />
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 sm:p-6 z-10">
+          <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-1">
+            {t.portfolio.website}
+          </p>
+          <h3 className="text-lg sm:text-xl font-black">Featured Project</h3>
+        </div>
+      </div>
+    </div>
   );
 }
