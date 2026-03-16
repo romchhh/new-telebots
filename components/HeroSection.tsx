@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 interface HeroSectionProps {
@@ -9,12 +8,6 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
-  const [displayedTitle, setDisplayedTitle] = useState('');
-  const [displayedTitleItalic, setDisplayedTitleItalic] = useState('');
-  const [displayedSubtitle, setDisplayedSubtitle] = useState('');
-  const [isTitleComplete, setIsTitleComplete] = useState(false);
-  const [isTitleItalicComplete, setIsTitleItalicComplete] = useState(false);
-  const [isContentComplete, setIsContentComplete] = useState(false);
 
   const handleScrollDown = () => {
     const aboutSection = document.getElementById('about');
@@ -25,40 +18,6 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
     }
   };
 
-  useEffect(() => {
-    const titleParts = t.hero.title.split(' до ');
-    const titleFirst = titleParts[0] + (titleParts.length > 1 ? ' до ' : '');
-    const titleSecond = titleParts.length > 1 ? titleParts[1] : '';
-
-    let titleIndex = 0;
-    let titleItalicIndex = 0;
-
-    const titleInterval = setInterval(() => {
-      if (titleIndex < titleFirst.length) {
-        setDisplayedTitle(titleFirst.slice(0, titleIndex + 1));
-        titleIndex++;
-      } else {
-        clearInterval(titleInterval);
-        setIsTitleComplete(true);
-
-        const titleItalicInterval = setInterval(() => {
-          if (titleItalicIndex < titleSecond.length) {
-            setDisplayedTitleItalic(titleSecond.slice(0, titleItalicIndex + 1));
-            titleItalicIndex++;
-          } else {
-            clearInterval(titleItalicInterval);
-            setIsTitleItalicComplete(true);
-            setDisplayedSubtitle(t.hero.subtitle);
-            setIsContentComplete(true);
-          }
-        }, 80);
-      }
-    }, 50);
-
-    return () => {
-      clearInterval(titleInterval);
-    };
-  }, [t.hero.title, t.hero.subtitle]);
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
@@ -84,21 +43,11 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
 
       {/* ─── TAGLINE БЛОК (ліво) — Liquid Glass ─── */}
       <div
-        className={`absolute top-72 sm:top-64 md:top-28 lg:top-32 xl:top-36 left-4 md:left-6 lg:left-10 z-20 w-[320px] md:w-[340px] lg:w-[400px] xl:w-[440px] transition-all duration-700 ${
-          isContentComplete ? 'opacity-100 translate-y-0' : 'opacity-60 translate-y-2'
-        }`}
+        className="absolute top-72 sm:top-64 md:top-28 lg:top-32 xl:top-36 left-4 md:left-6 lg:left-10 z-20 w-[320px] md:w-[340px] lg:w-[400px] xl:w-[440px]"
       >
-        {/*
-          Liquid glass: багатошарова конструкція
-          1. Зовнішня маска — м'який fade по краях через mask-image
-          2. Основна підкладка — backdrop-blur + тонований фон
-          3. Внутрішній highlight — світлий блік зверху (як скло)
-          4. Border — тонкий напівпрозорий контур
-        */}
         <div
           className="relative rounded-2xl overflow-hidden"
           style={{
-            /* М'який fade-out по всіх краях, найсильніше знизу і справа */
             WebkitMaskImage:
               'radial-gradient(ellipse 90% 85% at 30% 40%, black 40%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.4) 78%, transparent 100%)',
             maskImage:
@@ -134,9 +83,7 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
           {/* Легкий внутрішній border */}
           <div
             className="absolute inset-0 rounded-2xl pointer-events-none"
-            style={{
-              boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.12)',
-            }}
+            style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.12)' }}
           />
           {/* Текст */}
           <p
@@ -150,41 +97,30 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
 
       {/* ─── КРУГ З ДАТАМИ (право) — плавний fade по краях ─── */}
       <div className="absolute top-20 md:top-24 right-4 md:right-6 lg:right-10 z-20">
-        {/*
-          Замість одного radial-gradient з backdrop-blur використовуємо
-          два шари: сам blur і окремий mask, щоб fade був справді плавним
-          і не мав видимої "стінки" по краях кола.
-        */}
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           style={{
             width: 'clamp(260px, 30vw, 420px)',
             height: 'clamp(260px, 30vw, 420px)',
-            /* Blur шар */
+            borderRadius: '50%',
+            background:
+              'radial-gradient(circle, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.30) 35%, rgba(0,0,0,0.12) 60%, transparent 85%)',
             backdropFilter: 'blur(10px)',
             WebkitBackdropFilter: 'blur(10px)',
-            borderRadius: '50%',
-            /* Маска: чорний центр (blur видно) → прозорий край (blur зникає) */
             WebkitMaskImage:
               'radial-gradient(circle, black 0%, black 30%, rgba(0,0,0,0.9) 45%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.05) 88%, transparent 100%)',
             maskImage:
               'radial-gradient(circle, black 0%, black 30%, rgba(0,0,0,0.9) 45%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.05) 88%, transparent 100%)',
-            /* Фоновий тінт: дуже слабкий, щоб тільки трохи затемнити */
-            background:
-              'radial-gradient(circle, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.30) 35%, rgba(0,0,0,0.12) 60%, transparent 85%)',
           }}
         />
 
-        {/* Основний блок з датами */}
         <div className="relative bg-transparent p-5 md:p-6 lg:p-8 xl:p-10">
           <div className="relative w-44 h-44 md:w-40 md:h-40 lg:w-60 lg:h-60 xl:w-64 xl:h-64">
-            {/* Розділові лінії */}
             <div className="absolute inset-0">
               <div className="absolute top-1/2 left-0 right-0 h-px bg-gray-600/40" />
               <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gray-600/40" />
             </div>
 
-            {/* Верхній правий квадрант — Початок */}
             <div className="absolute top-0 right-0 w-1/2 h-1/2 p-3 md:p-3 lg:p-5 xl:p-6 flex flex-col justify-end items-end">
               <span className="text-[12px] md:text-[9px] lg:text-[12px] xl:text-[13px] text-gray-300 uppercase tracking-[0.15em] mb-1">
                 {t.hero.startDate.label}
@@ -194,7 +130,6 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
               </span>
             </div>
 
-            {/* Нижній лівий квадрант — Тривалість */}
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 p-3 md:p-3 lg:p-5 xl:p-6 flex flex-col justify-start items-start">
               <span className="text-[12px] md:text-[9px] lg:text-[12px] xl:text-[13px] text-gray-300 uppercase tracking-[0.15em] mb-1">
                 {t.hero.duration.label}
@@ -214,38 +149,29 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
             className="font-bold text-white mb-4 md:mb-6 uppercase text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl"
             style={{ letterSpacing: '0.15em', fontFamily: 'Montserrat, sans-serif' }}
           >
-            <span className="sr-only">{t.hero.title}</span>
-            <span aria-hidden="true">
-              {displayedTitle}
-              {displayedTitleItalic}
-              {(!isTitleComplete || !isTitleItalicComplete) && (
-                <span className="animate-pulse">|</span>
-              )}
-            </span>
+            <span>{t.hero.title}</span>
           </h1>
 
-          {isTitleItalicComplete && (
-            <p
-              className="font-normal text-white mb-8 md:mb-10 text-lg sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl leading-relaxed"
-              style={{ letterSpacing: '0.2em', fontFamily: 'Montserrat, sans-serif' }}
-            >
-              {(() => {
-                const subtitleText = t.hero.subtitle;
-                const italicPart = 'TeleBots approach';
-                if (subtitleText.includes(italicPart)) {
-                  const parts = subtitleText.split(italicPart);
-                  return (
-                    <>
-                      {parts[0]}
-                      <span className="italic">{italicPart}</span>
-                      {parts[1]}
-                    </>
-                  );
-                }
-                return subtitleText;
-              })()}
-            </p>
-          )}
+          <p
+            className="font-normal text-white mb-8 md:mb-10 text-lg sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl leading-relaxed"
+            style={{ letterSpacing: '0.2em', fontFamily: 'Montserrat, sans-serif' }}
+          >
+            {(() => {
+              const subtitleText = t.hero.subtitle;
+              const italicPart = 'TeleBots approach';
+              if (subtitleText.includes(italicPart)) {
+                const parts = subtitleText.split(italicPart);
+                return (
+                  <>
+                    {parts[0]}
+                    <span className="italic">{italicPart}</span>
+                    {parts[1]}
+                  </>
+                );
+              }
+              return subtitleText;
+            })()}
+          </p>
 
           <div className="flex justify-center gap-3 md:gap-6">
             <button
