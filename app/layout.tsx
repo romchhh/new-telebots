@@ -98,15 +98,11 @@ export default function RootLayout({
     <html lang="uk" prefix="og: https://ogp.me/ns#" className={montserrat.variable}>
       <head>
         {/* DNS Prefetch для швидкості */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
         <link rel="dns-prefetch" href="https://t.me" />
         <link rel="dns-prefetch" href="https://www.instagram.com" />
         
         {/* Preconnect для критичних ресурсів */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
+       
         {/* Icons — вкладка браузера та іконка в пошуку Google */}
         <link rel="icon" href="/other/favicon.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/other/favicon.png" />

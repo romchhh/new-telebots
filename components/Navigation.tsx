@@ -58,7 +58,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
               priority
             />
           </div>
-          <span className={`text-2xl lg:text-xl font-bold uppercase tracking-[0.2em] transition-colors pb-1 whitespace-nowrap ${
+          <span className={`text-2xl lg:text-xl font-semibold uppercase tracking-[0.2em] transition-colors pb-1 whitespace-nowrap ${
             isScrolled ? 'text-white' : 'text-white'
           }`} style={{ fontFamily: 'var(--font-montserrat)' }}>
             TeleBots
@@ -66,27 +66,27 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
         </Link>
 
         <div className="hidden lg:flex items-center space-x-10">
-          <Link href={`/${currentLanguage}/about`} className={`text-xs tracking-[0.2em] font-black transition ${
+          <Link href={`/${currentLanguage}/about`} className={`text-xs tracking-[0.2em] font-semibold transition ${
             isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.about}
           </Link>
-          <Link href={`/${currentLanguage}/services`} className={`text-xs tracking-[0.2em] font-black transition ${
+          <Link href={`/${currentLanguage}/services`} className={`text-xs tracking-[0.2em] font-semibold transition ${
             isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.services}
           </Link>
-          <Link href={`/${currentLanguage}/portfolio`} className={`text-xs tracking-[0.2em] font-black transition ${
+          <Link href={`/${currentLanguage}/portfolio`} className={`text-xs tracking-[0.2em] font-semibold transition ${
             isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.portfolio}
           </Link>
-          <Link href={`/${currentLanguage}/blog`} className={`text-xs tracking-[0.2em] font-black transition ${
+          <Link href={`/${currentLanguage}/blog`} className={`text-xs tracking-[0.2em] font-semibold transition ${
             isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.blog}
           </Link>
-          <Link href={`/${currentLanguage}/contact`} className={`text-xs tracking-[0.2em] font-black transition ${
+          <Link href={`/${currentLanguage}/contact`} className={`text-xs tracking-[0.2em] font-semibold transition ${
             isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
             {t.nav.contact}
@@ -95,7 +95,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
             <button
               type="button"
               onClick={onConsultClick}
-              className="ml-6 px-8 py-3 text-sm tracking-[0.25em] font-black uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
+              className="ml-6 px-8 py-3 text-sm tracking-[0.25em] font-semibold uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
             >
               {t.nav.consultation}
             </button>
@@ -151,35 +151,35 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
             <Link
               href={`/${currentLanguage}/about`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-black"
+              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
             >
               {t.nav.about}
             </Link>
             <Link
               href={`/${currentLanguage}/services`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-black"
+              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
             >
               {t.nav.services}
             </Link>
             <Link
               href={`/${currentLanguage}/portfolio`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-black"
+              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
             >
               {t.nav.portfolio}
             </Link>
             <Link
               href={`/${currentLanguage}/blog`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-black"
+              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
             >
               {t.nav.blog}
             </Link>
             <Link
               href={`/${currentLanguage}/contact`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-black"
+              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
             >
               {t.nav.contact}
             </Link>
@@ -190,7 +190,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
                   setIsMenuOpen(false);
                   onConsultClick();
                 }}
-                className="mt-6 px-10 py-4 text-xl tracking-[0.25em] font-black uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
+                className="mt-6 px-10 py-4 text-xl tracking-[0.25em] font-semibold uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
               >
                 {t.nav.consultation}
               </button>

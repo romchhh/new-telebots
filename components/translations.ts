@@ -31,7 +31,7 @@ export const translations = {
       contactDesc: 'Будь ласка, зв\'яжіться з нами з будь-якими питаннями.',
       getInTouch: 'Зв\'язатися',
       services: 'Послуги',
-      servicesDesc: '200+ реалізованих проєктів. 4 роки оптимізації. Разом з Вами від старту до фінішу й навіть після. Розробка та дизайн під ключ. Автоматизуй свій бізнес з нами.',
+      servicesDesc: '200+ реалізованих проєктів. 4 роки оптимізації. Разом з Вами від старту до фінішу й навіть після. Розробка та дизайн під ключ: Telegram-боти, чат-боти з AI, сайти та інтернет-магазини. Інтегруємо CRM, платіжні сервіси та аналітику, щоб заявки стабільно перетворювались на звернення і продажі.',
       stats: {
         projects: '200+ реалізованих проєктів',
         years: '4 роки оптимізації',
@@ -462,7 +462,7 @@ export const translations = {
       contactDesc: 'Please reach out with any questions or inquiries.',
       getInTouch: 'Get in touch',
       services: 'Services',
-      servicesDesc: '200+ completed projects. 4 years of optimization. Together with you from start to finish and even after. Development and design under one roof. Automate your business with us.',
+      servicesDesc: '200+ completed projects. 4 years of optimization. Together with you from start to finish and even after. Development and design under one roof: Telegram bots, AI chatbots, websites and online stores. We integrate CRM, payment services and analytics so requests consistently turn into leads and sales.',
       stats: {
         projects: '200+ completed projects',
         years: '4 years of optimization',
@@ -893,7 +893,7 @@ export const translations = {
       contactDesc: 'Prosimy o kontakt w przypadku jakichkolwiek pytań.',
       getInTouch: 'Skontaktuj się',
       services: 'Usługi',
-      servicesDesc: '200+ zrealizowanych projektów. 4 lata optymalizacji. Razem z Tobą od startu do mety i nawet po. Realizacja i design w jednym miejscu. Automatyzuj swój biznes z nami.',
+      servicesDesc: '200+ zrealizowanych projektów. 4 lata optymalizacji. Razem z Tobą od startu do mety i nawet po. Realizacja i design w jednym miejscu: boty Telegram i chatboty z AI, strony i sklepy online. Integrujemy CRM, systemy płatności i analitykę, aby zapytania konsekwentnie zamieniały się w leady i sprzedaż.',
       stats: {
         projects: '200+ zrealizowanych projektów',
         years: '4 lata optymalizacji',
@@ -1324,7 +1324,7 @@ export const translations = {
       contactDesc: 'Пожалуйста, свяжитесь с нами с любыми вопросами.',
       getInTouch: 'Связаться',
       services: 'Услуги',
-      servicesDesc: '200+ реализованных проектов. 4 года оптимизации. Вместе с вами от старта до финиша и даже после. Разработка и дизайн под ключ. Автоматизируй свой бизнес с нами.',
+      servicesDesc: '200+ реализованных проектов. 4 года оптимизации. Вместе с вами от старта до финиша и даже после. Разработка и дизайн под ключ: Telegram-боты, AI-чат-боты, сайты и интернет-магазины. Интегрируем CRM, платёжные сервисы и аналитику, чтобы заявки стабильно превращались в лиды и продажи.',
       stats: {
         projects: '200+ реализованных проектов',
         years: '4 года оптимизации',

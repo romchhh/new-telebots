@@ -176,7 +176,7 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
           <div className="flex justify-center gap-3 md:gap-6">
             <button
               onClick={handleScrollDown}
-              className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-normal border border-white text-white px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
+              className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-bold border border-white text-white px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
               style={{ fontFamily: 'var(--font-montserrat)' }}
               aria-label={t.hero.viewButton}
             >
@@ -185,7 +185,7 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
             {onOrderClick && (
               <button
                 onClick={onOrderClick}
-                className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-normal bg-white text-black px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
+                className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-bold bg-white text-black px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
                 style={{ fontFamily: 'var(--font-montserrat)' }}
                 aria-label={t.modal.title}
               >
