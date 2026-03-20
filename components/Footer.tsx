@@ -34,7 +34,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   className="h-full w-auto object-contain"
                 />
               </div>
-              <span className="text-white text-2xl font-bold uppercase tracking-wider" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.15em' }}>
+              <span className="text-white text-2xl font-bold uppercase tracking-wider" style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.15em' }}>
                 TeleBots
               </span>
             </div>

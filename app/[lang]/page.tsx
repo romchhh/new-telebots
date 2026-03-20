@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
@@ -16,7 +16,6 @@ import { sendToTelegram } from '@/lib/telegram';
 
 export default function Home() {
   const params = useParams();
-  const router = useRouter();
   const langParam = params?.lang as string;
   const [isScrolled, setIsScrolled] = useState(false);
   
@@ -30,13 +29,6 @@ export default function Home() {
   const mainPageFAQs = t.about.faq?.items?.slice(0, 4) || [];
 
   useEffect(() => {
-    // Синхронізуємо мову з URL
-    if (langParam && langParam !== lang && ['uk', 'en', 'pl', 'ru'].includes(langParam)) {
-      setLang(langParam as Language);
-    }
-  }, [langParam, lang]);
-
-  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -46,9 +38,6 @@ export default function Home() {
 
   const handleLangChange = (newLang: Language) => {
     setLang(newLang);
-    const currentPath = window.location.pathname;
-    const newPath = currentPath.replace(/^\/(uk|en|pl|ru)/, `/${newLang}`);
-    router.push(newPath);
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);

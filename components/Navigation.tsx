@@ -60,7 +60,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
           </div>
           <span className={`text-2xl lg:text-xl font-bold uppercase tracking-[0.2em] transition-colors pb-1 whitespace-nowrap ${
             isScrolled ? 'text-white' : 'text-white'
-          }`} style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          }`} style={{ fontFamily: 'var(--font-montserrat)' }}>
             TeleBots
           </span>
         </Link>

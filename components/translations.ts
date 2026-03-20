@@ -36,7 +36,7 @@ export const translations = {
         projects: '200+ реалізованих проєктів',
         years: '4 роки оптимізації',
         support: 'Разом з Вами від старту до фінішу й навіть після',
-        cta: 'Автоматизуй свій бізнес з нами'
+        cta: 'Автоматизуй свій бізнес з TeleBots: підключимо чат-боти та сайти під ваші задачі, інтегруємо CRM і платіжні сервіси та налаштуємо заявки так, щоб вони перетворювалися на продажі.'
       },
       pageTitle: 'ПРО НАС',
       pageIntro: 'Шукаєте рішення для бізнесу чи особистих потреб? Ми — команда розробників та дизайнерів: телеграм боти, чат-боти, сайти, інтернет-магазини, воронки. В команді є UI/UX дизайнер: розробляємо лого, айдентику, дизайн сайтів та додатків.',
@@ -210,7 +210,7 @@ export const translations = {
         projects: '200+ реалізованих проєктів',
         years: '4 роки оптимізації',
         support: 'Разом з Вами від старту до фінішу й навіть після',
-        cta: 'Автоматизуй свій бізнес з нами',
+        cta: 'Автоматизуй свій бізнес з TeleBots: підключимо чат-боти та сайти під ваші задачі, інтегруємо CRM і платіжні сервіси та налаштуємо заявки так, щоб вони перетворювалися на продажі.',
         contact: 'Зв\'язок: @telebotsnowayrm',
         by: 'by @nowayrm'
       },
@@ -467,7 +467,7 @@ export const translations = {
         projects: '200+ completed projects',
         years: '4 years of optimization',
         support: 'Together with you from start to finish and even after',
-        cta: 'Automate your business with us'
+        cta: 'Automate your business with TeleBots: we connect chatbots and websites to your goals, integrate CRM and payment services, and configure lead flows so inquiries reliably turn into sales.'
       },
       pageTitle: 'ABOUT US',
       pageIntro: 'Looking for a solution for business or personal needs? We are a team of developers and designers: Telegram bots, chatbots, websites, online stores, funnels. Our team includes a UI/UX designer: we create logos, brand identity, and design for websites and apps.',
@@ -898,7 +898,7 @@ export const translations = {
         projects: '200+ zrealizowanych projektów',
         years: '4 lata optymalizacji',
         support: 'Razem z Tobą od startu do mety i nawet po',
-        cta: 'Automatyzuj swój biznes z nami'
+        cta: 'Automatyzuj swój biznes z TeleBots: wdrożymy chatboty i strony pod Twoje cele, zintegrowujemy CRM i systemy płatności oraz ustawimy procesy zgłoszeń tak, aby zapytania zamieniały się w sprzedaż.'
       },
       pageTitle: 'O NAS',
       pageIntro: 'Szukasz rozwiązania dla biznesu lub potrzeb osobistych? Jesteśmy zespołem deweloperów i projektantów: boty Telegram, chatboty, strony, sklepy online, lejki. W zespole mamy projektanta UI/UX: tworzymy logo, identyfikację wizualną, projektowanie stron i aplikacji.',
@@ -1503,7 +1503,7 @@ export const translations = {
         projects: '200+ реализованных проектов',
         years: '4 года оптимизации',
         support: 'Вместе с вами от старта до финиша и даже после',
-        cta: 'Автоматизируй свой бизнес с нами',
+        cta: 'Автоматизируй свой бизнес с TeleBots: подключим чат-боты и сайты под ваши задачи, интегрируем CRM и платёжные сервисы и настроим заявки так, чтобы они стабильно превращались в продажи.',
         contact: 'Связь: @telebotsnowayrm',
         by: 'by @nowayrm'
       },

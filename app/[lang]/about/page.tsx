@@ -193,7 +193,7 @@ export default function AboutPage() {
             <p 
               className="text-center text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-light leading-[1.5] max-w-4xl md:max-w-5xl px-6 md:px-8 lg:px-12 tracking-[0.02em]"
               style={{ 
-                fontFamily: 'Montserrat, sans-serif',
+                fontFamily: 'var(--font-montserrat)',
                 textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)'
               }}
             >

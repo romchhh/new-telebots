@@ -88,7 +88,7 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
           {/* Текст */}
           <p
             className="relative px-6 py-5 md:px-5 md:py-5 lg:px-6 lg:py-6 xl:px-7 xl:py-7 text-white/90 font-normal leading-relaxed text-[17px] md:text-[18px] lg:text-[19px] xl:text-[21px]"
-            style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.02em' }}
+            style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.02em' }}
           >
             {t.hero.tagline}
           </p>
@@ -147,14 +147,14 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
         <div className="max-w-5xl mx-auto text-center w-full">
           <h1
             className="font-bold text-white mb-4 md:mb-6 uppercase text-4xl sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl"
-            style={{ letterSpacing: '0.15em', fontFamily: 'Montserrat, sans-serif' }}
+            style={{ letterSpacing: '0.15em', fontFamily: 'var(--font-montserrat)' }}
           >
             <span>{t.hero.title}</span>
           </h1>
 
           <p
             className="font-normal text-white mb-8 md:mb-10 text-lg sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl leading-relaxed"
-            style={{ letterSpacing: '0.2em', fontFamily: 'Montserrat, sans-serif' }}
+            style={{ letterSpacing: '0.2em', fontFamily: 'var(--font-montserrat)' }}
           >
             {(() => {
               const subtitleText = t.hero.subtitle;
@@ -177,7 +177,7 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
             <button
               onClick={handleScrollDown}
               className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-normal border border-white text-white px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
-              style={{ fontFamily: 'Montserrat, sans-serif' }}
+              style={{ fontFamily: 'var(--font-montserrat)' }}
               aria-label={t.hero.viewButton}
             >
               {t.hero.viewButton}
@@ -186,7 +186,7 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
               <button
                 onClick={onOrderClick}
                 className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-normal bg-white text-black px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
-                style={{ fontFamily: 'Montserrat, sans-serif' }}
+                style={{ fontFamily: 'var(--font-montserrat)' }}
                 aria-label={t.modal.title}
               >
                 {t.modal.title}

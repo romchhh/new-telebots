@@ -165,7 +165,7 @@ export default function ServicePage() {
             </div>
             <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
               <div className="max-w-4xl">
-                <h1 className="font-bold text-white mb-4 md:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '0.05em' }}>
+                <h1 className="font-bold text-white mb-4 md:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.05em' }}>
                   {serviceTitle}
                 </h1>
                 <p className="text-white/95 text-xl sm:text-2xl md:text-3xl mb-8 md:mb-10 max-w-3xl leading-relaxed">

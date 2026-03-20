@@ -2,9 +2,17 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
+
+const montserrat = Montserrat({
+  subsets: ['latin', 'cyrillic'],
+  weight: ['400', '700', '900'],
+  display: 'swap',
+  variable: '--font-montserrat',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -87,7 +95,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="uk" prefix="og: https://ogp.me/ns#">
+    <html lang="uk" prefix="og: https://ogp.me/ns#" className={montserrat.variable}>
       <head>
         {/* DNS Prefetch для швидкості */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -98,12 +106,6 @@ export default function RootLayout({
         {/* Preconnect для критичних ресурсів */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        
-        {/* Preload hero для LCP (головна) */}
-        <link rel="preload" href="/other/hero-background.jpeg" as="image" />
-        
-        {/* Fonts */}
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
         
         {/* Icons — вкладка браузера та іконка в пошуку Google */}
         <link rel="icon" href="/other/favicon.png" type="image/png" sizes="any" />
