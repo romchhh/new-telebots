@@ -66,6 +66,7 @@ export default function Portfolio() {
     'chars-kyiv': { image: '/portfolio/portfolio-chars-kyiv.png', category: 'websites' },
     'style-chat-vakhula': { image: '/portfolio/portfolio-style-chat-vakhula.jpg', category: 'chatbots' },
     'landscaper-academy': { image: '/portfolio/portfolio-landscaper-academy.png', category: 'websites' },
+    "butenko-fit": { image: '/portfolio/butenko.jpg', category: 'websites' },
   };
 
   const works = Object.keys(casesData).map((caseId) => {
@@ -109,6 +110,7 @@ export default function Portfolio() {
     { colSpan: 1, rowSpan: 2 },
     { colSpan: 1, rowSpan: 1 },
     { colSpan: 2, rowSpan: 1 },
+    { colSpan: 1, rowSpan: 1 },
   ];
 
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1920);
