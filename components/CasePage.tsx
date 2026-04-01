@@ -34,7 +34,8 @@ import {
   FaMoneyBillWave,
   FaMobile,
   FaSearch,
-  FaHome
+  FaHome,
+  FaHeartbeat
 } from 'react-icons/fa';
 
 interface CasePageProps {
@@ -113,6 +114,8 @@ export default function CasePage({ caseId }: CasePageProps) {
         return <FaHeart className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black" />;
       case 'newlineschool':
         return <FaGraduationCap className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black" />;
+      case 'butenko-fit':
+        return <FaHeartbeat className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black" />;
       case 'xpaid':
         return <FaCreditCard className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-black" />;
       default:
@@ -142,17 +145,6 @@ export default function CasePage({ caseId }: CasePageProps) {
       <section className="bg-black text-white">
         <div className="grid lg:grid-cols-2">
           <div className="p-8 sm:p-12 lg:p-20 xl:p-24 flex flex-col justify-center">
-            <Link 
-              href={`/${validLang}/portfolio`}
-              className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition mb-5 text-base tracking-[0.2em]"
-            >
-              <FaArrowLeft className="w-4 h-4" />
-              {validLang === 'uk' ? 'Повернутися до портфоліо' :
-               validLang === 'en' ? 'Back to Portfolio' :
-               validLang === 'ru' ? 'Вернуться к портфолио' :
-               'Powrót do portfolio'}
-            </Link>
-            
             <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 leading-tight">
               {caseData.title}
             </h1>
@@ -247,6 +239,32 @@ export default function CasePage({ caseId }: CasePageProps) {
                   <p key={index} className="text-gray-700 mb-4 leading-relaxed text-xl lg:text-2xl">
                     {paragraph}
                   </p>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {caseData.gallery && caseData.gallery.length > 0 && (
+            <div className="mb-12">
+              <h2 className="text-3xl lg:text-4xl xl:text-5xl font-black text-black mb-6">
+                {validLang === 'uk' ? 'Галерея проєкту' :
+                 validLang === 'en' ? 'Project gallery' :
+                 validLang === 'ru' ? 'Галерея проекта' :
+                 'Galeria projektu'}
+              </h2>
+              <div className="grid grid-cols-1 gap-8">
+                {caseData.gallery.map((src: string, index: number) => (
+                  <div key={index} className="relative w-full rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
+                    <Image
+                      src={src}
+                      alt={`${caseData.title} — ${index + 2}`}
+                      width={1200}
+                      height={800}
+                      className="w-full h-auto object-contain"
+                      quality={90}
+                      sizes="(max-width: 1024px) 100vw, 896px"
+                    />
+                  </div>
                 ))}
               </div>
             </div>

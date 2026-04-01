@@ -244,7 +244,9 @@ export default function ContactPage() {
               <div className="space-y-8">
                 <div className="pb-6 border-b border-gray-200">
                   <p className="text-xs font-normal text-gray-500 mb-3 tracking-wider">{t.footer.legalBlockTitle}</p>
+                  <p className="text-xs font-normal text-gray-500 mb-1 tracking-wider">{t.footer.recipientLabel}</p>
                   <p className="text-lg font-black text-black">{t.footer.companyName}</p>
+                  <p className="text-gray-600 font-semibold mt-1 break-all">{t.footer.footerIban}: {legal.iban}</p>
                   <p className="text-gray-600 font-semibold mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</p>
                   <p className="text-gray-600 font-semibold mt-2">{t.footer.address}: {t.footer.legalAddress}</p>
                 </div>

@@ -47,7 +47,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
       isScrolled ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-2 lg:py-3 flex justify-between items-center lg:items-end">
-        <Link href={`/${currentLanguage}`} className="flex items-end group lg:items-end justify-center lg:justify-start w-full lg:w-auto gap-2 lg:gap-3">
+        <Link href={`/${currentLanguage}`} className="flex items-end group lg:items-end justify-center lg:justify-start w-full lg:w-auto">
           <div className="flex items-end">
             <Image
               src={isScrolled ? '/whitelogo.png' : '/whitelogo.png'}
@@ -58,11 +58,6 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
               priority
             />
           </div>
-          <span className={`text-2xl lg:text-xl font-semibold uppercase tracking-[0.2em] transition-colors pb-1 whitespace-nowrap ${
-            isScrolled ? 'text-white' : 'text-white'
-          }`} style={{ fontFamily: 'var(--font-montserrat)' }}>
-            TeleBots
-          </span>
         </Link>
 
         <div className="hidden lg:flex items-center space-x-10">

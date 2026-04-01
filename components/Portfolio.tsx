@@ -158,7 +158,6 @@ export default function Portfolio() {
             className={`p-8 sm:p-12 lg:p-16 xl:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`}
             ref={contentRef}
           >
-            <p className="text-xs tracking-[0.3em] text-gray-400 mb-4 sm:mb-6">{t.portfolio.recent}</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
               {t.portfolio.title}
             </h1>

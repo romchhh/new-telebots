@@ -275,9 +275,6 @@ export default function ServicePage() {
           <section ref={portfolioRef} className={`bg-black text-white py-16 md:py-20 lg:py-24 px-6 md:px-10 lg:px-16 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
             <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-0 min-w-0">
               <div className="flex flex-col justify-center">
-                <p className="text-xs tracking-[0.3em] text-gray-400 mb-4 sm:mb-6">
-                  {t.portfolio.recent}
-                </p>
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
                   {t.services.servicePagePortfolioTitle}
                 </h2>

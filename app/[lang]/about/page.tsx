@@ -223,9 +223,6 @@ export default function AboutPage() {
       <section className="py-20 md:py-28 lg:py-32 px-6 md:px-10 lg:px-16 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className={`mb-16 md:mb-20 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`} ref={titleRef}>
-            <p className="text-sm font-bold text-gray-500 tracking-[0.3em] uppercase mb-6">
-              {t.about.pageTitle}
-            </p>
             <p className={`text-2xl md:text-3xl lg:text-4xl text-gray-800 font-normal leading-[1.6] max-w-3xl scroll-animate-up ${isIntroVisible ? 'animate' : ''}`} ref={introRef}>
               {t.about.pageIntro}
             </p>

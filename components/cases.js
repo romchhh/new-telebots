@@ -631,6 +631,32 @@ export const cases = {
         { value: "↑", label: "Зручність для учнів" },
         { value: "↑", label: "Організація подій" }
       ]
+    },
+    'butenko-fit': {
+      title: "Butenko Fit — сайт для сертифікованої тренерки з пілатесу",
+      subtitle: "Разом із дизайнером розробили butenkofit.com: передати вайб Юлії, а не лише зверстати сторінки",
+      mainImage: "/portfolio/butenko.jpg",
+      gallery: ["/portfolio/Group%201000007105.jpg"],
+      description: "💬 З моїм дизайнером розробили сайт butenkofit.com для сертифікованої тренерки з пілатесу.\n\nКоли ми взялися за цей проєкт, головним викликом було не просто написати код, а передати вайб Юлії.\n\nЗамість одного довгого лендінгу — чітка структура з окремими сторінками під кожну програму. Це допомагає клієнту не губитися й обирати свій запит.\n\nМінімум візуального шуму. Тільки повітря, якісні фото та змістовні блоки, що закривають питання клієнта ще до того, як він їх поставить.\n\nТепер це автономний інструмент, який презентує експертність Юлії та продає її курси 24/7.\n\n👀 Результат: butenkofit.com\n🤍 Розробка: telebots.site",
+      duration: "3 тижні",
+      client: "Юлія Бутенко (Butenko Fit)",
+      category: "Сайт / лендінг",
+      portfolioCategory: "websites",
+      liveUrl: "https://butenkofit.com/",
+      features: [
+        "Окремі сторінки під кожну програму замість одного довгого лендінгу",
+        "Мінімум візуального шуму та повітря в макеті",
+        "Якісні фото та змістовні блоки під запити клієнта",
+        "Презентація експертності та продаж курсів 24/7",
+        "Адаптивна верстка",
+        "Фірмовий настрій бренду тренерки"
+      ],
+      results: [
+        { value: "24/7", label: "Автоматичні продажі курсів" },
+        { value: "100%", label: "Зрозуміла структура програм" },
+        { value: "↑", label: "Довіра та експертність" },
+        { value: "↑", label: "Зручність для клієнта" }
+      ]
     }
   },
   
@@ -1263,6 +1289,32 @@ export const cases = {
         { value: "24/7", label: "Content availability" },
         { value: "↑", label: "Student convenience" },
         { value: "↑", label: "Event organization" }
+      ]
+    },
+    'butenko-fit': {
+      title: "Butenko Fit — website for a certified Pilates coach",
+      subtitle: "Built butenkofit.com with a designer: capture Yuliia’s vibe, not just ship pages",
+      mainImage: "/portfolio/butenko.jpg",
+      gallery: ["/portfolio/Group%201000007105.jpg"],
+      description: "💬 Together with my designer, we built butenkofit.com for a certified Pilates coach.\n\nThe main challenge wasn’t writing code — it was conveying Yuliia’s vibe.\n\nInstead of one long landing page, there’s a clear structure with separate pages for each program, so clients don’t get lost and can choose what fits them.\n\nMinimal visual noise: lots of air, strong photography, and substantive blocks that answer questions before the client even asks.\n\nIt’s now a standalone tool that presents Yuliia’s expertise and sells her courses 24/7.\n\n👀 Live: butenkofit.com\n🤍 Built by: telebots.site",
+      duration: "3 weeks",
+      client: "Yuliia Butenko (Butenko Fit)",
+      category: "Website / landing",
+      portfolioCategory: "websites",
+      liveUrl: "https://butenkofit.com/",
+      features: [
+        "Dedicated pages per program instead of one endless landing",
+        "Minimal noise and generous whitespace",
+        "Quality photos and content blocks aligned with client questions",
+        "Showcases expertise and sells courses around the clock",
+        "Responsive layout",
+        "Brand-true mood for the coach"
+      ],
+      results: [
+        { value: "24/7", label: "Course sales on autopilot" },
+        { value: "100%", label: "Clear program structure" },
+        { value: "↑", label: "Trust and expertise" },
+        { value: "↑", label: "Easier for clients" }
       ]
     }
   },
@@ -1897,6 +1949,32 @@ export const cases = {
         { value: "24/7", label: "Dostępność treści" },
         { value: "↑", label: "Wygoda dla uczniów" },
         { value: "↑", label: "Organizacja wydarzeń" }
+      ]
+    },
+    'butenko-fit': {
+      title: "Butenko Fit — strona dla certyfikowanej trenerki pilatesu",
+      subtitle: "Wspólnie z projektantem stworzyliśmy butenkofit.com: oddać klimat Julii, a nie tylko zakodować layout",
+      mainImage: "/portfolio/butenko.jpg",
+      gallery: ["/portfolio/Group%201000007105.jpg"],
+      description: "💬 Wspólnie z projektantem opracowaliśmy stronę butenkofit.com dla certyfikowanej trenerki pilatesu.\n\nNajwiększym wyzwaniem nie było samo pisanie kodu, lecz przekazanie klimatu Julii.\n\nZamiast jednego długiego landing page — przejrzysta struktura z osobnymi podstronami pod każdy program, żeby klient się nie gubił i mógł wybrać to, czego potrzebuje.\n\nMinimum szumu wizualnego: dużo powietrza, dobre zdjęcia i merytoryczne bloki, które odpowiadają na pytania, zanim klient je zada.\n\nTo teraz samodzielne narzędzie, które pokazuje ekspertyzę Julii i sprzedaje kursy 24/7.\n\n👀 Efekt: butenkofit.com\n🤍 Realizacja: telebots.site",
+      duration: "3 tygodnie",
+      client: "Yuliia Butenko (Butenko Fit)",
+      category: "Strona / landing",
+      portfolioCategory: "websites",
+      liveUrl: "https://butenkofit.com/",
+      features: [
+        "Osobne strony pod każdy program zamiast jednego długiego landingu",
+        "Minimum szumu wizualnego i dużo „powietrza” w układzie",
+        "Jakościowe zdjęcia i treściowe bloki pod potrzeby klienta",
+        "Prezentacja ekspertyzy i sprzedaż kursów przez całą dobę",
+        "Responsywny layout",
+        "Klimat marki trenerki"
+      ],
+      results: [
+        { value: "24/7", label: "Sprzedaż kursów w tle" },
+        { value: "100%", label: "Czytelna struktura programów" },
+        { value: "↑", label: "Zaufanie i ekspertyza" },
+        { value: "↑", label: "Wygoda klienta" }
       ]
     }
   },
@@ -2634,6 +2712,32 @@ export const cases = {
         { value: "24/7", label: "Доступность контента" },
         { value: "↑", label: "Удобство для учеников" },
         { value: "↑", label: "Организация событий" }
+      ]
+    },
+    'butenko-fit': {
+      title: "Butenko Fit — сайт для сертифицированного тренера по пилатесу",
+      subtitle: "Вместе с дизайнером сделали butenkofit.com: передать вайб Юлии, а не просто сверстать страницы",
+      mainImage: "/portfolio/butenko.jpg",
+      gallery: ["/portfolio/Group%201000007105.jpg"],
+      description: "💬 Вместе с дизайнером разработали сайт butenkofit.com для сертифицированного тренера по пилатесу.\n\nГлавной задачей было не просто написать код, а передать вайб Юлии.\n\nВместо одного длинного лендинга — чёткая структура с отдельными страницами под каждую программу, чтобы клиент не терялся и выбирал свой запрос.\n\nМинимум визуального шума: воздух, качественные фото и содержательные блоки, которые закрывают вопросы клиента до того, как он их задаст.\n\nТеперь это автономный инструмент, который презентует экспертность Юлии и продаёт её курсы 24/7.\n\n👀 Результат: butenkofit.com\n🤍 Разработка: telebots.site",
+      duration: "3 недели",
+      client: "Юлия Бутенко (Butenko Fit)",
+      category: "Сайт / лендинг",
+      portfolioCategory: "websites",
+      liveUrl: "https://butenkofit.com/",
+      features: [
+        "Отдельные страницы под каждую программу вместо одного длинного лендинга",
+        "Минимум визуального шума и «воздух» в макете",
+        "Качественные фото и содержательные блоки под запрос клиента",
+        "Презентация экспертности и продажа курсов круглосуточно",
+        "Адаптивная вёрстка",
+        "Фирменное настроение бренда тренера"
+      ],
+      results: [
+        { value: "24/7", label: "Продажи курсов на автопилоте" },
+        { value: "100%", label: "Понятная структура программ" },
+        { value: "↑", label: "Доверие и экспертность" },
+        { value: "↑", label: "Удобство для клиента" }
       ]
     }
   }

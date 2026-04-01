@@ -30,7 +30,11 @@ function PortfolioProject({ project, lang }: { project: { image: string; categor
           sizes="(max-width: 640px) 280px, 320px"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-4 sm:p-5">
+      <div
+        className="absolute inset-0 bg-black/50 pointer-events-none"
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/35 flex items-end p-4 sm:p-5">
         <div>
           <p className="text-xs font-normal tracking-[0.2em] text-gray-300 mb-1">
             {project.category}
@@ -71,9 +75,6 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
           className={`p-8 sm:p-12 lg:p-16 xl:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`}
           ref={contentRef}
         >
-          <p className="text-xs tracking-[0.3em] text-gray-400 mb-4 sm:mb-6">
-            {t.portfolio.recent}
-          </p>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
             {t.portfolio.title}
           </h2>

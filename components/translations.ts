@@ -9,8 +9,8 @@ export const translations = {
       consultation: 'КОНСУЛЬТАЦІЯ'
     },
     hero: {
-      title: 'Покращуємо бізнеси, що стають №1',
-      subtitle: 'Боти, AI, сайти та дизайн — технології для зростання.',
+      title: 'Технології, що виводять бізнес у лідери',
+      subtitle: '200+ проєктів: боти, AI та сайти, які автоматизують продажі та збільшують кількість клієнтів.',
       tagline: 'Розробляємо чат-боти та сайти, якими хочеться користуватися.',
       viewButton: 'Переглянути',
       startDate: {
@@ -131,7 +131,7 @@ export const translations = {
     services: {
       passion: 'Розробка телеграм ботів, сайтів під ключ',
       passionTitle: 'Чат-боти, сайти, парсери, дизайн',
-      passionDesc: 'У TeleBots ми пишаємося тим, що є лідером у розробці цифрових рішень, створенні чат-ботів та автоматизації бізнес-процесів. Також розробляємо дизайн: лого, айдентика, дизайн сайтів та додатків — в команді є UI/UX дизайнер.',
+      passionDesc: 'Від брифу до запуску й підтримки: боти в месенджерах, веб-сайти та інтернет-магазини, парсинг і робота з даними, логотип, айдентика та UI/UX — усе в одній команді, без зайвих підрядників.',
       toServices: 'До послуг',
       mainTitle: 'Наші послуги',
       subtitle: 'Обирайте рішення, яке найкраще підходить для вашого бізнесу',
@@ -375,8 +375,10 @@ export const translations = {
       refundNoProcedure: 'Виконавець не передбачає загальний порядок повернення грошових коштів та скасування транзакцій після початку надання послуг. Клієнти інформовані про це на цій сторінці.',
       refundExceptions: 'У виключних випадках (суттєва помилка виконавця, невиконання домовленостей з його боку) питання може бути розглянуто індивідуально. Звертайтеся за контактними даними, вказаними на сайті (email, телефон, месенджери).',
       footerEdrpou: 'ЄДРПОУ',
+      footerIban: 'IBAN',
+      recipientLabel: 'Одержувач',
       legalBlockTitle: 'Контактна інформація виконавця',
-      companyName: 'ФОП Федонюк І.П.',
+      companyName: 'ФОП Федонюк Роман Ігорович',
       legalAddress: 'м. Київ, Україна',
       backHome: 'Повернутися на головну',
       notFound: 'СТОРІНКА НЕ ЗНАЙДЕНА',
@@ -440,8 +442,8 @@ export const translations = {
       consultation: 'CONSULTATION'
     },
     hero: {
-      title: 'Improving businesses that become #1',
-      subtitle: 'Bots, AI, websites and design — technologies for growth.',
+      title: 'Technologies that put your business in the lead',
+      subtitle: '200+ projects: bots, AI, and websites that automate sales and grow your client base.',
       tagline: 'We build chatbots and websites people love to use.',
       viewButton: 'View',
       startDate: {
@@ -562,7 +564,7 @@ export const translations = {
     services: {
       passion: 'Telegram Bots, Websites Turnkey',
       passionTitle: 'Chatbots, Websites, Parsers, Design',
-      passionDesc: 'At TeleBots, we pride ourselves on being a leader in digital solutions development, chatbot creation, and business process automation. We also do design: logos, brand identity, website and app design — our team includes a UI/UX designer.',
+      passionDesc: 'From brief to launch and ongoing support: messenger bots, websites and e-commerce, scraping and data workflows, logos, brand identity, and UI/UX — one team, no unnecessary hand-offs.',
       toServices: 'To Services',
       mainTitle: 'Our Services',
       subtitle: 'Choose the solution that best fits your business',
@@ -806,8 +808,10 @@ export const translations = {
       refundNoProcedure: 'The Provider does not offer a general refund or transaction cancellation procedure after services have started. Customers are informed of this on this page.',
       refundExceptions: 'In exceptional cases (material error or breach by the Provider), the matter may be considered individually. Contact us using the details on the website (email, phone, messengers).',
       footerEdrpou: 'EDRPOU',
+      footerIban: 'IBAN',
+      recipientLabel: 'Recipient',
       legalBlockTitle: 'Provider contact information',
-      companyName: 'FOP Fedoniuk I.P.',
+      companyName: 'FOP Fedoniuk Roman Ihorovych',
       legalAddress: 'Kyiv, Ukraine',
       backHome: 'Back to Home',
       notFound: 'PAGE NOT FOUND',
@@ -871,8 +875,8 @@ export const translations = {
       consultation: 'KONSULTACJA'
     },
     hero: {
-      title: 'Ulepszamy biznesy, które stają się nr 1',
-      subtitle: 'Boty, AI, strony i design — technologie dla wzrostu.',
+      title: 'Technologie, które wynoszą biznes na pozycję lidera',
+      subtitle: '200+ projektów: boty, AI i strony, które automatyzują sprzedaż i zwiększają liczbę klientów.',
       tagline: 'Tworzymy chatboty i strony, z których chce się korzystać.',
       viewButton: 'Zobacz',
       startDate: {
@@ -993,7 +997,7 @@ export const translations = {
     services: {
       passion: 'Boty Telegram, strony pod klucz',
       passionTitle: 'Chatboty, strony, parsery, design',
-      passionDesc: 'W TeleBots jesteśmy dumni z bycia liderem w tworzeniu rozwiązań cyfrowych, chatbotów i automatyzacji procesów biznesowych. Oferujemy także projektowanie: logo, identyfikacja wizualna, projektowanie stron i aplikacji — w zespole mamy projektanta UI/UX.',
+      passionDesc: 'Od briefu po wdrożenie i utrzymanie: boty w komunikatorach, strony i sklepy online, parsery i praca z danymi, logo, identyfikacja wizualna i UI/UX — jeden zespół, bez zbędnych pośredników.',
       toServices: 'Do usług',
       mainTitle: 'Nasze usługi',
       subtitle: 'Wybierz rozwiązanie najlepiej pasujące do Twojego biznesu',
@@ -1237,8 +1241,10 @@ export const translations = {
       refundNoProcedure: 'Wykonawca nie przewiduje ogólnego zwrotu środków ani anulowania transakcji po rozpoczęciu świadczenia usług. Klienci są o tym informowani na tej stronie.',
       refundExceptions: 'W wyjątkowych przypadkach (istotny błąd lub naruszenie po stronie Wykonawcy) sprawa może być rozpatrzona indywidualnie. Skontaktuj się z nami, korzystając z danych kontaktowych na stronie (e-mail, telefon, messengery).',
       footerEdrpou: 'EDRPOU',
+      footerIban: 'IBAN',
+      recipientLabel: 'Odbiorca',
       legalBlockTitle: 'Dane kontaktowe wykonawcy',
-      companyName: 'FOP Fedoniuk I.P.',
+      companyName: 'FOP Fedoniuk Roman Ihorowycz',
       legalAddress: 'Kijów, Ukraina',
       backHome: 'Powrót do strony głównej',
       notFound: 'STRONA NIE ZNALEZIONA',
@@ -1302,8 +1308,8 @@ export const translations = {
       consultation: 'КОНСУЛЬТАЦИЯ'
     },
     hero: {
-      title: 'Улучшаем бизнесы, которые становятся №1',
-      subtitle: 'Боты, AI, сайты и дизайн — технологии для роста.',
+      title: 'Технологии, которые выводят бизнес в лидеры',
+      subtitle: '200+ проектов: боты, AI и сайты, которые автоматизируют продажи и увеличивают число клиентов.',
       tagline: 'Разрабатываем чат-ботов и сайты, которыми хочется пользоваться.',
       viewButton: 'Смотреть',
       startDate: {
@@ -1424,7 +1430,7 @@ export const translations = {
     services: {
       passion: 'Разработка телеграм ботов, сайтов под ключ',
       passionTitle: 'Чат-боты, сайты, парсеры, дизайн',
-      passionDesc: 'В TeleBots мы гордимся тем, что являемся лидером в разработке цифровых решений, создании чат-ботов и автоматизации бизнес-процессов. Также делаем дизайн: логотипы, айдентика, дизайн сайтов и приложений — в команде есть UI/UX дизайнер.',
+      passionDesc: 'От брифа до запуска и поддержки: боты в мессенджерах, веб-сайты и интернет-магазины, парсинг и работа с данными, логотип, айдентика и UI/UX — всё в одной команде, без лишних подрядчиков.',
       toServices: 'К услугам',
       mainTitle: 'Наши услуги',
       subtitle: 'Выберите решение, которое лучше всего подходит для вашего бизнеса',
@@ -1668,8 +1674,10 @@ export const translations = {
       refundNoProcedure: 'Исполнитель не предусматривает общий порядок возврата денежных средств и отмены транзакций после начала оказания услуг. Клиенты информированы об этом на данной странице.',
       refundExceptions: 'В исключительных случаях (существенная ошибка или неисполнение обязательств Исполнителем) вопрос может быть рассмотрен индивидуально. Обращайтесь по контактным данным, указанным на сайте (email, телефон, мессенджеры).',
       footerEdrpou: 'ЄДРПОУ',
+      footerIban: 'IBAN',
+      recipientLabel: 'Получатель',
       legalBlockTitle: 'Контактная информация исполнителя',
-      companyName: 'ФОП Федонюк И.П.',
+      companyName: 'ФОП Федонюк Роман Игоревич',
       legalAddress: 'г. Киев, Украина',
       backHome: 'Вернуться на главную',
       notFound: 'СТРАНИЦА НЕ НАЙДЕНА',

@@ -24,7 +24,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1 text-center md:text-left">
-            <div className="flex items-center gap-3 mb-8 justify-center md:justify-start">
+            <div className="flex items-center mb-8 justify-center md:justify-start">
               <div className="relative h-3 w-auto max-w-[50px]">
                 <Image
                   src="/whitelogo.png"
@@ -34,9 +34,6 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   className="h-full w-auto object-contain"
                 />
               </div>
-              <span className="text-white text-2xl font-bold uppercase tracking-wider" style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.15em' }}>
-                TeleBots
-              </span>
             </div>
             <p className="text-gray-400 text-[15px] md:text-[16px] lg:text-[17px] font-normal leading-[1.65]">
               {t.footer.description}
@@ -102,7 +99,9 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
             <ul className="space-y-3 mb-6">
               <li className="text-gray-400 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.legalBlockTitle}</span>
+                <span className="block text-xs font-normal text-gray-500 mt-2 mb-0.5">{t.footer.recipientLabel}</span>
                 <span className="text-white">{t.footer.companyName}</span>
+                <span className="block text-gray-400 mt-1 break-all">{t.footer.footerIban}: {legal.iban}</span>
                 <span className="block text-gray-400 mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</span>
               </li>
               <li className="text-gray-400 text-sm font-semibold">
