@@ -48,7 +48,7 @@ export default function ServicesPage() {
       });
     };
 
-    let hashScrollTimer: ReturnType<typeof setTimeout> | undefined;
+    let hashScrollTimer: number | undefined;
 
     if (window.location.hash === '#services-list') {
       // Після монту DOM / лейауту (і замість миттєвого scrollTo(0,0), який зривав якір)
