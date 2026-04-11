@@ -50,7 +50,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
         <Link href={`/${currentLanguage}`} className="flex items-end group lg:items-end justify-start w-auto flex-shrink-0 min-w-0">
           <div className="flex items-end">
             <Image
-              src={isScrolled ? '/whitelogo.png' : '/whitelogo.png'}
+              src={isScrolled ? '/whitelogo_new.png' : '/whitelogo_new.png'}
               alt="TeleBots - Професійна розробка телеграм ботів, чат-ботів та сайтів"
               width={100}
               height={20}

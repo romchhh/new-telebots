@@ -27,7 +27,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
             <div className="flex items-center mb-8 justify-start">
               <div className="relative h-3 w-auto max-w-[50px]">
                 <Image
-                  src="/whitelogo.png"
+                  src="/whitelogo_new.png"
                   alt="TeleBots - Професійна розробка цифрових рішень"
                   width={50}
                   height={12}

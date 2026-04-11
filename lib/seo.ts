@@ -96,7 +96,7 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
     '@type': 'Organization',
     name: 'TeleBots',
     url: `${baseUrl}/${lang}`,
-    logo: `${baseUrl}/whitelogo.png`,
+    logo: `${baseUrl}/whitelogo_new.png`,
     description: lang === 'uk'
       ? 'Розробка телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. Швидкий старт за 24 години, 200+ проєктів. Автоматизація бізнесу під ключ.'
       : lang === 'en'
@@ -143,8 +143,8 @@ export function generateLocalBusinessSchema(lang: Language = 'uk') {
     '@type': 'LocalBusiness',
     '@id': `${baseUrl}/${lang}#organization`,
     name: 'TeleBots',
-    image: `${baseUrl}/whitelogo.png`,
-    logo: `${baseUrl}/whitelogo.png`,
+    image: `${baseUrl}/whitelogo_new.png`,
+    logo: `${baseUrl}/whitelogo_new.png`,
     url: `${baseUrl}/${lang}`,
     telephone: legal.phone,
     email: legal.email,
@@ -224,7 +224,7 @@ export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
       name: 'TeleBots',
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/whitelogo.png`,
+        url: `${baseUrl}/whitelogo_new.png`,
       },
     },
     mainEntityOfPage: {
@@ -442,7 +442,7 @@ export function generateArticleSchemaForBlog(title: string, description: string,
       name: 'TeleBots',
       logo: {
         '@type': 'ImageObject',
-        url: `${baseUrl}/whitelogo.png`,
+        url: `${baseUrl}/whitelogo_new.png`,
       },
     },
   };

@@ -103,11 +103,11 @@ export default function RootLayout({
         
         {/* Preconnect для критичних ресурсів */}
 
-        {/* LCP: hero background — ранній fetch до hydration */}
+        {/* LCP: той самий ресурс, що й next/image (webp/avif), а не сирий jpeg */}
         <link
           rel="preload"
           as="image"
-          href="/other/hero-background.jpeg"
+          href="/_next/image?url=%2Fother%2Fhero-background.jpeg&w=1920&q=75"
           fetchPriority="high"
         />
 

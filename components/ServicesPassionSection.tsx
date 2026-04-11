@@ -17,7 +17,7 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
     <section className="relative min-h-screen flex items-end justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/services/services-hero.jpg"
+          src="/services/services-hero_new.jpg"
           alt=""
           fill
           priority

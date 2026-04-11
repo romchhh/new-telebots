@@ -36,7 +36,7 @@ export default function SEOHead({ title, description, image, type = 'website', c
     '@type': type === 'article' ? 'Article' : 'Organization',
     name: 'TeleBots',
     url: `${baseUrl}/${validLang}`,
-    logo: `${baseUrl}/whitelogo.png`,
+    logo: `${baseUrl}/whitelogo_new.png`,
     description: finalDescription,
     ...(type === 'article' && caseData ? {
       headline: caseData.title,
