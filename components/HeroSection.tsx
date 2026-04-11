@@ -48,23 +48,14 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
           max-w-[calc(100vw-10.5rem)] sm:max-w-[min(100%,22rem)] md:max-w-none
           sm:w-[320px] md:left-6 md:w-[340px] lg:left-10 lg:w-[400px] xl:w-[440px]"
       >
-        <div
-          className="relative rounded-2xl overflow-hidden"
-          style={{
-            WebkitMaskImage:
-              'radial-gradient(ellipse 90% 85% at 30% 40%, black 40%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.4) 78%, transparent 100%)',
-            maskImage:
-              'radial-gradient(ellipse 90% 85% at 30% 40%, black 40%, rgba(0,0,0,0.85) 60%, rgba(0,0,0,0.4) 78%, transparent 100%)',
-          }}
-        >
-          {/* Blur підкладка */}
+        <div className="relative rounded-2xl overflow-hidden">
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 rounded-2xl"
             style={{
-              backdropFilter: 'blur(28px) saturate(1.6)',
-              WebkitBackdropFilter: 'blur(28px) saturate(1.6)',
+              backdropFilter: 'blur(10px) saturate(1.35)',
+              WebkitBackdropFilter: 'blur(10px) saturate(1.35)',
               background:
-                'linear-gradient(135deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.05) 50%, rgba(0,0,0,0.18) 100%)',
+                'linear-gradient(145deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.38) 45%, rgba(0,0,0,0.22) 100%)',
             }}
           />
           {/* Скляний highlight (верхня крайка) */}

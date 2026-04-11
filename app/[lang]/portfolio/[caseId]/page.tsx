@@ -6,7 +6,10 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import CasePage from '@/components/CasePage';
 import StructuredData from '@/components/StructuredData';
+import OrderModal from '@/components/OrderModal';
+import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
+import { sendToTelegram } from '@/lib/telegram';
 
 export default function CasePageRoute() {
   const params = useParams();
@@ -14,7 +17,9 @@ export default function CasePageRoute() {
   const langParam = params?.lang as string;
   const caseId = params?.caseId as string;
   const [isScrolled, setIsScrolled] = useState(false);
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(validLang);
   const t = translations[lang];
@@ -48,6 +53,31 @@ export default function CasePageRoute() {
     router.push(newPath);
   };
 
+  const openConsultModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeConsultModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleConsultSubmit = async (data: { name: string; phone: string; request: string }) => {
+    const success = await sendToTelegram({
+      name: data.name,
+      phone: data.phone,
+      request: data.request,
+      service: t.modal.title,
+      caseId,
+    });
+
+    if (success) {
+      closeConsultModal();
+      setIsSuccessOpen(true);
+    } else {
+      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+    }
+  };
+
   return (
     <>
       <StructuredData type="organization" />
@@ -67,10 +97,30 @@ export default function CasePageRoute() {
           setLang={handleLangChange}
           t={t}
           currentLang={lang}
+          onConsultClick={openConsultModal}
         />
         <CasePage caseId={caseId} />
-        <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+        <Footer
+          t={t}
+          lang={lang}
+          setLang={handleLangChange}
+          currentLang={lang}
+          onConsultClick={openConsultModal}
+        />
       </div>
+
+      <OrderModal
+        isOpen={isModalOpen}
+        onClose={closeConsultModal}
+        serviceName={t.modal.title}
+        t={t}
+        onSubmit={handleConsultSubmit}
+      />
+      <SuccessMessage
+        isOpen={isSuccessOpen}
+        onClose={() => setIsSuccessOpen(false)}
+        message={t.modal.success}
+      />
     </>
   );
 }

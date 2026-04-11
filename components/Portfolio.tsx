@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
-import { ArrowRight } from 'lucide-react';
 import { cases } from './cases';
 import { translations, Language } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
@@ -25,6 +24,7 @@ export default function Portfolio() {
   const [portfolioRef, isPortfolioVisible] = useScrollAnimation();
   const [contentRef, isContentVisible] = useScrollAnimation();
   const [imageRef, isImageVisible] = useScrollAnimation();
+  const [introRef, isIntroVisible] = useScrollAnimation();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -165,12 +165,9 @@ export default function Portfolio() {
               onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
               className="group flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
             >
-              <div className="flex items-center justify-center flex-wrap gap-1">
-                <span className="text-sm font-semibold tracking-wider text-center leading-tight">
-                  {t.portfolio.viewPortfolio}
-                </span>
-                <ArrowRight className="w-5 h-5 flex-shrink-0" />
-              </div>
+              <span className="text-sm font-semibold tracking-wider text-center leading-tight">
+                {t.portfolio.viewPortfolio}
+              </span>
             </button>
           </div>
 
@@ -191,6 +188,33 @@ export default function Portfolio() {
               <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-2">{t.portfolio.website}</p>
               <h3 className="text-xl sm:text-2xl font-black">{t.portfolio.featuredProject}</h3>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-b border-zinc-200/90 bg-zinc-50"
+        aria-labelledby="portfolio-intro-heading"
+      >
+        <div className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16 xl:px-24 py-14 md:py-20 lg:py-24">
+          <div
+            className={`mx-auto max-w-3xl text-center scroll-animate-up ${isIntroVisible ? 'animate' : ''}`}
+            ref={introRef}
+          >
+            <h2
+              id="portfolio-intro-heading"
+              className="mb-6 text-3xl font-black leading-[1.12] tracking-tight text-black sm:text-4xl md:text-5xl"
+              style={{ fontFamily: 'var(--font-montserrat)' }}
+            >
+              <span className="block">{t.portfolio.heroIntroLine1}</span>
+              <span className="mt-2 block text-black/75">{t.portfolio.heroIntroLine2}</span>
+            </h2>
+            <p
+              className="text-lg leading-relaxed text-zinc-600 md:text-xl md:leading-relaxed"
+              style={{ fontFamily: 'var(--font-montserrat)' }}
+            >
+              {t.portfolio.heroIntroDescription}
+            </p>
           </div>
         </div>
       </section>

@@ -8,7 +8,7 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
 /** Семантичне ядро для title, description, keywords по послузі та мові (розділи 2–5 SEMANTIC-CORE.md) */
 function getServiceSEO(serviceId: ServiceId, lang: Language): { title: string; description: string; keywords: string } {
   const u = (t: string, e: string, p: string, r: string) => (lang === 'uk' ? t : lang === 'en' ? e : lang === 'pl' ? p : r);
-  const servicesLabel = u('Послуги', 'Services', 'Usługi', 'Услуги');
+  const servicesLabel = u('Що ми робимо?', 'What we do?', 'Co robimy?', 'Что мы делаем?');
   const utp = u('Швидкий старт за 24 години. 200+ проєктів.', 'Quick start in 24 hours. 200+ projects.', 'Szybki start w 24 godziny. 200+ projektów.', 'Быстрый старт за 24 часа. 200+ проектов.');
 
   switch (serviceId) {

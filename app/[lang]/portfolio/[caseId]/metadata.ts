@@ -20,7 +20,7 @@ export async function generateMetadata(params: {
     };
   }
 
-  const title = `${caseData.title} | TeleBots Portfolio`;
+  const title = `${caseData.title} | TeleBots Cases`;
   const description = caseData.subtitle || caseData.description?.substring(0, 160) || '';
   const image = `${baseUrl}${caseData.mainImage}`;
   const url = `${baseUrl}/${lang}/portfolio/${params.caseId}`;

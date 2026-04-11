@@ -81,7 +81,7 @@ export default function PortfolioPage() {
       name: data.name,
       phone: data.phone,
       request: data.request,
-      service: selectedService || 'Portfolio consultation',
+      service: selectedService || 'Cases consultation',
     });
 
     if (success) {

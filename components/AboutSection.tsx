@@ -15,7 +15,7 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
   const currentLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk');
 
   return (
-    <section className="relative bg-white py-20 md:py-28 lg:py-36 px-6 md:px-10 lg:px-16">
+    <section className="relative bg-white py-20 md:py-28 lg:py-36 px-8 sm:px-12 lg:px-16 xl:px-24">
       <div className="max-w-[1600px] mx-auto">
         {/* Великий заголовок */}
         <div className="mb-20 md:mb-28 lg:mb-36 min-w-0 overflow-hidden">
@@ -90,55 +90,52 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
         </div>
 
         {/* Сітка з трьома колонками */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-12 lg:gap-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-14 lg:gap-24">
           {/* Ліва колонка - Our approach */}
-          <div className="space-y-6">
-            <h2 className="text-[15px] md:text-[15px] lg:text-[16px] font-bold text-black tracking-[0.2em] uppercase mb-7">
+          <div className="space-y-5 md:space-y-6">
+            <h2 className="text-[clamp(1.75rem,4.5vw,2.75rem)] sm:text-4xl lg:text-[2.75rem] font-black text-black uppercase tracking-[0.06em] leading-[1.1] mb-2 md:mb-3">
               {t.about.ourWork}
             </h2>
-            <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-9">
+            <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-8 md:mb-9">
               {t.about.ourWorkDesc}
             </p>
             <Link 
               href={`/${currentLang}#portfolio`} 
-              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200 w-fit"
+              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors duration-200 w-fit"
             >
-              <span className="mr-2.5">—</span>
-              <span>{t.about.portfolio}</span>
+              {t.about.portfolio}
             </Link>
           </div>
 
-          {/* Середня колонка - Послуги */}
-          <div className="space-y-6">
-            <h2 className="text-[15px] md:text-[15px] lg:text-[16px] font-bold text-black tracking-[0.2em] uppercase mb-7">
+          {/* Середня колонка — Що ми робимо? */}
+          <div className="space-y-5 md:space-y-6">
+            <h2 className="text-[clamp(1.75rem,4.5vw,2.75rem)] sm:text-4xl lg:text-[2.75rem] font-black text-black uppercase tracking-[0.06em] leading-[1.1] mb-2 md:mb-3">
               {t.about.services}
             </h2>
-            <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-9">
+            <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-8 md:mb-9">
               {t.about.servicesDesc}
             </p>
             <Link 
               href={`/${currentLang}/services`} 
-              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200 w-fit"
+              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors duration-200 w-fit"
             >
-              <span className="mr-2.5">—</span>
-              <span>{t.about.services}</span>
+              {t.about.services}
             </Link>
           </div>
 
           {/* Права колонка - Контакти */}
-          <div className="space-y-6">
-            <h2 className="text-[15px] md:text-[15px] lg:text-[16px] font-bold text-black tracking-[0.2em] uppercase mb-7">
+          <div className="space-y-5 md:space-y-6">
+            <h2 className="text-[clamp(1.75rem,4.5vw,2.75rem)] sm:text-4xl lg:text-[2.75rem] font-black text-black uppercase tracking-[0.06em] leading-[1.1] mb-2 md:mb-3">
               {t.about.contact}
             </h2>
-            <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-9">
+            <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-8 md:mb-9">
               {t.about.contactDesc}
             </p>
             <Link 
               href={`/${currentLang}/contact`} 
-              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-6 py-3 rounded-full hover:bg-gray-100 transition-colors duration-200 w-fit"
+              className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors duration-200 w-fit"
             >
-              <span className="mr-2.5">—</span>
-              <span>{t.about.getInTouch}</span>
+              {t.about.getInTouch}
             </Link>
           </div>
         </div>

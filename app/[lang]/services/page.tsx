@@ -35,23 +35,41 @@ export default function ServicesPage() {
   }, [langParam, lang]);
 
   useEffect(() => {
-    // Перевіряємо початковий стан скролу
     const checkScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
-    // Перевіряємо одразу при завантаженні
+
     checkScroll();
-    
-    // Прокручуємо до початку сторінки
-    window.scrollTo(0, 0);
-    
-    const handleScroll = () => {
-      checkScroll();
+
+    const scrollToServicesList = () => {
+      document.getElementById('services-list')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
     };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    let hashScrollTimer: ReturnType<typeof setTimeout> | undefined;
+
+    if (window.location.hash === '#services-list') {
+      // Після монту DOM / лейауту (і замість миттєвого scrollTo(0,0), який зривав якір)
+      hashScrollTimer = window.setTimeout(scrollToServicesList, 80);
+    } else {
+      window.scrollTo(0, 0);
+    }
+
+    const onHashChange = () => {
+      if (window.location.hash === '#services-list') {
+        scrollToServicesList();
+      }
+    };
+
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('hashchange', onHashChange);
+    return () => {
+      window.removeEventListener('scroll', checkScroll);
+      window.removeEventListener('hashchange', onHashChange);
+      if (hashScrollTimer !== undefined) window.clearTimeout(hashScrollTimer);
+    };
   }, []);
 
   const handleLangChange = (newLang: Language) => {
@@ -135,7 +153,7 @@ export default function ServicesPage() {
         />
         <main id="main-content">
         <ServicesPassionSection t={t} />
-      <div id="services-list">
+      <div id="services-list" className="scroll-mt-20 md:scroll-mt-24">
       {services.map((service, index) => (
         <ServiceItem
           key={index}

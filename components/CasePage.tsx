@@ -68,10 +68,10 @@ export default function CasePage({ caseId }: CasePageProps) {
             className="inline-flex items-center gap-2 text-black hover:text-gray-600 transition"
           >
             <FaArrowLeft />
-            {validLang === 'uk' ? 'Повернутися до портфоліо' :
-             validLang === 'en' ? 'Back to Portfolio' :
-             validLang === 'ru' ? 'Вернуться к портфолио' :
-             'Powrót do portfolio'}
+            {validLang === 'uk' ? 'Повернутися до кейсів' :
+             validLang === 'en' ? 'Back to cases' :
+             validLang === 'ru' ? 'Вернуться к кейсам' :
+             'Powrót do realizacji'}
           </Link>
         </div>
       </div>
@@ -172,7 +172,7 @@ export default function CasePage({ caseId }: CasePageProps) {
             <div className="relative w-full flex items-center justify-center">
               <Image
                 src={caseData.mainImage}
-                alt={`${caseData.title} - ${caseData.subtitle || ''} | TeleBots Portfolio`}
+                alt={`${caseData.title} - ${caseData.subtitle || ''} | TeleBots Cases`}
                 width={1200}
                 height={800}
                 className="w-full h-auto object-contain max-h-[80vh]"
@@ -330,7 +330,7 @@ export default function CasePage({ caseId }: CasePageProps) {
                 {caseData.portfolioCategory === 'chatbots' && (t.services?.chatbotsPage?.title ?? 'Чат-боти')}
                 {caseData.portfolioCategory === 'websites' && (t.services?.websitesPage?.title ?? 'Сайти')}
                 {caseData.portfolioCategory === 'design' && (t.services?.designPage?.title ?? 'Дизайн')}
-                {!['chatbots', 'websites', 'design'].includes(caseData.portfolioCategory) && (t.nav?.services ?? 'Послуги')}
+                {!['chatbots', 'websites', 'design'].includes(caseData.portfolioCategory) && (t.nav?.services ?? 'Що ми робимо?')}
                 <FaExternalLinkAlt className="w-4 h-4" />
               </Link>
             </div>

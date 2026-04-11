@@ -10,7 +10,7 @@ export async function GET() {
 ## Опис
 TeleBots — команда розробників та дизайнерів. 200+ реалізованих проєктів. Мови: українська, англійська, польська, російська.
 
-## Послуги
+## Що ми робимо?
 - Розробка чат-ботів (Telegram, WhatsApp, Viber)
 - Розробка веб-сайтів та інтернет-магазинів
 - Розробка парсерів
@@ -26,8 +26,9 @@ TeleBots — команда розробників та дизайнерів. 20
 ## Сторінки
 - Головна: ${baseUrl}/uk
 - Про нас: ${baseUrl}/uk/about
-- Послуги: ${baseUrl}/uk/services
-- Портфоліо: ${baseUrl}/uk/portfolio
+- Що ми робимо?: ${baseUrl}/uk/services
+- Кейси: ${baseUrl}/uk/portfolio
+- Соцмережі: ${baseUrl}/uk/blog
 - Контакти: ${baseUrl}/uk/contact
 `;
 

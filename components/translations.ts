@@ -2,9 +2,9 @@ export const translations = {
   uk: {
     nav: {
       about: 'ПРО НАС',
-      services: 'ПОСЛУГИ',
-      portfolio: 'ПОРТФОЛІО',
-      blog: 'БЛОГ',
+      services: 'ЩО МИ РОБИМО?',
+      portfolio: 'КЕЙСИ',
+      blog: 'СОЦМЕРЕЖІ',
       contact: 'КОНТАКТИ',
       consultation: 'КОНСУЛЬТАЦІЯ'
     },
@@ -26,11 +26,11 @@ export const translations = {
       title: 'TeleBots - Професійна розробка цифрових рішень',
       ourWork: 'Наша робота',
       ourWorkDesc: 'Ми реалізуємо проєкти, які відповідають потребам наших клієнтів і забезпечують довгострокову цінність для вашого бізнесу.',
-      portfolio: 'Портфоліо',
+      portfolio: 'Кейси',
       contact: 'Контакти',
       contactDesc: 'Будь ласка, зв\'яжіться з нами з будь-якими питаннями.',
       getInTouch: 'Зв\'язатися',
-      services: 'Послуги',
+      services: 'Що ми робимо?',
       servicesDesc: '200+ реалізованих проєктів. 4 роки оптимізації. Разом з Вами від старту до фінішу й навіть після. Розробка та дизайн під ключ: Telegram-боти, чат-боти з AI, сайти та інтернет-магазини. Інтегруємо CRM, платіжні сервіси та аналітику, щоб заявки стабільно перетворювались на звернення і продажі.',
       stats: {
         projects: '200+ реалізованих проєктів',
@@ -116,9 +116,13 @@ export const translations = {
       }
     },
     portfolio: {
-      recent: 'ПОРТФОЛІО',
+      recent: 'КЕЙСИ',
       title: 'Кейси розробки телеграм ботів та сайтів',
-      viewPortfolio: 'Переглянути портфоліо',
+      heroIntroLine1: 'Кейси, якими ми пишаємося',
+      heroIntroLine2: 'і які неможливо не помітити',
+      heroIntroDescription:
+        'Натискайте на картку проєкту й переходьте на сторінку кейсу: задача, стек і результат для бізнесу. Нижче зібрані найсвіжіші та найсильніші роботи з нашої практики.',
+      viewPortfolio: 'Переглянути кейси',
       featuredProject: 'Приклад проєкту — телеграм бот та веб-сайт',
       ecommerce: 'E-Commerce',
       telegram: 'Телеграм бот',
@@ -129,11 +133,14 @@ export const translations = {
       viewDetails: 'Детальніше'
     },
     services: {
-      passion: 'Розробка телеграм ботів, сайтів під ключ',
-      passionTitle: 'Чат-боти, сайти, парсери, дизайн',
-      passionDesc: 'Від брифу до запуску й підтримки: боти в месенджерах, веб-сайти та інтернет-магазини, парсинг і робота з даними, логотип, айдентика та UI/UX — усе в одній команді, без зайвих підрядників.',
-      toServices: 'До послуг',
-      mainTitle: 'Наші послуги',
+      passion: 'Розробляємо ботів, сайти та автоматизацію під ключ',
+      passionTitle: 'Чат-боти, веб, парсери, дизайн — від ідеї до запуску',
+      passionDesc:
+        'Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.',
+      passionMoreQuestion: 'Хочете дізнатися більше?',
+      toServices: 'Що ми робимо?',
+      toPortfolio: 'Наші кейси',
+      mainTitle: 'Що ми робимо?',
       subtitle: 'Обирайте рішення, яке найкраще підходить для вашого бізнесу',
       designService: 'Дизайн',
       designServiceDesc: 'Лого, айдентика, дизайн сайтів та додатків. В команді є UI/UX дизайнер.',
@@ -349,7 +356,7 @@ export const translations = {
     footer: {
       description: 'Професійна розробка та дизайн для вашого бізнесу: боти, сайти, лого, айдентика, UI/UX.',
       quickLinks: 'Швидкі посилання',
-      services: 'Послуги',
+      services: 'Що ми робимо?',
       contact: 'Контакти',
       email: 'Email',
       phone: 'Телефон',
@@ -407,9 +414,9 @@ export const translations = {
       comingSoon: 'Coming Soon'
     },
     blog: {
-      title: 'Блог',
+      title: 'Соцмережі',
       subtitle: 'Дізнавайтеся про останні новини, кейси та корисні поради від нашої команди',
-      descriptionTitle: 'Наш блог',
+      descriptionTitle: 'Наші соцмережі',
       description: 'У нашому блозі ми ділимося досвідом розробки, кейсами успішних проєктів, корисними порадами та останніми новинами зі світу технологій. Слідкуйте за нами в соціальних мережах, щоб не пропустити нові публікації!',
       contentTitle: 'Що ми публікуємо',
       content1: 'Кейси успішних проєктів та їх реалізація',
@@ -435,9 +442,9 @@ export const translations = {
   en: {
     nav: {
       about: 'ABOUT',
-      services: 'SERVICES',
-      portfolio: 'PORTFOLIO',
-      blog: 'BLOG',
+      services: 'WHAT WE DO?',
+      portfolio: 'CASES',
+      blog: 'SOCIAL',
       contact: 'CONTACT',
       consultation: 'CONSULTATION'
     },
@@ -459,11 +466,11 @@ export const translations = {
       title: 'TeleBots - Professional Digital Solutions Development',
       ourWork: 'Our Work',
       ourWorkDesc: 'We selectively pursue opportunities that fit our clients\' needs and provide long-term value to your business.',
-      portfolio: 'Portfolio',
+      portfolio: 'Cases',
       contact: 'Contact',
       contactDesc: 'Please reach out with any questions or inquiries.',
       getInTouch: 'Get in touch',
-      services: 'Services',
+      services: 'What we do?',
       servicesDesc: '200+ completed projects. 4 years of optimization. Together with you from start to finish and even after. Development and design under one roof: Telegram bots, AI chatbots, websites and online stores. We integrate CRM, payment services and analytics so requests consistently turn into leads and sales.',
       stats: {
         projects: '200+ completed projects',
@@ -549,9 +556,13 @@ export const translations = {
       }
     },
     portfolio: {
-      recent: 'PORTFOLIO',
+      recent: 'CASES',
       title: 'Telegram Bot & Website Development Cases',
-      viewPortfolio: 'View Portfolio',
+      heroIntroLine1: "Cases we're proud to ship",
+      heroIntroLine2: 'and impossible to overlook',
+      heroIntroDescription:
+        'Open a project to see the brief, the tech stack, and the business outcome. Below is a curated selection of our latest and strongest work.',
+      viewPortfolio: 'View cases',
       featuredProject: 'Featured project — Telegram bot & website',
       ecommerce: 'E-Commerce',
       telegram: 'Telegram Bot',
@@ -562,11 +573,14 @@ export const translations = {
       viewDetails: 'View Details'
     },
     services: {
-      passion: 'Telegram Bots, Websites Turnkey',
-      passionTitle: 'Chatbots, Websites, Parsers, Design',
-      passionDesc: 'From brief to launch and ongoing support: messenger bots, websites and e-commerce, scraping and data workflows, logos, brand identity, and UI/UX — one team, no unnecessary hand-offs.',
-      toServices: 'To Services',
-      mainTitle: 'Our Services',
+      passion: 'We build bots, websites, and automation end to end',
+      passionTitle: 'Chatbots, web, parsers, design — from idea to launch',
+      passionDesc:
+        'Full cycle: messengers, web, e-commerce, data, brand & UI/UX. One team — no extra middlemen.',
+      passionMoreQuestion: 'Want to know more?',
+      toServices: 'What we do?',
+      toPortfolio: 'Our cases',
+      mainTitle: 'What we do?',
       subtitle: 'Choose the solution that best fits your business',
       designService: 'Design',
       designServiceDesc: 'Logos, brand identity, website and app design. Our team includes a UI/UX designer.',
@@ -782,7 +796,7 @@ export const translations = {
     footer: {
       description: 'Professional development and design for your business: bots, websites, logos, brand identity, UI/UX.',
       quickLinks: 'Quick Links',
-      services: 'Services',
+      services: 'What we do?',
       contact: 'Contact',
       email: 'Email',
       phone: 'Phone',
@@ -840,9 +854,9 @@ export const translations = {
       comingSoon: 'Coming Soon'
     },
     blog: {
-      title: 'Blog',
+      title: 'Social media',
       subtitle: 'Learn about the latest news, cases and useful tips from our team',
-      descriptionTitle: 'Our Blog',
+      descriptionTitle: 'Our social media',
       description: 'In our blog, we share development experience, successful project cases, useful tips and the latest news from the world of technology. Follow us on social media to not miss new publications!',
       contentTitle: 'What We Publish',
       content1: 'Successful project cases and their implementation',
@@ -868,9 +882,9 @@ export const translations = {
   pl: {
     nav: {
       about: 'O NAS',
-      services: 'USŁUGI',
-      portfolio: 'PORTFOLIO',
-      blog: 'BLOG',
+      services: 'CO ROBIMY?',
+      portfolio: 'REALIZACJE',
+      blog: 'SOCIAL MEDIA',
       contact: 'KONTAKT',
       consultation: 'KONSULTACJA'
     },
@@ -892,11 +906,11 @@ export const translations = {
       title: 'TeleBots - Profesjonalny rozwój rozwiązań cyfrowych',
       ourWork: 'Nasza praca',
       ourWorkDesc: 'Selektywnie realizujemy projekty, które odpowiadają potrzebom naszych klientów i zapewniają długoterminową wartość dla Twojego biznesu.',
-      portfolio: 'Portfolio',
+      portfolio: 'Realizacje',
       contact: 'Kontakt',
       contactDesc: 'Prosimy o kontakt w przypadku jakichkolwiek pytań.',
       getInTouch: 'Skontaktuj się',
-      services: 'Usługi',
+      services: 'Co robimy?',
       servicesDesc: '200+ zrealizowanych projektów. 4 lata optymalizacji. Razem z Tobą od startu do mety i nawet po. Realizacja i design w jednym miejscu: boty Telegram i chatboty z AI, strony i sklepy online. Integrujemy CRM, systemy płatności i analitykę, aby zapytania konsekwentnie zamieniały się w leady i sprzedaż.',
       stats: {
         projects: '200+ zrealizowanych projektów',
@@ -982,9 +996,13 @@ export const translations = {
       }
     },
     portfolio: {
-      recent: 'PORTFOLIO',
+      recent: 'REALIZACJE',
       title: 'Przypadki rozwoju botów Telegram i stron',
-      viewPortfolio: 'Zobacz portfolio',
+      heroIntroLine1: 'Realizacje, które robimy z dumą',
+      heroIntroLine2: 'i których nie da się przeoczyć',
+      heroIntroDescription:
+        'Kliknij projekt i przejdź do karty case: brief, stack i efekt biznesowy. Poniżej najświeższe i najmocniejsze prace z naszej praktyki.',
+      viewPortfolio: 'Zobacz realizacje',
       featuredProject: 'Przykładowy projekt — bot Telegram i strona',
       ecommerce: 'E-Commerce',
       telegram: 'Bot Telegram',
@@ -995,11 +1013,14 @@ export const translations = {
       viewDetails: 'Zobacz szczegóły'
     },
     services: {
-      passion: 'Boty Telegram, strony pod klucz',
-      passionTitle: 'Chatboty, strony, parsery, design',
-      passionDesc: 'Od briefu po wdrożenie i utrzymanie: boty w komunikatorach, strony i sklepy online, parsery i praca z danymi, logo, identyfikacja wizualna i UI/UX — jeden zespół, bez zbędnych pośredników.',
-      toServices: 'Do usług',
-      mainTitle: 'Nasze usługi',
+      passion: 'Tworzymy boty, strony i automatyzację pod klucz',
+      passionTitle: 'Chatboty, web, parsery, design — od pomysłu do startu',
+      passionDesc:
+        'Pełny cykl: komunikatory, web, e-commerce, dane, branding i UI/UX. Jeden zespół — bez pośredników.',
+      passionMoreQuestion: 'Chcesz wiedzieć więcej?',
+      toServices: 'Co robimy?',
+      toPortfolio: 'Nasze realizacje',
+      mainTitle: 'Co robimy?',
       subtitle: 'Wybierz rozwiązanie najlepiej pasujące do Twojego biznesu',
       designService: 'Design',
       designServiceDesc: 'Logo, identyfikacja wizualna, projektowanie stron i aplikacji. W zespole mamy projektanta UI/UX.',
@@ -1215,7 +1236,7 @@ export const translations = {
     footer: {
       description: 'Profesjonalna realizacja i design dla Twojego biznesu: boty, strony, logo, identyfikacja wizualna, UI/UX.',
       quickLinks: 'Szybkie linki',
-      services: 'Usługi', 
+      services: 'Co robimy?',
       contact: 'Kontakt',
       email: 'Email',
       phone: 'Telefon',
@@ -1273,9 +1294,9 @@ export const translations = {
       comingSoon: 'Wkrótce'
     },
     blog: {
-      title: 'Blog',
+      title: 'Media społecznościowe',
       subtitle: 'Dowiedz się o najnowszych wiadomościach, przypadkach i przydatnych wskazówkach od naszego zespołu',
-      descriptionTitle: 'Nasz Blog',
+      descriptionTitle: 'Nasze media społecznościowe',
       description: 'W naszym blogu dzielimy się doświadczeniem w rozwoju, przypadkami udanych projektów, przydatnymi wskazówkami i najnowszymi wiadomościami ze świata technologii. Śledź nas w mediach społecznościowych, aby nie przegapić nowych publikacji!',
       contentTitle: 'Co Publikujemy',
       content1: 'Przypadki udanych projektów i ich realizacja',
@@ -1301,9 +1322,9 @@ export const translations = {
   ru: {
     nav: {
       about: 'О НАС',
-      services: 'УСЛУГИ',
-      portfolio: 'ПОРТФОЛИО',
-      blog: 'БЛОГ',
+      services: 'ЧТО МЫ ДЕЛАЕМ?',
+      portfolio: 'КЕЙСЫ',
+      blog: 'СОЦСЕТИ',
       contact: 'КОНТАКТЫ',
       consultation: 'КОНСУЛЬТАЦИЯ'
     },
@@ -1325,11 +1346,11 @@ export const translations = {
       title: 'TeleBots - Профессиональная разработка цифровых решений',
       ourWork: 'Наша работа',
       ourWorkDesc: 'Мы избирательно реализуем проекты, которые соответствуют потребностям наших клиентов и обеспечивают долгосрочную ценность для вашего бизнеса.',
-      portfolio: 'Портфолио',
+      portfolio: 'Кейсы',
       contact: 'Контакты',
       contactDesc: 'Пожалуйста, свяжитесь с нами с любыми вопросами.',
       getInTouch: 'Связаться',
-      services: 'Услуги',
+      services: 'Что мы делаем?',
       servicesDesc: '200+ реализованных проектов. 4 года оптимизации. Вместе с вами от старта до финиша и даже после. Разработка и дизайн под ключ: Telegram-боты, AI-чат-боты, сайты и интернет-магазины. Интегрируем CRM, платёжные сервисы и аналитику, чтобы заявки стабильно превращались в лиды и продажи.',
       stats: {
         projects: '200+ реализованных проектов',
@@ -1415,9 +1436,13 @@ export const translations = {
       }
     },
     portfolio: {
-      recent: 'ПОРТФОЛИО',
+      recent: 'КЕЙСЫ',
       title: 'Кейсы разработки телеграм ботов и сайтов',
-      viewPortfolio: 'Смотреть портфолио',
+      heroIntroLine1: 'Кейсы, которыми мы гордимся',
+      heroIntroLine2: 'и которые сложно не заметить',
+      heroIntroDescription:
+        'Нажмите на проект и откройте страницу кейса: задача, стек и результат для бизнеса. Ниже собраны самые свежие и сильные разработки из нашей практики.',
+      viewPortfolio: 'Смотреть кейсы',
       featuredProject: 'Пример проекта — телеграм бот и веб-сайт',
       ecommerce: 'E-Commerce',
       telegram: 'Телеграм бот',
@@ -1428,11 +1453,14 @@ export const translations = {
       viewDetails: 'Подробнее'
     },
     services: {
-      passion: 'Разработка телеграм ботов, сайтов под ключ',
-      passionTitle: 'Чат-боты, сайты, парсеры, дизайн',
-      passionDesc: 'От брифа до запуска и поддержки: боты в мессенджерах, веб-сайты и интернет-магазины, парсинг и работа с данными, логотип, айдентика и UI/UX — всё в одной команде, без лишних подрядчиков.',
-      toServices: 'К услугам',
-      mainTitle: 'Наши услуги',
+      passion: 'Разрабатываем ботов, сайты и автоматизацию под ключ',
+      passionTitle: 'Чат-боты, веб, парсеры, дизайн — от идеи до запуска',
+      passionDesc:
+        'Полный цикл: мессенджеры, веб, e-commerce, данные, бренд и UI/UX. Одна команда — без лишних подрядчиков.',
+      passionMoreQuestion: 'Хотите узнать больше?',
+      toServices: 'Что мы делаем?',
+      toPortfolio: 'Наши кейсы',
+      mainTitle: 'Что мы делаем?',
       subtitle: 'Выберите решение, которое лучше всего подходит для вашего бизнеса',
       designService: 'Дизайн',
       designServiceDesc: 'Логотипы, айдентика, дизайн сайтов и приложений. В команде есть UI/UX дизайнер.',
@@ -1648,7 +1676,7 @@ export const translations = {
     footer: {
       description: 'Профессиональная разработка и дизайн для вашего бизнеса: боты, сайты, логотипы, айдентика, UI/UX. В команде есть дизайнер.',
       quickLinks: 'Быстрые ссылки',
-      services: 'Услуги',
+      services: 'Что мы делаем?',
       contact: 'Контакты',
       email: 'Email',
       phone: 'Телефон',
@@ -1706,9 +1734,9 @@ export const translations = {
       comingSoon: 'Скоро'
     },
     blog: {
-      title: 'Блог',
+      title: 'Соцсети',
       subtitle: 'Узнавайте о последних новостях, кейсах и полезных советах от нашей команды',
-      descriptionTitle: 'Наш блог',
+      descriptionTitle: 'Наши соцсети',
       description: 'В нашем блоге мы делимся опытом разработки, кейсами успешных проектов, полезными советами и последними новостями из мира технологий. Следите за нами в социальных сетях, чтобы не пропустить новые публикации!',
       contentTitle: 'Что мы публикуем',
       content1: 'Кейсы успешных проектов и их реализация',

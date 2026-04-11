@@ -408,7 +408,14 @@ export function generateItemListSchema(items: Array<{ name: string; url: string;
   return {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: lang === 'uk' ? 'Кейси розробки телеграм ботів та сайтів' : lang === 'en' ? 'Telegram Bot & Website Development Cases' : 'Portfolio Projects',
+    name:
+      lang === 'uk'
+        ? 'Кейси розробки телеграм ботів та сайтів'
+        : lang === 'en'
+          ? 'Telegram Bot & Website Development Cases'
+          : lang === 'pl'
+            ? 'Realizacje: boty Telegram i strony www'
+            : 'Кейсы разработки телеграм-ботов и сайтов',
     description: lang === 'uk'
       ? 'Кейси розробки телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. 200+ проєктів.'
       : lang === 'en'
@@ -452,7 +459,14 @@ export function generateCollectionPageSchema(lang: Language = 'uk') {
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: lang === 'uk' ? 'Кейси розробки телеграм ботів — TeleBots' : lang === 'en' ? 'Telegram Bot & Website Cases — TeleBots' : 'TeleBots Portfolio',
+    name:
+      lang === 'uk'
+        ? 'Кейси розробки телеграм ботів — TeleBots'
+        : lang === 'en'
+          ? 'Telegram Bot & Website Cases — TeleBots'
+          : lang === 'pl'
+            ? 'Realizacje — TeleBots'
+            : 'Кейсы разработки — TeleBots',
     description: lang === 'uk'
       ? 'Кейси розробки телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. Приклади проєктів.'
       : lang === 'en'

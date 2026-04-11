@@ -14,12 +14,12 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Послуги | Розробка телеграм ботів, сайтів під ключ — TeleBots'
+    ? 'Що ми робимо? | Розробка телеграм ботів, сайтів під ключ — TeleBots'
     : lang === 'en'
-    ? 'Services | Telegram Bots, Websites Turnkey — TeleBots'
+    ? 'What we do? | Telegram Bots, Websites Turnkey — TeleBots'
     : lang === 'pl'
-    ? 'Usługi | Boty Telegram, strony pod klucz — TeleBots'
-    : 'Услуги | Разработка телеграм ботов, сайтов под ключ — TeleBots';
+    ? 'Co robimy? | Boty Telegram, strony pod klucz — TeleBots'
+    : 'Что мы делаем? | Разработка телеграм ботов, сайтов под ключ — TeleBots';
 
   const description = lang === 'uk'
     ? 'Замовити телеграм бота, чат-бот для бізнесу, розробка сайту під ключ, парсер даних, дизайн логотипу. Ціни, швидкий старт за 24 години. 200+ проєктів.'

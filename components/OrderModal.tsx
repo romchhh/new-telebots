@@ -1,7 +1,8 @@
 'use client';
 
 import { FormEvent, useEffect } from 'react';
-import { X, Send } from 'lucide-react';
+import { X } from 'lucide-react';
+import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { legal } from '@/lib/legal';
 
 interface OrderModalProps {
@@ -49,10 +50,12 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
       <div className="relative bg-white max-w-xl w-full max-h-[80vh] h-[80vh] p-6 md:p-8 rounded-xl shadow-2xl flex flex-col">
         {/* Кнопка закриття */}
         <button
+          type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center border border-gray-300 rounded-sm hover:border-gray-400 transition"
+          className="absolute top-4 right-4 p-1 flex items-center justify-center text-black hover:opacity-55 transition-opacity"
+          aria-label={t.modal.close}
         >
-          <X className="w-4 h-4 text-black" />
+          <X className="w-5 h-5" strokeWidth={2.25} />
         </button>
 
         {/* Заголовок */}
@@ -113,23 +116,25 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
               {t.modal.submit}
             </button>
 
-            {/* Кнопки Telegram та WhatsApp */}
-            <div className="flex flex-nowrap items-center justify-center gap-4 sm:gap-6 pb-1 overflow-x-auto min-w-0">
+            {/* Telegram / WhatsApp — повна ширина як кнопка submit, з іконками */}
+            <div className="flex flex-col gap-3 w-full pb-1">
               <a
                 href="https://t.me/telebotsnowayrm"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-full border-2 border-black text-black font-semibold text-base sm:text-lg hover:bg-black hover:text-white transition-colors flex-shrink-0"
+                className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 rounded-full border-2 border-black text-black font-semibold text-base hover:bg-black hover:text-white transition-colors"
               >
-                <span className="whitespace-nowrap">Telegram</span>
+                <FaTelegramPlane className="w-5 h-5 flex-shrink-0" aria-hidden />
+                <span>{t.contact.telegram}</span>
               </a>
               <a
                 href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3.5 sm:px-10 sm:py-4 rounded-full border-2 border-green-600 text-green-700 font-semibold text-base sm:text-lg hover:bg-green-600 hover:text-white transition-colors flex-shrink-0"
+                className="w-full inline-flex items-center justify-center gap-2.5 py-3.5 rounded-full border-2 border-black text-black font-semibold text-base hover:bg-black hover:text-white transition-colors"
               >
-                <span className="whitespace-nowrap">WhatsApp</span>
+                <FaWhatsapp className="w-5 h-5 flex-shrink-0" aria-hidden />
+                <span>{t.contact.whatsapp}</span>
               </a>
             </div>
           </div>

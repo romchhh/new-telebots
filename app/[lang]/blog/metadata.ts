@@ -14,12 +14,12 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Блог - TeleBots | Кейси, поради та новини з розробки'
+    ? 'Соцмережі - TeleBots | Кейси, поради та новини з розробки'
     : lang === 'en'
-    ? 'Blog - TeleBots | Cases, Tips & Development News'
+    ? 'Social media - TeleBots | Cases, Tips & Development News'
     : lang === 'pl'
-    ? 'Blog - TeleBots | Przypadki, wskazówki i wiadomości o rozwoju'
-    : 'Блог - TeleBots | Кейсы, советы и новости о разработке';
+    ? 'Media społecznościowe - TeleBots | Przypadki, wskazówki i wiadomości o rozwoju'
+    : 'Соцсети - TeleBots | Кейсы, советы и новости о разработке';
 
   const description = lang === 'uk'
     ? 'Дізнайтеся про новини, кейси успішних проєктів та поради з розробки від TeleBots. Підписуйтесь на наші канали для отримання контенту!'
@@ -30,12 +30,12 @@ export async function generateMetadata({
     : 'Узнайте о новостях, кейсах проектов и советах от TeleBots. Подписывайтесь на наши каналы!';
 
   const keywords = lang === 'uk'
-    ? 'блог, кейси розробки телеграм ботів, поради з розробки, телеграм бот, чат-бот, автоматизація бізнесу, веб-розробка, технології'
+    ? 'соцмережі, соцмережі TeleBots, кейси розробки телеграм ботів, поради з розробки, телеграм бот, чат-бот, автоматизація бізнесу, веб-розробка, технології'
     : lang === 'en'
-    ? 'blog, telegram bot development cases, development tips, telegram bot, chatbot, business automation, web development, technologies'
+    ? 'social media, telegram bot development cases, development tips, telegram bot, chatbot, business automation, web development, technologies'
     : lang === 'pl'
-    ? 'blog, przypadki rozwoju botów, wskazówki, bot telegram, chatbot, automatyzacja biznesu, rozwój stron, technologie'
-    : 'блог, кейсы разработки телеграм ботов, советы по разработке, телеграм бот, чат-бот, автоматизация бизнеса, веб-разработка, технологии';
+    ? 'media społecznościowe, przypadki rozwoju botów, wskazówki, bot telegram, chatbot, automatyzacja biznesu, rozwój stron, technologie'
+    : 'соцсети, кейсы разработки телеграм ботов, советы по разработке, телеграм бот, чат-бот, автоматизация бизнеса, веб-разработка, технологии';
 
   return {
     ...generateSEOMetadata({

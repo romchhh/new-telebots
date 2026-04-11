@@ -69,7 +69,6 @@ export default function ContactPage() {
     });
   };
 
-  const [stripRef, isStripVisible] = useScrollAnimation();
   const [titleRef, isTitleVisible] = useScrollAnimation();
   const [formRef, isFormVisible] = useScrollAnimation();
   const [contactsRef, isContactsVisible] = useScrollAnimation();
@@ -145,25 +144,19 @@ export default function ContactPage() {
         />
         
         <main id="main-content">
-      <div ref={stripRef} className={`bg-black text-white py-3 px-6 mt-16 scroll-animate-up ${isStripVisible ? 'animate' : ''}`}>
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-sm font-semibold tracking-wider">
-            {t.contact.cta}
-          </p>
-        </div>
-      </div>
-      
-      <section className="pt-20 pb-32 px-6 bg-white">
+      {/* Смуга як у футері: той самий bg-black і вертикальний ритм (py-20 як у max-w-7xl у footer) */}
+      <div
+        className="w-full bg-black mt-16 py-20 shrink-0"
+        aria-hidden
+      />
+      <section className="pt-12 md:pt-16 pb-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div ref={titleRef} className={`mb-20 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`}>
             <h1 className="text-4xl lg:text-6xl font-black text-black leading-tight mb-8">
               {t.contact.title}
             </h1>
-            <p className="text-xl text-gray-700 font-semibold leading-relaxed mb-4 text-lg max-w-3xl">
+            <p className="text-xl text-gray-700 font-semibold leading-relaxed max-w-3xl">
               {t.contact.subtitle}
-            </p>
-            <p className="text-lg text-gray-600 font-semibold max-w-3xl">
-              {t.contact.cta}
             </p>
           </div>
 

@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import { cases } from '@/components/cases';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -282,10 +281,7 @@ export default function ServicePage() {
                   href={`/${lang}/portfolio`}
                   className="group flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
                 >
-                  <div className="flex items-center justify-center flex-wrap gap-1">
-                    <span className="text-sm font-semibold tracking-wider text-center leading-tight">{t.portfolio.viewPortfolio}</span>
-                    <ArrowRight className="w-5 h-5 flex-shrink-0" />
-                  </div>
+                  <span className="text-sm font-semibold tracking-wider text-center leading-tight">{t.portfolio.viewPortfolio}</span>
                 </Link>
               </div>
               <div className="relative w-full min-w-0 flex flex-col justify-center">
