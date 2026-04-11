@@ -102,7 +102,15 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.instagram.com" />
         
         {/* Preconnect для критичних ресурсів */}
-       
+
+        {/* LCP: hero background — ранній fetch до hydration */}
+        <link
+          rel="preload"
+          as="image"
+          href="/other/hero-background.jpeg"
+          fetchPriority="high"
+        />
+
         {/* Icons — вкладка браузера та іконка в пошуку Google */}
         <link rel="icon" href="/other/favicon.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/other/favicon.png" />

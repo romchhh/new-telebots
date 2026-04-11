@@ -23,8 +23,8 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
-          <div className="md:col-span-1 text-center md:text-left">
-            <div className="flex items-center mb-8 justify-center md:justify-start">
+          <div className="md:col-span-1 text-left">
+            <div className="flex items-center mb-8 justify-start">
               <div className="relative h-3 w-auto max-w-[50px]">
                 <Image
                   src="/whitelogo.png"

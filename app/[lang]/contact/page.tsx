@@ -4,6 +4,7 @@ import { useState, useEffect, FormEvent } from 'react';
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { Instagram, MessageCircle } from 'lucide-react';
+import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
@@ -168,12 +169,9 @@ export default function ContactPage() {
 
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
             <div ref={formRef} className={`scroll-animate-left ${isFormVisible ? 'animate' : ''}`}>
-              <div className="flex items-center mb-8">
-                <div className="w-12 h-px bg-black mr-4"></div>
-                <h2 className="text-sm font-black text-black tracking-wider">
-                  {t.contact.formTitle}
-                </h2>
-              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-10 md:mb-12 leading-tight">
+                {t.contact.formTitle}
+              </h2>
               
               <form onSubmit={handleSubmit} className="space-y-10">
                 <div>
@@ -220,12 +218,14 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="w-full md:w-auto px-12 py-4 text-white font-normal text-base rounded-full transition hover:opacity-90 bg-black"
-                >
-                  {t.contact.submit}
-                </button>
+                <div className="w-full text-center pt-2">
+                  <button
+                    type="submit"
+                    className="inline-flex items-center justify-center min-w-[min(100%,280px)] sm:min-w-[300px] md:min-w-[340px] px-14 py-5 md:px-16 md:py-6 text-white font-semibold text-lg md:text-xl rounded-full transition hover:opacity-90 bg-black tracking-wide"
+                  >
+                    {t.contact.submit}
+                  </button>
+                </div>
               </form>
 
               <p className="text-gray-600 font-semibold mt-12 leading-relaxed text-lg">
@@ -234,12 +234,9 @@ export default function ContactPage() {
             </div>
 
             <div ref={contactsRef} className={`scroll-animate-right ${isContactsVisible ? 'animate' : ''}`}>
-              <div className="flex items-center mb-8">
-                <div className="w-12 h-px bg-black mr-4"></div>
-                <h2 className="text-sm font-black text-black tracking-wider">
-                  {t.contact.contacts}
-                </h2>
-              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-10 md:mb-12 leading-tight">
+                {t.contact.contacts}
+              </h2>
               
               <div className="space-y-8">
                 <div className="pb-6 border-b border-gray-200">
@@ -270,8 +267,9 @@ export default function ContactPage() {
                     href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-center bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
+                    className="group flex items-center justify-center gap-3 bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
                   >
+                    <FaWhatsapp className="w-6 h-6 flex-shrink-0" aria-hidden />
                     <span className="tracking-wider font-black">{t.contact.whatsapp}</span>
                     <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">
                       <div className="w-8 h-px bg-white"></div>
@@ -282,8 +280,9 @@ export default function ContactPage() {
                     href="https://t.me/telebotsnowayrm"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center justify-center bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
+                    className="group flex items-center justify-center gap-3 bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
                   >
+                    <FaTelegramPlane className="w-6 h-6 flex-shrink-0" aria-hidden />
                     <span className="tracking-wider font-black">{t.contact.telegram}</span>
                     <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">
                       <div className="w-8 h-px bg-white"></div>

@@ -47,7 +47,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
       isScrolled ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-6 py-2 lg:py-3 flex justify-between items-center lg:items-end">
-        <Link href={`/${currentLanguage}`} className="flex items-end group lg:items-end justify-center lg:justify-start w-full lg:w-auto">
+        <Link href={`/${currentLanguage}`} className="flex items-end group lg:items-end justify-start w-auto flex-shrink-0 min-w-0">
           <div className="flex items-end">
             <Image
               src={isScrolled ? '/whitelogo.png' : '/whitelogo.png'}
