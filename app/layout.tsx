@@ -17,11 +17,24 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "TeleBots - Розробка телеграм ботів, сайтів та цифрових рішень",
+    default: "TeleBots — розробка сайтів, веб-інтерфейсів, телеграм ботів та автоматизації",
     template: "%s | TeleBots",
   },
-  description: "Розробка телеграм ботів, чат-ботів з AI, сайтів та інтернет-магазинів. Швидкий старт за 24 години, готове рішення за 2 тижні. 200+ проєктів. Автоматизація бізнесу під ключ.",
-  keywords: ["телеграм бот розробка", "розробка чат-ботів", "розробка сайтів", "інтернет-магазин під ключ", "автоматизація бізнесу", "цифрові рішення для бізнесу", "TeleBots", "замовлення телеграм бота", "веб-розробка", "AI чат-бот", "дизайн логотипу", "UI/UX"],
+  description:
+    "Розробка сайтів під ключ: лендинги, корпоративні сайти, інтернет-магазини (Next.js, SEO). Також телеграм боти, чат-боти з AI, інтеграції. 200+ проєктів. Швидкий старт за 24 години. Київ / віддалено.",
+  keywords: [
+    "розробка сайтів",
+    "створення сайту під ключ",
+    "веб-розробка Україна",
+    "лендинг замовити",
+    "інтернет-магазин під ключ",
+    "розробка сайту на Next.js",
+    "телеграм бот розробка",
+    "розробка чат-ботів",
+    "автоматизація бізнесу",
+    "TeleBots",
+    "UI/UX дизайн сайту",
+  ],
   authors: [{ name: "TeleBots" }],
   creator: "TeleBots",
   publisher: "TeleBots",
@@ -35,8 +48,9 @@ export const metadata: Metadata = {
     locale: "uk_UA",
     url: baseUrl,
     siteName: "TeleBots",
-    title: "TeleBots - Розробка телеграм ботів, сайтів та цифрових рішень",
-    description: "Розробка телеграм ботів, чат-ботів з AI, сайтів та інтернет-магазинів. 200+ проєктів. Швидкий старт за 24 години.",
+    title: "TeleBots — розробка сайтів, телеграм ботів та автоматизації",
+    description:
+      "Розробка сайтів та інтернет-магазинів під ключ, телеграм боти й чат-боти з AI. 200+ проєктів. Швидкий старт за 24 години.",
     images: [
       {
         url: `${baseUrl}/portfolio/portfolio-default.jpg`,
@@ -48,8 +62,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TeleBots - Розробка телеграм ботів, сайтів та цифрових рішень",
-    description: "Розробка телеграм ботів, чат-ботів з AI, сайтів та інтернет-магазинів. 200+ проєктів. Швидкий старт за 24 години.",
+    title: "TeleBots — розробка сайтів, телеграм ботів та автоматизації",
+    description:
+      "Розробка сайтів та інтернет-магазинів під ключ, телеграм боти й чат-боти з AI. 200+ проєктів. Швидкий старт за 24 години.",
     images: [`${baseUrl}/portfolio/portfolio-default.jpg`],
     creator: "@telebotsnowayrm",
     site: "@telebotsnowayrm",
@@ -117,7 +132,7 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         
         {/* Meta description (fallback; сторінки [lang] додають свій через generateMetadata) */}
-        <meta name="description" content="TeleBots — розробка Telegram ботів, сайтів та автоматизації бізнесу. 200+ проєктів. Швидкий старт за 24 години. Київ, Україна." />
+        <meta name="description" content="TeleBots — розробка сайтів та інтернет-магазинів під ключ, веб-інтерфейсів, Telegram ботів і автоматизації. 200+ проєктів. Київ / віддалено." />
         {/* Meta tags */}
         <meta name="theme-color" content="#000000" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />

@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { translations, Language } from '@/components/translations';
+import { Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
@@ -11,31 +11,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang: langParam } = await params;
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
-  const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Кейси розробки телеграм ботів та сайтів — TeleBots'
+    ? 'Кейси розробки сайтів та телеграм ботів — TeleBots'
     : lang === 'en'
-    ? 'Telegram Bot & Website Development Cases — TeleBots'
+    ? 'Website & Telegram Bot Development Cases — TeleBots'
     : lang === 'pl'
-    ? 'Przypadki rozwoju botów Telegram i stron — TeleBots'
-    : 'Кейсы разработки телеграм ботов и сайтов — TeleBots';
+    ? 'Przypadki: strony www i boty Telegram — TeleBots'
+    : 'Кейсы разработки сайтов и телеграм ботов — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Кейси розробки телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. Приклади проєктів: бот з оплатою, маркетплейс, e-commerce. 200+ реалізованих проєктів.'
+    ? 'Кейси розробки сайтів, інтернет-магазинів, лендингів; телеграм боти й чат-боти. Приклади: e-commerce, маркетплейс, бот з оплатою. 200+ проєктів.'
     : lang === 'en'
-    ? 'Cases: Telegram bots, chatbots, websites, online stores. Examples: bot with payment, marketplace, e-commerce. 200+ completed projects.'
+    ? 'Cases: websites, online stores, landing pages; Telegram bots and chatbots. E-commerce, marketplace, payment bots. 200+ projects.'
     : lang === 'pl'
-    ? 'Przypadki: boty Telegram, chatboty, strony, sklepy online. Przykłady: bot z płatnościami, marketplace. 200+ projektów.'
-    : 'Кейсы разработки телеграм ботов, чат-ботов, сайтов и интернет-магазинов. Примеры проектов. 200+ реализованных проектов.';
+    ? 'Realizacje: strony, sklepy, landingi; boty Telegram i chatboty. E-commerce, marketplace. 200+ projektów.'
+    : 'Кейсы разработки сайтов, интернет-магазинов, лендингов; телеграм боты и чат-боты. 200+ проектов.';
 
   const keywords = lang === 'uk'
-    ? 'кейси розробки телеграм ботів, приклади інтернет-магазинів, портфоліо, проєкти, телеграм бот, чат-бот, сайт, інтернет-магазин, телеграм бот для інтернет-магазину, успішні кейси'
+    ? 'кейси розробки сайтів, приклади сайтів, інтернет-магазин під ключ, лендинг кейс, кейси телеграм ботів, чат-бот, веб-розробка, успішні кейси, TeleBots'
     : lang === 'en'
-    ? 'telegram bot development cases, online store examples, portfolio, projects, telegram bot, chatbot, website, e-commerce, successful cases'
+    ? 'website development portfolio, landing page examples, e-commerce cases, online store projects, telegram bot cases, chatbot, web development cases, TeleBots'
     : lang === 'pl'
-    ? 'przypadki rozwoju botów Telegram, przykłady sklepów online, portfolio, projekty, bot Telegram, chatbot, strona, sklep internetowy, udane przypadki'
-    : 'кейсы разработки телеграм ботов, примеры интернет-магазинов, портфолио, проекты, телеграм бот, чат-бот, сайт, успешные кейсы';
+    ? 'portfolio stron www, przykłady sklepów online, realizacje landingów, boty Telegram, chatbot, case study strony, TeleBots'
+    : 'кейсы разработки сайтов, примеры лендингов, интернет-магазин кейс, портфолио веб-разработки, телеграм бот, чат-бот, успешные кейсы';
 
   return {
     ...generateSEOMetadata({

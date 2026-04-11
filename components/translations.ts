@@ -9,9 +9,12 @@ export const translations = {
       consultation: 'КОНСУЛЬТАЦІЯ'
     },
     hero: {
-      title: 'Технології, що виводять бізнес у лідери',
-      subtitle: '200+ проєктів: боти, AI та сайти, які автоматизують продажі та збільшують кількість клієнтів.',
-      tagline: 'Розробляємо чат-боти та сайти, якими хочеться користуватися.',
+      title: 'Розробляємо ботів, сайти та автоматизацію під ключ',
+      subtitle: 'Чат-боти, веб, парсери, дизайн — від ідеї до запуску',
+      intro:
+        'Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.',
+      ctaQuestion: 'Хочете дізнатися більше?',
+      tagline: 'Зручні сайти та боти, які ведуть клієнта до заявки й покупки.',
       viewButton: 'Переглянути',
       startDate: {
         label: 'швидкий старт',
@@ -133,11 +136,11 @@ export const translations = {
       viewDetails: 'Детальніше'
     },
     services: {
-      passion: 'Розробляємо ботів, сайти та автоматизацію під ключ',
-      passionTitle: 'Чат-боти, веб, парсери, дизайн — від ідеї до запуску',
+      passion: 'Від лендингу до складних веб-систем — під одним дахом',
+      passionTitle: 'Сайти, боти в месенджерах, e-commerce, парсинг і бренд',
       passionDesc:
-        'Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.',
-      passionMoreQuestion: 'Хочете дізнатися більше?',
+        'Проєктуємо структуру, розробляємо й підтримуємо після запуску. Інтеграції CRM, оплати та аналітики — під ваші процеси.',
+      passionMoreQuestion: 'Розкажіть про задачу — запропонуємо формат і терміни',
       toServices: 'Що ми робимо?',
       toPortfolio: 'Наші кейси',
       mainTitle: 'Що ми робимо?',
@@ -449,9 +452,12 @@ export const translations = {
       consultation: 'CONSULTATION'
     },
     hero: {
-      title: 'Technologies that put your business in the lead',
-      subtitle: '200+ projects: bots, AI, and websites that automate sales and grow your client base.',
-      tagline: 'We build chatbots and websites people love to use.',
+      title: 'We build bots, websites, and automation end to end',
+      subtitle: 'Chatbots, web, parsers, design — from idea to launch',
+      intro:
+        'Full cycle: messengers, web, e-commerce, data, brand & UI/UX. One team — no extra middlemen.',
+      ctaQuestion: 'Want to know more?',
+      tagline: 'Websites and bots that turn visitors into leads and sales.',
       viewButton: 'View',
       startDate: {
         label: 'quick start',
@@ -573,11 +579,11 @@ export const translations = {
       viewDetails: 'View Details'
     },
     services: {
-      passion: 'We build bots, websites, and automation end to end',
-      passionTitle: 'Chatbots, web, parsers, design — from idea to launch',
+      passion: 'From landing pages to complex web systems — under one roof',
+      passionTitle: 'Websites, messenger bots, e-commerce, scraping, and brand',
       passionDesc:
-        'Full cycle: messengers, web, e-commerce, data, brand & UI/UX. One team — no extra middlemen.',
-      passionMoreQuestion: 'Want to know more?',
+        'We architect, build, and support after launch. CRM, payments, and analytics — wired to how you work.',
+      passionMoreQuestion: "Tell us your goal — we'll suggest scope and timeline",
       toServices: 'What we do?',
       toPortfolio: 'Our cases',
       mainTitle: 'What we do?',
@@ -889,9 +895,12 @@ export const translations = {
       consultation: 'KONSULTACJA'
     },
     hero: {
-      title: 'Technologie, które wynoszą biznes na pozycję lidera',
-      subtitle: '200+ projektów: boty, AI i strony, które automatyzują sprzedaż i zwiększają liczbę klientów.',
-      tagline: 'Tworzymy chatboty i strony, z których chce się korzystać.',
+      title: 'Tworzymy boty, strony i automatyzację pod klucz',
+      subtitle: 'Chatboty, web, parsery, design — od pomysłu do startu',
+      intro:
+        'Pełny cykl: komunikatory, web, e-commerce, dane, branding i UI/UX. Jeden zespół — bez pośredników.',
+      ctaQuestion: 'Chcesz wiedzieć więcej?',
+      tagline: 'Strony i boty, które prowadzą klienta od wizyty do zakupu.',
       viewButton: 'Zobacz',
       startDate: {
         label: 'szybki start',
@@ -1013,11 +1022,11 @@ export const translations = {
       viewDetails: 'Zobacz szczegóły'
     },
     services: {
-      passion: 'Tworzymy boty, strony i automatyzację pod klucz',
-      passionTitle: 'Chatboty, web, parsery, design — od pomysłu do startu',
+      passion: 'Od landing page do złożonych systemów web — w jednym miejscu',
+      passionTitle: 'Strony, boty w komunikatorach, e-commerce, parsing i branding',
       passionDesc:
-        'Pełny cykl: komunikatory, web, e-commerce, dane, branding i UI/UX. Jeden zespół — bez pośredników.',
-      passionMoreQuestion: 'Chcesz wiedzieć więcej?',
+        'Projektujemy architekturę, kodujemy i utrzymujemy po starcie. CRM, płatności i analityka — pod Twoje procesy.',
+      passionMoreQuestion: 'Opisz swoje cele — zaproponujemy zakres i czas',
       toServices: 'Co robimy?',
       toPortfolio: 'Nasze realizacje',
       mainTitle: 'Co robimy?',
@@ -1329,9 +1338,12 @@ export const translations = {
       consultation: 'КОНСУЛЬТАЦИЯ'
     },
     hero: {
-      title: 'Технологии, которые выводят бизнес в лидеры',
-      subtitle: '200+ проектов: боты, AI и сайты, которые автоматизируют продажи и увеличивают число клиентов.',
-      tagline: 'Разрабатываем чат-ботов и сайты, которыми хочется пользоваться.',
+      title: 'Разрабатываем ботов, сайты и автоматизацию под ключ',
+      subtitle: 'Чат-боты, веб, парсеры, дизайн — от идеи до запуска',
+      intro:
+        'Полный цикл: мессенджеры, веб, e-commerce, данные, бренд и UI/UX. Одна команда — без лишних подрядчиков.',
+      ctaQuestion: 'Хотите узнать больше?',
+      tagline: 'Удобные сайты и боты, которые ведут клиента к заявке и к покупке.',
       viewButton: 'Смотреть',
       startDate: {
         label: 'быстрый старт',
@@ -1453,11 +1465,11 @@ export const translations = {
       viewDetails: 'Подробнее'
     },
     services: {
-      passion: 'Разрабатываем ботов, сайты и автоматизацию под ключ',
-      passionTitle: 'Чат-боты, веб, парсеры, дизайн — от идеи до запуска',
+      passion: 'От лендинга до сложных веб-систем — под одной крышей',
+      passionTitle: 'Сайты, боты в мессенджерах, e-commerce, парсинг и бренд',
       passionDesc:
-        'Полный цикл: мессенджеры, веб, e-commerce, данные, бренд и UI/UX. Одна команда — без лишних подрядчиков.',
-      passionMoreQuestion: 'Хотите узнать больше?',
+        'Проектируем архитектуру, разрабатываем и сопровождаем после запуска. CRM, оплаты и аналитика — под ваши процессы.',
+      passionMoreQuestion: 'Расскажите о задаче — предложим формат и сроки',
       toServices: 'Что мы делаем?',
       toPortfolio: 'Наши кейсы',
       mainTitle: 'Что мы делаем?',

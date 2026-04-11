@@ -98,12 +98,12 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
     url: `${baseUrl}/${lang}`,
     logo: `${baseUrl}/whitelogo_new.png`,
     description: lang === 'uk'
-      ? 'Розробка телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. Швидкий старт за 24 години, 200+ проєктів. Автоматизація бізнесу під ключ.'
+      ? 'Розробка сайтів та інтернет-магазинів під ключ, веб-інтерфейсів і SEO. Телеграм боти та чат-боти, інтеграції. 200+ проєктів. Швидкий старт за 24 години.'
       : lang === 'en'
-      ? 'Telegram bot and chatbot development, websites, e-commerce. Quick start in 24 hours, 200+ projects. Turnkey business automation.'
+      ? 'Website and e-commerce development, landing pages and SEO. Telegram bots, chatbots, and integrations. Quick start in 24 hours, 200+ projects.'
       : lang === 'pl'
-      ? 'Rozwój botów Telegram, chatbotów, stron i sklepów online. Szybki start w 24 godziny, 200+ projektów. Automatyzacja biznesu pod klucz.'
-      : 'Разработка телеграм ботов, чат-ботов, сайтов и интернет-магазинов. Быстрый старт за 24 часа, 200+ проектов. Автоматизация бизнеса под ключ.',
+      ? 'Tworzenie stron i sklepów online, landingi i SEO. Boty Telegram, chatboty, integracje. Szybki start w 24 godziny, 200+ projektów.'
+      : 'Разработка сайтов и интернет-магазинов под ключ, лендинги и SEO. Телеграм боты и чат-боты, интеграции. Быстрый старт за 24 часа, 200+ проектов.',
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: legal.phone,
@@ -338,12 +338,12 @@ export function generateWebSiteSchema(lang: Language = 'uk') {
     name: 'TeleBots',
     url: `${baseUrl}/${lang}`,
     description: lang === 'uk'
-      ? 'Розробка телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. 200+ проєктів. Швидкий старт за 24 години.'
+      ? 'Розробка сайтів, інтернет-магазинів та лендингів; телеграм боти й чат-боти. 200+ проєктів. Швидкий старт за 24 години.'
       : lang === 'en'
-      ? 'Telegram bot and chatbot development, websites, e-commerce. 200+ projects. Quick start in 24 hours.'
+      ? 'Website and e-commerce development; Telegram bots and chatbots. 200+ projects. Quick start in 24 hours.'
       : lang === 'pl'
-      ? 'Rozwój botów Telegram, chatbotów, stron. 200+ projektów. Szybki start w 24 godziny.'
-      : 'Разработка телеграм ботов, чат-ботов, сайтов. 200+ проектов. Быстрый старт за 24 часа.',
+      ? 'Tworzenie stron, sklepów i landingów; boty Telegram i chatboty. 200+ projektów. Szybki start w 24 godziny.'
+      : 'Разработка сайтов, интернет-магазинов и лендингов; телеграм боты и чат-боты. 200+ проектов. Быстрый старт за 24 часа.',
     potentialAction: {
       '@type': 'SearchAction',
       target: {
@@ -377,12 +377,12 @@ export function generateContactPageSchema(lang: Language = 'uk') {
     name: lang === 'uk' ? 'Контакти - TeleBots' : 'Contact - TeleBots',
     url: `${baseUrl}/${lang}/contact`,
     description: lang === 'uk'
-      ? 'Замовити розробку телеграм бота або сайту. Безкоштовна консультація, швидкий відгук. Київ, Україна.'
+      ? 'Замовити розробку сайту, інтернет-магазину або телеграм бота. Безкоштовна консультація. Київ / віддалено.'
       : lang === 'en'
-      ? 'Order Telegram bot or website development. Free consultation, quick response.'
+      ? 'Order website, e-commerce, or Telegram bot development. Free consultation. Remote-friendly.'
       : lang === 'pl'
-      ? 'Zamów rozwój bota Telegram lub strony. Bezpłatna konsultacja, szybka odpowiedź.'
-      : 'Заказать разработку телеграм бота или сайта. Бесплатная консультация, быстрый ответ.',
+      ? 'Zamów stronę, sklep online lub bota Telegram. Bezpłatna konsultacja.'
+      : 'Заказать разработку сайта, интернет-магазина или телеграм бота. Бесплатная консультация.',
     mainEntity: {
       '@type': 'Organization',
       name: 'TeleBots',
@@ -410,17 +410,20 @@ export function generateItemListSchema(items: Array<{ name: string; url: string;
     '@type': 'ItemList',
     name:
       lang === 'uk'
-        ? 'Кейси розробки телеграм ботів та сайтів'
+        ? 'Кейси розробки сайтів та телеграм ботів'
         : lang === 'en'
-          ? 'Telegram Bot & Website Development Cases'
+          ? 'Website & Telegram Bot Development Cases'
           : lang === 'pl'
-            ? 'Realizacje: boty Telegram i strony www'
-            : 'Кейсы разработки телеграм-ботов и сайтов',
-    description: lang === 'uk'
-      ? 'Кейси розробки телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. 200+ проєктів.'
-      : lang === 'en'
-      ? 'Cases: Telegram bots, chatbots, websites, e-commerce. 200+ projects.'
-      : 'List of successful projects from TeleBots',
+            ? 'Realizacje: strony www i boty Telegram'
+            : 'Кейсы разработки сайтов и телеграм-ботов',
+    description:
+      lang === 'uk'
+        ? 'Кейси розробки сайтів, інтернет-магазинів, телеграм ботів і чат-ботів. 200+ проєктів.'
+        : lang === 'en'
+          ? 'Cases: websites, e-commerce, Telegram bots, chatbots. 200+ projects.'
+          : lang === 'pl'
+            ? 'Realizacje: strony, sklepy, boty Telegram i chatboty. 200+ projektów.'
+            : 'Кейсы: сайты, интернет-магазины, телеграм боты и чат-боты. 200+ проектов.',
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
@@ -461,17 +464,20 @@ export function generateCollectionPageSchema(lang: Language = 'uk') {
     '@type': 'CollectionPage',
     name:
       lang === 'uk'
-        ? 'Кейси розробки телеграм ботів — TeleBots'
+        ? 'Кейси розробки сайтів та ботів — TeleBots'
         : lang === 'en'
-          ? 'Telegram Bot & Website Cases — TeleBots'
+          ? 'Website & Bot Development Cases — TeleBots'
           : lang === 'pl'
-            ? 'Realizacje — TeleBots'
-            : 'Кейсы разработки — TeleBots',
-    description: lang === 'uk'
-      ? 'Кейси розробки телеграм ботів, чат-ботів, сайтів та інтернет-магазинів. Приклади проєктів.'
-      : lang === 'en'
-      ? 'Telegram bot, chatbot, website and e-commerce development cases. Project examples.'
-      : 'Collection of successful development projects from TeleBots',
+            ? 'Realizacje stron i botów — TeleBots'
+            : 'Кейсы разработки сайтов и ботов — TeleBots',
+    description:
+      lang === 'uk'
+        ? 'Кейси розробки сайтів, інтернет-магазинів, телеграм ботів і чат-ботів. Приклади проєктів.'
+        : lang === 'en'
+          ? 'Website, e-commerce, Telegram bot and chatbot cases. Project examples.'
+          : lang === 'pl'
+            ? 'Realizacje stron, sklepów, botów Telegram i chatbotów.'
+            : 'Кейсы: сайты, магазины, телеграм боты и чат-боты.',
     url: `${baseUrl}/${lang}/portfolio`,
     mainEntity: {
       '@type': 'ItemList',

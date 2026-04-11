@@ -145,34 +145,28 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
       </div>
 
       {/* ─── ОСНОВНИЙ КОНТЕНТ — z-30 щоб був над декоративним кругом; відступ зверху на мобільному щоб не злипався з кругом на низьких екранах ─── */}
-      <div className="relative z-30 w-full flex-1 flex items-end justify-center px-6 md:px-10 lg:px-16 pb-10 sm:pb-14 md:pb-20 lg:pb-24 pt-10 md:pt-0">
-        <div className="max-w-5xl mx-auto text-center w-full">
+      <div className="relative z-30 flex w-full flex-1 items-end justify-center px-4 pb-10 pt-10 sm:px-6 md:px-10 md:pb-20 md:pt-0 lg:px-16 lg:pb-24">
+        <div className="mx-auto w-full max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
           <h1
-            className="font-bold text-white mb-3 md:mb-6 uppercase text-[clamp(1.65rem,6.2vw,2.85rem)] sm:text-6xl md:text-7xl lg:text-6xl xl:text-7xl leading-[1.12] sm:leading-none max-w-[100%] [letter-spacing:0.1em] sm:[letter-spacing:0.12em] md:[letter-spacing:0.15em]"
+            className="mx-auto mb-3 max-w-[min(100%,34rem)] font-bold uppercase leading-tight text-white sm:mb-4 sm:max-w-2xl sm:leading-[1.12] md:mb-5 md:max-w-3xl lg:max-w-4xl text-[clamp(1.2rem,4.8vw,2.05rem)] sm:text-3xl md:text-4xl lg:text-5xl [letter-spacing:0.04em] sm:[letter-spacing:0.07em] md:[letter-spacing:0.09em]"
             style={{ fontFamily: 'var(--font-montserrat)' }}
           >
-            <span>{t.hero.title}</span>
+            {t.hero.title}
           </h1>
-
           <p
-            className="font-normal text-white mb-8 md:mb-10 text-lg sm:text-2xl md:text-3xl lg:text-2xl xl:text-3xl leading-relaxed"
-            style={{ letterSpacing: '0.2em', fontFamily: 'var(--font-montserrat)' }}
+            className="mb-4 font-normal leading-snug text-white sm:mb-5 md:mb-6 text-lg sm:text-xl md:text-2xl [letter-spacing:0.04em] sm:[letter-spacing:0.08em] md:[letter-spacing:0.1em]"
+            style={{ fontFamily: 'var(--font-montserrat)' }}
           >
-            {(() => {
-              const subtitleText = t.hero.subtitle;
-              const italicPart = 'TeleBots approach';
-              if (subtitleText.includes(italicPart)) {
-                const parts = subtitleText.split(italicPart);
-                return (
-                  <>
-                    {parts[0]}
-                    <span className="italic">{italicPart}</span>
-                    {parts[1]}
-                  </>
-                );
-              }
-              return subtitleText;
-            })()}
+            {t.hero.subtitle}
+          </p>
+          <p className="mx-auto mb-4 max-w-3xl text-lg leading-relaxed text-gray-300 sm:mb-5 sm:text-lg md:mb-6 md:text-xl md:leading-relaxed">
+            {t.hero.intro}
+          </p>
+          <p
+            className="mx-auto mb-7 max-w-3xl text-lg font-semibold text-white/95 sm:mb-8 md:mb-10 sm:text-lg md:text-xl [letter-spacing:0.05em] sm:[letter-spacing:0.06em]"
+            style={{ fontFamily: 'var(--font-montserrat)' }}
+          >
+            {t.hero.ctaQuestion}
           </p>
 
           <div className="flex justify-center gap-3 md:gap-6">

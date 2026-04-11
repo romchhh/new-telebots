@@ -9,28 +9,28 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Розробка телеграм ботів — TeleBots'
+    ? 'Розробка сайтів та телеграм ботів — TeleBots'
     : lang === 'en'
-    ? 'Telegram Bot Development — TeleBots'
+    ? 'Website & Telegram Bot Development — TeleBots'
     : lang === 'pl'
-    ? 'Rozwój botów Telegram — TeleBots'
-    : 'Разработка телеграм ботов — TeleBots';
+    ? 'Rozwój stron i botów Telegram — TeleBots'
+    : 'Разработка сайтов и телеграм ботов — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Телеграм бот розробка, чат-боти, сайти, інтернет-магазини. Автоматизація бізнесу під ключ. Швидкий старт за 24 години, готове рішення за 2 тижні. 200+ проєктів.'
+    ? 'Розробка сайтів під ключ: лендинги, корпоративні сайти, інтернет-магазини, SEO. Чат-боти та телеграм боти, інтеграції. 200+ проєктів. Швидкий старт за 24 години.'
     : lang === 'en'
-    ? 'Telegram bot development, chatbots, websites, e-commerce. Turnkey business automation. Quick start in 24 hours, ready solution in 2 weeks. 200+ projects.'
+    ? 'Website development: landing pages, corporate sites, e-commerce, SEO. Telegram bots, chatbots, integrations. 200+ projects. Quick start in 24 hours.'
     : lang === 'pl'
-    ? 'Rozwój botów Telegram, chatboty, strony, sklepy online. Automatyzacja biznesu pod klucz. Szybki start w 24 godziny, gotowe rozwiązanie w 2 tygodnie. 200+ projektów.'
-    : 'Разработка телеграм ботов, чат-боты, сайты, интернет-магазины. Автоматизация бизнеса под ключ. Быстрый старт за 24 часа, готовое решение за 2 недели. 200+ проектов.';
+    ? 'Tworzenie stron: landingi, strony firmowe, sklepy online, SEO. Boty Telegram, chatboty, integracje. 200+ projektów. Szybki start w 24 godziny.'
+    : 'Разработка сайтов: лендинги, корпоративные сайты, интернет-магазины, SEO. Чат-боты и телеграм боты, интеграции. 200+ проектов. Быстрый старт за 24 часа.';
 
   const keywords = lang === 'uk'
-    ? 'телеграм бот розробка, розробка чат-ботів, розробка ботів для бізнесу, розробка сайтів, інтернет-магазин під ключ, автоматизація бізнесу, цифрові рішення для бізнесу, TeleBots, замовлення телеграм бота, веб-розробка, AI чат-бот, швидкий старт 24 години, готове рішення 2 тижні, 200+ проєктів'
+    ? 'розробка сайтів, створення сайту під ключ, веб-розробка, лендинг замовити, інтернет-магазин під ключ, розробка сайту SEO, телеграм бот розробка, розробка чат-ботів, автоматизація бізнесу, TeleBots, замовлення телеграм бота, AI чат-бот, 200+ проєктів'
     : lang === 'en'
-    ? 'telegram bot development, chatbot development, bot development for business, website development, e-commerce turnkey, business automation, digital solutions, TeleBots, order telegram bot, web development, AI chatbot, quick start 24 hours, ready solution 2 weeks, 200+ projects'
+    ? 'website development, landing page design, e-commerce development, corporate website, SEO web development, telegram bot development, chatbot for business, business automation, TeleBots, web development Ukraine, AI chatbot, 200+ projects'
     : lang === 'pl'
-    ? 'rozwój botów Telegram, rozwój chatbotów, boty dla biznesu, rozwój stron, sklep internetowy pod klucz, automatyzacja biznesu, rozwiązania cyfrowe, TeleBots, zamówienie bota Telegram, rozwój stron internetowych, chatbot AI, szybki start 24 godziny, gotowe rozwiązanie 2 tygodnie, 200+ projektów'
-    : 'разработка телеграм ботов, разработка чат-ботов, боты для бизнеса, разработка сайтов, интернет-магазин под ключ, автоматизация бизнеса, цифровые решения, TeleBots, заказать телеграм бота, веб-разработка, AI чат-бот, быстрый старт 24 часа, готовое решение 2 недели, 200+ проектов';
+    ? 'rozwój stron internetowych, strona firmowa, sklep online, landing page, SEO strony, rozwój botów Telegram, chatboty, automatyzacja biznesu, TeleBots, tworzenie stron www, chatbot AI, 200+ projektów'
+    : 'разработка сайтов, создание сайта под ключ, веб-разработка, лендинг заказать, интернет-магазин под ключ, SEO продвижение сайта, разработка телеграм ботов, чат-боты для бизнеса, автоматизация бизнеса, TeleBots, AI чат-бот, 200+ проектов';
 
   return {
     title,
