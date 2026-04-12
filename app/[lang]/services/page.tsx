@@ -6,8 +6,9 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import ServicesPassionSection from '@/components/ServicesPassionSection';
 import ServiceItem from '@/components/ServiceItem';
-import PricingTable from '@/components/PricingTable';
 import StatsSection from '@/components/StatsSection';
+import ContactDetailsColumn from '@/components/ContactDetailsColumn';
+import ContactFormBlock from '@/components/ContactFormBlock';
 import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
@@ -24,6 +25,7 @@ export default function ServicesPage() {
   const [lang, setLang] = useState<Language>(validLang);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
   const [selectedService, setSelectedService] = useState('');
 
   const t = translations[lang];
@@ -96,14 +98,16 @@ export default function ServicesPage() {
       request: data.request,
       service: selectedService,
     });
-    
+
     if (success) {
       closeModal();
+      setSuccessMessage(t.modal.success);
       setIsSuccessOpen(true);
     } else {
       alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
     }
   };
+
 
   const services = [
     {
@@ -167,20 +171,25 @@ export default function ServicesPage() {
       ))}
       </div>
 
-      <PricingTable
-        pricing={t.services.pricingChatbots}
-        lang={lang}
-        onContactClick={() => openModal(t.services.chatbotsPage.title)}
-        hideCategoryLabel
-      />
-      <PricingTable
-        pricing={t.services.pricingWebsites}
-        lang={lang}
-        onContactClick={() => openModal(t.services.websitesPage.title)}
-        hideCategoryLabel
-      />
-
       <StatsSection t={t} />
+
+      <section className="py-16 md:py-24 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
+          <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
+            <ContactFormBlock
+              t={t}
+              lang={lang}
+              onSuccess={() => {
+                setSuccessMessage(t.contact.success);
+                setIsSuccessOpen(true);
+              }}
+            />
+          </div>
+          <div className="mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20">
+            <ContactDetailsColumn t={t} />
+          </div>
+        </div>
+      </section>
         </main>
       <Footer
         t={t}
@@ -201,7 +210,7 @@ export default function ServicesPage() {
       <SuccessMessage
         isOpen={isSuccessOpen}
         onClose={() => setIsSuccessOpen(false)}
-        message={t.modal.success}
+        message={successMessage || t.modal.success}
       />
       </div>
     </>

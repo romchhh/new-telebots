@@ -21,13 +21,13 @@ export default function ServiceAudienceSection({ copy }: ServiceAudienceSectionP
           <span className="font-black text-black">{titleAccent}</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-6 md:gap-7">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
           {items.map((text, i) => {
             const num = String(i + 1).padStart(2, '0');
             return (
               <div
                 key={num}
-                className="w-[calc(50%-12px)] md:w-[calc(33.333%-16px)] min-w-[140px] max-w-[420px] rounded-3xl p-6 md:p-8 border border-gray-200/90 bg-white/95 backdrop-blur-sm shadow-[0_14px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_22px_52px_rgba(0,0,0,0.11)] hover:border-gray-300 hover:bg-white transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
+                className="min-w-0 rounded-3xl p-6 md:p-8 border border-gray-200/90 bg-white/95 backdrop-blur-sm shadow-[0_14px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_22px_52px_rgba(0,0,0,0.11)] hover:border-gray-300 hover:bg-white transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
               >
                 <div
                   className="text-4xl md:text-5xl font-light italic mb-4 md:mb-6 text-gray-900 leading-none tracking-tight"

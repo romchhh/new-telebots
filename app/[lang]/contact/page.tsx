@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect, FormEvent } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import Navigation from '@/components/Navigation';
+import ContactDetailsColumn from '@/components/ContactDetailsColumn';
+import ContactFormBlock from '@/components/ContactFormBlock';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import OrderModal from '@/components/OrderModal';
@@ -11,7 +12,6 @@ import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
-import { legal } from '@/lib/legal';
 
 export default function ContactPage() {
   const params = useParams();
@@ -23,12 +23,6 @@ export default function ContactPage() {
   const [lang, setLang] = useState<Language>(validLang);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    project: ''
-  });
-
   const t = translations[lang];
 
   useEffect(() => {
@@ -60,33 +54,9 @@ export default function ContactPage() {
     router.push(newPath);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
   const [titleRef, isTitleVisible] = useScrollAnimation();
   const [formRef, isFormVisible] = useScrollAnimation();
   const [contactsRef, isContactsVisible] = useScrollAnimation();
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    const success = await sendToTelegram({
-      name: formData.name,
-      phone: formData.phone,
-      project: formData.project,
-    });
-    
-    if (success) {
-      setFormData({ name: '', phone: '', project: '' });
-      setIsSuccessOpen(true);
-    } else {
-      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
-    }
-  };
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -147,7 +117,7 @@ export default function ContactPage() {
         className="w-full bg-black mt-16 py-20 shrink-0"
         aria-hidden
       />
-      <section className="pt-12 md:pt-16 pb-32 px-6 bg-white">
+      <section id="contact-form" className="pt-12 md:pt-16 pb-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div ref={titleRef} className={`mb-20 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`}>
             <h1 className="text-4xl lg:text-6xl font-black text-black leading-tight mb-8">
@@ -158,125 +128,19 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            <div ref={formRef} className={`scroll-animate-left ${isFormVisible ? 'animate' : ''}`}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-10 md:mb-12 leading-tight">
-                {t.contact.formTitle}
-              </h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-10">
-                <div>
-                  <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
-                    {t.contact.name} *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    placeholder={t.contact.namePlaceholder}
-                    className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
-                    {t.contact.phone} *
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    placeholder={t.contact.phonePlaceholder}
-                    className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
-                    {t.contact.project}
-                  </label>
-                  <textarea
-                    name="project"
-                    value={formData.project}
-                    onChange={handleChange}
-                    rows={4}
-                    placeholder={t.contact.projectPlaceholder}
-                    className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent resize-none"
-                  />
-                </div>
-
-                <div className="w-full text-center pt-2">
-                  <button
-                    type="submit"
-                    className="inline-flex items-center justify-center min-w-[min(100%,280px)] sm:min-w-[300px] md:min-w-[340px] px-14 py-5 md:px-16 md:py-6 text-white font-semibold text-lg md:text-xl rounded-full transition hover:opacity-90 bg-black tracking-wide"
-                  >
-                    {t.contact.submit}
-                  </button>
-                </div>
-              </form>
-
-              <p className="text-gray-600 font-semibold mt-12 leading-relaxed text-lg">
-                {t.contact.help}
-              </p>
+          <div className="grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
+            <div
+              ref={formRef}
+              className={`scroll-animate-left ${isFormVisible ? 'animate' : ''} lg:pr-10 xl:pr-14 2xl:pr-20`}
+            >
+              <ContactFormBlock t={t} lang={lang} onSuccess={() => setIsSuccessOpen(true)} />
             </div>
 
-            <div ref={contactsRef} className={`scroll-animate-right ${isContactsVisible ? 'animate' : ''}`}>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-10 md:mb-12 leading-tight">
-                {t.contact.contacts}
-              </h2>
-              
-              <div className="space-y-8">
-                <div className="pb-6 border-b border-gray-200">
-                  <p className="text-lg font-black text-black">{t.footer.companyName}</p>
-                  <p className="text-gray-600 font-semibold mt-1 break-all">{t.footer.footerIban}: {legal.iban}</p>
-                  <p className="text-gray-600 font-semibold mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</p>
-                  <p className="text-gray-600 font-semibold mt-2">{t.footer.address}: {t.footer.legalAddress}</p>
-                </div>
-
-                <div className="pb-6 border-b border-gray-200">
-                  <a href={`tel:${legal.phoneRaw}`} className="text-2xl font-black text-black hover:text-gray-600 transition">
-                    {legal.phone}
-                  </a>
-                </div>
-
-                <div className="pb-6 border-b border-gray-200">
-                  <a href={`mailto:${legal.email}`} className="text-xl font-black text-black hover:text-gray-600 transition break-all">
-                    {legal.email}
-                  </a>
-                </div>
-
-                <div className="pt-4 space-y-4">
-                  <a
-                    href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-center gap-3 bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
-                  >
-                    <FaWhatsapp className="w-6 h-6 flex-shrink-0" aria-hidden />
-                    <span className="tracking-wider font-black">{t.contact.whatsapp}</span>
-                    <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">
-                      <div className="w-8 h-px bg-white"></div>
-                    </div>
-                  </a>
-                  
-                  <a
-                    href="https://t.me/telebotsnowayrm"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-center gap-3 bg-black text-white py-4 px-6 hover:bg-gray-900 transition-all duration-300 w-full rounded-full"
-                  >
-                    <FaTelegramPlane className="w-6 h-6 flex-shrink-0" aria-hidden />
-                    <span className="tracking-wider font-black">{t.contact.telegram}</span>
-                    <div className="w-0 group-hover:w-8 overflow-hidden transition-all duration-300 ml-0 group-hover:ml-3">
-                      <div className="w-8 h-px bg-white"></div>
-                    </div>
-                  </a>
-                </div>
-              </div>
+            <div
+              ref={contactsRef}
+              className={`scroll-animate-right ${isContactsVisible ? 'animate' : ''} mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20`}
+            >
+              <ContactDetailsColumn t={t} />
             </div>
           </div>
         </div>

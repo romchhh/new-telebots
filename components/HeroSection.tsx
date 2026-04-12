@@ -34,7 +34,8 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
       </div>
 
       {/* Градієнт затемнення знизу */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+      <div className="absolute inset-0 bg-black/15" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-black/5" />
 
       {/* Зона під верхні елементи — на мобільному менша, щоб текст був вище */}
       <div

@@ -30,6 +30,7 @@ export async function GET() {
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/refund', priority: 0.3, changeFrequency: 'yearly' },
+    { path: '/pricing', priority: 0.65, changeFrequency: 'monthly' },
   ];
 
   const now = new Date().toISOString().slice(0, 10);

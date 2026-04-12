@@ -32,15 +32,24 @@ interface PricingTableProps {
   onContactClick?: () => void;
   /** Приховати верхній рядок з categoryLabel (напр. «Веб-сайти») на сторінках послуг */
   hideCategoryLabel?: boolean;
+  /** Менші відступи та без горизонтального padding — для вбудовування на сторінку «Ціни» */
+  embedded?: boolean;
 }
 
 function showCurrency(price: string): boolean {
   return !price.includes('+') && !/індивідуально|individual|indywidualnie|индивидуально/i.test(price);
 }
 
-export default function PricingTable({ pricing, lang, onContactClick, hideCategoryLabel }: PricingTableProps) {
+export default function PricingTable({
+  pricing,
+  lang,
+  onContactClick,
+  hideCategoryLabel,
+  embedded,
+}: PricingTableProps) {
+  const sectionPad = embedded ? 'py-8 sm:py-10 px-0' : 'py-16 sm:py-20 px-4 sm:px-6';
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
+    <section className={`${sectionPad} bg-white`}>
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 sm:mb-16">
           {!hideCategoryLabel && (

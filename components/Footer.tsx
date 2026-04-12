@@ -172,6 +172,9 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
             <Link href={`/${currentLanguage}/refund`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
               {t.footer.refund}
             </Link>
+            <Link href={`/${currentLanguage}/pricing`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
+              {t.footer.pricing}
+            </Link>
           </div>
         </div>
       </div>

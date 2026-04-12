@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { cases } from '@/components/cases';
 import ServiceHeroSection from '@/components/ServiceHeroSection';
 import ServiceAudienceSection from '@/components/ServiceAudienceSection';
+import ContactDetailsColumn from '@/components/ContactDetailsColumn';
+import ContactFormBlock from '@/components/ContactFormBlock';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import PricingTable from '@/components/PricingTable';
@@ -33,6 +35,7 @@ export default function ServicePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
 
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(validLang);
@@ -88,6 +91,7 @@ export default function ServicePage() {
   const [portfolioRef, isPortfolioVisible] = useScrollAnimation();
   const [pricingRef, isPricingVisible] = useScrollAnimation();
   const [ctaRef, isCtaVisible] = useScrollAnimation();
+  const [contactBlockRef, isContactBlockVisible] = useScrollAnimation();
 
   const handleSubmit = async (data: { name: string; phone: string; request: string }) => {
     const success = await sendToTelegram({
@@ -98,6 +102,7 @@ export default function ServicePage() {
     });
     if (success) {
       closeModal();
+      setSuccessMessage(t.modal.success);
       setIsSuccessOpen(true);
     } else {
       alert(lang === 'uk' ? 'Помилка відправки. Спробуйте ще раз.' : 'Error sending. Please try again.');
@@ -422,6 +427,28 @@ export default function ServicePage() {
               </button>
             </div>
           </section>
+
+          <section
+            ref={contactBlockRef}
+            className={`py-16 md:py-24 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isContactBlockVisible ? 'animate' : ''}`}
+          >
+            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
+              <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
+                <ContactFormBlock
+                  t={t}
+                  lang={lang}
+                  serviceName={serviceTitle}
+                  onSuccess={() => {
+                    setSuccessMessage(t.contact.success);
+                    setIsSuccessOpen(true);
+                  }}
+                />
+              </div>
+              <div className="mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20">
+                <ContactDetailsColumn t={t} />
+              </div>
+            </div>
+          </section>
         </main>
 
         <Footer
@@ -442,7 +469,7 @@ export default function ServicePage() {
         <SuccessMessage
           isOpen={isSuccessOpen}
           onClose={() => setIsSuccessOpen(false)}
-          message={t.modal.success}
+          message={successMessage || t.modal.success}
         />
       </div>
     </>
