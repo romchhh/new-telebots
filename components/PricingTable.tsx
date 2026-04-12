@@ -30,22 +30,26 @@ interface PricingTableProps {
   pricing: PricingData;
   lang: string;
   onContactClick?: () => void;
+  /** Приховати верхній рядок з categoryLabel (напр. «Веб-сайти») на сторінках послуг */
+  hideCategoryLabel?: boolean;
 }
 
 function showCurrency(price: string): boolean {
   return !price.includes('+') && !/індивідуально|individual|indywidualnie|индивидуально/i.test(price);
 }
 
-export default function PricingTable({ pricing, lang, onContactClick }: PricingTableProps) {
+export default function PricingTable({ pricing, lang, onContactClick, hideCategoryLabel }: PricingTableProps) {
   return (
     <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="mb-12 sm:mb-16">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-xs font-black text-black tracking-[0.3em] uppercase">
-              {pricing.categoryLabel}
-            </span>
-          </div>
+          {!hideCategoryLabel && (
+            <div className="flex items-center gap-4 mb-4">
+              <span className="text-xs font-black text-black tracking-[0.3em] uppercase">
+                {pricing.categoryLabel}
+              </span>
+            </div>
+          )}
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight mb-4">
             {pricing.title}
           </h2>

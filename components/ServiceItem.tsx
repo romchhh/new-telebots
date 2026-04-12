@@ -29,8 +29,13 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
 
   return (
     <section className="bg-white">
-      <div className={`grid lg:grid-cols-2 ${imagePosition === 'left' ? 'lg:grid-flow-dense' : ''}`}>
-        <div className={`p-12 lg:p-24 flex flex-col justify-center ${imagePosition === 'left' ? 'lg:col-start-2' : ''} ${animationClass} ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
+      <div
+        className={`grid lg:grid-cols-2 lg:items-start ${imagePosition === 'left' ? 'lg:grid-flow-dense' : ''}`}
+      >
+        <div
+          className={`px-12 pt-12 pb-12 lg:px-24 lg:pb-24 lg:pt-0 flex flex-col justify-start ${imagePosition === 'left' ? 'lg:col-start-2' : ''} ${animationClass} ${isContentVisible ? 'animate' : ''}`}
+          ref={contentRef}
+        >
           <h2 className="text-4xl md:text-6xl font-black text-black mb-6 leading-tight">
             {service.title}
           </h2>

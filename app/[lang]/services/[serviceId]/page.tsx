@@ -5,6 +5,8 @@ import { useParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cases } from '@/components/cases';
+import ServiceHeroSection from '@/components/ServiceHeroSection';
+import ServiceAudienceSection from '@/components/ServiceAudienceSection';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import PricingTable from '@/components/PricingTable';
@@ -81,6 +83,7 @@ export default function ServicePage() {
   const closeModal = () => setIsModalOpen(false);
 
   const [descRef, isDescVisible] = useScrollAnimation();
+  const [offerRef, isOfferVisible] = useScrollAnimation();
   const [blocksRef, isBlocksVisible] = useScrollAnimation();
   const [portfolioRef, isPortfolioVisible] = useScrollAnimation();
   const [pricingRef, isPricingVisible] = useScrollAnimation();
@@ -120,6 +123,17 @@ export default function ServicePage() {
       subtitle: data.subtitle || '',
     }));
 
+  const featured = serviceCases[0];
+  const featuredImage = featured?.image ?? '/portfolio/portfolio-default.jpg';
+  const featuredHref = featured ? `/${lang}/portfolio/${featured.caseId}` : `/${lang}/portfolio`;
+
+  const serviceExtended = service as typeof service & {
+    serviceHero?: import('@/components/ServiceHeroSection').ServiceHeroCopy;
+    audienceSection?: import('@/components/ServiceAudienceSection').ServiceAudienceCopy;
+    descriptionSectionTitle?: string;
+  };
+  const heroCopy = serviceExtended.serviceHero;
+
   return (
     <>
       <StructuredData type="organization" />
@@ -148,50 +162,83 @@ export default function ServicePage() {
           onConsultClick={openModal}
         />
         <main id="main-content">
-          {/* Hero: photo + info + CTA */}
-          <section className="relative min-h-[70vh] flex items-end justify-center overflow-hidden">
-            <div className="absolute inset-0">
-              <Image
-                src={imageSrc}
-                alt={`${serviceTitle} - TeleBots`}
-                fill
-                className="object-cover"
-                sizes="100vw"
-                quality={80}
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" />
-            </div>
-            <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
-              <div className="max-w-4xl">
-                <h1 className="font-bold text-white mb-4 md:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl" style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.05em' }}>
-                  {serviceTitle}
-                </h1>
-                <p className="text-white/95 text-xl sm:text-2xl md:text-3xl mb-8 md:mb-10 max-w-3xl leading-relaxed">
-                  {service.subtitle}
-                </p>
-                <button
-                  onClick={openModal}
-                  className="inline-flex items-center justify-center bg-white text-black font-black px-8 py-4 md:px-10 md:py-5 rounded-full hover:bg-gray-100 transition-colors uppercase tracking-wider text-base md:text-lg"
-                >
-                  {service.button}
-                </button>
+          {heroCopy ? (
+            <ServiceHeroSection
+              imageSrc={imageSrc}
+              imageAlt={`${serviceTitle} — TeleBots`}
+              hero={heroCopy}
+              viewButtonLabel={t.hero.viewButton}
+              orderButtonLabel={service.button}
+              onOrderClick={openModal}
+              scrollTargetId="service-main"
+            />
+          ) : (
+            <section className="relative min-h-[70vh] flex items-end justify-center overflow-hidden">
+              <div className="absolute inset-0">
+                <Image
+                  src={imageSrc}
+                  alt={`${serviceTitle} - TeleBots`}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                  quality={80}
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" />
               </div>
-            </div>
-          </section>
+              <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
+                <div className="max-w-4xl">
+                  <h1
+                    className="font-bold text-white mb-4 md:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+                    style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.05em' }}
+                  >
+                    {serviceTitle}
+                  </h1>
+                  <p className="text-white/95 text-xl sm:text-2xl md:text-3xl mb-8 md:mb-10 max-w-3xl leading-relaxed">{service.subtitle}</p>
+                  <button
+                    type="button"
+                    onClick={openModal}
+                    className="inline-flex items-center justify-center bg-white text-black font-black px-8 py-4 md:px-10 md:py-5 rounded-full hover:bg-gray-100 transition-colors uppercase tracking-wider text-base md:text-lg"
+                  >
+                    {service.button}
+                  </button>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Блок «для вас, якщо» — після героя */}
+          {serviceExtended.audienceSection && serviceExtended.audienceSection.items.length > 0 && (
+            <section
+              ref={offerRef}
+              id="service-main"
+              className={`bg-gradient-to-b from-gray-50 to-white scroll-animate-up ${isOfferVisible ? 'animate' : ''}`}
+            >
+              <ServiceAudienceSection copy={serviceExtended.audienceSection} />
+            </section>
+          )}
 
           {/* Short description — типографіка та ефект при скролі */}
-          <section ref={descRef} className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white scroll-animate-up ${isDescVisible ? 'animate' : ''}`}>
+          <section
+            ref={descRef}
+            id={!serviceExtended.audienceSection?.items?.length ? 'service-main' : undefined}
+            className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white scroll-animate-up ${isDescVisible ? 'animate' : ''}`}
+          >
             <div className="max-w-4xl mx-auto space-y-10">
+              {serviceExtended.descriptionSectionTitle ? (
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight text-center mb-8 md:mb-10">
+                  {serviceExtended.descriptionSectionTitle}
+                </h2>
+              ) : null}
               <p className="text-xl md:text-2xl lg:text-[1.75rem] text-gray-700 leading-[1.7] tracking-tight font-normal">
                 {service.description}
               </p>
 
               {serviceStructure && (
                 <div className="space-y-6">
-                  <h1 className="text-3xl md:text-4xl font-black text-black">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
                     {serviceStructure.mainTitle}
-                  </h1>
+                  </h2>
                   <div className="space-y-3">
                     <h2 className="text-xl md:text-2xl font-semibold text-black">
                       {serviceStructure.leadGenTitle}
@@ -226,7 +273,8 @@ export default function ServicePage() {
             const itemClass = 'flex items-start gap-4';
             const dotClass = 'text-black mt-2 w-2 h-2 rounded-full bg-black flex-shrink-0';
             const textClass = 'text-gray-700 text-base md:text-lg leading-[1.65] tracking-tight';
-            const headingClass = 'text-xs font-black text-black tracking-[0.25em] uppercase mb-6';
+            const headingClass =
+              'text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight mb-6';
             return (
               <section ref={blocksRef} className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-gray-50/90 scroll-animate-up ${isBlocksVisible ? 'animate' : ''}`}>
                 <div className="max-w-6xl mx-auto">
@@ -272,11 +320,14 @@ export default function ServicePage() {
 
           {/* Portfolio link + мікро-кейси — стиль як на головній + ефект при скролі */}
           <section ref={portfolioRef} className={`bg-black text-white py-16 md:py-20 lg:py-24 px-6 md:px-10 lg:px-16 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
-            <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-0 min-w-0">
-              <div className="flex flex-col justify-center">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
+            <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center min-h-0 min-w-0">
+              <div className="flex flex-col justify-center order-2 lg:order-1">
+                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-5 sm:mb-6 leading-tight">
                   {t.services.servicePagePortfolioTitle}
                 </h2>
+                <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-xl mb-8">
+                  {t.services.servicePagePortfolioSubtitle}
+                </p>
                 <Link
                   href={`/${lang}/portfolio`}
                   className="group flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
@@ -284,23 +335,26 @@ export default function ServicePage() {
                   <span className="text-sm font-semibold tracking-wider text-center leading-tight">{t.portfolio.viewPortfolio}</span>
                 </Link>
               </div>
-              <div className="relative w-full min-w-0 flex flex-col justify-center">
-                <div className="relative w-full aspect-[1500/970] rounded-lg overflow-hidden">
-                  <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+              <div className="relative w-full min-w-0 flex flex-col justify-center order-1 lg:order-2">
+                <Link href={featuredHref} className="block group relative w-full aspect-[1500/970] rounded-xl overflow-hidden ring-1 ring-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">
+                  <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/85" />
                   <Image
-                    src="/portfolio/portfolio-default.jpg"
-                    alt={t.portfolio.featuredProject}
+                    src={featuredImage}
+                    alt={featured?.title ?? t.portfolio.featuredProject}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     sizes="(max-width: 1024px) 100vw, 50vw"
-                    quality={80}
+                    quality={85}
                     loading="lazy"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 sm:p-6 z-10">
-                    <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-1">{t.portfolio.website}</p>
-                    <h3 className="text-lg sm:text-xl font-black">{t.portfolio.featuredProject}</h3>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/85 to-transparent p-4 sm:p-6 z-10">
+                    <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-1">{t.portfolio.viewDetails}</p>
+                    <h3 className="text-lg sm:text-xl font-black">{featured?.title ?? t.portfolio.featuredProject}</h3>
+                    {featured?.subtitle ? (
+                      <p className="text-sm text-gray-300 mt-2 line-clamp-2">{featured.subtitle}</p>
+                    ) : null}
                   </div>
-                </div>
+                </Link>
 
                 {serviceCases.length > 0 && (
                   <div className="mt-8 overflow-hidden w-full min-w-0">
@@ -349,6 +403,7 @@ export default function ServicePage() {
                 pricing={t.services[getPricingKey(serviceId)]}
                 lang={lang}
                 onContactClick={openModal}
+                hideCategoryLabel
               />
             </div>
           )}

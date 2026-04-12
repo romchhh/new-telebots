@@ -165,6 +165,31 @@ export const translations = {
         subtitle: 'Мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce',
         description: 'Розробляємо мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce рішення. Швидкі, зручний адмін, SEO та інтеграції під ключ. За потреби підключаємо AI-функції — чат-боти, аналітику та автоматизацію бізнес-процесів. Маєте ідею? Будемо раді обговорити та підказати найкраще рішення. Багато запитів у клієнтів? Можемо співпрацювати як підрядники — разом реалізуємо більше проєктів і збільшимо прибуток.',
         button: 'Замовити розробку',
+        serviceHero: {
+          tagline: 'Швидкі сайти з адмінкою, SEO та інтеграціями — без зайвого коду з вашого боку.',
+          title: 'Сайт, який продає: лендинги, корпоративні портали та e-commerce під ключ',
+          subtitle: 'Next.js, адаптив, оплати та аналітика — одна команда від ТЗ до запуску',
+          intro:
+            'Безкоштовна консультація, прозорі терміни й підтримка після релізу. 200+ проєктів за плечима — знаємо, як звести дизайн, швидкість і конверсію в одне рішення.',
+          ctaQuestion: 'Обговоримо вашу задачу без зобовʼязань?',
+          startDate: { label: 'швидкий старт', value: 'від 1 тижня' },
+          duration: { label: 'типовий лендинг', value: '1–2 тижні' },
+        },
+        audienceSection: {
+          title: 'Цей формат для вас, якщо',
+          titleAccent: 'ви:',
+          items: [
+            'Потрібен сучасний сайт, який швидко відкривається на телефоні та коректно виглядає на всіх екранах',
+            'Хочете збирати заявки та підключити оплату без «зоопарку» зайвих плагінів і незрозумілої підтримки',
+            'Плануєте інтернет-магазин або каталог товарів із зручною адмінкою для команди',
+            'Важлива видимість у пошуку та зрозуміла аналітика: хто заходить і що робить на сайті',
+            'Потрібні інтеграції з CRM, месенджерами, email або рекламними системами',
+            'Не хочете залежати від конструктора з жорсткими обмеженнями та шаблонами «як у всіх»',
+            'Шукаєте підрядника «під ключ»: від ТЗ і структури до запуску та супроводу',
+            'Готові інвестувати в рішення, яке можна масштабувати та розвивати після релізу',
+          ],
+        },
+        descriptionSectionTitle: 'Про послугу',
         structure: {
           mainTitle: 'Розробка сайтів для бізнесу',
           leadGenTitle: 'Лендинги та посадкові сторінки',
@@ -178,6 +203,31 @@ export const translations = {
         subtitle: 'Боти, які ведуть клієнта до покупки: оплата, CRM, підтвердження. Telegram, WhatsApp, Viber, Messenger',
         description: 'Бот, який не просто відповідає — а веде клієнта до покупки: приймає оплату (Mono, WayForPay, LiqPay), записує в CRM або Google Sheets, надсилає підтвердження. Автоматизація продажів у месенджері без втрати особистого підходу; за бажанням — AI-відповіді та аналітика. Швидкий старт за 24 години, перевірено на 200+ проєктах. Маєте ідею? Обговоримо та підкажемо найкраще рішення. Працюємо і як підрядники: багато заявок — разом реалізуємо більше і збільшимо прибуток.',
         button: 'Замовити розробку',
+        serviceHero: {
+          tagline: 'Бот у месенджері закриває перші запити та заявки 24/7 — поки ви займаєтесь бізнесом.',
+          title: 'Чат-боти, що ведуть до оплати: Telegram, WhatsApp, Viber, Messenger',
+          subtitle: 'Оплати, CRM, розсилки та AI — під ваші продажі й підтримку',
+          intro:
+            'Старт простих сценаріїв — за 24 години; складніші сценарії з оплатами та інтеграціями — поетапно й прозоро. Один контакт — від ідеї до робочого бота.',
+          ctaQuestion: 'Підберемо архітектуру під ваші продажі?',
+          startDate: { label: 'перший прототип', value: 'за 24 год' },
+          duration: { label: 'повний цикл', value: '2–4 тижні' },
+        },
+        audienceSection: {
+          title: 'Цей формат для вас, якщо',
+          titleAccent: 'ви:',
+          items: [
+            'Потрібно автоматизувати перші відповіді та збір заявок у Telegram, WhatsApp чи Viber',
+            'Хочете приймати оплату в месенджері та одразу фіксувати замовлення в CRM або таблиці',
+            'Менеджери витрачають час на одні й ті самі питання — їх може закрити сценарій бота',
+            'Потрібні розсилки, нагадування та статуси замовлення без ручних таблиць',
+            'Плануєте каталог, кошик або підписки прямо в чаті',
+            'Хочете підключити AI для відповідей або класифікації звернень',
+            'Потрібен стабільний продакшн: база, платежі, webhook-и та підтримка після запуску',
+            'Розглядаєте співпрацю як для власного бізнесу, так і white-label для клієнтів',
+          ],
+        },
+        descriptionSectionTitle: 'Про послугу',
         structure: {
           mainTitle: 'Телеграм-боти для бізнесу',
           leadGenTitle: 'Боти для генерації лідів',
@@ -204,6 +254,31 @@ export const translations = {
         subtitle: 'Лого, айдентика, UI/UX для сайтів та додатків. Зручні інтерфейси, що працюють на конверсію',
         description: 'Логотип і фірмовий стиль, які запам\'ятовуються. UI/UX для сайтів та додатків: прототипи в Figma, айдентика, брендбуки, візитки та соцмережі. Інтерфейс не лише виглядає — а й працює на конверсію та впізнаваність. В команді досвідчений UI/UX дизайнер — від ідеї до макетів під передачу в розробку. Маєте ідею? Раді обговорити та підказати найкраще рішення. Готові співпрацювати як підрядники для агенцій з великим потоком проєктів.',
         button: 'Замовити дизайн',
+        serviceHero: {
+          tagline: 'Лого та інтерфейси, які працюють на впізнаваність і конверсію — не лише «красиву картинку».',
+          title: 'Брендинг та UI/UX: від логотипу до макетів у Figma',
+          subtitle: 'Айдентика, веб-дизайн і передача в розробку — в одному контурі з командою TeleBots',
+          intro:
+            '2–3 раунди правок у межах ТЗ, файли для друку та коду. Знаємо, як звести бренд і технічну реалізацію, щоб верстка виглядала як у макеті.',
+          ctaQuestion: 'Розкажіть про бренд — запропонуємо формат і обсяг?',
+          startDate: { label: 'концепт лого', value: '3–7 днів' },
+          duration: { label: 'UI/UX проєкт', value: 'від 2 тижнів' },
+        },
+        audienceSection: {
+          title: 'Цей формат для вас, якщо',
+          titleAccent: 'ви:',
+          items: [
+            'Запускаєте продукт або ребрендинг і потрібен логотип та основи фірмового стилю',
+            'Сайт або застосунок «тягне» застарілий вигляд — потрібен сучасний UI/UX і структура екранів',
+            'Хочете, щоб інтерфейс вів користувача до цілі: заявки, покупка, запис',
+            'Потрібні макети в Figma з передачею в розробку без втрати ідеї та відступів',
+            'Працюєте з поліграфією та соцмережами — потрібні узгоджені кольори, шрифти та носії',
+            'Є технічна команда — потрібні специфікації, компоненти та дизайн-система',
+            'Важлива узгодженість бренду на всіх точках контакту з клієнтом',
+            'Шукаєте дизайнера, який розуміє обмеження верстки та співпрацює з розробниками',
+          ],
+        },
+        descriptionSectionTitle: 'Про послугу',
         structure: {
           mainTitle: 'Брендинг та UI/UX дизайн для бізнесу',
           leadGenTitle: 'Розробка логотипу та айдентики',
@@ -214,6 +289,8 @@ export const translations = {
       },
       serviceLearnMore: 'Дізнатися детальніше',
       servicePagePortfolioTitle: 'Приклади робіт',
+      servicePagePortfolioSubtitle:
+        'Реальні кейси: задача клієнта, стек і результат. Перейдіть до повного портфоліо або відкрийте картку проєкту.',
       servicePageIndividualPricingTitle: 'Індивідуальний розрахунок',
       servicePageIndividualPricingDesc: 'Вартість залежить від обсягу та складності проєкту. Зв\'яжіться з нами для безкоштовної консультації та розрахунку.',
       stats: {
@@ -608,6 +685,31 @@ export const translations = {
         subtitle: 'Minimalist premium sites with free consultation: landings, business card sites and premium e-commerce',
         description: 'We build minimalist premium sites with free consultation: landings, business card sites and premium e-commerce solutions. Fast, easy admin, SEO and integrations turnkey. When needed we add AI — chatbots, analytics and business process automation. Got an idea? We\'re happy to discuss and suggest the best approach. Lots of client requests? We can work as subcontractors to deliver more projects and grow revenue together.',
         button: 'Order Development',
+        serviceHero: {
+          tagline: 'Fast sites with admin, SEO, and integrations — without you touching code.',
+          title: 'Websites that sell: landings, corporate sites, and e-commerce end-to-end',
+          subtitle: 'Next.js, responsive layouts, payments, and analytics — one team from spec to launch',
+          intro:
+            'Free consultation, clear timelines, and post-launch support. 200+ projects behind us — we know how to align design, speed, and conversion.',
+          ctaQuestion: 'Want to talk through your goals with no commitment?',
+          startDate: { label: 'quick kickoff', value: 'from 1 week' },
+          duration: { label: 'typical landing', value: '1–2 weeks' },
+        },
+        audienceSection: {
+          title: 'This is for you if',
+          titleAccent: 'you:',
+          items: [
+            'You need a modern site that loads fast on phones and looks right on every screen size',
+            'You want lead capture and payments without a jungle of plugins and unclear maintenance',
+            'You are planning an online store or product catalog with a practical admin for your team',
+            'Search visibility and clear analytics matter: who visits and what they do on the site',
+            'You need CRM, messengers, email, or ad platform integrations',
+            'You do not want to be locked into a rigid builder with the same templates as everyone else',
+            'You want an end-to-end partner: structure, build, launch, and ongoing care',
+            'You are ready to invest in a solution you can scale and evolve after release',
+          ],
+        },
+        descriptionSectionTitle: 'About the service',
         structure: {
           mainTitle: 'Conversion-Focused Websites for Business',
           leadGenTitle: 'Landing Pages & One-Page Websites',
@@ -621,6 +723,31 @@ export const translations = {
         subtitle: 'Bots that lead the customer to purchase: payments, CRM, confirmations. Telegram, WhatsApp, Viber, Messenger',
         description: 'A bot that doesn\'t just reply — it leads the customer to purchase: accepts payments (Mono, WayForPay, LiqPay), logs to CRM or Google Sheets, sends confirmations. Sales automation in the messenger without losing a personal touch; optionally AI replies and analytics. Quick start in 24 hours, proven on 200+ projects. Got an idea? Let\'s discuss and we\'ll suggest the best solution. We also work as subcontractors: more leads — we deliver more together and grow profit.',
         button: 'Order Development',
+        serviceHero: {
+          tagline: 'A messenger bot handles first-line requests and leads 24/7 while you run the business.',
+          title: 'Chatbots that drive payments: Telegram, WhatsApp, Viber, Messenger',
+          subtitle: 'Payments, CRM, broadcasts, and AI — mapped to your sales and support',
+          intro:
+            'Simple flows can start in 24 hours; larger builds with payments and integrations ship in clear stages. One partner from idea to a working bot.',
+          ctaQuestion: 'Want us to propose an architecture for your sales flow?',
+          startDate: { label: 'first prototype', value: 'in 24h' },
+          duration: { label: 'full build', value: '2–4 weeks' },
+        },
+        audienceSection: {
+          title: 'This is for you if',
+          titleAccent: 'you:',
+          items: [
+            'You need to automate first-line replies and lead capture in Telegram, WhatsApp, or Viber',
+            'You want in-chat payments with orders logged to CRM or a spreadsheet',
+            'Managers spend time on the same questions — a script can handle the repetitive part',
+            'You need broadcasts, reminders, and order status without manual spreadsheets',
+            'You plan a catalog, cart, or subscriptions inside the chat',
+            'You want AI for answers or ticket classification',
+            'You need production-grade setup: database, payments, webhooks, and post-launch support',
+            'You may use it for your own business or as a white-label offer for clients',
+          ],
+        },
+        descriptionSectionTitle: 'About the service',
         structure: {
           mainTitle: 'Telegram Bots for Business',
           leadGenTitle: 'Lead Generation Bots',
@@ -647,6 +774,31 @@ export const translations = {
         subtitle: 'Logo, identity, UI/UX for websites and apps. Interfaces that work for conversion',
         description: 'A logo and brand identity that stick in people\'s minds. UI/UX for websites and apps: Figma prototypes, identity, brand books, business cards and socials. The interface doesn\'t just look good — it works for conversion and recognition. Experienced UI/UX designer on the team — from idea to handoff-ready mockups. Got an idea? We\'re happy to discuss and suggest the best solution. We also partner as subcontractors for agencies with a strong project flow.',
         button: 'Order Design',
+        serviceHero: {
+          tagline: 'Logos and interfaces built for recognition and conversion — not just pretty screens.',
+          title: 'Branding & UI/UX: from logo to Figma-ready layouts',
+          subtitle: 'Identity, web design, and dev handoff — aligned with the TeleBots build team',
+          intro:
+            '2–3 revision rounds within scope, print- and code-ready exports. We bridge brand and engineering so the build matches the mockups.',
+          ctaQuestion: 'Tell us about the brand — we will suggest scope and format.',
+          startDate: { label: 'logo concept', value: '3–7 days' },
+          duration: { label: 'UI/UX scope', value: 'from 2 weeks' },
+        },
+        audienceSection: {
+          title: 'This is for you if',
+          titleAccent: 'you:',
+          items: [
+            'You are launching a product or rebrand and need a logo and core brand foundations',
+            'Your site or app looks outdated — you need modern UI/UX and screen structure',
+            'You want interfaces that guide users toward goals: leads, purchase, booking',
+            'You need Figma mockups with a clean handoff so development stays faithful to the design',
+            'You use print and socials — you need aligned colors, fonts, and touchpoints',
+            'You have a dev team — you need specs, components, and a small design system',
+            'Brand consistency across every customer touchpoint is important',
+            'You want a designer who understands layout constraints and works with engineers',
+          ],
+        },
+        descriptionSectionTitle: 'About the service',
         structure: {
           mainTitle: 'Branding and UI/UX Design for Business',
           leadGenTitle: 'Logo and Brand Identity Design',
@@ -657,6 +809,8 @@ export const translations = {
       },
       serviceLearnMore: 'Learn more',
       servicePagePortfolioTitle: 'Our work',
+      servicePagePortfolioSubtitle:
+        'Real cases: client goals, stack, and outcomes. Open the full portfolio or dive into a project page.',
       servicePageIndividualPricingTitle: 'Individual pricing',
       servicePageIndividualPricingDesc: 'Cost depends on scope and complexity. Contact us for a free consultation and quote.',
       stats: {
@@ -1051,6 +1205,31 @@ export const translations = {
         subtitle: 'Minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i premium e-commerce',
         description: 'Tworzymy minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i rozwiązania e-commerce. Szybko, wygodny panel, SEO i integracje pod klucz. W razie potrzeby dołączamy AI — chatboty, analitykę i automatyzację procesów. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Dużo zapytań od klientów? Możemy współpracować jako podwykonawcy — razem zrealizujemy więcej projektów i zwiększymy zyski.',
         button: 'Zamów rozwój',
+        serviceHero: {
+          tagline: 'Szybkie strony z panelem, SEO i integracjami — bez pisania kodu po Twojej stronie.',
+          title: 'Strony, które sprzedają: landingi, serwisy firmowe i e-commerce pod klucz',
+          subtitle: 'Next.js, responsywność, płatności i analityka — jeden zespół od specyfikacji do startu',
+          intro:
+            'Darmowa konsultacja, jasne terminy i wsparcie po wdrożeniu. 200+ projektów w portfolio — wiemy, jak połączyć design, szybkość i konwersję.',
+          ctaQuestion: 'Omówimy Twój cel bez zobowiązań?',
+          startDate: { label: 'szybki start', value: 'od 1 tygodnia' },
+          duration: { label: 'typowy landing', value: '1–2 tygodnie' },
+        },
+        audienceSection: {
+          title: 'Ten format jest dla Ciebie, jeśli',
+          titleAccent: 'Ty:',
+          items: [
+            'Potrzebujesz nowoczesnej strony, która szybko ładuje się na telefonie i wygląda dobrze na każdym ekranie',
+            'Chcesz zbierać leady i podłączyć płatności bez dżungli wtyczek i niejasnego wsparcia',
+            'Planujesz sklep internetowy lub katalog produktów z wygodnym panelem dla zespołu',
+            'Zależy Ci na widoczności w wyszukiwarce i przejrzystej analityce: kto wchodzi i co robi',
+            'Potrzebujesz integracji z CRM, komunikatorami, e-mailem lub reklamą',
+            'Nie chcesz być uzależniony od sztywnego konstruktora z tymi samymi szablonami co wszyscy',
+            'Szukasz wykonawcy „pod klucz”: od specyfikacji i struktury do startu i opieki',
+            'Jesteś gotów zainwestować w rozwiązanie, które da się skalować i rozwijać po wdrożeniu',
+          ],
+        },
+        descriptionSectionTitle: 'O usłudze',
         structure: {
           mainTitle: 'Tworzenie stron internetowych dla biznesu',
           leadGenTitle: 'Landingi i strony jednorazowe',
@@ -1064,6 +1243,31 @@ export const translations = {
         subtitle: 'Boty, które prowadzą klienta do zakupu: płatności, CRM, potwierdzenia. Telegram, WhatsApp, Viber, Messenger',
         description: 'Bot, który nie tylko odpowiada — lecz prowadzi klienta do zakupu: przyjmuje płatności (Mono, WayForPay, LiqPay), zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja sprzedaży w messangerze bez utraty osobistego podejścia; opcjonalnie odpowiedzi AI i analityka. Szybki start w 24 godziny, sprawdzone na 200+ projektach. Macie pomysł? Omówimy i podpowiemy najlepsze rozwiązanie. Pracujemy też jako podwykonawcy: dużo zleceń — razem zrealizujemy więcej i zwiększymy zysk.',
         button: 'Zamów rozwój',
+        serviceHero: {
+          tagline: 'Bot w komunikatorze obsługuje pierwszą linię i leady 24/7, Ty prowadzisz biznes.',
+          title: 'Chatboty prowadzące do płatności: Telegram, WhatsApp, Viber, Messenger',
+          subtitle: 'Płatności, CRM, mailingi i AI — pod Twoją sprzedaż i support',
+          intro:
+            'Proste scenariusze mogą ruszyć w 24 h; większe z płatnościami i integracjami — etapami i jasnym zakresem. Jeden kontakt od pomysłu do działającego bota.',
+          ctaQuestion: 'Zaproponujemy architekturę pod Twój lejek?',
+          startDate: { label: 'pierwszy prototyp', value: 'w 24 h' },
+          duration: { label: 'pełny cykl', value: '2–4 tygodnie' },
+        },
+        audienceSection: {
+          title: 'Ten format jest dla Ciebie, jeśli',
+          titleAccent: 'Ty:',
+          items: [
+            'Musisz zautomatyzować pierwsze odpowiedzi i zbieranie leadów w Telegram, WhatsApp lub Viber',
+            'Chcesz przyjmować płatności w komunikatorze i od razu zapisywać zamówienia w CRM lub arkuszu',
+            'Menadżerowie tracą czas na te same pytania — scenariusz bota może to zamknąć',
+            'Potrzebujesz mailingów, przypomnień i statusów zamówienia bez ręcznych tabel',
+            'Planujesz katalog, koszyk lub subskrypcje w czacie',
+            'Chcesz dołożyć AI do odpowiedzi lub klasyfikacji zgłoszeń',
+            'Potrzebujesz środowiska produkcyjnego: baza, płatności, webhooki i wsparcie po starcie',
+            'Rozważasz własny biznes lub ofertę white-label dla klientów',
+          ],
+        },
+        descriptionSectionTitle: 'O usłudze',
         structure: {
           mainTitle: 'Boty Telegram dla biznesu',
           leadGenTitle: 'Boty do generowania leadów',
@@ -1090,6 +1294,31 @@ export const translations = {
         subtitle: 'Logo, identyfikacja, UI/UX dla stron i aplikacji. Interfejsy, które działają na konwersję',
         description: 'Logo i identyfikacja wizualna, które zapadają w pamięć. UI/UX dla stron i aplikacji: prototypy w Figma, identyfikacja, księgi znaku, wizytówki i social media. Interfejs nie tylko wygląda — lecz działa na konwersję i rozpoznawalność. W zespole doświadczony projektant UI/UX — od pomysłu do makiet pod przekazanie w rozwój. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Gotowi współpracować jako podwykonawcy dla agencji z dużym przepływem projektów.',
         button: 'Zamów projekt',
+        serviceHero: {
+          tagline: 'Logo i interfejsy pod rozpoznawalność i konwersję — nie tylko ładny obrazek.',
+          title: 'Branding i UI/UX: od logo do makiet w Figmie',
+          subtitle: 'Tożsamość, projekt stron i przekazanie do dev — w jednym obiegu z zespołem TeleBots',
+          intro:
+            '2–3 rundy poprawek w zakresie, pliki pod druk i kod. Łączymy brand z wdrożeniem, żeby front wyglądał jak makiety.',
+          ctaQuestion: 'Opowiedz o marce — zaproponujemy format i zakres?',
+          startDate: { label: 'koncepcja logo', value: '3–7 dni' },
+          duration: { label: 'projekt UI/UX', value: 'od 2 tygodni' },
+        },
+        audienceSection: {
+          title: 'Ten format jest dla Ciebie, jeśli',
+          titleAccent: 'Ty:',
+          items: [
+            'Wprowadzasz produkt lub rebrand i potrzebujesz logo oraz podstaw identyfikacji',
+            'Strona lub aplikacja wygląda na przestarzałą — potrzebny nowoczesny UI/UX i struktura ekranów',
+            'Chcesz, by interfejs prowadził użytkownika do celu: lead, zakup, rezerwacja',
+            'Potrzebujesz makiet w Figmie z przekazaniem do dev bez utraty detali',
+            'Używasz druku i social mediów — potrzebne spójne kolory, fonty i nośniki',
+            'Masz zespół dev — potrzebne specyfikacje, komponenty i mały design system',
+            'Zależy Ci na spójności marki we wszystkich punktach styku',
+            'Szukasz designera, który rozumie ograniczenia kodu i współpracuje z programistami',
+          ],
+        },
+        descriptionSectionTitle: 'O usłudze',
         structure: {
           mainTitle: 'Branding i projektowanie UI/UX dla biznesu',
           leadGenTitle: 'Projekt logo i identyfikacji wizualnej',
@@ -1100,6 +1329,8 @@ export const translations = {
       },
       serviceLearnMore: 'Dowiedz się więcej',
       servicePagePortfolioTitle: 'Przykłady prac',
+      servicePagePortfolioSubtitle:
+        'Prawdziwe case studies: cel klienta, stack i efekt. Przejdź do pełnego portfolio lub otwórz kartę projektu.',
       servicePageIndividualPricingTitle: 'Wycena indywidualna',
       servicePageIndividualPricingDesc: 'Koszt zależy od zakresu i złożoności. Skontaktuj się z nami po bezpłatną konsultację i wycenę.',
       stats: {
@@ -1494,6 +1725,31 @@ export const translations = {
         subtitle: 'Минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальный e-commerce',
         description: 'Делаем минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальные e-commerce решения. Быстро, удобная админка, SEO и интеграции под ключ. При необходимости подключаем AI — чат-боты, аналитику и автоматизацию бизнес-процессов. Есть идея? Будем рады обсудить и подсказать лучшее решение. Много запросов от клиентов? Можем сотрудничать как подрядчики — вместе реализуем больше проектов и увеличим прибыль.',
         button: 'Заказать разработку',
+        serviceHero: {
+          tagline: 'Быстрые сайты с админкой, SEO и интеграциями — без лишнего кода с вашей стороны.',
+          title: 'Сайт, который продаёт: лендинги, корпоративные порталы и e-commerce под ключ',
+          subtitle: 'Next.js, адаптив, оплаты и аналитика — одна команда от ТЗ до запуска',
+          intro:
+            'Бесплатная консультация, прозрачные сроки и поддержка после релиза. 200+ проектов за плечами — знаем, как совместить дизайн, скорость и конверсию.',
+          ctaQuestion: 'Обсудим задачу без обязательств?',
+          startDate: { label: 'быстрый старт', value: 'от 1 недели' },
+          duration: { label: 'типовой лендинг', value: '1–2 недели' },
+        },
+        audienceSection: {
+          title: 'Этот формат для вас, если',
+          titleAccent: 'вы:',
+          items: [
+            'Нужен современный сайт, который быстро открывается на телефоне и корректно смотрится на всех экранах',
+            'Хотите собирать заявки и подключить оплату без «зоопарка» лишних плагинов и непонятной поддержки',
+            'Планируете интернет-магазин или каталог с удобной админкой для команды',
+            'Важна видимость в поиске и понятная аналитика: кто заходит и что делает на сайте',
+            'Нужны интеграции с CRM, мессенджерами, email или рекламой',
+            'Не хотите зависеть от конструктора с жёсткими ограничениями и шаблонами «как у всех»',
+            'Ищете подрядчика «под ключ»: от ТЗ и структуры до запуска и сопровождения',
+            'Готовы инвестировать в решение, которое можно масштабировать и развивать после релиза',
+          ],
+        },
+        descriptionSectionTitle: 'Об услуге',
         structure: {
           mainTitle: 'Разработка сайтов для бизнеса',
           leadGenTitle: 'Лендинги и одностраничные сайты',
@@ -1507,6 +1763,31 @@ export const translations = {
         subtitle: 'Боты, которые ведут клиента к покупке: оплата, CRM, подтверждения. Telegram, WhatsApp, Viber, Messenger',
         description: 'Бот, который не просто отвечает — а ведёт клиента к покупке: принимает оплату (Mono, WayForPay, LiqPay), записывает в CRM или Google Sheets, отправляет подтверждения. Автоматизация продаж в мессенджере без потери личного подхода; по желанию — AI-ответы и аналитика. Быстрый старт за 24 часа, проверено на 200+ проектах. Есть идея? Обсудим и подскажем лучшее решение. Работаем и как подрядчики: много заявок — вместе реализуем больше и увеличим прибыль.',
         button: 'Заказать разработку',
+        serviceHero: {
+          tagline: 'Бот в мессенджере закрывает первые запросы и заявки 24/7 — пока вы ведёте бизнес.',
+          title: 'Чат-боты, ведущие к оплате: Telegram, WhatsApp, Viber, Messenger',
+          subtitle: 'Оплаты, CRM, рассылки и AI — под ваши продажи и поддержку',
+          intro:
+            'Простые сценарии — за 24 часа; сложнее — с оплатами и интеграциями поэтапно и прозрачно. Один контакт от идеи до рабочего бота.',
+          ctaQuestion: 'Подберём архитектуру под ваши продажи?',
+          startDate: { label: 'первый прототип', value: 'за 24 ч' },
+          duration: { label: 'полный цикл', value: '2–4 недели' },
+        },
+        audienceSection: {
+          title: 'Этот формат для вас, если',
+          titleAccent: 'вы:',
+          items: [
+            'Нужно автоматизировать первые ответы и сбор заявок в Telegram, WhatsApp или Viber',
+            'Хотите принимать оплату в мессенджере и сразу фиксировать заказы в CRM или таблице',
+            'Менеджеры тратят время на одни и те же вопросы — их может закрыть сценарий бота',
+            'Нужны рассылки, напоминания и статусы заказа без ручных таблиц',
+            'Планируете каталог, корзину или подписки прямо в чате',
+            'Хотите подключить AI для ответов или классификации обращений',
+            'Нужен продакшен: база, платежи, вебхуки и поддержка после запуска',
+            'Рассматриваете сотрудничество для своего бизнеса или white-label для клиентов',
+          ],
+        },
+        descriptionSectionTitle: 'Об услуге',
         structure: {
           mainTitle: 'Телеграм-боты для бизнеса',
           leadGenTitle: 'Боты для генерации лидов',
@@ -1533,6 +1814,31 @@ export const translations = {
         subtitle: 'Лого, айдентика, UI/UX для сайтов и приложений. Интерфейсы, которые работают на конверсию',
         description: 'Логотип и фирменный стиль, которые запоминаются. UI/UX для сайтов и приложений: прототипы в Figma, айдентика, брендбуки, визитки и соцсети. Интерфейс не только выглядит — а работает на конверсию и узнаваемость. В команде опытный UI/UX дизайнер — от идеи до макетов под передачу в разработку. Есть идея? Рады обсудить и подсказать лучшее решение. Готовы сотрудничать как подрядчики для агентств с большим потоком проектов.',
         button: 'Заказать дизайн',
+        serviceHero: {
+          tagline: 'Лого и интерфейсы под узнаваемость и конверсию — не только «красивую картинку».',
+          title: 'Брендинг и UI/UX: от логотипа до макетов в Figma',
+          subtitle: 'Айдентика, веб-дизайн и передача в разработку — в одном контуре с командой TeleBots',
+          intro:
+            '2–3 раунда правок в рамках ТЗ, файлы для печати и кода. Сводим бренд и вёрстку, чтобы фронт совпадал с макетом.',
+          ctaQuestion: 'Расскажите о бренде — предложим формат и объём?',
+          startDate: { label: 'концепт лого', value: '3–7 дней' },
+          duration: { label: 'проект UI/UX', value: 'от 2 недель' },
+        },
+        audienceSection: {
+          title: 'Этот формат для вас, если',
+          titleAccent: 'вы:',
+          items: [
+            'Запускаете продукт или ребрендинг и нужны логотип и основы фирменного стиля',
+            'Сайт или приложение выглядят устаревшими — нужен современный UI/UX и структура экранов',
+            'Хотите, чтобы интерфейс вёл пользователя к цели: заявка, покупка, запись',
+            'Нужны макеты в Figma с передачей в разработку без потери идеи и отступов',
+            'Работаете с полиграфией и соцсетями — нужны согласованные цвета, шрифты и носители',
+            'Есть техническая команда — нужны спецификации, компоненты и дизайн-система',
+            'Важна целостность бренда во всех точках контакта с клиентом',
+            'Ищете дизайнера, который понимает ограничения вёрстки и работает с разработчиками',
+          ],
+        },
+        descriptionSectionTitle: 'Об услуге',
         structure: {
           mainTitle: 'Брендинг и UI/UX дизайн для бизнеса',
           leadGenTitle: 'Разработка логотипа и фирменного стиля',
@@ -1543,6 +1849,8 @@ export const translations = {
       },
       serviceLearnMore: 'Узнать подробнее',
       servicePagePortfolioTitle: 'Примеры работ',
+      servicePagePortfolioSubtitle:
+        'Реальные кейсы: задача клиента, стек и результат. Перейдите в полное портфолио или откройте страницу проекта.',
       servicePageIndividualPricingTitle: 'Индивидуальный расчёт',
       servicePageIndividualPricingDesc: 'Стоимость зависит от объёма и сложности. Свяжитесь с нами для бесплатной консультации и расчёта.',
       stats: {

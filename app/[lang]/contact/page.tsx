@@ -1,9 +1,7 @@
 'use client';
 
 import { useState, useEffect, FormEvent } from 'react';
-import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
-import { Instagram, MessageCircle } from 'lucide-react';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -233,8 +231,6 @@ export default function ContactPage() {
               
               <div className="space-y-8">
                 <div className="pb-6 border-b border-gray-200">
-                  <p className="text-xs font-normal text-gray-500 mb-3 tracking-wider">{t.footer.legalBlockTitle}</p>
-                  <p className="text-xs font-normal text-gray-500 mb-1 tracking-wider">{t.footer.recipientLabel}</p>
                   <p className="text-lg font-black text-black">{t.footer.companyName}</p>
                   <p className="text-gray-600 font-semibold mt-1 break-all">{t.footer.footerIban}: {legal.iban}</p>
                   <p className="text-gray-600 font-semibold mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</p>
@@ -242,14 +238,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="pb-6 border-b border-gray-200">
-                  <p className="text-xs font-normal text-gray-500 mb-3 tracking-wider">{t.footer.phone}</p>
                   <a href={`tel:${legal.phoneRaw}`} className="text-2xl font-black text-black hover:text-gray-600 transition">
                     {legal.phone}
                   </a>
                 </div>
 
                 <div className="pb-6 border-b border-gray-200">
-                  <p className="text-xs font-normal text-gray-500 mb-3 tracking-wider">{t.footer.email}</p>
                   <a href={`mailto:${legal.email}`} className="text-xl font-black text-black hover:text-gray-600 transition break-all">
                     {legal.email}
                   </a>
@@ -281,47 +275,6 @@ export default function ContactPage() {
                       <div className="w-8 h-px bg-white"></div>
                     </div>
                   </a>
-
-                  <div className="pt-6 border-t border-gray-200">
-                    <p className="text-xs font-normal text-gray-500 mb-4 tracking-wider">
-                      {t.contact.followNews}
-                    </p>
-                    <div className="flex items-center space-x-4">
-                      <a
-                        href="https://www.instagram.com/telebotsnowayrm/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-black transition-colors"
-                        aria-label="Instagram"
-                      >
-                        <Instagram className="w-5 h-5" />
-                      </a>
-                      <a
-                        href="https://t.me/telebotsnowayrmchannel"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-black transition-colors"
-                        aria-label="Telegram Channel"
-                      >
-                        <MessageCircle className="w-5 h-5" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-12 border-t border-gray-200 flex flex-wrap gap-x-6 gap-y-2">
-                  <Link href={`/${lang}/privacy`} className="group inline-flex items-center text-gray-500 hover:text-black transition font-semibold">
-                    <div className="w-8 h-px bg-gray-300 mr-3 group-hover:w-12 group-hover:bg-black transition-all" />
-                    {t.footer.privacy}
-                  </Link>
-                  <Link href={`/${lang}/terms`} className="group inline-flex items-center text-gray-500 hover:text-black transition font-semibold">
-                    <div className="w-8 h-px bg-gray-300 mr-3 group-hover:w-12 group-hover:bg-black transition-all" />
-                    {t.footer.terms}
-                  </Link>
-                  <Link href={`/${lang}/refund`} className="group inline-flex items-center text-gray-500 hover:text-black transition font-semibold">
-                    <div className="w-8 h-px bg-gray-300 mr-3 group-hover:w-12 group-hover:bg-black transition-all" />
-                    {t.footer.refund}
-                  </Link>
                 </div>
               </div>
             </div>

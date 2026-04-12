@@ -153,7 +153,7 @@ export default function ServicesPage() {
         />
         <main id="main-content">
         <ServicesPassionSection t={t} />
-      <div id="services-list" className="scroll-mt-20 md:scroll-mt-24">
+      <div id="services-list" className="scroll-mt-20 md:scroll-mt-24 pt-12 md:pt-16 lg:pt-24">
       {services.map((service, index) => (
         <ServiceItem
           key={index}
@@ -171,11 +171,13 @@ export default function ServicesPage() {
         pricing={t.services.pricingChatbots}
         lang={lang}
         onContactClick={() => openModal(t.services.chatbotsPage.title)}
+        hideCategoryLabel
       />
       <PricingTable
         pricing={t.services.pricingWebsites}
         lang={lang}
         onContactClick={() => openModal(t.services.websitesPage.title)}
+        hideCategoryLabel
       />
 
       <StatsSection t={t} />
