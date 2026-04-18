@@ -20,8 +20,19 @@ export async function generateMetadata(params: {
     };
   }
 
-  const title = `${caseData.title} | TeleBots Cases`;
-  const description = caseData.subtitle || caseData.description?.substring(0, 160) || '';
+  const title =
+    lang === 'uk'
+      ? `${caseData.title} — кейс TeleBots`
+      : `${caseData.title} | TeleBots Cases`;
+
+  const descriptionFromBody =
+    typeof caseData.description === 'string'
+      ? caseData.description.replace(/\s+/g, ' ').trim()
+      : '';
+  const description =
+    caseData.subtitle ||
+    (descriptionFromBody ? descriptionFromBody.slice(0, 300) : '') ||
+    caseData.title;
   const image = `${baseUrl}${caseData.mainImage}`;
   const url = `${baseUrl}/${lang}/portfolio/${params.caseId}`;
 

@@ -21,6 +21,10 @@ export interface SEOConfig {
   url?: string;
   caseId?: string;
   lang?: Language;
+  /** Якщо задано — підставляється в openGraph/twitter title замість `title` */
+  openGraphTitle?: string;
+  /** Якщо задано — підставляється в openGraph/twitter description замість `description` */
+  openGraphDescription?: string;
 }
 
 export function generateMetadata(config: SEOConfig) {
@@ -32,11 +36,17 @@ export function generateMetadata(config: SEOConfig) {
     type = 'website',
     url,
     lang = 'uk',
+    openGraphTitle,
+    openGraphDescription,
   } = config;
 
   const currentUrl = url || `${baseUrl}/${lang}`;
   const pathSuffix = url ? url.replace(`${baseUrl}/${lang}`, '') : '';
   const metaDescription = trimDescriptionForMeta(description);
+  const ogTitle = openGraphTitle ?? title;
+  const ogDescription = openGraphDescription
+    ? trimDescriptionForMeta(openGraphDescription)
+    : metaDescription;
 
   return {
     title,
@@ -46,22 +56,22 @@ export function generateMetadata(config: SEOConfig) {
       type,
       locale: lang === 'uk' ? 'uk_UA' : lang === 'en' ? 'en_US' : lang === 'pl' ? 'pl_PL' : 'ru_RU',
       url: currentUrl,
-      title,
-      description: metaDescription,
+      title: ogTitle,
+      description: ogDescription,
       siteName: 'TeleBots',
       images: [
         {
           url: image,
           width: 1200,
           height: 630,
-          alt: title,
+          alt: ogTitle,
         },
       ],
     },
     twitter: {
       card: 'summary_large_image',
-      title,
-      description: metaDescription,
+      title: ogTitle,
+      description: ogDescription,
       images: [image],
       creator: '@telebotsnowayrm',
       site: '@telebotsnowayrm',
@@ -98,7 +108,7 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
     url: `${baseUrl}/${lang}`,
     logo: `${baseUrl}/whitelogo_new.png`,
     description: lang === 'uk'
-      ? 'Розробка сайтів та інтернет-магазинів під ключ, веб-інтерфейсів і SEO. Телеграм боти та чат-боти, інтеграції. 200+ проєктів. Швидкий старт за 24 години.'
+      ? 'Розробка Telegram-ботів і сайтів під ключ: лендинги, e-commerce, SEO, інтеграції з CRM і оплатою. 200+ проєктів, консультація, старт від 24 год.'
       : lang === 'en'
       ? 'Website and e-commerce development, landing pages and SEO. Telegram bots, chatbots, and integrations. Quick start in 24 hours, 200+ projects.'
       : lang === 'pl'
@@ -338,7 +348,7 @@ export function generateWebSiteSchema(lang: Language = 'uk') {
     name: 'TeleBots',
     url: `${baseUrl}/${lang}`,
     description: lang === 'uk'
-      ? 'Розробка сайтів, інтернет-магазинів та лендингів; телеграм боти й чат-боти. 200+ проєктів. Швидкий старт за 24 години.'
+      ? 'Telegram-боти, сайти та інтернет-магазини під ключ. 200+ проєктів, швидкий старт від 24 год. TeleBots.'
       : lang === 'en'
       ? 'Website and e-commerce development; Telegram bots and chatbots. 200+ projects. Quick start in 24 hours.'
       : lang === 'pl'

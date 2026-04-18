@@ -17,11 +17,11 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "TeleBots — розробка сайтів, веб-інтерфейсів, телеграм ботів та автоматизації",
+    default: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     template: "%s | TeleBots",
   },
   description:
-    "Розробка сайтів під ключ: лендинги, корпоративні сайти, інтернет-магазини (Next.js, SEO). Також телеграм боти, чат-боти з AI, інтеграції. 200+ проєктів. Швидкий старт за 24 години. Київ / віддалено.",
+    "Замовити розробку Telegram-бота чи сайту: лендинги, e-commerce, SEO, інтеграції з CRM і оплатою. 200+ проєктів, безкоштовна консультація, старт від 24 год. TeleBots.",
   keywords: [
     "розробка сайтів",
     "створення сайту під ключ",
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
     locale: "uk_UA",
     url: baseUrl,
     siteName: "TeleBots",
-    title: "TeleBots — розробка сайтів, телеграм ботів та автоматизації",
+    title: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     description:
-      "Розробка сайтів та інтернет-магазинів під ключ, телеграм боти й чат-боти з AI. 200+ проєктів. Швидкий старт за 24 години.",
+      "Telegram-боти, сайти та e-commerce під ключ. 200+ проєктів, консультація, старт від 24 год.",
     images: [
       {
         url: `${baseUrl}/portfolio/portfolio-default.jpg`,
@@ -62,9 +62,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TeleBots — розробка сайтів, телеграм ботів та автоматизації",
+    title: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     description:
-      "Розробка сайтів та інтернет-магазинів під ключ, телеграм боти й чат-боти з AI. 200+ проєктів. Швидкий старт за 24 години.",
+      "Telegram-боти, сайти та e-commerce під ключ. 200+ проєктів, консультація, старт від 24 год.",
     images: [`${baseUrl}/portfolio/portfolio-default.jpg`],
     creator: "@telebotsnowayrm",
     site: "@telebotsnowayrm",

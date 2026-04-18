@@ -14,7 +14,7 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Що ми робимо? | Розробка телеграм ботів, сайтів під ключ — TeleBots'
+    ? 'Послуги: розробка Telegram-ботів і сайтів під ключ — TeleBots'
     : lang === 'en'
     ? 'What we do? | Telegram Bots, Websites Turnkey — TeleBots'
     : lang === 'pl'
@@ -22,7 +22,7 @@ export async function generateMetadata({
     : 'Что мы делаем? | Разработка телеграм ботов, сайтов под ключ — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Замовити телеграм бота, чат-бот для бізнесу, розробка сайту під ключ, парсер даних, дизайн логотипу. Ціни, швидкий старт за 24 години. 200+ проєктів.'
+    ? 'Telegram-боти з оплатою та CRM, сайти й e-commerce на Next.js, парсери, UI/UX і бренд. Безкоштовна консультація, прозорі терміни, 200+ проєктів. TeleBots.'
     : lang === 'en'
     ? 'Order Telegram bot, chatbot for business, website development turnkey, data parser, logo design. Pricing, quick start in 24 hours. 200+ projects.'
     : lang === 'pl'
@@ -30,7 +30,7 @@ export async function generateMetadata({
     : 'Заказать телеграм бота, чат-бот для бизнеса, разработка сайта под ключ, парсер данных, дизайн логотипа. Цены, быстрый старт за 24 часа. 200+ проектов.';
 
   const keywords = lang === 'uk'
-    ? 'послуги, замовлення телеграм бота, розробка телеграм бота ціна, створити бота для Telegram, чат-бот для бізнесу, розробка сайту під ключ, створити інтернет-магазин, розробка парсера, дизайн логотипу, UI/UX дизайн, автоматизація бізнесу'
+    ? 'послуги TeleBots, розробка Telegram-ботів, замовити телеграм бота, чат-бот для бізнесу, розробка сайту під ключ, інтернет-магазин під ключ, розробка парсера, дизайн логотипу, UI/UX, автоматизація бізнесу'
     : lang === 'en'
     ? 'services, order telegram bot, telegram bot development price, create Telegram bot, chatbot for business, website development turnkey, create online store, parser development, logo design, UI/UX design, business automation'
     : lang === 'pl'

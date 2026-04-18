@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Розробка сайтів та телеграм ботів — TeleBots'
+    ? 'Розробка Telegram-ботів і сайтів під ключ — TeleBots'
     : lang === 'en'
     ? 'Website & Telegram Bot Development — TeleBots'
     : lang === 'pl'
@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     : 'Разработка сайтов и телеграм ботов — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Розробка сайтів під ключ: лендинги, корпоративні сайти, інтернет-магазини, SEO. Чат-боти та телеграм боти, інтеграції. 200+ проєктів. Швидкий старт за 24 години.'
+    ? 'Замовити розробку Telegram-бота чи сайту: лендинги, e-commerce, SEO, інтеграції з CRM і оплатою. 200+ проєктів, безкоштовна консультація, старт від 24 год. TeleBots.'
     : lang === 'en'
     ? 'Website development: landing pages, corporate sites, e-commerce, SEO. Telegram bots, chatbots, integrations. 200+ projects. Quick start in 24 hours.'
     : lang === 'pl'

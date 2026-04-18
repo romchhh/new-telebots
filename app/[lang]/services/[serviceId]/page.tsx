@@ -15,8 +15,10 @@ import PricingTable from '@/components/PricingTable';
 import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
+import ServiceSeoLongForm from '@/components/ServiceSeoLongForm';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
+import { getServiceSeoLongForm } from '@/lib/servicePagesSeoContent';
 import { sendToTelegram } from '@/lib/telegram';
 import {
   SERVICE_IDS,
@@ -138,6 +140,8 @@ export default function ServicePage() {
     descriptionSectionTitle?: string;
   };
   const heroCopy = serviceExtended.serviceHero;
+  const longForm = serviceId ? getServiceSeoLongForm(lang, serviceId) : null;
+  const audienceCopy = longForm?.audienceSection ?? serviceExtended.audienceSection;
 
   return (
     <>
@@ -157,6 +161,9 @@ export default function ServicePage() {
         serviceDescription={service.subtitle}
         serviceUrl={process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/services/${serviceId}` : undefined}
       />
+      {longForm?.faq?.length ? (
+        <StructuredData type="faq" faqs={longForm.faq.map((f) => ({ question: f.question, answer: f.answer }))} />
+      ) : null}
       <div className="min-h-screen bg-white">
         <Navigation
           isScrolled={isScrolled}
@@ -213,33 +220,49 @@ export default function ServicePage() {
           )}
 
           {/* Блок «для вас, якщо» — після героя */}
-          {serviceExtended.audienceSection && serviceExtended.audienceSection.items.length > 0 && (
+          {audienceCopy && audienceCopy.items.length > 0 && (
             <section
               ref={offerRef}
               id="service-main"
-              className={`bg-gradient-to-b from-gray-50 to-white scroll-animate-up ${isOfferVisible ? 'animate' : ''}`}
+              className={`border-t border-gray-100 bg-gradient-to-b from-gray-50/95 to-white scroll-animate-up ${isOfferVisible ? 'animate' : ''}`}
             >
-              <ServiceAudienceSection copy={serviceExtended.audienceSection} />
+              <ServiceAudienceSection copy={audienceCopy} />
             </section>
           )}
 
           {/* Short description — типографіка та ефект при скролі */}
           <section
             ref={descRef}
-            id={!serviceExtended.audienceSection?.items?.length ? 'service-main' : undefined}
-            className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white scroll-animate-up ${isDescVisible ? 'animate' : ''}`}
+            id={!audienceCopy?.items?.length ? 'service-main' : undefined}
+            className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isDescVisible ? 'animate' : ''}`}
           >
-            <div className="max-w-4xl mx-auto space-y-10">
+            <div className="max-w-6xl mx-auto w-full">
               {serviceExtended.descriptionSectionTitle ? (
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight text-center mb-8 md:mb-10">
-                  {serviceExtended.descriptionSectionTitle}
-                </h2>
+                <div className="max-w-3xl mb-10 md:mb-12">
+                  <h2 className="text-3xl sm:text-4xl lg:text-[2.35rem] font-black text-black tracking-tight leading-[1.12]">
+                    {serviceExtended.descriptionSectionTitle}
+                  </h2>
+                  <div className="mt-5 md:mt-6 h-px w-12 md:w-16 bg-gradient-to-r from-black via-black/70 to-transparent" aria-hidden />
+                </div>
               ) : null}
-              <p className="text-xl md:text-2xl lg:text-[1.75rem] text-gray-700 leading-[1.7] tracking-tight font-normal">
-                {service.description}
-              </p>
+              {longForm ? (
+                <div className="max-w-3xl space-y-6 md:space-y-8">
+                  {longForm.aboutParagraphs.map((paragraph, idx) => (
+                    <p
+                      key={idx}
+                      className="text-lg md:text-xl text-gray-700 leading-[1.75] tracking-tight font-normal first:text-gray-900 first:font-medium first:text-xl md:first:text-2xl"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <p className="max-w-3xl text-lg md:text-xl text-gray-700 leading-[1.75] tracking-tight font-normal">
+                  {service.description}
+                </p>
+              )}
 
-              {serviceStructure && (
+              {!longForm && serviceStructure && (
                 <div className="space-y-6">
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
                     {serviceStructure.mainTitle}
@@ -263,6 +286,8 @@ export default function ServicePage() {
             </div>
           </section>
 
+          {longForm ? <ServiceSeoLongForm copy={longForm} /> : null}
+
           {/* Info blocks: what we do, terms, integrations — типографіка + скрол */}
           {(() => {
             const blocksRaw = (t.services as { servicePageBlocks?: Record<string, unknown> }).servicePageBlocks;
@@ -279,11 +304,12 @@ export default function ServicePage() {
             const dotClass = 'text-black mt-2 w-2 h-2 rounded-full bg-black flex-shrink-0';
             const textClass = 'text-gray-700 text-base md:text-lg leading-[1.65] tracking-tight';
             const headingClass =
-              'text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight mb-6';
+              'text-xl md:text-2xl font-black text-black tracking-tight mb-5 md:mb-6 leading-tight';
             return (
-              <section ref={blocksRef} className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-gray-50/90 scroll-animate-up ${isBlocksVisible ? 'animate' : ''}`}>
+              <section ref={blocksRef} className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-gradient-to-b from-gray-50/40 to-gray-50 border-t border-gray-100 scroll-animate-up ${isBlocksVisible ? 'animate' : ''}`}>
                 <div className="max-w-6xl mx-auto">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-14">
+                  <div className="rounded-3xl border border-gray-200/60 bg-white/90 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_12px_40px_rgba(0,0,0,0.04)]">
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 xl:gap-14">
                     <div>
                       <h2 className={headingClass}>{titles.whatWeDo}</h2>
                       <ul className={listClass}>
@@ -318,14 +344,15 @@ export default function ServicePage() {
                       </ul>
                     </div>
                   </div>
+                  </div>
                 </div>
               </section>
             );
           })()}
 
           {/* Portfolio link + мікро-кейси — стиль як на головній + ефект при скролі */}
-          <section ref={portfolioRef} className={`bg-black text-white py-16 md:py-20 lg:py-24 px-6 md:px-10 lg:px-16 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
-            <div className="max-w-[1600px] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-center min-h-0 min-w-0">
+          <section ref={portfolioRef} className={`bg-black text-white py-20 md:py-28 px-6 md:px-10 lg:px-16 border-t border-white/10 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
+            <div className="max-w-6xl xl:max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-0 min-w-0">
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-5 sm:mb-6 leading-tight">
                   {t.services.servicePagePortfolioTitle}
@@ -414,8 +441,8 @@ export default function ServicePage() {
           )}
 
           {/* CTA block + ефект при скролі */}
-          <section ref={ctaRef} className={`py-16 md:py-20 px-6 md:px-10 lg:px-16 bg-black text-white scroll-animate-scale ${isCtaVisible ? 'animate' : ''}`}>
-            <div className="max-w-2xl mx-auto text-center">
+          <section ref={ctaRef} className={`py-20 md:py-24 px-6 md:px-10 lg:px-16 bg-black text-white border-t border-white/10 scroll-animate-scale ${isCtaVisible ? 'animate' : ''}`}>
+            <div className="max-w-2xl mx-auto w-full text-center">
               <h2 className="text-2xl md:text-3xl font-black mb-6">
                 {t.modal.title}
               </h2>
@@ -430,9 +457,9 @@ export default function ServicePage() {
 
           <section
             ref={contactBlockRef}
-            className={`py-16 md:py-24 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isContactBlockVisible ? 'animate' : ''}`}
+            className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-gradient-to-b from-white to-gray-50/40 border-t border-gray-100 scroll-animate-up ${isContactBlockVisible ? 'animate' : ''}`}
           >
-            <div className="max-w-7xl mx-auto grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
+            <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
               <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
                 <ContactFormBlock
                   t={t}

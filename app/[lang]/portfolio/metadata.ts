@@ -13,7 +13,7 @@ export async function generateMetadata({
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
 
   const title = lang === 'uk'
-    ? 'Кейси розробки сайтів та телеграм ботів — TeleBots'
+    ? 'Портфоліо: кейси Telegram-ботів і сайтів — TeleBots'
     : lang === 'en'
     ? 'Website & Telegram Bot Development Cases — TeleBots'
     : lang === 'pl'
@@ -21,7 +21,7 @@ export async function generateMetadata({
     : 'Кейсы разработки сайтов и телеграм ботов — TeleBots';
 
   const description = lang === 'uk'
-    ? 'Кейси розробки сайтів, інтернет-магазинів, лендингів; телеграм боти й чат-боти. Приклади: e-commerce, маркетплейс, бот з оплатою. 200+ проєктів.'
+    ? 'Реальні проєкти: Telegram-боти, міні-додатки, сайти та інтернет-магазини з оплатою та інтеграціями. E-commerce, маркетплейси, автоматизація. 200+ кейсів TeleBots.'
     : lang === 'en'
     ? 'Cases: websites, online stores, landing pages; Telegram bots and chatbots. E-commerce, marketplace, payment bots. 200+ projects.'
     : lang === 'pl'
@@ -29,7 +29,7 @@ export async function generateMetadata({
     : 'Кейсы разработки сайтов, интернет-магазинов, лендингов; телеграм боты и чат-боты. 200+ проектов.';
 
   const keywords = lang === 'uk'
-    ? 'кейси розробки сайтів, приклади сайтів, інтернет-магазин під ключ, лендинг кейс, кейси телеграм ботів, чат-бот, веб-розробка, успішні кейси, TeleBots'
+    ? 'портфоліо веб студії, кейси розробки сайтів, приклади Telegram-ботів, інтернет-магазин під ключ, лендинг кейс, чат-бот для бізнесу, веб-розробка Україна, TeleBots'
     : lang === 'en'
     ? 'website development portfolio, landing page examples, e-commerce cases, online store projects, telegram bot cases, chatbot, web development cases, TeleBots'
     : lang === 'pl'

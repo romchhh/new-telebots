@@ -14,9 +14,9 @@ export default function ServiceAudienceSection({ copy }: ServiceAudienceSectionP
   const { title, titleAccent, items } = copy;
 
   return (
-    <div className="relative px-4 pt-16 md:pt-24 lg:pt-32 pb-14 md:pb-20 overflow-hidden">
-      <div className="relative mx-auto max-w-7xl px-2 sm:px-4">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight text-center mb-14 md:mb-20 px-2 leading-tight">
+    <div className="relative px-6 md:px-10 lg:px-16 pt-16 md:pt-24 lg:pt-28 pb-16 md:pb-24 overflow-hidden">
+      <div className="relative mx-auto max-w-6xl w-full">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight text-center mb-12 md:mb-16 leading-tight">
           {title}{' '}
           <span className="font-black text-black">{titleAccent}</span>
         </h2>

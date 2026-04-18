@@ -9,7 +9,7 @@ export const translations = {
       consultation: 'КОНСУЛЬТАЦІЯ'
     },
     hero: {
-      title: 'Розробляємо ботів, сайти та автоматизацію під ключ',
+      title: 'Розробка Telegram-ботів і сайтів під ключ',
       subtitle: 'Чат-боти, веб, парсери, дизайн — від ідеї до запуску',
       intro:
         'Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.',
@@ -120,7 +120,7 @@ export const translations = {
     },
     portfolio: {
       recent: 'КЕЙСИ',
-      title: 'Кейси розробки телеграм ботів та сайтів',
+      title: 'Кейси розробки Telegram-ботів і сайтів',
       heroIntroLine1: 'Кейси, якими ми пишаємося',
       heroIntroLine2: 'і які неможливо не помітити',
       heroIntroDescription:
@@ -136,7 +136,7 @@ export const translations = {
       viewDetails: 'Детальніше'
     },
     services: {
-      passion: 'Від лендингу до складних веб-систем — під одним дахом',
+      passion: 'Розробка Telegram-ботів, сайтів і дизайну під ключ',
       passionTitle: 'Сайти, боти в месенджерах, e-commerce, парсинг і бренд',
       passionDesc:
         'Проєктуємо структуру, розробляємо й підтримуємо після запуску. Інтеграції CRM, оплати та аналітики — під ваші процеси.',
@@ -167,7 +167,7 @@ export const translations = {
         button: 'Замовити розробку',
         serviceHero: {
           tagline: 'Швидкі сайти з адмінкою, SEO та інтеграціями — без зайвого коду з вашого боку.',
-          title: 'Сайт, який продає: лендинги, корпоративні портали та e-commerce під ключ',
+          title: 'Розробка сайтів під ключ — від лендінгу до інтернет-магазину',
           subtitle: 'Next.js, адаптив, оплати та аналітика — одна команда від ТЗ до запуску',
           intro:
             'Безкоштовна консультація, прозорі терміни й підтримка після релізу. 200+ проєктів за плечима — знаємо, як звести дизайн, швидкість і конверсію в одне рішення.',
@@ -205,7 +205,7 @@ export const translations = {
         button: 'Замовити розробку',
         serviceHero: {
           tagline: 'Бот у месенджері закриває перші запити та заявки 24/7 — поки ви займаєтесь бізнесом.',
-          title: 'Чат-боти, що ведуть до оплати: Telegram, WhatsApp, Viber, Messenger',
+          title: 'Розробка Telegram ботів та чат-ботів під ключ',
           subtitle: 'Оплати, CRM, розсилки та AI — під ваші продажі й підтримку',
           intro:
             'Старт простих сценаріїв — за 24 години; складніші сценарії з оплатами та інтеграціями — поетапно й прозоро. Один контакт — від ідеї до робочого бота.',
@@ -256,7 +256,7 @@ export const translations = {
         button: 'Замовити дизайн',
         serviceHero: {
           tagline: 'Лого та інтерфейси, які працюють на впізнаваність і конверсію — не лише «красиву картинку».',
-          title: 'Брендинг та UI/UX: від логотипу до макетів у Figma',
+          title: 'Дизайн для бізнесу: логотип, айдентика та UI/UX під ключ',
           subtitle: 'Айдентика, веб-дизайн і передача в розробку — в одному контурі з командою TeleBots',
           intro:
             '2–3 раунди правок у межах ТЗ, файли для друку та коду. Знаємо, як звести бренд і технічну реалізацію, щоб верстка виглядала як у макеті.',
@@ -688,7 +688,7 @@ export const translations = {
         button: 'Order Development',
         serviceHero: {
           tagline: 'Fast sites with admin, SEO, and integrations — without you touching code.',
-          title: 'Websites that sell: landings, corporate sites, and e-commerce end-to-end',
+          title: 'Website development end-to-end — from landings to e-commerce',
           subtitle: 'Next.js, responsive layouts, payments, and analytics — one team from spec to launch',
           intro:
             'Free consultation, clear timelines, and post-launch support. 200+ projects behind us — we know how to align design, speed, and conversion.',
@@ -726,7 +726,7 @@ export const translations = {
         button: 'Order Development',
         serviceHero: {
           tagline: 'A messenger bot handles first-line requests and leads 24/7 while you run the business.',
-          title: 'Chatbots that drive payments: Telegram, WhatsApp, Viber, Messenger',
+          title: 'Telegram & chatbot development end-to-end',
           subtitle: 'Payments, CRM, broadcasts, and AI — mapped to your sales and support',
           intro:
             'Simple flows can start in 24 hours; larger builds with payments and integrations ship in clear stages. One partner from idea to a working bot.',
@@ -777,7 +777,7 @@ export const translations = {
         button: 'Order Design',
         serviceHero: {
           tagline: 'Logos and interfaces built for recognition and conversion — not just pretty screens.',
-          title: 'Branding & UI/UX: from logo to Figma-ready layouts',
+          title: 'Business design: logo, identity & UI/UX end-to-end',
           subtitle: 'Identity, web design, and dev handoff — aligned with the TeleBots build team',
           intro:
             '2–3 revision rounds within scope, print- and code-ready exports. We bridge brand and engineering so the build matches the mockups.',
@@ -1209,7 +1209,7 @@ export const translations = {
         button: 'Zamów rozwój',
         serviceHero: {
           tagline: 'Szybkie strony z panelem, SEO i integracjami — bez pisania kodu po Twojej stronie.',
-          title: 'Strony, które sprzedają: landingi, serwisy firmowe i e-commerce pod klucz',
+          title: 'Strony pod klucz — od landingów po sklep internetowy',
           subtitle: 'Next.js, responsywność, płatności i analityka — jeden zespół od specyfikacji do startu',
           intro:
             'Darmowa konsultacja, jasne terminy i wsparcie po wdrożeniu. 200+ projektów w portfolio — wiemy, jak połączyć design, szybkość i konwersję.',
@@ -1247,7 +1247,7 @@ export const translations = {
         button: 'Zamów rozwój',
         serviceHero: {
           tagline: 'Bot w komunikatorze obsługuje pierwszą linię i leady 24/7, Ty prowadzisz biznes.',
-          title: 'Chatboty prowadzące do płatności: Telegram, WhatsApp, Viber, Messenger',
+          title: 'Boty Telegram i chatboty pod klucz',
           subtitle: 'Płatności, CRM, mailingi i AI — pod Twoją sprzedaż i support',
           intro:
             'Proste scenariusze mogą ruszyć w 24 h; większe z płatnościami i integracjami — etapami i jasnym zakresem. Jeden kontakt od pomysłu do działającego bota.',
@@ -1298,7 +1298,7 @@ export const translations = {
         button: 'Zamów projekt',
         serviceHero: {
           tagline: 'Logo i interfejsy pod rozpoznawalność i konwersję — nie tylko ładny obrazek.',
-          title: 'Branding i UI/UX: od logo do makiet w Figmie',
+          title: 'Design dla biznesu: logo, identyfikacja i UI/UX pod klucz',
           subtitle: 'Tożsamość, projekt stron i przekazanie do dev — w jednym obiegu z zespołem TeleBots',
           intro:
             '2–3 rundy poprawek w zakresie, pliki pod druk i kod. Łączymy brand z wdrożeniem, żeby front wyglądał jak makiety.',
@@ -1730,7 +1730,7 @@ export const translations = {
         button: 'Заказать разработку',
         serviceHero: {
           tagline: 'Быстрые сайты с админкой, SEO и интеграциями — без лишнего кода с вашей стороны.',
-          title: 'Сайт, который продаёт: лендинги, корпоративные порталы и e-commerce под ключ',
+          title: 'Разработка сайтов под ключ — от лендинга до интернет-магазина',
           subtitle: 'Next.js, адаптив, оплаты и аналитика — одна команда от ТЗ до запуска',
           intro:
             'Бесплатная консультация, прозрачные сроки и поддержка после релиза. 200+ проектов за плечами — знаем, как совместить дизайн, скорость и конверсию.',
@@ -1768,7 +1768,7 @@ export const translations = {
         button: 'Заказать разработку',
         serviceHero: {
           tagline: 'Бот в мессенджере закрывает первые запросы и заявки 24/7 — пока вы ведёте бизнес.',
-          title: 'Чат-боты, ведущие к оплате: Telegram, WhatsApp, Viber, Messenger',
+          title: 'Разработка Telegram-ботов и чат-ботов под ключ',
           subtitle: 'Оплаты, CRM, рассылки и AI — под ваши продажи и поддержку',
           intro:
             'Простые сценарии — за 24 часа; сложнее — с оплатами и интеграциями поэтапно и прозрачно. Один контакт от идеи до рабочего бота.',
@@ -1819,7 +1819,7 @@ export const translations = {
         button: 'Заказать дизайн',
         serviceHero: {
           tagline: 'Лого и интерфейсы под узнаваемость и конверсию — не только «красивую картинку».',
-          title: 'Брендинг и UI/UX: от логотипа до макетов в Figma',
+          title: 'Дизайн для бизнеса: логотип, айдентика и UI/UX под ключ',
           subtitle: 'Айдентика, веб-дизайн и передача в разработку — в одном контуре с командой TeleBots',
           intro:
             '2–3 раунда правок в рамках ТЗ, файлы для печати и кода. Сводим бренд и вёрстку, чтобы фронт совпадал с макетом.',
