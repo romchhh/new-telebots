@@ -224,40 +224,53 @@ export default function ServicePage() {
             <section
               ref={offerRef}
               id="service-main"
-              className={`border-t border-gray-100 bg-gradient-to-b from-gray-50/95 to-white scroll-animate-up ${isOfferVisible ? 'animate' : ''}`}
+              className={`border-t border-gray-100 bg-white scroll-animate-up ${isOfferVisible ? 'animate' : ''}`}
             >
               <ServiceAudienceSection copy={audienceCopy} />
             </section>
           )}
 
-          {/* Short description — типографіка та ефект при скролі */}
+          {/* Short description */}
           <section
             ref={descRef}
             id={!audienceCopy?.items?.length ? 'service-main' : undefined}
-            className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isDescVisible ? 'animate' : ''}`}
+            className={`py-20 md:py-28 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isDescVisible ? 'animate' : ''}`}
           >
-            <div className="max-w-6xl mx-auto w-full">
+            <div className="max-w-7xl mx-auto w-full">
               {serviceExtended.descriptionSectionTitle ? (
-                <div className="max-w-3xl mb-10 md:mb-12">
-                  <h2 className="text-3xl sm:text-4xl lg:text-[2.35rem] font-black text-black tracking-tight leading-[1.12]">
+                <div className="mb-10 md:mb-14 text-center">
+                  <p
+                    className="pointer-events-none select-none text-[clamp(2.75rem,12vw,8.5rem)] font-light text-gray-100 leading-[0.88]"
+                    style={{ fontFamily: 'var(--font-montserrat)' }}
+                    aria-hidden
+                  >
+                    TeleBots
+                  </p>
+                  <h2
+                    className="relative z-10 -mt-5 sm:-mt-7 md:-mt-9 text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-light text-gray-900 leading-tight"
+                    style={{ fontFamily: 'var(--font-montserrat)' }}
+                  >
                     {serviceExtended.descriptionSectionTitle}
                   </h2>
-                  <div className="mt-5 md:mt-6 h-px w-12 md:w-16 bg-gradient-to-r from-black via-black/70 to-transparent" aria-hidden />
                 </div>
               ) : null}
               {longForm ? (
-                <div className="max-w-3xl space-y-6 md:space-y-8">
+                <div className="max-w-3xl mx-auto space-y-6 md:space-y-7">
                   {longForm.aboutParagraphs.map((paragraph, idx) => (
                     <p
                       key={idx}
-                      className="text-lg md:text-xl text-gray-700 leading-[1.75] tracking-tight font-normal first:text-gray-900 first:font-medium first:text-xl md:first:text-2xl"
+                      className="text-lg md:text-xl text-gray-900 leading-snug font-light"
+                      style={{ fontFamily: 'var(--font-montserrat)' }}
                     >
                       {paragraph}
                     </p>
                   ))}
                 </div>
               ) : (
-                <p className="max-w-3xl text-lg md:text-xl text-gray-700 leading-[1.75] tracking-tight font-normal">
+                <p
+                  className="max-w-3xl mx-auto text-xl md:text-2xl text-gray-900 leading-snug font-light text-center"
+                  style={{ fontFamily: 'var(--font-montserrat)' }}
+                >
                   {service.description}
                 </p>
               )}
@@ -288,7 +301,7 @@ export default function ServicePage() {
 
           {longForm ? <ServiceSeoLongForm copy={longForm} /> : null}
 
-          {/* Info blocks: what we do, terms, integrations — типографіка + скрол */}
+          {/* Info blocks: what we do, terms, integrations */}
           {(() => {
             const blocksRaw = (t.services as { servicePageBlocks?: Record<string, unknown> }).servicePageBlocks;
             if (!blocksRaw || typeof blocksRaw !== 'object') return null;
@@ -299,77 +312,61 @@ export default function ServicePage() {
               terms: (blocksRaw.termsTitle as string) || 'Умови',
               integrations: (blocksRaw.integrationsTitle as string) || 'Інтеграції',
             };
-            const listClass = 'space-y-4';
-            const itemClass = 'flex items-start gap-4';
-            const dotClass = 'text-black mt-2 w-2 h-2 rounded-full bg-black flex-shrink-0';
-            const textClass = 'text-gray-700 text-base md:text-lg leading-[1.65] tracking-tight';
-            const headingClass =
-              'text-xl md:text-2xl font-black text-black tracking-tight mb-5 md:mb-6 leading-tight';
+            const cardClass = 'rounded-3xl p-6 sm:p-8 border border-gray-200/70 bg-white/45 backdrop-blur-xl shadow-[0_18px_45px_rgba(0,0,0,0.07)] hover:shadow-[0_26px_60px_rgba(0,0,0,0.11)] hover:bg-white/75 hover:border-gray-300/90 transition-all duration-300';
+            const textClass = 'text-lg md:text-xl text-gray-900 leading-snug font-light';
+            const headingStyle = { fontFamily: 'var(--font-montserrat)' };
             return (
-              <section ref={blocksRef} className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-gradient-to-b from-gray-50/40 to-gray-50 border-t border-gray-100 scroll-animate-up ${isBlocksVisible ? 'animate' : ''}`}>
-                <div className="max-w-6xl mx-auto">
-                  <div className="rounded-3xl border border-gray-200/60 bg-white/90 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_12px_40px_rgba(0,0,0,0.04)]">
-                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12 xl:gap-14">
-                    <div>
-                      <h2 className={headingClass}>{titles.whatWeDo}</h2>
-                      <ul className={listClass}>
-                        {content.whatWeDo.map((item, i) => (
-                          <li key={i} className={itemClass}>
-                            <span className={dotClass} aria-hidden />
-                            <span className={textClass}>{item}</span>
-                          </li>
+              <section ref={blocksRef} className={`py-20 md:py-28 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isBlocksVisible ? 'animate' : ''}`}>
+                <div className="max-w-7xl mx-auto space-y-14 md:space-y-16">
+                  {[
+                    { title: titles.whatWeDo, items: content.whatWeDo },
+                    { title: titles.terms, items: content.terms || [] },
+                    { title: titles.integrations, items: content.integrations || [] },
+                  ].map(({ title: groupTitle, items: groupItems }) => (
+                    <div key={groupTitle}>
+                      <h2
+                        className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-light text-gray-900 leading-tight text-center mb-10 md:mb-12"
+                        style={headingStyle}
+                      >
+                        {groupTitle}
+                      </h2>
+                      <div className="flex flex-wrap justify-center gap-6">
+                        {groupItems.map((item, i) => (
+                          <div
+                            key={i}
+                            className={`w-[calc(50%-12px)] min-w-[140px] max-w-[420px] md:w-[calc(33.333%-16px)] ${cardClass}`}
+                          >
+                            <p className={textClass} style={headingStyle}>{item}</p>
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
-                    <div>
-                      <h2 className={headingClass}>{titles.terms}</h2>
-                      <ul className={listClass}>
-                        {(content.terms || []).map((item, i) => (
-                          <li key={i} className={itemClass}>
-                            <span className={dotClass} aria-hidden />
-                            <span className={textClass}>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="md:col-span-2 lg:col-span-1">
-                      <h2 className={headingClass}>{titles.integrations}</h2>
-                      <ul className={listClass}>
-                        {(content.integrations || []).map((item, i) => (
-                          <li key={i} className={itemClass}>
-                            <span className={dotClass} aria-hidden />
-                            <span className={textClass}>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                  </div>
+                  ))}
                 </div>
               </section>
             );
           })()}
 
-          {/* Portfolio link + мікро-кейси — стиль як на головній + ефект при скролі */}
-          <section ref={portfolioRef} className={`bg-black text-white py-20 md:py-28 px-6 md:px-10 lg:px-16 border-t border-white/10 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
-            <div className="max-w-6xl xl:max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-16 items-center min-h-0 min-w-0">
+          {/* Portfolio */}
+          <section ref={portfolioRef} className={`bg-black text-white py-20 md:py-28 px-6 md:px-10 lg:px-16 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
+            <div className="max-w-6xl xl:max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div className="flex flex-col justify-center order-2 lg:order-1">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-5 sm:mb-6 leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 leading-tight">
                   {t.services.servicePagePortfolioTitle}
                 </h2>
-                <p className="text-base md:text-lg text-gray-300 leading-relaxed max-w-xl mb-8">
+                <p className="text-base text-gray-400 leading-relaxed max-w-sm mb-10">
                   {t.services.servicePagePortfolioSubtitle}
                 </p>
                 <Link
                   href={`/${lang}/portfolio`}
-                  className="group flex items-center justify-center w-40 h-40 sm:w-48 sm:h-48 border-2 border-white rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
+                  className="group flex items-center justify-center w-36 h-36 sm:w-44 sm:h-44 border border-white/40 rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
                 >
-                  <span className="text-sm font-semibold tracking-wider text-center leading-tight">{t.portfolio.viewPortfolio}</span>
+                  <span className="text-xs font-semibold tracking-[0.15em] uppercase text-center leading-snug">{t.portfolio.viewPortfolio}</span>
                 </Link>
               </div>
-              <div className="relative w-full min-w-0 flex flex-col justify-center order-1 lg:order-2">
-                <Link href={featuredHref} className="block group relative w-full aspect-[1500/970] rounded-xl overflow-hidden ring-1 ring-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">
-                  <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/85" />
+              <div className="relative w-full order-1 lg:order-2">
+                <Link href={featuredHref} className="block group relative w-full aspect-[16/10] rounded-2xl overflow-hidden">
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
                   <Image
                     src={featuredImage}
                     alt={featured?.title ?? t.portfolio.featuredProject}
@@ -379,45 +376,38 @@ export default function ServicePage() {
                     quality={85}
                     loading="lazy"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/85 to-transparent p-4 sm:p-6 z-10">
-                    <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-1">{t.portfolio.viewDetails}</p>
+                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
+                    <p className="text-xs tracking-[0.2em] text-gray-400 mb-1">{t.portfolio.viewDetails}</p>
                     <h3 className="text-lg sm:text-xl font-black">{featured?.title ?? t.portfolio.featuredProject}</h3>
                     {featured?.subtitle ? (
-                      <p className="text-sm text-gray-300 mt-2 line-clamp-2">{featured.subtitle}</p>
+                      <p className="text-sm text-gray-300 mt-1.5 line-clamp-2">{featured.subtitle}</p>
                     ) : null}
                   </div>
                 </Link>
 
-                {serviceCases.length > 0 && (
-                  <div className="mt-8 overflow-hidden w-full min-w-0">
+                {serviceCases.length > 1 && (
+                  <div className="mt-5 overflow-hidden w-full">
                     <div
-                      className="flex overflow-x-scroll overflow-y-hidden gap-4 sm:gap-5 py-4 sm:py-5 scroll-smooth snap-x snap-mandatory min-w-0 w-full [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_transparent] overscroll-x-contain"
+                      className="flex overflow-x-scroll gap-3 py-2 scroll-smooth snap-x snap-mandatory [scrollbar-width:none]"
                       style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
                     >
-                      {serviceCases.map((item) => (
+                      {serviceCases.slice(1).map((item) => (
                         <Link
                           key={item.caseId}
                           href={`/${lang}/portfolio/${item.caseId}`}
-                          className="group flex-shrink-0 w-[260px] min-w-[260px] sm:w-[300px] sm:min-w-[300px] aspect-[4/3] relative overflow-hidden rounded-lg snap-start bg-white/5 border border-white/10 hover:border-white/40 transition-colors"
+                          className="group flex-shrink-0 w-[200px] min-w-[200px] sm:w-[240px] sm:min-w-[240px] aspect-[4/3] relative overflow-hidden rounded-xl snap-start"
                         >
-                          <div className="absolute inset-0">
-                            <Image
-                              src={item.image}
-                              alt={item.title}
-                              fill
-                              className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                              sizes="(max-width: 640px) 260px, 300px"
-                              loading="lazy"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                          </div>
-                          <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
-                            <h3 className="text-sm sm:text-base font-semibold mb-1 line-clamp-2">
-                              {item.title}
-                            </h3>
-                            <p className="text-xs sm:text-sm text-gray-300 line-clamp-2">
-                              {item.subtitle}
-                            </p>
+                          <Image
+                            src={item.image}
+                            alt={item.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="240px"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                          <div className="absolute inset-x-0 bottom-0 p-3">
+                            <h3 className="text-xs sm:text-sm font-semibold line-clamp-2">{item.title}</h3>
                           </div>
                         </Link>
                       ))}
@@ -440,15 +430,16 @@ export default function ServicePage() {
             </div>
           )}
 
-          {/* CTA block + ефект при скролі */}
-          <section ref={ctaRef} className={`py-20 md:py-24 px-6 md:px-10 lg:px-16 bg-black text-white border-t border-white/10 scroll-animate-scale ${isCtaVisible ? 'animate' : ''}`}>
+          {/* CTA */}
+          <section ref={ctaRef} className={`py-20 md:py-24 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isCtaVisible ? 'animate' : ''}`}>
             <div className="max-w-2xl mx-auto w-full text-center">
-              <h2 className="text-2xl md:text-3xl font-black mb-6">
+              <p className="text-xs font-black tracking-[0.25em] uppercase text-gray-400 mb-4">{t.nav.services}</p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black mb-8 leading-tight">
                 {t.modal.title}
               </h2>
               <button
                 onClick={openModal}
-                className="inline-flex items-center justify-center bg-white text-black font-black px-8 py-4 rounded-full hover:bg-gray-100 transition-colors uppercase tracking-wider"
+                className="inline-flex items-center justify-center bg-black text-white font-black px-8 py-4 rounded-full hover:bg-gray-900 transition-colors uppercase tracking-wider text-sm"
               >
                 {service.button}
               </button>
@@ -457,7 +448,7 @@ export default function ServicePage() {
 
           <section
             ref={contactBlockRef}
-            className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-gradient-to-b from-white to-gray-50/40 border-t border-gray-100 scroll-animate-up ${isContactBlockVisible ? 'animate' : ''}`}
+            className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isContactBlockVisible ? 'animate' : ''}`}
           >
             <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
               <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
