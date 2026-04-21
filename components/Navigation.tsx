@@ -17,8 +17,8 @@ interface NavigationProps {
   onConsultClick?: () => void;
 }
 
-const CONSULT_WIDGET_SHOWN_KEY = 'telebots_consult_widget_shown';
-const CONSULT_WIDGET_DISMISSED_KEY = 'telebots_consult_widget_dismissed';
+let consultWidgetShownInRuntime = false;
+let consultWidgetDismissedInRuntime = false;
 
 export default function Navigation({ isScrolled, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,21 +33,19 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
 
   useEffect(() => {
     if (!mounted || !onConsultClick) return;
-    const isDismissed = window.localStorage.getItem(CONSULT_WIDGET_DISMISSED_KEY) === '1';
-    if (isDismissed) {
+    if (consultWidgetDismissedInRuntime) {
       setShowConsultWidget(false);
       return;
     }
 
-    const hasBeenShown = window.localStorage.getItem(CONSULT_WIDGET_SHOWN_KEY) === '1';
-    if (hasBeenShown) {
+    if (consultWidgetShownInRuntime) {
       setShowConsultWidget(true);
       return;
     }
 
     const timer = window.setTimeout(() => {
       setShowConsultWidget(true);
-      window.localStorage.setItem(CONSULT_WIDGET_SHOWN_KEY, '1');
+      consultWidgetShownInRuntime = true;
     }, 3000);
     return () => window.clearTimeout(timer);
   }, [mounted, onConsultClick]);
@@ -233,7 +231,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
               type="button"
               onClick={() => {
                 setShowConsultWidget(false);
-                window.localStorage.setItem(CONSULT_WIDGET_DISMISSED_KEY, '1');
+                consultWidgetDismissedInRuntime = true;
               }}
               className="absolute right-2 top-2 h-7 w-7 inline-flex items-center justify-center text-gray-400 hover:text-black transition-colors"
               aria-label="Close consultation widget"
@@ -247,7 +245,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
               type="button"
               onClick={() => {
                 setShowConsultWidget(false);
-                window.localStorage.setItem(CONSULT_WIDGET_DISMISSED_KEY, '1');
+                consultWidgetDismissedInRuntime = true;
                 onConsultClick();
               }}
               className="mt-4 inline-flex items-center justify-center w-full rounded-full bg-black text-white text-sm sm:text-base tracking-[0.1em] uppercase font-semibold px-5 py-3 hover:bg-gray-900 transition-colors"
