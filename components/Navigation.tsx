@@ -224,7 +224,10 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
             </p>
             <button
               type="button"
-              onClick={onConsultClick}
+              onClick={() => {
+                setShowConsultWidget(false);
+                onConsultClick();
+              }}
               className="mt-4 inline-flex items-center justify-center w-full rounded-full bg-black text-white text-sm sm:text-base tracking-[0.1em] uppercase font-semibold px-5 py-3 hover:bg-gray-900 transition-colors"
             >
               {currentLanguage === 'uk' ? 'Залишити заявку' : t.nav.consultation}
