@@ -197,6 +197,18 @@ export default function ServicePage() {
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/30" />
+                <div
+                  className="pointer-events-none absolute inset-0 opacity-[0.28]"
+                  style={{
+                    backgroundImage: `
+                      linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+                      linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '48px 48px',
+                  }}
+                  aria-hidden
+                />
+                <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
               </div>
               <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
                 <div className="max-w-4xl">
@@ -247,7 +259,7 @@ export default function ServicePage() {
                     TeleBots
                   </p>
                   <h2
-                    className="relative z-10 -mt-5 sm:-mt-7 md:-mt-9 text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-light text-gray-900 leading-tight"
+                    className="relative z-10 -mt-5 sm:-mt-7 md:-mt-9 text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight"
                     style={{ fontFamily: 'var(--font-montserrat)' }}
                   >
                     {serviceExtended.descriptionSectionTitle}
@@ -277,20 +289,20 @@ export default function ServicePage() {
 
               {!longForm && serviceStructure && (
                 <div className="space-y-6">
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight">
                     {serviceStructure.mainTitle}
                   </h2>
                   <div className="space-y-3">
-                    <h2 className="text-xl md:text-2xl font-semibold text-black">
+                    <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
                       {serviceStructure.leadGenTitle}
                     </h2>
-                    <h2 className="text-xl md:text-2xl font-semibold text-black">
+                    <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
                       {serviceStructure.supportTitle}
                     </h2>
-                    <h2 className="text-xl md:text-2xl font-semibold text-black">
+                    <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
                       {serviceStructure.salesTitle}
                     </h2>
-                    <h2 className="text-xl md:text-2xl font-semibold text-black">
+                    <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
                       {serviceStructure.crmTitle}
                     </h2>
                   </div>
@@ -319,17 +331,26 @@ export default function ServicePage() {
               <section ref={blocksRef} className={`py-20 md:py-28 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isBlocksVisible ? 'animate' : ''}`}>
                 <div className="max-w-7xl mx-auto space-y-14 md:space-y-16">
                   {[
-                    { title: titles.whatWeDo, items: content.whatWeDo },
-                    { title: titles.terms, items: content.terms || [] },
-                    { title: titles.integrations, items: content.integrations || [] },
-                  ].map(({ title: groupTitle, items: groupItems }) => (
+                    { title: titles.whatWeDo, items: content.whatWeDo, index: 5 },
+                    { title: titles.terms, items: content.terms || [], index: 6 },
+                    { title: titles.integrations, items: content.integrations || [], index: 7 },
+                  ].map(({ title: groupTitle, items: groupItems, index }) => (
                     <div key={groupTitle}>
-                      <h2
-                        className="text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-light text-gray-900 leading-tight text-center mb-10 md:mb-12"
-                        style={headingStyle}
-                      >
-                        {groupTitle}
-                      </h2>
+                      <div className="text-center mb-10 md:mb-12">
+                        <span
+                          className="block text-[6rem] md:text-[8rem] font-light leading-none text-gray-100 select-none -mb-6 md:-mb-8"
+                          style={headingStyle}
+                          aria-hidden
+                        >
+                          {String(index).padStart(2, '0')}
+                        </span>
+                        <h2
+                          className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight"
+                          style={headingStyle}
+                        >
+                          {groupTitle}
+                        </h2>
+                      </div>
                       <div className="flex flex-wrap justify-center gap-6">
                         {groupItems.map((item, i) => (
                           <div
@@ -351,9 +372,18 @@ export default function ServicePage() {
           <section ref={portfolioRef} className={`bg-black text-white py-20 md:py-28 px-6 md:px-10 lg:px-16 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
             <div className="max-w-6xl xl:max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div className="flex flex-col justify-center order-2 lg:order-1">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 leading-tight">
-                  {t.services.servicePagePortfolioTitle}
-                </h2>
+                <div className="mb-4">
+                  <span
+                    className="block text-[6rem] md:text-[8rem] font-light leading-none text-white/[0.08] select-none -mb-6 md:-mb-8"
+                    style={{ fontFamily: 'var(--font-montserrat)' }}
+                    aria-hidden
+                  >
+                    08
+                  </span>
+                  <h2 className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight">
+                    {t.services.servicePagePortfolioTitle}
+                  </h2>
+                </div>
                 <p className="text-base text-gray-400 leading-relaxed max-w-sm mb-10">
                   {t.services.servicePagePortfolioSubtitle}
                 </p>
@@ -426,22 +456,30 @@ export default function ServicePage() {
                 lang={lang}
                 onContactClick={openModal}
                 hideCategoryLabel
+                sectionIndex={9}
+                centerHeader
               />
             </div>
           )}
 
           {/* CTA */}
-          <section ref={ctaRef} className={`py-20 md:py-24 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isCtaVisible ? 'animate' : ''}`}>
+          <section ref={ctaRef} className={`py-20 md:py-24 px-6 md:px-10 lg:px-16 bg-black text-white border-t border-white/10 scroll-animate-up ${isCtaVisible ? 'animate' : ''}`}>
             <div className="max-w-2xl mx-auto w-full text-center">
-              <p className="text-xs font-black tracking-[0.25em] uppercase text-gray-400 mb-4">{t.nav.services}</p>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black mb-8 leading-tight">
-                {t.modal.title}
+              <span
+                className="block text-[6rem] md:text-[8rem] font-light leading-none text-white/[0.08] select-none -mb-6 md:-mb-8"
+                style={{ fontFamily: 'var(--font-montserrat)' }}
+                aria-hidden
+              >
+                10
+              </span>
+              <h2 className="relative z-10 text-2xl sm:text-3xl md:text-4xl font-black text-white mb-8 leading-tight">
+                {lang === 'uk' ? 'Залишити заявку на розробку' : t.modal.title}
               </h2>
               <button
                 onClick={openModal}
-                className="inline-flex items-center justify-center bg-black text-white font-black px-8 py-4 rounded-full hover:bg-gray-900 transition-colors uppercase tracking-wider text-sm"
+                className="inline-flex items-center justify-center border-2 border-white text-white font-black px-8 py-4 rounded-full hover:bg-white hover:text-black transition-colors uppercase tracking-wider text-sm"
               >
-                {service.button}
+                {lang === 'uk' ? 'Обговорити проєкт' : service.button}
               </button>
             </div>
           </section>

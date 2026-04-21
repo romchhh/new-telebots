@@ -20,12 +20,19 @@ interface NavigationProps {
 export default function Navigation({ isScrolled, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [showConsultWidget, setShowConsultWidget] = useState(false);
   const currentLanguage = currentLang || lang;
   const showLanguageSelector = currentLanguage !== 'ru';
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted || !onConsultClick) return;
+    const timer = window.setTimeout(() => setShowConsultWidget(true), 3000);
+    return () => window.clearTimeout(timer);
+  }, [mounted, onConsultClick]);
 
   // Блокуємо скрол через overflow hidden
   useEffect(() => {
@@ -196,6 +203,32 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
                 <LanguageSelector lang={lang} setLang={setLang} isMobile={true} isScrolled={true} currentLang={currentLanguage} />
               </div>
             )}
+          </div>
+        </div>,
+        document.body
+      )}
+
+      {mounted && showConsultWidget && onConsultClick && createPortal(
+        <div className="fixed left-4 bottom-4 z-[9998] sm:left-6 sm:bottom-6">
+          <div className="relative w-[280px] sm:w-[300px] rounded-2xl border border-black/10 bg-white/95 backdrop-blur-sm shadow-[0_16px_40px_rgba(0,0,0,0.12)] p-5">
+            <button
+              type="button"
+              onClick={() => setShowConsultWidget(false)}
+              className="absolute right-2 top-2 h-7 w-7 inline-flex items-center justify-center text-gray-400 hover:text-black transition-colors"
+              aria-label="Close consultation widget"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            <p className="text-base sm:text-lg font-normal text-black pr-7 leading-snug">
+              {currentLanguage === 'uk' ? 'Бажаєте записатися на консультацію?' : t.nav.consultation}
+            </p>
+            <button
+              type="button"
+              onClick={onConsultClick}
+              className="mt-4 inline-flex items-center justify-center w-full rounded-full bg-black text-white text-sm sm:text-base tracking-[0.1em] uppercase font-semibold px-5 py-3 hover:bg-gray-900 transition-colors"
+            >
+              {currentLanguage === 'uk' ? 'Залишити заявку' : t.nav.consultation}
+            </button>
           </div>
         </div>,
         document.body

@@ -145,6 +145,18 @@ export default function AboutPage() {
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20 backdrop-blur-[2px]" style={{ WebkitBackdropFilter: 'blur(2px)' }} />
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.28]"
+          style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+              linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)
+            `,
+            backgroundSize: '48px 48px',
+          }}
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32">
           <div className={`max-w-5xl mx-auto scroll-animate-up ${isQuoteVisible ? 'animate' : ''}`} ref={quoteRef}>
             <blockquote>

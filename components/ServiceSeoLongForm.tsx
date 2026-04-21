@@ -32,8 +32,8 @@ function SectionTitle({ children, index, dark }: { children: ReactNode; index?: 
       <h2
         className={
           dark
-            ? 'text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-light text-white leading-tight relative z-10'
-            : 'text-[2rem] sm:text-[2.5rem] md:text-[3rem] font-light text-gray-900 leading-tight relative z-10'
+            ? 'text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight relative z-10'
+            : 'text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight relative z-10'
         }
         style={montserrat}
       >
@@ -73,7 +73,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
                 className="w-[calc(50%-12px)] min-w-[140px] max-w-[420px] md:w-[calc(33.333%-16px)] rounded-3xl p-6 sm:p-8 border border-gray-200/70 bg-white/45 backdrop-blur-xl shadow-[0_18px_45px_rgba(0,0,0,0.07)] hover:shadow-[0_26px_60px_rgba(0,0,0,0.11)] hover:bg-white/75 hover:border-gray-300/90 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
               >
                 <h3
-                  className="text-xl md:text-2xl font-light text-gray-900 mb-3 leading-snug"
+                  className="text-xl sm:text-2xl font-black text-black tracking-tight mb-3 leading-tight"
                   style={montserrat}
                 >
                   {item.title}

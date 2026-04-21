@@ -142,23 +142,35 @@ export default function CasePage({ caseId }: CasePageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Чорний блок зверху з назвою, описом та фото */}
-      <section className="bg-black text-white">
-        <div className="grid lg:grid-cols-2">
+      <section className="relative bg-black text-white overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.38]"
+          style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+              linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)
+            `,
+            backgroundSize: '48px 48px',
+          }}
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
+        <div className="grid lg:grid-cols-2 relative z-10">
           <div className="p-8 sm:p-12 lg:p-20 xl:p-24 flex flex-col justify-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black mb-4 leading-tight">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-5 leading-[1.04] tracking-tight">
               {caseData.title}
             </h1>
             
-            <p className="text-xl lg:text-2xl text-gray-300 mb-6 leading-relaxed">
+            <p className="text-lg sm:text-xl lg:text-2xl text-gray-300/95 mb-7 leading-relaxed max-w-2xl">
               {caseData.subtitle}
             </p>
 
             {caseData.technologies && (
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-3.5">
                 {caseData.technologies.map((tech: string, index: number) => (
                   <span 
                     key={index}
-                    className="px-4 py-2 bg-white/10 text-white rounded-full text-sm font-medium border border-white/20"
+                    className="px-4 py-2.5 bg-white/10 text-white/95 rounded-full text-sm font-semibold border border-white/25 backdrop-blur-sm"
                   >
                     {tech}
                   </span>

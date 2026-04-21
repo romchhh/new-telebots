@@ -36,6 +36,21 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
       {/* Градієнт затемнення знизу */}
       <div className="absolute inset-0 bg-black/15" aria-hidden />
       <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-black/5" />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        style={{
+          backgroundImage: `
+            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px',
+        }}
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute -right-20 top-1/3 h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl"
+        aria-hidden
+      />
 
       {/* Зона під верхні елементи — на мобільному менша, щоб текст був вище */}
       <div

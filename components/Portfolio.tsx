@@ -152,8 +152,20 @@ export default function Portfolio() {
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="bg-black text-white pt-16 md:pt-24 pb-8 md:pb-12">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <section className="relative bg-black text-white pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.38]"
+          style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+              linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)
+            `,
+            backgroundSize: '48px 48px',
+          }}
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
           <div
             className={`p-8 sm:p-12 lg:p-16 xl:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`}
             ref={contentRef}

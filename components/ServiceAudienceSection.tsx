@@ -19,11 +19,11 @@ export default function ServiceAudienceSection({ copy }: ServiceAudienceSectionP
     <div className="relative bg-white overflow-hidden px-4 sm:px-6 md:px-10 lg:px-16 pt-20 md:pt-24 lg:pt-28 pb-20 md:pb-24 lg:pb-28">
       <div className="relative mx-auto max-w-7xl w-full">
         <h2
-          className="text-[2.5rem] md:text-[4rem] font-light text-center mb-14 md:mb-16 text-gray-900 leading-none"
+          className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight text-center mb-14 md:mb-16 leading-tight"
           style={montserrat}
         >
           {title}{' '}
-          <span className="italic font-light text-gray-900">{titleAccent}</span>
+          <span className="italic font-black text-black">{titleAccent}</span>
         </h2>
 
         <div className="flex flex-wrap justify-center gap-6">

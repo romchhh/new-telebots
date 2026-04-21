@@ -47,7 +47,7 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
         onClick={onClose}
       />
       
-      <div className="relative bg-white max-w-xl w-full max-h-[80vh] h-[80vh] p-6 md:p-8 rounded-xl shadow-2xl flex flex-col">
+      <div className="relative bg-white max-w-xl w-full max-h-[88vh] h-[88vh] md:max-h-[82vh] md:h-[82vh] p-6 md:p-8 rounded-xl shadow-2xl flex flex-col">
         {/* Кнопка закриття */}
         <button
           type="button"

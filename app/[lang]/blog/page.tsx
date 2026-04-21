@@ -98,6 +98,18 @@ export default function BlogPage() {
             className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[3px]"
             style={{ WebkitBackdropFilter: 'blur(3px)' }}
           />
+          <div
+            className="pointer-events-none absolute inset-0 opacity-[0.28]"
+            style={{
+              backgroundImage: `
+                linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)
+              `,
+              backgroundSize: '48px 48px',
+            }}
+            aria-hidden
+          />
+          <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
           <div className="relative z-10 w-full px-4 pb-10 pt-24 sm:px-6 md:px-10 md:pb-20 md:pt-0 lg:pb-24 lg:px-16">
             <div
               ref={heroRef}

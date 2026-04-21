@@ -34,6 +34,10 @@ interface PricingTableProps {
   hideCategoryLabel?: boolean;
   /** Менші відступи та без горизонтального padding — для вбудовування на сторінку «Ціни» */
   embedded?: boolean;
+  /** Фоновий індекс секції (напр. 09) */
+  sectionIndex?: number;
+  /** Центрувати заголовок і підзаголовок секції */
+  centerHeader?: boolean;
 }
 
 function showCurrency(price: string): boolean {
@@ -46,12 +50,14 @@ export default function PricingTable({
   onContactClick,
   hideCategoryLabel,
   embedded,
+  sectionIndex,
+  centerHeader,
 }: PricingTableProps) {
   const sectionPad = embedded ? 'py-8 sm:py-10 px-0' : 'py-16 sm:py-20 px-4 sm:px-6';
   return (
     <section className={`${sectionPad} bg-white`}>
       <div className="max-w-6xl mx-auto">
-        <div className="mb-12 sm:mb-16">
+        <div className={`mb-12 sm:mb-16 ${centerHeader ? 'text-center' : ''}`}>
           {!hideCategoryLabel && (
             <div className="flex items-center gap-4 mb-4">
               <span className="text-xs font-black text-black tracking-[0.3em] uppercase">
@@ -59,10 +65,21 @@ export default function PricingTable({
               </span>
             </div>
           )}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight mb-4">
-            {pricing.title}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl">
+          <div className={`relative ${centerHeader ? 'mx-auto max-w-4xl' : ''}`}>
+            {sectionIndex !== undefined && (
+              <span
+                className="block text-[6rem] md:text-[8rem] font-light leading-none text-gray-100 select-none -mb-6 md:-mb-8"
+                style={{ fontFamily: 'var(--font-montserrat)' }}
+                aria-hidden
+              >
+                {String(sectionIndex).padStart(2, '0')}
+              </span>
+            )}
+            <h2 className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight mb-4">
+              {pricing.title}
+            </h2>
+          </div>
+          <p className={`text-lg text-gray-600 max-w-2xl ${centerHeader ? 'mx-auto text-center' : ''}`}>
             {pricing.subtitle}
           </p>
         </div>
