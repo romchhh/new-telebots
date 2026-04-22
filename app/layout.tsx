@@ -176,6 +176,22 @@ gtag('js', new Date());
 gtag('config', 'G-7YWVBBJP8X');`,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-16801058748/CPxTCNPDyqAcELyfr8s-',
+      'event_callback': callback
+  });
+  return false;
+}`,
+          }}
+        />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
