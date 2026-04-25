@@ -632,6 +632,55 @@ export const cases = {
         { value: "↑", label: "Організація подій" }
       ]
     },
+    'smart-bodycourse-bot': {
+      title: "EdTech система в Telegram для продажу авторського курсу",
+      subtitle: "Автоматизували продаж і доставку контенту курсу зі схуднення з оплатою в чаті",
+      mainImage: "/portfolio/IMAGE 2026-04-25 16:04:56.jpg",
+      description: "Розробили інструмент для автоматизації продажу та доставки контенту авторського курсу зі схуднення. Основна задача — поєднати зручний онбординг, інтегровану оплату та систему утримання користувача.\n\nБот генерує унікальні посилання на оплату Monopay прямо в чаті та одразу після підтвердження транзакції видає потрібні матеріали.\n\nЗамість ручного виставлення рахунків і перевірки чеків в Instagram замовник отримав повністю автономний магазин 24/7: бот прогріває, продає, приймає оплату і видає товар, мінімізуючи людський фактор та витрати на менеджерів.",
+      duration: "2 тижні",
+      client: "Smart Body Course",
+      category: "EdTech / Telegram Bot",
+      portfolioCategory: "chatbots",
+      liveUrl: "https://t.me/Smart_BodyCourse_Bot",
+      features: [
+        "Онбординг у форматі діалогу в Telegram",
+        "Monopay Integration з генерацією унікальних посилань",
+        "Миттєва видача цифрового контенту після оплати",
+        "Автоматизація прийому заявок без менеджера",
+        "Сценарії утримання користувачів (retention)",
+        "Мінімізація ручної перевірки платежів"
+      ],
+      results: [
+        { value: "24/7", label: "Автономний продаж курсу" },
+        { value: "100%", label: "Автоматична видача контенту" },
+        { value: "↓", label: "Менше ручних операцій" },
+        { value: "↑", label: "Швидкість обробки лідів" }
+      ]
+    },
+    'snagging-services-uae': {
+      title: "Сайт для Snagging Services — інженерної компанії в ОАЕ",
+      subtitle: "Преміальний мінімалістичний сайт для ринку технагляду Дубая та Абу-Дабі",
+      mainImage: "/portfolio/IMAGE 2026-04-25 16:05:01.jpg",
+      description: "Розробили сайт для лідерів ринку технагляду в Дубаї та Абу-Дабі. Ключова задача — перетворити складні інженерні перевірки на зрозумілий та естетичний цифровий продукт.\n\nГоловна ідея — поєднати інженерну точність із преміальним мінімалізмом: чітка структура, акцент на цифрах і професійна типографіка. Без візуального шуму — тільки чистота, баланс і довіра з першого екрану.",
+      duration: "3 тижні",
+      client: "Snagging Services UAE",
+      category: "Corporate Website",
+      portfolioCategory: "websites",
+      liveUrl: "https://uaesnagging.ae/",
+      features: [
+        "Структурована подача складних інженерних послуг",
+        "Преміальна мінімалістична візуальна система",
+        "Акцент на ключових цифрах і доказах експертності",
+        "Адаптивна верстка для мобільних і десктопів",
+        "Оптимізація швидкості та базова SEO-структура"
+      ],
+      results: [
+        { value: "↑", label: "Довіра з першого екрану" },
+        { value: "100%", label: "Чітка структура послуг" },
+        { value: "↓", label: "Візуальний шум" },
+        { value: "↑", label: "Якість лідів" }
+      ]
+    },
     'butenko-fit': {
       title: "Butenko Fit — сайт для сертифікованої тренерки з пілатесу",
       subtitle: "Разом із дизайнером розробили butenkofit.com: передати вайб Юлії, а не лише зверстати сторінки",
@@ -1289,6 +1338,55 @@ export const cases = {
         { value: "24/7", label: "Content availability" },
         { value: "↑", label: "Student convenience" },
         { value: "↑", label: "Event organization" }
+      ]
+    },
+    'smart-bodycourse-bot': {
+      title: "EdTech Telegram system for selling an author course",
+      subtitle: "Automated course sales and content delivery with in-chat payment flow",
+      mainImage: "/portfolio/IMAGE 2026-04-25 16:04:56.jpg",
+      description: "We built an automation tool for selling and delivering content of an author weight-loss course. The goal was to combine smooth onboarding, integrated payment, and retention mechanics.\n\nThe bot generates unique Monopay payment links directly in chat and delivers required files immediately after transaction confirmation.\n\nInstead of manually sending invoices and checking receipts in Instagram, the client received a fully autonomous 24/7 store: the bot warms up users, sells, accepts payments, and delivers digital products with minimal human effort.",
+      duration: "2 weeks",
+      client: "Smart Body Course",
+      category: "EdTech / Telegram Bot",
+      portfolioCategory: "chatbots",
+      liveUrl: "https://t.me/Smart_BodyCourse_Bot",
+      features: [
+        "Conversational onboarding inside Telegram",
+        "Monopay integration with unique payment links",
+        "Instant digital delivery after payment",
+        "Automated lead handling without a manager",
+        "Retention mechanics for user engagement",
+        "Reduced manual payment checks"
+      ],
+      results: [
+        { value: "24/7", label: "Autonomous course sales" },
+        { value: "100%", label: "Automatic content delivery" },
+        { value: "↓", label: "Less manual operations" },
+        { value: "↑", label: "Lead processing speed" }
+      ]
+    },
+    'snagging-services-uae': {
+      title: "Website for Snagging Services — engineering company in UAE",
+      subtitle: "Premium minimalist website for the Dubai and Abu Dhabi snagging market",
+      mainImage: "/portfolio/IMAGE 2026-04-25 16:05:01.jpg",
+      description: "We developed a website for market leaders in snagging services in Dubai and Abu Dhabi. The main task was to transform complex engineering inspections into a clear and aesthetic digital product.\n\nThe core idea combines strict engineering precision with premium minimalism: clear structure, focus on numbers, and professional typography. No visual noise — only clarity, balance, and trust from the very first screen.",
+      duration: "3 weeks",
+      client: "Snagging Services UAE",
+      category: "Corporate Website",
+      portfolioCategory: "websites",
+      liveUrl: "https://uaesnagging.ae/",
+      features: [
+        "Structured presentation of complex engineering services",
+        "Premium minimalist visual system",
+        "Focus on key numbers and proof points",
+        "Responsive layout for mobile and desktop",
+        "Speed optimization and SEO foundation"
+      ],
+      results: [
+        { value: "↑", label: "First-screen trust" },
+        { value: "100%", label: "Clear service architecture" },
+        { value: "↓", label: "Visual noise" },
+        { value: "↑", label: "Lead quality" }
       ]
     },
     'butenko-fit': {
@@ -1949,6 +2047,55 @@ export const cases = {
         { value: "24/7", label: "Dostępność treści" },
         { value: "↑", label: "Wygoda dla uczniów" },
         { value: "↑", label: "Organizacja wydarzeń" }
+      ]
+    },
+    'smart-bodycourse-bot': {
+      title: "System EdTech w Telegramie do sprzedaży autorskiego kursu",
+      subtitle: "Automatyzacja sprzedaży i dostarczania treści kursu z płatnością w czacie",
+      mainImage: "/portfolio/IMAGE 2026-04-25 16:04:56.jpg",
+      description: "Stworzyliśmy narzędzie do automatyzacji sprzedaży i dostarczania treści autorskiego kursu odchudzania. Kluczowym zadaniem było połączenie wygodnego onboardingu, zintegrowanej płatności i retencji użytkownika.\n\nBot generuje unikalne linki Monopay bezpośrednio w czacie i natychmiast po potwierdzeniu transakcji wydaje wymagane pliki.\n\nZamiast ręcznego wystawiania rachunków i sprawdzania potwierdzeń na Instagramie, klient otrzymał całkowicie autonomiczny sklep 24/7: bot rozgrzewa, sprzedaje, przyjmuje płatność i wydaje produkt cyfrowy.",
+      duration: "2 tygodnie",
+      client: "Smart Body Course",
+      category: "EdTech / Telegram Bot",
+      portfolioCategory: "chatbots",
+      liveUrl: "https://t.me/Smart_BodyCourse_Bot",
+      features: [
+        "Onboarding konwersacyjny w Telegramie",
+        "Integracja Monopay z unikalnymi linkami płatności",
+        "Natychmiastowe wydanie materiałów po płatności",
+        "Automatyzacja leadów bez managera",
+        "Mechaniki retencyjne zwiększające zaangażowanie",
+        "Mniej ręcznej kontroli płatności"
+      ],
+      results: [
+        { value: "24/7", label: "Autonomiczna sprzedaż kursu" },
+        { value: "100%", label: "Automatyczne wydanie treści" },
+        { value: "↓", label: "Mniej operacji ręcznych" },
+        { value: "↑", label: "Szybkość obsługi leadów" }
+      ]
+    },
+    'snagging-services-uae': {
+      title: "Strona dla Snagging Services — firmy inżynieryjnej w ZEA",
+      subtitle: "Premium minimalistyczny serwis dla rynku inspekcji technicznych w Dubaju i Abu Zabi",
+      mainImage: "/portfolio/IMAGE 2026-04-25 16:05:01.jpg",
+      description: "Zaprojektowaliśmy i wdrożyliśmy stronę dla liderów rynku usług snaggingowych w Dubaju i Abu Zabi. Głównym celem było przełożenie złożonych inspekcji inżynieryjnych na czytelny i estetyczny produkt cyfrowy.\n\nPodstawą koncepcji było połączenie inżynieryjnej precyzji z premium minimalizmem: przejrzysta struktura, nacisk na liczby i profesjonalna typografia. Bez szumu wizualnego — tylko klarowność i zaufanie od pierwszego ekranu.",
+      duration: "3 tygodnie",
+      client: "Snagging Services UAE",
+      category: "Strona korporacyjna",
+      portfolioCategory: "websites",
+      liveUrl: "https://uaesnagging.ae/",
+      features: [
+        "Czytelna prezentacja złożonych usług inżynieryjnych",
+        "Premium minimalistyczny system wizualny",
+        "Akcent na liczby i dowody ekspertyzy",
+        "Responsywny layout mobile/desktop",
+        "Optymalizacja wydajności i baza SEO"
+      ],
+      results: [
+        { value: "↑", label: "Zaufanie od pierwszego ekranu" },
+        { value: "100%", label: "Jasna struktura usług" },
+        { value: "↓", label: "Szum wizualny" },
+        { value: "↑", label: "Jakość leadów" }
       ]
     },
     'butenko-fit': {
@@ -2712,6 +2859,55 @@ export const cases = {
         { value: "24/7", label: "Доступность контента" },
         { value: "↑", label: "Удобство для учеников" },
         { value: "↑", label: "Организация событий" }
+      ]
+    },
+    'smart-bodycourse-bot': {
+      title: "EdTech система в Telegram для продажи авторского курса",
+      subtitle: "Автоматизация продаж и выдачи контента курса с оплатой прямо в чате",
+      mainImage: "/portfolio/IMAGE 2026-04-25 16:04:56.jpg",
+      description: "Мы разработали инструмент для автоматизации продаж и доставки контента авторского курса по похудению. Ключевая задача — объединить удобный онбординг, интегрированную оплату и удержание пользователя.\n\nБот генерирует уникальные ссылки Monopay прямо в чате и мгновенно выдает нужные материалы после подтверждения транзакции.\n\nВместо ручного выставления счетов и проверки чеков в Instagram заказчик получил полностью автономный магазин 24/7: бот прогревает, продает, принимает оплату и выдает цифровой товар, снижая влияние человеческого фактора.",
+      duration: "2 недели",
+      client: "Smart Body Course",
+      category: "EdTech / Telegram Bot",
+      portfolioCategory: "chatbots",
+      liveUrl: "https://t.me/Smart_BodyCourse_Bot",
+      features: [
+        "Диалоговый онбординг в Telegram",
+        "Интеграция Monopay с уникальными ссылками оплаты",
+        "Мгновенная выдача контента после оплаты",
+        "Автоматическая обработка лидов без менеджера",
+        "Retention-механики для удержания пользователей",
+        "Снижение ручной проверки платежей"
+      ],
+      results: [
+        { value: "24/7", label: "Автономные продажи курса" },
+        { value: "100%", label: "Автоматическая выдача контента" },
+        { value: "↓", label: "Меньше ручных операций" },
+        { value: "↑", label: "Скорость обработки лидов" }
+      ]
+    },
+    'snagging-services-uae': {
+      title: "Сайт для Snagging Services — инженерной компании в ОАЭ",
+      subtitle: "Премиальный минималистичный сайт для рынка технадзора в Дубае и Абу-Даби",
+      mainImage: "/portfolio/IMAGE 2026-04-25 16:05:01.jpg",
+      description: "Мы разработали сайт для лидеров рынка технадзора в Дубае и Абу-Даби. Главная задача — превратить сложные инженерные проверки в понятный и эстетичный цифровой продукт.\n\nКлючевая идея — сочетание инженерной точности и премиального минимализма: четкая структура, акцент на цифрах и профессиональная типографика. Без визуального шума — только чистота, баланс и доверие с первого экрана.",
+      duration: "3 недели",
+      client: "Snagging Services UAE",
+      category: "Корпоративный сайт",
+      portfolioCategory: "websites",
+      liveUrl: "https://uaesnagging.ae/",
+      features: [
+        "Структурированная подача сложных инженерных услуг",
+        "Премиальная минималистичная визуальная система",
+        "Акцент на цифрах и доказательствах экспертизы",
+        "Адаптивная верстка для мобильных и десктопов",
+        "Оптимизация скорости и базовая SEO-структура"
+      ],
+      results: [
+        { value: "↑", label: "Доверие с первого экрана" },
+        { value: "100%", label: "Понятная структура услуг" },
+        { value: "↓", label: "Визуальный шум" },
+        { value: "↑", label: "Качество лидов" }
       ]
     },
     'butenko-fit': {

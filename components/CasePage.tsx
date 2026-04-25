@@ -267,15 +267,36 @@ export default function CasePage({ caseId }: CasePageProps) {
               <div className="grid grid-cols-1 gap-8">
                 {caseData.gallery.map((src: string, index: number) => (
                   <div key={index} className="relative w-full rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
-                    <Image
-                      src={src}
-                      alt={`${caseData.title} — ${index + 2}`}
-                      width={1200}
-                      height={800}
-                      className="w-full h-auto object-contain"
-                      quality={90}
-                      sizes="(max-width: 1024px) 100vw, 896px"
-                    />
+                    {/\.(webm|mp4|mov)$/i.test(src) ? (
+                      <video
+                        className="w-full max-h-[78vh] h-auto object-contain bg-black"
+                        controls
+                        autoPlay
+                        loop
+                        playsInline
+                        muted
+                        preload="metadata"
+                      >
+                        <source src={src} type={src.toLowerCase().endsWith('.webm') ? 'video/webm' : src.toLowerCase().endsWith('.mp4') ? 'video/mp4' : 'video/quicktime'} />
+                        {validLang === 'uk'
+                          ? 'Ваш браузер не підтримує відтворення відео.'
+                          : validLang === 'en'
+                          ? 'Your browser does not support video playback.'
+                          : validLang === 'pl'
+                          ? 'Twoja przeglądarka nie obsługuje odtwarzania wideo.'
+                          : 'Ваш браузер не поддерживает воспроизведение видео.'}
+                      </video>
+                    ) : (
+                      <Image
+                        src={src}
+                        alt={`${caseData.title} — ${index + 2}`}
+                        width={1200}
+                        height={800}
+                        className="w-full max-h-[78vh] h-auto object-contain"
+                        quality={90}
+                        sizes="(max-width: 1024px) 100vw, 896px"
+                      />
+                    )}
                   </div>
                 ))}
               </div>

@@ -222,8 +222,6 @@ export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
     headline: caseData.title,
     description: caseData.subtitle,
     image: `${baseUrl}${caseData.mainImage}`,
-    datePublished: new Date().toISOString(),
-    dateModified: new Date().toISOString(),
     author: {
       '@type': 'Organization',
       name: 'TeleBots',
