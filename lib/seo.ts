@@ -27,6 +27,78 @@ export interface SEOConfig {
   openGraphDescription?: string;
 }
 
+function sanitizeTextForSeo(value: string): string {
+  return value.replace(/\s+/g, ' ').trim();
+}
+
+function buildCaseIntentKeywords(lang: Language): string[] {
+  if (lang === 'en') {
+    return ['case study', 'project example', 'website development', 'telegram bot development', 'business automation', 'TeleBots'];
+  }
+  if (lang === 'pl') {
+    return ['studium przypadku', 'przykład projektu', 'tworzenie stron', 'bot Telegram', 'automatyzacja biznesu', 'TeleBots'];
+  }
+  if (lang === 'ru') {
+    return ['кейс', 'пример проекта', 'разработка сайтов', 'разработка Telegram-ботов', 'автоматизация бизнеса', 'TeleBots'];
+  }
+  return ['кейс', 'приклад проєкту', 'розробка сайтів', 'розробка Telegram-ботів', 'автоматизація бізнесу', 'TeleBots'];
+}
+
+export function buildCaseSeoDescription(caseData: {
+  subtitle?: string;
+  description?: string;
+  category?: string;
+  technologies?: string[];
+}, lang: Language = 'uk'): string {
+  const subtitle = caseData.subtitle ? sanitizeTextForSeo(caseData.subtitle) : '';
+  const body = caseData.description ? sanitizeTextForSeo(caseData.description) : '';
+  const category = caseData.category ? sanitizeTextForSeo(caseData.category) : '';
+  const technologies = Array.isArray(caseData.technologies)
+    ? caseData.technologies.map((tech) => sanitizeTextForSeo(tech)).filter(Boolean)
+    : [];
+
+  const categoryLabel = lang === 'en' ? 'Category' : lang === 'pl' ? 'Kategoria' : lang === 'ru' ? 'Категория' : 'Категорія';
+  const technologiesLabel = lang === 'en' ? 'Technologies' : lang === 'pl' ? 'Technologie' : lang === 'ru' ? 'Технологии' : 'Технології';
+
+  const parts = [subtitle, body, category ? `${categoryLabel}: ${category}.` : '', technologies.length ? `${technologiesLabel}: ${technologies.slice(0, 5).join(', ')}.` : '']
+    .filter(Boolean)
+    .join(' ');
+
+  return trimDescriptionForMeta(parts || subtitle || body, 160);
+}
+
+export function buildCaseSeoKeywords(caseData: {
+  title: string;
+  category?: string;
+  portfolioCategory?: string;
+  technologies?: string[];
+  features?: string[];
+}, lang: Language): string {
+  const titleKeywords = sanitizeTextForSeo(caseData.title)
+    .split(/[|,:()\-]/)
+    .map((part) => sanitizeTextForSeo(part))
+    .filter(Boolean);
+  const category = caseData.category ? [sanitizeTextForSeo(caseData.category)] : [];
+  const portfolioCategory = caseData.portfolioCategory ? [sanitizeTextForSeo(caseData.portfolioCategory)] : [];
+  const technologies = Array.isArray(caseData.technologies)
+    ? caseData.technologies.map((tech) => sanitizeTextForSeo(tech)).filter(Boolean)
+    : [];
+  const featureKeywords = Array.isArray(caseData.features)
+    ? caseData.features.slice(0, 5).map((item) => sanitizeTextForSeo(item)).filter(Boolean)
+    : [];
+
+  const all = [
+    ...titleKeywords,
+    ...category,
+    ...portfolioCategory,
+    ...technologies,
+    ...featureKeywords,
+    ...buildCaseIntentKeywords(lang),
+  ];
+
+  return Array.from(new Set(all)).join(', ');
+}
+
 export function generateMetadata(config: SEOConfig) {
   const {
     title,
@@ -212,7 +284,15 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
 
 export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
   const casesData = cases[lang] || cases.uk;
-  const caseData = (casesData as any)[caseId];
+  const caseData = (casesData as Record<string, {
+    title: string;
+    subtitle?: string;
+    description?: string;
+    category?: string;
+    technologies?: string[];
+    features?: string[];
+    mainImage: string;
+  }>)[caseId];
 
   if (!caseData) return null;
 
@@ -220,8 +300,15 @@ export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: caseData.title,
-    description: caseData.subtitle,
+    description: buildCaseSeoDescription(caseData, lang),
     image: `${baseUrl}${caseData.mainImage}`,
+    articleSection: caseData.category || 'Case Study',
+    keywords: buildCaseSeoKeywords({
+      title: caseData.title,
+      category: caseData.category,
+      technologies: caseData.technologies,
+      features: caseData.features,
+    }, lang),
     author: {
       '@type': 'Organization',
       name: 'TeleBots',

@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { legal } from '@/lib/legal';
@@ -51,14 +52,24 @@ export default function TermsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded" aria-label="Skip to main content">
-        Skip to main content
-      </a>
-      <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
-      <main id="main-content">
-      <section className="pt-32 pb-32 px-6 bg-white">
-        <div ref={contentRef} className={`max-w-4xl mx-auto scroll-animate-up ${isContentVisible ? 'animate' : ''}`}>
+    <>
+      <StructuredData type="organization" />
+      <StructuredData type="localBusiness" />
+      <StructuredData
+        type="breadcrumb"
+        breadcrumbs={[
+          { name: t.nav.about, url: `/${lang}` },
+          { name: t.footer.terms, url: `/${lang}/terms` },
+        ]}
+      />
+      <div className="min-h-screen bg-white">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded" aria-label="Skip to main content">
+          Skip to main content
+        </a>
+        <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
+        <main id="main-content">
+        <section className="pt-32 pb-32 px-6 bg-white">
+          <div ref={contentRef} className={`max-w-4xl mx-auto scroll-animate-up ${isContentVisible ? 'animate' : ''}`}>
           <div className="mb-12">
             <div className="flex items-center mb-6">
               <div className="w-12 h-px bg-black mr-4"></div>
@@ -111,11 +122,12 @@ export default function TermsPage() {
             <div className="w-8 h-px bg-black mr-3 group-hover:w-12 transition-all"></div>
             {t.footer.backHome}
           </Link>
-        </div>
-      </section>
-      </main>
-      <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
-    </div>
+          </div>
+        </section>
+        </main>
+        <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+      </div>
+    </>
   );
 }
 

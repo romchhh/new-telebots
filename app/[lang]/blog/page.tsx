@@ -67,6 +67,7 @@ export default function BlogPage() {
     <>
       <StructuredData type="organization" />
       <StructuredData type="localBusiness" />
+      <StructuredData type="website" />
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[

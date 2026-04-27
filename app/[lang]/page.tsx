@@ -66,6 +66,12 @@ export default function Home() {
       <StructuredData type="organization" />
       <StructuredData type="localBusiness" />
       <StructuredData type="website" />
+      <StructuredData
+        type="breadcrumb"
+        breadcrumbs={[
+          { name: t.nav.about, url: `/${lang}` },
+        ]}
+      />
       {process.env.NEXT_PUBLIC_SHOW_AGGREGATE_RATING !== 'false' && (
         <StructuredData type="aggregateRating" rating={5.0} reviewCount={200} />
       )}

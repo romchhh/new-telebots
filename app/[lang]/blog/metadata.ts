@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { translations, Language } from '@/components/translations';
+import { Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
@@ -11,31 +11,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang: langParam } = await params;
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
-  const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Соцмережі - TeleBots | Кейси, поради та новини з розробки'
+    ? 'Блог TeleBots: кейси, SEO та автоматизація бізнесу'
     : lang === 'en'
-    ? 'Social media - TeleBots | Cases, Tips & Development News'
+    ? 'TeleBots Blog: case studies, SEO and automation'
     : lang === 'pl'
-    ? 'Media społecznościowe - TeleBots | Przypadki, wskazówki i wiadomości o rozwoju'
-    : 'Соцсети - TeleBots | Кейсы, советы и новости о разработке';
+    ? 'Blog TeleBots: realizacje, SEO i automatyzacja'
+    : 'Блог TeleBots: кейсы, SEO и автоматизация бизнеса';
 
   const description = lang === 'uk'
-    ? 'Дізнайтеся про новини, кейси успішних проєктів та поради з розробки від TeleBots. Підписуйтесь на наші канали для отримання контенту!'
+    ? 'Статті про розробку сайтів, Telegram-ботів, SEO-оптимізацію та автоматизацію бізнесу. Практичні кейси й інсайти команди TeleBots.'
     : lang === 'en'
-    ? 'Learn about news, successful project cases and development tips from TeleBots. Subscribe to our channels for fresh content!'
+    ? 'Articles on website development, Telegram bots, SEO optimization and business automation. Practical case studies from the TeleBots team.'
     : lang === 'pl'
-    ? 'Dowiedz się o wiadomościach, przypadkach projektów i wskazówkach od TeleBots. Subskrybuj nasze kanały!'
-    : 'Узнайте о новостях, кейсах проектов и советах от TeleBots. Подписывайтесь на наши каналы!';
+    ? 'Artykuły o tworzeniu stron, botach Telegram, SEO i automatyzacji biznesu. Praktyczne realizacje zespołu TeleBots.'
+    : 'Статьи о разработке сайтов, Telegram-ботах, SEO и автоматизации бизнеса. Практические кейсы команды TeleBots.';
 
   const keywords = lang === 'uk'
-    ? 'соцмережі, соцмережі TeleBots, кейси розробки телеграм ботів, поради з розробки, телеграм бот, чат-бот, автоматизація бізнесу, веб-розробка, технології'
+    ? 'блог про розробку сайтів, кейси Telegram-ботів, SEO для бізнесу, автоматизація бізнесу, веб-розробка, TeleBots'
     : lang === 'en'
-    ? 'social media, telegram bot development cases, development tips, telegram bot, chatbot, business automation, web development, technologies'
+    ? 'development blog, telegram bot case studies, website SEO, business automation, web development insights, TeleBots'
     : lang === 'pl'
-    ? 'media społecznościowe, przypadki rozwoju botów, wskazówki, bot telegram, chatbot, automatyzacja biznesu, rozwój stron, technologie'
-    : 'соцсети, кейсы разработки телеграм ботов, советы по разработке, телеграм бот, чат-бот, автоматизация бизнеса, веб-разработка, технологии';
+    ? 'blog o tworzeniu stron, realizacje botów Telegram, SEO dla biznesu, automatyzacja biznesu, TeleBots'
+    : 'блог о разработке сайтов, кейсы Telegram-ботов, SEO для бизнеса, автоматизация бизнеса, TeleBots';
 
   return {
     ...generateSEOMetadata({

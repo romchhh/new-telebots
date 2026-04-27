@@ -10,6 +10,7 @@ import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
+import { cases } from '@/components/cases';
 
 export default function CasePageRoute() {
   const params = useParams();
@@ -23,6 +24,8 @@ export default function CasePageRoute() {
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(validLang);
   const t = translations[lang];
+  const currentCaseData = ((cases[lang] || cases.uk) as Record<string, { title?: string }>)[caseId];
+  const currentCaseTitle = currentCaseData?.title || caseId;
 
   useEffect(() => {
     if (langParam && langParam !== lang && ['uk', 'en', 'pl', 'ru'].includes(langParam)) {
@@ -87,7 +90,7 @@ export default function CasePageRoute() {
         breadcrumbs={[
           { name: t.nav.about, url: `/${lang}` },
           { name: t.nav.portfolio, url: `/${lang}/portfolio` },
-          { name: caseId, url: `/${lang}/portfolio/${caseId}` },
+          { name: currentCaseTitle, url: `/${lang}/portfolio/${caseId}` },
         ]}
       />
       <div className="min-h-screen bg-white">

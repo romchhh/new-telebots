@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 
@@ -50,47 +51,58 @@ export default function PrivacyPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation
-        isScrolled={isScrolled}
-        lang={lang}
-        setLang={handleLangChange}
-        t={t}
-        currentLang={lang}
+    <>
+      <StructuredData type="organization" />
+      <StructuredData type="localBusiness" />
+      <StructuredData
+        type="breadcrumb"
+        breadcrumbs={[
+          { name: t.nav.about, url: `/${lang}` },
+          { name: t.footer.privacy, url: `/${lang}/privacy` },
+        ]}
       />
-      
-      <section className="pt-32 pb-32 px-6 bg-white">
-        <div ref={contentRef} className={`max-w-4xl mx-auto scroll-animate-up ${isContentVisible ? 'animate' : ''}`}>
-          <div className="mb-12">
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-px bg-black mr-4"></div>
-              <h1 className="text-sm font-black text-black tracking-wider">
-                {t.footer.privacy}
-              </h1>
+      <div className="min-h-screen bg-white">
+        <Navigation
+          isScrolled={isScrolled}
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+        />
+        
+        <section className="pt-32 pb-32 px-6 bg-white">
+          <div ref={contentRef} className={`max-w-4xl mx-auto scroll-animate-up ${isContentVisible ? 'animate' : ''}`}>
+            <div className="mb-12">
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-px bg-black mr-4"></div>
+                <h1 className="text-sm font-black text-black tracking-wider">
+                  {t.footer.privacy}
+                </h1>
+              </div>
+              <h2 className="text-4xl lg:text-5xl font-black text-black leading-tight mb-8">
+                {t.footer.privacyTitle}
+              </h2>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-black text-black leading-tight mb-8">
-              {t.footer.privacyTitle}
-            </h2>
+
+            <div className="prose prose-lg max-w-none">
+              <p className="text-gray-700 font-semibold leading-relaxed text-lg mb-8">
+                {t.footer.privacyContent}
+              </p>
+            </div>
+
+            <Link
+              href={`/${lang}`}
+              className="group inline-flex items-center text-black font-semibold hover:text-gray-600 transition mt-12"
+            >
+              <div className="w-8 h-px bg-black mr-3 group-hover:w-12 transition-all"></div>
+              {t.footer.backHome}
+            </Link>
           </div>
+        </section>
 
-          <div className="prose prose-lg max-w-none">
-            <p className="text-gray-700 font-semibold leading-relaxed text-lg mb-8">
-              {t.footer.privacyContent}
-            </p>
-          </div>
-
-          <Link
-            href={`/${lang}`}
-            className="group inline-flex items-center text-black font-semibold hover:text-gray-600 transition mt-12"
-          >
-            <div className="w-8 h-px bg-black mr-3 group-hover:w-12 transition-all"></div>
-            {t.footer.backHome}
-          </Link>
-        </div>
-      </section>
-
-      <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
-    </div>
+        <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
+      </div>
+    </>
   );
 }
 

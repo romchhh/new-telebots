@@ -35,7 +35,7 @@ export async function generateMetadata({
       url: `${baseUrl}/${lang}/terms`,
       lang,
     }),
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
   };
 }
 
