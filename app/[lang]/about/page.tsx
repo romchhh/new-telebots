@@ -23,6 +23,7 @@ export default function AboutPage() {
   
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(validLang);
+  const isUkAboutTitle = lang === 'uk' && translations.uk.about.title === 'TeleBots - Професійна розробка цифрових рішень';
 
   const t = translations[lang];
 
@@ -173,9 +174,19 @@ export default function AboutPage() {
       {/* Основний блок під цитатою */}
       <section className="py-16 md:py-24 lg:py-28 px-6 md:px-10 lg:px-16 bg-white">
         <div className="max-w-[1600px] mx-auto">
-          <div className="mb-20 md:mb-28 lg:mb-36 min-w-0 overflow-hidden">
-            <h1 className="text-[clamp(3rem,12vw,6rem)] sm:text-[clamp(2.5rem,9vw,5rem)] md:text-[clamp(3.5rem,9.5vw,9.5rem)] font-black text-black leading-[0.88] tracking-[-0.02em] uppercase break-words max-w-full">
-              {t.about.title}
+          <div className="mb-20 md:mb-28 lg:mb-36 min-w-0">
+            <h1 className="w-[95vw] max-w-[95vw] mx-auto md:mx-0 text-center md:text-left text-[clamp(1.1rem,7.2vw,6rem)] sm:text-[clamp(1.6rem,6vw,5rem)] md:text-[clamp(3.5rem,9.5vw,9.5rem)] font-black text-black leading-[0.9] tracking-[-0.02em] uppercase hyphens-none break-normal">
+              {isUkAboutTitle ? (
+                <>
+                  <span className="block whitespace-nowrap">TeleBots -</span>
+                  <span className="block whitespace-nowrap">Професійна</span>
+                  <span className="block whitespace-nowrap">розробка</span>
+                  <span className="block whitespace-nowrap">цифрових</span>
+                  <span className="block whitespace-nowrap">рішень</span>
+                </>
+              ) : (
+                t.about.title
+              )}
             </h1>
           </div>
         </div>

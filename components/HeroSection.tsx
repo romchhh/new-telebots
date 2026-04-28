@@ -178,13 +178,6 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
           <p className="mx-auto mb-4 max-w-3xl text-lg leading-relaxed text-gray-300 sm:mb-5 sm:text-lg md:mb-6 md:text-xl md:leading-relaxed">
             {t.hero.intro}
           </p>
-          <p
-            className="mx-auto mb-7 max-w-3xl text-lg font-semibold text-white/95 sm:mb-8 md:mb-10 sm:text-lg md:text-xl [letter-spacing:0.05em] sm:[letter-spacing:0.06em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            {t.hero.ctaQuestion}
-          </p>
-
           <div className="flex justify-center gap-3 md:gap-6">
             <button
               onClick={handleScrollDown}

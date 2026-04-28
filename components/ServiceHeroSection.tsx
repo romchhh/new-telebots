@@ -182,12 +182,14 @@ export default function ServiceHeroSection({
           >
             {hero.title}
           </h1>
-          <p
-            className="mb-3 font-normal leading-snug text-white sm:mb-4 md:mb-5 text-base sm:text-lg md:text-xl [letter-spacing:0.03em] sm:[letter-spacing:0.05em] md:[letter-spacing:0.07em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            {hero.subtitle}
-          </p>
+          {hero.subtitle?.trim() && (
+            <p
+              className="mb-3 font-normal leading-snug text-white sm:mb-4 md:mb-5 text-base sm:text-lg md:text-xl [letter-spacing:0.03em] sm:[letter-spacing:0.05em] md:[letter-spacing:0.07em]"
+              style={{ fontFamily: 'var(--font-montserrat)' }}
+            >
+              {hero.subtitle}
+            </p>
+          )}
           <p className="mx-auto mb-3 max-w-3xl text-base leading-relaxed text-gray-200/95 sm:mb-4 md:mb-5 sm:text-base md:text-lg md:leading-relaxed">
             {hero.intro}
           </p>
