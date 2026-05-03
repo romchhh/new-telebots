@@ -6,7 +6,10 @@ export const translations = {
       portfolio: 'КЕЙСИ',
       blog: 'СОЦМЕРЕЖІ',
       contact: 'КОНТАКТИ',
-      consultation: 'КОНСУЛЬТАЦІЯ'
+      consultation: 'КОНСУЛЬТАЦІЯ',
+      consultationWidgetPrompt:
+        'Бажаєте обговорити проєкт або отримати безкоштовну оцінку та наступні кроки?',
+      consultationWidgetCta: 'Залишити заявку'
     },
     hero: {
       title: 'Розробка чат-ботів і сайтів під ключ',
@@ -26,7 +29,8 @@ export const translations = {
       }
     },
     about: {
-      title: 'TeleBots - Професійна розробка цифрових рішень',
+      title:
+        'TeleBots — сайти, Telegram-боти та e-commerce під ключ. CRM, оплати, аналітика, UI/UX. Понад 200 проєктів, консультація безкоштовно.',
       ourWork: 'Наша робота',
       ourWorkDesc: 'Ми реалізуємо проєкти, які відповідають потребам наших клієнтів і забезпечують довгострокову цінність для вашого бізнесу.',
       portfolio: 'Кейси',
@@ -527,7 +531,10 @@ export const translations = {
       portfolio: 'CASES',
       blog: 'SOCIAL',
       contact: 'CONTACT',
-      consultation: 'CONSULTATION'
+      consultation: 'CONSULTATION',
+      consultationWidgetPrompt:
+        'Have a project in mind? Tell us briefly — we will reply with clear next steps and a free estimate.',
+      consultationWidgetCta: 'Send a request'
     },
     hero: {
       title: 'We build bots, websites, and automation end to end',
@@ -1048,7 +1055,10 @@ export const translations = {
       portfolio: 'REALIZACJE',
       blog: 'SOCIAL MEDIA',
       contact: 'KONTAKT',
-      consultation: 'KONSULTACJA'
+      consultation: 'KONSULTACJA',
+      consultationWidgetPrompt:
+        'Masz projekt lub pomysł? Opisz krótko — odpowiemy z kolejnymi krokami i bezpłatną wyceną.',
+      consultationWidgetCta: 'Wyślij zapytanie'
     },
     hero: {
       title: 'Tworzymy boty, strony i automatyzację pod klucz',
@@ -1569,7 +1579,10 @@ export const translations = {
       portfolio: 'КЕЙСЫ',
       blog: 'СОЦСЕТИ',
       contact: 'КОНТАКТЫ',
-      consultation: 'КОНСУЛЬТАЦИЯ'
+      consultation: 'КОНСУЛЬТАЦИЯ',
+      consultationWidgetPrompt:
+        'Есть проект или задача? Кратко опишите — ответим со следующими шагами и бесплатной оценкой.',
+      consultationWidgetCta: 'Оставить заявку'
     },
     hero: {
       title: 'Разрабатываем ботов, сайты и автоматизацию под ключ',
@@ -2084,6 +2097,14 @@ export const translations = {
     }
   }
 };
+
+/** Великий блок заголовка на головній і сторінці «Про нас» (лише UK). */
+export const ukHomeAboutHeadline = {
+  brand: 'TeleBots',
+  eyebrow: 'Сайти · Telegram-боти · магазини · дизайн і UI/UX',
+  lines: ['Веб, боти й e-commerce під ключ', 'CRM, оплати та аналітика — одна команда'],
+  lead: 'Понад 200 проєктів за 4 роки: від безкоштовної консультації та оцінки до запуску й супроводу. Next.js, інтеграції та AI — без зоопарку підрядників.',
+} as const;
 
 export type TranslationKey = keyof typeof translations;
 export type Language = 'uk' | 'en' | 'pl' | 'ru';

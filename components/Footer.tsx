@@ -28,7 +28,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
               <div className="relative h-3 w-auto max-w-[50px]">
                 <Image
                   src="/whitelogo_new.png"
-                  alt="TeleBots - Професійна розробка цифрових рішень"
+                  alt="TeleBots — сайти, боти та e-commerce під ключ"
                   width={50}
                   height={12}
                   className="h-full w-auto object-contain"

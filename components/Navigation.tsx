@@ -238,8 +238,8 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
             >
               <X className="w-4 h-4" />
             </button>
-            <p className="text-base sm:text-lg font-normal text-black pr-7 leading-snug">
-              {currentLanguage === 'uk' ? 'Бажаєте записатися на консультацію?' : t.nav.consultation}
+            <p className="text-base sm:text-lg font-normal text-black pr-7 leading-relaxed">
+              {t.nav.consultationWidgetPrompt}
             </p>
             <button
               type="button"
@@ -248,9 +248,9 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
                 consultWidgetDismissedInRuntime = true;
                 onConsultClick();
               }}
-              className="mt-4 inline-flex items-center justify-center w-full rounded-full bg-black text-white text-sm sm:text-base tracking-[0.1em] uppercase font-semibold px-5 py-3 hover:bg-gray-900 transition-colors"
+              className="mt-4 inline-flex items-center justify-center w-full rounded-full bg-black text-white text-sm sm:text-base tracking-[0.06em] uppercase font-semibold px-5 py-3 hover:bg-gray-900 transition-colors"
             >
-              {currentLanguage === 'uk' ? 'Залишити заявку' : t.nav.consultation}
+              {t.nav.consultationWidgetCta}
             </button>
           </div>
         </div>,
