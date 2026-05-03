@@ -124,22 +124,6 @@ export default function RootLayout({
         
         {/* Preconnect для критичних ресурсів */}
 
-        {/* LCP hero: збігається з типовим вибором next/image для мобільного / десктопу (sizes=100vw) */}
-        <link
-          rel="preload"
-          as="image"
-          href="/_next/image?url=%2Fother%2Fhero-background.jpeg&w=828&q=75"
-          media="(max-width: 768px)"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/_next/image?url=%2Fother%2Fhero-background.jpeg&w=1920&q=75"
-          media="(min-width: 769px)"
-          fetchPriority="high"
-        />
-
         {/* Icons — вкладка браузера та іконка в пошуку Google */}
         <link rel="icon" href="/other/favicon.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/other/favicon.png" />

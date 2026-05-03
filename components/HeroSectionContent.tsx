@@ -1,14 +1,12 @@
 'use client';
 
-import Image from 'next/image';
-
-interface HeroSectionProps {
+interface HeroSectionContentProps {
   t: typeof import('./translations').translations.uk;
   onOrderClick?: () => void;
 }
 
-export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
-
+/** Клієнтська частина hero (оверлеї, текст, кнопки). Фон — серверний `HeroImage` у батьківському `<section>`. */
+export default function HeroSectionContent({ t, onOrderClick }: HeroSectionContentProps) {
   const handleScrollDown = () => {
     const aboutSection = document.getElementById('about');
     if (aboutSection) {
@@ -18,23 +16,8 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
     }
   };
 
-
   return (
-    <section className="relative min-h-screen flex flex-col overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src="/other/hero-background.jpeg"
-          alt={t.hero.backgroundImageAlt}
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          quality={75}
-          decoding="sync"
-          className="object-cover"
-        />
-      </div>
-
+    <>
       {/* Градієнт затемнення знизу */}
       <div className="absolute inset-0 bg-black/15" aria-hidden />
       <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-black/5" />
@@ -76,7 +59,6 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
                 'linear-gradient(145deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.38) 45%, rgba(0,0,0,0.22) 100%)',
             }}
           />
-          {/* Скляний highlight (верхня крайка) */}
           <div
             className="absolute inset-x-0 top-0 h-px"
             style={{
@@ -84,7 +66,6 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
                 'linear-gradient(90deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 70%, transparent 100%)',
             }}
           />
-          {/* Лівий вертикальний highlight */}
           <div
             className="absolute inset-y-0 left-0 w-px"
             style={{
@@ -92,12 +73,10 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
                 'linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.12) 60%, transparent 100%)',
             }}
           />
-          {/* Легкий внутрішній border */}
           <div
             className="absolute inset-0 rounded-2xl pointer-events-none"
             style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.12)' }}
           />
-          {/* Текст */}
           <p
             className="relative px-6 py-5 md:px-5 md:py-5 lg:px-6 lg:py-6 xl:px-7 xl:py-7 text-white/90 font-normal leading-relaxed text-[17px] md:text-[18px] lg:text-[19px] xl:text-[21px]"
             style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.02em' }}
@@ -107,7 +86,6 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* ─── КРУГ З ДАТАМИ — мобільний: менший, праворуч; не перетинає теглайн і нижні тексти ─── */}
       <div className="absolute z-20 top-24 right-1 sm:right-1.5 md:top-24 md:right-2 lg:right-3 xl:right-5">
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none
@@ -162,7 +140,6 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* ─── ОСНОВНИЙ КОНТЕНТ — z-30 щоб був над декоративним кругом; відступ зверху на мобільному щоб не злипався з кругом на низьких екранах ─── */}
       <div className="relative z-30 flex w-full flex-1 items-end justify-center px-4 pb-10 pt-10 sm:px-6 md:px-10 md:pb-20 md:pt-0 lg:px-16 lg:pb-24">
         <div className="mx-auto w-full max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
           <h1
@@ -182,6 +159,7 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
           </p>
           <div className="flex justify-center gap-3 md:gap-6">
             <button
+              type="button"
               onClick={handleScrollDown}
               className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-bold border border-white text-white px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
               style={{ fontFamily: 'var(--font-montserrat)' }}
@@ -191,6 +169,7 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
             </button>
             {onOrderClick && (
               <button
+                type="button"
                 onClick={onOrderClick}
                 className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-bold bg-white text-black px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
                 style={{ fontFamily: 'var(--font-montserrat)' }}
@@ -202,6 +181,6 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 }
