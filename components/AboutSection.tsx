@@ -3,7 +3,8 @@
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import UkAboutHeadline from '@/components/UkAboutHeadline';
+import AboutHeadline from '@/components/AboutHeadline';
+import AboutServiceTeasers from '@/components/AboutServiceTeasers';
 
 interface AboutSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -19,13 +20,12 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
       <div className="max-w-[1600px] mx-auto">
         {/* Великий заголовок */}
         <div className="mb-20 md:mb-28 lg:mb-36 min-w-0">
-          {currentLang === 'uk' ? (
-            <UkAboutHeadline />
-          ) : (
-            <h1 className="text-[clamp(1.1rem,7.2vw,6rem)] sm:text-[clamp(1.6rem,6vw,5rem)] md:text-[clamp(3.5rem,9.5vw,9.5rem)] font-black text-black leading-[0.9] tracking-[-0.02em] uppercase max-w-full hyphens-none break-normal">
-              {t.about.title}
-            </h1>
-          )}
+          <div className="flex flex-col gap-10 md:flex-row md:items-stretch md:justify-between md:gap-8 lg:gap-10 xl:gap-12">
+            <div className="min-w-0 w-full flex-1 md:min-w-0 md:pr-4 lg:pr-8 xl:pr-10">
+              <AboutHeadline headline={t.about.headline} />
+            </div>
+            <AboutServiceTeasers t={t} lang={currentLang} />
+          </div>
         </div>
 
         {/* Фото з текстом і кнопкою */}
@@ -50,7 +50,7 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
                   textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)'
                 }}
               >
-                {t.about.stats.cta}
+                {t.about.photoMessage}
               </p>
               {/* Кнопка на фото — тільки desktop */}
               <div className="hidden md:block">

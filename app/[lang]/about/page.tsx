@@ -13,7 +13,8 @@ import { sendToTelegram } from '@/lib/telegram';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { legal } from '@/lib/legal';
-import UkAboutHeadline from '@/components/UkAboutHeadline';
+import AboutHeadline from '@/components/AboutHeadline';
+import AboutServiceTeasers from '@/components/AboutServiceTeasers';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 
 export default function AboutPage() {
@@ -104,7 +105,7 @@ export default function AboutPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.brand, url: `/${lang}` },
           { name: t.about.pageTitle, url: `/${lang}/about` },
         ]}
       />
@@ -174,13 +175,12 @@ export default function AboutPage() {
       <section className="py-16 md:py-24 lg:py-28 px-6 md:px-10 lg:px-16 bg-white">
         <div className="max-w-[1600px] mx-auto">
           <div className="mb-20 md:mb-28 lg:mb-36 min-w-0">
-            {lang === 'uk' ? (
-              <UkAboutHeadline />
-            ) : (
-              <h1 className="text-[clamp(1.1rem,7.2vw,6rem)] sm:text-[clamp(1.6rem,6vw,5rem)] md:text-[clamp(3.5rem,9.5vw,9.5rem)] font-black text-black leading-[0.9] tracking-[-0.02em] uppercase max-w-full hyphens-none break-normal">
-                {t.about.title}
-              </h1>
-            )}
+            <div className="flex flex-col gap-10 md:flex-row md:items-stretch md:justify-between md:gap-8 lg:gap-10 xl:gap-12">
+              <div className="min-w-0 w-full flex-1 md:min-w-0 md:pr-4 lg:pr-8 xl:pr-10">
+                <AboutHeadline headline={t.about.headline} />
+              </div>
+              <AboutServiceTeasers t={t} lang={lang} />
+            </div>
           </div>
         </div>
       </section>
@@ -214,7 +214,7 @@ export default function AboutPage() {
                     textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)',
                   }}
                 >
-                  {t.about.stats.cta}
+                  {t.about.photoMessage}
                 </p>
                 <button
                   type="button"

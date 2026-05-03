@@ -5,8 +5,8 @@ import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
 import PortfolioSection from '@/components/PortfolioSection';
+import AboutStatsBanner from '@/components/AboutStatsBanner';
 import Footer from '@/components/Footer';
 import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
@@ -69,7 +69,7 @@ export default function Home() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.brand, url: `/${lang}` },
         ]}
       />
       {process.env.NEXT_PUBLIC_SHOW_AGGREGATE_RATING !== 'false' && (
@@ -100,8 +100,8 @@ export default function Home() {
         <main id="main-content">
           <HeroSection t={t} onOrderClick={openModal} />
           <AboutSection t={t} onOrderClick={openModal} />
-          <ServicesSection t={t} />
           <PortfolioSection t={t} />
+          <AboutStatsBanner t={t} />
         </main>
         
         <Footer

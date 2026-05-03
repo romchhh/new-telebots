@@ -150,7 +150,7 @@ export default function ServicePage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.brand, url: `/${lang}` },
           { name: t.nav.services, url: `/${lang}/services` },
           { name: serviceTitle, url: `/${lang}/services/${serviceId}` },
         ]}

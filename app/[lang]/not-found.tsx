@@ -62,7 +62,7 @@ export default function NotFound() {
     { href: `/${lang}`, label: lang === 'uk' ? 'Головна' : lang === 'en' ? 'Home' : lang === 'pl' ? 'Strona główna' : 'Главная' },
     { href: `/${lang}/services`, label: t.nav.services },
     { href: `/${lang}/portfolio`, label: t.nav.portfolio },
-    { href: `/${lang}/about`, label: t.nav.about },
+    { href: `/${lang}/about`, label: t.nav.brand },
     { href: `/${lang}/contact`, label: t.nav.contact },
   ];
 

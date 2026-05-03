@@ -88,7 +88,7 @@ export default function CasePageRoute() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.brand, url: `/${lang}` },
           { name: t.nav.portfolio, url: `/${lang}/portfolio` },
           { name: currentCaseTitle, url: `/${lang}/portfolio/${caseId}` },
         ]}

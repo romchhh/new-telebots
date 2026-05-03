@@ -58,7 +58,7 @@ export default function RefundPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.brand, url: `/${lang}` },
           { name: t.footer.refund, url: `/${lang}/refund` },
         ]}
       />

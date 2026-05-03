@@ -48,9 +48,15 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
             <nav aria-label="Footer navigation">
               <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 md:flex-col md:items-start md:space-y-3 md:gap-0">
                 <li>
-                  <Link href={`/${currentLanguage}/about`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.about} - TeleBots`}>
-                    {t.nav.about}
-                  </Link>
+                  <a 
+                    href="https://brand.telebots.site/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" 
+                    aria-label={`${t.nav.brand} - TeleBots`}
+                  >
+                    {t.nav.brand}
+                  </a>
                 </li>
                 <li>
                   <Link href={`/${currentLanguage}/services`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.services} - TeleBots`}>

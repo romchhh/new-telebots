@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
@@ -13,6 +13,12 @@ const montserrat = Montserrat({
   display: 'swap',
   variable: '--font-montserrat',
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -118,11 +124,19 @@ export default function RootLayout({
         
         {/* Preconnect для критичних ресурсів */}
 
-        {/* LCP: той самий ресурс, що й next/image (webp/avif), а не сирий jpeg */}
+        {/* LCP hero: збігається з типовим вибором next/image для мобільного / десктопу (sizes=100vw) */}
+        <link
+          rel="preload"
+          as="image"
+          href="/_next/image?url=%2Fother%2Fhero-background.jpeg&w=828&q=75"
+          media="(max-width: 768px)"
+          fetchPriority="high"
+        />
         <link
           rel="preload"
           as="image"
           href="/_next/image?url=%2Fother%2Fhero-background.jpeg&w=1920&q=75"
+          media="(min-width: 769px)"
           fetchPriority="high"
         />
 
@@ -135,7 +149,6 @@ export default function RootLayout({
         <meta name="description" content="TeleBots — розробка сайтів та інтернет-магазинів під ключ, веб-інтерфейсів, Telegram ботів і автоматизації. 200+ проєктів. Київ / віддалено." />
         {/* Meta tags */}
         <meta name="theme-color" content="#000000" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="google-site-verification" content="B6RsISu82MaHNjyNFTkfGrgB0SFwQDHLNrlGh0RoQe4" />
         {process.env.NEXT_PUBLIC_BING_VERIFICATION && (
           <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />

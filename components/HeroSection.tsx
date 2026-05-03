@@ -24,11 +24,13 @@ export default function HeroSection({ t, onOrderClick }: HeroSectionProps) {
       <div className="absolute inset-0">
         <Image
           src="/other/hero-background.jpeg"
-          alt=""
+          alt={t.hero.backgroundImageAlt}
           fill
           priority
           fetchPriority="high"
           sizes="100vw"
+          quality={75}
+          decoding="sync"
           className="object-cover"
         />
       </div>

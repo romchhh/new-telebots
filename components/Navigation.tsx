@@ -84,11 +84,16 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
         </Link>
 
         <div className="hidden lg:flex items-center space-x-10">
-          <Link href={`/${currentLanguage}/about`} className={`text-xs tracking-[0.2em] font-semibold transition ${
-            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
-          }`}>
-            {t.nav.about}
-          </Link>
+          <a 
+            href="https://brand.telebots.site/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className={`text-xs tracking-[0.2em] font-semibold transition ${
+              isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
+            }`}
+          >
+            {t.nav.brand}
+          </a>
           <Link href={`/${currentLanguage}/services`} className={`text-xs tracking-[0.2em] font-semibold transition ${
             isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
           }`}>
@@ -166,13 +171,15 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
             className="flex flex-col items-center justify-center h-full w-full space-y-6 px-6"
             onClick={(e) => e.stopPropagation()}
           >
-            <Link
-              href={`/${currentLanguage}/about`}
+            <a
+              href="https://brand.telebots.site/"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsMenuOpen(false)}
               className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
             >
-              {t.nav.about}
-            </Link>
+              {t.nav.brand}
+            </a>
             <Link
               href={`/${currentLanguage}/services`}
               onClick={() => setIsMenuOpen(false)}

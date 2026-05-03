@@ -71,7 +71,7 @@ export default function BlogPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.brand, url: `/${lang}` },
           { name: t.blog?.title || 'Соцмережі', url: `/${lang}/blog` },
         ]}
       />

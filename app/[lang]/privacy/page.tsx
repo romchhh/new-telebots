@@ -57,7 +57,7 @@ export default function PrivacyPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.brand, url: `/${lang}` },
           { name: t.footer.privacy, url: `/${lang}/privacy` },
         ]}
       />

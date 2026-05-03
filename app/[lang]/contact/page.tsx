@@ -90,7 +90,7 @@ export default function ContactPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.about, url: `/${lang}` },
+          { name: t.nav.brand, url: `/${lang}` },
           { name: t.nav.contact, url: `/${lang}/contact` },
         ]}
       />

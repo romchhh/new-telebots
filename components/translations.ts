@@ -1,7 +1,7 @@
 export const translations = {
   uk: {
     nav: {
-      about: 'ПРО НАС',
+      brand: 'БРЕНД',
       services: 'ЩО МИ РОБИМО?',
       portfolio: 'КЕЙСИ',
       blog: 'СОЦМЕРЕЖІ',
@@ -16,6 +16,8 @@ export const translations = {
       subtitle: 'Чат-боти, веб, парсери, дизайн — від ідеї до запуску',
       intro:
         'Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.',
+      backgroundImageAlt:
+        'Фон головної сторінки TeleBots: панорама міста та узбережжя на заході сонця',
       ctaQuestion: 'Хочете дізнатися більше?',
       tagline: 'Зручні сайти та боти, які ведуть клієнта до заявки й покупки.',
       viewButton: 'Переглянути',
@@ -30,7 +32,12 @@ export const translations = {
     },
     about: {
       title:
-        'TeleBots — сайти, Telegram-боти та e-commerce під ключ. CRM, оплати, аналітика, UI/UX. Понад 200 проєктів, консультація безкоштовно.',
+        'TeleBots — сайти, чат-боти та e-commerce під ключ: від консультації до запуску. CRM, оплати, Next.js, 200+ проєктів.',
+      headline: {
+        title: 'Запускаємо сайти, чат-боти та інтернет-магазини так, щоб заявки стабільно доходили до оплати',
+        sub: 'Спочатку — безкоштовна консультація й зрозуміла оцінка. Далі одна команда веде проєкт від структури та макетів до продакшену й супроводу.',
+        body: 'Понад 200 реалізованих рішень за чотири роки: Next.js, CRM, оплати, розсилки та AI за потреби. Без перекладання задач між десятком виконавців.',
+      },
       ourWork: 'Наша робота',
       ourWorkDesc: 'Ми реалізуємо проєкти, які відповідають потребам наших клієнтів і забезпечують довгострокову цінність для вашого бізнесу.',
       portfolio: 'Кейси',
@@ -45,6 +52,8 @@ export const translations = {
         support: 'Разом з Вами від старту до фінішу й навіть після',
         cta: 'Автоматизуй свій бізнес з TeleBots: підключимо чат-боти та сайти під ваші задачі, інтегруємо CRM і платіжні сервіси та налаштуємо заявки так, щоб вони перетворювалися на продажі.'
       },
+      photoMessage:
+        'Безкоштовно обговорюємо вашу задачу, цілі та бюджет. Вже на цьому етапі даємо конкретні рекомендації. Складаємо тз, визначаємо стек і терміни. Ви бачите повну картину ще до старту.',
       pageTitle: 'ПРО НАС',
       pageIntro: 'Шукаєте рішення для бізнесу чи особистих потреб? Ми — команда розробників та дизайнерів: телеграм боти, чат-боти, сайти, інтернет-магазини, воронки. В команді є UI/UX дизайнер: розробляємо лого, айдентику, дизайн сайтів та додатків.',
       quote: 'Кожний проєкт є унікальним кейсом, що створений вирішувати проблему саме для вашого випадку.',
@@ -166,6 +175,8 @@ export const translations = {
       learnMore: 'Дізнатися більше',
       websitesPage: {
         title: 'Сайти',
+        teaserOffer:
+          'Next.js, SEO, адмінка та оплати під ключ. Безкоштовна консультація — від лендінгу до інтернет-магазину.',
         subtitle: 'Мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce',
         description: 'Розробляємо мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce рішення. Швидкі, зручний адмін, SEO та інтеграції під ключ. За потреби підключаємо AI-функції — чат-боти, аналітику та автоматизацію бізнес-процесів. Маєте ідею? Будемо раді обговорити та підказати найкраще рішення. Багато запитів у клієнтів? Можемо співпрацювати як підрядники — разом реалізуємо більше проєктів і збільшимо прибуток.',
         button: 'Замовити розробку',
@@ -204,6 +215,8 @@ export const translations = {
       },
       chatbotsPage: {
         title: 'Чат-боти',
+        teaserOffer:
+          'Оплата, CRM і розсилки в Telegram, WhatsApp чи Viber. Простий сценарій — від 24 год; складніший — поетапно й прозоро.',
         subtitle: 'Боти, які ведуть клієнта до покупки: оплата, CRM, підтвердження. Telegram, WhatsApp, Viber, Messenger',
         description: 'Бот, який не просто відповідає — а веде клієнта до покупки: приймає оплату (Mono, WayForPay, LiqPay), записує в CRM або Google Sheets, надсилає підтвердження. Автоматизація продажів у месенджері без втрати особистого підходу; за бажанням — AI-відповіді та аналітика. Швидкий старт за 24 години, перевірено на 200+ проєктах. Маєте ідею? Обговоримо та підкажемо найкраще рішення. Працюємо і як підрядники: багато заявок — разом реалізуємо більше і збільшимо прибуток.',
         button: 'Замовити розробку',
@@ -255,6 +268,8 @@ export const translations = {
       },
       designPage: {
         title: 'Дизайн',
+        teaserOffer:
+          'Лого, айдентика та UI/UX у Figma — макети під верстку й конверсію. 2–3 раунди правок у межах ТЗ.',
         subtitle: 'Лого, айдентика, UI/UX для сайтів та додатків. Зручні інтерфейси, що працюють на конверсію',
         description: 'Логотип і фірмовий стиль, які запам\'ятовуються. UI/UX для сайтів та додатків: прототипи в Figma, айдентика, брендбуки, візитки та соцмережі. Інтерфейс не лише виглядає — а й працює на конверсію та впізнаваність. В команді досвідчений UI/UX дизайнер — від ідеї до макетів під передачу в розробку. Маєте ідею? Раді обговорити та підказати найкраще рішення. Готові співпрацювати як підрядники для агенцій з великим потоком проєктів.',
         button: 'Замовити дизайн',
@@ -526,7 +541,7 @@ export const translations = {
   },
   en: {
     nav: {
-      about: 'ABOUT',
+      brand: 'BRAND',
       services: 'WHAT WE DO?',
       portfolio: 'CASES',
       blog: 'SOCIAL',
@@ -541,6 +556,8 @@ export const translations = {
       subtitle: 'Chatbots, web, parsers, design — from idea to launch',
       intro:
         'Full cycle: messengers, web, e-commerce, data, brand & UI/UX. One team — no extra middlemen.',
+      backgroundImageAlt:
+        'TeleBots homepage hero image: coastal city skyline at sunset',
       ctaQuestion: 'Want to know more?',
       tagline: 'Websites and bots that turn visitors into leads and sales.',
       viewButton: 'View',
@@ -554,7 +571,13 @@ export const translations = {
       }
     },
     about: {
-      title: 'TeleBots - Professional Digital Solutions Development',
+      title:
+        'TeleBots — websites, chatbots & e-commerce: consult to launch. CRM, payments, Next.js, 200+ projects.',
+      headline: {
+        title: 'We ship websites, chatbots, and e-commerce so leads reliably turn into paid orders',
+        sub: 'We start with a free consult and a clear estimate. One team takes you from structure and UI to production and ongoing care.',
+        body: '200+ launches over four years: Next.js, CRM, payments, messaging, and AI when you need it — without juggling a dozen vendors.',
+      },
       ourWork: 'Our Work',
       ourWorkDesc: 'We selectively pursue opportunities that fit our clients\' needs and provide long-term value to your business.',
       portfolio: 'Cases',
@@ -569,6 +592,8 @@ export const translations = {
         support: 'Together with you from start to finish and even after',
         cta: 'Automate your business with TeleBots: we connect chatbots and websites to your goals, integrate CRM and payment services, and configure lead flows so inquiries reliably turn into sales.'
       },
+      photoMessage:
+        'We discuss your task, goals, and budget at no charge. At this stage we already give concrete recommendations. We draft the spec, pick the stack, and set timelines. You see the full picture before work begins.',
       pageTitle: 'ABOUT US',
       pageIntro: 'Looking for a solution for business or personal needs? We are a team of developers and designers: Telegram bots, chatbots, websites, online stores, funnels. Our team includes a UI/UX designer: we create logos, brand identity, and design for websites and apps.',
       quote: 'Each project is a unique case, created to solve a problem specifically for your situation.',
@@ -690,6 +715,8 @@ export const translations = {
       learnMore: 'Learn more',
       websitesPage: {
         title: 'Websites',
+        teaserOffer:
+          'Next.js, SEO, admin, and payments end to end. Free consult — from a sharp landing to e-commerce.',
         subtitle: 'Minimalist premium sites with free consultation: landings, business card sites and premium e-commerce',
         description: 'We build minimalist premium sites with free consultation: landings, business card sites and premium e-commerce solutions. Fast, easy admin, SEO and integrations turnkey. When needed we add AI — chatbots, analytics and business process automation. Got an idea? We\'re happy to discuss and suggest the best approach. Lots of client requests? We can work as subcontractors to deliver more projects and grow revenue together.',
         button: 'Order Development',
@@ -728,6 +755,8 @@ export const translations = {
       },
       chatbotsPage: {
         title: 'Chatbots',
+        teaserOffer:
+          'Payments, CRM, and broadcasts in Telegram, WhatsApp, or Viber. Simple flows from 24h; bigger builds in clear stages.',
         subtitle: 'Bots that lead the customer to purchase: payments, CRM, confirmations. Telegram, WhatsApp, Viber, Messenger',
         description: 'A bot that doesn\'t just reply — it leads the customer to purchase: accepts payments (Mono, WayForPay, LiqPay), logs to CRM or Google Sheets, sends confirmations. Sales automation in the messenger without losing a personal touch; optionally AI replies and analytics. Quick start in 24 hours, proven on 200+ projects. Got an idea? Let\'s discuss and we\'ll suggest the best solution. We also work as subcontractors: more leads — we deliver more together and grow profit.',
         button: 'Order Development',
@@ -779,6 +808,8 @@ export const translations = {
       },
       designPage: {
         title: 'Design',
+        teaserOffer:
+          'Logo, brand, and UI/UX in Figma — dev-ready layouts. A few focused revision rounds within the agreed scope.',
         subtitle: 'Logo, identity, UI/UX for websites and apps. Interfaces that work for conversion',
         description: 'A logo and brand identity that stick in people\'s minds. UI/UX for websites and apps: Figma prototypes, identity, brand books, business cards and socials. The interface doesn\'t just look good — it works for conversion and recognition. Experienced UI/UX designer on the team — from idea to handoff-ready mockups. Got an idea? We\'re happy to discuss and suggest the best solution. We also partner as subcontractors for agencies with a strong project flow.',
         button: 'Order Design',
@@ -1050,7 +1081,7 @@ export const translations = {
   },
   pl: {
     nav: {
-      about: 'O NAS',
+      brand: 'BRAND',
       services: 'CO ROBIMY?',
       portfolio: 'REALIZACJE',
       blog: 'SOCIAL MEDIA',
@@ -1065,6 +1096,8 @@ export const translations = {
       subtitle: 'Chatboty, web, parsery, design — od pomysłu do startu',
       intro:
         'Pełny cykl: komunikatory, web, e-commerce, dane, branding i UI/UX. Jeden zespół — bez pośredników.',
+      backgroundImageAlt:
+        'Tło strony głównej TeleBots: panorama miasta i wybrzeża o zachodzie słońca',
       ctaQuestion: 'Chcesz wiedzieć więcej?',
       tagline: 'Strony i boty, które prowadzą klienta od wizyty do zakupu.',
       viewButton: 'Zobacz',
@@ -1078,7 +1111,13 @@ export const translations = {
       }
     },
     about: {
-      title: 'TeleBots - Profesjonalny rozwój rozwiązań cyfrowych',
+      title:
+        'TeleBots — strony, chatboty i e-commerce pod klucz: od konsultacji do startu. CRM, płatności, Next.js, 200+ projektów.',
+      headline: {
+        title: 'Wdrażamy strony, chatboty i sklepy tak, by leady konsekwentnie zmieniały się w płatności',
+        sub: 'Zaczynamy od bezpłatnej konsultacji i jasnej wyceny. Jeden zespół prowadzi projekt od struktury i UI po produkcję i opiekę.',
+        body: 'Ponad 200 wdrożeń w 4 lata: Next.js, CRM, płatności, mailingi i AI w razie potrzeby — bez przerzucania pracy między podwykonawcami.',
+      },
       ourWork: 'Nasza praca',
       ourWorkDesc: 'Selektywnie realizujemy projekty, które odpowiadają potrzebom naszych klientów i zapewniają długoterminową wartość dla Twojego biznesu.',
       portfolio: 'Realizacje',
@@ -1093,6 +1132,8 @@ export const translations = {
         support: 'Razem z Tobą od startu do mety i nawet po',
         cta: 'Automatyzuj swój biznes z TeleBots: wdrożymy chatboty i strony pod Twoje cele, zintegrowujemy CRM i systemy płatności oraz ustawimy procesy zgłoszeń tak, aby zapytania zamieniały się w sprzedaż.'
       },
+      photoMessage:
+        'Bezpłatnie omawiamy Twój cel, założenia i budżet. Już na tym etapie dajemy konkretne rekomendacje. Tworzymy specyfikację, wybieramy stack i terminy. Widzisz pełny obraz jeszcze przed startem.',
       pageTitle: 'O NAS',
       pageIntro: 'Szukasz rozwiązania dla biznesu lub potrzeb osobistych? Jesteśmy zespołem deweloperów i projektantów: boty Telegram, chatboty, strony, sklepy online, lejki. W zespole mamy projektanta UI/UX: tworzymy logo, identyfikację wizualną, projektowanie stron i aplikacji.',
       quote: 'Każdy projekt to unikalny przypadek, stworzony, aby rozwiązać problem konkretnie dla Twojej sytuacji.',
@@ -1214,6 +1255,8 @@ export const translations = {
       learnMore: 'Dowiedz się więcej',
       websitesPage: {
         title: 'Strony internetowe',
+        teaserOffer:
+          'Next.js, SEO, panel i płatności pod klucz. Darmowa konsultacja — od landing page do sklepu online.',
         subtitle: 'Minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i premium e-commerce',
         description: 'Tworzymy minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i rozwiązania e-commerce. Szybko, wygodny panel, SEO i integracje pod klucz. W razie potrzeby dołączamy AI — chatboty, analitykę i automatyzację procesów. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Dużo zapytań od klientów? Możemy współpracować jako podwykonawcy — razem zrealizujemy więcej projektów i zwiększymy zyski.',
         button: 'Zamów rozwój',
@@ -1252,6 +1295,8 @@ export const translations = {
       },
       chatbotsPage: {
         title: 'Chatboty',
+        teaserOffer:
+          'Płatności, CRM i mailingi w Telegram, WhatsApp lub Viber. Prosty scenariusz od 24 h; większy — etapami i jasno.',
         subtitle: 'Boty, które prowadzą klienta do zakupu: płatności, CRM, potwierdzenia. Telegram, WhatsApp, Viber, Messenger',
         description: 'Bot, który nie tylko odpowiada — lecz prowadzi klienta do zakupu: przyjmuje płatności (Mono, WayForPay, LiqPay), zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja sprzedaży w messangerze bez utraty osobistego podejścia; opcjonalnie odpowiedzi AI i analityka. Szybki start w 24 godziny, sprawdzone na 200+ projektach. Macie pomysł? Omówimy i podpowiemy najlepsze rozwiązanie. Pracujemy też jako podwykonawcy: dużo zleceń — razem zrealizujemy więcej i zwiększymy zysk.',
         button: 'Zamów rozwój',
@@ -1303,6 +1348,8 @@ export const translations = {
       },
       designPage: {
         title: 'Design',
+        teaserOffer:
+          'Logo, identyfikacja i UI/UX w Figma — makiety pod wdrożenie i konwersję. 2–3 rundy poprawek w uzgodnionym zakresie.',
         subtitle: 'Logo, identyfikacja, UI/UX dla stron i aplikacji. Interfejsy, które działają na konwersję',
         description: 'Logo i identyfikacja wizualna, które zapadają w pamięć. UI/UX dla stron i aplikacji: prototypy w Figma, identyfikacja, księgi znaku, wizytówki i social media. Interfejs nie tylko wygląda — lecz działa na konwersję i rozpoznawalność. W zespole doświadczony projektant UI/UX — od pomysłu do makiet pod przekazanie w rozwój. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Gotowi współpracować jako podwykonawcy dla agencji z dużym przepływem projektów.',
         button: 'Zamów projekt',
@@ -1574,7 +1621,7 @@ export const translations = {
   },
   ru: {
     nav: {
-      about: 'О НАС',
+      brand: 'БРЕНД',
       services: 'ЧТО МЫ ДЕЛАЕМ?',
       portfolio: 'КЕЙСЫ',
       blog: 'СОЦСЕТИ',
@@ -1589,6 +1636,8 @@ export const translations = {
       subtitle: 'Чат-боты, веб, парсеры, дизайн — от идеи до запуска',
       intro:
         'Полный цикл: мессенджеры, веб, e-commerce, данные, бренд и UI/UX. Одна команда — без лишних подрядчиков.',
+      backgroundImageAlt:
+        'Фон главной страницы TeleBots: панорама города и побережья на закате',
       ctaQuestion: 'Хотите узнать больше?',
       tagline: 'Удобные сайты и боты, которые ведут клиента к заявке и к покупке.',
       viewButton: 'Смотреть',
@@ -1602,7 +1651,13 @@ export const translations = {
       }
     },
     about: {
-      title: 'TeleBots - Профессиональная разработка цифровых решений',
+      title:
+        'TeleBots — сайты, чат-боты и e-commerce под ключ: от консультации до запуска. CRM, оплаты, Next.js, 200+ проектов.',
+      headline: {
+        title: 'Запускаем сайты, чат-боты и интернет-магазины так, чтобы заявки стабильно доходили до оплаты',
+        sub: 'Сначала — бесплатная консультация и понятная оценка. Дальше одна команда ведёт проект от структуры и макетов до продакшена и сопровождения.',
+        body: 'Более 200 решений за четыре года: Next.js, CRM, оплаты, рассылки и AI по необходимости. Без перекладывания задач между десятком подрядчиков.',
+      },
       ourWork: 'Наша работа',
       ourWorkDesc: 'Мы избирательно реализуем проекты, которые соответствуют потребностям наших клиентов и обеспечивают долгосрочную ценность для вашего бизнеса.',
       portfolio: 'Кейсы',
@@ -1617,6 +1672,8 @@ export const translations = {
         support: 'Вместе с вами от старта до финиша и даже после',
         cta: 'Автоматизируй свой бизнес с нами'
       },
+      photoMessage:
+        'Бесплатно обсуждаем вашу задачу, цели и бюджет. Уже на этом этапе даём конкретные рекомендации. Составляем ТЗ, определяем стек и сроки. Вы видите полную картину ещё до старта.',
       pageTitle: 'О НАС',
       pageIntro: 'Ищете решение для бизнеса или личных потребностей? Мы — команда разработчиков и дизайнеров: телеграм боты, чат-боты, сайты, интернет-магазины, воронки. В команде есть UI/UX дизайнер: создаём логотипы, айдентику, дизайн сайтов и приложений.',
       quote: 'Каждый проект - это уникальный кейс, созданный решать проблему именно для вашего случая.',
@@ -1738,6 +1795,8 @@ export const translations = {
       learnMore: 'Узнать больше',
       websitesPage: {
         title: 'Сайты',
+        teaserOffer:
+          'Next.js, SEO, админка и оплаты под ключ. Бесплатная консультация — от лендинга до интернет-магазина.',
         subtitle: 'Минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальный e-commerce',
         description: 'Делаем минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальные e-commerce решения. Быстро, удобная админка, SEO и интеграции под ключ. При необходимости подключаем AI — чат-боты, аналитику и автоматизацию бизнес-процессов. Есть идея? Будем рады обсудить и подсказать лучшее решение. Много запросов от клиентов? Можем сотрудничать как подрядчики — вместе реализуем больше проектов и увеличим прибыль.',
         button: 'Заказать разработку',
@@ -1776,6 +1835,8 @@ export const translations = {
       },
       chatbotsPage: {
         title: 'Чат-боты',
+        teaserOffer:
+          'Оплата, CRM и рассылки в Telegram, WhatsApp или Viber. Простой сценарий — от 24 ч; сложнее — поэтапно и прозрачно.',
         subtitle: 'Боты, которые ведут клиента к покупке: оплата, CRM, подтверждения. Telegram, WhatsApp, Viber, Messenger',
         description: 'Бот, который не просто отвечает — а ведёт клиента к покупке: принимает оплату (Mono, WayForPay, LiqPay), записывает в CRM или Google Sheets, отправляет подтверждения. Автоматизация продаж в мессенджере без потери личного подхода; по желанию — AI-ответы и аналитика. Быстрый старт за 24 часа, проверено на 200+ проектах. Есть идея? Обсудим и подскажем лучшее решение. Работаем и как подрядчики: много заявок — вместе реализуем больше и увеличим прибыль.',
         button: 'Заказать разработку',
@@ -1827,6 +1888,8 @@ export const translations = {
       },
       designPage: {
         title: 'Дизайн',
+        teaserOffer:
+          'Лого, айдентика и UI/UX в Figma — макеты под вёрстку и конверсию. 2–3 раунда правок в рамках ТЗ.',
         subtitle: 'Лого, айдентика, UI/UX для сайтов и приложений. Интерфейсы, которые работают на конверсию',
         description: 'Логотип и фирменный стиль, которые запоминаются. UI/UX для сайтов и приложений: прототипы в Figma, айдентика, брендбуки, визитки и соцсети. Интерфейс не только выглядит — а работает на конверсию и узнаваемость. В команде опытный UI/UX дизайнер — от идеи до макетов под передачу в разработку. Есть идея? Рады обсудить и подсказать лучшее решение. Готовы сотрудничать как подрядчики для агентств с большим потоком проектов.',
         button: 'Заказать дизайн',
@@ -2097,14 +2160,6 @@ export const translations = {
     }
   }
 };
-
-/** Великий блок заголовка на головній і сторінці «Про нас» (лише UK). */
-export const ukHomeAboutHeadline = {
-  brand: 'TeleBots',
-  eyebrow: 'Сайти · Telegram-боти · магазини · дизайн і UI/UX',
-  lines: ['Веб, боти й e-commerce під ключ', 'CRM, оплати та аналітика — одна команда'],
-  lead: 'Понад 200 проєктів за 4 роки: від безкоштовної консультації та оцінки до запуску й супроводу. Next.js, інтеграції та AI — без зоопарку підрядників.',
-} as const;
 
 export type TranslationKey = keyof typeof translations;
 export type Language = 'uk' | 'en' | 'pl' | 'ru';
