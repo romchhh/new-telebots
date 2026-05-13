@@ -19,10 +19,11 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
   return (
     <>
       {/* Градієнт затемнення знизу */}
-      <div className="absolute inset-0 bg-black/15" aria-hidden />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/92 via-black/52 to-black/5" />
+      <div className="absolute inset-0 z-10 bg-black/15" aria-hidden />
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/92 via-black/52 to-black/5" />
+      {/* Grid pattern - приховано на мобільних для продуктивності */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.35]"
+        className="pointer-events-none absolute inset-0 z-10 opacity-[0.35] hidden sm:block"
         style={{
           backgroundImage: `
             linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
@@ -32,8 +33,9 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
         }}
         aria-hidden
       />
+      {/* Radial gradient light - приховано на мобільних для продуктивності */}
       <div
-        className="pointer-events-none absolute -right-20 top-1/3 h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl"
+        className="pointer-events-none absolute -right-20 top-1/3 z-10 h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl hidden md:block"
         aria-hidden
       />
 
@@ -50,8 +52,13 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
           sm:w-[320px] md:left-6 md:w-[340px] lg:left-10 lg:w-[400px] xl:w-[440px]"
       >
         <div className="relative rounded-2xl overflow-hidden">
+          {/* На мобільних використовуємо статичний фон без blur для продуктивності */}
           <div
-            className="absolute inset-0 rounded-2xl"
+            className="absolute inset-0 rounded-2xl md:hidden bg-black/60"
+          />
+          {/* На десктопах використовуємо backdrop blur для кращого вигляду */}
+          <div
+            className="absolute inset-0 rounded-2xl hidden md:block"
             style={{
               backdropFilter: 'blur(10px) saturate(1.35)',
               WebkitBackdropFilter: 'blur(10px) saturate(1.35)',
@@ -87,11 +94,22 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
       </div>
 
       <div className="absolute z-20 top-24 right-1 sm:right-1.5 md:top-24 md:right-2 lg:right-3 xl:right-5">
+        {/* На мобільних використовуємо простіший blur без backdrop-filter */}
         <div
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none
             w-[min(200px,52vw)] h-[min(200px,52vw)]
             sm:w-[min(220px,48vw)] sm:h-[min(220px,48vw)]
-            md:w-[clamp(260px,30vw,420px)] md:h-[clamp(260px,30vw,420px)]"
+            md:w-[clamp(260px,30vw,420px)] md:h-[clamp(260px,30vw,420px)] md:hidden"
+          style={{
+            borderRadius: '50%',
+            background:
+              'radial-gradient(circle, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 38%, rgba(0,0,0,0.15) 62%, transparent 86%)',
+          }}
+        />
+        {/* На десктопах використовуємо backdrop-filter */}
+        <div
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none
+            w-[clamp(260px,30vw,420px)] h-[clamp(260px,30vw,420px)] hidden md:block"
           style={{
             borderRadius: '50%',
             background:

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, type ReactNode } from 'react';
+import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import HeroSectionContent from '@/components/HeroSectionContent';
@@ -8,11 +8,13 @@ import AboutSection from '@/components/AboutSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import AboutStatsBanner from '@/components/AboutStatsBanner';
 import Footer from '@/components/Footer';
-import OrderModal from '@/components/OrderModal';
-import SuccessMessage from '@/components/SuccessMessage';
-import { translations, Language } from '@/components/translations';
 import StructuredData from '@/components/StructuredData';
+import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
+
+// Lazy load модалів для зменшення initial JavaScript bundle
+const OrderModal = lazy(() => import('@/components/OrderModal'));
+const SuccessMessage = lazy(() => import('@/components/SuccessMessage'));
 
 interface HomePageClientProps {
   initialLang: Language;
@@ -123,18 +125,27 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         />
       </div>
 
-      <OrderModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        serviceName={selectedService}
-        t={t}
-        onSubmit={handleSubmit}
-      />
-      <SuccessMessage
-        isOpen={isSuccessOpen}
-        onClose={() => setIsSuccessOpen(false)}
-        message={t.modal.success}
-      />
+      {/* Lazy loaded модалі */}
+      <Suspense fallback={null}>
+        {isModalOpen && (
+          <OrderModal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            serviceName={selectedService}
+            t={t}
+            onSubmit={handleSubmit}
+          />
+        )}
+      </Suspense>
+      <Suspense fallback={null}>
+        {isSuccessOpen && (
+          <SuccessMessage
+            isOpen={isSuccessOpen}
+            onClose={() => setIsSuccessOpen(false)}
+            message={t.modal.success}
+          />
+        )}
+      </Suspense>
     </>
   );
 }
