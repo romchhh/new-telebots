@@ -118,20 +118,24 @@ export default function RootLayout({
   return (
     <html lang="uk" prefix="og: https://ogp.me/ns#" className={montserrat.variable}>
       <head>
-        {/* Preload hero image для швидшого LCP */}
+        {/* Preload hero image для швидшого LCP - мобільна версія (WebP) */}
+        <link
+          rel="preload"
+          as="image"
+          href="/other/hero-background.webp"
+          fetchPriority="high"
+          type="image/webp"
+          media="(max-width: 768px)"
+        />
+        
+        {/* Preload hero image для десктопів */}
         <link
           rel="preload"
           as="image"
           href="/other/hero-background.jpeg"
           fetchPriority="high"
           type="image/jpeg"
-        />
-        
-        {/* Preload критичних шрифтів */}
-        <link
-          rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap"
-          as="style"
+          media="(min-width: 769px)"
         />
         
         {/* DNS Prefetch для швидкості */}
@@ -141,10 +145,6 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://t.me" />
         <link rel="dns-prefetch" href="https://www.instagram.com" />
-        
-        {/* Preconnect для критичних origin */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
         {/* Preconnect для критичних ресурсів */}
 

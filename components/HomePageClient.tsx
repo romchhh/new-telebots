@@ -107,7 +107,10 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         />
 
         <main id="main-content">
-          <section className="relative flex min-h-screen flex-col overflow-hidden">
+          <section 
+            className="relative flex min-h-screen flex-col overflow-hidden"
+            style={{ minHeight: '100dvh' }}
+          >
             {heroBackground}
             <HeroSectionContent t={t} onOrderClick={openModal} />
           </section>

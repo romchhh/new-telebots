@@ -182,29 +182,26 @@ img, video, iframe {
 .scroll-animate-delay-4 { transition-delay: 0.4s; }
 .scroll-animate-delay-5 { transition-delay: 0.5s; }
 
-/* Оптимізація продуктивності через content-visibility */
-section {
+/* Оптимізація продуктивності через content-visibility для не-critical секцій */
+section:not(:first-of-type) {
   content-visibility: auto;
   contain-intrinsic-size: auto 800px;
 }
 
-/* Для критичного hero section - завжди visible */
-section:first-of-type {
-  content-visibility: visible;
-}
-
 /* Оптимізація для mobile performance */
 @media (max-width: 768px) {
-  /* Зменшення blur на мобільних для кращої продуктивності */
-  .blur-3xl {
-    filter: none;
-  }
-  
   /* Використання hardware acceleration для transform */
   [class*="translate-"],
   [class*="scale-"],
   [class*="rotate-"] {
     will-change: auto;
+  }
+  
+  /* Забороняємо backdrop-filter на мобільних через performance */
+  [style*="backdrop-filter"],
+  [style*="backdropFilter"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
 }
 
