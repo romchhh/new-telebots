@@ -125,25 +125,8 @@ export default function RootLayout({
   return (
     <html lang="uk" prefix="og: https://ogp.me/ns#" className={montserrat.variable}>
       <head>
-        {/* Preload hero image для швидшого LCP - мобільна версія (WebP) */}
-        <link
-          rel="preload"
-          as="image"
-          href="/other/hero-background.webp"
-          fetchPriority="high"
-          type="image/webp"
-          media="(max-width: 768px)"
-        />
-        
-        {/* Preload hero image для десктопів */}
-        <link
-          rel="preload"
-          as="image"
-          href="/other/hero-background.jpeg"
-          fetchPriority="high"
-          type="image/jpeg"
-          media="(min-width: 769px)"
-        />
+        {/* Hero LCP — один файл і один preload для всіх breakpoints (узгоджено з HeroImage) */}
+        <link rel="preload" as="image" href="/other/hero-background.webp" fetchPriority="high" type="image/webp" />
         
         {/* DNS Prefetch для швидкості */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
