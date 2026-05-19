@@ -41,9 +41,11 @@ export const metadata: Metadata = {
     "TeleBots",
     "UI/UX дизайн сайту",
   ],
-  authors: [{ name: "TeleBots" }],
+  authors: [{ name: "TeleBots", url: baseUrl }],
   creator: "TeleBots",
   publisher: "TeleBots",
+  category: "Technology",
+  classification: "Web Development & Bot Creation",
   formatDetection: {
     email: false,
     address: false,
@@ -63,6 +65,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "TeleBots - Professional Digital Solutions",
+        type: "image/jpeg",
       },
     ],
   },
@@ -78,6 +81,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -85,6 +89,9 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  verification: {
+    google: "B6RsISu82MaHNjyNFTkfGrgB0SFwQDHLNrlGh0RoQe4",
   },
   icons: {
     icon: [
@@ -161,6 +168,21 @@ export default function RootLayout({
         {process.env.NEXT_PUBLIC_BING_VERIFICATION && (
           <meta name="msvalidate.01" content={process.env.NEXT_PUBLIC_BING_VERIFICATION} />
         )}
+        
+        {/* Additional SEO improvements */}
+        <link rel="author" href={`${baseUrl}/about`} />
+        <link rel="canonical" href={baseUrl} />
+        
+        {/* Social Media OG Tags */}
+        <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || ''} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="TeleBots" />
+        
+        {/* Instagram specific */}
+        <meta property="instagram:account" content="@telebots" />
+        
+        {/* Pinterest */}
+        <meta name="pinterest-rich-pin" content="true" />
         
         {/* WebSite schema — офіційна назва сайту для Google (поряд з favicon) */}
         <script

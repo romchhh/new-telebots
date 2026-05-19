@@ -23,8 +23,8 @@ export default function HeroImage({ alt }: { alt: string }) {
             fetchPriority="high"
             loading="eager"
             decoding="async"
-            width={768}
-            height={1024}
+            width={1344}
+            height={768}
             className="w-full h-full object-cover"
             style={{
               position: 'absolute',

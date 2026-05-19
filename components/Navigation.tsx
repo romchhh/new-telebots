@@ -46,7 +46,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
     const timer = window.setTimeout(() => {
       setShowConsultWidget(true);
       consultWidgetShownInRuntime = true;
-    }, 3000);
+    }, 5000);
     return () => window.clearTimeout(timer);
   }, [mounted, onConsultClick]);
 
