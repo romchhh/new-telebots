@@ -78,7 +78,7 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
               width={100}
               height={20}
               className="object-contain object-left w-[70px] lg:w-[100px] h-auto"
-              priority
+              fetchPriority="low"
             />
           </div>
         </Link>

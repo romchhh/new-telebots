@@ -159,7 +159,7 @@ function ZoomingImageBlock({ t }: { t: typeof import('./translations').translati
           fill
           className="object-contain"
           sizes="(max-width: 1024px) 100vw, 50vw"
-          priority
+          loading="lazy"
           quality={80}
         />
         <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-4 sm:p-6 z-10">

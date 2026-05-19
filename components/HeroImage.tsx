@@ -1,23 +1,20 @@
-import Image from 'next/image';
-
 /**
- * Єдиний LCP-кандидат для всіх ширин: один `<Image priority>`, один URL у HTML.
- * Раніше: `<picture>` + окремий десктопний Image → на мобільній емуляції Lighthouse
- * іноді не фіксує LCP (NO_LCP). `unoptimized` збігає URL з preload у root layout.
+ * Серверний «чистий» <img>: без wrapper next/image для стабільного LCP у Lighthouse mobile.
+ * Preload у `app/layout.tsx` має співпадати з цим `src`.
  */
 export default function HeroImage({ alt }: { alt: string }) {
   return (
-    <div className="absolute inset-0 z-0">
-      <Image
+    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      {/* eslint-disable-next-line @next/next/no-img-element -- LCP hero: статичний URL = preload */}
+      <img
         src="/other/hero-background.webp"
         alt={alt}
-        fill
-        priority
+        width={1344}
+        height={768}
         fetchPriority="high"
-        sizes="100vw"
-        quality={85}
-        unoptimized
-        className="object-cover"
+        decoding="sync"
+        loading="eager"
+        className="absolute inset-0 block h-full w-full object-cover"
       />
     </div>
   );
