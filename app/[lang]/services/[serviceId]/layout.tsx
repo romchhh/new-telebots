@@ -2,8 +2,7 @@ import { Metadata } from 'next';
 import { translations, Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { getServiceKeyForTranslations, SERVICE_IDS, type ServiceId } from './metadata';
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
+import { siteUrl as baseUrl } from '@/lib/site';
 
 type ServiceSeoMeta = {
   title: string;

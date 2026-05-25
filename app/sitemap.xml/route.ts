@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cases } from '@/components/cases';
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
+import { siteUrl as baseUrl } from '@/lib/site';
 
 function escapeXml(str: string): string {
   return str

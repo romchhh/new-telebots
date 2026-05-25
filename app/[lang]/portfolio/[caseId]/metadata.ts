@@ -6,8 +6,7 @@ import {
   buildCaseSeoKeywords,
   generateMetadata as generateSEOMetadata,
 } from '@/lib/seo';
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
+import { siteUrl as baseUrl } from '@/lib/site';
 
 export async function generateMetadata(params: {
   lang: string;

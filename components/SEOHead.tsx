@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import { translations, Language } from './translations';
 import { cases } from './cases';
 import { legal } from '@/lib/legal';
+import { siteUrl } from '@/lib/site';
 
 interface SEOHeadProps {
   title?: string;
@@ -18,7 +19,7 @@ export default function SEOHead({ title, description, image, type = 'website', c
   const langParam = params?.lang as string;
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const t = translations[validLang];
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://new.telebots.site';
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : siteUrl;
 
   // Отримуємо дані кейсу, якщо вказано caseId
   let caseData = null;

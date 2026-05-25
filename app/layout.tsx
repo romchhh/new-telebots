@@ -3,9 +3,8 @@ import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { Montserrat } from "next/font/google";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
 
 const montserrat = Montserrat({
   subsets: ['latin', 'cyrillic'],
@@ -21,7 +20,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(siteUrl),
   title: {
     default: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     template: "%s | TeleBots",
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
     "TeleBots",
     "UI/UX дизайн сайту",
   ],
-  authors: [{ name: "TeleBots", url: baseUrl }],
+  authors: [{ name: "TeleBots", url: siteUrl }],
   creator: "TeleBots",
   publisher: "TeleBots",
   category: "Technology",
@@ -54,14 +53,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "uk_UA",
-    url: baseUrl,
+    url: siteUrl,
     siteName: "TeleBots",
     title: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     description:
       "Telegram-боти, сайти та e-commerce під ключ. 200+ проєктів, консультація, старт від 24 год.",
     images: [
       {
-        url: `${baseUrl}/portfolio/portfolio-default.jpg`,
+        url: `${siteUrl}/portfolio/portfolio-default.jpg`,
         width: 1200,
         height: 630,
         alt: "TeleBots - Professional Digital Solutions",
@@ -74,7 +73,7 @@ export const metadata: Metadata = {
     title: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     description:
       "Telegram-боти, сайти та e-commerce під ключ. 200+ проєктів, консультація, старт від 24 год.",
-    images: [`${baseUrl}/portfolio/portfolio-default.jpg`],
+    images: [`${siteUrl}/portfolio/portfolio-default.jpg`],
     creator: "@telebotsnowayrm",
     site: "@telebotsnowayrm",
   },
@@ -105,16 +104,6 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/manifest.json",
-  alternates: {
-    canonical: baseUrl,
-    languages: {
-      "x-default": `${baseUrl}/uk`,
-      "uk": `${baseUrl}/uk`,
-      "en": `${baseUrl}/en`,
-      "pl": `${baseUrl}/pl`,
-      "ru": `${baseUrl}/ru`,
-    },
-  },
 };
 
 export default function RootLayout({
@@ -153,9 +142,9 @@ export default function RootLayout({
         )}
         
         {/* Additional SEO improvements */}
-        <link rel="author" href={`${baseUrl}/about`} />
-        <link rel="canonical" href={baseUrl} />
+        <link rel="author" href={`${siteUrl}/uk/about`} />
         
+        {/* canonical і hreflang — у generateMetadata для кожної сторінки [lang] */}
         {/* Social Media OG Tags */}
         <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || ''} />
         <meta property="og:type" content="website" />
@@ -175,7 +164,7 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'WebSite',
               name: 'TeleBots',
-              url: baseUrl,
+              url: siteUrl,
             }),
           }}
         />

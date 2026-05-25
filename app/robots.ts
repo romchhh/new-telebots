@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
+import { siteUrl as baseUrl } from '@/lib/site';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
 
   return {
     rules: [

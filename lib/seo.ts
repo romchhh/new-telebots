@@ -1,8 +1,9 @@
 import { Language } from '@/components/translations';
 import { cases } from '@/components/cases';
 import { legal } from '@/lib/legal';
+import { siteUrl } from '@/lib/site';
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
+const baseUrl = siteUrl;
 
 /** Обмежує description для meta (Google ~150–160 символів) */
 export function trimDescriptionForMeta(description: string, maxLength = 160): string {

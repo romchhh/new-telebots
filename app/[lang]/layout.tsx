@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { translations, Language } from "@/components/translations";
-
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://new.telebots.site';
+import { siteUrl } from "@/lib/site";
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: langParam } = await params;
@@ -44,27 +43,27 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       address: false,
       telephone: false,
     },
-    metadataBase: new URL(baseUrl),
+    metadataBase: new URL(siteUrl),
     alternates: {
-      canonical: `${baseUrl}/${lang}`,
+      canonical: `${siteUrl}/${lang}`,
       languages: {
-        'x-default': `${baseUrl}/uk`,
-        'uk': `${baseUrl}/uk`,
-        'en': `${baseUrl}/en`,
-        'pl': `${baseUrl}/pl`,
-        'ru': `${baseUrl}/ru`,
+        'x-default': `${siteUrl}/uk`,
+        'uk': `${siteUrl}/uk`,
+        'en': `${siteUrl}/en`,
+        'pl': `${siteUrl}/pl`,
+        'ru': `${siteUrl}/ru`,
       },
     },
     openGraph: {
       type: 'website',
       locale: lang === 'uk' ? 'uk_UA' : lang === 'en' ? 'en_US' : lang === 'pl' ? 'pl_PL' : 'ru_RU',
-      url: `${baseUrl}/${lang}`,
+      url: `${siteUrl}/${lang}`,
       title,
       description,
       siteName: 'TeleBots',
       images: [
         {
-          url: `${baseUrl}/portfolio/portfolio-default.jpg`,
+          url: `${siteUrl}/portfolio/portfolio-default.jpg`,
           width: 1200,
           height: 630,
           alt: title,
@@ -75,7 +74,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       card: 'summary_large_image',
       title,
       description,
-      images: [`${baseUrl}/portfolio/portfolio-default.jpg`],
+      images: [`${siteUrl}/portfolio/portfolio-default.jpg`],
       creator: '@telebotsnowayrm',
       site: '@telebotsnowayrm',
     },
