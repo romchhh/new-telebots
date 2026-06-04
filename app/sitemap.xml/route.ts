@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cases } from '@/components/cases';
+import { allBlogPosts } from '@/lib/blog/posts';
 import { siteUrl as baseUrl } from '@/lib/site';
 
 function escapeXml(str: string): string {
@@ -90,6 +91,25 @@ export async function GET() {
       lines.push('    <priority>0.7</priority>');
       lines.push('  </url>');
     }
+  }
+
+  for (const post of allBlogPosts) {
+    const path = `/blog/${post.slug}`;
+    const url = `${baseUrl}/uk${path}`;
+    lines.push('  <url>');
+    lines.push(`    <loc>${escapeXml(url)}</loc>`);
+    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(url)}" />`);
+    lines.push(`    <xhtml:link rel="alternate" hreflang="uk" href="${escapeXml(url)}" />`);
+    if (post.image) {
+      lines.push('    <image:image>');
+      lines.push(`      <image:loc>${escapeXml(`${baseUrl}${post.image}`)}</image:loc>`);
+      lines.push(`      <image:title>${escapeXml(post.title)}</image:title>`);
+      lines.push('    </image:image>');
+    }
+    lines.push(`    <lastmod>${post.updatedAt}</lastmod>`);
+    lines.push('    <changefreq>monthly</changefreq>');
+    lines.push(`    <priority>${post.featured ? 0.75 : 0.65}</priority>`);
+    lines.push('  </url>');
   }
 
   lines.push('</urlset>');
