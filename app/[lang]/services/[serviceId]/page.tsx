@@ -13,6 +13,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import PricingTable from '@/components/PricingTable';
 import OrderModal from '@/components/OrderModal';
+import OrderCtaPill from '@/components/OrderCtaPill';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
 import ServiceSeoLongForm from '@/components/ServiceSeoLongForm';
@@ -219,13 +220,12 @@ export default function ServicePage() {
                     {serviceTitle}
                   </h1>
                   <p className="text-white/95 text-xl sm:text-2xl md:text-3xl mb-8 md:mb-10 max-w-3xl leading-relaxed">{service.subtitle}</p>
-                  <button
-                    type="button"
+                  <OrderCtaPill
+                    size="md"
+                    label={service.button}
                     onClick={openModal}
-                    className="inline-flex items-center justify-center bg-white text-black font-black px-8 py-4 md:px-10 md:py-5 rounded-full hover:bg-gray-100 transition-colors uppercase tracking-wider text-base md:text-lg"
-                  >
-                    {service.button}
-                  </button>
+                    className="w-full max-w-md"
+                  />
                 </div>
               </div>
             </section>
@@ -475,12 +475,12 @@ export default function ServicePage() {
               <h2 className="relative z-10 text-2xl sm:text-3xl md:text-4xl font-black text-white mb-8 leading-tight">
                 {lang === 'uk' ? 'Залишити заявку на розробку' : t.modal.title}
               </h2>
-              <button
+              <OrderCtaPill
+                size="md"
+                label={lang === 'uk' ? 'Обговорити проєкт' : service.button}
                 onClick={openModal}
-                className="inline-flex items-center justify-center border-2 border-white text-white font-black px-8 py-4 rounded-full hover:bg-white hover:text-black transition-colors uppercase tracking-wider text-sm"
-              >
-                {lang === 'uk' ? 'Обговорити проєкт' : service.button}
-              </button>
+                className="mx-auto w-full max-w-md"
+              />
             </div>
           </section>
 

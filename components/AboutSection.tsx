@@ -3,8 +3,7 @@
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import AboutHeadline from '@/components/AboutHeadline';
-import AboutServiceTeasers from '@/components/AboutServiceTeasers';
+import OrderCtaPill from '@/components/OrderCtaPill';
 
 interface AboutSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -16,18 +15,8 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
   const langParam = params?.lang as string;
   const currentLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk');
   return (
-    <section className="relative bg-white py-20 md:py-28 lg:py-36 px-8 sm:px-12 lg:px-16 xl:px-24">
+    <section className="relative bg-white pt-0 pb-20 md:pb-28 lg:pb-36 px-8 sm:px-12 lg:px-16 xl:px-24">
       <div className="max-w-[1600px] mx-auto">
-        {/* Великий заголовок */}
-        <div className="mb-20 md:mb-28 lg:mb-36 min-w-0">
-          <div className="flex flex-col gap-10 md:flex-row md:items-stretch md:justify-between md:gap-8 lg:gap-10 xl:gap-12">
-            <div className="min-w-0 w-full flex-1 md:min-w-0 md:pr-4 lg:pr-8 xl:pr-10">
-              <AboutHeadline headline={t.about.headline} />
-            </div>
-            <AboutServiceTeasers t={t} lang={currentLang} />
-          </div>
-        </div>
-
         {/* Фото з текстом і кнопкою */}
         <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-16 md:mb-20">
           <div className="relative w-full aspect-[4031/2981]">
@@ -60,42 +49,39 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
                 {t.about.photoMessage}
               </p>
               {/* Кнопка на фото — тільки desktop */}
-              <div className="hidden md:block">
+              <div className="hidden md:block w-full max-w-md px-6">
                 {onOrderClick ? (
-                  <button 
-                    onClick={onOrderClick} 
-                    className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white text-lg md:text-xl font-medium px-12 py-5 rounded-full hover:bg-white hover:text-black transition-colors duration-200 uppercase tracking-wider"
-                  >
-                    {t.modal.title}
-                  </button>
+                  <OrderCtaPill size="md" label={t.modal.title} onClick={onOrderClick} className="w-full" />
                 ) : (
-                  <Link 
-                    href={`/${currentLang}/contact`} 
-                    className="inline-flex items-center justify-center bg-transparent border-2 border-white text-white text-lg md:text-xl font-medium px-12 py-5 rounded-full hover:bg-white hover:text-black transition-colors duration-200 uppercase tracking-wider"
-                  >
-                    {t.modal.title}
-                  </Link>
+                  <OrderCtaPill
+                    size="md"
+                    label={t.modal.title}
+                    href={`/${currentLang}/contact`}
+                    className="w-full"
+                  />
                 )}
               </div>
             </div>
           </div>
           
           {/* Кнопка під фото — тільки mobile */}
-          <div className="md:hidden flex justify-center py-8 bg-white">
+          <div className="md:hidden flex justify-center px-6 py-8 bg-white">
             {onOrderClick ? (
-              <button 
-                onClick={onOrderClick} 
-                className="inline-flex items-center justify-center bg-black border-2 border-black text-white text-lg font-medium px-10 py-4 rounded-full hover:bg-white hover:text-black hover:border-black transition-colors duration-200 uppercase tracking-wider"
-              >
-                {t.modal.title}
-              </button>
+              <OrderCtaPill
+                size="md"
+                label={t.modal.title}
+                onClick={onOrderClick}
+                elevated
+                className="w-full max-w-md"
+              />
             ) : (
-              <Link 
-                href={`/${currentLang}/contact`} 
-                className="inline-flex items-center justify-center bg-black border-2 border-black text-white text-lg font-medium px-10 py-4 rounded-full hover:bg-white hover:text-black hover:border-black transition-colors duration-200 uppercase tracking-wider"
-              >
-                {t.modal.title}
-              </Link>
+              <OrderCtaPill
+                size="md"
+                label={t.modal.title}
+                href={`/${currentLang}/contact`}
+                elevated
+                className="w-full max-w-md"
+              />
             )}
           </div>
         </div>

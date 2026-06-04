@@ -4,6 +4,7 @@ import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import HeroSectionContent from '@/components/HeroSectionContent';
+import HomePrinciplesSection from '@/components/HomePrinciplesSection';
 import AboutSection from '@/components/AboutSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import AboutStatsBanner from '@/components/AboutStatsBanner';
@@ -107,13 +108,15 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         />
 
         <main id="main-content">
-          <section 
-            className="relative flex min-h-screen flex-col overflow-hidden"
-            style={{ minHeight: '100dvh' }}
-          >
+          <section className="relative h-[100dvh] max-h-[100dvh] overflow-hidden">
             {heroBackground}
             <HeroSectionContent t={t} onOrderClick={openModal} />
           </section>
+          <HomePrinciplesSection
+            principles={t.about.principles}
+            lang={lang}
+            allServicesLabel={t.about.services}
+          />
           <AboutSection t={t} onOrderClick={openModal} />
           <PortfolioSection t={t} />
           <AboutStatsBanner t={t} />

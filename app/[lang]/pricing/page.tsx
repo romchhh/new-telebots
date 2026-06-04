@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import ContactDetailsColumn from '@/components/ContactDetailsColumn';
 import ContactFormBlock from '@/components/ContactFormBlock';
 import OrderModal from '@/components/OrderModal';
+import OrderCtaPill from '@/components/OrderCtaPill';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
@@ -42,13 +43,13 @@ function CtaCluster({
       >
         {p.btnContactForm}
       </Link>
-      <button
-        type="button"
+      <OrderCtaPill
+        size="sm"
+        label={p.btnConsult}
         onClick={onConsult}
-        className="inline-flex items-center justify-center px-6 py-3.5 rounded-full bg-black text-white font-bold uppercase text-sm tracking-wide hover:bg-gray-800 transition-colors"
-      >
-        {p.btnConsult}
-      </button>
+        elevated
+        className="w-full sm:w-auto sm:min-w-[14rem]"
+      />
     </div>
   );
 }
@@ -246,13 +247,13 @@ export default function PricingPage() {
                       >
                         {p.btnServicePage}
                       </Link>
-                      <button
-                        type="button"
+                      <OrderCtaPill
+                        size="sm"
+                        label={p.btnConsult}
                         onClick={() => openModal(pricingData.categoryLabel)}
-                        className="inline-flex items-center justify-center px-5 py-3 rounded-full bg-black text-white font-bold text-sm uppercase tracking-wide hover:bg-gray-800 transition-colors"
-                      >
-                        {p.btnConsult}
-                      </button>
+                        elevated
+                        className="w-full sm:w-auto sm:min-w-[12rem]"
+                      />
                       <Link
                         href={`/${lang}/contact#contact-form`}
                         className="inline-flex items-center justify-center px-5 py-3 rounded-full border-2 border-gray-400 text-gray-900 font-bold text-sm uppercase tracking-wide hover:border-black transition-colors"

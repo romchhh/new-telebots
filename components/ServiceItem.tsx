@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useScrollAnimation } from './useScrollAnimation';
 import { Language } from './translations';
+import OrderCtaPill from '@/components/OrderCtaPill';
 
 const SERVICE_SLUG: Record<'websitesPage' | 'chatbotsPage' | 'designPage', string> = {
   websitesPage: 'websites',
@@ -47,13 +48,13 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl">
-            <button
-              type="button"
+            <OrderCtaPill
+              size="md"
+              label={service.button}
               onClick={() => onOrderClick(service.title)}
-              className="group flex w-full sm:flex-1 sm:min-w-0 items-center justify-center bg-black text-white px-6 py-4 hover:bg-gray-900 transition-all duration-300 rounded-full min-h-[52px] text-center"
-            >
-              <span className="tracking-wider font-black">{service.button}</span>
-            </button>
+              elevated
+              className="w-full sm:flex-1 sm:min-w-0"
+            />
             <Link
               href={`/${lang}/services/${slug}`}
               className="flex w-full sm:flex-1 sm:min-w-0 items-center justify-center border-2 border-black text-black px-6 py-4 hover:bg-black hover:text-white transition-all duration-300 rounded-full font-semibold tracking-wider text-center min-h-[52px]"

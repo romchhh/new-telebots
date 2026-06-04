@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import OrderCtaPill from '@/components/OrderCtaPill';
 
 export type ServiceHeroCopy = {
   tagline: string;
@@ -190,33 +191,23 @@ export default function ServiceHeroSection({
               {hero.subtitle}
             </p>
           )}
-          <p className="mx-auto mb-3 max-w-3xl text-base leading-relaxed text-gray-200/95 sm:mb-4 md:mb-5 sm:text-base md:text-lg md:leading-relaxed">
+          <p className="mx-auto mb-6 max-w-3xl text-base leading-relaxed text-gray-200/95 sm:mb-7 md:mb-9 sm:text-base md:text-lg md:leading-relaxed">
             {hero.intro}
           </p>
-          <p
-            className="mx-auto mb-6 max-w-3xl text-base font-semibold text-white/95 sm:mb-7 md:mb-9 md:text-lg [letter-spacing:0.04em] sm:[letter-spacing:0.05em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            {hero.ctaQuestion}
-          </p>
-
-          <div className="flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 md:gap-5 max-w-xl sm:max-w-none mx-auto">
-            <button
-              type="button"
+          <div className="mx-auto flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:max-w-2xl sm:flex-row sm:gap-4 md:max-w-3xl md:gap-5 lg:max-w-4xl">
+            <OrderCtaPill
+              size="md"
+              label={viewButtonLabel}
               onClick={handleScrollToContent}
-              className="w-full sm:flex-1 sm:max-w-none font-bold border border-white text-white px-4 py-3 md:px-8 md:py-3.5 uppercase hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base md:text-lg rounded-full"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
-            >
-              {viewButtonLabel}
-            </button>
-            <button
-              type="button"
+              className="h-full w-full min-h-[4.75rem] sm:flex-1"
+            />
+            <OrderCtaPill
+              size="md"
+              eyebrow={hero.ctaQuestion}
+              label={orderButtonLabel}
               onClick={onOrderClick}
-              className="w-full sm:flex-1 sm:max-w-none font-bold bg-white text-black px-4 py-3 md:px-8 md:py-3.5 uppercase hover:bg-black hover:text-white border border-white transition-all duration-300 text-sm sm:text-base md:text-lg rounded-full"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
-            >
-              {orderButtonLabel}
-            </button>
+              className="h-full w-full min-h-[4.75rem] sm:flex-1"
+            />
           </div>
         </div>
       </div>

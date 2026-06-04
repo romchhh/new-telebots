@@ -8,6 +8,15 @@ import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { Instagram, Send } from 'lucide-react';
+import { allBlogPosts } from '@/lib/blog/posts';
+import BlogCard from '@/components/blog/BlogCard';
+import { siteUrl } from '@/lib/site';
+
+const sortedPosts = [...allBlogPosts].sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+});
 
 const sectionHeadingClass =
   'text-3xl sm:text-4xl md:text-5xl font-black text-black uppercase tracking-wide leading-tight';
@@ -29,10 +38,12 @@ export default function BlogPage() {
   const t = translations[lang];
 
   useEffect(() => {
-    if (langParam && langParam !== lang && ['uk', 'en', 'pl', 'ru'].includes(langParam)) {
-      setLang(langParam as Language);
+    if (langParam && langParam !== 'uk') {
+      router.replace('/uk/blog');
+      return;
     }
-  }, [langParam, lang]);
+    if (lang !== 'uk') setLang('uk');
+  }, [langParam, lang, router]);
 
   useEffect(() => {
     const checkScroll = () => {
@@ -58,6 +69,7 @@ export default function BlogPage() {
   };
 
   const [heroRef, isHeroVisible] = useScrollAnimation();
+  const [articlesRef, isArticlesVisible] = useScrollAnimation();
   const [channelsRef, isChannelsVisible] = useScrollAnimation();
   const [contentRef, isContentVisible] = useScrollAnimation();
   const [leftRef, isLeftVisible] = useScrollAnimation();
@@ -71,9 +83,17 @@ export default function BlogPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
-          { name: t.blog?.title || 'Соцмережі', url: `/${lang}/blog` },
+          { name: t.nav.brand, url: '/uk' },
+          { name: t.blog?.title || 'Блог', url: '/uk/blog' },
         ]}
+      />
+      <StructuredData
+        type="itemList"
+        items={sortedPosts.map((post) => ({
+          name: post.title,
+          url: `${siteUrl}/uk/blog/${post.slug}`,
+          description: post.excerpt,
+        }))}
       />
       <div className="min-h-screen bg-white">
         <Navigation
@@ -137,7 +157,30 @@ export default function BlogPage() {
           </div>
         </section>
 
-        {/* Соцмережі — одразу під hero */}
+        {/* Статті — перед соцмережами */}
+        <section className="bg-white px-6 py-16 md:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div
+              ref={articlesRef}
+              className={`mb-12 text-center scroll-animate-up md:mb-16 ${isArticlesVisible ? 'animate' : ''}`}
+            >
+              <h2 className={`${sectionHeadingClass} mb-4`} style={{ fontFamily: 'var(--font-montserrat)' }}>
+                {t.blog?.articlesTitle || 'Статті та гайди'}
+              </h2>
+              <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl">
+                {t.blog?.articlesSubtitle ||
+                  '19 матеріалів українською: ціни TeleBots, Telegram-боти, сайти та SEO'}
+              </p>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {sortedPosts.map((post) => (
+                <BlogCard key={post.slug} post={post} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Соцмережі */}
         <section className="py-16 md:py-24 px-6 bg-black">
           <div className="max-w-7xl mx-auto">
             <div

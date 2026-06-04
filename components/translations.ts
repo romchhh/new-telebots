@@ -4,7 +4,7 @@ export const translations = {
       brand: 'БРЕНД',
       services: 'ЩО МИ РОБИМО?',
       portfolio: 'КЕЙСИ',
-      blog: 'СОЦМЕРЕЖІ',
+      blog: 'БЛОГ',
       contact: 'КОНТАКТИ',
       consultation: 'КОНСУЛЬТАЦІЯ',
       consultationWidgetPrompt:
@@ -19,6 +19,7 @@ export const translations = {
       backgroundImageAlt:
         'Фон головної сторінки TeleBots: панорама міста та узбережжя на заході сонця',
       ctaQuestion: 'Хочете дізнатися більше?',
+      ctaQuestionShort: 'Безкоштовна консультація',
       tagline: 'Зручні сайти та боти, які ведуть клієнта до заявки й покупки.',
       viewButton: 'Переглянути',
       startDate: {
@@ -37,6 +38,31 @@ export const translations = {
         title: 'Запускаємо сайти, чат-боти та інтернет-магазини так, щоб заявки стабільно доходили до оплати',
         sub: 'Спочатку — безкоштовна консультація й зрозуміла оцінка. Далі одна команда веде проєкт від структури та макетів до продакшену й супроводу.',
         body: 'Понад 200 реалізованих рішень за чотири роки: Next.js, CRM, оплати, розсилки та AI за потреби. Без перекладання задач між десятком виконавців.',
+      },
+      principles: {
+        eyebrow: 'кожен проєкт тримається на зрозумілій бізнес-меті,',
+        titleLine1: 'а TeleBots — на',
+        titleLine2: 'трьох принципах:',
+        cards: [
+          {
+            title: 'результат у цифрах — заявки, оплати, конверсія,',
+            body: 'робимо сайти та інтернет-магазини на Next.js з SEO й аналітикою: видно, звідки приходять клієнти і що веде до покупки — не просто макет без звітності.',
+            serviceId: 'websites',
+            linkLabel: 'Сайти та e-commerce',
+          },
+          {
+            title: 'стратегія й сценарій перед кодом,',
+            body: 'чат-боти в Telegram, WhatsApp чи Viber з CRM, оплатами та розсилками — кожен крок відповідає на «навіщо це бізнесу?»; за потреби підключаємо AI.',
+            serviceId: 'chatbots',
+            linkLabel: 'Чат-боти',
+          },
+          {
+            title: 'дизайн і розробка в одній команді,',
+            body: 'лого, айдентика та UI/UX у Figma, далі впровадження на сайті й у ботах — від безкоштовної консультації до запуску, без зайвих підрядників.',
+            serviceId: 'design',
+            linkLabel: 'Дизайн UI/UX',
+          },
+        ],
       },
       ourWork: 'Наша робота',
       ourWorkDesc: 'Ми реалізуємо проєкти, які відповідають потребам наших клієнтів і забезпечують довгострокову цінність для вашого бізнесу.',
@@ -348,33 +374,84 @@ export const translations = {
         categoryLabel: 'Чат-боти',
         title: 'Тарифні плани',
         subtitle: 'Оберіть ідеальне рішення для автоматизації вашого бізнесу',
-        popularBadge: 'ПОПУЛЯРНИЙ',
+        popularBadge: 'Popular',
         featuresLabel: 'Функціонал',
         forWhomLabel: 'Для кого',
         contactNote: 'Не впевнені, який план обрати?',
         contactLink: 'Зв\'яжіться з нами',
         contactSuffix: 'для консультації',
         plans: [
-          { name: 'LITE', price: '150-200', description: 'Ідеальний варіант для малого бізнесу, експертів або кав\'ярень. Бот замінює лендінг або менеджера на першому етапі.', features: ['Привітальне повідомлення', 'Відповіді на часті питання', 'Кнопка «Зв\'язатися з менеджером»', 'Збір заявок у чат'], forWhom: 'Локальний бізнес, інфобізнес (лікувальні воронки)' },
-          { name: 'PRO', price: '200-300', popular: true, description: 'Повноцінний робочий інструмент, який автоматизує рутину. Бот сам продає, приймає гроші та заносить дані в базу.', features: ['Кошик товарів', 'Інтеграція з платіжними системами', 'Автоматичне сповіщення про нове замовлення', 'Робота з базою клієнтів у Google Sheets'], forWhom: 'Інтернет-магазини в Telegram, салони краси, доставка їжі' },
-          { name: 'CUSTOM', price: 'Індивідуально', description: 'Тут немає стандартів, бо кожен проєкт унікальний. Це розробка «під ключ» зі складною архітектурою.', features: ['Використання GPT-4 для розумних відповідей', 'Багатомовність', 'Глибока аналітика дій користувачів', 'Робота з великими базами даних'], forWhom: 'Корпорації, стартапи, складні сервіси (наприклад, боти для пошуку нерухомості або вакансій)' }
-        ]
+          {
+            name: 'LITE',
+            price: '$150–200',
+            description: 'Заявки, FAQ, кнопка зв\'язку з менеджером.',
+            features: ['Привітання', 'Відповіді на питання', 'Збір лідів', 'Передача в чат'],
+          },
+          {
+            name: 'PRO',
+            price: '$200–300',
+            popular: true,
+            description: 'Кошик, оплата, база клієнтів, сповіщення.',
+            features: ['Каталог у боті', 'Платіжні системи', 'Google Sheets / CRM', 'Розсилки'],
+          },
+          {
+            name: 'CUSTOM',
+            price: 'індивідуально',
+            description: 'GPT-4, складна логіка, великі бази, багатомовність.',
+            features: ['AI-асистент', 'Аналітика', 'Інтеграції API', 'Масштабування'],
+          },
+        ],
       },
       pricingWebsites: {
         categoryLabel: 'Веб-сайти',
         title: 'Тарифні плани',
         subtitle: 'Професійні веб-рішення для вашого бізнесу',
-        popularBadge: 'ПОПУЛЯРНИЙ',
+        popularBadge: 'Popular',
         featuresLabel: 'Функціонал',
         forWhomLabel: 'Для кого',
         contactNote: 'Потрібне індивідуальне рішення?',
         contactLink: 'Зв\'яжіться з нами',
         contactSuffix: 'для обговорення проєкту',
         plans: [
-          { name: 'LANDING', price: '300-500', description: 'Односторінковий сайт для презентації продукту або послуги. Швидкий запуск та максимальна конверсія.', features: ['Адаптивний дизайн', 'Форма зворотного зв\'язку', 'Оптимізація швидкості', 'Базове SEO', 'Інтеграція з Google Analytics'], forWhom: 'Стартапи, локальний бізнес, просування послуг' },
-          { name: 'BUSINESS', price: '500-800', popular: true, description: 'Багатосторінковий корпоративний сайт з розширеним функціоналом. Повноцінна онлайн-присутність вашого бізнесу.', features: ['До 10 сторінок', 'CMS для управління контентом', 'Розширене SEO', 'Інтеграція з соцмережами', 'Форми та калькулятори', 'Мультимовність'], forWhom: 'Середній бізнес, агенції, компанії з широким асортиментом' },
-          { name: 'E-COMMERCE', price: '800+', description: 'Повноцінний інтернет-магазин з системою оплати, каталогом товарів та особистим кабінетом.', features: ['Каталог товарів з фільтрами', 'Кошик та оформлення замовлення', 'Інтеграція платіжних систем', 'Особистий кабінет', 'Система знижок та промокодів', 'Адмін-панель для управління'], forWhom: 'Онлайн-магазини, e-commerce проєкти, роздрібна торгівля' }
-        ]
+          {
+            name: 'LANDING',
+            price: '$300–500',
+            description:
+              'Односторінковий сайт для презентації продукту або послуги. Швидкий запуск і максимальна конверсія.',
+            features: [
+              'Адаптивний дизайн',
+              'Форма зворотного зв\'язку',
+              'Оптимізація швидкості',
+              'Базове SEO',
+              'Google Analytics',
+            ],
+          },
+          {
+            name: 'BUSINESS',
+            price: '$500–800',
+            popular: true,
+            description: 'Корпоративний сайт до 10 сторінок з CMS, розширеним SEO та інтеграціями.',
+            features: [
+              'До 10 сторінок',
+              'CMS для контенту',
+              'Розширене SEO',
+              'Соцмережі та форми',
+              'Мультимовність за потреби',
+            ],
+          },
+          {
+            name: 'E-COMMERCE',
+            price: 'від $800',
+            description: 'Інтернет-магазин: каталог, кошик, оплата, особистий кабінет, адмін-панель.',
+            features: [
+              'Каталог і фільтри',
+              'Оплата (Mono, LiqPay, WayForPay)',
+              'Особистий кабінет',
+              'Знижки та промокоди',
+              'Адмінка замовлень',
+            ],
+          },
+        ],
       },
       pricingParsers: {
         categoryLabel: 'Парсери',
@@ -396,17 +473,33 @@ export const translations = {
         categoryLabel: 'Дизайн',
         title: 'Тарифні плани',
         subtitle: 'Логотип, айдентика та UI/UX для сайтів і додатків',
-        popularBadge: 'ПОПУЛЯРНИЙ',
+        popularBadge: 'Popular',
         featuresLabel: 'Що входить',
         forWhomLabel: 'Для кого',
         contactNote: 'Потрібен комплексний проєкт?',
         contactLink: 'Зв\'яжіться з нами',
         contactSuffix: 'для обговорення',
         plans: [
-          { name: 'LOGO', price: '150-300', description: 'Логотип та базова айдентика: основний знак, кольори, шрифт. Файли для друку та вебу.', features: ['Логотип (2–3 варіанти)', 'Палітра кольорів', 'Рекомендації по шрифтах', 'Файли PNG, SVG, PDF'], forWhom: 'Стартапи, фрілансери, локальний бізнес' },
-          { name: 'BRAND', price: '300-600', popular: true, description: 'Повний фірмовий стиль: лого, візитки, бланки, соцмережі. Брендбук або стиль-гайд.', features: ['Усе з тарифу LOGO', 'Візитка, бланк, конверт', 'Оформлення соцмереж', 'Брендбук / стиль-гайд'], forWhom: 'Середній бізнес, бренди, агенції' },
-          { name: 'UI/UX', price: '500+', description: 'Дизайн інтерфейсів: прототипи в Figma, макети сайту або додатку, адаптив, передача в розробку.', features: ['Прототипи в Figma', 'Макети ключових екранів', 'Адаптив (desktop + mobile)', 'Специфікація для розробників'], forWhom: 'Стартапи з продуктом, сайти та додатки під ключ' }
-        ]
+          {
+            name: 'LOGO',
+            price: '$150–300',
+            description: 'Логотип, кольори, шрифти, файли для друку та вебу.',
+            features: ['2–3 варіанти лого', 'Палітра', 'PNG, SVG, PDF'],
+          },
+          {
+            name: 'BRAND',
+            price: '$300–600',
+            popular: true,
+            description: 'Повний фірмовий стиль + брендбук.',
+            features: ['Усе з LOGO', 'Візитка, соцмережі', 'Стиль-гайд'],
+          },
+          {
+            name: 'UI/UX',
+            price: 'від $500',
+            description: 'Прототипи та макети сайту/додатку, адаптив, handoff.',
+            features: ['Figma', 'Desktop + mobile', 'Спека для dev'],
+          },
+        ],
       },
       servicePageBlocks: {
         whatWeDoTitle: 'Що ми робимо',
@@ -514,8 +607,13 @@ export const translations = {
       comingSoon: 'Coming Soon'
     },
     blog: {
-      title: 'Соцмережі',
-      subtitle: 'Дізнавайтеся про останні новини, кейси та корисні поради від нашої команди',
+      title: 'Блог TeleBots',
+      subtitle: 'Статті про ціни, розробку сайтів, Telegram-ботів та автоматизацію бізнесу',
+      articlesTitle: 'Статті та гайди',
+      articlesSubtitle: 'Оновлені матеріали 2026: ціни, кейси, SEO та практичні поради від команди TeleBots',
+      backToBlog: 'Усі статті',
+      contactTitle: 'Обговорити ваш проєкт',
+      contactSubtitle: 'Залиште заявку — відповімо з оцінкою та наступними кроками',
       descriptionTitle: 'Наші соцмережі',
       description: 'У нашому блозі ми ділимося досвідом розробки, кейсами успішних проєктів, корисними порадами та останніми новинами зі світу технологій. Слідкуйте за нами в соціальних мережах, щоб не пропустити нові публікації!',
       contentTitle: 'Що ми публікуємо',
@@ -544,7 +642,7 @@ export const translations = {
       brand: 'BRAND',
       services: 'WHAT WE DO?',
       portfolio: 'CASES',
-      blog: 'SOCIAL',
+      blog: 'BLOG',
       contact: 'CONTACT',
       consultation: 'CONSULTATION',
       consultationWidgetPrompt:
@@ -559,6 +657,7 @@ export const translations = {
       backgroundImageAlt:
         'TeleBots homepage hero image: coastal city skyline at sunset',
       ctaQuestion: 'Want to know more?',
+      ctaQuestionShort: 'Free consultation',
       tagline: 'Websites and bots that turn visitors into leads and sales.',
       viewButton: 'View',
       startDate: {
@@ -577,6 +676,31 @@ export const translations = {
         title: 'We ship websites, chatbots, and e-commerce so leads reliably turn into paid orders',
         sub: 'We start with a free consult and a clear estimate. One team takes you from structure and UI to production and ongoing care.',
         body: '200+ launches over four years: Next.js, CRM, payments, messaging, and AI when you need it — without juggling a dozen vendors.',
+      },
+      principles: {
+        eyebrow: 'every project stands on a clear business goal,',
+        titleLine1: 'and TeleBots — on',
+        titleLine2: 'three principles:',
+        cards: [
+          {
+            title: 'results in numbers — leads, payments, conversion,',
+            body: 'we build Next.js sites and stores with SEO and analytics: you see where traffic comes from and what drives sales — not just a layout without reporting.',
+            serviceId: 'websites',
+            linkLabel: 'Websites & e-commerce',
+          },
+          {
+            title: 'strategy and flows before code,',
+            body: 'chatbots on Telegram, WhatsApp, or Viber with CRM, payments, and campaigns — every step answers “why does the business need this?”; AI when it helps.',
+            serviceId: 'chatbots',
+            linkLabel: 'Chatbots',
+          },
+          {
+            title: 'design and development in one team,',
+            body: 'logo, brand, and UI/UX in Figma, then implementation on site and in bots — from free consult to launch, without extra vendors.',
+            serviceId: 'design',
+            linkLabel: 'UI/UX design',
+          },
+        ],
       },
       ourWork: 'Our Work',
       ourWorkDesc: 'We selectively pursue opportunities that fit our clients\' needs and provide long-term value to your business.',
@@ -1054,8 +1178,13 @@ export const translations = {
       comingSoon: 'Coming Soon'
     },
     blog: {
-      title: 'Social media',
-      subtitle: 'Learn about the latest news, cases and useful tips from our team',
+      title: 'TeleBots Blog',
+      subtitle: 'Articles on pricing, websites, Telegram bots and business automation',
+      articlesTitle: 'Articles & guides',
+      articlesSubtitle: 'Updated 2026: pricing, cases, SEO and practical tips from TeleBots',
+      backToBlog: 'All articles',
+      contactTitle: 'Discuss your project',
+      contactSubtitle: 'Leave a request — we reply with an estimate and next steps',
       descriptionTitle: 'Our social media',
       description: 'In our blog, we share development experience, successful project cases, useful tips and the latest news from the world of technology. Follow us on social media to not miss new publications!',
       contentTitle: 'What We Publish',
@@ -1084,7 +1213,7 @@ export const translations = {
       brand: 'BRAND',
       services: 'CO ROBIMY?',
       portfolio: 'REALIZACJE',
-      blog: 'SOCIAL MEDIA',
+      blog: 'BLOG',
       contact: 'KONTAKT',
       consultation: 'KONSULTACJA',
       consultationWidgetPrompt:
@@ -1099,6 +1228,7 @@ export const translations = {
       backgroundImageAlt:
         'Tło strony głównej TeleBots: panorama miasta i wybrzeża o zachodzie słońca',
       ctaQuestion: 'Chcesz wiedzieć więcej?',
+      ctaQuestionShort: 'Bezpłatna konsultacja',
       tagline: 'Strony i boty, które prowadzą klienta od wizyty do zakupu.',
       viewButton: 'Zobacz',
       startDate: {
@@ -1117,6 +1247,31 @@ export const translations = {
         title: 'Wdrażamy strony, chatboty i sklepy tak, by leady konsekwentnie zmieniały się w płatności',
         sub: 'Zaczynamy od bezpłatnej konsultacji i jasnej wyceny. Jeden zespół prowadzi projekt od struktury i UI po produkcję i opiekę.',
         body: 'Ponad 200 wdrożeń w 4 lata: Next.js, CRM, płatności, mailingi i AI w razie potrzeby — bez przerzucania pracy między podwykonawcami.',
+      },
+      principles: {
+        eyebrow: 'każdy projekt opiera się na jasnym celu biznesowym,',
+        titleLine1: 'a TeleBots — na',
+        titleLine2: 'trzech zasadach:',
+        cards: [
+          {
+            title: 'wynik w liczbach — leady, płatności, konwersja,',
+            body: 'tworzymy strony i sklepy w Next.js z SEO i analityką: widać, skąd przychodzą klienci i co prowadzi do zakupu — nie tylko layout bez raportów.',
+            serviceId: 'websites',
+            linkLabel: 'Strony i e-commerce',
+          },
+          {
+            title: 'strategia i scenariusz przed kodem,',
+            body: 'chatboty w Telegramie, WhatsApp lub Viber z CRM, płatnościami i mailingami — każdy krok odpowiada na „po co to biznesowi?”; AI, gdy ma sens.',
+            serviceId: 'chatbots',
+            linkLabel: 'Chatboty',
+          },
+          {
+            title: 'design i development w jednym zespole,',
+            body: 'logo, identyfikacja i UI/UX w Figma, potem wdrożenie na stronie i w botach — od bezpłatnej konsultacji po start, bez zbędnych podwykonawców.',
+            serviceId: 'design',
+            linkLabel: 'Design UI/UX',
+          },
+        ],
       },
       ourWork: 'Nasza praca',
       ourWorkDesc: 'Selektywnie realizujemy projekty, które odpowiadają potrzebom naszych klientów i zapewniają długoterminową wartość dla Twojego biznesu.',
@@ -1594,8 +1749,13 @@ export const translations = {
       comingSoon: 'Wkrótce'
     },
     blog: {
-      title: 'Media społecznościowe',
-      subtitle: 'Dowiedz się o najnowszych wiadomościach, przypadkach i przydatnych wskazówkach od naszego zespołu',
+      title: 'Blog TeleBots',
+      subtitle: 'Artykuły o cenach, stronach www, botach Telegram i automatyzacji',
+      articlesTitle: 'Artykuły i poradniki',
+      articlesSubtitle: 'Aktualizacja 2026: ceny, case studies, SEO i praktyczne wskazówki TeleBots',
+      backToBlog: 'Wszystkie artykuły',
+      contactTitle: 'Omów swój projekt',
+      contactSubtitle: 'Wyślij zapytanie — odpowiemy z wyceną i kolejnymi krokami',
       descriptionTitle: 'Nasze media społecznościowe',
       description: 'W naszym blogu dzielimy się doświadczeniem w rozwoju, przypadkami udanych projektów, przydatnymi wskazówkami i najnowszymi wiadomościami ze świata technologii. Śledź nas w mediach społecznościowych, aby nie przegapić nowych publikacji!',
       contentTitle: 'Co Publikujemy',
@@ -1624,7 +1784,7 @@ export const translations = {
       brand: 'БРЕНД',
       services: 'ЧТО МЫ ДЕЛАЕМ?',
       portfolio: 'КЕЙСЫ',
-      blog: 'СОЦСЕТИ',
+      blog: 'БЛОГ',
       contact: 'КОНТАКТЫ',
       consultation: 'КОНСУЛЬТАЦИЯ',
       consultationWidgetPrompt:
@@ -1639,6 +1799,7 @@ export const translations = {
       backgroundImageAlt:
         'Фон главной страницы TeleBots: панорама города и побережья на закате',
       ctaQuestion: 'Хотите узнать больше?',
+      ctaQuestionShort: 'Бесплатная консультация',
       tagline: 'Удобные сайты и боты, которые ведут клиента к заявке и к покупке.',
       viewButton: 'Смотреть',
       startDate: {
@@ -1657,6 +1818,31 @@ export const translations = {
         title: 'Запускаем сайты, чат-боты и интернет-магазины так, чтобы заявки стабильно доходили до оплаты',
         sub: 'Сначала — бесплатная консультация и понятная оценка. Дальше одна команда ведёт проект от структуры и макетов до продакшена и сопровождения.',
         body: 'Более 200 решений за четыре года: Next.js, CRM, оплаты, рассылки и AI по необходимости. Без перекладывания задач между десятком подрядчиков.',
+      },
+      principles: {
+        eyebrow: 'каждый проект держится на понятной бизнес-цели,',
+        titleLine1: 'а TeleBots — на',
+        titleLine2: 'трёх принципах:',
+        cards: [
+          {
+            title: 'результат в цифрах — заявки, оплаты, конверсия,',
+            body: 'делаем сайты и интернет-магазины на Next.js с SEO и аналитикой: видно, откуда приходят клиенты и что ведёт к покупке — не просто макет без отчётности.',
+            serviceId: 'websites',
+            linkLabel: 'Сайты и e-commerce',
+          },
+          {
+            title: 'стратегия и сценарий перед кодом,',
+            body: 'чат-боты в Telegram, WhatsApp или Viber с CRM, оплатами и рассылками — каждый шаг отвечает на «зачем это бизнесу?»; при необходимости подключаем AI.',
+            serviceId: 'chatbots',
+            linkLabel: 'Чат-боты',
+          },
+          {
+            title: 'дизайн и разработка в одной команде,',
+            body: 'лого, айдентика и UI/UX в Figma, затем внедрение на сайте и в ботах — от бесплатной консультации до запуска, без лишних подрядчиков.',
+            serviceId: 'design',
+            linkLabel: 'Дизайн UI/UX',
+          },
+        ],
       },
       ourWork: 'Наша работа',
       ourWorkDesc: 'Мы избирательно реализуем проекты, которые соответствуют потребностям наших клиентов и обеспечивают долгосрочную ценность для вашего бизнеса.',
@@ -2134,8 +2320,13 @@ export const translations = {
       comingSoon: 'Скоро'
     },
     blog: {
-      title: 'Соцсети',
-      subtitle: 'Узнавайте о последних новостях, кейсах и полезных советах от нашей команды',
+      title: 'Блог TeleBots',
+      subtitle: 'Статьи о ценах, сайтах, Telegram-ботах и автоматизации бизнеса',
+      articlesTitle: 'Статьи и гайды',
+      articlesSubtitle: 'Обновлено в 2026: цены, кейсы, SEO и практические советы TeleBots',
+      backToBlog: 'Все статьи',
+      contactTitle: 'Обсудить ваш проект',
+      contactSubtitle: 'Оставьте заявку — ответим с оценкой и следующими шагами',
       descriptionTitle: 'Наши соцсети',
       description: 'В нашем блоге мы делимся опытом разработки, кейсами успешных проектов, полезными советами и последними новостями из мира технологий. Следите за нами в социальных сетях, чтобы не пропустить новые публикации!',
       contentTitle: 'Что мы публикуем',

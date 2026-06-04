@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import OrderCtaPill from '@/components/OrderCtaPill';
 import { useParams, usePathname } from 'next/navigation';
 import Image from 'next/image';
 
@@ -15,7 +16,7 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk');
   const servicesPath = `/${validLang}/services`;
 
-  const scrollToServicesList = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const scrollToServicesList = (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
     if (pathname === servicesPath) {
       e.preventDefault();
       document.getElementById('services-list')?.scrollIntoView({
@@ -75,24 +76,20 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
           >
             {t.services.passionMoreQuestion}
           </p>
-          <div className="flex justify-center gap-3 sm:gap-3 md:gap-6">
-            <Link
+          <div className="mx-auto flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:max-w-2xl sm:flex-row sm:items-stretch sm:gap-4 md:max-w-3xl md:gap-5 lg:max-w-4xl">
+            <OrderCtaPill
+              size="md"
+              label={t.services.toServices}
               href={`/${validLang}/services#services-list`}
               onClick={scrollToServicesList}
-              className="max-w-[min(100%,200px)] flex-1 text-center font-bold border border-white text-white px-4 py-3.5 uppercase transition-all duration-300 hover:bg-white hover:text-black sm:max-w-[200px] sm:py-3 md:max-w-none md:flex-1 md:px-10 md:py-4 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
-              aria-label={t.services.toServices}
-            >
-              {t.services.toServices}
-            </Link>
-            <Link
+              className="w-full min-h-[3.25rem] sm:flex-1"
+            />
+            <OrderCtaPill
+              size="md"
+              label={t.services.toPortfolio}
               href={`/${validLang}/portfolio`}
-              className="max-w-[min(100%,200px)] flex-1 text-center font-bold bg-white text-black px-4 py-3.5 uppercase transition-all duration-300 hover:bg-black hover:text-white sm:max-w-[200px] sm:py-3 md:max-w-none md:flex-1 md:px-10 md:py-4 text-base sm:text-lg md:text-xl lg:text-2xl rounded-full"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
-              aria-label={t.services.toPortfolio}
-            >
-              {t.services.toPortfolio}
-            </Link>
+              className="w-full min-h-[3.25rem] sm:flex-1"
+            />
           </div>
         </div>
       </div>

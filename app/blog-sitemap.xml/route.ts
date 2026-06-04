@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { siteUrl as baseUrl } from '@/lib/site';
+import { allBlogPosts } from '@/lib/blog/posts';
 
 function escapeXml(str: string): string {
   return str
@@ -11,62 +12,50 @@ function escapeXml(str: string): string {
 }
 
 export async function GET() {
-  const languages = ['uk', 'en', 'pl', 'ru'];
-  
-  // Додайте тут ваші статті блогу коли вони з'являться
-  const blogPosts: Array<{
-    slug: string;
-    lastmod: string;
-    priority: number;
-    changeFrequency: string;
-  }> = [
-    // Приклад структури для майбутніх статей:
-    // { slug: 'telegram-bot-for-business', lastmod: '2026-05-01', priority: 0.8, changeFrequency: 'monthly' },
-  ];
+  const blogPosts = allBlogPosts.map((post) => ({
+    slug: post.slug,
+    lastmod: post.updatedAt.slice(0, 10),
+    priority: post.featured ? 0.9 : 0.8,
+    changeFrequency: post.featured ? 'weekly' : 'monthly',
+    image: post.image,
+    imageAlt: post.imageAlt,
+    title: post.title,
+  }));
 
   const now = new Date().toISOString().slice(0, 10);
   const lines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
   ];
 
-  function pushAlternates(path: string) {
-    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`${baseUrl}/uk${path}`)}" />`);
-    for (const lang of languages) {
-      lines.push(`    <xhtml:link rel="alternate" hreflang="${lang}" href="${escapeXml(`${baseUrl}/${lang}${path}`)}" />`);
-    }
-  }
+  const blogIndex = `${baseUrl}/uk/blog`;
+  lines.push('  <url>');
+  lines.push(`    <loc>${escapeXml(blogIndex)}</loc>`);
+  lines.push(`    <lastmod>${now}</lastmod>`);
+  lines.push('    <changefreq>weekly</changefreq>');
+  lines.push('    <priority>0.85</priority>');
+  lines.push('  </url>');
 
-  // Додаємо головну сторінку блогу
-  for (const lang of languages) {
-    const url = `${baseUrl}/${lang}/blog`;
+  for (const post of blogPosts) {
+    const url = `${baseUrl}/uk/blog/${post.slug}`;
     lines.push('  <url>');
     lines.push(`    <loc>${escapeXml(url)}</loc>`);
-    pushAlternates('/blog');
-    lines.push(`    <lastmod>${now}</lastmod>`);
-    lines.push('    <changefreq>daily</changefreq>');
-    lines.push('    <priority>0.8</priority>');
+    lines.push(`    <lastmod>${post.lastmod}</lastmod>`);
+    lines.push(`    <changefreq>${post.changeFrequency}</changefreq>`);
+    lines.push(`    <priority>${post.priority}</priority>`);
+    if (post.image.startsWith('http')) {
+      lines.push('    <image:image>');
+      lines.push(`      <image:loc>${escapeXml(post.image)}</image:loc>`);
+      lines.push(`      <image:title>${escapeXml(post.title)}</image:title>`);
+      lines.push(`      <image:caption>${escapeXml(post.imageAlt)}</image:caption>`);
+      lines.push('    </image:image>');
+    }
     lines.push('  </url>');
   }
 
-  // Додаємо статті блогу
-  for (const lang of languages) {
-    for (const post of blogPosts) {
-      const url = `${baseUrl}/${lang}/blog/${post.slug}`;
-      lines.push('  <url>');
-      lines.push(`    <loc>${escapeXml(url)}</loc>`);
-      pushAlternates(`/blog/${post.slug}`);
-      lines.push(`    <lastmod>${post.lastmod}</lastmod>`);
-      lines.push(`    <changefreq>${post.changeFrequency}</changefreq>`);
-      lines.push(`    <priority>${post.priority}</priority>`);
-      lines.push('  </url>');
-    }
-  }
-
   lines.push('</urlset>');
-  const xml = lines.join('\n');
 
-  return new NextResponse(xml, {
+  return new NextResponse(lines.join('\n'), {
     headers: {
       'Content-Type': 'application/xml; charset=utf-8',
       'Cache-Control': 'public, max-age=3600, s-maxage=3600',

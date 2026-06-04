@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Instagram, Send } from 'lucide-react';
+import OrderCtaPill from '@/components/OrderCtaPill';
 import LanguageSelector from './LanguageSelector';
 import { Language } from './translations';
 import { legal } from '@/lib/legal';
@@ -150,14 +151,13 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
               </a>
             </div>
             {onConsultClick && (
-              <div className="mt-8 flex justify-center md:justify-start">
-                <button
-                  type="button"
+              <div className="mt-8 flex justify-center md:justify-start w-full max-w-sm">
+                <OrderCtaPill
+                  size="sm"
+                  label={t.nav.consultation}
                   onClick={onConsultClick}
-                  className="px-10 py-4 text-sm md:text-base tracking-[0.25em] font-black uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
-                >
-                  {t.nav.consultation}
-                </button>
+                  className="w-full"
+                />
               </div>
             )}
           </div>

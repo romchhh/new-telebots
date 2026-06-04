@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import OrderModal from '@/components/OrderModal';
+import OrderCtaPill from '@/components/OrderCtaPill';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
 import { sendToTelegram } from '@/lib/telegram';
@@ -216,24 +217,25 @@ export default function AboutPage() {
                 >
                   {t.about.photoMessage}
                 </p>
-                <button
-                  type="button"
-                  onClick={openModal}
-                  className="hidden md:inline-flex items-center justify-center bg-transparent border-2 border-white text-white text-lg md:text-xl font-medium px-12 py-5 rounded-full hover:bg-white hover:text-black transition-colors duration-200 uppercase tracking-wider"
-                >
-                  {t.modal.title}
-                </button>
+                <div className="hidden md:block w-full max-w-md px-6">
+                  <OrderCtaPill
+                    size="md"
+                    label={t.modal.title}
+                    onClick={openModal}
+                    className="w-full"
+                  />
+                </div>
               </div>
             </div>
 
-            <div className="md:hidden flex justify-center py-8 bg-white">
-              <button
-                type="button"
+            <div className="md:hidden flex justify-center px-6 py-8 bg-white">
+              <OrderCtaPill
+                size="md"
+                label={t.modal.title}
                 onClick={openModal}
-                className="inline-flex items-center justify-center bg-black border-2 border-black text-white text-lg font-medium px-10 py-4 rounded-full hover:bg-white hover:text-black hover:border-black transition-colors duration-200 uppercase tracking-wider"
-              >
-                {t.modal.title}
-              </button>
+                elevated
+                className="w-full max-w-md"
+              />
             </div>
           </div>
 

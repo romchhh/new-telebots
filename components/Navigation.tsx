@@ -1,15 +1,17 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
+import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
 
 interface NavigationProps {
   isScrolled: boolean;
+  /** Завжди непрозорий хедер (блог, білі сторінки) */
+  solidHeader?: boolean;
   lang: Language;
   setLang: (lang: Language) => void;
   t: typeof import('./translations').translations.uk;
@@ -20,7 +22,20 @@ interface NavigationProps {
 let consultWidgetShownInRuntime = false;
 let consultWidgetDismissedInRuntime = false;
 
-export default function Navigation({ isScrolled, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
+const headerLogoStyle: CSSProperties = {
+  color: '#fff',
+  fontSize: 20,
+  fontWeight: 900,
+  fontFamily: "'Arial Black', sans-serif",
+  letterSpacing: '-0.5px',
+  lineHeight: 1,
+};
+
+const navLinkClass =
+  'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-white transition-colors hover:text-gray-400 lg:text-[13px]';
+
+export default function Navigation({ isScrolled, solidHeader = false, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
+  const headerSolid = solidHeader || isScrolled;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [showConsultWidget, setShowConsultWidget] = useState(false);
@@ -67,64 +82,44 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
+      headerSolid ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 py-2 lg:py-3 flex justify-between items-center lg:items-end">
-        <Link href={`/${currentLanguage}`} className="flex items-end group lg:items-end justify-start w-auto flex-shrink-0 min-w-0">
-          <div className="flex items-end">
-            <Image
-              src={isScrolled ? '/whitelogo_new.png' : '/whitelogo_new.png'}
-              alt="TeleBots - Професійна розробка телеграм ботів, чат-ботів та сайтів"
-              width={100}
-              height={20}
-              className="object-contain object-left w-[70px] lg:w-[100px] h-auto"
-              fetchPriority="low"
-            />
-          </div>
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
+        <Link
+          href={`/${currentLanguage}`}
+          className="inline-flex h-12 flex-shrink-0 items-center transition-opacity hover:opacity-90"
+          aria-label="TeleBots"
+        >
+          <span style={headerLogoStyle}>telebots.</span>
         </Link>
 
-        <div className="hidden lg:flex items-center space-x-10">
-          <a 
-            href="https://brand.telebots.site/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className={`text-xs tracking-[0.2em] font-semibold transition ${
-              isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
-            }`}
-          >
+        <div className="hidden items-center gap-7 xl:gap-9 lg:flex">
+          <a href="https://brand.telebots.site/" target="_blank" rel="noopener noreferrer" className={navLinkClass}>
             {t.nav.brand}
           </a>
-          <Link href={`/${currentLanguage}/services`} className={`text-xs tracking-[0.2em] font-semibold transition ${
-            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
-          }`}>
+          <Link href={`/${currentLanguage}/services`} className={navLinkClass}>
             {t.nav.services}
           </Link>
-          <Link href={`/${currentLanguage}/portfolio`} className={`text-xs tracking-[0.2em] font-semibold transition ${
-            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
-          }`}>
+          <Link href={`/${currentLanguage}/portfolio`} className={navLinkClass}>
             {t.nav.portfolio}
           </Link>
-          <Link href={`/${currentLanguage}/blog`} className={`text-xs tracking-[0.2em] font-semibold transition ${
-            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
-          }`}>
+          <Link href={`/${currentLanguage}/blog`} className={navLinkClass}>
             {t.nav.blog}
           </Link>
-          <Link href={`/${currentLanguage}/contact`} className={`text-xs tracking-[0.2em] font-semibold transition ${
-            isScrolled ? 'text-white hover:text-gray-400' : 'text-white hover:text-gray-400'
-          }`}>
+          <Link href={`/${currentLanguage}/contact`} className={navLinkClass}>
             {t.nav.contact}
           </Link>
           {onConsultClick && (
             <button
               type="button"
               onClick={onConsultClick}
-              className="ml-6 px-8 py-3 text-sm tracking-[0.25em] font-semibold uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
+              className="inline-flex h-12 items-center justify-center rounded-full border-2 border-white px-8 text-xs font-semibold uppercase leading-none tracking-[0.25em] text-white transition-colors hover:bg-white hover:text-black lg:text-[13px]"
             >
               {t.nav.consultation}
             </button>
           )}
           {showLanguageSelector && (
-            <span className="ml-4 pl-4 border-l border-white/20 flex items-center">
+            <span className="inline-flex h-12 items-center border-l border-white/20 pl-7 xl:pl-9">
               <LanguageSelector lang={lang} setLang={setLang} isScrolled={isScrolled} currentLang={currentLanguage} />
             </span>
           )}
@@ -132,12 +127,9 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
 
         <button
           onClick={() => {
-            // Встановлюємо стан перед блокуванням скролу
             setIsMenuOpen(!isMenuOpen);
           }}
-          className={`lg:hidden z-50 relative transition ${
-            isScrolled ? 'text-white' : 'text-white'
-          }`}
+          className="relative z-50 inline-flex h-12 w-12 items-center justify-center text-white transition lg:hidden"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? (
@@ -248,17 +240,16 @@ export default function Navigation({ isScrolled, lang, setLang, t, currentLang, 
             <p className="text-base sm:text-lg font-normal text-black pr-7 leading-relaxed">
               {t.nav.consultationWidgetPrompt}
             </p>
-            <button
-              type="button"
+            <OrderCtaPill
+              size="sm"
+              label={t.nav.consultationWidgetCta}
               onClick={() => {
                 setShowConsultWidget(false);
                 consultWidgetDismissedInRuntime = true;
                 onConsultClick();
               }}
-              className="mt-4 inline-flex items-center justify-center w-full rounded-full bg-black text-white text-sm sm:text-base tracking-[0.06em] uppercase font-semibold px-5 py-3 hover:bg-gray-900 transition-colors"
-            >
-              {t.nav.consultationWidgetCta}
-            </button>
+              className="mt-4 w-full"
+            />
           </div>
         </div>,
         document.body

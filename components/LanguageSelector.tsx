@@ -43,7 +43,7 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
     }
   };
 
-  const iconClass = `p-2 rounded-full transition ${
+  const iconClass = `inline-flex h-9 w-9 items-center justify-center rounded-full transition ${
     isScrolled ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'
   }`;
 

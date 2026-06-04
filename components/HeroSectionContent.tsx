@@ -1,11 +1,14 @@
 'use client';
 
+import OrderCtaPill from '@/components/OrderCtaPill';
+
 interface HeroSectionContentProps {
   t: typeof import('./translations').translations.uk;
   onOrderClick?: () => void;
 }
 
-/** Клієнтська частина hero (оверлеї, текст, кнопки). Фон — серверний `HeroImage` у батьківському `<section>`. */
+const montserrat = { fontFamily: 'var(--font-montserrat)' };
+
 export default function HeroSectionContent({ t, onOrderClick }: HeroSectionContentProps) {
   const handleScrollDown = () => {
     const aboutSection = document.getElementById('about');
@@ -18,139 +21,60 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
 
   return (
     <>
-      {/* Градієнт затемнення знизу */}
-      <div className="absolute inset-0 z-10 bg-black/15" aria-hidden />
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/92 via-black/52 to-black/5" />
-      {/* Grid pattern - приховано на мобільних для продуктивності */}
+      <div className="absolute inset-0 z-10 bg-black/35" aria-hidden />
       <div
-        className="pointer-events-none absolute inset-0 z-10 opacity-[0.35] hidden sm:block"
-        style={{
-          backgroundImage: `
-            linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
-            linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)
-          `,
-          backgroundSize: '48px 48px',
-        }}
+        className="absolute inset-0 z-10 bg-gradient-to-t from-black/92 via-black/50 to-black/10"
         aria-hidden
       />
-      {/* Radial gradient light - приховано на мобільних для продуктивності */}
       <div
-        className="pointer-events-none absolute -right-20 top-1/3 z-10 h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl hidden md:block"
+        className="absolute inset-0 z-10 bg-gradient-to-r from-black/55 via-black/20 to-transparent md:from-black/50"
         aria-hidden
       />
 
-      {/* Зона під верхні елементи — на мобільному менша, щоб текст був вище */}
-      <div
-        className="relative z-0 flex-shrink-0 h-[120px] sm:h-[220px] md:h-[260px] lg:h-[280px] xl:h-[300px]"
-        aria-hidden
-      />
-
-      {/* ─── TAGLINE БЛОК (ліво) — на мобільному вужчий рядок, щоб круг справа не наїжджав ─── */}
-      <div
-        className="absolute top-24 sm:top-36 md:top-28 lg:top-32 xl:top-36 left-4 z-20 w-auto
-          max-w-[calc(100vw-10.5rem)] sm:max-w-[min(100%,22rem)] md:max-w-none
-          sm:w-[320px] md:left-6 md:w-[340px] lg:left-10 lg:w-[400px] xl:w-[440px]"
-      >
-        <div className="relative rounded-2xl overflow-hidden">
-          {/* На мобільних використовуємо статичний фон без blur для продуктивності */}
-          <div
-            className="absolute inset-0 rounded-2xl md:hidden bg-black/60"
-          />
-          {/* На десктопах використовуємо backdrop blur для кращого вигляду */}
-          <div
-            className="absolute inset-0 rounded-2xl hidden md:block"
-            style={{
-              backdropFilter: 'blur(10px) saturate(1.35)',
-              WebkitBackdropFilter: 'blur(10px) saturate(1.35)',
-              background:
-                'linear-gradient(145deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.38) 45%, rgba(0,0,0,0.22) 100%)',
-            }}
-          />
-          <div
-            className="absolute inset-x-0 top-0 h-px"
-            style={{
-              background:
-                'linear-gradient(90deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.15) 70%, transparent 100%)',
-            }}
-          />
-          <div
-            className="absolute inset-y-0 left-0 w-px"
-            style={{
-              background:
-                'linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0.12) 60%, transparent 100%)',
-            }}
-          />
-          <div
-            className="absolute inset-0 rounded-2xl pointer-events-none"
-            style={{ boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.12)' }}
-          />
-          <p
-            className="relative px-6 py-5 md:px-5 md:py-5 lg:px-6 lg:py-6 xl:px-7 xl:py-7 text-white/90 font-normal leading-relaxed text-[17px] md:text-[18px] lg:text-[19px] xl:text-[21px]"
-            style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.02em' }}
-          >
-            {t.hero.tagline}
-          </p>
-        </div>
-      </div>
-
-      <div className="absolute z-20 top-24 right-1 sm:right-1.5 md:top-24 md:right-2 lg:right-3 xl:right-5">
-        {/* На мобільних використовуємо простіший blur без backdrop-filter */}
+      {/* Круг з датами — класичний стиль hero, збільшений */}
+      <div className="absolute z-20 right-0 top-16 sm:top-24 md:top-28 lg:top-32">
         <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none
-            w-[min(200px,52vw)] h-[min(200px,52vw)]
-            sm:w-[min(220px,48vw)] sm:h-[min(220px,48vw)]
-            md:w-[clamp(260px,30vw,420px)] md:h-[clamp(260px,30vw,420px)] md:hidden"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[min(220px,58vw)] w-[min(220px,58vw)] -translate-x-1/2 -translate-y-1/2 sm:h-[min(240px,52vw)] sm:w-[min(240px,52vw)] md:h-[clamp(280px,32vw,440px)] md:w-[clamp(280px,32vw,440px)]"
           style={{
             borderRadius: '50%',
             background:
-              'radial-gradient(circle, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.4) 38%, rgba(0,0,0,0.15) 62%, transparent 86%)',
-          }}
-        />
-        {/* На десктопах використовуємо backdrop-filter */}
-        <div
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none
-            w-[clamp(260px,30vw,420px)] h-[clamp(260px,30vw,420px)] hidden md:block"
-          style={{
-            borderRadius: '50%',
-            background:
-              'radial-gradient(circle, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.35) 38%, rgba(0,0,0,0.12) 62%, transparent 86%)',
+              'radial-gradient(circle, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.38) 38%, rgba(0,0,0,0.14) 62%, transparent 86%)',
             backdropFilter: 'blur(10px)',
             WebkitBackdropFilter: 'blur(10px)',
-            WebkitMaskImage:
-              'radial-gradient(circle, black 0%, black 30%, rgba(0,0,0,0.9) 45%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.05) 88%, transparent 100%)',
-            maskImage:
-              'radial-gradient(circle, black 0%, black 30%, rgba(0,0,0,0.9) 45%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.25) 75%, rgba(0,0,0,0.05) 88%, transparent 100%)',
           }}
+          aria-hidden
         />
-
-        <div className="relative bg-transparent p-2.5 sm:p-4 md:p-6 lg:p-8 xl:p-10">
-          <div
-            className="relative
-              w-[7.25rem] h-[7.25rem]
-              sm:w-40 sm:h-40
-              md:w-40 md:h-40
-              lg:w-60 lg:h-60
-              xl:w-64 xl:h-64"
-          >
-            <div className="absolute inset-0">
-              <div className="absolute top-1/2 left-0 right-0 h-px bg-white/30 md:bg-gray-600/40" />
-              <div className="absolute left-1/2 top-0 bottom-0 w-px bg-white/30 md:bg-gray-600/40" />
+        <div className="relative p-3 sm:p-5 md:p-7 lg:p-9 xl:p-10">
+          <div className="relative h-[8.5rem] w-[8.5rem] sm:h-44 sm:w-44 md:h-48 md:w-48 lg:h-60 lg:w-60 xl:h-64 xl:w-64">
+            <div className="absolute inset-0" aria-hidden>
+              <div className="absolute left-0 right-0 top-1/2 h-px bg-white/35" />
+              <div className="absolute bottom-0 top-0 left-1/2 w-px bg-white/35" />
             </div>
-
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 p-1.5 sm:p-2.5 md:p-3 lg:p-5 xl:p-6 flex flex-col justify-end items-end">
-              <span className="text-[9px] sm:text-[10px] md:text-[9px] lg:text-[12px] xl:text-[13px] text-gray-200 md:text-gray-300 uppercase tracking-[0.12em] md:tracking-[0.15em] mb-0.5 md:mb-1 drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
+            <div className="absolute right-0 top-0 flex h-1/2 w-1/2 flex-col items-end justify-end p-2 text-right sm:p-3 md:p-4 lg:p-6">
+              <span
+                className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-300 sm:text-xs md:text-sm lg:text-base"
+                style={montserrat}
+              >
                 {t.hero.startDate.label}
               </span>
-              <span className="text-[12px] sm:text-[13px] md:text-[13px] lg:text-[18px] xl:text-[20px] text-white font-semibold md:font-medium uppercase tracking-[0.08em] md:tracking-[0.1em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] leading-tight">
+              <span
+                className="text-sm font-semibold uppercase leading-tight text-white sm:text-base md:text-xl lg:text-2xl xl:text-3xl"
+                style={montserrat}
+              >
                 {t.hero.startDate.value}
               </span>
             </div>
-
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 p-1.5 sm:p-2.5 md:p-3 lg:p-5 xl:p-6 flex flex-col justify-start items-start">
-              <span className="text-[9px] sm:text-[10px] md:text-[9px] lg:text-[12px] xl:text-[13px] text-gray-200 md:text-gray-300 uppercase tracking-[0.12em] md:tracking-[0.15em] mb-0.5 md:mb-1 drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
+            <div className="absolute bottom-0 left-0 flex h-1/2 w-1/2 flex-col items-start justify-start p-2 sm:p-3 md:p-4 lg:p-6">
+              <span
+                className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-300 sm:text-xs md:text-sm lg:text-base"
+                style={montserrat}
+              >
                 {t.hero.duration.label}
               </span>
-              <span className="text-[12px] sm:text-[13px] md:text-[13px] lg:text-[18px] xl:text-[20px] text-white font-semibold md:font-medium uppercase tracking-[0.08em] md:tracking-[0.1em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] leading-tight">
+              <span
+                className="text-sm font-semibold uppercase leading-tight text-white sm:text-base md:text-xl lg:text-2xl xl:text-3xl"
+                style={montserrat}
+              >
                 {t.hero.duration.value}
               </span>
             </div>
@@ -158,45 +82,68 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
         </div>
       </div>
 
-      <div className="relative z-30 flex w-full flex-1 items-end justify-center px-4 pb-10 pt-10 sm:px-6 md:px-10 md:pb-20 md:pt-0 lg:px-16 lg:pb-24">
-        <div className="mx-auto w-full max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
-          <h1
-            className="mx-auto mb-3 max-w-[min(100%,34rem)] font-bold uppercase leading-tight text-white sm:mb-4 sm:max-w-2xl sm:leading-[1.12] md:mb-5 md:max-w-3xl lg:max-w-4xl text-[clamp(1.2rem,4.8vw,2.05rem)] sm:text-3xl md:text-4xl lg:text-5xl [letter-spacing:0.04em] sm:[letter-spacing:0.07em] md:[letter-spacing:0.09em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            {t.hero.title}
-          </h1>
-          <p
-            className="mb-4 font-normal leading-snug text-white sm:mb-5 md:mb-6 text-lg sm:text-xl md:text-2xl [letter-spacing:0.04em] sm:[letter-spacing:0.08em] md:[letter-spacing:0.1em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            {t.hero.subtitle}
-          </p>
-          <p className="mx-auto mb-4 max-w-3xl text-lg leading-relaxed text-gray-300 sm:mb-5 sm:text-lg md:mb-6 md:text-xl md:leading-relaxed">
-            {t.hero.intro}
-          </p>
-          <div className="flex justify-center gap-3 md:gap-6">
+      <div
+        className="relative z-20 grid h-full max-h-full w-full overflow-hidden px-4 pb-2 pt-16 sm:px-6 sm:pb-5 sm:pt-24 md:px-8 lg:pt-28 lg:px-12 xl:px-14"
+        style={{ gridTemplateRows: '1fr auto' }}
+      >
+        {/* Заголовок: на моб — по центру по висоті */}
+        <div className="flex min-h-0 flex-col justify-center max-md:items-stretch md:justify-center max-lg:pr-[6.5rem] sm:max-lg:pr-40 lg:pr-64 xl:pr-72">
+          <div className="min-h-0 w-full max-w-[min(100%,52rem)]">
+            <h1
+              className="font-black uppercase leading-[0.9] tracking-[-0.02em] text-white text-[clamp(2.125rem,9.2vw,2.75rem)] sm:text-[clamp(2.5rem,6.5vw,3.5rem)] sm:leading-[0.92] md:text-6xl md:leading-[0.9] lg:text-7xl xl:text-[5.5rem] xl:leading-[0.88]"
+              style={montserrat}
+            >
+              {t.hero.title}
+            </h1>
+            <p
+              className="mt-2 line-clamp-2 text-lg leading-snug text-white/90 sm:mt-3 sm:text-xl md:mt-4 md:text-2xl lg:text-3xl"
+              style={montserrat}
+            >
+              {t.hero.subtitle}
+            </p>
+          </div>
+        </div>
+
+        {/* Низ: на моб CTA вище (col-reverse), теглайн під кнопкою */}
+        <div className="flex min-h-0 shrink-0 flex-col-reverse gap-2 max-sm:-mt-4 sm:mt-0 sm:flex-col sm:gap-5 md:flex-row md:items-end md:justify-between md:gap-8 lg:gap-10">
+          <div className="min-w-0 space-y-1 max-sm:line-clamp-2 sm:space-y-2 md:max-w-[46%] lg:max-w-[42%]">
+            <p
+              className="line-clamp-2 text-sm leading-snug text-white/80 sm:line-clamp-2 sm:text-base sm:leading-relaxed md:text-lg lg:text-xl"
+              style={montserrat}
+            >
+              {t.hero.tagline}
+            </p>
+            {t.hero.intro && (
+              <p className="hidden line-clamp-2 text-xs leading-relaxed text-white/55 sm:block sm:text-sm md:text-base lg:text-lg">
+                {t.hero.intro}
+              </p>
+            )}
             <button
               type="button"
               onClick={handleScrollDown}
-              className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-bold border border-white text-white px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-white hover:text-black transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
+              className="mt-1 hidden items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/65 transition-colors hover:text-white lg:inline-flex md:text-sm"
+              style={montserrat}
               aria-label={t.hero.viewButton}
             >
               {t.hero.viewButton}
+              <span className="text-base md:text-lg" aria-hidden>
+                ↓
+              </span>
             </button>
-            {onOrderClick && (
-              <button
-                type="button"
-                onClick={onOrderClick}
-                className="flex-1 max-w-[200px] md:max-w-none md:flex-1 font-bold bg-white text-black px-4 py-3 md:px-10 md:py-4 uppercase hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base md:text-xl lg:text-2xl rounded-full"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
-                aria-label={t.modal.title}
-              >
-                {t.modal.title}
-              </button>
-            )}
           </div>
+
+          {onOrderClick && (
+            <div className="w-full shrink-0 max-sm:mb-1 sm:mb-0 md:w-auto">
+              <OrderCtaPill
+                size="hero"
+                eyebrow={t.hero.ctaQuestion}
+                eyebrowMobile={t.hero.ctaQuestionShort}
+                label={t.modal.title}
+                onClick={onOrderClick}
+                className="w-full max-w-full md:w-auto"
+              />
+            </div>
+          )}
         </div>
       </div>
     </>

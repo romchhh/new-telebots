@@ -7,11 +7,11 @@ import { useParams } from 'next/navigation';
 import { cases } from './cases';
 import { translations, Language } from './translations';
 import OrderModal from './OrderModal';
+import OrderCtaPill from '@/components/OrderCtaPill';
 import SuccessMessage from './SuccessMessage';
 import { sendToTelegram } from '@/lib/telegram';
 import { 
   FaArrowLeft, 
-  FaArrowRight, 
   FaMousePointer, 
   FaExternalLinkAlt, 
   FaRobot, 
@@ -218,18 +218,21 @@ export default function CasePage({ caseId }: CasePageProps) {
                 </span>
               </a>
             )}
-            <button
+            <OrderCtaPill
+              size="md"
+              label={
+                validLang === 'uk'
+                  ? 'Замовити розробку'
+                  : validLang === 'en'
+                    ? 'Order Development'
+                    : validLang === 'ru'
+                      ? 'Заказать разработку'
+                      : 'Zamów rozwój'
+              }
               onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center justify-center gap-4 bg-white text-black border-2 border-black px-14 py-6 rounded-full hover:bg-black hover:text-white transition-all duration-300 group text-xl font-black w-full sm:w-auto min-w-[280px] sm:min-w-0"
-            >
-              <span className="tracking-wider">
-                {validLang === 'uk' ? 'Замовити розробку' :
-                 validLang === 'en' ? 'Order Development' :
-                 validLang === 'ru' ? 'Заказать разработку' :
-                 'Zamów rozwój'}
-              </span>
-              <FaArrowRight className="w-7 h-7 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+              elevated
+              className="w-full sm:w-auto sm:min-w-[280px]"
+            />
           </div>
         </div>
       </section>
@@ -370,19 +373,22 @@ export default function CasePage({ caseId }: CasePageProps) {
           )}
 
           {/* Кнопка замовлення */}
-          <div className="text-center">
-            <button 
+          <div className="mx-auto flex max-w-md justify-center text-center">
+            <OrderCtaPill
+              size="md"
+              label={
+                validLang === 'uk'
+                  ? 'Замовити розробку'
+                  : validLang === 'en'
+                    ? 'Order Development'
+                    : validLang === 'ru'
+                      ? 'Заказать разработку'
+                      : 'Zamów rozwój'
+              }
               onClick={() => setIsModalOpen(true)}
-              className="group flex items-center justify-center gap-4 bg-black text-white px-14 py-6 rounded-full hover:bg-gray-800 transition-all duration-300 mx-auto text-xl font-black"
-            >
-              <span className="tracking-wider">
-                {validLang === 'uk' ? 'Замовити розробку' :
-                 validLang === 'en' ? 'Order Development' :
-                 validLang === 'ru' ? 'Заказать разработку' :
-                 'Zamów rozwój'}
-              </span>
-              <FaArrowRight className="w-7 h-7 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
+              elevated
+              className="w-full"
+            />
           </div>
         </div>
       </section>

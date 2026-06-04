@@ -34,6 +34,12 @@ export function middleware(request: NextRequest) {
   const validLangs = ['uk', 'en', 'pl', 'ru'];
   const firstSegment = pathname.split('/')[1];
 
+  // Блог лише українською
+  if (/^\/(en|pl|ru)\/blog(\/|$)/.test(pathname)) {
+    const ukPath = pathname.replace(/^\/(en|pl|ru)/, '/uk');
+    return NextResponse.redirect(new URL(ukPath, request.url));
+  }
+
   // Якщо перший сегмент не є валідною мовою, перенаправляємо на /uk
   if (firstSegment && !validLangs.includes(firstSegment)) {
     // Статичні файли та служебні шляхи — не редіректимо
