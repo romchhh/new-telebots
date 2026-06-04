@@ -194,19 +194,22 @@ export default function ServiceHeroSection({
           <p className="mx-auto mb-6 max-w-3xl text-base leading-relaxed text-gray-200/95 sm:mb-7 md:mb-9 sm:text-base md:text-lg md:leading-relaxed">
             {hero.intro}
           </p>
-          <div className="mx-auto flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:max-w-2xl sm:flex-row sm:gap-4 md:max-w-3xl md:gap-5 lg:max-w-4xl">
+          <div className="mx-auto flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:max-w-2xl sm:flex-row sm:items-stretch sm:gap-4 md:max-w-3xl md:gap-5 lg:max-w-4xl">
             <OrderCtaPill
               size="md"
+              variant="outline"
+              paired
               label={viewButtonLabel}
               onClick={handleScrollToContent}
-              className="h-full w-full min-h-[4.75rem] sm:flex-1"
+              className="w-full sm:flex-1"
             />
             <OrderCtaPill
               size="md"
+              paired
               eyebrow={hero.ctaQuestion}
               label={orderButtonLabel}
               onClick={onOrderClick}
-              className="h-full w-full min-h-[4.75rem] sm:flex-1"
+              className="w-full sm:flex-1"
             />
           </div>
         </div>

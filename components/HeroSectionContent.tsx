@@ -105,16 +105,19 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
         </div>
 
         {/* Низ: на моб CTA вище (col-reverse), теглайн під кнопкою */}
-        <div className="flex min-h-0 shrink-0 flex-col-reverse gap-2 max-sm:-mt-4 sm:mt-0 sm:flex-col sm:gap-5 md:flex-row md:items-end md:justify-between md:gap-8 lg:gap-10">
-          <div className="min-w-0 space-y-1 max-sm:line-clamp-2 sm:space-y-2 md:max-w-[46%] lg:max-w-[42%]">
+        <div className="flex min-h-0 shrink-0 flex-col-reverse gap-2 max-sm:-mt-10 sm:mt-0 sm:flex-col sm:gap-5 md:flex-row md:items-end md:justify-between md:gap-8 lg:gap-10">
+          <div className="min-w-0 space-y-1.5 sm:space-y-2 md:max-w-[46%] lg:max-w-[42%]">
             <p
-              className="line-clamp-2 text-sm leading-snug text-white/80 sm:line-clamp-2 sm:text-base sm:leading-relaxed md:text-lg lg:text-xl"
+              className="text-sm leading-snug text-white/85 sm:text-base sm:leading-relaxed md:text-lg lg:text-xl"
               style={montserrat}
             >
               {t.hero.tagline}
             </p>
             {t.hero.intro && (
-              <p className="hidden line-clamp-2 text-xs leading-relaxed text-white/55 sm:block sm:text-sm md:text-base lg:text-lg">
+              <p
+                className="text-sm leading-snug text-white/85 sm:text-base sm:leading-relaxed md:text-lg lg:text-xl"
+                style={montserrat}
+              >
                 {t.hero.intro}
               </p>
             )}
@@ -133,7 +136,7 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
           </div>
 
           {onOrderClick && (
-            <div className="w-full shrink-0 max-sm:mb-1 sm:mb-0 md:w-auto">
+            <div className="w-full shrink-0 sm:mb-0 md:w-auto">
               <OrderCtaPill
                 size="hero"
                 eyebrow={t.hero.ctaQuestion}

@@ -1,6 +1,7 @@
 import type { BlogSection } from '@/lib/blog/types';
 import Link from 'next/link';
 import PricingPlansGrid from '@/components/PricingPlansGrid';
+import { parseBlogInline } from '@/components/blog/parseBlogInline';
 
 const headingStyle = { fontFamily: 'var(--font-montserrat)' };
 
@@ -16,7 +17,7 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
                 className="mb-6 text-lg font-light leading-relaxed text-gray-800 md:text-xl"
                 style={headingStyle}
               >
-                {block.text}
+                {parseBlogInline(block.text)}
               </p>
             );
           case 'h2':
@@ -26,7 +27,7 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
                 className="mb-5 mt-12 text-2xl font-black tracking-tight text-black sm:text-3xl md:mt-16"
                 style={headingStyle}
               >
-                {block.text}
+                {parseBlogInline(block.text)}
               </h2>
             );
           case 'h3':
@@ -36,7 +37,7 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
                 className="mb-4 mt-8 text-xl font-bold text-black sm:text-2xl"
                 style={headingStyle}
               >
-                {block.text}
+                {parseBlogInline(block.text)}
               </h3>
             );
           case 'ul':
@@ -49,7 +50,7 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
                     style={headingStyle}
                   >
                     <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-black" aria-hidden />
-                    <span>{item}</span>
+                    <span>{parseBlogInline(item)}</span>
                   </li>
                 ))}
               </ul>
@@ -59,7 +60,7 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
               <ol key={i} className="mb-8 list-decimal space-y-3 pl-6 text-lg font-light text-gray-800">
                 {block.items.map((item, j) => (
                   <li key={j} className="leading-relaxed" style={headingStyle}>
-                    {item}
+                    {parseBlogInline(item)}
                   </li>
                 ))}
               </ol>
@@ -75,7 +76,7 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
                 className="mb-10 rounded-2xl border-l-4 border-black bg-gray-50 px-6 py-5 md:px-8"
               >
                 <p className="text-lg font-medium leading-relaxed text-gray-900" style={headingStyle}>
-                  {block.text}
+                  {parseBlogInline(block.text)}
                 </p>
               </div>
             );
@@ -87,7 +88,9 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
                     <h3 className="mb-2 text-lg font-bold text-black" style={headingStyle}>
                       {item.question}
                     </h3>
-                    <p className="text-base font-light leading-relaxed text-gray-700">{item.answer}</p>
+                    <p className="text-base font-light leading-relaxed text-gray-700">
+                      {parseBlogInline(item.answer)}
+                    </p>
                   </div>
                 ))}
               </div>

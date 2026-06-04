@@ -67,28 +67,26 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
           >
             {t.services.passionTitle}
           </p>
-          <p className="mx-auto mb-4 max-w-3xl text-lg leading-relaxed text-gray-300 sm:mb-5 sm:text-lg md:mb-6 md:text-xl md:leading-relaxed">
+          <p className="mx-auto mb-7 max-w-3xl text-lg leading-relaxed text-gray-300 sm:mb-8 sm:text-lg md:mb-10 md:text-xl md:leading-relaxed">
             {t.services.passionDesc}
-          </p>
-          <p
-            className="mx-auto mb-7 max-w-3xl text-lg font-semibold text-white/95 sm:mb-8 md:mb-10 sm:text-lg md:text-xl [letter-spacing:0.05em] sm:[letter-spacing:0.06em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
-          >
-            {t.services.passionMoreQuestion}
           </p>
           <div className="mx-auto flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:max-w-2xl sm:flex-row sm:items-stretch sm:gap-4 md:max-w-3xl md:gap-5 lg:max-w-4xl">
             <OrderCtaPill
               size="md"
+              variant="outline"
+              paired
               label={t.services.toServices}
               href={`/${validLang}/services#services-list`}
               onClick={scrollToServicesList}
-              className="w-full min-h-[3.25rem] sm:flex-1"
+              className="w-full sm:flex-1"
             />
             <OrderCtaPill
               size="md"
+              paired
+              eyebrow={t.services.passionMoreQuestion}
               label={t.services.toPortfolio}
               href={`/${validLang}/portfolio`}
-              className="w-full min-h-[3.25rem] sm:flex-1"
+              className="w-full sm:flex-1"
             />
           </div>
         </div>
