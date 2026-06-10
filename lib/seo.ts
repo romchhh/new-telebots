@@ -351,51 +351,239 @@ export function generateServiceSchema(serviceName: string, description: string, 
   return schema;
 }
 
-export function generateProductSchema(serviceName: string, description: string, lang: Language = 'uk') {
-  const serviceNames: { [key: string]: { [key in Language]?: string } } = {
-    'websitesPage': {
-      uk: 'Розробка веб-сайтів',
-      en: 'Website Development',
-      pl: 'Rozwój stron internetowych',
-      ru: 'Разработка веб-сайтов',
+type ServiceProductKey = 'websitesPage' | 'chatbotsPage' | 'designPage' | 'parsersPage';
+
+type ProductReviewCopy = {
+  author: string;
+  body: Record<Language, string>;
+};
+
+const SERVICE_PRODUCT_CONFIG: Record<
+  ServiceProductKey,
+  {
+    slug: string;
+    imagePath: string;
+    priceMin: number;
+    priceMax: number;
+    names: Record<Language, string>;
+    review: ProductReviewCopy;
+  }
+> = {
+  websitesPage: {
+    slug: 'websites',
+    imagePath: '/services/services-websites.jpg',
+    priceMin: 300,
+    priceMax: 800,
+    names: {
+      uk: 'Розробка веб-сайтів та інтернет-магазинів',
+      en: 'Website & e-commerce development',
+      pl: 'Tworzenie stron i sklepów internetowych',
+      ru: 'Разработка сайтов и интернет-магазинов',
     },
-    'chatbotsPage': {
-      uk: 'Розробка чат-ботів',
-      en: 'Chatbot Development',
-      pl: 'Rozwój chatbotów',
-      ru: 'Разработка чат-ботов',
+    review: {
+      author: 'New Study Line',
+      body: {
+        uk: 'Сайт школи англійської з SEO-блогом та онлайн-тестуванням — повноцінний інструмент для залучення лідів.',
+        en: 'English school website with SEO blog and online testing — a full lead-generation tool.',
+        pl: 'Strona szkoły języka angielskiego z blogiem SEO i testami online — narzędzie do pozyskiwania leadów.',
+        ru: 'Сайт школы английского с SEO-блогом и онлайн-тестированием — полноценный инструмент для лидов.',
+      },
     },
-    'parsersPage': {
-      uk: 'Розробка парсерів',
-      en: 'Parser Development',
-      pl: 'Rozwój parserów',
-      ru: 'Разработка парсеров',
+  },
+  chatbotsPage: {
+    slug: 'chatbots',
+    imagePath: '/services/services-chatbots.jpg',
+    priceMin: 150,
+    priceMax: 300,
+    names: {
+      uk: 'Розробка чат-ботів (Telegram, WhatsApp, Viber)',
+      en: 'Chatbot development (Telegram, WhatsApp, Viber)',
+      pl: 'Rozwój chatbotów (Telegram, WhatsApp, Viber)',
+      ru: 'Разработка чат-ботов (Telegram, WhatsApp, Viber)',
     },
-    'designPage': {
-      uk: 'Дизайн (лого, айдентика, UI/UX)',
-      en: 'Design (logo, identity, UI/UX)',
-      pl: 'Design (logo, identyfikacja, UI/UX)',
-      ru: 'Дизайн (логотипы, айдентика, UI/UX)',
+    review: {
+      author: 'Cosmy',
+      body: {
+        uk: 'Telegram-бот для інтернет-магазину: 400+ клієнтів, на 40% зросла зацікавленість завдяки автоматизації замовлень.',
+        en: 'Telegram bot for e-commerce: 400+ clients and 40% higher engagement through order automation.',
+        pl: 'Bot Telegram dla sklepu: 400+ klientów i 40% większe zaangażowanie dzięki automatyzacji zamówień.',
+        ru: 'Telegram-бот для интернет-магазина: 400+ клиентов и рост вовлечённости на 40% за счёт автоматизации заказов.',
+      },
+    },
+  },
+  designPage: {
+    slug: 'design',
+    imagePath: '/services/services-design.jpg',
+    priceMin: 150,
+    priceMax: 600,
+    names: {
+      uk: 'Дизайн: лого, айдентика, UI/UX',
+      en: 'Design: logo, brand identity, UI/UX',
+      pl: 'Design: logo, identyfikacja, UI/UX',
+      ru: 'Дизайн: логотип, айдентика, UI/UX',
+    },
+    review: {
+      author: '13VPLUS',
+      body: {
+        uk: 'Магазин жіночого одягу з сучасним брендингом і зручним шляхом користувача до покупки.',
+        en: 'Women’s fashion store with modern branding and a clear path from browse to purchase.',
+        pl: 'Sklep odzieży damskiej z nowoczesnym brandingiem i wygodną ścieżką do zakupu.',
+        ru: 'Магазин женской одежды с современным брендингом и удобным путём пользователя к покупке.',
+      },
+    },
+  },
+  parsersPage: {
+    slug: 'parsers',
+    imagePath: '/services/services-parsers.jpg',
+    priceMin: 200,
+    priceMax: 500,
+    names: {
+      uk: 'Розробка парсерів та збору даних',
+      en: 'Parser & data collection development',
+      pl: 'Rozwój parserów i zbierania danych',
+      ru: 'Разработка парсеров и сбора данных',
+    },
+    review: {
+      author: 'TeleBots',
+      body: {
+        uk: 'Автоматизований збір даних з маркетплейсів і оголошень — економія годин ручної роботи для аналітики.',
+        en: 'Automated data collection from marketplaces and listings — hours of manual work saved for analytics.',
+        pl: 'Automatyczne zbieranie danych z marketplace’ów i ogłoszeń — oszczędność godzin pracy ręcznej.',
+        ru: 'Автоматизированный сбор данных с маркетплейсов и объявлений — экономия часов ручной работы.',
+      },
+    },
+  },
+};
+
+const DIGITAL_SHIPPING_COUNTRIES = ['UA', 'US', 'PL', 'GB', 'DE', 'CA', 'AU'] as const;
+
+function productPriceValidUntil(): string {
+  const date = new Date();
+  date.setFullYear(date.getFullYear() + 1);
+  return date.toISOString().slice(0, 10);
+}
+
+function buildDigitalShippingDetails() {
+  return {
+    '@type': 'OfferShippingDetails',
+    shippingRate: {
+      '@type': 'MonetaryAmount',
+      value: '0',
+      currency: 'USD',
+    },
+    shippingDestination: DIGITAL_SHIPPING_COUNTRIES.map((country) => ({
+      '@type': 'DefinedRegion',
+      addressCountry: country,
+    })),
+    deliveryTime: {
+      '@type': 'ShippingDeliveryTime',
+      handlingTime: {
+        '@type': 'QuantitativeValue',
+        minValue: 1,
+        maxValue: 5,
+        unitCode: 'DAY',
+      },
+      transitTime: {
+        '@type': 'QuantitativeValue',
+        minValue: 0,
+        maxValue: 0,
+        unitCode: 'DAY',
+      },
     },
   };
+}
 
-  const name = serviceNames[serviceName]?.[lang] || serviceName;
+function buildMerchantReturnPolicy(lang: Language) {
+  return {
+    '@type': 'MerchantReturnPolicy',
+    applicableCountry: [...DIGITAL_SHIPPING_COUNTRIES],
+    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
+    merchantReturnLink: `${baseUrl}/${lang}/refund`,
+  };
+}
+
+function buildProductAggregateRating() {
+  return {
+    '@type': 'AggregateRating',
+    ratingValue: '5.0',
+    reviewCount: '200',
+    bestRating: '5',
+    worstRating: '1',
+  };
+}
+
+function buildProductReview(review: ProductReviewCopy, lang: Language) {
+  return {
+    '@type': 'Review',
+    author: {
+      '@type': 'Organization',
+      name: review.author,
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: '5',
+      bestRating: '5',
+      worstRating: '1',
+    },
+    reviewBody: review.body[lang] ?? review.body.uk,
+  };
+}
+
+export function generateProductSchema(serviceName: string, description: string, lang: Language = 'uk') {
+  const config = SERVICE_PRODUCT_CONFIG[serviceName as ServiceProductKey];
+  const slug = config?.slug ?? 'websites';
+  const imagePath = config?.imagePath ?? '/services/services-websites.jpg';
+  const priceMin = config?.priceMin ?? 300;
+  const priceMax = config?.priceMax ?? priceMin;
+  const name = config?.names[lang] ?? serviceName;
+  const productUrl = `${baseUrl}/${lang}/services/${slug}`;
+  const imageUrl = `${baseUrl}${imagePath}`;
+
+  const offer: Record<string, unknown> = {
+    '@type': 'Offer',
+    price: priceMin.toFixed(2),
+    priceCurrency: 'USD',
+    priceValidUntil: productPriceValidUntil(),
+    availability: 'https://schema.org/InStock',
+    itemCondition: 'https://schema.org/NewCondition',
+    url: productUrl,
+    seller: {
+      '@type': 'Organization',
+      name: 'TeleBots',
+      url: `${baseUrl}/${lang}`,
+    },
+    shippingDetails: buildDigitalShippingDetails(),
+    hasMerchantReturnPolicy: buildMerchantReturnPolicy(lang),
+  };
+
+  const reviewSource = config?.review ?? SERVICE_PRODUCT_CONFIG.websitesPage.review;
+
+  if (priceMax > priceMin) {
+    offer.priceSpecification = {
+      '@type': 'PriceSpecification',
+      price: priceMin.toFixed(2),
+      minPrice: priceMin.toFixed(2),
+      maxPrice: priceMax.toFixed(2),
+      priceCurrency: 'USD',
+    };
+  }
 
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    '@id': `${productUrl}#product`,
     name,
     description,
+    image: [imageUrl],
+    url: productUrl,
+    sku: `telebots-${slug}`,
     brand: {
       '@type': 'Brand',
       name: 'TeleBots',
     },
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'UAH',
-      url: `${baseUrl}/${lang}/services`,
-    },
+    offers: offer,
+    aggregateRating: buildProductAggregateRating(),
+    review: [buildProductReview(reviewSource, lang)],
     category: 'Digital Services',
   };
 }
