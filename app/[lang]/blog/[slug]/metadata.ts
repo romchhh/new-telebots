@@ -12,6 +12,8 @@ export async function generateMetadata({
   const post = getBlogPostBySlug(slug);
   if (!post) return { title: 'TeleBots' };
 
+  const image = post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`;
+
   return {
     ...generateSEOMetadata({
       title: post.title,
@@ -19,8 +21,11 @@ export async function generateMetadata({
       keywords: post.keywords,
       url: `${baseUrl}/uk/blog/${slug}`,
       lang: 'uk',
+      ukOnly: true,
       type: 'article',
-      image: post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`,
+      image,
+      publishedTime: post.publishedAt,
+      modifiedTime: post.updatedAt,
       openGraphTitle: post.title,
       openGraphDescription: post.description,
     }),

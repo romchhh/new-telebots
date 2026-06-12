@@ -5,6 +5,7 @@ export const translations = {
       services: 'ЩО МИ РОБИМО?',
       portfolio: 'КЕЙСИ',
       blog: 'БЛОГ',
+      pricing: 'ЦІНИ',
       contact: 'КОНТАКТИ',
       consultation: 'КОНСУЛЬТАЦІЯ',
       consultationWidgetPrompt:
@@ -372,7 +373,7 @@ export const translations = {
       },
       pricingChatbots: {
         categoryLabel: 'Чат-боти',
-        title: 'Тарифні плани',
+        title: 'Тарифні плани на розробку чат-ботів',
         subtitle: 'Оберіть ідеальне рішення для автоматизації вашого бізнесу',
         popularBadge: 'Popular',
         featuresLabel: 'Функціонал',
@@ -404,7 +405,7 @@ export const translations = {
       },
       pricingWebsites: {
         categoryLabel: 'Веб-сайти',
-        title: 'Тарифні плани',
+        title: 'Тарифні плани на розробку сайтів',
         subtitle: 'Професійні веб-рішення для вашого бізнесу',
         popularBadge: 'Popular',
         featuresLabel: 'Функціонал',
@@ -455,7 +456,7 @@ export const translations = {
       },
       pricingParsers: {
         categoryLabel: 'Парсери',
-        title: 'Тарифні плани',
+        title: 'Тарифні плани на розробку парсерів',
         subtitle: 'Збір та обробка даних з будь-яких джерел',
         popularBadge: 'ПОПУЛЯРНИЙ',
         featuresLabel: 'Функціонал',
@@ -471,7 +472,7 @@ export const translations = {
       },
       pricingDesign: {
         categoryLabel: 'Дизайн',
-        title: 'Тарифні плани',
+        title: 'Тарифні плани на дизайн',
         subtitle: 'Логотип, айдентика та UI/UX для сайтів і додатків',
         popularBadge: 'Popular',
         featuresLabel: 'Що входить',
@@ -643,6 +644,7 @@ export const translations = {
       services: 'WHAT WE DO?',
       portfolio: 'CASES',
       blog: 'BLOG',
+      pricing: 'PRICING',
       contact: 'CONTACT',
       consultation: 'CONSULTATION',
       consultationWidgetPrompt:
@@ -1010,7 +1012,7 @@ export const translations = {
       },
       pricingChatbots: {
         categoryLabel: 'Chatbots',
-        title: 'Pricing Plans',
+        title: 'Pricing plans for chatbot development',
         subtitle: 'Choose the ideal solution for your business automation',
         popularBadge: 'POPULAR',
         featuresLabel: 'Features',
@@ -1026,7 +1028,7 @@ export const translations = {
       },
       pricingWebsites: {
         categoryLabel: 'Websites',
-        title: 'Pricing Plans',
+        title: 'Pricing plans for website development',
         subtitle: 'Professional web solutions for your business',
         popularBadge: 'POPULAR',
         featuresLabel: 'Features',
@@ -1042,7 +1044,7 @@ export const translations = {
       },
       pricingParsers: {
         categoryLabel: 'Parsers',
-        title: 'Pricing Plans',
+        title: 'Pricing plans for parser development',
         subtitle: 'Data collection and processing from any sources',
         popularBadge: 'POPULAR',
         featuresLabel: 'Features',
@@ -1058,7 +1060,7 @@ export const translations = {
       },
       pricingDesign: {
         categoryLabel: 'Design',
-        title: 'Pricing Plans',
+        title: 'Pricing plans for design',
         subtitle: 'Logo, brand identity and UI/UX for websites and apps',
         popularBadge: 'POPULAR',
         featuresLabel: 'What\'s included',
@@ -1214,6 +1216,7 @@ export const translations = {
       services: 'CO ROBIMY?',
       portfolio: 'REALIZACJE',
       blog: 'BLOG',
+      pricing: 'CENY',
       contact: 'KONTAKT',
       consultation: 'KONSULTACJA',
       consultationWidgetPrompt:
@@ -1581,7 +1584,7 @@ export const translations = {
       },
       pricingChatbots: {
         categoryLabel: 'Chatboty',
-        title: 'Plany cenowe',
+        title: 'Plany cenowe na chatboty',
         subtitle: 'Wybierz idealne rozwiązanie do automatyzacji Twojego biznesu',
         popularBadge: 'POPULARNE',
         featuresLabel: 'Funkcjonalność',
@@ -1597,7 +1600,7 @@ export const translations = {
       },
       pricingWebsites: {
         categoryLabel: 'Strony internetowe',
-        title: 'Plany cenowe',
+        title: 'Plany cenowe na strony internetowe',
         subtitle: 'Profesjonalne rozwiązania webowe dla Twojego biznesu',
         popularBadge: 'POPULARNE',
         featuresLabel: 'Funkcjonalność',
@@ -1613,7 +1616,7 @@ export const translations = {
       },
       pricingParsers: {
         categoryLabel: 'Parsery',
-        title: 'Plany cenowe',
+        title: 'Plany cenowe na parsery',
         subtitle: 'Zbieranie i przetwarzanie danych z dowolnych źródeł',
         popularBadge: 'POPULARNE',
         featuresLabel: 'Funkcjonalność',
@@ -1629,7 +1632,7 @@ export const translations = {
       },
       pricingDesign: {
         categoryLabel: 'Design',
-        title: 'Plany cenowe',
+        title: 'Plany cenowe na design',
         subtitle: 'Logo, identyfikacja wizualna i UI/UX dla stron i aplikacji',
         popularBadge: 'POPULARNE',
         featuresLabel: 'Co wchodzi w skład',
@@ -1785,6 +1788,7 @@ export const translations = {
       services: 'ЧТО МЫ ДЕЛАЕМ?',
       portfolio: 'КЕЙСЫ',
       blog: 'БЛОГ',
+      pricing: 'ЦЕНЫ',
       contact: 'КОНТАКТЫ',
       consultation: 'КОНСУЛЬТАЦИЯ',
       consultationWidgetPrompt:
@@ -2152,7 +2156,7 @@ export const translations = {
       },
       pricingChatbots: {
         categoryLabel: 'Чат-боты',
-        title: 'Тарифные планы',
+        title: 'Тарифные планы на разработку чат-ботов',
         subtitle: 'Выберите идеальное решение для автоматизации вашего бизнеса',
         popularBadge: 'ПОПУЛЯРНЫЙ',
         featuresLabel: 'Функционал',
@@ -2168,7 +2172,7 @@ export const translations = {
       },
       pricingWebsites: {
         categoryLabel: 'Веб-сайты',
-        title: 'Тарифные планы',
+        title: 'Тарифные планы на разработку сайтов',
         subtitle: 'Профессиональные веб-решения для вашего бизнеса',
         popularBadge: 'ПОПУЛЯРНЫЙ',
         featuresLabel: 'Функционал',
@@ -2184,7 +2188,7 @@ export const translations = {
       },
       pricingParsers: {
         categoryLabel: 'Парсеры',
-        title: 'Тарифные планы',
+        title: 'Тарифные планы на разработку парсеров',
         subtitle: 'Сбор и обработка данных из любых источников',
         popularBadge: 'ПОПУЛЯРНЫЙ',
         featuresLabel: 'Функционал',
@@ -2200,7 +2204,7 @@ export const translations = {
       },
       pricingDesign: {
         categoryLabel: 'Дизайн',
-        title: 'Тарифные планы',
+        title: 'Тарифные планы на дизайн',
         subtitle: 'Логотип, айдентика и UI/UX для сайтов и приложений',
         popularBadge: 'ПОПУЛЯРНЫЙ',
         featuresLabel: 'Что входит',

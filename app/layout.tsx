@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { headers } from "next/headers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { Montserrat } from "next/font/google";
@@ -104,15 +105,24 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/manifest.json",
+  alternates: {
+    types: {
+      "application/rss+xml": `${siteUrl}/feed.xml`,
+    },
+  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const headersList = await headers();
+  const lang = headersList.get('x-site-lang') ?? 'uk';
+  const htmlLang = ['uk', 'en', 'pl', 'ru'].includes(lang) ? lang : 'uk';
+
   return (
-    <html lang="uk" prefix="og: https://ogp.me/ns#" className={montserrat.variable}>
+    <html lang={htmlLang} prefix="og: https://ogp.me/ns#" className={montserrat.variable}>
       <head>
         {/* Hero LCP — один файл і один preload для всіх breakpoints (узгоджено з HeroImage) */}
         <link rel="preload" as="image" href="/other/hero-background.webp" fetchPriority="high" type="image/webp" />
@@ -131,9 +141,8 @@ export default function RootLayout({
         <link rel="icon" href="/other/favicon.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/other/favicon.png" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="alternate" type="application/rss+xml" title="Блог TeleBots" href={`${siteUrl}/feed.xml`} />
         
-        {/* Meta description (fallback; сторінки [lang] додають свій через generateMetadata) */}
-        <meta name="description" content="TeleBots — розробка сайтів та інтернет-магазинів під ключ, веб-інтерфейсів, Telegram ботів і автоматизації. 200+ проєктів. Київ / віддалено." />
         {/* Meta tags */}
         <meta name="theme-color" content="#000000" />
         <meta name="google-site-verification" content="B6RsISu82MaHNjyNFTkfGrgB0SFwQDHLNrlGh0RoQe4" />
@@ -156,30 +165,13 @@ export default function RootLayout({
         {/* Pinterest */}
         <meta name="pinterest-rich-pin" content="true" />
         
-        {/* WebSite schema — офіційна назва сайту для Google (поряд з favicon) */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: 'TeleBots',
-              url: siteUrl,
-            }),
-          }}
-        />
-        {/* og:site_name задано в metadata.openGraph — дублюємо для явності */}
-        <meta property="og:site_name" content="TeleBots" />
-        {/* Additional SEO meta tags */}
+        {/* og:site_name задано в metadata.openGraph */}
         <meta name="application-name" content="TeleBots" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="geo.region" content="UA-32" />
         <meta name="geo.placename" content="Kyiv" />
         <meta name="geo.position" content="50.4501;30.5234" />
         <meta name="ICBM" content="50.4501, 30.5234" />
-        <meta name="language" content="Ukrainian" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="rating" content="general" />
         <meta name="mobile-web-app-capable" content="yes" />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-7YWVBBJP8X" />

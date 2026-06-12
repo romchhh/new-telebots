@@ -4,6 +4,8 @@ export type PricingSectionId = 'websites' | 'chatbots' | 'design';
 
 export interface PricingSectionCopy {
   id: PricingSectionId;
+  /** Коротке пояснення категорії безпосередньо над таблицею тарифів */
+  plansNote: string;
   bullets: string[];
   paragraphs: string[];
 }
@@ -17,6 +19,9 @@ export interface PricingPageCopy {
   intro: string;
   introSecondary: string;
   paymentAndEstimate: string;
+  plansBlockTitle: string;
+  plansBlockIntro: string;
+  plansBlockItems: string[];
   factorsTitle: string;
   factorsItems: string[];
   factorsClosing: string;
@@ -53,6 +58,15 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       'TeleBots спеціалізується на веб-розробці (Next.js та сучасний стек), Telegram-ботах з оплатою та CRM, а також на UI/UX і брендингу. Ми працюємо з бізнесом по всій Україні та з міжнародними замовниками: комунікація українською, англійською, польською та російською. Типові проєкти — від лендінгів і каталогів до складних e-commerce та багатокрокових ботів з адмін-панелями. Сторінка корисна для SEO-запитів на кшталт «скільки коштує розробка сайту», «вартість телеграм-бота з оплатою», «ціни на дизайн сайту під ключ» — нижче наведено структуровані вилки та фактори, що рухають бюджет.',
     paymentAndEstimate:
       'Оплата зазвичай розбивається на етапи: перед стартом робіт і після приймання результату або по спринтах для великих систем. Можливі переказ на ФОП, рахунок для юридичних осіб, а також міжнародні платежі за домовленістю. Після короткого брифу ми даємо зрозумілу оцінку термінів і бюджету; якщо потрібно — пропонуємо поетапний запуск (MVP), щоб швидше вийти на ринок і доробити функціонал пізніше. Валюта в комерційних пропозиціях може бути в доларах США або еквіваленті в гривні за курсом на дату рахунку.',
+    plansBlockTitle: 'Звідки ці ціни і що вони включають',
+    plansBlockIntro:
+      'Нижче — офіційні орієнтири TeleBots у доларах США ($). Це не фіксований прайс, а діапазони за типовими пакетами, які ми регулярно робимо для бізнесу в Україні та на міжнародних ринках. Точну суму фіксуємо після безкоштовного брифу та узгодженого технічного завдання — без прихованих пунктів.',
+    plansBlockItems: [
+      'Цифри вказані «від» і «до» за пакет: у таблиці видно, що входить у LITE, PRO, CUSTOM або LANDING, BUSINESS, E-COMMERCE тощо.',
+      'У вартість розробки зазвичай входить: дизайн/верстка або сценарій бота, програмування, базове тестування та передача проєкту. Хостинг, домен і платні API — окремо або за домовленістю.',
+      'Додаткові інтеграції (CRM, MonoPay/LiqPay/WayForPay, склад, AI, мультимовність) та стислі терміни можуть змінити фінальну ціну в межах або вище діапазону.',
+      'Для України можливий розрахунок у гривні за курсом на дату рахунку. Актуальні деталі — у комерційній пропозиції після консультації.',
+    ],
     factorsTitle: 'Що найбільше впливає на вартість',
     factorsItems: [
       'Обсяг інтеграцій: CRM, платежі, склад, маркетингові пікселі, внутрішні API та кількість сторонніх сервісів.',
@@ -81,6 +95,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     sections: [
       {
         id: 'websites',
+        plansNote:
+          'Тарифи на сайти та інтернет-магазини: від лендингу ($300–500) до корпоративного сайту ($500–800) та e-commerce ($800+). Розробка на Next.js, адаптив, SEO, адмінка та інтеграції за обсягом ТЗ.',
         bullets: [
           'Лендинги та промо-сторінки з формами заявок і базовою аналітикою',
           'Корпоративні сайти з кількома розділами, блогом, мультимовністю',
@@ -95,6 +111,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
       {
         id: 'chatbots',
+        plansNote:
+          'Тарифи на чат-ботів у Telegram, WhatsApp або Viber: LITE ($150–200) — перша лінія та заявки; PRO ($200–300) — оплата, CRM, розсилки; CUSTOM ($300+) — складна логіка, AI та інтеграції.',
         bullets: [
           'Сценарії продажів, підтримки, запису на послуги та розсилки з сегментацією',
           'Оплата в боті, кошик, звʼязка з Google Sheets / CRM / внутрішніми API',
@@ -108,6 +126,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
       {
         id: 'design',
+        plansNote:
+          'Тарифи на дизайн: LOGO ($150–300) — знак і базова айдентика; BRAND ($300–600) — повний фірмовий стиль; UI/UX ($500+) — макети в Figma під верстку та конверсію.',
         bullets: [
           'UX-дослідження структури, прототипи, UI-кит у Figma',
           'Логотип, гайдлайни кольорів і типографіки для вебу та соцмереж',
@@ -146,6 +166,15 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       'TeleBots focuses on modern web (including Next.js), Telegram bots with payments and CRM hooks, plus UI/UX and branding. We work with clients across Ukraine and internationally and communicate in Ukrainian, English, Polish and Russian. Typical projects range from landing pages to complex e-commerce and multi-step bots with admin panels. This page targets searches like “how much does a website cost”, “Telegram bot with payment price” and “UI/UX design rates” — we outline structured tiers and cost drivers below.',
     paymentAndEstimate:
       'Payments are usually split into milestones: before kick-off and after acceptance, or per sprint for larger builds. Bank transfer to sole proprietor, invoicing for companies, and international options are available where agreed. After a short brief we provide a clear timeline and budget; when useful we suggest a phased MVP launch. Quotes may be in USD or local currency equivalent at the invoice date.',
+    plansBlockTitle: 'Where these prices come from and what they cover',
+    plansBlockIntro:
+      'Below are official TeleBots estimates in US dollars ($). These are not fixed list prices but typical package ranges we deliver for businesses in Ukraine and internationally. The exact quote is confirmed after a free brief and agreed scope — no hidden line items.',
+    plansBlockItems: [
+      'Figures show “from” and “to” per package — the table lists what is included in LITE, PRO, CUSTOM or LANDING, BUSINESS, E-COMMERCE, etc.',
+      'Development usually includes design or bot flows, engineering, basic QA and handoff. Hosting, domains and paid APIs are separate unless agreed.',
+      'Extra integrations (CRM, MonoPay/LiqPay/WayForPay, inventory, AI, multilingual) and tight deadlines may move the final price within or above the range.',
+      'Ukraine-based clients may pay in UAH at the exchange rate on the invoice date. Details are fixed in the written quote after consultation.',
+    ],
     factorsTitle: 'What drives the price most',
     factorsItems: [
       'Integration scope: CRM, payments, inventory, marketing pixels, internal APIs and number of third-party systems.',
@@ -174,6 +203,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     sections: [
       {
         id: 'websites',
+        plansNote:
+          'Website & e-commerce tiers: landing ($300–500), corporate site ($500–800), online store ($800+). Next.js build, responsive layout, SEO, admin panel and integrations per agreed scope.',
         bullets: [
           'Landing pages with lead forms and basic analytics',
           'Corporate sites with multiple sections, blog, multilingual setup',
@@ -188,6 +219,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
       {
         id: 'chatbots',
+        plansNote:
+          'Messenger bot tiers (Telegram, WhatsApp, Viber): LITE ($150–200) for first-line leads; PRO ($200–300) with payments, CRM and broadcasts; CUSTOM ($300+) for complex logic, AI and integrations.',
         bullets: [
           'Sales/support flows, bookings, segmented broadcasts',
           'In-bot payments, cart, Google Sheets / CRM / internal API links',
@@ -201,6 +234,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
       {
         id: 'design',
+        plansNote:
+          'Design tiers: LOGO ($150–300) for mark and basic identity; BRAND ($300–600) for full guidelines; UI/UX ($500+) for Figma screens ready for development and conversion.',
         bullets: [
           'UX structure, prototypes, Figma UI kit',
           'Logo, colour & typography guidelines for web and social',
@@ -239,6 +274,15 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       'TeleBots realizuje nowoczesne strony (m.in. Next.js), boty Telegram z płatnościami i CRM, a także UI/UX i branding. Współpracujemy z klientami z Ukrainy i zagranicą; komunikacja po ukraińsku, angielsku, polsku i rosyjsku. Projekty od landingów po rozbudowane e-commerce i wieloetapowe boty z panelami administracyjnymi. Poniżej: strukturalne widełki i czynniki kosztów — przydatne przy zapytaniach typu „ile kosztuje strona internetowa” czy „cena bota Telegram z płatnością”.',
     paymentAndEstimate:
       'Płatności zwykle dzielimy na etapy: przed startem i po odbiorze lub sprintami przy większych systemach. Możliwy przelew na działalność jednoosobową, faktura dla firm oraz płatności międzynarodowe po uzgodnieniu. Po krótkim briefie podajemy orientacyjny harmonogram i budżet; często proponujemy fazowy MVP. Kwoty mogą być w USD lub przeliczeniu w PLN według kursu z dnia faktury.',
+    plansBlockTitle: 'Skąd biorą się te ceny i co obejmują',
+    plansBlockIntro:
+      'Poniżej oficjalne orientacyjne widełki TeleBots w dolarach USA ($). To nie sztywny cennik, lecz typowe pakiety, które regularnie realizujemy. Dokładną kwotę ustalamy po bezpłatnym briefie i uzgodnionym zakresie — bez ukrytych pozycji.',
+    plansBlockItems: [
+      'Kwoty to przedziały „od–do” za pakiet — w tabeli widać, co wchodzi w LITE, PRO, CUSTOM lub LANDING, BUSINESS, E-COMMERCE itd.',
+      'W cenę rozwoju zwykle wchodzi: projekt/wdrożenie, programowanie, podstawowe testy i przekazanie. Hosting, domena i płatne API — osobno lub po uzgodnieniu.',
+      'Dodatkowe integracje (CRM, płatności, magazyn, AI, wielojęzyczność) i krótkie terminy mogą zmienić finalną cenę w widełkach lub powyżej.',
+      'Dla klientów z Ukrainy możliwa płatność w UAH po kursie z dnia faktury. Szczegóły — w ofercie po konsultacji.',
+    ],
     factorsTitle: 'Co najbardziej wpływa na koszt',
     factorsItems: [
       'Zakres integracji: CRM, płatności, magazyn, piksele reklamowe, API i liczba systemów zewnętrznych.',
@@ -267,6 +311,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     sections: [
       {
         id: 'websites',
+        plansNote:
+          'Taryfy stron i e-commerce: landing ($300–500), strona firmowa ($500–800), sklep online ($800+). Next.js, responsywność, SEO, panel admina i integracje według zakresu.',
         bullets: [
           'Landingi z formularzami leadów i podstawową analityką',
           'Strony firmowe z wieloma sekcjami, blogiem, wielojęzycznością',
@@ -281,6 +327,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
       {
         id: 'chatbots',
+        plansNote:
+          'Taryfy botów (Telegram, WhatsApp, Viber): LITE ($150–200) — pierwsza linia i leady; PRO ($200–300) — płatności, CRM, mailingi; CUSTOM ($300+) — złożona logika, AI i integracje.',
         bullets: [
           'Scenariusze sprzedaży, supportu, rezerwacji, segmentowane wysyłki',
           'Płatność w bocie, koszyk, Google Sheets / CRM / wewnętrzne API',
@@ -294,6 +342,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
       {
         id: 'design',
+        plansNote:
+          'Taryfy designu: LOGO ($150–300) — znak i podstawowa identyfikacja; BRAND ($300–600) — pełny styl; UI/UX ($500+) — makiety w Figmie pod wdrożenie i konwersję.',
         bullets: [
           'Struktura UX, prototypy, zestaw UI w Figmie',
           'Logo, paleta kolorów i typografia pod web i social media',
@@ -332,6 +382,15 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       'TeleBots специализируется на веб-разработке (в том числе Next.js), Telegram-ботах с оплатой и CRM, а также на UI/UX и брендинге. Работаем с бизнесом по Украине и с международными заказчиками; коммуникация на украинском, английском, польском и русском. Типичные проекты — от лендингов и каталогов до сложного e-commerce и многошаговых ботов с админ-панелями. Ниже — структурированные вилки и факторы, влияющие на стоимость, в том числе под запросы «сколько стоит разработка сайта», «цена телеграм-бота с оплатой», «стоимость дизайна сайта под ключ».',
     paymentAndEstimate:
       'Оплата обычно делится на этапы: перед началом работ и после приёмки или спринтами для крупных систем. Возможен перевод на ФОП, счёт для юрлиц, а также международные платежи по договорённости. После короткого брифа даём понятную оценку сроков и бюджета; при необходимости предлагаем поэтапный запуск (MVP). В коммерческих предложениях суммы могут быть в USD или эквиваленте в гривне по курсу на дату счёта.',
+    plansBlockTitle: 'Откуда эти цены и что они включают',
+    plansBlockIntro:
+      'Ниже — официальные ориентиры TeleBots в долларах США ($). Это не фиксированный прайс, а типовые пакеты, которые мы регулярно делаем для бизнеса в Украине и на международных рынках. Точную сумму фиксируем после бесплатного брифа и согласованного ТЗ — без скрытых пунктов.',
+    plansBlockItems: [
+      'Цифры указаны «от» и «до» за пакет — в таблице видно, что входит в LITE, PRO, CUSTOM или LANDING, BUSINESS, E-COMMERCE и т.д.',
+      'В стоимость разработки обычно входят: дизайн/вёрстка или сценарий бота, программирование, базовое тестирование и передача проекта. Хостинг, домен и платные API — отдельно или по договорённости.',
+      'Дополнительные интеграции (CRM, MonoPay/LiqPay/WayForPay, склад, AI, мультиязычность) и сжатые сроки могут изменить итоговую цену в пределах или выше диапазона.',
+      'Для Украины возможен расчёт в гривне по курсу на дату счёта. Детали — в коммерческом предложении после консультации.',
+    ],
     factorsTitle: 'Что сильнее всего влияет на стоимость',
     factorsItems: [
       'Объём интеграций: CRM, платежи, склад, рекламные пиксели, внутренние API и число внешних сервисов.',
@@ -360,6 +419,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     sections: [
       {
         id: 'websites',
+        plansNote:
+          'Тарифы на сайты и интернет-магазины: лендинг ($300–500), корпоративный сайт ($500–800), e-commerce ($800+). Next.js, адаптив, SEO, админка и интеграции по объёму ТЗ.',
         bullets: [
           'Лендинги и промо-страницы с формами заявок и базовой аналитикой',
           'Корпоративные сайты с несколькими разделами, блогом, мультиязычностью',
@@ -374,6 +435,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
       {
         id: 'chatbots',
+        plansNote:
+          'Тарифы на чат-ботов (Telegram, WhatsApp, Viber): LITE ($150–200) — первая линия и заявки; PRO ($200–300) — оплата, CRM, рассылки; CUSTOM ($300+) — сложная логика, AI и интеграции.',
         bullets: [
           'Сценарии продаж, поддержки, записи на услуги и рассылки с сегментацией',
           'Оплата в боте, корзина, связка с Google Sheets / CRM / внутренними API',
@@ -387,6 +450,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
       {
         id: 'design',
+        plansNote:
+          'Тарифы на дизайн: LOGO ($150–300) — знак и базовая айдентика; BRAND ($300–600) — полный фирменный стиль; UI/UX ($500+) — макеты в Figma под вёрстку и конверсию.',
         bullets: [
           'UX-структура, прототипы, UI-кит в Figma',
           'Логотип, гайдлайны цветов и типографики для веба и соцсетей',

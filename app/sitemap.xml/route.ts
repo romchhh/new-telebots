@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { cases } from '@/components/cases';
-import { allBlogPosts } from '@/lib/blog/posts';
 import { siteUrl as baseUrl } from '@/lib/site';
 
 function escapeXml(str: string): string {
@@ -20,16 +19,14 @@ export async function GET() {
     path: string;
     priority: number;
     changeFrequency: string;
+    ukOnly?: boolean;
   }> = [
     { path: '', priority: 1.0, changeFrequency: 'daily' },
     { path: '/about', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/portfolio', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/blog', priority: 0.8, changeFrequency: 'daily' },
+    { path: '/blog', priority: 0.8, changeFrequency: 'weekly', ukOnly: true },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/privacy', priority: 0.3, changeFrequency: 'yearly' },
-    { path: '/terms', priority: 0.3, changeFrequency: 'yearly' },
-    { path: '/refund', priority: 0.3, changeFrequency: 'yearly' },
     { path: '/pricing', priority: 0.65, changeFrequency: 'monthly' },
   ];
 
@@ -39,19 +36,26 @@ export async function GET() {
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
   ];
 
-  function pushAlternates(path: string) {
+  function pushAlternates(path: string, ukOnly = false) {
+    if (ukOnly) {
+      const ukUrl = `${baseUrl}/uk${path}`;
+      lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(ukUrl)}" />`);
+      lines.push(`    <xhtml:link rel="alternate" hreflang="uk" href="${escapeXml(ukUrl)}" />`);
+      return;
+    }
     lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`${baseUrl}/uk${path}`)}" />`);
     for (const lang of languages) {
       lines.push(`    <xhtml:link rel="alternate" hreflang="${lang}" href="${escapeXml(`${baseUrl}/${lang}${path}`)}" />`);
     }
   }
 
-  for (const lang of languages) {
-    for (const route of routes) {
+  for (const route of routes) {
+    const langsForRoute = route.ukOnly ? ['uk'] : languages;
+    for (const lang of langsForRoute) {
       const url = `${baseUrl}/${lang}${route.path}`;
       lines.push('  <url>');
       lines.push(`    <loc>${escapeXml(url)}</loc>`);
-      pushAlternates(route.path);
+      pushAlternates(route.path, route.ukOnly);
       lines.push(`    <lastmod>${now}</lastmod>`);
       lines.push(`    <changefreq>${route.changeFrequency}</changefreq>`);
       lines.push(`    <priority>${route.priority}</priority>`);
@@ -91,25 +95,6 @@ export async function GET() {
       lines.push('    <priority>0.7</priority>');
       lines.push('  </url>');
     }
-  }
-
-  for (const post of allBlogPosts) {
-    const path = `/blog/${post.slug}`;
-    const url = `${baseUrl}/uk${path}`;
-    lines.push('  <url>');
-    lines.push(`    <loc>${escapeXml(url)}</loc>`);
-    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(url)}" />`);
-    lines.push(`    <xhtml:link rel="alternate" hreflang="uk" href="${escapeXml(url)}" />`);
-    if (post.image) {
-      lines.push('    <image:image>');
-      lines.push(`      <image:loc>${escapeXml(`${baseUrl}${post.image}`)}</image:loc>`);
-      lines.push(`      <image:title>${escapeXml(post.title)}</image:title>`);
-      lines.push('    </image:image>');
-    }
-    lines.push(`    <lastmod>${post.updatedAt}</lastmod>`);
-    lines.push('    <changefreq>monthly</changefreq>');
-    lines.push(`    <priority>${post.featured ? 0.75 : 0.65}</priority>`);
-    lines.push('  </url>');
   }
 
   lines.push('</urlset>');

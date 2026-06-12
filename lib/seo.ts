@@ -22,6 +22,10 @@ export interface SEOConfig {
   url?: string;
   caseId?: string;
   lang?: Language;
+  /** Блог лише українською — не генерувати hreflang en/pl/ru */
+  ukOnly?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
   /** Якщо задано — підставляється в openGraph/twitter title замість `title` */
   openGraphTitle?: string;
   /** Якщо задано — підставляється в openGraph/twitter description замість `description` */
@@ -109,6 +113,9 @@ export function generateMetadata(config: SEOConfig) {
     type = 'website',
     url,
     lang = 'uk',
+    ukOnly = false,
+    publishedTime,
+    modifiedTime,
     openGraphTitle,
     openGraphDescription,
   } = config;
@@ -120,6 +127,29 @@ export function generateMetadata(config: SEOConfig) {
   const ogDescription = openGraphDescription
     ? trimDescriptionForMeta(openGraphDescription)
     : metaDescription;
+
+  const hreflangLanguages = ukOnly
+    ? {
+        'x-default': currentUrl,
+        uk: currentUrl,
+      }
+    : {
+        'x-default': `${baseUrl}/uk${pathSuffix}`,
+        uk: `${baseUrl}/uk${pathSuffix}`,
+        en: `${baseUrl}/en${pathSuffix}`,
+        pl: `${baseUrl}/pl${pathSuffix}`,
+        ru: `${baseUrl}/ru${pathSuffix}`,
+      };
+
+  const openGraphArticle =
+    type === 'article' && publishedTime
+      ? {
+          publishedTime,
+          modifiedTime: modifiedTime ?? publishedTime,
+          authors: ['TeleBots'],
+          section: 'Technology',
+        }
+      : {};
 
   return {
     title,
@@ -140,6 +170,7 @@ export function generateMetadata(config: SEOConfig) {
           alt: ogTitle,
         },
       ],
+      ...openGraphArticle,
     },
     twitter: {
       card: 'summary_large_image',
@@ -151,13 +182,7 @@ export function generateMetadata(config: SEOConfig) {
     },
     alternates: {
       canonical: currentUrl,
-      languages: {
-        'x-default': `${baseUrl}/uk${pathSuffix}`,
-        uk: `${baseUrl}/uk${pathSuffix}`,
-        en: `${baseUrl}/en${pathSuffix}`,
-        pl: `${baseUrl}/pl${pathSuffix}`,
-        ru: `${baseUrl}/ru${pathSuffix}`,
-      },
+      languages: hreflangLanguages,
     },
     robots: {
       index: true,
@@ -621,6 +646,7 @@ export function generateWebSiteSchema(lang: Language = 'uk') {
     '@type': 'WebSite',
     name: 'TeleBots',
     url: `${baseUrl}/${lang}`,
+    inLanguage: lang,
     description: lang === 'uk'
       ? 'Telegram-боти, сайти та інтернет-магазини під ключ. 200+ проєктів, швидкий старт від 24 год. TeleBots.'
       : lang === 'en'
@@ -628,14 +654,6 @@ export function generateWebSiteSchema(lang: Language = 'uk') {
       : lang === 'pl'
       ? 'Tworzenie stron, sklepów i landingów; boty Telegram i chatboty. 200+ projektów. Szybki start w 24 godziny.'
       : 'Разработка сайтов, интернет-магазинов и лендингов; телеграм боты и чат-боты. 200+ проектов. Быстрый старт за 24 часа.',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${baseUrl}/${lang}/search?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
-    },
   };
 }
 
@@ -718,14 +736,36 @@ export function generateItemListSchema(items: Array<{ name: string; url: string;
   };
 }
 
-export function generateArticleSchemaForBlog(title: string, description: string, publishedTime: string, lang: Language = 'uk') {
+export function generateArticleSchemaForBlog(
+  title: string,
+  description: string,
+  publishedTime: string,
+  lang: Language = 'uk',
+  options?: { modifiedTime?: string; image?: string; slug?: string }
+) {
+  const slug = options?.slug ?? '';
+  const pageUrl = slug ? `${baseUrl}/uk/blog/${slug}` : `${baseUrl}/uk/blog`;
+  const imageUrl = options?.image
+    ? options.image.startsWith('http')
+      ? options.image
+      : `${baseUrl}${options.image}`
+    : `${baseUrl}/portfolio/portfolio-default.jpg`;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
+    '@id': `${pageUrl}#article`,
     headline: title,
     description,
+    url: pageUrl,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': pageUrl,
+    },
+    image: [imageUrl],
+    inLanguage: 'uk',
     datePublished: publishedTime,
-    dateModified: publishedTime,
+    dateModified: options?.modifiedTime ?? publishedTime,
     author: {
       '@type': 'Organization',
       name: 'TeleBots',
@@ -743,6 +783,9 @@ export function generateArticleSchemaForBlog(title: string, description: string,
 }
 
 export function generateCollectionPageSchema(lang: Language = 'uk') {
+  const casesData = cases[lang as keyof typeof cases] || cases.uk;
+  const caseCount = Object.keys(casesData).length;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
@@ -765,7 +808,7 @@ export function generateCollectionPageSchema(lang: Language = 'uk') {
     url: `${baseUrl}/${lang}/portfolio`,
     mainEntity: {
       '@type': 'ItemList',
-      numberOfItems: 200,
+      numberOfItems: caseCount,
     },
   };
 }

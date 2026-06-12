@@ -1,34 +1,52 @@
 import { NextResponse } from 'next/server';
+import { allBlogPosts } from '@/lib/blog/posts';
 import { siteUrl as baseUrl } from '@/lib/site';
 
-export async function GET() {
-  const now = new Date().toISOString();
-  const languages = ['uk', 'en', 'pl', 'ru'];
-  const paths = ['', '/about', '/services', '/portfolio', '/blog', '/contact'];
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
 
-  const items = languages.flatMap((lang) =>
-    paths.map(
-      (path) => `
-    <item>
-      <title>TeleBots${path ? ` — ${path.slice(1)}` : ''}</title>
-      <link>${baseUrl}/${lang}${path}</link>
-      <guid isPermaLink="true">${baseUrl}/${lang}${path}</guid>
-      <pubDate>${now}</pubDate>
-      <description>Professional development of Telegram bots, chatbots, websites, e-commerce, parsers and AI bots. 200+ projects.</description>
-    </item>`
-    )
+function toRfc822(dateStr: string): string {
+  return new Date(dateStr).toUTCString();
+}
+
+export async function GET() {
+  const sorted = [...allBlogPosts].sort(
+    (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
   );
+  const lastBuild = sorted[0]?.updatedAt ?? new Date().toISOString();
+
+  const items = sorted
+    .map((post) => {
+      const link = `${baseUrl}/uk/blog/${post.slug}`;
+      const image = post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`;
+      return `
+    <item>
+      <title>${escapeXml(post.title)}</title>
+      <link>${escapeXml(link)}</link>
+      <guid isPermaLink="true">${escapeXml(link)}</guid>
+      <pubDate>${toRfc822(post.publishedAt)}</pubDate>
+      <description>${escapeXml(post.excerpt)}</description>
+      <enclosure url="${escapeXml(image)}" type="image/jpeg" />
+    </item>`;
+    })
+    .join('');
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>TeleBots</title>
-    <link>${baseUrl}/uk</link>
-    <description>Professional development of Telegram bots, chatbots, websites, e-commerce stores, parsers and AI bots. 200+ projects.</description>
+    <title>Блог TeleBots</title>
+    <link>${baseUrl}/uk/blog</link>
+    <description>Статті про ціни, розробку сайтів, Telegram-ботів та автоматизацію бізнесу від TeleBots.</description>
     <language>uk</language>
-    <lastBuildDate>${now}</lastBuildDate>
+    <lastBuildDate>${toRfc822(lastBuild)}</lastBuildDate>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml" />
-    ${items.join('')}
+    ${items}
   </channel>
 </rss>`;
 

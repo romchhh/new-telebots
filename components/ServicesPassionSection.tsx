@@ -32,7 +32,7 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
       <div className="absolute inset-0">
         <Image
           src="/services/services-hero_new.jpg"
-          alt=""
+          alt="TeleBots — послуги розробки сайтів, чат-ботів та дизайну"
           fill
           priority
           sizes="100vw"

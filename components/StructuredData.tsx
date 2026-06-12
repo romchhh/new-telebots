@@ -35,6 +35,9 @@ interface StructuredDataProps {
   blogTitle?: string;
   blogDescription?: string;
   blogPublishedTime?: string;
+  blogModifiedTime?: string;
+  blogImage?: string;
+  blogSlug?: string;
 }
 
 export default function StructuredData({
@@ -52,6 +55,9 @@ export default function StructuredData({
   blogTitle,
   blogDescription,
   blogPublishedTime,
+  blogModifiedTime,
+  blogImage,
+  blogSlug,
 }: StructuredDataProps) {
   const params = useParams();
   const langParam = params?.lang as string;
@@ -78,7 +84,17 @@ export default function StructuredData({
       break;
     case 'blogPosting':
       if (blogTitle && blogDescription && blogPublishedTime) {
-        schema = generateArticleSchemaForBlog(blogTitle, blogDescription, blogPublishedTime, validLang);
+        schema = generateArticleSchemaForBlog(
+          blogTitle,
+          blogDescription,
+          blogPublishedTime,
+          validLang,
+          {
+            modifiedTime: blogModifiedTime,
+            image: blogImage,
+            slug: blogSlug,
+          }
+        );
       }
       break;
     case 'service':

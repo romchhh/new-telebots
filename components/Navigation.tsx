@@ -106,6 +106,9 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
           <Link href={`/${currentLanguage}/blog`} className={navLinkClass}>
             {t.nav.blog}
           </Link>
+          <Link href={`/${currentLanguage}/pricing`} className={navLinkClass}>
+            {t.nav.pricing}
+          </Link>
           <Link href={`/${currentLanguage}/contact`} className={navLinkClass}>
             {t.nav.contact}
           </Link>
@@ -192,6 +195,13 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
               className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
             >
               {t.nav.blog}
+            </Link>
+            <Link
+              href={`/${currentLanguage}/pricing`}
+              onClick={() => setIsMenuOpen(false)}
+              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
+            >
+              {t.nav.pricing}
             </Link>
             <Link
               href={`/${currentLanguage}/contact`}

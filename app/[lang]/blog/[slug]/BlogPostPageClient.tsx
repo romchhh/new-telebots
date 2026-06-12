@@ -9,9 +9,11 @@ import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import ContactSection from '@/components/ContactSection';
 import BlogPostBody from '@/components/blog/BlogPostBody';
+import BlogRelatedSection from '@/components/blog/BlogRelatedSection';
 import LegacyBlogContent from '@/components/blog/legacy/LegacyBlogContent';
 import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
+import { getRelatedPosts } from '@/lib/blog/posts';
 import type { BlogPost } from '@/lib/blog/types';
 
 interface BlogPostPageClientProps {
@@ -29,6 +31,7 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
   const faqSection = post.sections?.find((s) => s.type === 'faq');
   const faqs = faqSection && faqSection.type === 'faq' ? faqSection.items : [];
   const isLegacy = Boolean(post.legacyId);
+  const relatedPosts = getRelatedPosts(post.slug);
 
   useEffect(() => {
     const langParam = params?.lang as string;
@@ -80,6 +83,9 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
         blogTitle={post.title}
         blogDescription={post.description}
         blogPublishedTime={post.publishedAt}
+        blogModifiedTime={post.updatedAt}
+        blogImage={post.image}
+        blogSlug={post.slug}
       />
       {faqs.length > 0 && <StructuredData type="faq" faqs={faqs} />}
 
@@ -152,6 +158,8 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
               </div>
             )
           )}
+
+          <BlogRelatedSection related={relatedPosts} />
 
           <ContactSection
             id="blog-contact"

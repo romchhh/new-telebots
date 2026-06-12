@@ -43,9 +43,10 @@ export async function GET() {
     lines.push(`    <lastmod>${post.lastmod}</lastmod>`);
     lines.push(`    <changefreq>${post.changeFrequency}</changefreq>`);
     lines.push(`    <priority>${post.priority}</priority>`);
-    if (post.image.startsWith('http')) {
+    if (post.image) {
+      const imageUrl = post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`;
       lines.push('    <image:image>');
-      lines.push(`      <image:loc>${escapeXml(post.image)}</image:loc>`);
+      lines.push(`      <image:loc>${escapeXml(imageUrl)}</image:loc>`);
       lines.push(`      <image:title>${escapeXml(post.title)}</image:title>`);
       lines.push(`      <image:caption>${escapeXml(post.imageAlt)}</image:caption>`);
       lines.push('    </image:image>');

@@ -153,6 +153,7 @@ export default function PricingPage() {
         </a>
         <Navigation
           isScrolled={isScrolled}
+          solidHeader
           lang={lang}
           setLang={handleLangChange}
           t={t}
@@ -161,15 +162,8 @@ export default function PricingPage() {
         />
 
         <main id="main-content">
-          {/* Смуга як на сторінці контактів */}
-          <div className="w-full bg-black mt-16 py-20 shrink-0" aria-hidden />
-
-          <section className="pt-12 md:pt-16 pb-16 md:pb-24 px-6 md:px-10 lg:px-16 bg-white border-b border-gray-100">
+          <section className="pt-24 md:pt-28 pb-16 md:pb-24 px-6 md:px-10 lg:px-16 bg-white border-b border-gray-100">
             <article className="max-w-6xl mx-auto">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-px bg-black mr-4" />
-                <p className="text-sm font-black text-black tracking-wider uppercase">{t.footer.pricing}</p>
-              </div>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black text-black leading-tight mb-6">{p.h1}</h1>
               <p className="text-xl md:text-2xl text-gray-800 font-semibold leading-snug mb-8 max-w-3xl">{p.subtitle}</p>
               <p className="text-lg text-gray-800 leading-relaxed font-semibold mb-6">{p.intro}</p>
@@ -214,6 +208,16 @@ export default function PricingPage() {
                 ))}
               </SeoBlock>
 
+              <div className="mb-14 md:mb-16 rounded-2xl border border-gray-200 bg-gray-50 p-6 md:p-8 lg:p-10">
+                <h2 className="text-2xl md:text-3xl font-black text-black tracking-tight mb-4">{p.plansBlockTitle}</h2>
+                <p className="text-lg text-gray-800 leading-relaxed mb-6 max-w-3xl">{p.plansBlockIntro}</p>
+                <ul className="list-disc pl-6 space-y-2.5 text-gray-700 leading-relaxed">
+                  {p.plansBlockItems.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+
               {p.sections.map((section) => {
                 const pricingData = t.services[getPricingKey(section.id as ServiceId)];
                 return (
@@ -222,11 +226,15 @@ export default function PricingPage() {
                     id={section.id}
                     className="mb-16 md:mb-24 pb-16 border-b border-gray-200 last:border-b-0"
                   >
+                    <p className="mb-8 max-w-3xl text-lg font-medium leading-relaxed text-gray-800">
+                      {section.plansNote}
+                    </p>
                     <PricingTable
                       pricing={pricingData}
                       lang={lang}
                       onContactClick={() => openModal(pricingData.categoryLabel)}
                       embedded
+                      hideCategoryLabel
                     />
                     <div className="mt-10 md:mt-12">
                       <ul className="list-disc pl-6 space-y-2 text-gray-800 mb-8 font-medium">
@@ -280,10 +288,6 @@ export default function PricingPage() {
             className="py-16 md:py-24 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100"
           >
             <div className="max-w-7xl mx-auto">
-              <div className="flex items-center gap-3 mb-10 md:mb-14">
-                <span className="text-xs font-black tracking-[0.2em] text-gray-500 uppercase">{p.formSectionEyebrow}</span>
-                <div className="h-px flex-1 bg-gray-200 max-w-[160px]" />
-              </div>
               <div className="grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
                 <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
                   <ContactFormBlock
