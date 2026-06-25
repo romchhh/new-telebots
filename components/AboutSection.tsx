@@ -4,6 +4,7 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
 
 interface AboutSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -15,8 +16,8 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
   const langParam = params?.lang as string;
   const currentLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk');
   return (
-    <section className="relative bg-white pt-0 pb-20 md:pb-28 lg:pb-36 px-8 sm:px-12 lg:px-16 xl:px-24">
-      <div className="max-w-[1600px] mx-auto">
+    <section className={`relative bg-white pt-0 pb-20 md:pb-28 lg:pb-36 ${SITE_PX}`}>
+      <div className={SITE_INNER_WIDE}>
         {/* Фото з текстом і кнопкою */}
         <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-16 md:mb-20">
           <div className="relative w-full aspect-[4031/2981]">

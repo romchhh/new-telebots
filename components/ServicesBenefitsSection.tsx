@@ -1,6 +1,7 @@
 'use client';
 
 import { useScrollAnimation } from './useScrollAnimation';
+import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 interface ServicesBenefitsSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -33,8 +34,8 @@ export default function ServicesBenefitsSection({ t }: ServicesBenefitsSectionPr
   ];
 
   return (
-    <section className="bg-gray-50 py-24 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className={`bg-gray-50 py-24 ${SITE_PX}`}>
+      <div className={SITE_INNER}>
         <div className={`text-center mb-16 scroll-animate-up ${isVisible ? 'animate' : ''}`} ref={ref}>
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
             {t.services.benefitsTitle || 'Чому обирають нас?'}

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useScrollAnimation } from './useScrollAnimation';
 import { Language } from './translations';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import { SITE_PX } from '@/lib/siteLayout';
 
 const SERVICE_SLUG: Record<'websitesPage' | 'chatbotsPage' | 'designPage', string> = {
   websitesPage: 'websites',
@@ -34,7 +35,7 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
         className={`grid lg:grid-cols-2 lg:items-start ${imagePosition === 'left' ? 'lg:grid-flow-dense' : ''}`}
       >
         <div
-          className={`px-12 pt-12 pb-12 lg:px-24 lg:pb-24 lg:pt-0 flex flex-col justify-start ${imagePosition === 'left' ? 'lg:col-start-2' : ''} ${animationClass} ${isContentVisible ? 'animate' : ''}`}
+          className={`pt-12 pb-12 lg:pb-24 lg:pt-0 flex flex-col justify-start ${SITE_PX} ${imagePosition === 'left' ? 'lg:col-start-2' : ''} ${animationClass} ${isContentVisible ? 'animate' : ''}`}
           ref={contentRef}
         >
           <h2 className="text-4xl md:text-6xl font-black text-black mb-6 leading-tight">

@@ -8,6 +8,7 @@ import { cases } from './cases';
 import { translations, Language } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
 
 const BLUR_DATA =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADY=';
@@ -207,7 +208,7 @@ export default function Portfolio() {
         className="border-b border-zinc-200/90 bg-zinc-50"
         aria-labelledby="portfolio-intro-heading"
       >
-        <div className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16 xl:px-24 py-14 md:py-20 lg:py-24">
+        <div className={`py-14 md:py-20 lg:py-24 ${SITE_INNER_WIDE}`}>
           <div
             className={`mx-auto max-w-3xl text-center scroll-animate-up ${isIntroVisible ? 'animate' : ''}`}
             ref={introRef}
@@ -230,7 +231,7 @@ export default function Portfolio() {
         </div>
       </section>
 
-      <section id="portfolio" className="py-16 sm:py-20 px-4 sm:px-6 bg-white" ref={portfolioRef}>
+      <section id="portfolio" className={`py-16 sm:py-20 bg-white ${SITE_PX}`} ref={portfolioRef}>
         <div className="w-full max-w-6xl mx-auto">
           {/* Category switcher */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">

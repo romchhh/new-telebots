@@ -1,5 +1,6 @@
 'use client';
 
+import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 export type ServiceAudienceCopy = {
   title: string;
   titleAccent: string;
@@ -16,8 +17,8 @@ export default function ServiceAudienceSection({ copy }: ServiceAudienceSectionP
   const { title, titleAccent, items } = copy;
 
   return (
-    <div className="relative bg-white overflow-hidden px-4 sm:px-6 md:px-10 lg:px-16 pt-20 md:pt-24 lg:pt-28 pb-20 md:pb-24 lg:pb-28">
-      <div className="relative mx-auto max-w-7xl w-full">
+    <div className={`relative bg-white overflow-hidden pt-20 md:pt-24 lg:pt-28 pb-20 md:pb-24 lg:pb-28 ${SITE_PX}`}>
+      <div className={`relative ${SITE_INNER}`}>
         <h2
           className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight text-center mb-14 md:mb-16 leading-tight"
           style={montserrat}

@@ -11,6 +11,7 @@ import { Instagram, Send } from 'lucide-react';
 import { allBlogPosts } from '@/lib/blog/posts';
 import BlogCard from '@/components/blog/BlogCard';
 import { siteUrl } from '@/lib/site';
+import { SITE_PX } from '@/lib/siteLayout';
 
 const sortedPosts = [...allBlogPosts].sort((a, b) => {
   if (a.featured && !b.featured) return -1;
@@ -131,7 +132,7 @@ export default function BlogPage() {
             aria-hidden
           />
           <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
-          <div className="relative z-10 w-full px-4 pb-10 pt-24 sm:px-6 md:px-10 md:pb-20 md:pt-0 lg:pb-24 lg:px-16">
+          <div className={`relative z-10 w-full pb-10 pt-24 md:pb-20 md:pt-0 lg:pb-24 ${SITE_PX}`}>
             <div
               ref={heroRef}
               className={`mx-auto max-w-4xl text-center md:max-w-5xl lg:max-w-7xl scroll-animate-up ${isHeroVisible ? 'animate' : ''}`}
@@ -158,7 +159,7 @@ export default function BlogPage() {
         </section>
 
         {/* Статті — перед соцмережами */}
-        <section className="bg-white px-6 py-16 md:py-24">
+        <section className={`bg-white py-16 md:py-24 ${SITE_PX}`}>
           <div className="mx-auto max-w-7xl">
             <div
               ref={articlesRef}
@@ -181,7 +182,7 @@ export default function BlogPage() {
         </section>
 
         {/* Соцмережі */}
-        <section className="py-16 md:py-24 px-6 bg-black">
+        <section className={`py-16 md:py-24 bg-black ${SITE_PX}`}>
           <div className="max-w-7xl mx-auto">
             <div
               className={`mb-12 md:mb-16 text-center scroll-animate-up ${isChannelsVisible ? 'animate' : ''}`}
@@ -242,7 +243,7 @@ export default function BlogPage() {
         </section>
 
         {/* Опис + дві колонки */}
-        <section className="bg-white px-6 py-20 md:py-28">
+        <section className={`bg-white py-20 md:py-28 ${SITE_PX}`}>
           <div className="mx-auto max-w-7xl">
             <div className={`mb-16 md:mb-24 scroll-animate-up ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
               <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-montserrat)' }}>

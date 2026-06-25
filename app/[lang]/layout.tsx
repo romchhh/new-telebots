@@ -8,23 +8,23 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Розробка Telegram-ботів і сайтів під ключ — TeleBots'
+    ? 'Замовити розробку Telegram-ботів і сайтів | від $150 | TeleBots'
     : lang === 'en'
-    ? 'Website & Telegram Bot Development — TeleBots'
+    ? 'Order Telegram Bots & Websites | from $150 | TeleBots'
     : lang === 'pl'
-    ? 'Rozwój stron i botów Telegram — TeleBots'
-    : 'Разработка сайтов и телеграм ботов — TeleBots';
+    ? 'Zamów boty Telegram i strony | od $150 | TeleBots'
+    : 'Заказать Telegram-ботов и сайты | от $150 | TeleBots';
 
   const description = lang === 'uk'
-    ? 'Замовити розробку Telegram-бота чи сайту: лендинги, e-commerce, SEO, інтеграції з CRM і оплатою. 200+ проєктів, безкоштовна консультація, старт від 24 год. TeleBots.'
+    ? 'Розробка Telegram-ботів з AI та оплатою від $150, сайти від $300. Чат-бот для бізнесу під ключ, CRM, e-commerce. 200+ проєктів, безкоштовна консультація, старт від 24 год.'
     : lang === 'en'
-    ? 'Website development: landing pages, corporate sites, e-commerce, SEO. Telegram bots, chatbots, integrations. 200+ projects. Quick start in 24 hours.'
+    ? 'Telegram bots with AI and payments from $150, websites from $300. Business chatbots, CRM, e-commerce. 200+ projects, free consultation, kickoff in 24 hours.'
     : lang === 'pl'
-    ? 'Tworzenie stron: landingi, strony firmowe, sklepy online, SEO. Boty Telegram, chatboty, integracje. 200+ projektów. Szybki start w 24 godziny.'
-    : 'Разработка сайтов: лендинги, корпоративные сайты, интернет-магазины, SEO. Чат-боты и телеграм боты, интеграции. 200+ проектов. Быстрый старт за 24 часа.';
+    ? 'Boty Telegram z AI i płatnościami od $150, strony od $300. Chatboty biznesowe, CRM, e-commerce. 200+ projektów, darmowa konsultacja, start w 24 godziny.'
+    : 'Telegram-боты с AI и оплатой от $150, сайты от $300. Чат-бот для бизнеса под ключ, CRM, e-commerce. 200+ проектов, бесплатная консультация, старт за 24 часа.';
 
   const keywords = lang === 'uk'
-    ? 'розробка сайтів, створення сайту під ключ, веб-розробка, лендинг замовити, інтернет-магазин під ключ, розробка сайту SEO, телеграм бот розробка, розробка чат-ботів, автоматизація бізнесу, TeleBots, замовлення телеграм бота, AI чат-бот, 200+ проєктів'
+    ? 'розробка сайтів, створення сайту під ключ, веб-розробка, лендинг замовити, інтернет-магазин під ключ, телеграм бот розробка, розробка чат-ботів, чат-бот для бізнесу, чат бот ціна, замовити телеграм бота, автоматизація бізнесу, AI чат-бот, TeleBots, 200+ проєктів'
     : lang === 'en'
     ? 'website development, landing page design, e-commerce development, corporate website, SEO web development, telegram bot development, chatbot for business, business automation, TeleBots, web development Ukraine, AI chatbot, 200+ projects'
     : lang === 'pl'

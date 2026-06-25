@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { BlogPost } from '@/lib/blog/types';
+import { SITE_PX } from '@/lib/siteLayout';
 
 type BlogRelatedSectionProps = {
   related: BlogPost[];
@@ -9,7 +10,7 @@ export default function BlogRelatedSection({ related }: BlogRelatedSectionProps)
   if (related.length === 0) return null;
 
   return (
-    <aside className="border-t border-gray-100 bg-gray-50/80 px-6 py-12 md:px-10 md:py-16">
+    <aside className={`border-t border-gray-100 bg-gray-50/80 py-12 md:py-16 ${SITE_PX}`}>
       <div className="mx-auto max-w-4xl">
         <h2
           className="mb-6 text-xl font-bold text-black md:text-2xl"

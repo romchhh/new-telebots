@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import type { Language } from '@/components/translations';
+import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
 
 type PrincipleCardCopy = {
   title: string;
@@ -95,22 +96,24 @@ interface HomePrinciplesSectionProps {
   principles: PrinciplesCopy;
   lang: Language;
   allServicesLabel: string;
+  pricingLabel: string;
 }
 
 export default function HomePrinciplesSection({
   principles,
   lang,
   allServicesLabel,
+  pricingLabel,
 }: HomePrinciplesSectionProps) {
   const montserrat = { fontFamily: 'var(--font-montserrat)' };
 
   return (
     <section
       id="about"
-      className="relative bg-white px-6 py-16 sm:px-10 sm:py-20 md:px-12 md:py-24 lg:px-16 lg:py-28 xl:px-24"
+      className={`relative bg-white py-16 sm:py-20 md:py-24 lg:py-28 ${SITE_PX}`}
       aria-labelledby="home-principles-heading"
     >
-      <div className="mx-auto grid max-w-[1600px] gap-12 lg:grid-cols-[minmax(0,34%)_minmax(0,66%)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,32%)_minmax(0,68%)] xl:gap-14">
+      <div className={`grid gap-12 lg:grid-cols-[minmax(0,34%)_minmax(0,66%)] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,32%)_minmax(0,68%)] xl:gap-14 ${SITE_INNER_WIDE}`}>
         <div className="lg:sticky lg:top-28 lg:max-w-md lg:self-start xl:max-w-lg">
           <p className="mb-4 text-sm font-normal lowercase text-neutral-400 sm:text-base" style={montserrat}>
             {principles.eyebrow}
@@ -129,6 +132,14 @@ export default function HomePrinciplesSection({
             style={montserrat}
           >
             {allServicesLabel}
+            <ArrowUpRight className="h-4 w-4" aria-hidden />
+          </Link>
+          <Link
+            href={`/${lang}/pricing`}
+            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-neutral-500 underline-offset-4 transition-colors hover:text-[#F05A00] hover:underline sm:text-base"
+            style={montserrat}
+          >
+            {pricingLabel}
             <ArrowUpRight className="h-4 w-4" aria-hidden />
           </Link>
         </div>

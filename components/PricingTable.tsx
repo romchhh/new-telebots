@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import PricingPlansGrid from '@/components/PricingPlansGrid';
+import { SITE_PX } from '@/lib/siteLayout';
 
 type Plan = {
   name: string;
@@ -44,7 +45,7 @@ export default function PricingTable({
   sectionIndex,
   centerHeader,
 }: PricingTableProps) {
-  const sectionPad = embedded ? 'py-8 sm:py-10 px-0' : 'py-16 sm:py-20 px-4 sm:px-6';
+  const sectionPad = embedded ? 'py-8 sm:py-10 px-0' : `py-16 sm:py-20 ${SITE_PX}`;
 
   return (
     <section className={`${sectionPad} bg-white`}>

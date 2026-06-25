@@ -1,6 +1,7 @@
 'use client';
 
 import OrderCtaPill from '@/components/OrderCtaPill';
+import { SITE_PX } from '@/lib/siteLayout';
 
 interface HeroSectionContentProps {
   t: typeof import('./translations').translations.uk;
@@ -83,7 +84,7 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
       </div>
 
       <div
-        className="relative z-20 grid h-full max-h-full w-full overflow-hidden px-4 pb-2 pt-16 sm:px-6 sm:pb-5 sm:pt-24 md:px-8 lg:pt-28 lg:px-12 xl:px-14"
+        className={`relative z-20 grid h-full max-h-full w-full overflow-hidden pb-2 pt-16 sm:pb-5 sm:pt-24 lg:pt-28 ${SITE_PX}`}
         style={{ gridTemplateRows: '1fr auto' }}
       >
         {/* Заголовок: на моб — по центру по висоті */}

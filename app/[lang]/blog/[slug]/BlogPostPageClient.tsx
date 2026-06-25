@@ -13,6 +13,7 @@ import BlogRelatedSection from '@/components/blog/BlogRelatedSection';
 import LegacyBlogContent from '@/components/blog/legacy/LegacyBlogContent';
 import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
+import { SITE_PX } from '@/lib/siteLayout';
 import { getRelatedPosts } from '@/lib/blog/posts';
 import type { BlogPost } from '@/lib/blog/types';
 
@@ -105,7 +106,7 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
         <article className="bg-white pt-16 md:pt-28 lg:pt-32">
           {!isLegacy && (
             <>
-              <header className="mx-auto max-w-4xl px-6 pb-8 md:px-10">
+              <header className={`mx-auto max-w-4xl pb-8 ${SITE_PX}`}>
                 <Link
                   href="/uk/blog"
                   className="mb-6 inline-block text-sm font-semibold uppercase tracking-wider text-gray-500 hover:text-black"
@@ -124,7 +125,7 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
                 <p className="mt-5 text-lg leading-relaxed text-gray-600 md:text-xl">{post.excerpt}</p>
               </header>
 
-              <div className="relative mx-auto mb-12 max-w-5xl px-6 md:mb-16 md:px-10">
+              <div className={`relative mx-auto mb-12 max-w-5xl md:mb-16 ${SITE_PX}`}>
                 <div className="relative aspect-[21/9] overflow-hidden rounded-2xl bg-gray-100">
                   <Image
                     src={post.image}
@@ -141,7 +142,7 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
 
           {isLegacy && post.legacyId ? (
             <div className="pt-4">
-              <div className="mx-auto max-w-4xl px-6 pb-4 md:px-10">
+              <div className={`mx-auto max-w-4xl pb-4 ${SITE_PX}`}>
                 <Link
                   href="/uk/blog"
                   className="inline-block text-sm font-semibold uppercase tracking-wider text-gray-500 hover:text-black"
@@ -153,7 +154,7 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
             </div>
           ) : (
             post.sections && (
-              <div className="px-6 pb-16 md:px-10 md:pb-24">
+              <div className={`pb-16 md:pb-24 ${SITE_PX}`}>
                 <BlogPostBody sections={post.sections} />
               </div>
             )

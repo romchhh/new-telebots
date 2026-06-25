@@ -12,6 +12,7 @@ import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
+import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 export default function ContactPage() {
   const params = useParams();
@@ -117,8 +118,8 @@ export default function ContactPage() {
         className="w-full bg-black mt-16 py-20 shrink-0"
         aria-hidden
       />
-      <section id="contact-form" className="pt-12 md:pt-16 pb-32 px-6 bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section id="contact-form" className={`pt-12 md:pt-16 pb-32 bg-white ${SITE_PX}`}>
+        <div className={SITE_INNER}>
           <div ref={titleRef} className={`mb-20 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`}>
             <h1 className="text-4xl lg:text-6xl font-black text-black leading-tight mb-8">
               {t.contact.title}

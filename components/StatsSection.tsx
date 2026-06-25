@@ -1,6 +1,7 @@
 'use client';
 
 import { useScrollAnimation } from './useScrollAnimation';
+import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 interface StatsSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -9,8 +10,8 @@ interface StatsSectionProps {
 export default function StatsSection({ t }: StatsSectionProps) {
   const [ref, isVisible] = useScrollAnimation();
   return (
-    <section className="bg-black text-white py-20 px-6">
-      <div ref={ref} className={`max-w-7xl mx-auto scroll-animate-up ${isVisible ? 'animate' : ''}`}>
+    <section className={`bg-black text-white py-20 ${SITE_PX}`}>
+      <div ref={ref} className={`${SITE_INNER} scroll-animate-up ${isVisible ? 'animate' : ''}`}>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="text-center md:text-left">
             <div className="text-4xl md:text-5xl font-black mb-2">

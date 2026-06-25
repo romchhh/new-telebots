@@ -21,6 +21,7 @@ import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { getServiceSeoLongForm } from '@/lib/servicePagesSeoContent';
 import { sendToTelegram } from '@/lib/telegram';
+import { SITE_PX } from '@/lib/siteLayout';
 import {
   SERVICE_IDS,
   getServiceKeyForTranslations,
@@ -211,7 +212,7 @@ export default function ServicePage() {
                 />
                 <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
               </div>
-              <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-16 md:pb-20 lg:pb-24">
+              <div className={`relative z-10 w-full pb-16 md:pb-20 lg:pb-24 ${SITE_PX}`}>
                 <div className="max-w-4xl">
                   <h1
                     className="font-bold text-white mb-4 md:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
@@ -246,7 +247,7 @@ export default function ServicePage() {
           <section
             ref={descRef}
             id={!audienceCopy?.items?.length ? 'service-main' : undefined}
-            className={`py-20 md:py-28 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isDescVisible ? 'animate' : ''}`}
+            className={`py-20 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isDescVisible ? 'animate' : ''}`}
           >
             <div className="max-w-7xl mx-auto w-full">
               {serviceExtended.descriptionSectionTitle ? (
@@ -328,7 +329,7 @@ export default function ServicePage() {
             const textClass = 'text-lg md:text-xl text-gray-900 leading-snug font-light';
             const headingStyle = { fontFamily: 'var(--font-montserrat)' };
             return (
-              <section ref={blocksRef} className={`py-20 md:py-28 px-4 sm:px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isBlocksVisible ? 'animate' : ''}`}>
+              <section ref={blocksRef} className={`py-20 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isBlocksVisible ? 'animate' : ''}`}>
                 <div className="max-w-7xl mx-auto space-y-14 md:space-y-16">
                   {[
                     { title: titles.whatWeDo, items: content.whatWeDo, index: 5 },
@@ -369,7 +370,7 @@ export default function ServicePage() {
           })()}
 
           {/* Portfolio */}
-          <section ref={portfolioRef} className={`bg-black text-white py-20 md:py-28 px-6 md:px-10 lg:px-16 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}>
+          <section ref={portfolioRef} className={`bg-black text-white py-20 md:py-28 scroll-animate-up ${SITE_PX} ${isPortfolioVisible ? 'animate' : ''}`}>
             <div className="max-w-6xl xl:max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               <div className="flex flex-col justify-center order-2 lg:order-1">
                 <div className="mb-4">
@@ -463,7 +464,7 @@ export default function ServicePage() {
           )}
 
           {/* CTA */}
-          <section ref={ctaRef} className={`py-20 md:py-24 px-6 md:px-10 lg:px-16 bg-black text-white border-t border-white/10 scroll-animate-up ${isCtaVisible ? 'animate' : ''}`}>
+          <section ref={ctaRef} className={`py-20 md:py-24 bg-black text-white border-t border-white/10 scroll-animate-up ${SITE_PX} ${isCtaVisible ? 'animate' : ''}`}>
             <div className="max-w-2xl mx-auto w-full text-center">
               <span
                 className="block text-[6rem] md:text-[8rem] font-light leading-none text-white/[0.08] select-none -mb-6 md:-mb-8"
@@ -486,7 +487,7 @@ export default function ServicePage() {
 
           <section
             ref={contactBlockRef}
-            className={`py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100 scroll-animate-up ${isContactBlockVisible ? 'animate' : ''}`}
+            className={`py-20 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isContactBlockVisible ? 'animate' : ''}`}
           >
             <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
               <div className="lg:pr-10 xl:pr-14 2xl:pr-20">

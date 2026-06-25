@@ -7,6 +7,7 @@ import { useParams } from 'next/navigation';
 import { useScrollAnimation } from './useScrollAnimation';
 import { Language } from './translations';
 import { cases } from './cases';
+import { SITE_PX } from '@/lib/siteLayout';
 
 interface PortfolioSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -71,7 +72,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
     <section id="portfolio" className="bg-black text-white">
       <div className="grid lg:grid-cols-2 min-h-0 min-w-0">
         <div
-          className={`p-8 sm:p-12 lg:p-16 xl:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`}
+          className={`py-8 sm:py-12 lg:py-16 xl:py-24 flex flex-col justify-center scroll-animate-left ${SITE_PX} ${isContentVisible ? 'animate' : ''}`}
           ref={contentRef}
         >
           <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
@@ -91,7 +92,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
       {/* Портфоліо — горизонтальний скрол знизу */}
       <div className="overflow-hidden w-full min-w-0">
         <div
-          className="flex overflow-x-scroll overflow-y-hidden gap-4 sm:gap-5 pl-6 pr-6 sm:pl-8 sm:pr-8 lg:pl-10 lg:pr-10 py-8 sm:py-10 scroll-smooth snap-x snap-mandatory min-w-0 w-full [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_transparent] overscroll-x-contain"
+          className={`flex overflow-x-scroll overflow-y-hidden gap-4 sm:gap-5 py-8 sm:py-10 scroll-smooth snap-x snap-mandatory min-w-0 w-full [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.3)_transparent] overscroll-x-contain ${SITE_PX}`}
           style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
         >
           {projects.map((project) => (

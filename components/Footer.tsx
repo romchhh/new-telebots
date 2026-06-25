@@ -7,6 +7,7 @@ import OrderCtaPill from '@/components/OrderCtaPill';
 import LanguageSelector from './LanguageSelector';
 import { Language } from './translations';
 import { legal } from '@/lib/legal';
+import { SITE_CONTAINER } from '@/lib/siteLayout';
 
 interface FooterProps {
   t: typeof import('./translations').translations.uk;
@@ -21,7 +22,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
   const showLanguageSelector = currentLanguage !== 'ru';
   return (
     <footer id="contact" className="bg-black text-white">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className={`${SITE_CONTAINER} py-20`}>
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1 text-left">

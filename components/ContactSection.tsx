@@ -3,6 +3,7 @@
 import ContactFormBlock from '@/components/ContactFormBlock';
 import ContactDetailsColumn from '@/components/ContactDetailsColumn';
 import { translations, Language } from '@/components/translations';
+import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 type T = (typeof translations)['uk'];
 
@@ -29,8 +30,8 @@ export default function ContactSection({
   const Heading = headingLevel;
 
   return (
-    <section id={id} className={`bg-white px-6 py-16 md:py-24 ${className}`}>
-      <div className="mx-auto max-w-7xl">
+    <section id={id} className={`bg-white py-16 md:py-24 ${SITE_PX} ${className}`}>
+      <div className={SITE_INNER}>
         <div className="mb-12 md:mb-16">
           <Heading className="mb-6 text-3xl font-black leading-tight text-black sm:text-4xl lg:text-5xl">
             {t.contact.title}

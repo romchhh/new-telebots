@@ -40,15 +40,19 @@ export interface PricingPageCopy {
   btnContactForm: string;
   linkAllServices: string;
   formSectionEyebrow: string;
+  faqTitle: string;
+  faqItems: Array<{ question: string; answer: string }>;
+  resourceLinksTitle: string;
+  resourceLinks: Array<{ label: string; href: string }>;
 }
 
 export const pricingPageCopy: Record<Language, PricingPageCopy> = {
   uk: {
-    metaTitle: 'Ціни на розробку сайтів і Telegram-ботів — орієнтири TeleBots',
+    metaTitle: 'Ціни на чат-боти та Telegram-ботів | від $150 | TeleBots',
     metaDescription:
-      'Вилки вартості: лендинги, сайти, інтернет-магазини, Telegram-боти з оплатою та CRM, UI/UX. Що формує бюджет і терміни, етапи оплати. Консультація безкоштовно. TeleBots — Україна та віддалено.',
+      'Чат-бот для бізнесу від $150, Telegram-бот з оплатою від $200, сайт від $300. Прозорі тарифи LITE/PRO/CUSTOM, без прихованих комісій. Безкоштовна консультація та оцінка проєкту.',
     metaKeywords:
-      'ціни розробка сайту київ, вартість телеграм бота, лендинг ціна україна, чат-бот замовити вартість, розробка інтернет магазину ціна, UI UX дизайн вартість, веб студія телеграм бот, орієнтир вартості розробки сайту',
+      'чат бот ціна, розробка чат ботів ціна, вартість телеграм бота, ціни розробка сайту київ, лендинг ціна україна, чат-бот замовити вартість, розробка інтернет магазину ціна, UI UX дизайн вартість, стоимость чат бота',
     h1: 'Ціни на розробку сайтів і Telegram-ботів у TeleBots',
     subtitle:
       'Прозорі діапазони бюджету для сайтів, ботів і дизайну: орієнтуйтесь у вилках, а точну суму отримайте після брифу та узгодженого ТЗ.',
@@ -150,13 +154,47 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     btnContactForm: 'До форми заявки',
     linkAllServices: 'Усі послуги',
     formSectionEyebrow: 'Заявка',
+    faqTitle: 'Часті питання про ціни',
+    faqItems: [
+      {
+        question: 'Скільки коштує чат-бот або Telegram-бот для бізнесу?',
+        answer:
+          'Базовий пакет LITE — від $150–200: FAQ, збір заявок, передача менеджеру. PRO з оплатою, CRM і розсилками — $200–300. CUSTOM (AI, складна логіка, багатомовність) — індивідуально. Точну суму фіксуємо після безкоштовного брифу.',
+      },
+      {
+        question: 'Скільки коштує розробка сайту або інтернет-магазину?',
+        answer:
+          'Лендинг — $300–500, корпоративний сайт — $500–800, інтернет-магазин — від $800. У вартість зазвичай входить верстка, базове SEO, адмін-панель і тестування; інтеграції та додаткові мови обговорюються окремо.',
+      },
+      {
+        question: 'Чи є приховані платежі в ціні розробки?',
+        answer:
+          'Ні. У комерційній пропозиції перелічені всі етапи робіт. Хостинг, домен, платні API та підтримка після запуску узгоджуються окремо — без сюрпризів у договорі.',
+      },
+      {
+        question: 'Чому ціни вказані в доларах, а не в гривні?',
+        answer:
+          'Орієнтири на сторінці в USD для зручності міжнародних клієнтів. Для замовників з України можливий розрахунок у гривні за курсом на дату рахунку — деталі в комерційній пропозиції.',
+      },
+      {
+        question: 'Як швидко отримати точну оцінку проєкту?',
+        answer:
+          'Напишіть через форму нижче або замовте безкоштовну консультацію — зазвичай відповідаємо протягом робочого дня з орієнтовним бюджетом, термінами та рекомендованим пакетом LITE/PRO/CUSTOM.',
+      },
+    ],
+    resourceLinksTitle: 'Корисні матеріали',
+    resourceLinks: [
+      { label: 'Скільки коштує Telegram-бот', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
+      { label: 'Скільки коштує сайт', href: '/uk/blog/skilky-koshtuye-sayt' },
+      { label: 'Розробка чат-ботів', href: '/uk/services/chatbots' },
+    ],
   },
   en: {
-    metaTitle: 'Pricing for websites, chatbots & design — TeleBots estimates',
+    metaTitle: 'Chatbot & Telegram bot pricing | from $150 | TeleBots',
     metaDescription:
-      'Indicative price ranges for landing pages, corporate sites, e-commerce, Telegram bots and UI/UX. What drives cost, timelines and payment milestones. Free consultation. TeleBots — Ukraine, remote worldwide.',
+      'Business chatbot from $150, Telegram bot with payments from $200, website from $300. Transparent LITE/PRO/CUSTOM tiers, no hidden fees. Free consultation and project estimate.',
     metaKeywords:
-      'website development cost Ukraine, telegram bot price, landing page pricing, ecommerce development quote, UI UX design cost, chatbot development estimate, hire web agency TeleBots',
+      'telegram bot price, chatbot development cost, website development cost Ukraine, landing page pricing, ecommerce development quote, UI UX design cost, chatbot development estimate',
     h1: 'Pricing and cost estimates — TeleBots',
     subtitle:
       'Clear budget bands for sites, bots and design — use the ranges as a guide; the exact quote follows your brief and agreed scope.',
@@ -258,13 +296,47 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     btnContactForm: 'Go to contact form',
     linkAllServices: 'All services',
     formSectionEyebrow: 'Request',
+    faqTitle: 'Pricing FAQ',
+    faqItems: [
+      {
+        question: 'How much does a business chatbot or Telegram bot cost?',
+        answer:
+          'LITE package starts at $150–200: FAQ, lead capture, handoff to a manager. PRO with payments, CRM and broadcasts — $200–300. CUSTOM (AI, complex logic, multilingual) — on request. Exact price is fixed after a free brief.',
+      },
+      {
+        question: 'How much does a website or online store cost?',
+        answer:
+          'Landing page — $300–500, corporate site — $500–800, e-commerce — from $800. Development usually includes layout, basic SEO, admin panel and QA; integrations and extra languages are scoped separately.',
+      },
+      {
+        question: 'Are there hidden fees in the quoted price?',
+        answer:
+          'No. The written proposal lists all work stages. Hosting, domain, paid APIs and post-launch support are agreed separately — no surprises in the contract.',
+      },
+      {
+        question: 'Why are prices shown in US dollars?',
+        answer:
+          'USD ranges help international clients compare options. Ukraine-based clients may pay in UAH at the exchange rate on the invoice date — details are in the quote.',
+      },
+      {
+        question: 'How fast can I get an exact estimate?',
+        answer:
+          'Use the form below or book a free consultation — we usually reply within one business day with budget, timeline and a recommended LITE/PRO/CUSTOM package.',
+      },
+    ],
+    resourceLinksTitle: 'Related guides',
+    resourceLinks: [
+      { label: 'How much does a Telegram bot cost', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
+      { label: 'How much does a website cost', href: '/uk/blog/skilky-koshtuye-sayt' },
+      { label: 'Chatbot development services', href: '/en/services/chatbots' },
+    ],
   },
   pl: {
-    metaTitle: 'Ceny stron, botów Telegram i designu — orientacyjnie TeleBots',
+    metaTitle: 'Ceny chatbotów i botów Telegram | od $150 | TeleBots',
     metaDescription:
-      'Orientacyjne widełki: landingi, strony firmowe, sklepy online, boty Telegram, UI/UX. Co wpływa na koszt, terminy i etapy płatności. Darmowa konsultacja. TeleBots — Ukraina, praca zdalna.',
+      'Chatbot biznesowy od $150, bot Telegram z płatnościami od $200, strona od $300. Przejrzyste pakiety LITE/PRO/CUSTOM, bez ukrytych opłat. Darmowa konsultacja i wycena projektu.',
     metaKeywords:
-      'koszt strony www, cena bota telegram, landing page cena, sklep internetowy wycena, projektowanie UI UX cena, chatbot dla firmy cena',
+      'cena bota telegram, koszt chatbota, koszt strony www, landing page cena, sklep internetowy wycena, projektowanie UI UX cena, chatbot dla firmy cena',
     h1: 'Ceny i orientacyjne koszty — TeleBots',
     subtitle:
       'Przejrzyste przedziały cenowe dla stron, botów i designu — widełki pomagają zaplanować budżet; dokładna wycena po briefie i zakresie.',
@@ -366,13 +438,47 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     btnContactForm: 'Do formularza',
     linkAllServices: 'Wszystkie usługi',
     formSectionEyebrow: 'Zgłoszenie',
+    faqTitle: 'Najczęstsze pytania o ceny',
+    faqItems: [
+      {
+        question: 'Ile kosztuje chatbot lub bot Telegram dla biznesu?',
+        answer:
+          'Pakiet LITE od $150–200: FAQ, zbieranie leadów, przekazanie do menedżera. PRO z płatnościami, CRM i mailingami — $200–300. CUSTOM (AI, złożona logika, wiele języków) — indywidualnie. Dokładna kwota po bezpłatnym briefie.',
+      },
+      {
+        question: 'Ile kosztuje strona lub sklep internetowy?',
+        answer:
+          'Landing — $300–500, strona firmowa — $500–800, sklep online — od $800. W cenie zwykle layout, podstawowe SEO, panel admina i testy; integracje i dodatkowe języki osobno.',
+      },
+      {
+        question: 'Czy są ukryte opłaty w cenie rozwoju?',
+        answer:
+          'Nie. W ofercie wymienione są wszystkie etapy prac. Hosting, domena, płatne API i wsparcie po starcie uzgadniane osobno.',
+      },
+      {
+        question: 'Dlaczego ceny są w dolarach?',
+        answer:
+          'Widełki w USD ułatwiają porównanie. Klienci z Ukrainy mogą płacić w UAH po kursie z dnia faktury — szczegóły w ofercie.',
+      },
+      {
+        question: 'Jak szybko otrzymam dokładną wycenę?',
+        answer:
+          'Formularz poniżej lub bezpłatna konsultacja — zwykle odpowiadamy w ciągu dnia roboczego z budżetem, terminami i rekomendowanym pakietem.',
+      },
+    ],
+    resourceLinksTitle: 'Powiązane materiały',
+    resourceLinks: [
+      { label: 'Ile kosztuje bot Telegram', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
+      { label: 'Ile kosztuje strona', href: '/uk/blog/skilky-koshtuye-sayt' },
+      { label: 'Rozwój chatbotów', href: '/pl/services/chatbots' },
+    ],
   },
   ru: {
-    metaTitle: 'Цены на разработку сайтов, чат-ботов и дизайна — ориентиры TeleBots',
+    metaTitle: 'Цены на чат-боты и Telegram-ботов | от $150 | TeleBots',
     metaDescription:
-      'Ориентировочные вилки цен на лендинги, корпоративные сайты, интернет-магазины, Telegram-ботов и UI/UX. От чего зависит бюджет, сроки и этапы оплаты. Бесплатная консультация. TeleBots — Киев, Украина, удалённо по миру.',
+      'Чат-бот для бизнеса от $150, Telegram-бот с оплатой от $200, сайт от $300. Прозрачные тарифы LITE/PRO/CUSTOM, без скрытых комиссий. Бесплатная консультация и оценка проекта.',
     metaKeywords:
-      'цена разработка сайта, стоимость телеграм бота, лендинг цена, чат-бот стоимость, интернет магазин разработка цена, UI UX дизайн стоимость, веб-студия телеграм бот',
+      'стоимость чат бота, цена разработка сайта, стоимость телеграм бота, лендинг цена, чат-бот стоимость, интернет магазин разработка цена, UI UX дизайн стоимость',
     h1: 'Цены и ориентиры стоимости услуг TeleBots',
     subtitle:
       'Понятные диапазоны бюджета для сайтов, ботов и дизайна — ориентируйтесь по вилкам; точная сумма после брифа и согласованного ТЗ.',
@@ -474,5 +580,39 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     btnContactForm: 'К форме заявки',
     linkAllServices: 'Все услуги',
     formSectionEyebrow: 'Заявка',
+    faqTitle: 'Частые вопросы о ценах',
+    faqItems: [
+      {
+        question: 'Сколько стоит чат-бот или Telegram-бот для бизнеса?',
+        answer:
+          'Пакет LITE — от $150–200: FAQ, сбор заявок, передача менеджеру. PRO с оплатой, CRM и рассылками — $200–300. CUSTOM (AI, сложная логика, мультиязычность) — индивидуально. Точная сумма после бесплатного брифа.',
+      },
+      {
+        question: 'Сколько стоит разработка сайта или интернет-магазина?',
+        answer:
+          'Лендинг — $300–500, корпоративный сайт — $500–800, интернет-магазин — от $800. Обычно включены вёрстка, базовое SEO, админ-панель и тестирование; интеграции и языки обсуждаются отдельно.',
+      },
+      {
+        question: 'Есть ли скрытые платежи в цене разработки?',
+        answer:
+          'Нет. В коммерческом предложении перечислены все этапы работ. Хостинг, домен, платные API и поддержка после запуска согласуются отдельно.',
+      },
+      {
+        question: 'Почему цены указаны в долларах?',
+        answer:
+          'Ориентиры в USD удобны для международных клиентов. Для заказчиков из Украины возможен расчёт в гривне по курсу на дату счёта — детали в КП.',
+      },
+      {
+        question: 'Как быстро получить точную оценку проекта?',
+        answer:
+          'Форма ниже или бесплатная консультация — обычно отвечаем в течение рабочего дня с бюджетом, сроками и рекомендуемым пакетом LITE/PRO/CUSTOM.',
+      },
+    ],
+    resourceLinksTitle: 'Полезные материалы',
+    resourceLinks: [
+      { label: 'Сколько стоит Telegram-бот', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
+      { label: 'Сколько стоит сайт', href: '/uk/blog/skilky-koshtuye-sayt' },
+      { label: 'Разработка чат-ботов', href: '/ru/services/chatbots' },
+    ],
   },
 };

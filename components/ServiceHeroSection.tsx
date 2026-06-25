@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import { SITE_PX } from '@/lib/siteLayout';
 
 export type ServiceHeroCopy = {
   tagline: string;
@@ -175,7 +176,7 @@ export default function ServiceHeroSection({
         </div>
       </div>
 
-      <div className="relative z-30 flex w-full flex-1 items-end justify-center px-4 pb-10 pt-10 sm:px-6 md:px-10 md:pb-20 md:pt-0 lg:px-16 lg:pb-24">
+      <div className={`relative z-30 flex w-full flex-1 items-end justify-center pb-10 pt-10 md:pb-20 md:pt-0 lg:pb-24 ${SITE_PX}`}>
         <div className="mx-auto w-full max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
           <h1
             className="mx-auto mb-3 max-w-[min(100%,36rem)] font-bold uppercase leading-tight text-white sm:mb-3 sm:max-w-3xl sm:leading-[1.12] md:mb-4 md:max-w-4xl lg:max-w-5xl text-[clamp(1rem,3.4vw,1.75rem)] sm:text-2xl md:text-3xl lg:text-4xl [letter-spacing:0.04em] sm:[letter-spacing:0.05em] md:[letter-spacing:0.07em]"

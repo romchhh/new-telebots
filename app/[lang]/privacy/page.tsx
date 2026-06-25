@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
+import { SITE_PX } from '@/lib/siteLayout';
 
 export default function PrivacyPage() {
   const params = useParams();
@@ -70,7 +71,7 @@ export default function PrivacyPage() {
           currentLang={lang}
         />
         
-        <section className="pt-32 pb-32 px-6 bg-white">
+        <section className={`pt-32 pb-32 bg-white ${SITE_PX}`}>
           <div ref={contentRef} className={`max-w-4xl mx-auto scroll-animate-up ${isContentVisible ? 'animate' : ''}`}>
             <div className="mb-12">
               <div className="flex items-center mb-6">

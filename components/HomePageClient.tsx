@@ -8,6 +8,7 @@ import HomePrinciplesSection from '@/components/HomePrinciplesSection';
 import AboutSection from '@/components/AboutSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import AboutStatsBanner from '@/components/AboutStatsBanner';
+import HomeResourceLinks from '@/components/HomeResourceLinks';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
@@ -113,10 +114,12 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
             principles={t.about.principles}
             lang={lang}
             allServicesLabel={t.about.services}
+            pricingLabel={t.nav.pricing}
           />
           <AboutSection t={t} onOrderClick={openModal} />
           <PortfolioSection t={t} />
           <AboutStatsBanner t={t} />
+          <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
         </main>
 
         <Footer

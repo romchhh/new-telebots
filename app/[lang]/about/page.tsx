@@ -14,6 +14,7 @@ import { sendToTelegram } from '@/lib/telegram';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { legal } from '@/lib/legal';
+import { SITE_PX, SITE_CONTAINER, SITE_INNER_WIDE } from '@/lib/siteLayout';
 import AboutHeadline from '@/components/AboutHeadline';
 import AboutServiceTeasers from '@/components/AboutServiceTeasers';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
@@ -159,7 +160,7 @@ export default function AboutPage() {
           aria-hidden
         />
         <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32">
+        <div className={`relative z-10 py-24 md:py-32 ${SITE_CONTAINER}`}>
           <div className={`max-w-5xl mx-auto scroll-animate-up ${isQuoteVisible ? 'animate' : ''}`} ref={quoteRef}>
             <blockquote>
               <p className="text-2xl md:text-3xl lg:text-4xl font-black leading-relaxed italic text-white drop-shadow-lg">
@@ -173,7 +174,7 @@ export default function AboutPage() {
       </div>
 
       {/* Основний блок під цитатою */}
-      <section className="py-16 md:py-24 lg:py-28 px-6 md:px-10 lg:px-16 bg-white">
+      <section className={`py-16 md:py-24 lg:py-28 bg-white ${SITE_PX}`}>
         <div className="max-w-[1600px] mx-auto">
           <div className="mb-20 md:mb-28 lg:mb-36 min-w-0">
             <div className="flex flex-col gap-10 md:flex-row md:items-stretch md:justify-between md:gap-8 lg:gap-10 xl:gap-12">
@@ -187,8 +188,8 @@ export default function AboutPage() {
       </section>
 
       {/* Фото + сітка — як на головній (AboutSection): на фото stats.cta, ourWorkDesc у першій колонці */}
-      <section className="relative bg-white px-8 sm:px-12 lg:px-16 xl:px-24 pb-20 md:pb-28 lg:pb-36">
-        <div className="max-w-[1600px] mx-auto">
+      <section className={`relative bg-white pb-20 md:pb-28 lg:pb-36 ${SITE_PX}`}>
+        <div className={SITE_INNER_WIDE}>
           <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-16 md:mb-20">
             <div className="relative w-full aspect-[4031/2981]">
               <Image
@@ -288,7 +289,7 @@ export default function AboutPage() {
         </div>
       </section>
       
-      <section className="py-20 md:py-28 lg:py-32 px-6 md:px-10 lg:px-16 bg-gray-50">
+      <section className={`py-20 md:py-28 lg:py-32 bg-gray-50 ${SITE_PX}`}>
         <div className="max-w-6xl mx-auto">
           <div className={`mb-16 md:mb-20 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`} ref={titleRef}>
             <p className={`text-2xl md:text-3xl lg:text-4xl text-gray-800 font-normal leading-[1.6] max-w-3xl scroll-animate-up ${isIntroVisible ? 'animate' : ''}`} ref={introRef}>
@@ -347,7 +348,7 @@ export default function AboutPage() {
       </section>
 
       {/* Чорна секція Чому обирають нас? — на всю ширину, як на сторінці послуг */}
-      <section className="w-full bg-black text-white py-20 md:py-24 lg:py-28 px-6 md:px-10 lg:px-16" ref={mediaRef}>
+      <section className={`w-full bg-black text-white py-20 md:py-24 lg:py-28 ${SITE_PX}`} ref={mediaRef}>
         <div className={`max-w-7xl mx-auto scroll-animate-up ${isMediaContentVisible ? 'animate' : ''}`} ref={mediaContentRef}>
           <h2 className="text-sm font-bold text-white/80 tracking-[0.3em] uppercase mb-6">
             {t.about.whyChoose}
@@ -382,7 +383,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="pt-20 md:pt-28 pb-32 px-6 md:px-10 lg:px-16 bg-white">
+      <section className={`pt-20 md:pt-28 pb-32 bg-white ${SITE_PX}`}>
         <div className="max-w-[1600px] mx-auto">
           <div className={`mb-20 lg:mb-28 scroll-animate-up ${isProcessVisible ? 'animate' : ''}`} ref={processRef}>
             <h2 className="text-sm font-bold text-black tracking-[0.3em] uppercase mb-12">
@@ -504,7 +505,7 @@ export default function AboutPage() {
       </section>
 
       {/* Секція FAQ */}
-      <section className="py-20 md:py-28 px-6 md:px-10 lg:px-16 bg-black">
+      <section className={`py-20 md:py-28 bg-black ${SITE_PX}`}>
         <div className="max-w-4xl mx-auto">
           <div className={`scroll-animate-up ${isFaqVisible ? 'animate' : ''}`} ref={faqRef}>
             <h2 className="text-sm font-bold text-white/80 tracking-[0.3em] uppercase mb-10">

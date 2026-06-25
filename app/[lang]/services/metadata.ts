@@ -13,23 +13,23 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Послуги: розробка Telegram-ботів і сайтів під ключ — TeleBots'
+    ? 'Послуги: Telegram-боти, чат-боти та сайти під ключ | TeleBots'
     : lang === 'en'
-    ? 'What we do? | Telegram Bots, Websites Turnkey — TeleBots'
+    ? 'Services: Telegram Bots, Chatbots & Websites | TeleBots'
     : lang === 'pl'
-    ? 'Co robimy? | Boty Telegram, strony pod klucz — TeleBots'
-    : 'Что мы делаем? | Разработка телеграм ботов, сайтов под ключ — TeleBots';
+    ? 'Usługi: boty Telegram, chatboty i strony | TeleBots'
+    : 'Услуги: Telegram-боты, чат-боты и сайты под ключ | TeleBots';
 
   const description = lang === 'uk'
-    ? 'Telegram-боти з оплатою та CRM, сайти й e-commerce на Next.js, парсери, UI/UX і бренд. Безкоштовна консультація, прозорі терміни, 200+ проєктів. TeleBots.'
+    ? 'Замовити розробку Telegram-бота від $150, сайту від $300, UI/UX від $150. Чат-боти з оплатою, CRM, e-commerce на Next.js. Безкоштовна консультація, прозорі ціни, 200+ проєктів.'
     : lang === 'en'
-    ? 'Order Telegram bot, chatbot for business, website development turnkey, data parser, logo design. Pricing, quick start in 24 hours. 200+ projects.'
+    ? 'Telegram bots from $150, websites from $300, UI/UX from $150. Chatbots with payments, CRM, Next.js e-commerce. Free consultation, transparent pricing, 200+ projects.'
     : lang === 'pl'
-    ? 'Zamów bota Telegram, chatbot dla biznesu, strona pod klucz, parser danych, projekt logo. Ceny, szybki start w 24 godziny. 200+ projektów.'
-    : 'Заказать телеграм бота, чат-бот для бизнеса, разработка сайта под ключ, парсер данных, дизайн логотипа. Цены, быстрый старт за 24 часа. 200+ проектов.';
+    ? 'Boty Telegram od $150, strony od $300, UI/UX od $150. Chatboty z płatnościami, CRM, e-commerce Next.js. Darmowa konsultacja, przejrzyste ceny, 200+ projektów.'
+    : 'Telegram-боты от $150, сайты от $300, UI/UX от $150. Чат-боты с оплатой, CRM, e-commerce на Next.js. Бесплатная консультация, прозрачные цены, 200+ проектов.';
 
   const keywords = lang === 'uk'
-    ? 'послуги TeleBots, розробка Telegram-ботів, замовити телеграм бота, чат-бот для бізнесу, розробка сайту під ключ, інтернет-магазин під ключ, розробка парсера, дизайн логотипу, UI/UX, автоматизація бізнесу'
+    ? 'послуги TeleBots, розробка Telegram-ботів, замовити телеграм бота, чат-бот для бізнесу, чат бот ціна, розробка чат ботів ціна, розробка сайту під ключ, інтернет-магазин під ключ, UI/UX, автоматизація бізнесу'
     : lang === 'en'
     ? 'services, order telegram bot, telegram bot development price, create Telegram bot, chatbot for business, website development turnkey, create online store, parser development, logo design, UI/UX design, business automation'
     : lang === 'pl'

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { useParams, usePathname } from 'next/navigation';
 import Image from 'next/image';
+import { SITE_PX } from '@/lib/siteLayout';
 
 interface ServicesPassionSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -53,7 +54,7 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
         aria-hidden
       />
       <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
-      <div className="relative z-10 w-full px-4 pb-10 pt-24 sm:px-6 md:px-10 md:pb-20 md:pt-0 lg:pb-24 lg:px-16">
+      <div className={`relative z-10 w-full pb-10 pt-24 md:pb-20 md:pt-0 lg:pb-24 ${SITE_PX}`}>
         <div className="mx-auto max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
           <h1
             className="mb-3 font-bold uppercase leading-[1.12] text-white sm:mb-4 sm:leading-[1.15] md:mb-5 text-[clamp(1.45rem,6.2vw,2.35rem)] sm:text-4xl md:text-5xl lg:text-6xl [letter-spacing:0.05em] sm:[letter-spacing:0.1em] md:[letter-spacing:0.12em]"

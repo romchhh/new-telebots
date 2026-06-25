@@ -10,6 +10,7 @@ import OrderModal from './OrderModal';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import SuccessMessage from './SuccessMessage';
 import { sendToTelegram } from '@/lib/telegram';
+import { SITE_CONTAINER, SITE_PX } from '@/lib/siteLayout';
 import { 
   FaArrowLeft, 
   FaMousePointer, 
@@ -156,7 +157,7 @@ export default function CasePage({ caseId }: CasePageProps) {
         />
         <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
         <div className="grid lg:grid-cols-2 relative z-10">
-          <div className="p-8 sm:p-12 lg:p-20 xl:p-24 flex flex-col justify-center">
+          <div className={`py-8 sm:py-12 lg:py-20 flex flex-col justify-center ${SITE_PX}`}>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black mb-5 leading-[1.04] tracking-tight">
               {caseData.title}
             </h1>
@@ -200,7 +201,7 @@ export default function CasePage({ caseId }: CasePageProps) {
 
       {/* Project Information - Buttons */}
       <section className="bg-white py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className={SITE_CONTAINER}>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-6">
             {caseData.liveUrl && (
               <a
@@ -239,7 +240,7 @@ export default function CasePage({ caseId }: CasePageProps) {
 
       {/* Main Content */}
       <section className="bg-white py-12 lg:py-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className={SITE_CONTAINER}>
           {/* Description */}
           {caseData.description && (
             <div className="mb-12">

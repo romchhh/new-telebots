@@ -14,6 +14,7 @@ import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
+import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 export default function ServicesPage() {
   const params = useParams();
@@ -173,8 +174,8 @@ export default function ServicesPage() {
 
       <StatsSection t={t} />
 
-      <section className="py-16 md:py-24 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100">
-        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
+      <section className={`py-16 md:py-24 bg-white border-t border-gray-100 ${SITE_PX}`}>
+        <div className={`${SITE_INNER} grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200`}>
           <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
             <ContactFormBlock
               t={t}

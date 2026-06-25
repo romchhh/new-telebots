@@ -3,6 +3,7 @@
 import { useState, type ReactNode } from 'react';
 import type { ServiceLongFormBundle, ServiceRichBlock } from '@/lib/servicePagesSeo/types';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
+import { SITE_PX } from '@/lib/siteLayout';
 
 interface ServiceSeoLongFormProps {
   copy: ServiceLongFormBundle;
@@ -10,7 +11,7 @@ interface ServiceSeoLongFormProps {
 
 const montserrat = { fontFamily: 'var(--font-montserrat)' } as const;
 const shell = 'max-w-7xl mx-auto w-full';
-const sectionPad = 'px-4 sm:px-6 md:px-10 lg:px-16';
+const sectionPad = SITE_PX;
 const sectionY = 'py-20 md:py-28';
 
 function SectionTitle({ children, index, dark }: { children: ReactNode; index?: number; dark?: boolean }) {

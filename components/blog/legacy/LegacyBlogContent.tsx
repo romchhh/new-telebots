@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import type { ComponentType } from 'react';
+import { SITE_PX } from '@/lib/siteLayout';
 
 /** dynamic() лише на рівні модуля — інакше при кожному скролі (re-render) стаття зникає і знову «Завантаження…» */
 const LegacyArticles: Record<number, ComponentType> = {
@@ -29,7 +30,8 @@ export default function LegacyBlogContent({ legacyId }: { legacyId: number }) {
   return (
     <div
       className={[
-        'blog-legacy-article mx-auto max-w-4xl px-4 pb-8 sm:px-6',
+        'blog-legacy-article mx-auto max-w-4xl pb-8',
+        SITE_PX,
         '[&_h1]:text-3xl [&_h1]:font-black [&_h1]:leading-tight [&_h1]:text-black',
         '[&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-black',
         '[&_h3]:mt-6 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-black',

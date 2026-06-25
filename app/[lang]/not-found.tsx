@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import { translations, Language } from '@/components/translations';
 import { useState, useEffect } from 'react';
 import { Home, ArrowLeft, Search } from 'lucide-react';
+import { SITE_PX } from '@/lib/siteLayout';
 
 export default function NotFound() {
   const params = useParams();
@@ -95,7 +96,7 @@ export default function NotFound() {
 
       <Navigation isScrolled={isScrolled} lang={lang} setLang={handleLangChange} t={t} currentLang={lang} />
       
-      <section className="pt-32 pb-32 px-6 min-h-screen flex items-center relative z-10">
+      <section className={`pt-32 pb-32 min-h-screen flex items-center relative z-10 ${SITE_PX}`}>
         <div className="max-w-6xl mx-auto w-full">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Ліва частина - 404 та текст */}

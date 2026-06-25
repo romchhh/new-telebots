@@ -14,9 +14,11 @@ import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { pricingPageCopy } from '@/lib/pricingPageCopy';
 import { sendToTelegram } from '@/lib/telegram';
+import { siteUrl } from '@/lib/site';
 import PricingTable from '@/components/PricingTable';
 import { getPricingKey } from '@/app/[lang]/services/[serviceId]/metadata';
 import type { ServiceId } from '@/app/[lang]/services/[serviceId]/metadata';
+import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 function CtaCluster({
   lang,
@@ -143,6 +145,13 @@ export default function PricingPage() {
           { name: t.footer.pricing, url: `/${lang}/pricing` },
         ]}
       />
+      <StructuredData type="faq" faqs={p.faqItems} />
+      <StructuredData
+        type="service"
+        serviceName={p.h1}
+        serviceDescription={p.metaDescription}
+        serviceUrl={`${siteUrl}/${lang}/pricing`}
+      />
       <div className="min-h-screen bg-white">
         <a
           href="#main-content"
@@ -162,7 +171,7 @@ export default function PricingPage() {
         />
 
         <main id="main-content">
-          <section className="pt-24 md:pt-28 pb-16 md:pb-24 px-6 md:px-10 lg:px-16 bg-white border-b border-gray-100">
+          <section className={`pt-24 md:pt-28 pb-16 md:pb-24 bg-white border-b border-gray-100 ${SITE_PX}`}>
             <article className="max-w-6xl mx-auto">
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black text-black leading-tight mb-6">{p.h1}</h1>
               <p className="text-xl md:text-2xl text-gray-800 font-semibold leading-snug mb-8 max-w-3xl">{p.subtitle}</p>
@@ -274,6 +283,37 @@ export default function PricingPage() {
               })}
 
               <p className="text-gray-700 leading-relaxed text-lg mb-8">{p.closingSeo}</p>
+
+              <SeoBlock title={p.faqTitle}>
+                <dl className="space-y-6">
+                  {p.faqItems.map((item, i) => (
+                    <div key={i}>
+                      <dt className="text-lg font-bold text-black mb-2">{item.question}</dt>
+                      <dd className="text-gray-700 leading-relaxed">{item.answer}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </SeoBlock>
+
+              <nav
+                aria-label={p.resourceLinksTitle}
+                className="my-10 rounded-2xl border border-gray-200 bg-gray-50 p-6 md:p-8"
+              >
+                <h2 className="text-xl font-black text-black mb-4">{p.resourceLinksTitle}</h2>
+                <ul className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4">
+                  {p.resourceLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="inline-flex items-center text-sm font-semibold text-black underline-offset-4 hover:underline"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+
               <p className="text-sm text-gray-500 leading-relaxed border-t border-gray-200 pt-8">{p.disclaimer}</p>
 
               <div className="mt-12 p-8 md:p-10 bg-gray-50 rounded-2xl border border-gray-200">
@@ -285,9 +325,9 @@ export default function PricingPage() {
 
           <section
             id="pricing-contact"
-            className="py-16 md:py-24 px-6 md:px-10 lg:px-16 bg-white border-t border-gray-100"
+            className={`py-16 md:py-24 bg-white border-t border-gray-100 ${SITE_PX}`}
           >
-            <div className="max-w-7xl mx-auto">
+            <div className={SITE_INNER}>
               <div className="grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
                 <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
                   <ContactFormBlock

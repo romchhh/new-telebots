@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
+import { SITE_CONTAINER } from '@/lib/siteLayout';
 
 interface NavigationProps {
   isScrolled: boolean;
@@ -84,7 +85,7 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       headerSolid ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
     }`}>
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:h-20 lg:px-8">
+      <div className={`flex h-16 items-center justify-between lg:h-20 ${SITE_CONTAINER}`}>
         <Link
           href={`/${currentLanguage}`}
           className="inline-flex h-12 flex-shrink-0 items-center transition-opacity hover:opacity-90"
