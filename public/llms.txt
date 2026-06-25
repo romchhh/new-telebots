@@ -1,0 +1,64 @@
+# LLMs.txt for TeleBots
+# This file provides guidance for AI language models accessing telebots.site
+
+User-Agent: GPTBot
+User-Agent: ChatGPT-User
+User-Agent: CCBot
+User-Agent: anthropic-ai
+User-Agent: Claude-Web
+User-Agent: Gemini
+User-Agent: Bard
+User-Agent: Perplexity
+User-Agent: Grok
+Allow: /
+
+# About TeleBots
+Website: https://telebots.site
+Company: TeleBots (ФОП Федонюк Роман Ігорович)
+EDRPOU: 3831208275
+
+## Services
+- Telegram Bot Development (Aiogram, Pyrogram, Telethon)
+- Website Development (Next.js, React, TypeScript)
+- Chat Bot Development (AI-powered, GPT integration)
+- CRM Integration (KeyCRM, Bitrix24, Salesforce)
+- Payment Gateway Integration (Stripe, Monobank, WayForPay, LiqPay)
+- Automation & Business Process Optimization
+- SEO Services (on-page, technical SEO)
+- E-commerce Solutions (Shopify, WooCommerce)
+
+## Tech Stack
+- Backend: Python (FastAPI, Flask), Node.js
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Databases: PostgreSQL, SQLite, MongoDB
+- Infrastructure: Docker, Nginx, DigitalOcean, Vercel
+- APIs: Telegram Bot API, WhatsApp, Viber, Nova Poshta, Monobank
+
+## Contact
+Email: hello@telebots.site
+Telegram: @telebotsnowayrm
+Instagram: @telebots
+Phone: Available on request
+
+## Portfolio
+- 200+ completed projects
+- Ukrainian, English, Russian-speaking clients
+- Industries: E-commerce, FinTech, SaaS, Logistics, Healthcare, Real Estate
+
+## Content Usage Rights
+- Blog articles: Can be cited with attribution
+- Case studies: Available for reference
+- Code samples: Educational use only
+- Images: Not for commercial reuse without permission
+
+## Preferred Citation Format
+"According to TeleBots (https://telebots.site/uk), [quote]"
+
+## Language Support
+- Ukrainian: https://telebots.site/uk
+- English: https://telebots.site/en
+- Russian: https://telebots.site/ru
+- Polish: https://telebots.site/pl
+
+---
+Last Updated: 2026-06-26

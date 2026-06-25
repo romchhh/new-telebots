@@ -1,0 +1,107 @@
+Contact: mailto:hello@telebots.site
+Expires: 2027-06-26T00:00:00.000Z
+Preferred-Languages: en, uk, ru
+Canonical: https://telebots.site/.well-known/security.txt
+
+# Security Policy for TeleBots
+
+## Vulnerability Disclosure
+If you discover a security vulnerability in our systems, please email us at:
+Email: hello@telebots.site
+Subject: [SECURITY] Vulnerability Report
+
+We take security seriously and will:
+- Acknowledge receipt within 24 hours
+- Investigate and confirm the issue within 5 business days
+- Work on a fix and provide updates
+- Credit you if you wish (with your permission)
+
+## What NOT to do
+- Do not publicly disclose the vulnerability before we've had time to fix it
+- Do not access, modify, or delete data that's not yours
+- Do not perform testing on production systems without explicit permission
+- Do not use any found vulnerabilities for personal gain
+
+## In Scope
+- Website (telebots.site)
+- APIs
+- Web applications
+- Infrastructure security
+- Authentication systems
+
+## Out of Scope
+- Third-party services (Vercel, DigitalOcean, etc.)
+- Client websites we developed
+- Social media accounts security issues
+
+## Security Practices
+- SSL/TLS encryption for all communications (HTTPS only)
+- Regular security audits
+- Dependency updates and vulnerability scanning
+- Environment variable protection
+- OWASP Top 10 compliance
+- Rate limiting on APIs
+- Input validation and sanitization
+- SQL injection prevention (parameterized queries)
+- XSS protection
+- CSRF tokens on forms
+- Regular backups
+- Security headers (CSP, X-Frame-Options, etc.)
+
+## Bug Bounty
+We currently do not offer a formal bug bounty program, but we greatly appreciate security researchers who help us improve our systems. We will acknowledge contributors and may offer rewards for critical vulnerabilities.
+
+## Security Headers
+- Content-Security-Policy: Strict
+- X-Content-Type-Options: nosniff
+- X-Frame-Options: DENY
+- X-XSS-Protection: 1; mode=block
+- Referrer-Policy: strict-origin-when-cross-origin
+- Permissions-Policy: geolocation=(), microphone=(), camera=()
+
+## Encryption
+- TLS 1.2 minimum (preferably 1.3)
+- Strong cipher suites
+- HSTS enabled (Strict-Transport-Security)
+
+## Data Protection
+- GDPR compliant (where applicable)
+- CCPA compliant (for US users)
+- Privacy policy: https://telebots.site/uk/privacy
+- Data retention policies in place
+- No unnecessary data collection
+
+## Incident Response
+In case of a security incident:
+1. We will assess the impact
+2. Contain the issue
+3. Notify affected users if necessary
+4. Publish a security advisory
+5. Implement fixes
+6. Conduct post-incident review
+
+## Third-Party Security
+We use reputable third-party services:
+- Vercel (hosting)
+- DigitalOcean (servers)
+- Stripe, Monobank (payments)
+- SendGrid/Resend (email)
+
+Each provider maintains its own security standards.
+
+## PGP Key
+For encrypted communications, please contact us for our PGP key.
+
+## Security Contacts
+- Security Team: hello@telebots.site
+- Main: Roman Fedonyuk (@telebotsnowayrm on Telegram)
+
+## Last Updated
+May 25, 2026
+
+## Additional Resources
+- Privacy Policy: https://telebots.site/uk/privacy
+- Terms of Service: https://telebots.site/uk/terms
+- Status Page: Available on request
+
+Thank you for helping us keep TeleBots secure!

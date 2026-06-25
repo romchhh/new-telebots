@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { translations, Language } from "@/components/translations";
 import { siteUrl } from "@/lib/site";
+
+const VALID_LANGS = ['uk', 'en', 'pl', 'ru'] as const;
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang: langParam } = await params;
@@ -111,7 +114,10 @@ export default async function LangLayout({
   children: React.ReactNode;
   params: Promise<{ lang: string }>;
 }) {
-  await params; // Отримуємо params, хоча не використовуємо в цьому layout
+  const { lang } = await params;
+  if (!VALID_LANGS.includes(lang as (typeof VALID_LANGS)[number])) {
+    notFound();
+  }
   return <>{children}</>;
 }
 

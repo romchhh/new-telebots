@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cases } from '@/components/cases';
@@ -114,8 +115,7 @@ export default function ServicePage() {
   };
 
   if (!serviceId || !serviceKey || !service) {
-    router.replace(`/${validLang}/services`);
-    return null;
+    notFound();
   }
 
   const imageSrc = SERVICE_IMAGES[serviceId];

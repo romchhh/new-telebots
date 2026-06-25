@@ -1,0 +1,5 @@
+# ads.txt for TeleBots
+# https://iabtechlab.com/ads-txt/
+#
+# No programmatic ad inventory — all placements managed directly.
+# Advertising inquiries: hello@telebots.site

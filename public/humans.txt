@@ -1,0 +1,112 @@
+/* ============================================
+   HUMANS.TXT for TeleBots
+   http://humanstxt.org/
+   ============================================ */
+
+/* TEAM */
+Name: Roman Fedonyuk
+Title: Founder, Lead Developer
+GitHub: romchhh
+Telegram: @telebotsnowayrm
+Email: hello@telebots.site
+Location: Kyiv, Ukraine
+Specialization: Full-stack Web Development, Telegram Bots, AI Integration
+Education: KPI (Kyiv Polytechnic Institute), Computer Engineering, 4th year
+
+Name: Sofia Pavlik
+Title: UI/UX Designer
+Role: Design Lead
+Specialization: Web Design, Branding, UI Components
+
+/* COMPANY */
+Company: TeleBots
+Type: Web Development & Bot Automation Agency (ФОП)
+Founded: 2020
+EDRPOU: 3831208275
+Location: Kyiv, Ukraine
+Website: https://telebots.site
+Email: hello@telebots.site
+Telegram: @telebotsnowayrm
+Instagram: @telebots
+
+/* TECHNOLOGIES & SERVICES */
+Specialization: 
+- Telegram Bot Development (Python, Aiogram, Pyrogram, Telethon)
+- Website Development (Next.js, React, TypeScript)
+- AI Chat Bots (GPT-4, Claude Integration)
+- CRM Systems Integration
+- Payment Gateway Implementation
+- Business Automation
+
+Frontend Stack:
+- React / Next.js
+- TypeScript
+- Tailwind CSS
+- Shadcn/ui
+- Framer Motion
+
+Backend Stack:
+- Python (FastAPI, Flask)
+- Node.js
+- PostgreSQL
+- MongoDB
+- Redis
+
+Infrastructure:
+- Docker
+- Nginx
+- DigitalOcean
+- Vercel
+- GitHub Actions
+
+/* PORTFOLIO HIGHLIGHTS */
+Projects: 200+
+Industries: E-commerce, SaaS, FinTech, Logistics, Healthcare, Real Estate, Education
+Client Languages: Ukrainian, English, Russian
+
+Recent Projects:
+- AutoFind (Car listings aggregator, React + FastAPI + PWA)
+- MOVNA LMS (Learning management system for language school)
+- PartnersParserBot (Service classification Telegram bot)
+- NutrifyBot (AI nutrition tracker, Bachelor's thesis)
+- WayOfProcessing (Payment processing services)
+- 7Лаб (Medical laboratory website)
+- PROяв (Event management site)
+
+/* STANDARDS & PRACTICES */
+Code Standards: Clean code, ESLint, Prettier, Type safety
+Version Control: Git, GitHub
+Testing: Jest, Pytest, manual QA
+Documentation: Comprehensive README, API docs, deployment guides
+Accessibility: WCAG 2.1 AA compliance
+Performance: Core Web Vitals optimization
+Security: OWASP Top 10 prevention, SSL/TLS, environment variables
+
+/* SOCIAL & CONTACT */
+GitHub: https://github.com/romchhh
+Twitter/X: @telebotsnowayrm
+Instagram: @telebots
+LinkedIn: Available on request
+Telegram: @telebotsnowayrm (DM for business inquiries)
+
+/* UPDATES & SUPPORT */
+Support Email: hello@telebots.site
+Response Time: 24 hours (business days)
+Availability: Mon-Fri, 9:00-18:00 (GMT+2)
+Last Updated: June 26, 2026
+
+/* BLOG & RESOURCES */
+Blog: https://telebots.site/uk/blog
+Feed: https://telebots.site/feed.xml
+Case Studies: https://telebots.site/uk/portfolio
+Documentation: https://docs.telebots.site (if available)
+
+/* CAREER & COLLABORATIONS */
+Hiring: We're open to collaborations!
+Email: hello@telebots.site
+Internships: Available for KPI students
+Remote: Yes, fully remote team
+
+/* CREDITS */
+Built with passion in Kyiv, Ukraine
+Powered by Next.js, React, FastAPI, and ☕ coffee

@@ -83,7 +83,16 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/robots.txt',
+        source: '/:path(robots.txt|ads.txt|humans.txt|llms.txt|security.txt|ai.txt)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=3600, s-maxage=3600',
+          },
+        ],
+      },
+      {
+        source: '/.well-known/security.txt',
         headers: [
           {
             key: 'Cache-Control',

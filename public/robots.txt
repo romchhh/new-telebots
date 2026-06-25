@@ -1,0 +1,27 @@
+# robots.txt for TeleBots
+# https://telebots.site/robots.txt
+
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://telebots.site/sitemap.xml
+Sitemap: https://telebots.site/blog-sitemap.xml
+
+Host: https://telebots.site
+
+# Last updated: 2026-05-25

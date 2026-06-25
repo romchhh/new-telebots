@@ -1,6 +1,3 @@
-import { redirect } from 'next/navigation';
+import LangNotFound from './[lang]/not-found';
 
-export default function GlobalNotFound() {
-  redirect('/uk');
-}
-
+export default LangNotFound;

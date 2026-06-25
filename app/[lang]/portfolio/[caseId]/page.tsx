@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import CasePage from '@/components/CasePage';
@@ -26,6 +27,10 @@ export default function CasePageRoute() {
   const t = translations[lang];
   const currentCaseData = ((cases[lang] || cases.uk) as Record<string, { title?: string }>)[caseId];
   const currentCaseTitle = currentCaseData?.title || caseId;
+
+  if (!currentCaseData) {
+    notFound();
+  }
 
   useEffect(() => {
     if (langParam && langParam !== lang && ['uk', 'en', 'pl', 'ru'].includes(langParam)) {
