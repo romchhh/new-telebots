@@ -1,4 +1,4 @@
-Contact: mailto:hello@telebots.site
+Contact: mailto:roman.fedoniuk@gmail.com
 Expires: 2027-06-26T00:00:00.000Z
 Preferred-Languages: en, uk, ru
 Canonical: https://telebots.site/.well-known/security.txt
@@ -7,7 +7,7 @@ Canonical: https://telebots.site/.well-known/security.txt
 
 ## Vulnerability Disclosure
 If you discover a security vulnerability in our systems, please email us at:
-Email: hello@telebots.site
+Email: roman.fedoniuk@gmail.com
 Subject: [SECURITY] Vulnerability Report
 
 We take security seriously and will:
@@ -93,8 +93,8 @@ Each provider maintains its own security standards.
 For encrypted communications, please contact us for our PGP key.
 
 ## Security Contacts
-- Security Team: hello@telebots.site
-- Main: Roman Fedonyuk (@telebotsnowayrm on Telegram)
+- Security Team: roman.fedoniuk@gmail.com
+- Main: Roman Fedonyuk (@telebotsnowayrm on Telegram, WhatsApp +380960908006)
 
 ## Last Updated
 May 25, 2026

@@ -8,7 +8,7 @@ Name: Roman Fedonyuk
 Title: Founder, Lead Developer
 GitHub: romchhh
 Telegram: @telebotsnowayrm
-Email: hello@telebots.site
+Email: roman.fedoniuk@gmail.com
 Location: Kyiv, Ukraine
 Specialization: Full-stack Web Development, Telegram Bots, AI Integration
 Education: KPI (Kyiv Polytechnic Institute), Computer Engineering, 4th year
@@ -25,9 +25,9 @@ Founded: 2020
 EDRPOU: 3831208275
 Location: Kyiv, Ukraine
 Website: https://telebots.site
-Email: hello@telebots.site
+Email: roman.fedoniuk@gmail.com
 Telegram: @telebotsnowayrm
-Instagram: @telebots
+Instagram: @telebotsnowayrm
 
 /* TECHNOLOGIES & SERVICES */
 Specialization: 
@@ -85,12 +85,14 @@ Security: OWASP Top 10 prevention, SSL/TLS, environment variables
 /* SOCIAL & CONTACT */
 GitHub: https://github.com/romchhh
 Twitter/X: @telebotsnowayrm
-Instagram: @telebots
+Instagram: @telebotsnowayrm
 LinkedIn: Available on request
 Telegram: @telebotsnowayrm (DM for business inquiries)
+WhatsApp: +380960908006
+Phone: +380960908006
 
 /* UPDATES & SUPPORT */
-Support Email: hello@telebots.site
+Support Email: roman.fedoniuk@gmail.com
 Response Time: 24 hours (business days)
 Availability: Mon-Fri, 9:00-18:00 (GMT+2)
 Last Updated: June 26, 2026
@@ -103,7 +105,7 @@ Documentation: https://docs.telebots.site (if available)
 
 /* CAREER & COLLABORATIONS */
 Hiring: We're open to collaborations!
-Email: hello@telebots.site
+Email: roman.fedoniuk@gmail.com
 Internships: Available for KPI students
 Remote: Yes, fully remote team
 

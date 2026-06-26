@@ -160,7 +160,7 @@ export default async function RootLayout({
         <meta property="og:site_name" content="TeleBots" />
         
         {/* Instagram specific */}
-        <meta property="instagram:account" content="@telebots" />
+        <meta property="instagram:account" content="@telebotsnowayrm" />
         
         {/* Pinterest */}
         <meta name="pinterest-rich-pin" content="true" />

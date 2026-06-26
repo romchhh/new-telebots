@@ -35,10 +35,11 @@ EDRPOU: 3831208275
 - APIs: Telegram Bot API, WhatsApp, Viber, Nova Poshta, Monobank
 
 ## Contact
-Email: hello@telebots.site
+Email: roman.fedoniuk@gmail.com
 Telegram: @telebotsnowayrm
-Instagram: @telebots
-Phone: Available on request
+Instagram: @telebotsnowayrm
+Phone: +380960908006
+WhatsApp: +380960908006
 
 ## Portfolio
 - 200+ completed projects
