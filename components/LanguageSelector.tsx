@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { Globe } from 'lucide-react';
+import { setPreferredLanguageCookie } from '@/lib/locale';
 import { Language } from './translations';
 
 interface LanguageSelectorProps {
@@ -35,6 +36,7 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
   }, []);
 
   const handleLanguageChange = (newLang: Language) => {
+    setPreferredLanguageCookie(newLang);
     setLang(newLang);
     setIsOpen(false);
     if (pathname) {

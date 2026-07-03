@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import { LOCALE_COOKIE_NAME, resolvePreferredLanguage } from '@/lib/locale';
 
 /** Шляхи, які не треба редіректити на /uk (SEO та спеціальні) */
 const ALLOWED_ROOT_PATHS = [
@@ -43,6 +44,13 @@ function withLangHeader(response: NextResponse, lang: string) {
   return response;
 }
 
+function getPreferredLanguage(request: NextRequest) {
+  return resolvePreferredLanguage(
+    request.cookies.get(LOCALE_COOKIE_NAME)?.value,
+    request.headers.get('accept-language')
+  );
+}
+
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
 
@@ -51,7 +59,8 @@ export function middleware(request: NextRequest) {
   }
 
   if (pathname === '/') {
-    return NextResponse.redirect(new URL('/uk', request.url));
+    const lang = getPreferredLanguage(request);
+    return NextResponse.redirect(new URL(`/${lang}`, request.url));
   }
 
   const firstSegment = pathname.split('/')[1];
@@ -74,12 +83,15 @@ export function middleware(request: NextRequest) {
       return withLangHeader(NextResponse.next(), siteLang);
     }
 
-    // /services → /uk/services; /foobar → /uk/foobar (catch-all → 404)
+    // /services → /{lang}/services; блог завжди uk
     if (KNOWN_SITE_ROUTES.has(firstSegment)) {
-      return NextResponse.redirect(new URL(`/uk${pathname}`, request.url));
+      const lang = firstSegment === 'blog' ? 'uk' : getPreferredLanguage(request);
+      return NextResponse.redirect(new URL(`/${lang}${pathname}`, request.url));
     }
 
-    return NextResponse.rewrite(new URL(`/uk${pathname}`, request.url));
+    return NextResponse.rewrite(
+      new URL(`/${getPreferredLanguage(request)}${pathname}`, request.url)
+    );
   }
 
   return withLangHeader(NextResponse.next(), siteLang);

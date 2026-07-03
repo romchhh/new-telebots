@@ -1,9 +1,65 @@
 import { Language } from '@/components/translations';
 import { cases } from '@/components/cases';
 import { legal } from '@/lib/legal';
-import { siteUrl } from '@/lib/site';
+import { siteUrl, SITE_LANGUAGES, DEFAULT_SITE_LANGUAGE, type SiteLanguage } from '@/lib/site';
 
 const baseUrl = siteUrl;
+
+/** Шлях після /:lang (наприклад `/services` або `` для головної) */
+export function extractLangPathSuffix(pathname: string, lang: Language): string {
+  const prefix = `/${lang}`;
+  if (pathname === prefix || pathname === `${prefix}/`) return '';
+  if (pathname.startsWith(`${prefix}/`)) return pathname.slice(prefix.length);
+  return '';
+}
+
+/** Повний URL сторінки для мови */
+export function buildPageUrl(lang: Language, pathSuffix = ''): string {
+  return `${baseUrl}/${lang}${pathSuffix}`;
+}
+
+/** hreflang для `<link rel="alternate" hreflang="…">` і sitemap xhtml:link */
+export function buildHreflangLanguages(
+  pathSuffix = '',
+  options: { ukOnly?: boolean; langs?: readonly SiteLanguage[] } = {}
+): Record<string, string> {
+  if (options.ukOnly) {
+    const ukUrl = buildPageUrl('uk', pathSuffix);
+    return { 'x-default': ukUrl, uk: ukUrl };
+  }
+
+  const langs = options.langs ?? SITE_LANGUAGES;
+  const result: Record<string, string> = {
+    'x-default': buildPageUrl(DEFAULT_SITE_LANGUAGE, pathSuffix),
+  };
+
+  for (const lang of langs) {
+    result[lang] = buildPageUrl(lang, pathSuffix);
+  }
+
+  return result;
+}
+
+/** XML-рядки xhtml:link для sitemap */
+export function buildHreflangXmlLinks(
+  pathSuffix = '',
+  options: { ukOnly?: boolean; langs?: readonly SiteLanguage[] } = {}
+): Array<{ hreflang: string; href: string }> {
+  const languages = buildHreflangLanguages(pathSuffix, options);
+  return Object.entries(languages).map(([hreflang, href]) => ({ hreflang, href }));
+}
+
+const OG_LOCALE: Record<Language, string> = {
+  uk: 'uk_UA',
+  en: 'en_US',
+  pl: 'pl_PL',
+  ru: 'ru_RU',
+};
+
+export function buildOpenGraphAlternateLocales(currentLang: Language): string[] {
+  return SITE_LANGUAGES.filter((lang) => lang !== currentLang).map((lang) => OG_LOCALE[lang]);
+}
+
 
 /** Обмежує description для meta (Google ~150–160 символів) */
 export function trimDescriptionForMeta(description: string, maxLength = 160): string {
@@ -24,6 +80,8 @@ export interface SEOConfig {
   lang?: Language;
   /** Блог лише українською — не генерувати hreflang en/pl/ru */
   ukOnly?: boolean;
+  /** Обмежити hreflang лише мовами, де є цей контент (наприклад, кейс портфоліо) */
+  hreflangLangs?: readonly SiteLanguage[];
   publishedTime?: string;
   modifiedTime?: string;
   /** Якщо задано — підставляється в openGraph/twitter title замість `title` */
@@ -114,32 +172,25 @@ export function generateMetadata(config: SEOConfig) {
     url,
     lang = 'uk',
     ukOnly = false,
+    hreflangLangs,
     publishedTime,
     modifiedTime,
     openGraphTitle,
     openGraphDescription,
   } = config;
 
-  const currentUrl = url || `${baseUrl}/${lang}`;
-  const pathSuffix = url ? url.replace(`${baseUrl}/${lang}`, '') : '';
+  const currentUrl = url || buildPageUrl(lang);
+  const pathSuffix = url ? extractLangPathSuffix(new URL(url).pathname, lang) : '';
   const metaDescription = trimDescriptionForMeta(description);
   const ogTitle = openGraphTitle ?? title;
   const ogDescription = openGraphDescription
     ? trimDescriptionForMeta(openGraphDescription)
     : metaDescription;
 
-  const hreflangLanguages = ukOnly
-    ? {
-        'x-default': currentUrl,
-        uk: currentUrl,
-      }
-    : {
-        'x-default': `${baseUrl}/uk${pathSuffix}`,
-        uk: `${baseUrl}/uk${pathSuffix}`,
-        en: `${baseUrl}/en${pathSuffix}`,
-        pl: `${baseUrl}/pl${pathSuffix}`,
-        ru: `${baseUrl}/ru${pathSuffix}`,
-      };
+  const hreflangLanguages = buildHreflangLanguages(pathSuffix, {
+    ukOnly,
+    langs: hreflangLangs,
+  });
 
   const openGraphArticle =
     type === 'article' && publishedTime
@@ -157,7 +208,8 @@ export function generateMetadata(config: SEOConfig) {
     keywords,
     openGraph: {
       type,
-      locale: lang === 'uk' ? 'uk_UA' : lang === 'en' ? 'en_US' : lang === 'pl' ? 'pl_PL' : 'ru_RU',
+      locale: OG_LOCALE[lang],
+      alternateLocale: ukOnly ? undefined : buildOpenGraphAlternateLocales(lang),
       url: currentUrl,
       title: ogTitle,
       description: ogDescription,

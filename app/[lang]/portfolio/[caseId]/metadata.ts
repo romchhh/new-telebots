@@ -6,7 +6,7 @@ import {
   buildCaseSeoKeywords,
   generateMetadata as generateSEOMetadata,
 } from '@/lib/seo';
-import { siteUrl as baseUrl } from '@/lib/site';
+import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
 
 export async function generateMetadata(params: {
   lang: string;
@@ -47,6 +47,9 @@ export async function generateMetadata(params: {
   const image = `${baseUrl}${caseData.mainImage}`;
   const url = `${baseUrl}/${lang}/portfolio/${params.caseId}`;
   const keywords = buildCaseSeoKeywords(caseData, lang);
+  const hreflangLangs = SITE_LANGUAGES.filter((siteLang) =>
+    Boolean((cases[siteLang as Language] as Record<string, unknown>)?.[params.caseId])
+  );
 
   return {
     ...generateSEOMetadata({
@@ -58,6 +61,7 @@ export async function generateMetadata(params: {
       lang,
       caseId: params.caseId,
       openGraphDescription: ogDescription,
+      hreflangLangs: hreflangLangs.length > 0 ? hreflangLangs : ['uk'],
     }),
     keywords,
   };

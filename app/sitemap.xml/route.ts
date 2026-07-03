@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cases } from '@/components/cases';
-import { siteUrl as baseUrl } from '@/lib/site';
+import { buildHreflangXmlLinks } from '@/lib/seo';
+import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
 
 function escapeXml(str: string): string {
   return str
@@ -12,7 +13,7 @@ function escapeXml(str: string): string {
 }
 
 export async function GET() {
-  const languages = ['uk', 'en', 'pl', 'ru'];
+  const languages = [...SITE_LANGUAGES];
   const serviceIds = ['websites', 'chatbots', 'design'];
 
   const routes: Array<{
@@ -36,16 +37,13 @@ export async function GET() {
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
   ];
 
-  function pushAlternates(path: string, ukOnly = false) {
-    if (ukOnly) {
-      const ukUrl = `${baseUrl}/uk${path}`;
-      lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(ukUrl)}" />`);
-      lines.push(`    <xhtml:link rel="alternate" hreflang="uk" href="${escapeXml(ukUrl)}" />`);
-      return;
-    }
-    lines.push(`    <xhtml:link rel="alternate" hreflang="x-default" href="${escapeXml(`${baseUrl}/uk${path}`)}" />`);
-    for (const lang of languages) {
-      lines.push(`    <xhtml:link rel="alternate" hreflang="${lang}" href="${escapeXml(`${baseUrl}/${lang}${path}`)}" />`);
+  function pushAlternates(
+    path: string,
+    options: { ukOnly?: boolean; langs?: typeof SITE_LANGUAGES[number][] } = {}
+  ) {
+    const links = buildHreflangXmlLinks(path, options);
+    for (const { hreflang, href } of links) {
+      lines.push(`    <xhtml:link rel="alternate" hreflang="${hreflang}" href="${escapeXml(href)}" />`);
     }
   }
 
@@ -55,7 +53,7 @@ export async function GET() {
       const url = `${baseUrl}/${lang}${route.path}`;
       lines.push('  <url>');
       lines.push(`    <loc>${escapeXml(url)}</loc>`);
-      pushAlternates(route.path, route.ukOnly);
+      pushAlternates(route.path, { ukOnly: route.ukOnly });
       lines.push(`    <lastmod>${now}</lastmod>`);
       lines.push(`    <changefreq>${route.changeFrequency}</changefreq>`);
       lines.push(`    <priority>${route.priority}</priority>`);
@@ -82,9 +80,14 @@ export async function GET() {
     for (const caseId of caseIds) {
       const url = `${baseUrl}/${lang}/portfolio/${caseId}`;
       const caseData = (casesData as Record<string, { mainImage?: string }>)[caseId];
+      const hreflangLangs = languages.filter((siteLang) =>
+        Boolean((cases[siteLang as keyof typeof cases] as Record<string, unknown>)?.[caseId])
+      );
       lines.push('  <url>');
       lines.push(`    <loc>${escapeXml(url)}</loc>`);
-      pushAlternates(`/portfolio/${caseId}`);
+      pushAlternates(`/portfolio/${caseId}`, {
+        langs: hreflangLangs.length > 0 ? hreflangLangs : ['uk'],
+      });
       if (caseData?.mainImage) {
         lines.push('    <image:image>');
         lines.push(`      <image:loc>${escapeXml(`${baseUrl}${caseData.mainImage}`)}</image:loc>`);
