@@ -1,6 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { LOCALE_COOKIE_NAME, resolvePreferredLanguage } from '@/lib/locale';
+import { CANONICAL_HOST } from '@/lib/site';
+
+/** Постійний редірект (308) — Google передає сигнали на цільовий URL */
+const PERMANENT_REDIRECT = 308;
+
+function permanentRedirect(url: URL) {
+  return NextResponse.redirect(url, PERMANENT_REDIRECT);
+}
 
 /** Шляхи, які не треба редіректити на /uk (SEO та спеціальні) */
 const ALLOWED_ROOT_PATHS = [
@@ -58,9 +66,17 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // www.telebots.site → telebots.site (один канонічний хост у GSC)
+  if (request.nextUrl.hostname === `www.${CANONICAL_HOST}`) {
+    const url = request.nextUrl.clone();
+    url.protocol = 'https:';
+    url.hostname = CANONICAL_HOST;
+    return permanentRedirect(url);
+  }
+
   if (pathname === '/') {
     const lang = getPreferredLanguage(request);
-    return NextResponse.redirect(new URL(`/${lang}`, request.url));
+    return permanentRedirect(new URL(`/${lang}`, request.url));
   }
 
   const firstSegment = pathname.split('/')[1];
@@ -71,7 +87,7 @@ export function middleware(request: NextRequest) {
   // Блог лише українською
   if (/^\/(en|pl|ru)\/blog(\/|$)/.test(pathname)) {
     const ukPath = pathname.replace(/^\/(en|pl|ru)/, '/uk');
-    return NextResponse.redirect(new URL(ukPath, request.url));
+    return permanentRedirect(new URL(ukPath, request.url));
   }
 
   if (firstSegment && !VALID_LANGS.includes(firstSegment as (typeof VALID_LANGS)[number])) {
@@ -86,7 +102,7 @@ export function middleware(request: NextRequest) {
     // /services → /{lang}/services; блог завжди uk
     if (KNOWN_SITE_ROUTES.has(firstSegment)) {
       const lang = firstSegment === 'blog' ? 'uk' : getPreferredLanguage(request);
-      return NextResponse.redirect(new URL(`/${lang}${pathname}`, request.url));
+      return permanentRedirect(new URL(`/${lang}${pathname}`, request.url));
     }
 
     return NextResponse.rewrite(
