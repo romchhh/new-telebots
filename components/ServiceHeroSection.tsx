@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import OrderCtaPill from '@/components/OrderCtaPill';
-import { SITE_PX } from '@/lib/siteLayout';
+import { SITE_PX, SITE_INSET_L } from '@/lib/siteLayout';
 
 export type ServiceHeroCopy = {
   tagline: string;
@@ -80,9 +80,9 @@ export default function ServiceHeroSection({
 
       {/* Tagline — скляний блок */}
       <div
-        className="absolute top-24 sm:top-36 md:top-28 lg:top-32 xl:top-36 left-4 z-20 w-auto
+        className={`absolute top-24 sm:top-36 md:top-28 lg:top-32 xl:top-36 z-20 w-auto
           max-w-[calc(100vw-10.5rem)] sm:max-w-[min(100%,22rem)] md:max-w-none
-          sm:w-[320px] md:left-6 md:w-[340px] lg:left-10 lg:w-[400px] xl:w-[440px]"
+          sm:w-[320px] md:w-[340px] lg:w-[400px] xl:w-[440px] ${SITE_INSET_L}`}
       >
         <div className="relative rounded-2xl overflow-hidden">
           <div

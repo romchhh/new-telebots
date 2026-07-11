@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { cases } from '@/components/cases';
 import { buildHreflangXmlLinks } from '@/lib/seo';
+import { SEO_LANDING_SLUGS } from '@/lib/seoLandings';
 import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
 
 function escapeXml(str: string): string {
@@ -70,6 +71,19 @@ export async function GET() {
       lines.push(`    <lastmod>${now}</lastmod>`);
       lines.push('    <changefreq>weekly</changefreq>');
       lines.push('    <priority>0.85</priority>');
+      lines.push('  </url>');
+    }
+  }
+
+  for (const lang of languages) {
+    for (const slug of SEO_LANDING_SLUGS) {
+      const url = `${baseUrl}/${lang}/solutions/${slug}`;
+      lines.push('  <url>');
+      lines.push(`    <loc>${escapeXml(url)}</loc>`);
+      pushAlternates(`/solutions/${slug}`);
+      lines.push(`    <lastmod>${now}</lastmod>`);
+      lines.push('    <changefreq>weekly</changefreq>');
+      lines.push('    <priority>0.8</priority>');
       lines.push('  </url>');
     }
   }

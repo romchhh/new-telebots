@@ -41,7 +41,7 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
             {/* Текст і кнопка поверх фото */}
             <div className="absolute inset-0 flex flex-col items-center justify-between pt-[4%] md:pt-[3%] pb-[4%] md:pb-[2%]">
               <p 
-                className="text-center text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold md:font-extrabold leading-[1.45] max-w-4xl md:max-w-5xl px-6 md:px-8 lg:px-12 tracking-[0.02em]"
+                className={`text-center text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold md:font-extrabold leading-[1.45] max-w-4xl md:max-w-5xl tracking-[0.02em] ${SITE_PX}`}
                 style={{ 
                   fontFamily: 'var(--font-montserrat)',
                   textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)'
@@ -50,7 +50,7 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
                 {t.about.photoMessage}
               </p>
               {/* Кнопка на фото — тільки desktop */}
-              <div className="hidden md:block w-full max-w-md px-6">
+              <div className={`hidden md:block w-full max-w-md ${SITE_PX}`}>
                 {onOrderClick ? (
                   <OrderCtaPill size="md" label={t.modal.title} onClick={onOrderClick} className="w-full" />
                 ) : (
@@ -66,7 +66,7 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
           </div>
           
           {/* Кнопка під фото — тільки mobile */}
-          <div className="md:hidden flex justify-center px-6 py-8 bg-white">
+          <div className={`md:hidden flex justify-center py-8 bg-white ${SITE_PX}`}>
             {onOrderClick ? (
               <OrderCtaPill
                 size="md"

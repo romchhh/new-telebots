@@ -145,7 +145,7 @@ function ZoomingImageBlock({ t }: { t: typeof import('./translations').translati
   const scale = 1 + peakFactor * 0.15; // від 1 до 1.15
 
   return (
-    <div className="relative flex flex-col justify-center w-full min-w-0 p-6 sm:p-8 lg:p-10" ref={containerRef}>
+    <div className={`relative flex flex-col justify-center w-full min-w-0 py-6 sm:py-8 lg:py-10 ${SITE_PX}`} ref={containerRef}>
       <div
         className="relative w-full aspect-[1500/970] rounded-lg overflow-hidden will-change-transform"
         style={{

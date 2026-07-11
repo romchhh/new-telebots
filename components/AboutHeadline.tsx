@@ -9,7 +9,7 @@ export default function AboutHeadline({ headline }: { headline: AboutHeadlineDat
   const montserrat = { fontFamily: 'var(--font-montserrat)' } as const;
 
   return (
-    <div className="mx-auto w-full max-w-full md:max-w-full md:pr-2 lg:pr-6">
+    <div className="mx-auto w-full max-w-full">
       <div className="mx-auto w-full max-w-4xl text-center md:max-w-3xl md:text-left lg:max-w-4xl">
         <h1
           className="mx-auto mb-3 max-w-[min(100%,34rem)] font-bold uppercase leading-tight text-black sm:mb-4 sm:max-w-2xl sm:leading-[1.12] md:mb-5 md:mx-0 md:max-w-3xl lg:max-w-4xl text-[clamp(1.2rem,4.8vw,2.05rem)] sm:text-3xl md:text-4xl lg:text-5xl [letter-spacing:0.04em] sm:[letter-spacing:0.07em] md:[letter-spacing:0.09em]"

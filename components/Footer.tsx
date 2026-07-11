@@ -81,6 +81,39 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
+                  <Link href={`/${currentLanguage}/solutions/telegram-bots`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'Telegram bots'
+                      : currentLanguage === 'pl'
+                        ? 'Boty Telegram'
+                        : currentLanguage === 'ru'
+                          ? 'Telegram-боты'
+                          : 'Telegram-боти'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/solutions/landing-pages`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'Landing pages'
+                      : currentLanguage === 'pl'
+                        ? 'Landing pages'
+                        : currentLanguage === 'ru'
+                          ? 'Лендинги'
+                          : 'Лендінги'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/solutions/online-stores`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'Online stores'
+                      : currentLanguage === 'pl'
+                        ? 'Sklepy online'
+                        : currentLanguage === 'ru'
+                          ? 'Интернет-магазины'
+                          : 'Інтернет-магазини'}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${currentLanguage}/portfolio`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.portfolio} - TeleBots`}>
                     {t.nav.portfolio}
                   </Link>

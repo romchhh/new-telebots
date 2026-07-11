@@ -7,7 +7,7 @@ import { Menu, X } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
-import { SITE_CONTAINER } from '@/lib/siteLayout';
+import { SITE_CONTAINER, SITE_PX, SITE_INSET_L } from '@/lib/siteLayout';
 
 interface NavigationProps {
   isScrolled: boolean;
@@ -164,7 +164,7 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
             <X className="w-6 h-6" />
           </button>
           <div 
-            className="flex flex-col items-center justify-center h-full w-full space-y-6 px-6"
+            className={`flex flex-col items-center justify-center h-full w-full space-y-6 ${SITE_PX}`}
             onClick={(e) => e.stopPropagation()}
           >
             <a
@@ -235,7 +235,7 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
       )}
 
       {mounted && showConsultWidget && onConsultClick && createPortal(
-        <div className="fixed left-4 bottom-4 z-[9998] sm:left-6 sm:bottom-6">
+        <div className={`fixed bottom-4 z-[9998] sm:bottom-6 ${SITE_INSET_L}`}>
           <div className="relative w-[280px] sm:w-[300px] rounded-2xl border border-black/10 bg-white/95 backdrop-blur-sm shadow-[0_16px_40px_rgba(0,0,0,0.12)] p-5">
             <button
               type="button"

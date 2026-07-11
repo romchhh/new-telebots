@@ -11,12 +11,33 @@ interface HomeResourceLinksProps {
     pricing: string;
     blogBot: string;
     blogSite: string;
+    telegramBots?: string;
+    landingPages?: string;
+    onlineStores?: string;
   };
 }
 
 export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps) {
   const links = [
     { href: `/${lang}/pricing`, label: copy.pricing },
+    {
+      href: `/${lang}/solutions/telegram-bots`,
+      label:
+        copy.telegramBots ||
+        (lang === 'en' ? 'Telegram bot development' : lang === 'pl' ? 'Boty Telegram' : lang === 'ru' ? 'Telegram-боты' : 'Розробка Telegram-ботів'),
+    },
+    {
+      href: `/${lang}/solutions/landing-pages`,
+      label:
+        copy.landingPages ||
+        (lang === 'en' ? 'Landing pages' : lang === 'pl' ? 'Landing pages' : lang === 'ru' ? 'Лендинги' : 'Лендінги під ключ'),
+    },
+    {
+      href: `/${lang}/solutions/online-stores`,
+      label:
+        copy.onlineStores ||
+        (lang === 'en' ? 'Online stores' : lang === 'pl' ? 'Sklepy online' : lang === 'ru' ? 'Интернет-магазины' : 'Інтернет-магазини'),
+    },
     { href: '/uk/blog/skilky-koshtuye-telegram-bot', label: copy.blogBot },
     { href: '/uk/blog/skilky-koshtuye-sayt', label: copy.blogSite },
   ];

@@ -27,6 +27,13 @@ EDRPOU: 3831208275
 - SEO Services (on-page, technical SEO)
 - E-commerce Solutions (Shopify, WooCommerce)
 
+## SEO landing pages (uk / en / pl / ru)
+- Telegram bots: https://telebots.site/uk/solutions/telegram-bots
+- Landing pages: https://telebots.site/uk/solutions/landing-pages
+- Online stores: https://telebots.site/uk/solutions/online-stores
+- AI chatbots: https://telebots.site/uk/solutions/ai-chatbots
+- Data parsers: https://telebots.site/uk/solutions/data-parsers
+
 ## Tech Stack
 - Backend: Python (FastAPI, Flask), Node.js
 - Frontend: React, Next.js, TypeScript, Tailwind CSS

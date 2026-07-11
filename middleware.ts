@@ -31,6 +31,7 @@ const VALID_LANGS = ['uk', 'en', 'pl', 'ru'] as const;
 /** Сторінки без префікса мови — редірект на /uk/... */
 const KNOWN_SITE_ROUTES = new Set([
   'services',
+  'solutions',
   'portfolio',
   'contact',
   'about',
