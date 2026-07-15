@@ -13,6 +13,12 @@ const nextConfig: NextConfig = {
         destination: `https://${CANONICAL_HOST}/:path*`,
         permanent: true,
       },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: `new.${CANONICAL_HOST}` }],
+        destination: `https://${CANONICAL_HOST}/:path*`,
+        permanent: true,
+      },
     ];
   },
   images: {

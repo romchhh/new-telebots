@@ -22,7 +22,7 @@ function PortfolioProject({ project, lang }: { project: { image: string; categor
       <div className="absolute inset-0 w-full h-full">
         <Image
           src={project.image}
-          alt={`${project.title} - ${project.category} | TeleBots`}
+          alt=""
           fill
           className="object-cover object-center min-w-full min-h-full transition-transform duration-500 group-hover:scale-110"
           loading="lazy"

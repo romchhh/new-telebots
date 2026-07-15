@@ -18,6 +18,7 @@ interface HomeResourceLinksProps {
 }
 
 export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps) {
+  // Blog posts exist only in Ukrainian — do not send en/pl/ru visitors to /uk/blog.
   const links = [
     { href: `/${lang}/pricing`, label: copy.pricing },
     {
@@ -38,8 +39,12 @@ export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps
         copy.onlineStores ||
         (lang === 'en' ? 'Online stores' : lang === 'pl' ? 'Sklepy online' : lang === 'ru' ? 'Интернет-магазины' : 'Інтернет-магазини'),
     },
-    { href: '/uk/blog/skilky-koshtuye-telegram-bot', label: copy.blogBot },
-    { href: '/uk/blog/skilky-koshtuye-sayt', label: copy.blogSite },
+    ...(lang === 'uk'
+      ? [
+          { href: '/uk/blog/skilky-koshtuye-telegram-bot', label: copy.blogBot },
+          { href: '/uk/blog/skilky-koshtuye-sayt', label: copy.blogSite },
+        ]
+      : []),
   ];
 
   return (

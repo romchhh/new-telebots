@@ -41,9 +41,9 @@ export const translations = {
         body: 'Понад 200 реалізованих рішень за чотири роки: Next.js, CRM, оплати, розсилки та AI за потреби. Без перекладання задач між десятком виконавців.',
       },
       principles: {
-        eyebrow: 'кожен проєкт тримається на зрозумілій бізнес-меті,',
-        titleLine1: 'а TeleBots — на',
-        titleLine2: 'трьох принципах:',
+        eyebrow: 'кожен проєкт тримається на зрозумілій бізнес-меті',
+        titleLine1: 'TeleBots — на трьох',
+        titleLine2: 'принципах',
         cards: [
           {
             title: 'результат у цифрах — заявки, оплати, конверсія,',
@@ -691,9 +691,9 @@ export const translations = {
         body: '200+ launches over four years: Next.js, CRM, payments, messaging, and AI when you need it — without juggling a dozen vendors.',
       },
       principles: {
-        eyebrow: 'every project stands on a clear business goal,',
-        titleLine1: 'and TeleBots — on',
-        titleLine2: 'three principles:',
+        eyebrow: 'every project stands on a clear business goal',
+        titleLine1: 'TeleBots rests on',
+        titleLine2: 'three principles',
         cards: [
           {
             title: 'results in numbers — leads, payments, conversion,',
@@ -1274,9 +1274,9 @@ export const translations = {
         body: 'Ponad 200 wdrożeń w 4 lata: Next.js, CRM, płatności, mailingi i AI w razie potrzeby — bez przerzucania pracy między podwykonawcami.',
       },
       principles: {
-        eyebrow: 'każdy projekt opiera się na jasnym celu biznesowym,',
-        titleLine1: 'a TeleBots — na',
-        titleLine2: 'trzech zasadach:',
+        eyebrow: 'każdy projekt opiera się na jasnym celu biznesowym',
+        titleLine1: 'TeleBots stoi na',
+        titleLine2: 'trzech zasadach',
         cards: [
           {
             title: 'wynik w liczbach — leady, płatności, konwersja,',
@@ -1857,9 +1857,9 @@ export const translations = {
         body: 'Более 200 решений за четыре года: Next.js, CRM, оплаты, рассылки и AI по необходимости. Без перекладывания задач между десятком подрядчиков.',
       },
       principles: {
-        eyebrow: 'каждый проект держится на понятной бизнес-цели,',
-        titleLine1: 'а TeleBots — на',
-        titleLine2: 'трёх принципах:',
+        eyebrow: 'каждый проект держится на понятной бизнес-цели',
+        titleLine1: 'TeleBots — на трёх',
+        titleLine2: 'принципах',
         cards: [
           {
             title: 'результат в цифрах — заявки, оплаты, конверсия,',

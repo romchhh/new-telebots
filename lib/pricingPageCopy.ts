@@ -326,8 +326,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
     resourceLinksTitle: 'Related guides',
     resourceLinks: [
-      { label: 'How much does a Telegram bot cost', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
-      { label: 'How much does a website cost', href: '/uk/blog/skilky-koshtuye-sayt' },
+      { label: 'Telegram bot development', href: '/en/solutions/telegram-bots' },
+      { label: 'Landing pages', href: '/en/solutions/landing-pages' },
       { label: 'Chatbot development services', href: '/en/services/chatbots' },
     ],
   },
@@ -468,8 +468,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
     resourceLinksTitle: 'Powiązane materiały',
     resourceLinks: [
-      { label: 'Ile kosztuje bot Telegram', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
-      { label: 'Ile kosztuje strona', href: '/uk/blog/skilky-koshtuye-sayt' },
+      { label: 'Boty Telegram', href: '/pl/solutions/telegram-bots' },
+      { label: 'Landing pages', href: '/pl/solutions/landing-pages' },
       { label: 'Rozwój chatbotów', href: '/pl/services/chatbots' },
     ],
   },
@@ -610,8 +610,8 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
     resourceLinksTitle: 'Полезные материалы',
     resourceLinks: [
-      { label: 'Сколько стоит Telegram-бот', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
-      { label: 'Сколько стоит сайт', href: '/uk/blog/skilky-koshtuye-sayt' },
+      { label: 'Telegram-боты', href: '/ru/solutions/telegram-bots' },
+      { label: 'Лендинги', href: '/ru/solutions/landing-pages' },
       { label: 'Разработка чат-ботов', href: '/ru/services/chatbots' },
     ],
   },

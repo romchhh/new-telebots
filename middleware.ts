@@ -67,8 +67,12 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // www.telebots.site → telebots.site (один канонічний хост у GSC)
-  if (request.nextUrl.hostname === `www.${CANONICAL_HOST}`) {
+  // www / new (staging alias) → telebots.site (один канонічний хост у GSC)
+  const hostname = request.nextUrl.hostname;
+  if (
+    hostname === `www.${CANONICAL_HOST}` ||
+    hostname === `new.${CANONICAL_HOST}`
+  ) {
     const url = request.nextUrl.clone();
     url.protocol = 'https:';
     url.hostname = CANONICAL_HOST;

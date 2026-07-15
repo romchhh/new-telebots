@@ -69,6 +69,13 @@ export function trimDescriptionForMeta(description: string, maxLength = 160): st
   return lastSpace > maxLength * 0.7 ? trimmed.slice(0, lastSpace) + '...' : trimmed + '...';
 }
 
+/** Root layout title.template is `%s | TeleBots` — strip a manual brand suffix so it is not doubled. */
+export function stripBrandTitleSuffix(title: string): string {
+  return title
+    .replace(/\s*(?:\||-|—|–)\s*TeleBots(?:\s+Cases)?\s*$/i, '')
+    .trim();
+}
+
 export interface SEOConfig {
   title: string;
   description: string;
@@ -181,8 +188,17 @@ export function generateMetadata(config: SEOConfig) {
 
   const currentUrl = url || buildPageUrl(lang);
   const pathSuffix = url ? extractLangPathSuffix(new URL(url).pathname, lang) : '';
+  const pageTitle = stripBrandTitleSuffix(title);
+  // Bare brand would become "TeleBots | TeleBots" via the root template — use absolute instead.
+  const documentTitle =
+    !pageTitle || /^TeleBots$/i.test(pageTitle)
+      ? { absolute: pageTitle || 'TeleBots' }
+      : pageTitle;
   const metaDescription = trimDescriptionForMeta(description);
-  const ogTitle = openGraphTitle ?? title;
+  // og/twitter do not use the root title.template — keep a single brand suffix there.
+  const ogTitle =
+    openGraphTitle ??
+    (pageTitle && !/^TeleBots$/i.test(pageTitle) ? `${pageTitle} | TeleBots` : 'TeleBots');
   const ogDescription = openGraphDescription
     ? trimDescriptionForMeta(openGraphDescription)
     : metaDescription;
@@ -203,7 +219,7 @@ export function generateMetadata(config: SEOConfig) {
       : {};
 
   return {
-    title,
+    title: documentTitle,
     description: metaDescription,
     keywords,
     openGraph: {

@@ -13,23 +13,24 @@ export async function generateMetadata({
   const { lang: langParam } = await params;
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
 
+  // Brand suffix comes from root layout title.template (`%s | TeleBots`) — do not add it here.
   const title =
     lang === 'uk'
-      ? 'Замовити розробку Telegram-ботів і сайтів | від $150 | TeleBots'
+      ? 'Замовити розробку Telegram-ботів і сайтів | від $150'
       : lang === 'en'
-        ? 'Order Telegram Bots & Websites | from $150 | TeleBots'
+        ? 'Order Telegram Bots & Websites | from $150'
         : lang === 'pl'
-          ? 'Zamów boty Telegram i strony | od $150 | TeleBots'
-          : 'Заказать Telegram-ботов и сайты | от $150 | TeleBots';
+          ? 'Zamów boty Telegram i strony | od $150'
+          : 'Заказать Telegram-ботов и сайты | от $150';
 
   const description =
     lang === 'uk'
-      ? 'Розробка Telegram-ботів з AI та оплатою від $150, сайти від $300. Чат-бот для бізнесу під ключ, CRM, e-commerce. 200+ проєктів, безкоштовна консультація, старт від 24 год.'
+      ? 'Розробка Telegram-ботів з AI від $150, сайти від $300. Чат-бот для бізнесу, CRM, e-commerce. 200+ проєктів, безкоштовна консультація, старт за 24 год.'
       : lang === 'en'
-        ? 'Telegram bots with AI and payments from $150, websites from $300. Business chatbots, CRM, e-commerce. 200+ projects, free consultation, kickoff in 24 hours.'
+        ? 'Telegram bots with AI and payments from $150, websites from $300. Business chatbots, CRM, e-commerce. 200+ projects, free consultation, start in 24h.'
         : lang === 'pl'
-          ? 'Boty Telegram z AI i płatnościami od $150, strony od $300. Chatboty biznesowe, CRM, e-commerce. 200+ projektów, darmowa konsultacja, start w 24 godziny.'
-          : 'Telegram-боты с AI и оплатой от $150, сайты от $300. Чат-бот для бизнеса под ключ, CRM, e-commerce. 200+ проектов, бесплатная консультация, старт за 24 часа.';
+          ? 'Boty Telegram z AI i płatnościami od $150, strony od $300. Chatboty biznesowe, CRM, e-commerce. 200+ projektów, darmowa konsultacja, start w 24h.'
+          : 'Telegram-боты с AI и оплатой от $150, сайты от $300. Чат-бот для бизнеса, CRM, e-commerce. 200+ проектов, бесплатная консультация, старт за 24 часа.';
 
   const keywords =
     lang === 'uk'
