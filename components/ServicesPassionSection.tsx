@@ -58,13 +58,13 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
         <div className="mx-auto max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
           <h1
             className="mb-3 font-bold uppercase leading-[1.12] text-white sm:mb-4 sm:leading-[1.15] md:mb-5 text-[clamp(1.45rem,6.2vw,2.35rem)] sm:text-4xl md:text-5xl lg:text-6xl [letter-spacing:0.05em] sm:[letter-spacing:0.1em] md:[letter-spacing:0.12em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
+            style={{ fontFamily: 'var(--font-sans)' }}
           >
             {t.services.passion}
           </h1>
           <p
             className="mb-4 font-normal leading-snug text-white sm:mb-5 md:mb-6 text-lg sm:text-xl md:text-2xl [letter-spacing:0.04em] sm:[letter-spacing:0.08em] md:[letter-spacing:0.1em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
+            style={{ fontFamily: 'var(--font-sans)' }}
           >
             {t.services.passionTitle}
           </p>

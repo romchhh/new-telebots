@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PricingPlansGrid from '@/components/PricingPlansGrid';
 import { parseBlogInline } from '@/components/blog/parseBlogInline';
 
-const headingStyle = { fontFamily: 'var(--font-montserrat)' };
+const headingStyle = { fontFamily: 'var(--font-sans)' };
 
 export default function BlogPostBody({ sections }: { sections: BlogSection[] }) {
   return (

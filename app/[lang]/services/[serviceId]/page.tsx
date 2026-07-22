@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cases } from '@/components/cases';
+import { getCaseHref, isFlagshipCase } from '@/lib/portfolioCases';
 import ServiceHeroSection from '@/components/ServiceHeroSection';
 import ServiceAudienceSection from '@/components/ServiceAudienceSection';
 import ContactDetailsColumn from '@/components/ContactDetailsColumn';
@@ -124,6 +125,7 @@ export default function ServicePage() {
   const desiredCategory = serviceId === 'chatbots' ? 'chatbots' : 'websites';
   const serviceCases = caseEntries
     .filter(([, data]) => (data.portfolioCategory || 'websites') === desiredCategory)
+    .sort(([a], [b]) => Number(isFlagshipCase(b)) - Number(isFlagshipCase(a)))
     .slice(0, 3)
     .map(([caseId, data]) => ({
       caseId,
@@ -134,7 +136,7 @@ export default function ServicePage() {
 
   const featured = serviceCases[0];
   const featuredImage = featured?.image ?? '/portfolio/portfolio-default.jpg';
-  const featuredHref = featured ? `/${lang}/portfolio/${featured.caseId}` : `/${lang}/portfolio`;
+  const featuredHref = featured ? getCaseHref(lang, featured.caseId) : `/${lang}/portfolio`;
 
   const serviceExtended = service as typeof service & {
     serviceHero?: import('@/components/ServiceHeroSection').ServiceHeroCopy;
@@ -425,7 +427,7 @@ export default function ServicePage() {
                       {serviceCases.slice(1).map((item) => (
                         <Link
                           key={item.caseId}
-                          href={`/${lang}/portfolio/${item.caseId}`}
+                          href={getCaseHref(lang, item.caseId)}
                           className="group flex-shrink-0 w-[200px] min-w-[200px] sm:w-[240px] sm:min-w-[240px] aspect-[4/3] relative overflow-hidden rounded-xl snap-start"
                         >
                           <Image

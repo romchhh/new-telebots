@@ -14,7 +14,7 @@ export default function BlogRelatedSection({ related }: BlogRelatedSectionProps)
       <div className="mx-auto max-w-4xl">
         <h2
           className="mb-6 text-xl font-bold text-black md:text-2xl"
-          style={{ fontFamily: 'var(--font-montserrat)' }}
+          style={{ fontFamily: 'var(--font-sans)' }}
         >
           Читайте також
         </h2>

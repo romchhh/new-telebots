@@ -633,28 +633,28 @@ export const cases = {
       ]
     },
     'smart-bodycourse-bot': {
-      title: "EdTech система в Telegram для продажу авторського курсу",
-      subtitle: "Автоматизували продаж і доставку контенту курсу зі схуднення з оплатою в чаті",
-      mainImage: "/portfolio/IMAGE 2026-04-25 16:04:56.jpg",
-      description: "Розробили інструмент для автоматизації продажу та доставки контенту авторського курсу зі схуднення. Основна задача — поєднати зручний онбординг, інтегровану оплату та систему утримання користувача.\n\nБот генерує унікальні посилання на оплату Monopay прямо в чаті та одразу після підтвердження транзакції видає потрібні матеріали.\n\nЗамість ручного виставлення рахунків і перевірки чеків в Instagram замовник отримав повністю автономний магазин 24/7: бот прогріває, продає, приймає оплату і видає товар, мінімізуючи людський фактор та витрати на менеджерів.",
+      title: "EdTech система в Telegram — Smart Body Course",
+      subtitle: "Telegram-бот для продажу PDF-гайдів з онлайн-оплатою Monopay",
+      mainImage: "/portfolio/portfolio-smart-bodycourse-bot.jpg",
+      description: "Розробили EdTech систему в Telegram. Створили інструмент для автоматизації продажу та доставки контенту авторського курсу зі схуднення. Потрібно було поєднати зручний онбординг, інтегровану оплату та систему утримання користувача (retention).\n\nMonopay Integration: генерація унікальних посилань на оплату прямо в чаті. Миттєва доставка: одразу після підтвердження транзакції бот видає потрібні файли.\n\nЗамість ручного виставлення рахунків та перевірки чеків в Instagram замовник отримав повністю автономний магазин, який працює 24/7. Бот сам прогріває, продає, приймає оплати та видає товар, мінімізуючи людський фактор і витрати на менеджерів.",
       duration: "2 тижні",
       client: "Smart Body Course",
       category: "EdTech / Telegram Bot",
       portfolioCategory: "chatbots",
       liveUrl: "https://t.me/Smart_BodyCourse_Bot",
       features: [
-        "Онбординг у форматі діалогу в Telegram",
-        "Monopay Integration з генерацією унікальних посилань",
-        "Миттєва видача цифрового контенту після оплати",
-        "Автоматизація прийому заявок без менеджера",
-        "Сценарії утримання користувачів (retention)",
-        "Мінімізація ручної перевірки платежів"
+        "Онбординг і прогрів у форматі діалогу в Telegram",
+        "Monopay Integration — унікальні посилання на оплату в чаті",
+        "Миттєва доставка PDF-гайдів після підтвердження оплати",
+        "Каталог продуктів і пакетні пропозиції зі знижкою",
+        "Сценарії retention для утримання користувача",
+        "Повна автономія без менеджерів і ручної перевірки чеків"
       ],
       results: [
-        { value: "24/7", label: "Автономний продаж курсу" },
-        { value: "100%", label: "Автоматична видача контенту" },
-        { value: "↓", label: "Менше ручних операцій" },
-        { value: "↑", label: "Швидкість обробки лідів" }
+        { value: "24/7", label: "Автономний магазин курсу" },
+        { value: "0", label: "Ручних рахунків в Instagram" },
+        { value: "100%", label: "Автоматична видача файлів" },
+        { value: "↑", label: "Швидкість від оплати до доставки" }
       ]
     },
     'snagging-services-uae': {
@@ -1341,28 +1341,28 @@ export const cases = {
       ]
     },
     'smart-bodycourse-bot': {
-      title: "EdTech Telegram system for selling an author course",
-      subtitle: "Automated course sales and content delivery with in-chat payment flow",
-      mainImage: "/portfolio/IMAGE 2026-04-25 16:04:56.jpg",
-      description: "We built an automation tool for selling and delivering content of an author weight-loss course. The goal was to combine smooth onboarding, integrated payment, and retention mechanics.\n\nThe bot generates unique Monopay payment links directly in chat and delivers required files immediately after transaction confirmation.\n\nInstead of manually sending invoices and checking receipts in Instagram, the client received a fully autonomous 24/7 store: the bot warms up users, sells, accepts payments, and delivers digital products with minimal human effort.",
+      title: "EdTech system in Telegram — Smart Body Course",
+      subtitle: "Telegram bot for selling PDF guides with Monopay online payments",
+      mainImage: "/portfolio/portfolio-smart-bodycourse-bot.jpg",
+      description: "We built an EdTech system in Telegram — an automation tool for selling and delivering an author weight-loss course. The brief combined smooth onboarding, integrated payments, and retention.\n\nMonopay Integration: unique payment links generated right in chat. Instant delivery: as soon as the transaction is confirmed, the bot sends the required files.\n\nInstead of manually issuing invoices and checking Instagram receipts, the client got a fully autonomous 24/7 store. The bot warms up, sells, accepts payments, and delivers the product — minimizing human factor and manager costs.",
       duration: "2 weeks",
       client: "Smart Body Course",
       category: "EdTech / Telegram Bot",
       portfolioCategory: "chatbots",
       liveUrl: "https://t.me/Smart_BodyCourse_Bot",
       features: [
-        "Conversational onboarding inside Telegram",
-        "Monopay integration with unique payment links",
-        "Instant digital delivery after payment",
-        "Automated lead handling without a manager",
-        "Retention mechanics for user engagement",
-        "Reduced manual payment checks"
+        "Conversational onboarding and warm-up in Telegram",
+        "Monopay Integration — unique in-chat payment links",
+        "Instant PDF guide delivery after payment confirmation",
+        "Product catalog and discounted bundle offers",
+        "Retention flows to keep users engaged",
+        "Full autonomy without managers or manual receipt checks"
       ],
       results: [
-        { value: "24/7", label: "Autonomous course sales" },
-        { value: "100%", label: "Automatic content delivery" },
-        { value: "↓", label: "Less manual operations" },
-        { value: "↑", label: "Lead processing speed" }
+        { value: "24/7", label: "Autonomous course store" },
+        { value: "0", label: "Manual Instagram invoices" },
+        { value: "100%", label: "Automatic file delivery" },
+        { value: "↑", label: "Payment-to-delivery speed" }
       ]
     },
     'snagging-services-uae': {
@@ -2050,28 +2050,28 @@ export const cases = {
       ]
     },
     'smart-bodycourse-bot': {
-      title: "System EdTech w Telegramie do sprzedaży autorskiego kursu",
-      subtitle: "Automatyzacja sprzedaży i dostarczania treści kursu z płatnością w czacie",
-      mainImage: "/portfolio/IMAGE 2026-04-25 16:04:56.jpg",
-      description: "Stworzyliśmy narzędzie do automatyzacji sprzedaży i dostarczania treści autorskiego kursu odchudzania. Kluczowym zadaniem było połączenie wygodnego onboardingu, zintegrowanej płatności i retencji użytkownika.\n\nBot generuje unikalne linki Monopay bezpośrednio w czacie i natychmiast po potwierdzeniu transakcji wydaje wymagane pliki.\n\nZamiast ręcznego wystawiania rachunków i sprawdzania potwierdzeń na Instagramie, klient otrzymał całkowicie autonomiczny sklep 24/7: bot rozgrzewa, sprzedaje, przyjmuje płatność i wydaje produkt cyfrowy.",
+      title: "System EdTech w Telegramie — Smart Body Course",
+      subtitle: "Bot Telegram do sprzedaży PDF-przewodników z płatnością Monopay",
+      mainImage: "/portfolio/portfolio-smart-bodycourse-bot.jpg",
+      description: "Zbudowaliśmy system EdTech w Telegramie — narzędzie do automatyzacji sprzedaży i dostawy treści autorskiego kursu odchudzania. Trzeba było połączyć wygodny onboarding, zintegrowaną płatność i retencję użytkownika.\n\nMonopay Integration: generowanie unikalnych linków do płatności bezpośrednio w czacie. Natychmiastowa dostawa: zaraz po potwierdzeniu transakcji bot wydaje wymagane pliki.\n\nZamiast ręcznego wystawiania rachunków i sprawdzania potwierdzeń na Instagramie klient otrzymał w pełni autonomiczny sklep 24/7. Bot sam rozgrzewa, sprzedaje, przyjmuje płatności i wydaje produkt — minimalizując czynnik ludzki i koszty managerów.",
       duration: "2 tygodnie",
       client: "Smart Body Course",
       category: "EdTech / Telegram Bot",
       portfolioCategory: "chatbots",
       liveUrl: "https://t.me/Smart_BodyCourse_Bot",
       features: [
-        "Onboarding konwersacyjny w Telegramie",
-        "Integracja Monopay z unikalnymi linkami płatności",
-        "Natychmiastowe wydanie materiałów po płatności",
-        "Automatyzacja leadów bez managera",
-        "Mechaniki retencyjne zwiększające zaangażowanie",
-        "Mniej ręcznej kontroli płatności"
+        "Onboarding i rozgrzewka w formie dialogu w Telegramie",
+        "Monopay Integration — unikalne linki płatności w czacie",
+        "Natychmiastowa dostawa PDF po potwierdzeniu płatności",
+        "Katalog produktów i pakiety ze zniżką",
+        "Scenariusze retention utrzymujące użytkownika",
+        "Pełna autonomia bez managerów i ręcznej weryfikacji płatności"
       ],
       results: [
-        { value: "24/7", label: "Autonomiczna sprzedaż kursu" },
-        { value: "100%", label: "Automatyczne wydanie treści" },
-        { value: "↓", label: "Mniej operacji ręcznych" },
-        { value: "↑", label: "Szybkość obsługi leadów" }
+        { value: "24/7", label: "Autonomiczny sklep kursu" },
+        { value: "0", label: "Ręcznych rachunków na Instagramie" },
+        { value: "100%", label: "Automatyczne wydanie plików" },
+        { value: "↑", label: "Szybkość od płatności do dostawy" }
       ]
     },
     'snagging-services-uae': {
@@ -2862,28 +2862,28 @@ export const cases = {
       ]
     },
     'smart-bodycourse-bot': {
-      title: "EdTech система в Telegram для продажи авторского курса",
-      subtitle: "Автоматизация продаж и выдачи контента курса с оплатой прямо в чате",
-      mainImage: "/portfolio/IMAGE 2026-04-25 16:04:56.jpg",
-      description: "Мы разработали инструмент для автоматизации продаж и доставки контента авторского курса по похудению. Ключевая задача — объединить удобный онбординг, интегрированную оплату и удержание пользователя.\n\nБот генерирует уникальные ссылки Monopay прямо в чате и мгновенно выдает нужные материалы после подтверждения транзакции.\n\nВместо ручного выставления счетов и проверки чеков в Instagram заказчик получил полностью автономный магазин 24/7: бот прогревает, продает, принимает оплату и выдает цифровой товар, снижая влияние человеческого фактора.",
+      title: "EdTech система в Telegram — Smart Body Course",
+      subtitle: "Telegram-бот для продажи PDF-гайдов с онлайн-оплатой Monopay",
+      mainImage: "/portfolio/portfolio-smart-bodycourse-bot.jpg",
+      description: "Разработали EdTech систему в Telegram. Создали инструмент для автоматизации продажи и доставки контента авторского курса по похудению. Нужно было объединить удобный онбординг, интегрированную оплату и систему удержания пользователя (retention).\n\nMonopay Integration: генерация уникальных ссылок на оплату прямо в чате. Мгновенная доставка: сразу после подтверждения транзакции бот выдает нужные файлы.\n\nВместо ручного выставления счетов и проверки чеков в Instagram заказчик получил полностью автономный магазин, который работает 24/7. Бот сам прогревает, продает, принимает оплаты и выдает товар, минимизируя человеческий фактор и затраты на менеджеров.",
       duration: "2 недели",
       client: "Smart Body Course",
       category: "EdTech / Telegram Bot",
       portfolioCategory: "chatbots",
       liveUrl: "https://t.me/Smart_BodyCourse_Bot",
       features: [
-        "Диалоговый онбординг в Telegram",
-        "Интеграция Monopay с уникальными ссылками оплаты",
-        "Мгновенная выдача контента после оплаты",
-        "Автоматическая обработка лидов без менеджера",
-        "Retention-механики для удержания пользователей",
-        "Снижение ручной проверки платежей"
+        "Онбординг и прогрев в формате диалога в Telegram",
+        "Monopay Integration — уникальные ссылки на оплату в чате",
+        "Мгновенная доставка PDF-гайдов после подтверждения оплаты",
+        "Каталог продуктов и пакетные предложения со скидкой",
+        "Сценарии retention для удержания пользователя",
+        "Полная автономия без менеджеров и ручной проверки чеков"
       ],
       results: [
-        { value: "24/7", label: "Автономные продажи курса" },
-        { value: "100%", label: "Автоматическая выдача контента" },
-        { value: "↓", label: "Меньше ручных операций" },
-        { value: "↑", label: "Скорость обработки лидов" }
+        { value: "24/7", label: "Автономный магазин курса" },
+        { value: "0", label: "Ручных счетов в Instagram" },
+        { value: "100%", label: "Автоматическая выдача файлов" },
+        { value: "↑", label: "Скорость от оплаты до доставки" }
       ]
     },
     'snagging-services-uae': {

@@ -17,7 +17,7 @@ interface CasePageProps {
   caseId: string;
 }
 
-const montserrat = { fontFamily: 'var(--font-montserrat)' };
+const display = { fontFamily: 'var(--font-display)' };
 
 function copy(lang: Language, uk: string, en: string, pl: string, ru: string) {
   if (lang === 'en') return en;
@@ -138,13 +138,13 @@ export default function CasePage({ caseId }: CasePageProps) {
                   <div className="absolute right-0 top-0 flex h-1/2 w-1/2 flex-col items-end justify-end p-2 text-right sm:p-3 md:p-4 lg:p-6">
                     <span
                       className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-300 sm:text-xs md:text-sm"
-                      style={montserrat}
+                      style={display}
                     >
                       {copy(validLang, 'тип', 'type', 'typ', 'тип')}
                     </span>
                     <span
                       className="line-clamp-3 text-xs font-semibold uppercase leading-tight text-white sm:text-sm md:text-base lg:text-lg"
-                      style={montserrat}
+                      style={display}
                     >
                       {caseData.category}
                     </span>
@@ -154,13 +154,13 @@ export default function CasePage({ caseId }: CasePageProps) {
                   <div className="absolute bottom-0 left-0 flex h-1/2 w-1/2 flex-col items-start justify-start p-2 sm:p-3 md:p-4 lg:p-6">
                     <span
                       className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-300 sm:text-xs md:text-sm"
-                      style={montserrat}
+                      style={display}
                     >
                       {copy(validLang, 'строк', 'timeline', 'czas', 'срок')}
                     </span>
                     <span
                       className="text-sm font-semibold uppercase leading-tight text-white sm:text-base md:text-xl lg:text-2xl"
-                      style={montserrat}
+                      style={display}
                     >
                       {caseData.duration}
                     </span>
@@ -180,21 +180,21 @@ export default function CasePage({ caseId }: CasePageProps) {
               <Link
                 href={`/${validLang}/portfolio`}
                 className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/65 transition-colors hover:text-white sm:mb-5 sm:text-sm"
-                style={montserrat}
+                style={display}
               >
                 <FaArrowLeft className="h-3 w-3" />
                 {backLabel}
               </Link>
               <h1
                 className="font-black uppercase leading-[0.92] tracking-[-0.02em] text-white text-[clamp(1.75rem,7vw,2.5rem)] sm:text-[clamp(2.25rem,5.5vw,3.25rem)] md:text-5xl md:leading-[0.92] lg:text-6xl xl:text-[4.5rem] xl:leading-[0.9]"
-                style={montserrat}
+                style={display}
               >
                 {caseData.title}
               </h1>
               {caseData.subtitle && (
                 <p
                   className="mt-3 line-clamp-3 text-lg leading-snug text-white/90 sm:mt-4 sm:text-xl md:text-2xl lg:text-3xl"
-                  style={montserrat}
+                  style={display}
                 >
                   {caseData.subtitle}
                 </p>
@@ -220,7 +220,7 @@ export default function CasePage({ caseId }: CasePageProps) {
                 type="button"
                 onClick={scrollToCaseMedia}
                 className="hidden items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/65 transition-colors hover:text-white lg:inline-flex md:text-sm"
-                style={montserrat}
+                style={display}
               >
                 {copy(validLang, 'Переглянути фото', 'View photo', 'Zobacz zdjęcie', 'Смотреть фото')}
                 <span className="text-base md:text-lg" aria-hidden>

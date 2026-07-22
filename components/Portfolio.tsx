@@ -1,88 +1,92 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
-import { cases } from './cases';
+import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { translations, Language } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import CasePreviewModal from '@/components/CasePreviewModal';
 import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
+import {
+  getCaseCategory,
+  getCaseHref,
+  getCasesData,
+  getOrderedCaseIds,
+  isFlagshipCase,
+  type PortfolioCaseData,
+} from '@/lib/portfolioCases';
 
 const BLUR_DATA =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADY=';
 
-export default function Portfolio() {
+type PortfolioProps = {
+  onOrderClick?: () => void;
+};
+
+export default function Portfolio({ onOrderClick }: PortfolioProps) {
   const params = useParams();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const langParam = params?.lang as string;
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const t = translations[validLang];
-  const casesData = cases[validLang] || cases.uk;
+  const casesData = getCasesData(validLang);
 
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'chatbots' | 'websites'>('all');
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const [lightboxImage, setLightboxImage] = useState<{ src: string; alt: string } | null>(null);
+  const [previewCaseId, setPreviewCaseId] = useState<string | null>(null);
   const [portfolioRef, isPortfolioVisible] = useScrollAnimation();
   const [contentRef, isContentVisible] = useScrollAnimation();
   const [imageRef, isImageVisible] = useScrollAnimation();
   const [introRef, isIntroVisible] = useScrollAnimation();
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && lightboxOpen) setLightboxOpen(false);
-    };
-    if (lightboxOpen) {
-      document.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+  const openLightCase = useCallback(
+    (caseId: string, syncUrl = true) => {
+      setPreviewCaseId(caseId);
+      if (syncUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('case', caseId);
+        router.replace(`${url.pathname}?${url.searchParams.toString()}`, { scroll: false });
+      }
+    },
+    [router]
+  );
+
+  const closeLightCase = useCallback(() => {
+    setPreviewCaseId(null);
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('case')) {
+      url.searchParams.delete('case');
+      const qs = url.searchParams.toString();
+      router.replace(qs ? `${url.pathname}?${qs}` : url.pathname, { scroll: false });
     }
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
-    };
-  }, [lightboxOpen]);
+  }, [router]);
 
-  const imageMap: Record<string, { image: string; category: string }> = {
-    'tradeground-bot': { image: '/portfolio/portfolio-tradeground-bot.png', category: 'chatbots' },
-    '13vplus': { image: '/portfolio/portfolio-13vplus.jpg', category: 'websites' },
-    'dr-tolstikova-bot': { image: '/portfolio/portfolio-dr-tolstikova-bot.jpg', category: 'chatbots' },
-    'nieznany-piekarz': { image: '/portfolio/portfolio-nieznany-piekarz.png', category: 'websites' },
-    'nutritionist-bot': { image: '/portfolio/portfolio-nutritionist-bot.jpg', category: 'chatbots' },
-    'cats-fresh': { image: '/portfolio/portfolio-cats-fresh.jpg', category: 'websites' },
-    'applum-bot': { image: '/portfolio/portfolio-applum-bot.jpg', category: 'chatbots' },
-    'easyplay': { image: '/portfolio/portfolio-easyplay.jpg', category: 'websites' },
-    'webinar-bot': { image: '/portfolio/portfolio-webinar-bot.png', category: 'chatbots' },
-    'normalnoauto': { image: '/portfolio/portfolio-normalnoauto.png', category: 'chatbots' },
-    'kvartyrant': { image: '/portfolio/portfolio-kvartyrant.png', category: 'chatbots' },
-    'cosmy': { image: '/portfolio/portfolio-cosmy.png', category: 'chatbots' },
-    'newlineschool': { image: '/portfolio/portfolio-newlineschool.jpg', category: 'websites' },
-    'flixmarket': { image: '/portfolio/portfolio-flixmarket.jpg', category: 'chatbots' },
-    'alexandraaleksiuk': { image: '/portfolio/portfolio-alexandraaleksiuk.jpg', category: 'websites' },
-    'offer-dpuchkov': { image: '/portfolio/portfolio-offer-dpuchkov.jpg', category: 'websites' },
-    'vsk-technology': { image: '/portfolio/portfolio-vsk-technology.png', category: 'websites' },
-    'v12-auto': { image: '/portfolio/portfolio-v12-auto.png', category: 'websites' },
-    'tripvibe': { image: '/portfolio/portfolio-tripvibe.png', category: 'websites' },
-    'tron-energy-bot': { image: '/portfolio/portfolio-tron-energy-bot.jpg', category: 'chatbots' },
-    'chars-kyiv': { image: '/portfolio/portfolio-chars-kyiv.png', category: 'websites' },
-    'style-chat-vakhula': { image: '/portfolio/portfolio-style-chat-vakhula.jpg', category: 'chatbots' },
-    'landscaper-academy': { image: '/portfolio/portfolio-landscaper-academy.png', category: 'websites' },
-    "butenko-fit": { image: '/portfolio/butenko.jpg', category: 'websites' },
-  };
+  useEffect(() => {
+    const caseFromQuery = searchParams.get('case');
+    if (!caseFromQuery) {
+      setPreviewCaseId(null);
+      return;
+    }
+    if (casesData[caseFromQuery] && !isFlagshipCase(caseFromQuery)) {
+      setPreviewCaseId(caseFromQuery);
+      return;
+    }
+    if (isFlagshipCase(caseFromQuery)) {
+      router.replace(`/${validLang}/portfolio/${caseFromQuery}`);
+    }
+  }, [searchParams, casesData, router, validLang]);
 
-  const works = Object.keys(casesData).map((caseId) => {
-    const caseData = (casesData as Record<string, { mainImage?: string; portfolioCategory?: string; title?: string; subtitle?: string }>)[caseId];
-    const map = imageMap[caseId] || {
-      image: caseData?.mainImage || '/portfolio/portfolio-dr-tolstikova-bot.jpg',
-      category: (caseData?.portfolioCategory as string) || 'websites',
-    };
+  const works = getOrderedCaseIds(validLang).map((caseId) => {
+    const caseData = casesData[caseId];
     return {
       title: caseData?.title ?? 'Project',
       alt: caseData?.subtitle ?? '',
-      image: map.image,
+      image: caseData?.mainImage || '/portfolio/portfolio-dr-tolstikova-bot.jpg',
       caseId,
-      category: map.category as 'chatbots' | 'websites',
+      category: getCaseCategory(caseId, caseData),
+      flagship: isFlagshipCase(caseId),
     };
   });
 
@@ -90,13 +94,12 @@ export default function Portfolio() {
     ? works
     : works.filter((w) => w.category === selectedCategory);
 
-  // Різні розміри, пропорційно: базова клітинка квадрат → 1×1, 2×2 квадрати; 2×1, 1×2 прямокутники
   const sizePatterns = [
-    { colSpan: 4, rowSpan: 1 }, // повна ширина
+    { colSpan: 4, rowSpan: 1 },
     { colSpan: 2, rowSpan: 1 },
     { colSpan: 2, rowSpan: 1 },
-    { colSpan: 1, rowSpan: 2 }, // високий
-    { colSpan: 2, rowSpan: 2 }, // великий квадрат
+    { colSpan: 1, rowSpan: 2 },
+    { colSpan: 2, rowSpan: 2 },
     { colSpan: 1, rowSpan: 1 },
     { colSpan: 2, rowSpan: 1 },
     { colSpan: 1, rowSpan: 2 },
@@ -151,6 +154,9 @@ export default function Portfolio() {
     else if (COLS <= 2) c = Math.min(c, 2);
     return Math.max(1, c);
   };
+
+  const previewData: PortfolioCaseData | null =
+    previewCaseId && casesData[previewCaseId] ? casesData[previewCaseId] : null;
 
   return (
     <div className="min-h-screen bg-white">
@@ -233,7 +239,6 @@ export default function Portfolio() {
 
       <section id="portfolio" className={`py-16 sm:py-20 bg-white ${SITE_PX}`} ref={portfolioRef}>
         <div className="w-full max-w-6xl mx-auto">
-          {/* Category switcher */}
           <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
             <button
               onClick={() => setSelectedCategory('all')}
@@ -267,7 +272,6 @@ export default function Portfolio() {
             </button>
           </div>
 
-          {/* Сітка: висота рядка = ширина колонки → пропорційні картки, dense заповнює «діри» */}
           <div ref={gridContainerRef} className="w-full">
             <div
               className={`grid transition-all duration-500 ${
@@ -283,21 +287,8 @@ export default function Portfolio() {
             {filtered.map((work, index) => {
               const colSpan = getSpan(index, 'col');
               const rowSpan = getSpan(index, 'row');
-              return (
-                <div
-                  key={work.caseId}
-                  className="group relative overflow-hidden rounded-lg"
-                  style={{
-                    gridColumn: `span ${colSpan}`,
-                    gridRow: `span ${rowSpan}`,
-                  }}
-                  onClick={(e) => {
-                    if (!(e.target as HTMLElement).closest('a')) {
-                      setLightboxImage({ src: work.image, alt: work.alt });
-                      setLightboxOpen(true);
-                    }
-                  }}
-                >
+              const cardInner = (
+                <>
                   <div className="absolute inset-0 w-full h-full">
                     <Image
                       src={work.image}
@@ -312,11 +303,7 @@ export default function Portfolio() {
                     />
                   </div>
                   <div className="absolute inset-0 bg-black/45" />
-                  <Link
-                    href={`/${validLang}/portfolio/${work.caseId}`}
-                    className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/70 to-transparent p-3 sm:p-4 md:p-5"
-                    onClick={(e) => e.stopPropagation()}
-                  >
+                  <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/70 to-transparent p-3 sm:p-4 md:p-5">
                     <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white leading-tight line-clamp-2 mb-1">
                       {work.title}
                     </h3>
@@ -329,7 +316,36 @@ export default function Portfolio() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
                     </span>
-                  </Link>
+                  </div>
+                </>
+              );
+
+              return (
+                <div
+                  key={work.caseId}
+                  className="group relative overflow-hidden rounded-lg"
+                  style={{
+                    gridColumn: `span ${colSpan}`,
+                    gridRow: `span ${rowSpan}`,
+                  }}
+                >
+                  {work.flagship ? (
+                    <Link
+                      href={getCaseHref(validLang, work.caseId)}
+                      className="absolute inset-0 block"
+                    >
+                      {cardInner}
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      className="absolute inset-0 block w-full text-left"
+                      onClick={() => openLightCase(work.caseId)}
+                      aria-label={work.title}
+                    >
+                      {cardInner}
+                    </button>
+                  )}
                 </div>
               );
             })}
@@ -338,34 +354,14 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {lightboxOpen && lightboxImage && (
-        <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
-          onClick={() => setLightboxOpen(false)}
-        >
-          <button
-            onClick={() => setLightboxOpen(false)}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10 rounded-full p-2 hover:bg-white/10"
-            aria-label="Close"
-          >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-          <div
-            className="relative max-w-5xl w-full aspect-video flex items-center justify-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Image
-              src={lightboxImage.src}
-              alt={lightboxImage.alt}
-              fill
-              className="object-contain"
-              quality={95}
-              sizes="90vw"
-            />
-          </div>
-        </div>
+      {previewCaseId && previewData && (
+        <CasePreviewModal
+          caseId={previewCaseId}
+          caseData={previewData}
+          lang={validLang}
+          onClose={closeLightCase}
+          onOrderClick={onOrderClick}
+        />
       )}
     </div>
   );

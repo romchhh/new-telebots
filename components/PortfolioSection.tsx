@@ -6,8 +6,8 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 import { useScrollAnimation } from './useScrollAnimation';
 import { Language } from './translations';
-import { cases } from './cases';
 import { SITE_PX } from '@/lib/siteLayout';
+import { getCaseHref, getCasesData, getOrderedCaseIds } from '@/lib/portfolioCases';
 
 interface PortfolioSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -16,7 +16,7 @@ interface PortfolioSectionProps {
 function PortfolioProject({ project, lang }: { project: { image: string; category: string; title: string; caseId: string }; lang: Language }) {
   return (
     <Link
-      href={`/${lang}/portfolio/${project.caseId}`}
+      href={getCaseHref(lang, project.caseId)}
       className="group flex-shrink-0 w-[280px] min-w-[280px] sm:w-[320px] sm:min-w-[320px] aspect-square block relative overflow-hidden rounded-lg snap-start"
     >
       <div className="absolute inset-0 w-full h-full">
@@ -54,11 +54,11 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [contentRef, isContentVisible] = useScrollAnimation();
 
-  const casesData = cases[validLang] || cases.uk;
-  const allCaseIds = Object.keys(casesData);
+  const casesData = getCasesData(validLang);
+  const allCaseIds = getOrderedCaseIds(validLang);
 
   const projects = allCaseIds.map((caseId) => {
-    const caseData = (casesData as Record<string, { mainImage?: string; portfolioCategory?: string; title?: string }>)[caseId];
+    const caseData = casesData[caseId];
     const category = caseData?.portfolioCategory === 'chatbots' ? t.portfolio.telegram : t.portfolio.website;
     return {
       image: caseData?.mainImage || '/portfolio/portfolio-dr-tolstikova-bot.jpg',

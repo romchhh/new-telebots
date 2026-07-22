@@ -114,7 +114,7 @@ export default function ServiceHeroSection({
           />
           <p
             className="relative px-6 py-5 md:px-5 md:py-5 lg:px-6 lg:py-6 xl:px-7 xl:py-7 text-white/90 font-normal leading-relaxed text-[17px] md:text-[18px] lg:text-[19px] xl:text-[21px]"
-            style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.02em' }}
+            style={{ fontFamily: 'var(--font-sans)', letterSpacing: '0.02em' }}
           >
             {hero.tagline}
           </p>
@@ -180,14 +180,14 @@ export default function ServiceHeroSection({
         <div className="mx-auto w-full max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
           <h1
             className="mx-auto mb-3 max-w-[min(100%,36rem)] font-bold uppercase leading-tight text-white sm:mb-3 sm:max-w-3xl sm:leading-[1.12] md:mb-4 md:max-w-4xl lg:max-w-5xl text-[clamp(1rem,3.4vw,1.75rem)] sm:text-2xl md:text-3xl lg:text-4xl [letter-spacing:0.04em] sm:[letter-spacing:0.05em] md:[letter-spacing:0.07em]"
-            style={{ fontFamily: 'var(--font-montserrat)' }}
+            style={{ fontFamily: 'var(--font-sans)' }}
           >
             {hero.title}
           </h1>
           {hero.subtitle?.trim() && (
             <p
               className="mb-3 font-normal leading-snug text-white sm:mb-4 md:mb-5 text-base sm:text-lg md:text-xl [letter-spacing:0.03em] sm:[letter-spacing:0.05em] md:[letter-spacing:0.07em]"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
+              style={{ fontFamily: 'var(--font-sans)' }}
             >
               {hero.subtitle}
             </p>

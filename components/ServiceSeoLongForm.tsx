@@ -9,7 +9,7 @@ interface ServiceSeoLongFormProps {
   copy: ServiceLongFormBundle;
 }
 
-const montserrat = { fontFamily: 'var(--font-montserrat)' } as const;
+const display = { fontFamily: 'var(--font-display)' } as const;
 const shell = 'max-w-7xl mx-auto w-full';
 const sectionPad = SITE_PX;
 const sectionY = 'py-20 md:py-28';
@@ -24,7 +24,7 @@ function SectionTitle({ children, index, dark }: { children: ReactNode; index?: 
               ? 'block text-[6rem] md:text-[8rem] font-light leading-none text-white/[0.08] select-none -mb-6 md:-mb-8'
               : 'block text-[6rem] md:text-[8rem] font-light leading-none text-gray-100 select-none -mb-6 md:-mb-8'
           }
-          style={montserrat}
+          style={display}
           aria-hidden
         >
           {String(index).padStart(2, '0')}
@@ -33,10 +33,10 @@ function SectionTitle({ children, index, dark }: { children: ReactNode; index?: 
       <h2
         className={
           dark
-            ? 'text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight relative z-10'
-            : 'text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight relative z-10'
+            ? 'text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight relative z-10'
+            : 'text-3xl sm:text-4xl lg:text-5xl font-bold text-black tracking-tight leading-tight relative z-10'
         }
-        style={montserrat}
+        style={display}
       >
         {children}
       </h2>
@@ -74,8 +74,8 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
                 className="w-[calc(50%-12px)] min-w-[140px] max-w-[420px] md:w-[calc(33.333%-16px)] rounded-3xl p-6 sm:p-8 border border-gray-200/70 bg-white/45 backdrop-blur-xl shadow-[0_18px_45px_rgba(0,0,0,0.07)] hover:shadow-[0_26px_60px_rgba(0,0,0,0.11)] hover:bg-white/75 hover:border-gray-300/90 transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]"
               >
                 <h3
-                  className="text-xl sm:text-2xl font-black text-black tracking-tight mb-3 leading-tight"
-                  style={montserrat}
+                  className="text-xl sm:text-2xl font-bold text-black tracking-tight mb-3 leading-tight"
+                  style={display}
                 >
                   {item.title}
                 </h3>
@@ -116,7 +116,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
                 >
                   <span
                     className="block text-[2.75rem] md:text-[3rem] font-light italic leading-none text-black mb-5 select-none"
-                    style={montserrat}
+                    style={display}
                     aria-hidden
                   >
                     [{String(i + 1).padStart(2, '0')}]
@@ -163,7 +163,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
                   >
                     <span
                       className="text-white text-xl md:text-2xl lg:text-3xl font-light leading-snug"
-                      style={montserrat}
+                      style={display}
                     >
                       {item.question}
                     </span>
@@ -183,7 +183,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
                     <div className="pb-6 md:pb-8 pr-4 sm:pr-12">
                       <p
                         className="text-gray-300 text-lg md:text-xl font-light leading-relaxed"
-                        style={montserrat}
+                        style={display}
                       >
                         {item.answer}
                       </p>

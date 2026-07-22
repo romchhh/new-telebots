@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cases } from '@/components/cases';
+import { getFlagshipCaseIds } from '@/lib/portfolioCases';
 import { buildHreflangXmlLinks } from '@/lib/seo';
 import { SEO_LANDING_SLUGS } from '@/lib/seoLandings';
 import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
@@ -90,7 +91,8 @@ export async function GET() {
 
   for (const lang of languages) {
     const casesData = cases[lang as keyof typeof cases] || cases.uk;
-    const caseIds = Object.keys(casesData);
+    // Only flagship case URLs — light cases live on /portfolio (no thin pages)
+    const caseIds = getFlagshipCaseIds(lang as 'uk' | 'en' | 'pl' | 'ru');
     for (const caseId of caseIds) {
       const url = `${baseUrl}/${lang}/portfolio/${caseId}`;
       const caseData = (casesData as Record<string, { mainImage?: string }>)[caseId];

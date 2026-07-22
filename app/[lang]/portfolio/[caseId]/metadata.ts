@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import { cases } from '@/components/cases';
 import { Language } from '@/components/translations';
+import { isFlagshipCase, isLightCase } from '@/lib/portfolioCases';
 import {
   buildCaseSeoDescription,
   buildCaseSeoKeywords,
@@ -26,11 +27,15 @@ export async function generateMetadata(params: {
     results?: Array<{ value: string; label: string }>;
   }>)[params.caseId];
 
-  if (!caseData) {
+  // Light / unknown: noindex — middleware 308 should already send crawlers to /portfolio
+  if (!caseData || isLightCase(params.caseId) || !isFlagshipCase(params.caseId)) {
     return {
-      title: 'Case Not Found',
-      description: 'The requested case was not found.',
-      robots: { index: false, follow: false },
+      title: 'Case',
+      description: 'Portfolio case',
+      robots: { index: false, follow: true },
+      alternates: {
+        canonical: `${baseUrl}/${lang}/portfolio`,
+      },
     };
   }
 
@@ -48,7 +53,8 @@ export async function generateMetadata(params: {
   const url = `${baseUrl}/${lang}/portfolio/${params.caseId}`;
   const keywords = buildCaseSeoKeywords(caseData, lang);
   const hreflangLangs = SITE_LANGUAGES.filter((siteLang) =>
-    Boolean((cases[siteLang as Language] as Record<string, unknown>)?.[params.caseId])
+    Boolean((cases[siteLang as Language] as Record<string, unknown>)?.[params.caseId]) &&
+      isFlagshipCase(params.caseId)
   );
 
   return {
@@ -66,11 +72,3 @@ export async function generateMetadata(params: {
     keywords,
   };
 }
-
-
-
-
-
-
-
-

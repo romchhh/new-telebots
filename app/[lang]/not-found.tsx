@@ -102,7 +102,7 @@ export default function NotFound() {
             {/* Ліва частина - 404 та текст */}
             <div className="text-center md:text-left">
               <div className="mb-8 relative inline-block">
-                <h1 className="text-[12rem] md:text-[18rem] font-black text-white leading-none mb-4 relative z-10" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                <h1 className="text-[12rem] md:text-[18rem] font-black text-white leading-none mb-4 relative z-10" style={{ fontFamily: 'var(--font-sans)' }}>
                   404
                 </h1>
                 <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600" />
@@ -111,12 +111,12 @@ export default function NotFound() {
               <div className="mb-8">
                 <div className="flex items-center justify-center md:justify-start mb-6">
                   <div className="w-12 h-px bg-white/50 mr-4"></div>
-                  <h2 className="text-sm font-black text-white/80 tracking-wider uppercase" style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.2em' }}>
+                  <h2 className="text-sm font-black text-white/80 tracking-wider uppercase" style={{ fontFamily: 'var(--font-sans)', letterSpacing: '0.2em' }}>
                     {t.footer.notFound}
                   </h2>
                   <div className="w-12 h-px bg-white/50 ml-4"></div>
                 </div>
-                <p className="text-xl md:text-2xl text-gray-300 font-semibold leading-relaxed mb-6" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                <p className="text-xl md:text-2xl text-gray-300 font-semibold leading-relaxed mb-6" style={{ fontFamily: 'var(--font-sans)' }}>
                   {t.footer.notFoundDesc}
                 </p>
                 <p className="text-base text-gray-400 font-normal leading-relaxed">
@@ -134,7 +134,7 @@ export default function NotFound() {
                 <Link
                   href={`/${lang}`}
                   className="group inline-flex items-center justify-center bg-white text-black px-8 py-4 hover:bg-gray-100 transition-all duration-300 rounded-full font-black tracking-wider"
-                  style={{ fontFamily: 'var(--font-montserrat)' }}
+                  style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   <Home className="w-5 h-5 mr-2" />
                   <span>{t.footer.backHome}</span>
@@ -142,7 +142,7 @@ export default function NotFound() {
                 <button
                   onClick={() => router.back()}
                   className="group inline-flex items-center justify-center border-2 border-white/30 text-white px-8 py-4 hover:border-white hover:bg-white/10 transition-all duration-300 rounded-full font-black tracking-wider"
-                  style={{ fontFamily: 'var(--font-montserrat)' }}
+                  style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   <ArrowLeft className="w-5 h-5 mr-2" />
                   <span>{lang === 'uk' ? 'Назад' : lang === 'en' ? 'Back' : lang === 'pl' ? 'Wstecz' : 'Назад'}</span>
@@ -155,7 +155,7 @@ export default function NotFound() {
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
                 <div className="flex items-center mb-6">
                   <Search className="w-5 h-5 mr-3 text-white/60" />
-                  <h3 className="text-lg font-black text-white uppercase tracking-wider" style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.1em' }}>
+                  <h3 className="text-lg font-black text-white uppercase tracking-wider" style={{ fontFamily: 'var(--font-sans)', letterSpacing: '0.1em' }}>
                     {lang === 'uk' ? 'Швидка навігація' : lang === 'en' ? 'Quick Navigation' : lang === 'pl' ? 'Szybka nawigacja' : 'Быстрая навигация'}
                   </h3>
                 </div>
@@ -167,7 +167,7 @@ export default function NotFound() {
                         className="group flex items-center text-gray-300 hover:text-white transition-all duration-300 py-2"
                       >
                         <div className="w-0 group-hover:w-2 h-px bg-white transition-all duration-300 mr-0 group-hover:mr-3" />
-                        <span className="font-semibold uppercase tracking-wider text-sm" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                        <span className="font-semibold uppercase tracking-wider text-sm" style={{ fontFamily: 'var(--font-sans)' }}>
                           {link.label}
                         </span>
                         <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">

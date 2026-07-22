@@ -62,7 +62,7 @@ export default function PricingTable({
             {sectionIndex !== undefined && (
               <span
                 className="-mb-6 block select-none text-[6rem] font-light leading-none text-gray-100 md:-mb-8 md:text-[8rem]"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
+                style={{ fontFamily: 'var(--font-sans)' }}
                 aria-hidden
               >
                 {String(sectionIndex).padStart(2, '0')}
@@ -70,7 +70,7 @@ export default function PricingTable({
             )}
             <h2
               className="relative z-10 mb-4 text-3xl font-black tracking-tight text-black sm:text-4xl lg:text-5xl"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
+              style={{ fontFamily: 'var(--font-sans)' }}
             >
               {pricing.title}
             </h2>

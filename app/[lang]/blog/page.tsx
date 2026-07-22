@@ -139,13 +139,13 @@ export default function BlogPage() {
             >
               <h1
                 className="mb-3 font-bold uppercase leading-[1.12] text-white sm:mb-4 sm:leading-[1.15] md:mb-5 text-[clamp(1.45rem,6.2vw,2.35rem)] sm:text-4xl md:text-5xl lg:text-6xl [letter-spacing:0.05em] sm:[letter-spacing:0.1em] md:[letter-spacing:0.12em]"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
+                style={{ fontFamily: 'var(--font-sans)' }}
               >
                 {t.blog?.title || 'Соцмережі'}
               </h1>
               <p
                 className="mb-4 font-normal leading-snug text-white sm:mb-5 md:mb-6 text-lg sm:text-xl md:text-2xl [letter-spacing:0.04em] sm:[letter-spacing:0.08em] md:[letter-spacing:0.1em]"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
+                style={{ fontFamily: 'var(--font-sans)' }}
               >
                 {t.blog?.subtitle ||
                   'Дізнавайтеся про останні новини, кейси та корисні поради від нашої команди'}
@@ -165,7 +165,7 @@ export default function BlogPage() {
               ref={articlesRef}
               className={`mb-12 text-center scroll-animate-up md:mb-16 ${isArticlesVisible ? 'animate' : ''}`}
             >
-              <h2 className={`${sectionHeadingClass} mb-4`} style={{ fontFamily: 'var(--font-montserrat)' }}>
+              <h2 className={`${sectionHeadingClass} mb-4`} style={{ fontFamily: 'var(--font-sans)' }}>
                 {t.blog?.articlesTitle || 'Статті та гайди'}
               </h2>
               <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl">
@@ -188,12 +188,12 @@ export default function BlogPage() {
               className={`mb-12 md:mb-16 text-center scroll-animate-up ${isChannelsVisible ? 'animate' : ''}`}
               ref={channelsRef}
             >
-              <h2 className={`${sectionHeadingWhiteClass} mb-6`} style={{ fontFamily: 'var(--font-montserrat)' }}>
+              <h2 className={`${sectionHeadingWhiteClass} mb-6`} style={{ fontFamily: 'var(--font-sans)' }}>
                 {t.blog?.channelsTitle || 'Слідкуйте за нами'}
               </h2>
               <p
                 className="text-lg sm:text-xl md:text-2xl text-gray-300 font-normal leading-relaxed max-w-4xl mx-auto"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
+                style={{ fontFamily: 'var(--font-sans)' }}
               >
                 {t.blog?.channelsSubtitle ||
                   'Підписуйтесь на наші канали, щоб отримувати найсвіжіші новини та корисний контент'}
@@ -206,7 +206,7 @@ export default function BlogPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center text-center rounded-2xl border border-white/20 bg-black/40 p-8 md:p-10 transition-colors hover:border-white/40"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
+                style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-white">
                   <Instagram className="h-8 w-8 text-white" strokeWidth={2} />
@@ -225,7 +225,7 @@ export default function BlogPage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex flex-col items-center text-center rounded-2xl border border-white/20 bg-black/40 p-8 md:p-10 transition-colors hover:border-white/40"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
+                style={{ fontFamily: 'var(--font-sans)' }}
               >
                 <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full border border-white">
                   <Send className="h-8 w-8 text-white" strokeWidth={2} />
@@ -246,7 +246,7 @@ export default function BlogPage() {
         <section className={`bg-white py-20 md:py-28 ${SITE_PX}`}>
           <div className="mx-auto max-w-7xl">
             <div className={`mb-16 md:mb-24 scroll-animate-up ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
-              <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-montserrat)' }}>
+              <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-sans)' }}>
                 {t.blog?.descriptionTitle || 'Наші соцмережі'}
               </h2>
               <p className="max-w-4xl text-xl font-semibold leading-relaxed text-gray-800 md:text-2xl">
@@ -257,7 +257,7 @@ export default function BlogPage() {
 
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 xl:gap-32">
               <div className={`scroll-animate-left ${isLeftVisible ? 'animate' : ''}`} ref={leftRef}>
-                <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-montserrat)' }}>
+                <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-sans)' }}>
                   {t.blog?.contentTitle || 'Що ми публікуємо'}
                 </h2>
                 <ul className="space-y-5">
@@ -281,7 +281,7 @@ export default function BlogPage() {
               </div>
 
               <div className={`scroll-animate-right ${isRightVisible ? 'animate' : ''}`} ref={rightRef}>
-                <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-montserrat)' }}>
+                <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-sans)' }}>
                   {t.blog?.benefitsTitle || 'Чому варто читати'}
                 </h2>
                 <ul className="space-y-5">

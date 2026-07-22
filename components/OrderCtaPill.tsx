@@ -126,7 +126,7 @@ export default function OrderCtaPill({
         onClick={onClick}
         className={classes}
         aria-label={label}
-        style={{ fontFamily: 'var(--font-montserrat)' }}
+        style={{ fontFamily: 'var(--font-sans)' }}
       >
         {content}
       </Link>
@@ -139,7 +139,7 @@ export default function OrderCtaPill({
       onClick={onClick}
       aria-label={label}
       className={classes}
-      style={{ fontFamily: 'var(--font-montserrat)' }}
+      style={{ fontFamily: 'var(--font-sans)' }}
     >
       {content}
     </button>

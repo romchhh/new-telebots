@@ -41,7 +41,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         </div>
         <h3
           className="mb-2 text-lg font-black leading-snug text-black group-hover:underline md:text-xl"
-          style={{ fontFamily: 'var(--font-montserrat)' }}
+          style={{ fontFamily: 'var(--font-sans)' }}
         >
           {post.title}
         </h3>

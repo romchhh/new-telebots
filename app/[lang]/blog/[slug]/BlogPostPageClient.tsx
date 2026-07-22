@@ -118,7 +118,7 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
                 </p>
                 <h1
                   className="text-3xl font-black leading-tight tracking-tight text-black sm:text-4xl md:text-5xl"
-                  style={{ fontFamily: 'var(--font-montserrat)' }}
+                  style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   {post.title}
                 </h1>

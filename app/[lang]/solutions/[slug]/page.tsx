@@ -21,6 +21,7 @@ import {
   isSeoLandingSlug,
   type SeoLandingSlug,
 } from '@/lib/seoLandings';
+import { getCaseHref } from '@/lib/portfolioCases';
 
 const montserrat = { fontFamily: 'var(--font-montserrat)' };
 
@@ -341,7 +342,7 @@ export default function SeoSolutionPage() {
                 {media.gallery.map((src, i) => (
                   <Link
                     key={src}
-                    href={`/${lang}/portfolio/${media.caseIds[i]}`}
+                    href={getCaseHref(lang, media.caseIds[i])}
                     className="group overflow-hidden rounded-2xl border border-gray-100 bg-zinc-50"
                   >
                     <div className="relative aspect-[4/3] overflow-hidden">

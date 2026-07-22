@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useParams, useRouter } from 'next/navigation';
-import { notFound } from 'next/navigation';
+import { useParams, useRouter, notFound } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import CasePage from '@/components/CasePage';
@@ -12,6 +11,7 @@ import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { cases } from '@/components/cases';
+import { getCaseHref, isFlagshipCase, isLightCase } from '@/lib/portfolioCases';
 
 export default function CasePageRoute() {
   const params = useParams();
@@ -27,10 +27,9 @@ export default function CasePageRoute() {
   const t = translations[lang];
   const currentCaseData = ((cases[lang] || cases.uk) as Record<string, { title?: string }>)[caseId];
   const currentCaseTitle = currentCaseData?.title || caseId;
-
-  if (!currentCaseData) {
-    notFound();
-  }
+  const shouldRedirectToHub = Boolean(
+    caseId && (isLightCase(caseId) || (currentCaseData && !isFlagshipCase(caseId)))
+  );
 
   useEffect(() => {
     if (langParam && langParam !== lang && ['uk', 'en', 'pl', 'ru'].includes(langParam)) {
@@ -39,20 +38,36 @@ export default function CasePageRoute() {
   }, [langParam, lang]);
 
   useEffect(() => {
+    if (shouldRedirectToHub) {
+      router.replace(getCaseHref(validLang, caseId));
+    }
+  }, [shouldRedirectToHub, caseId, router, validLang]);
+
+  useEffect(() => {
+    if (shouldRedirectToHub) return;
+
     const checkScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     checkScroll();
     window.scrollTo(0, 0);
-    
+
     const handleScroll = () => {
       checkScroll();
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [shouldRedirectToHub]);
+
+  if (!currentCaseData) {
+    notFound();
+  }
+
+  if (shouldRedirectToHub) {
+    return null;
+  }
 
   const handleLangChange = (newLang: Language) => {
     setLang(newLang);
@@ -132,4 +147,3 @@ export default function CasePageRoute() {
     </>
   );
 }
-

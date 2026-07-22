@@ -1,6 +1,7 @@
 import { Language } from '@/components/translations';
 import { cases } from '@/components/cases';
 import { legal } from '@/lib/legal';
+import { isFlagshipCase } from '@/lib/portfolioCaseTiers';
 import { siteUrl, SITE_LANGUAGES, DEFAULT_SITE_LANGUAGE, type SiteLanguage } from '@/lib/site';
 
 const baseUrl = siteUrl;
@@ -377,6 +378,8 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
 }
 
 export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
+  if (!isFlagshipCase(caseId)) return null;
+
   const casesData = cases[lang] || cases.uk;
   const caseData = (casesData as Record<string, {
     title: string;

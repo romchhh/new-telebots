@@ -62,7 +62,7 @@ function PrincipleCard({
   linkLabel: string;
   className?: string;
 }) {
-  const montserrat = { fontFamily: 'var(--font-montserrat)' };
+  const montserrat = { fontFamily: 'var(--font-sans)' };
 
   return (
     <article
@@ -105,7 +105,7 @@ export default function HomePrinciplesSection({
   allServicesLabel,
   pricingLabel,
 }: HomePrinciplesSectionProps) {
-  const montserrat = { fontFamily: 'var(--font-montserrat)' };
+  const montserrat = { fontFamily: 'var(--font-sans)' };
 
   return (
     <section

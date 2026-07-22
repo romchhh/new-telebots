@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -10,7 +10,7 @@ import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
-import { cases } from '@/components/cases';
+import { getCaseHref, getCasesData, getFlagshipCaseIds } from '@/lib/portfolioCases';
 
 export default function PortfolioPage() {
   const params = useParams();
@@ -25,14 +25,13 @@ export default function PortfolioPage() {
   const [selectedService, setSelectedService] = useState('');
   const t = translations[lang];
 
-  // Створюємо список проєктів для ItemList schema
-  const casesData = cases[validLang] || cases.uk;
-  const allCaseIds = Object.keys(casesData);
-  const portfolioItems = allCaseIds.map((caseId) => {
-    const caseData = (casesData as any)[caseId];
+  // ItemList лише для флагманських кейсів (індексовані URL)
+  const casesData = getCasesData(validLang);
+  const portfolioItems = getFlagshipCaseIds(validLang).map((caseId) => {
+    const caseData = casesData[caseId];
     return {
       name: caseData?.title || 'Project',
-      url: `/${validLang}/portfolio/${caseId}`,
+      url: getCaseHref(validLang, caseId),
       description: caseData?.subtitle || '',
     };
   });
@@ -126,7 +125,9 @@ export default function PortfolioPage() {
           onConsultClick={openModal}
         />
         <main id="main-content">
-        <Portfolio />
+        <Suspense fallback={<div className="min-h-screen bg-white" />}>
+          <Portfolio onOrderClick={openModal} />
+        </Suspense>
         </main>
         <Footer
           t={t}

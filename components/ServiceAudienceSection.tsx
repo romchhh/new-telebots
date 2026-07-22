@@ -11,7 +11,7 @@ interface ServiceAudienceSectionProps {
   copy: ServiceAudienceCopy;
 }
 
-const montserrat = { fontFamily: 'var(--font-montserrat)' } as const;
+const montserrat = { fontFamily: 'var(--font-sans)' } as const;
 
 export default function ServiceAudienceSection({ copy }: ServiceAudienceSectionProps) {
   const { title, titleAccent, items } = copy;
