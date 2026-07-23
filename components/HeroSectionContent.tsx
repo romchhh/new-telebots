@@ -11,15 +11,6 @@ interface HeroSectionContentProps {
 const montserrat = { fontFamily: 'var(--font-montserrat)' };
 
 export default function HeroSectionContent({ t, onOrderClick }: HeroSectionContentProps) {
-  const handleScrollDown = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
-    }
-  };
-
   return (
     <>
       <div className="absolute inset-0 z-10 bg-black/35" aria-hidden />
@@ -96,12 +87,6 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
             >
               {t.hero.title}
             </h1>
-            <p
-              className="mt-2 line-clamp-2 text-lg leading-snug text-white/90 sm:mt-3 sm:text-xl md:mt-4 md:text-2xl lg:text-3xl"
-              style={montserrat}
-            >
-              {t.hero.subtitle}
-            </p>
           </div>
         </div>
 
@@ -122,18 +107,6 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
                 {t.hero.intro}
               </p>
             )}
-            <button
-              type="button"
-              onClick={handleScrollDown}
-              className="mt-1 hidden items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/65 transition-colors hover:text-white lg:inline-flex md:text-sm"
-              style={montserrat}
-              aria-label={t.hero.viewButton}
-            >
-              {t.hero.viewButton}
-              <span className="text-base md:text-lg" aria-hidden>
-                ↓
-              </span>
-            </button>
           </div>
 
           {onOrderClick && (
