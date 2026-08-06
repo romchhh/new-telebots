@@ -38,13 +38,13 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
           className={`pt-12 pb-12 lg:pb-24 lg:pt-0 flex flex-col justify-start ${SITE_PX} ${imagePosition === 'left' ? 'lg:col-start-2' : ''} ${animationClass} ${isContentVisible ? 'animate' : ''}`}
           ref={contentRef}
         >
-          <h2 className="text-4xl md:text-6xl font-black text-black mb-6 leading-tight">
+          <h2 className="mb-6 text-3xl font-semibold leading-tight text-black md:text-5xl lg:text-6xl">
             {service.title}
           </h2>
-          <p className="text-xl md:text-2xl text-gray-600 leading-relaxed mb-8 font-semibold">
+          <p className="mb-6 text-lg font-normal leading-relaxed text-gray-600 md:mb-8 md:text-2xl">
             {service.subtitle}
           </p>
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 font-normal">
+          <p className="mb-10 text-base font-normal leading-relaxed text-gray-500 md:text-xl">
             {service.description}
           </p>
 

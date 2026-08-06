@@ -204,7 +204,7 @@ export default function ServicePage() {
               <div className={`relative z-10 w-full pb-16 md:pb-20 lg:pb-24 ${SITE_PX}`}>
                 <div className="max-w-4xl">
                   <h1
-                    className="font-bold text-white mb-4 md:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
+                    className="mb-4 font-semibold text-white md:mb-6 text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
                     style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.05em' }}
                   >
                     {serviceTitle}
@@ -249,7 +249,7 @@ export default function ServicePage() {
                     TeleBots
                   </p>
                   <h2
-                    className="relative z-10 -mt-5 sm:-mt-7 md:-mt-9 text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight"
+                    className="relative z-10 -mt-5 text-2xl font-semibold leading-tight tracking-tight text-black sm:-mt-7 sm:text-4xl md:-mt-9 lg:text-5xl"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {serviceExtended.descriptionSectionTitle}
@@ -257,12 +257,12 @@ export default function ServicePage() {
                 </div>
               ) : null}
               {longForm ? (
-                <div className="max-w-3xl mx-auto space-y-6 md:space-y-7">
+                <div className="mx-auto max-w-3xl space-y-6 md:space-y-7">
                   {longForm.aboutParagraphs.map((paragraph, idx) => (
                     <p
                       key={idx}
-                      className="text-lg md:text-xl text-gray-900 leading-snug font-light"
-                      style={{ fontFamily: 'var(--font-display)' }}
+                      className="text-base leading-relaxed font-normal text-gray-700 md:text-lg"
+                      style={{ fontFamily: 'var(--font-sans)' }}
                     >
                       {paragraph}
                     </p>
@@ -270,8 +270,8 @@ export default function ServicePage() {
                 </div>
               ) : (
                 <p
-                  className="max-w-3xl mx-auto text-xl md:text-2xl text-gray-900 leading-snug font-light text-center"
-                  style={{ fontFamily: 'var(--font-display)' }}
+                  className="mx-auto max-w-3xl text-center text-base leading-relaxed font-normal text-gray-700 md:text-lg"
+                  style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   {service.description}
                 </p>
@@ -279,20 +279,20 @@ export default function ServicePage() {
 
               {!longForm && serviceStructure && (
                 <div className="space-y-6">
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight">
+                  <h2 className="text-2xl font-semibold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl">
                     {serviceStructure.mainTitle}
                   </h2>
                   <div className="space-y-3">
-                    <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
+                    <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
                       {serviceStructure.leadGenTitle}
                     </h2>
-                    <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
+                    <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
                       {serviceStructure.supportTitle}
                     </h2>
-                    <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
+                    <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
                       {serviceStructure.salesTitle}
                     </h2>
-                    <h2 className="text-xl sm:text-2xl font-black text-black tracking-tight leading-tight">
+                    <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
                       {serviceStructure.crmTitle}
                     </h2>
                   </div>
@@ -316,7 +316,7 @@ export default function ServicePage() {
                   >
                     03
                   </span>
-                  <h2 className="relative z-10 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+                  <h2 className="relative z-10 text-2xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
                     {t.services.servicePagePortfolioTitle}
                   </h2>
                   <p className="mt-4 max-w-lg text-base leading-relaxed text-gray-400">
@@ -365,40 +365,43 @@ export default function ServicePage() {
               terms: (blocksRaw.termsTitle as string) || 'Умови',
               integrations: (blocksRaw.integrationsTitle as string) || 'Інтеграції',
             };
-            const cardClass = 'rounded-3xl p-6 sm:p-8 border border-gray-200/70 bg-white/45 backdrop-blur-xl shadow-[0_18px_45px_rgba(0,0,0,0.07)] hover:shadow-[0_26px_60px_rgba(0,0,0,0.11)] hover:bg-white/75 hover:border-gray-300/90 transition-all duration-300';
-            const textClass = 'text-lg md:text-xl text-gray-900 leading-snug font-light';
+            const cardClass =
+              'rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 md:p-8 border border-gray-200/70 bg-white/45 backdrop-blur-xl shadow-[0_12px_32px_rgba(0,0,0,0.06)] sm:shadow-[0_18px_45px_rgba(0,0,0,0.07)] transition-all duration-300';
+            const textClass = 'text-sm sm:text-base md:text-lg text-gray-700 leading-snug font-normal';
             const headingStyle = { fontFamily: 'var(--font-display)' };
             return (
-              <section ref={blocksRef} className={`py-20 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isBlocksVisible ? 'animate' : ''}`}>
-                <div className="w-full space-y-14 md:space-y-16">
+              <section ref={blocksRef} className={`py-16 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isBlocksVisible ? 'animate' : ''}`}>
+                <div className="w-full space-y-10 md:space-y-16">
                   {[
                     { title: titles.whatWeDo, items: content.whatWeDo, index: 5 },
                     { title: titles.terms, items: content.terms || [], index: 6 },
                     { title: titles.integrations, items: content.integrations || [], index: 7 },
                   ].map(({ title: groupTitle, items: groupItems, index }) => (
                     <div key={groupTitle}>
-                      <div className="text-center mb-10 md:mb-12">
+                      <div className="mb-8 text-center md:mb-12">
                         <span
-                          className="block text-[6rem] md:text-[8rem] font-light leading-none text-gray-100 select-none -mb-6 md:-mb-8"
+                          className="mb-[-1.25rem] block select-none text-[5rem] font-light leading-none text-gray-100 md:mb-[-2rem] md:text-[8rem]"
                           style={headingStyle}
                           aria-hidden
                         >
                           {String(index).padStart(2, '0')}
                         </span>
                         <h2
-                          className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight"
+                          className="relative z-10 text-2xl font-semibold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl"
                           style={headingStyle}
                         >
                           {groupTitle}
                         </h2>
                       </div>
-                      <div className="flex flex-wrap justify-center gap-6">
+                      <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
                         {groupItems.map((item, i) => (
                           <div
                             key={i}
-                            className={`w-[calc(50%-12px)] min-w-[140px] max-w-[420px] md:w-[calc(33.333%-16px)] ${cardClass}`}
+                            className={`w-[calc(50%-6px)] min-w-0 max-w-[420px] md:w-[calc(33.333%-16px)] ${cardClass}`}
                           >
-                            <p className={textClass} style={headingStyle}>{item}</p>
+                            <p className={textClass} style={headingStyle}>
+                              {item}
+                            </p>
                           </div>
                         ))}
                       </div>

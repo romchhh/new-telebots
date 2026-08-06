@@ -179,7 +179,7 @@ export default function ServiceHeroSection({
       <div className={`relative z-30 flex w-full flex-1 items-end justify-center pb-10 pt-10 md:pb-20 md:pt-0 lg:pb-24 ${SITE_PX}`}>
         <div className="mx-auto w-full max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
           <h1
-            className="mx-auto mb-3 max-w-[min(100%,36rem)] font-bold uppercase leading-tight text-white sm:mb-3 sm:max-w-3xl sm:leading-[1.12] md:mb-4 md:max-w-4xl lg:max-w-5xl text-[clamp(1rem,3.4vw,1.75rem)] sm:text-2xl md:text-3xl lg:text-4xl [letter-spacing:0.04em] sm:[letter-spacing:0.05em] md:[letter-spacing:0.07em]"
+            className="mx-auto mb-3 max-w-[min(100%,36rem)] font-semibold uppercase leading-tight text-white sm:mb-3 sm:max-w-3xl sm:leading-[1.12] md:mb-4 md:max-w-4xl lg:max-w-5xl text-[clamp(1rem,3.4vw,1.75rem)] sm:text-2xl md:text-3xl lg:text-4xl [letter-spacing:0.04em] sm:[letter-spacing:0.05em] md:[letter-spacing:0.07em]"
             style={{ fontFamily: 'var(--font-montserrat)' }}
           >
             {hero.title}
