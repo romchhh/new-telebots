@@ -18,44 +18,41 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
   return (
     <section className={`relative bg-white pt-0 pb-20 md:pb-28 lg:pb-36 ${SITE_PX}`}>
       <div className={SITE_INNER_WIDE}>
-        {/* Фото з текстом і кнопкою */}
-        <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-16 md:mb-20">
-          <div className="relative w-full aspect-[4031/2981]">
+        {/* Фото з текстом і кнопкою — картка з відступами й заокругленням */}
+        <div className="relative mb-6 overflow-hidden rounded-2xl md:mb-20">
+          <div className="relative h-[200px] w-full sm:h-[220px] md:h-[240px] lg:h-[260px]">
             <Image
               src="/other/about-hero.png"
               alt="TeleBots"
               fill
-              className="object-cover"
-              sizes="100vw"
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 90vw"
               loading="lazy"
             />
-            {/* Градієнтне затемнення зверху — комп і mobile */}
-            <div 
-              className="absolute inset-x-0 top-0 h-[30%] md:h-[25%] pointer-events-none w-full"
+            <div
+              className="pointer-events-none absolute inset-0 w-full"
               style={{
-                background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.08) 60%, transparent 100%)',
-                backdropFilter: 'blur(4px)',
-                WebkitBackdropFilter: 'blur(4px)'
+                background:
+                  'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.25) 100%)',
               }}
+              aria-hidden
             />
-            {/* Текст і кнопка поверх фото */}
-            <div className="absolute inset-0 flex flex-col items-center justify-between pt-[4%] md:pt-[3%] pb-[4%] md:pb-[2%]">
-              <p 
-                className={`text-center text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold md:font-extrabold leading-[1.45] max-w-4xl md:max-w-5xl tracking-[0.02em] ${SITE_PX}`}
-                style={{ 
+            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 py-4 md:gap-5 md:px-10">
+              <p
+                className="max-w-3xl text-center text-sm font-semibold leading-snug tracking-[0.01em] text-white sm:text-base md:max-w-4xl md:text-lg md:font-bold lg:text-xl"
+                style={{
                   fontFamily: 'var(--font-sans)',
-                  textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)'
+                  textShadow: '0 2px 16px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)',
                 }}
               >
                 {t.about.photoMessage}
               </p>
-              {/* Кнопка на фото — тільки desktop */}
-              <div className={`hidden md:block w-full max-w-md ${SITE_PX}`}>
+              <div className="hidden w-full max-w-sm md:block">
                 {onOrderClick ? (
-                  <OrderCtaPill size="md" label={t.modal.title} onClick={onOrderClick} className="w-full" />
+                  <OrderCtaPill size="sm" label={t.modal.title} onClick={onOrderClick} className="w-full" />
                 ) : (
                   <OrderCtaPill
-                    size="md"
+                    size="sm"
                     label={t.modal.title}
                     href={`/${currentLang}/contact`}
                     className="w-full"
@@ -64,27 +61,27 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
               </div>
             </div>
           </div>
-          
-          {/* Кнопка під фото — тільки mobile */}
-          <div className={`md:hidden flex justify-center py-8 bg-white ${SITE_PX}`}>
-            {onOrderClick ? (
-              <OrderCtaPill
-                size="md"
-                label={t.modal.title}
-                onClick={onOrderClick}
-                elevated
-                className="w-full max-w-md"
-              />
-            ) : (
-              <OrderCtaPill
-                size="md"
-                label={t.modal.title}
-                href={`/${currentLang}/contact`}
-                elevated
-                className="w-full max-w-md"
-              />
-            )}
-          </div>
+        </div>
+
+        {/* Кнопка під фото — тільки mobile */}
+        <div className="mb-16 flex justify-center md:hidden">
+          {onOrderClick ? (
+            <OrderCtaPill
+              size="md"
+              label={t.modal.title}
+              onClick={onOrderClick}
+              elevated
+              className="w-full max-w-md"
+            />
+          ) : (
+            <OrderCtaPill
+              size="md"
+              label={t.modal.title}
+              href={`/${currentLang}/contact`}
+              elevated
+              className="w-full max-w-md"
+            />
+          )}
         </div>
 
         {/* Сітка з трьома колонками */}

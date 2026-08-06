@@ -124,7 +124,7 @@ export default function ServicesPage() {
     {
       key: 'designPage' as const,
       image: '/services/services-design.jpg',
-      imagePosition: 'left' as const,
+      imagePosition: 'right' as const,
     },
   ];
 

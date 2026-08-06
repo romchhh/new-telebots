@@ -39,10 +39,7 @@ export async function generateMetadata(params: {
     };
   }
 
-  const title =
-    lang === 'uk'
-      ? `${caseData.title} — кейс TeleBots`
-      : `${caseData.title} | TeleBots Cases`;
+  const title = caseData.title;
 
   const description = buildCaseSeoDescription(caseData, lang);
   const ogDescription =

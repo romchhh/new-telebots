@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 export type OrderCtaPillSize = 'hero' | 'md' | 'sm';
-export type OrderCtaPillVariant = 'solid' | 'outline';
+export type OrderCtaPillVariant = 'solid' | 'outline' | 'dark' | 'brand';
 
 export type OrderCtaPillProps = {
   label: string;
@@ -67,6 +67,8 @@ export default function OrderCtaPill({
 }: OrderCtaPillProps) {
   const s = SIZE_STYLES[size];
   const isOutline = variant === 'outline';
+  const isDark = variant === 'dark';
+  const isBrand = variant === 'brand';
   const minHeightClass =
     size === 'hero'
       ? 'min-h-[4.5rem] sm:min-h-0'
@@ -76,21 +78,34 @@ export default function OrderCtaPill({
   const gapClass = size === 'hero' ? 'gap-2.5 sm:gap-3' : 'gap-3';
   const variantClasses = isOutline
     ? 'border border-white/75 bg-transparent text-white hover:bg-white/10'
-    : 'bg-white text-black hover:opacity-95';
+    : isDark
+      ? 'bg-black text-white hover:bg-zinc-900'
+      : isBrand
+        ? 'bg-brand text-neutral-900 hover:bg-brand-light'
+        : 'bg-white text-black hover:opacity-95';
   const classes = [
     `group flex h-full ${minHeightClass} items-center justify-between ${gapClass} text-left transition-colors`,
     variantClasses,
     s.root,
-    elevated && !isOutline ? 'border border-gray-200 shadow-md shadow-black/5' : '',
+    elevated && !isOutline && !isDark && !isBrand
+      ? 'border border-gray-200 shadow-md shadow-black/5'
+      : isBrand
+        ? 'shadow-md shadow-brand/25'
+        : '',
     className,
   ]
     .filter(Boolean)
     .join(' ');
-  const eyebrowClass = isOutline ? OUTLINE_EYEBROW : s.eyebrow;
-  const labelClass = isOutline ? 'text-white' : 'text-black';
+  const eyebrowClass =
+    isOutline || isDark ? OUTLINE_EYEBROW : isBrand ? 'text-neutral-800/80' : s.eyebrow;
+  const labelClass = isOutline || isDark ? 'text-white' : 'text-black';
   const circleClass = isOutline
     ? 'border border-white bg-transparent text-white'
-    : 'bg-black text-white';
+    : isDark
+      ? 'bg-white text-black'
+      : isBrand
+        ? 'bg-neutral-900 text-white'
+        : 'bg-black text-white';
   const singleLinePaired = paired && !eyebrow;
   const textColClass = singleLinePaired
     ? 'flex min-w-0 flex-1 flex-col items-center justify-center pr-2 text-center'

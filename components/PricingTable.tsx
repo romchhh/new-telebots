@@ -49,7 +49,7 @@ export default function PricingTable({
 
   return (
     <section className={`${sectionPad} bg-white`}>
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto w-full">
         <div className={`mb-10 sm:mb-12 ${centerHeader ? 'text-center' : ''}`}>
           {!hideCategoryLabel && (
             <div className="mb-4 flex items-center gap-4">

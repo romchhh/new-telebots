@@ -16,6 +16,8 @@ import { pricingPageCopy } from '@/lib/pricingPageCopy';
 import { sendToTelegram } from '@/lib/telegram';
 import { siteUrl } from '@/lib/site';
 import PricingTable from '@/components/PricingTable';
+import SiteCtaBand from '@/components/SiteCtaBand';
+import FaqAccordion from '@/components/FaqAccordion';
 import { getPricingKey } from '@/app/[lang]/services/[serviceId]/metadata';
 import type { ServiceId } from '@/app/[lang]/services/[serviceId]/metadata';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
@@ -172,7 +174,7 @@ export default function PricingPage() {
 
         <main id="main-content">
           <section className={`pt-24 md:pt-28 pb-16 md:pb-24 bg-white border-b border-gray-100 ${SITE_PX}`}>
-            <article className="max-w-6xl mx-auto">
+            <article className={SITE_INNER}>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black text-black leading-tight mb-6">{p.h1}</h1>
               <p className="text-xl md:text-2xl text-gray-800 font-semibold leading-snug mb-8 max-w-3xl">{p.subtitle}</p>
               <p className="text-lg text-gray-800 leading-relaxed font-semibold mb-6">{p.intro}</p>
@@ -180,7 +182,7 @@ export default function PricingPage() {
 
               <CtaCluster lang={lang} p={p} onConsult={() => openModal()} className="mb-14" />
 
-              <p className="text-base text-gray-700 leading-relaxed mb-14 border-l-4 border-black pl-6 py-2">
+              <p className="text-base text-gray-700 leading-relaxed mb-14 border-l-4 border-brand pl-6 py-2">
                 {p.paymentAndEstimate}
               </p>
 
@@ -284,17 +286,6 @@ export default function PricingPage() {
 
               <p className="text-gray-700 leading-relaxed text-lg mb-8">{p.closingSeo}</p>
 
-              <SeoBlock title={p.faqTitle}>
-                <dl className="space-y-6">
-                  {p.faqItems.map((item, i) => (
-                    <div key={i}>
-                      <dt className="text-lg font-bold text-black mb-2">{item.question}</dt>
-                      <dd className="text-gray-700 leading-relaxed">{item.answer}</dd>
-                    </div>
-                  ))}
-                </dl>
-              </SeoBlock>
-
               <nav
                 aria-label={p.resourceLinksTitle}
                 className="my-10 rounded-2xl border border-gray-200 bg-gray-50 p-6 md:p-8"
@@ -315,13 +306,22 @@ export default function PricingPage() {
               </nav>
 
               <p className="text-sm text-gray-500 leading-relaxed border-t border-gray-200 pt-8">{p.disclaimer}</p>
-
-              <div className="mt-12 p-8 md:p-10 bg-gray-50 rounded-2xl border border-gray-200">
-                <p className="text-lg font-bold text-black mb-6">{p.ctaBanner}</p>
-                <CtaCluster lang={lang} p={p} onConsult={() => openModal()} />
-              </div>
             </article>
           </section>
+
+          <FaqAccordion title={p.faqTitle} items={p.faqItems} sectionClassName={SITE_PX} />
+
+          <SiteCtaBand
+            title={t.about.homeCta.title}
+            text={t.about.homeCta.text}
+            contactLabel={t.about.homeCta.contactLabel}
+            pricingLabel={p.linkAllServices}
+            portfolioLabel={t.about.homeCta.portfolioLabel}
+            pricingHref={`/${lang}/services`}
+            portfolioHref={`/${lang}/portfolio`}
+            onContactClick={() => openModal()}
+            className="pt-16 md:pt-20"
+          />
 
           <section
             id="pricing-contact"

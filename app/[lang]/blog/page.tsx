@@ -139,7 +139,7 @@ export default function BlogPage() {
             >
               <h1
                 className="mb-3 font-bold uppercase leading-[1.12] text-white sm:mb-4 sm:leading-[1.15] md:mb-5 text-[clamp(1.45rem,6.2vw,2.35rem)] sm:text-4xl md:text-5xl lg:text-6xl [letter-spacing:0.05em] sm:[letter-spacing:0.1em] md:[letter-spacing:0.12em]"
-                style={{ fontFamily: 'var(--font-sans)' }}
+                style={{ fontFamily: 'var(--font-display)' }}
               >
                 {t.blog?.title || 'Соцмережі'}
               </h1>
@@ -160,12 +160,12 @@ export default function BlogPage() {
 
         {/* Статті — перед соцмережами */}
         <section className={`bg-white py-16 md:py-24 ${SITE_PX}`}>
-          <div className="mx-auto max-w-7xl">
+          <div className="mx-auto w-full">
             <div
               ref={articlesRef}
               className={`mb-12 text-center scroll-animate-up md:mb-16 ${isArticlesVisible ? 'animate' : ''}`}
             >
-              <h2 className={`${sectionHeadingClass} mb-4`} style={{ fontFamily: 'var(--font-sans)' }}>
+              <h2 className={`${sectionHeadingClass} mb-4`} style={{ fontFamily: 'var(--font-display)' }}>
                 {t.blog?.articlesTitle || 'Статті та гайди'}
               </h2>
               <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-600 md:text-xl">
@@ -183,12 +183,12 @@ export default function BlogPage() {
 
         {/* Соцмережі */}
         <section className={`py-16 md:py-24 bg-black ${SITE_PX}`}>
-          <div className="max-w-7xl mx-auto">
+          <div className="w-full">
             <div
               className={`mb-12 md:mb-16 text-center scroll-animate-up ${isChannelsVisible ? 'animate' : ''}`}
               ref={channelsRef}
             >
-              <h2 className={`${sectionHeadingWhiteClass} mb-6`} style={{ fontFamily: 'var(--font-sans)' }}>
+              <h2 className={`${sectionHeadingWhiteClass} mb-6`} style={{ fontFamily: 'var(--font-display)' }}>
                 {t.blog?.channelsTitle || 'Слідкуйте за нами'}
               </h2>
               <p
@@ -244,9 +244,9 @@ export default function BlogPage() {
 
         {/* Опис + дві колонки */}
         <section className={`bg-white py-20 md:py-28 ${SITE_PX}`}>
-          <div className="mx-auto max-w-7xl">
+          <div className="mx-auto w-full">
             <div className={`mb-16 md:mb-24 scroll-animate-up ${isContentVisible ? 'animate' : ''}`} ref={contentRef}>
-              <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-sans)' }}>
+              <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-display)' }}>
                 {t.blog?.descriptionTitle || 'Наші соцмережі'}
               </h2>
               <p className="max-w-4xl text-xl font-semibold leading-relaxed text-gray-800 md:text-2xl">
@@ -257,7 +257,7 @@ export default function BlogPage() {
 
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-24 xl:gap-32">
               <div className={`scroll-animate-left ${isLeftVisible ? 'animate' : ''}`} ref={leftRef}>
-                <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-sans)' }}>
+                <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-display)' }}>
                   {t.blog?.contentTitle || 'Що ми публікуємо'}
                 </h2>
                 <ul className="space-y-5">
@@ -281,7 +281,7 @@ export default function BlogPage() {
               </div>
 
               <div className={`scroll-animate-right ${isRightVisible ? 'animate' : ''}`} ref={rightRef}>
-                <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-sans)' }}>
+                <h2 className={`${sectionHeadingClass} mb-8`} style={{ fontFamily: 'var(--font-display)' }}>
                   {t.blog?.benefitsTitle || 'Чому варто читати'}
                 </h2>
                 <ul className="space-y-5">

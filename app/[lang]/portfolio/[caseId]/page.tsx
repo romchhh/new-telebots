@@ -62,6 +62,10 @@ export default function CasePageRoute() {
   }, [shouldRedirectToHub]);
 
   if (!currentCaseData) {
+    if (isFlagshipCase(caseId) || isLightCase(caseId)) {
+      router.replace(`/${validLang}/portfolio`);
+      return null;
+    }
     notFound();
   }
 

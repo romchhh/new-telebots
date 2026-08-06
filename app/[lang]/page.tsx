@@ -16,21 +16,21 @@ export async function generateMetadata({
   // Brand suffix comes from root layout title.template (`%s | TeleBots`) — do not add it here.
   const title =
     lang === 'uk'
-      ? 'Замовити розробку Telegram-ботів і сайтів | від $150'
+      ? 'Замовити розробку Telegram-ботів і сайтів | від $100'
       : lang === 'en'
-        ? 'Order Telegram Bots & Websites | from $150'
+        ? 'Order Telegram Bots & Websites | from $100'
         : lang === 'pl'
-          ? 'Zamów boty Telegram i strony | od $150'
-          : 'Заказать Telegram-ботов и сайты | от $150';
+          ? 'Zamów boty Telegram i strony | od $100'
+          : 'Заказать Telegram-ботов и сайты | от $100';
 
   const description =
     lang === 'uk'
-      ? 'Розробка Telegram-ботів з AI від $150, сайти від $300. Чат-бот для бізнесу, CRM, e-commerce. 200+ проєктів, безкоштовна консультація, старт за 24 год.'
+      ? 'Розробка Telegram-ботів від $100, лендінгів від $150, інтернет-магазинів від $400. Чат-бот для бізнесу, CRM, e-commerce. 200+ проєктів, безкоштовна консультація, старт за 24 год.'
       : lang === 'en'
-        ? 'Telegram bots with AI and payments from $150, websites from $300. Business chatbots, CRM, e-commerce. 200+ projects, free consultation, start in 24h.'
+        ? 'Telegram bots from $100, landings from $150, online stores from $400. Business chatbots, CRM, e-commerce. 200+ projects, free consultation, start in 24h.'
         : lang === 'pl'
-          ? 'Boty Telegram z AI i płatnościami od $150, strony od $300. Chatboty biznesowe, CRM, e-commerce. 200+ projektów, darmowa konsultacja, start w 24h.'
-          : 'Telegram-боты с AI и оплатой от $150, сайты от $300. Чат-бот для бизнеса, CRM, e-commerce. 200+ проектов, бесплатная консультация, старт за 24 часа.';
+          ? 'Boty Telegram od $100, landingi od $150, sklepy od $400. Chatboty biznesowe, CRM, e-commerce. 200+ projektów, darmowa konsultacja, start w 24h.'
+          : 'Telegram-боты от $100, лендинги от $150, интернет-магазины от $400. Чат-бот для бизнеса, CRM, e-commerce. 200+ проектов, бесплатная консультация, старт за 24 часа.';
 
   const keywords =
     lang === 'uk'

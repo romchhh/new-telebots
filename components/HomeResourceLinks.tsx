@@ -59,7 +59,7 @@ export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium text-gray-800 underline-offset-4 transition-colors hover:text-[#F05A00] hover:underline"
+                className="text-sm font-medium text-gray-800 underline-offset-4 transition-colors hover:text-brand hover:underline"
               >
                 {link.label}
               </Link>

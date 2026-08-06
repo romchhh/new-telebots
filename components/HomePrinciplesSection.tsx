@@ -19,7 +19,7 @@ type PrinciplesCopy = {
   cards: PrincipleCardCopy[];
 };
 
-const KEY_VARIANTS = ['red', 'dark', 'light'] as const;
+const KEY_VARIANTS = ['pink', 'dark', 'light'] as const;
 
 function PrincipleKey({
   number,
@@ -29,7 +29,7 @@ function PrincipleKey({
   variant: (typeof KEY_VARIANTS)[number];
 }) {
   const styles = {
-    red: 'bg-[#F05A00] text-white shadow-[0_5px_0_#c44700,0_8px_20px_rgba(240,90,0,0.35)]',
+    pink: 'bg-brand-light text-neutral-900 shadow-[0_5px_0_var(--brand),0_8px_20px_rgba(244,114,182,0.35)]',
     dark: 'bg-neutral-900 text-white shadow-[0_5px_0_#1a1a1a,0_8px_20px_rgba(0,0,0,0.2)]',
     light:
       'bg-white text-neutral-900 border border-neutral-200 shadow-[0_5px_0_#d4d4d4,0_8px_16px_rgba(0,0,0,0.08)]',
@@ -80,7 +80,7 @@ function PrincipleCard({
       </p>
       <Link
         href={href}
-        className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-neutral-900 transition-colors hover:text-[#F05A00] sm:mt-6 sm:text-base"
+        className="mt-5 inline-flex w-fit items-center gap-2 text-sm font-semibold text-neutral-900 transition-colors hover:text-brand sm:mt-6 sm:text-base"
         style={montserrat}
       >
         {linkLabel}
@@ -124,11 +124,11 @@ export default function HomePrinciplesSection({
             style={montserrat}
           >
             <span className="block">{principles.titleLine1}</span>
-            <span className="mt-1 block text-[#F05A00]">{principles.titleLine2}</span>
+            <span className="mt-1 block text-brand">{principles.titleLine2}</span>
           </h2>
           <Link
             href={`/${lang}/services`}
-            className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-neutral-500 underline-offset-4 transition-colors hover:text-[#F05A00] hover:underline sm:text-base"
+            className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-neutral-500 underline-offset-4 transition-colors hover:text-brand hover:underline sm:text-base"
             style={montserrat}
           >
             {allServicesLabel}
@@ -136,7 +136,7 @@ export default function HomePrinciplesSection({
           </Link>
           <Link
             href={`/${lang}/pricing`}
-            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-neutral-500 underline-offset-4 transition-colors hover:text-[#F05A00] hover:underline sm:text-base"
+            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-neutral-500 underline-offset-4 transition-colors hover:text-brand hover:underline sm:text-base"
             style={montserrat}
           >
             {pricingLabel}

@@ -1,9 +1,10 @@
 import type { BlogSection } from '@/lib/blog/types';
 import Link from 'next/link';
 import PricingPlansGrid from '@/components/PricingPlansGrid';
+import FaqAccordion from '@/components/FaqAccordion';
 import { parseBlogInline } from '@/components/blog/parseBlogInline';
 
-const headingStyle = { fontFamily: 'var(--font-sans)' };
+const headingStyle = { fontFamily: 'var(--font-display)' };
 
 export default function BlogPostBody({ sections }: { sections: BlogSection[] }) {
   return (
@@ -73,7 +74,7 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
             return (
               <div
                 key={i}
-                className="mb-10 rounded-2xl border-l-4 border-black bg-gray-50 px-6 py-5 md:px-8"
+                className="mb-10 rounded-2xl border-l-4 border-brand bg-brand-soft px-6 py-5 md:px-8"
               >
                 <p className="text-lg font-medium leading-relaxed text-gray-900" style={headingStyle}>
                   {parseBlogInline(block.text)}
@@ -82,17 +83,15 @@ export default function BlogPostBody({ sections }: { sections: BlogSection[] }) 
             );
           case 'faq':
             return (
-              <div key={i} className="mb-10 space-y-6">
-                {block.items.map((item, j) => (
-                  <div key={j} className="border-b border-gray-200 pb-6 last:border-0">
-                    <h3 className="mb-2 text-lg font-bold text-black" style={headingStyle}>
-                      {item.question}
-                    </h3>
-                    <p className="text-base font-light leading-relaxed text-gray-700">
-                      {parseBlogInline(item.answer)}
-                    </p>
-                  </div>
-                ))}
+              <div key={i} className="my-12">
+                <FaqAccordion
+                  variant="embedded"
+                  title="FAQ"
+                  items={block.items.map((item) => ({
+                    question: item.question,
+                    answer: item.answer,
+                  }))}
+                />
               </div>
             );
           default:

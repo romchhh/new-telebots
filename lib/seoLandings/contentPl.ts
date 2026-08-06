@@ -4,9 +4,9 @@ type AllLandings = Record<SeoLandingSlug, SeoLandingCopy>;
 
 export const PL_SEO_LANDINGS: AllLandings = {
   'telegram-bots': {
-    metaTitle: 'Tworzenie botów Telegram pod klucz | od $150 | TeleBots',
+    metaTitle: 'Tworzenie botów Telegram pod klucz | od $100 | TeleBots',
     metaDescription:
-      'Zamów bota Telegram dla biznesu: leady, płatności, CRM, AI. Start od 24h, od $150. 200+ projektów. Bezpłatna konsultacja — TeleBots.',
+      'Zamów bota Telegram dla biznesu: leady, płatności, CRM, AI. Start od 24h, od $100. 200+ projektów. Bezpłatna konsultacja — TeleBots.',
     keywords:
       'tworzenie botów telegram, zamówić bota telegram, bot telegram dla biznesu, bot z płatnością, integracja crm telegram, cena bota telegram, TeleBots',
     h1: 'Tworzenie botów Telegram pod klucz dla biznesu',
@@ -80,7 +80,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
     ],
     stats: [
       { value: '200+', label: 'projektów' },
-      { value: 'od $150', label: 'start bota' },
+      { value: 'od $100', label: 'start bota' },
       { value: '24 godz.', label: 'na odpowiedź' },
       { value: '3–10 dni', label: 'typowy MVP' },
     ],
@@ -120,7 +120,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       {
         question: 'Ile kosztuje stworzenie bota Telegram?',
         answer:
-          'Prosty bot do zgłoszeń — od $150. Bot z płatnością, CRM i bardziej złożoną logiką — zwykle od $300–800+. Dokładną wycenę dajemy po briefie.',
+          'Prosty bot do zgłoszeń — od $100. Bot z płatnością, CRM i bardziej złożoną logiką — zwykle od $300–800+. Dokładną wycenę dajemy po briefie.',
       },
       {
         question: 'Ile trwa rozwój?',
@@ -154,9 +154,9 @@ export const PL_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Boty Telegram',
   },
   'landing-pages': {
-    metaTitle: 'Tworzenie landing page pod klucz | od $300 | TeleBots',
+    metaTitle: 'Tworzenie landing page pod klucz | od $150 | TeleBots',
     metaDescription:
-      'Zamów landing pod klucz: struktura pod konwersję, responsywność, baza SEO, szybki start. Typowo 1–2 tygodnie. Bezpłatna konsultacja — TeleBots.',
+      'Zamów landing pod klucz: struktura pod konwersję, responsywność, baza SEO, szybki start od $150. Typowo 1–2 tygodnie. Bezpłatna konsultacja — TeleBots.',
     keywords:
       'tworzenie landingu, landing pod klucz, zamówić landing, landing page, sprzedający landing, strona jednostronicowa, cena landingu, TeleBots',
     h1: 'Tworzenie landing page pod klucz — strona, która sprzedaje',
@@ -228,7 +228,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       'Format osobisty / ekspercki',
     ],
     stats: [
-      { value: 'od $300', label: 'landing pod klucz' },
+      { value: 'od $150', label: 'landing pod klucz' },
       { value: '7–14 dni', label: 'typowy termin' },
       { value: 'Next.js', label: 'nowoczesny stack' },
       { value: 'baza SEO', label: 'od pierwszego dnia' },
@@ -261,7 +261,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       {
         question: 'Ile kosztuje landing?',
         answer:
-          'Typowy landing pod klucz — od $300. Złożone animacje, integracje lub wielojęzyczność wpływają na wycenę.',
+          'Typowy landing pod klucz — od $150. Złożone animacje, integracje lub wielojęzyczność wpływają na wycenę.',
       },
       {
         question: 'W ile można uruchomić?',
@@ -287,9 +287,9 @@ export const PL_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Landingi',
   },
   'online-stores': {
-    metaTitle: 'Tworzenie sklepu internetowego pod klucz | Next.js | TeleBots',
+    metaTitle: 'Tworzenie sklepu internetowego pod klucz | od $400 | TeleBots',
     metaDescription:
-      'Sklep internetowy pod klucz: katalog, koszyk, płatności, dostawa, admin. Next.js, SEO i szybkość. Konsultacja bezpłatna — TeleBots.',
+      'Sklep internetowy pod klucz od $400: katalog, koszyk, płatności, dostawa, admin. Next.js, SEO i szybkość. Konsultacja bezpłatna — TeleBots.',
     keywords:
       'tworzenie sklepu internetowego, sklep internetowy pod klucz, stworzyć sklep online, e-commerce Next.js, sklep z płatnością, cena sklepu internetowego, TeleBots',
     h1: 'Tworzenie sklepu internetowego pod klucz',
@@ -361,10 +361,10 @@ export const PL_SEO_LANDINGS: AllLandings = {
       'Nieznany Piekarz — platforma e-commerce',
     ],
     stats: [
+      { value: 'od $400', label: 'start sklepu' },
       { value: 'Next.js', label: 'szybkość i SEO' },
       { value: 'płatności', label: 'karty / krypto' },
       { value: 'mobile', label: 'first UX' },
-      { value: 'pod klucz', label: 'od pomysłu do startu' },
     ],
     sections: [
       {
@@ -394,7 +394,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       {
         question: 'Ile kosztuje sklep internetowy?',
         answer:
-          'Zależy od liczby encji i integracji. Start typowo wyższy niż landing; zakres podajemy po krótkim audycie wymagań.',
+          'Typowy sklep internetowy pod klucz — od $400. Cena zależy od katalogu, integracji i logiki checkout; dokładny zakres podajemy po krótkim audycie wymagań.',
       },
       {
         question: 'Czy można przenieść produkty z Excela / innego sklepu?',

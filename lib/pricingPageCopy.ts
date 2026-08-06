@@ -48,9 +48,9 @@ export interface PricingPageCopy {
 
 export const pricingPageCopy: Record<Language, PricingPageCopy> = {
   uk: {
-    metaTitle: 'Ціни на чат-боти та Telegram-ботів | від $150 | TeleBots',
+    metaTitle: 'Ціни на чат-боти та Telegram-ботів | від $100 | TeleBots',
     metaDescription:
-      'Чат-бот для бізнесу від $150, Telegram-бот з оплатою від $200, сайт від $300. Прозорі тарифи LITE/PRO/CUSTOM, без прихованих комісій. Безкоштовна консультація та оцінка проєкту.',
+      'Чат-бот для бізнесу від $100, Telegram-бот з оплатою від $200, лендінг від $150, інтернет-магазин від $400. Прозорі тарифи LITE/PRO/CUSTOM. Безкоштовна консультація та оцінка проєкту.',
     metaKeywords:
       'чат бот ціна, розробка чат ботів ціна, вартість телеграм бота, ціни розробка сайту київ, лендинг ціна україна, чат-бот замовити вартість, розробка інтернет магазину ціна, UI UX дизайн вартість, стоимость чат бота',
     h1: 'Ціни на розробку сайтів і Telegram-ботів у TeleBots',
@@ -116,7 +116,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'chatbots',
         plansNote:
-          'Тарифи на чат-ботів у Telegram, WhatsApp або Viber: LITE ($150–200) — перша лінія та заявки; PRO ($200–300) — оплата, CRM, розсилки; CUSTOM ($300+) — складна логіка, AI та інтеграції.',
+          'Тарифи на чат-ботів у Telegram, WhatsApp або Viber: LITE ($100–200) — перша лінія та заявки; PRO ($200–300) — оплата, CRM, розсилки; CUSTOM ($300+) — складна логіка, AI та інтеграції.',
         bullets: [
           'Сценарії продажів, підтримки, запису на послуги та розсилки з сегментацією',
           'Оплата в боті, кошик, звʼязка з Google Sheets / CRM / внутрішніми API',
@@ -159,7 +159,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         question: 'Скільки коштує чат-бот або Telegram-бот для бізнесу?',
         answer:
-          'Базовий пакет LITE — від $150–200: FAQ, збір заявок, передача менеджеру. PRO з оплатою, CRM і розсилками — $200–300. CUSTOM (AI, складна логіка, багатомовність) — індивідуально. Точну суму фіксуємо після безкоштовного брифу.',
+          'Базовий пакет LITE — від $100–200: FAQ, збір заявок, передача менеджеру. PRO з оплатою, CRM і розсилками — $200–300. CUSTOM (AI, складна логіка, багатомовність) — індивідуально. Точну суму фіксуємо після безкоштовного брифу.',
       },
       {
         question: 'Скільки коштує розробка сайту або інтернет-магазину?',
@@ -190,9 +190,9 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
   },
   en: {
-    metaTitle: 'Chatbot & Telegram bot pricing | from $150 | TeleBots',
+    metaTitle: 'Chatbot & Telegram bot pricing | from $100 | TeleBots',
     metaDescription:
-      'Business chatbot from $150, Telegram bot with payments from $200, website from $300. Transparent LITE/PRO/CUSTOM tiers, no hidden fees. Free consultation and project estimate.',
+      'Business chatbot from $100, Telegram bot with payments from $200, landing from $150, online store from $400. Transparent LITE/PRO/CUSTOM tiers. Free consultation and project estimate.',
     metaKeywords:
       'telegram bot price, chatbot development cost, website development cost Ukraine, landing page pricing, ecommerce development quote, UI UX design cost, chatbot development estimate',
     h1: 'Pricing and cost estimates — TeleBots',
@@ -258,7 +258,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'chatbots',
         plansNote:
-          'Messenger bot tiers (Telegram, WhatsApp, Viber): LITE ($150–200) for first-line leads; PRO ($200–300) with payments, CRM and broadcasts; CUSTOM ($300+) for complex logic, AI and integrations.',
+          'Messenger bot tiers (Telegram, WhatsApp, Viber): LITE ($100–200) for first-line leads; PRO ($200–300) with payments, CRM and broadcasts; CUSTOM ($300+) for complex logic, AI and integrations.',
         bullets: [
           'Sales/support flows, bookings, segmented broadcasts',
           'In-bot payments, cart, Google Sheets / CRM / internal API links',
@@ -301,7 +301,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         question: 'How much does a business chatbot or Telegram bot cost?',
         answer:
-          'LITE package starts at $150–200: FAQ, lead capture, handoff to a manager. PRO with payments, CRM and broadcasts — $200–300. CUSTOM (AI, complex logic, multilingual) — on request. Exact price is fixed after a free brief.',
+          'LITE package starts at $100–200: FAQ, lead capture, handoff to a manager. PRO with payments, CRM and broadcasts — $200–300. CUSTOM (AI, complex logic, multilingual) — on request. Exact price is fixed after a free brief.',
       },
       {
         question: 'How much does a website or online store cost?',
@@ -332,9 +332,9 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
   },
   pl: {
-    metaTitle: 'Ceny chatbotów i botów Telegram | od $150 | TeleBots',
+    metaTitle: 'Ceny chatbotów i botów Telegram | od $100 | TeleBots',
     metaDescription:
-      'Chatbot biznesowy od $150, bot Telegram z płatnościami od $200, strona od $300. Przejrzyste pakiety LITE/PRO/CUSTOM, bez ukrytych opłat. Darmowa konsultacja i wycena projektu.',
+      'Chatbot biznesowy od $100, bot Telegram z płatnościami od $200, landing od $150, sklep od $400. Przejrzyste pakiety LITE/PRO/CUSTOM. Darmowa konsultacja i wycena projektu.',
     metaKeywords:
       'cena bota telegram, koszt chatbota, koszt strony www, landing page cena, sklep internetowy wycena, projektowanie UI UX cena, chatbot dla firmy cena',
     h1: 'Ceny i orientacyjne koszty — TeleBots',
@@ -400,7 +400,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'chatbots',
         plansNote:
-          'Taryfy botów (Telegram, WhatsApp, Viber): LITE ($150–200) — pierwsza linia i leady; PRO ($200–300) — płatności, CRM, mailingi; CUSTOM ($300+) — złożona logika, AI i integracje.',
+          'Taryfy botów (Telegram, WhatsApp, Viber): LITE ($100–200) — pierwsza linia i leady; PRO ($200–300) — płatności, CRM, mailingi; CUSTOM ($300+) — złożona logika, AI i integracje.',
         bullets: [
           'Scenariusze sprzedaży, supportu, rezerwacji, segmentowane wysyłki',
           'Płatność w bocie, koszyk, Google Sheets / CRM / wewnętrzne API',
@@ -443,7 +443,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         question: 'Ile kosztuje chatbot lub bot Telegram dla biznesu?',
         answer:
-          'Pakiet LITE od $150–200: FAQ, zbieranie leadów, przekazanie do menedżera. PRO z płatnościami, CRM i mailingami — $200–300. CUSTOM (AI, złożona logika, wiele języków) — indywidualnie. Dokładna kwota po bezpłatnym briefie.',
+          'Pakiet LITE od $100–200: FAQ, zbieranie leadów, przekazanie do menedżera. PRO z płatnościami, CRM i mailingami — $200–300. CUSTOM (AI, złożona logika, wiele języków) — indywidualnie. Dokładna kwota po bezpłatnym briefie.',
       },
       {
         question: 'Ile kosztuje strona lub sklep internetowy?',
@@ -474,9 +474,9 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
   },
   ru: {
-    metaTitle: 'Цены на чат-боты и Telegram-ботов | от $150 | TeleBots',
+    metaTitle: 'Цены на чат-боты и Telegram-ботов | от $100 | TeleBots',
     metaDescription:
-      'Чат-бот для бизнеса от $150, Telegram-бот с оплатой от $200, сайт от $300. Прозрачные тарифы LITE/PRO/CUSTOM, без скрытых комиссий. Бесплатная консультация и оценка проекта.',
+      'Чат-бот для бизнеса от $100, Telegram-бот с оплатой от $200, лендинг от $150, интернет-магазин от $400. Прозрачные тарифы LITE/PRO/CUSTOM. Бесплатная консультация и оценка проекта.',
     metaKeywords:
       'стоимость чат бота, цена разработка сайта, стоимость телеграм бота, лендинг цена, чат-бот стоимость, интернет магазин разработка цена, UI UX дизайн стоимость',
     h1: 'Цены и ориентиры стоимости услуг TeleBots',
@@ -542,7 +542,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'chatbots',
         plansNote:
-          'Тарифы на чат-ботов (Telegram, WhatsApp, Viber): LITE ($150–200) — первая линия и заявки; PRO ($200–300) — оплата, CRM, рассылки; CUSTOM ($300+) — сложная логика, AI и интеграции.',
+          'Тарифы на чат-ботов (Telegram, WhatsApp, Viber): LITE ($100–200) — первая линия и заявки; PRO ($200–300) — оплата, CRM, рассылки; CUSTOM ($300+) — сложная логика, AI и интеграции.',
         bullets: [
           'Сценарии продаж, поддержки, записи на услуги и рассылки с сегментацией',
           'Оплата в боте, корзина, связка с Google Sheets / CRM / внутренними API',
@@ -585,7 +585,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         question: 'Сколько стоит чат-бот или Telegram-бот для бизнеса?',
         answer:
-          'Пакет LITE — от $150–200: FAQ, сбор заявок, передача менеджеру. PRO с оплатой, CRM и рассылками — $200–300. CUSTOM (AI, сложная логика, мультиязычность) — индивидуально. Точная сумма после бесплатного брифа.',
+          'Пакет LITE — от $100–200: FAQ, сбор заявок, передача менеджеру. PRO с оплатой, CRM и рассылками — $200–300. CUSTOM (AI, сложная логика, мультиязычность) — индивидуально. Точная сумма после бесплатного брифа.',
       },
       {
         question: 'Сколько стоит разработка сайта или интернет-магазина?',

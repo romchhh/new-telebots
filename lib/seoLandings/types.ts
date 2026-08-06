@@ -49,7 +49,8 @@ export type SeoLandingMedia = {
   hero: string;
   secondary: string;
   gallery: [string, string, string];
-  caseIds: [string, string, string];
+  /** Активні картки портфоліо для showcase */
+  caseIds: string[];
 };
 
 export const SEO_LANDING_RELATED_SERVICE: Record<SeoLandingSlug, SeoLandingRelatedService> = {
@@ -73,50 +74,71 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
     hero: '/services/services-chatbots.jpg',
     secondary: '/other/about-hero-macbook.jpg',
     gallery: [
-      '/portfolio/portfolio-tradeground-bot.png',
-      '/portfolio/portfolio-dr-tolstikova-bot.jpg',
-      '/portfolio/portfolio-applum-bot.jpg',
+      '/services/services-chatbots.jpg',
+      '/other/about-hero-macbook.jpg',
+      '/other/archive-iphone.jpg',
     ],
-    caseIds: ['tradeground-bot', 'dr-tolstikova-bot', 'applum-bot'],
+    caseIds: [
+      'tradeground-bot',
+      'dr-tolstikova-bot',
+      'applum-bot',
+      'flixmarket',
+      'cosmy',
+      'vevyne-dating-bot',
+    ],
   },
   'landing-pages': {
     hero: '/services/services-websites.jpg',
     secondary: '/other/about-hero.png',
     gallery: [
-      '/portfolio/portfolio-offer-dpuchkov.jpg',
-      '/portfolio/portfolio-chars-kyiv.png',
-      '/portfolio/portfolio-alexandraaleksiuk.jpg',
+      '/services/services-websites.jpg',
+      '/other/about-hero.png',
+      '/services/services-hero_new.jpg',
     ],
-    caseIds: ['offer-dpuchkov', 'chars-kyiv', 'alexandraaleksiuk'],
+    caseIds: [
+      'butenko-fit',
+      'zavadska',
+      'royal-academy',
+      'emvi-digital',
+      'litun-edu',
+      'kls',
+    ],
   },
   'online-stores': {
     hero: '/services/services-websites.jpg',
-    secondary: '/portfolio/portfolio-default.jpg',
+    secondary: '/other/about-hero.png',
     gallery: [
-      '/portfolio/portfolio-13vplus.jpg',
-      '/portfolio/portfolio-cats-fresh.jpg',
-      '/portfolio/portfolio-nieznany-piekarz.png',
+      '/services/services-websites.jpg',
+      '/other/about-hero-macbook.jpg',
+      '/other/about-hero.png',
     ],
-    caseIds: ['13vplus', 'cats-fresh', 'nieznany-piekarz'],
+    caseIds: ['13vplus', 'chars-kyiv', '13pm', 'toptrendshop', 'nieznany-piekarz', 'kreona'],
   },
   'ai-chatbots': {
     hero: '/services/services-chatbots.jpg',
     secondary: '/other/archive-iphone.jpg',
     gallery: [
-      '/portfolio/portfolio-style-chat-vakhula.jpg',
-      '/portfolio/portfolio-webinar-bot.png',
-      '/portfolio/portfolio-nutritionist-bot.jpg',
+      '/services/services-chatbots.jpg',
+      '/other/archive-iphone.jpg',
+      '/other/about-hero-macbook.jpg',
     ],
-    caseIds: ['style-chat-vakhula', 'webinar-bot', 'nutritionist-bot'],
+    caseIds: [
+      'smart-bodycourse-bot',
+      'cosmy',
+      'flixmarket',
+      'applum-bot',
+      'journey-zavadska',
+      'vevyne-dating-bot',
+    ],
   },
   'data-parsers': {
     hero: '/services/services-parsers.jpg',
     secondary: '/services/services-hero_new.jpg',
     gallery: [
-      '/portfolio/portfolio-flixmarket.jpg',
-      '/portfolio/portfolio-vsk-technology.png',
+      '/services/services-parsers.jpg',
+      '/services/services-hero_new.jpg',
       '/other/about-hero-macbook.jpg',
     ],
-    caseIds: ['flixmarket', 'vsk-technology', 'tradeground-bot'],
+    caseIds: ['carbit', 'normalnoauto', 'tradeground-bot', 'flixmarket', 'wayofprocessing', 'applum-bot'],
   },
 };

@@ -45,9 +45,9 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
     }
   };
 
-  const iconClass = `inline-flex h-9 w-9 items-center justify-center rounded-full transition ${
-    isScrolled ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-white/80 hover:text-white hover:bg-white/10'
-  }`;
+  const iconClass = isScrolled
+    ? 'inline-flex h-9 w-9 items-center justify-center rounded-full transition text-black/70 hover:text-black hover:bg-black/5'
+    : 'inline-flex h-9 w-9 items-center justify-center rounded-full transition text-white/85 hover:text-white hover:bg-white/10';
 
   return (
     <div className="relative" ref={ref}>
@@ -66,7 +66,7 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
         <>
           <div className="fixed inset-0 z-10" aria-hidden onClick={() => setIsOpen(false)} />
           <div
-            className={`absolute right-0 z-20 mt-2 min-w-[100px] rounded-lg border border-white/15 bg-black/95 backdrop-blur-md shadow-xl overflow-hidden ${
+            className={`absolute right-0 z-20 mt-2 min-w-[100px] rounded-lg border border-black/10 bg-white shadow-xl overflow-hidden ${
               isMobile ? 'top-full mt-3' : 'top-full'
             }`}
           >
@@ -77,8 +77,8 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
                 onClick={() => handleLanguageChange(language.code)}
                 className={`w-full px-4 py-3 text-left text-sm font-medium tracking-wider transition ${
                   currentLanguage === language.code
-                    ? 'text-white bg-white/15'
-                    : 'text-white/70 hover:text-white hover:bg-white/10'
+                    ? 'text-black bg-black/5'
+                    : 'text-gray-600 hover:text-black hover:bg-black/5'
                 }`}
               >
                 {language.name}

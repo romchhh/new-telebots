@@ -21,9 +21,12 @@ import {
   isSeoLandingSlug,
   type SeoLandingSlug,
 } from '@/lib/seoLandings';
-import { getCaseHref } from '@/lib/portfolioCases';
+import SiteCtaBand from '@/components/SiteCtaBand';
+import FaqAccordion from '@/components/FaqAccordion';
+import PortfolioCaseCard from '@/components/PortfolioCaseCard';
+import { getPortfolioCards } from '@/lib/portfolioCards';
 
-const montserrat = { fontFamily: 'var(--font-montserrat)' };
+const display = { fontFamily: 'var(--font-display)' };
 
 export default function SeoSolutionPage() {
   const params = useParams();
@@ -67,6 +70,11 @@ export default function SeoSolutionPage() {
   const relatedHref = relatedService
     ? `/${lang}/services/${relatedService}`
     : `/${lang}/services`;
+
+  const portfolioById = new Map(getPortfolioCards(lang).map((card) => [card.id, card]));
+  const showcaseCards = media.caseIds
+    .map((id) => portfolioById.get(id))
+    .filter((card): card is NonNullable<typeof card> => Boolean(card));
 
   const handleLangChange = (newLang: Language) => {
     setLang(newLang);
@@ -136,9 +144,9 @@ export default function SeoSolutionPage() {
         <main id="main-content">
           {/* Hero + photo */}
           <section className={`border-b border-gray-100 bg-white pt-24 md:pt-28 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl pb-14 md:pb-20`}>
+            <div className={`${SITE_INNER} pb-14 md:pb-20`}>
               <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500">
-                <Link href={`/${lang}/services`} className="transition-colors hover:text-[#F05A00]">
+                <Link href={`/${lang}/services`} className="transition-colors hover:text-brand">
                   {t.nav.services}
                 </Link>
                 <span className="mx-2 text-gray-300">/</span>
@@ -149,7 +157,7 @@ export default function SeoSolutionPage() {
                 <div>
                   <h1
                     className="mb-5 text-4xl font-black leading-tight tracking-tight text-black lg:text-5xl"
-                    style={montserrat}
+                    style={display}
                   >
                     {page.h1}
                   </h1>
@@ -158,9 +166,9 @@ export default function SeoSolutionPage() {
                   <div className="flex flex-col flex-wrap gap-3 sm:flex-row">
                     <OrderCtaPill
                       size="sm"
+                      variant="brand"
                       label={page.contactLabel}
                       onClick={openModal}
-                      elevated
                       className="w-full sm:w-auto sm:min-w-[14rem]"
                     />
                     <Link
@@ -189,11 +197,11 @@ export default function SeoSolutionPage() {
 
           {/* Stats */}
           <section className={`border-b border-gray-100 bg-zinc-50 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl py-10 md:py-12`}>
+            <div className={`${SITE_INNER} py-10 md:py-12`}>
               <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
                 {page.stats.map((stat) => (
                   <div key={stat.label} className="text-center md:text-left">
-                    <p className="text-2xl font-black text-black md:text-3xl" style={montserrat}>
+                    <p className="text-2xl font-black text-black md:text-3xl" style={display}>
                       {stat.value}
                     </p>
                     <p className="mt-1 text-sm uppercase tracking-[0.12em] text-gray-500">{stat.label}</p>
@@ -205,8 +213,8 @@ export default function SeoSolutionPage() {
 
           {/* Benefits */}
           <section className={`py-14 md:py-20 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl`}>
-              <h2 className="mb-8 text-2xl font-black tracking-tight text-black md:text-3xl" style={montserrat}>
+            <div className={`${SITE_INNER}`}>
+              <h2 className="mb-8 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
                 {page.benefitsTitle}
               </h2>
               <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -215,7 +223,7 @@ export default function SeoSolutionPage() {
                     key={item}
                     className="rounded-2xl border border-gray-100 bg-white p-5 text-gray-800 leading-relaxed shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
                   >
-                    <span className="mb-3 block h-1.5 w-1.5 rounded-full bg-[#F05A00]" aria-hidden />
+                    <span className="mb-3 block h-1.5 w-1.5 rounded-full bg-brand" aria-hidden />
                     {item}
                   </li>
                 ))}
@@ -225,14 +233,14 @@ export default function SeoSolutionPage() {
 
           {/* Audience */}
           <section className={`bg-black py-14 text-white md:py-20 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl`}>
-              <h2 className="mb-10 text-2xl font-black tracking-tight md:text-3xl" style={montserrat}>
+            <div className={`${SITE_INNER}`}>
+              <h2 className="mb-10 text-2xl font-black tracking-tight md:text-3xl" style={display}>
                 {page.audienceTitle}
               </h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {page.audience.map((item, i) => (
                   <div key={item} className="rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur-sm">
-                    <span className="mb-3 block text-sm font-light italic text-white/40" style={montserrat}>
+                    <span className="mb-3 block text-sm font-light italic text-white/40" style={display}>
                       [{String(i + 1).padStart(2, '0')}]
                     </span>
                     <p className="leading-relaxed text-white/90">{item}</p>
@@ -244,7 +252,7 @@ export default function SeoSolutionPage() {
 
           {/* Image + text */}
           <section className={`py-14 md:py-20 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl`}>
+            <div className={`${SITE_INNER}`}>
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
                 <div className="relative order-2 aspect-[5/4] overflow-hidden rounded-2xl bg-zinc-100 lg:order-1">
                   <Image
@@ -259,7 +267,7 @@ export default function SeoSolutionPage() {
                 <div className="order-1 space-y-10 lg:order-2">
                   {page.sections.slice(0, 2).map((section) => (
                     <div key={section.title}>
-                      <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={montserrat}>
+                      <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
                         {section.title}
                       </h2>
                       {section.paragraphs.map((paragraph) => (
@@ -276,8 +284,8 @@ export default function SeoSolutionPage() {
 
           {/* Deliverables */}
           <section className={`border-y border-gray-100 bg-zinc-50 py-14 md:py-20 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl`}>
-              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={montserrat}>
+            <div className={`${SITE_INNER}`}>
+              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
                 {page.deliverablesTitle}
               </h2>
               <div className="grid gap-5 sm:grid-cols-2">
@@ -296,8 +304,8 @@ export default function SeoSolutionPage() {
 
           {/* Use cases */}
           <section className={`py-14 md:py-20 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl`}>
-              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={montserrat}>
+            <div className={`${SITE_INNER}`}>
+              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
                 {page.useCasesTitle}
               </h2>
               <div className="grid gap-5 md:grid-cols-2">
@@ -312,58 +320,60 @@ export default function SeoSolutionPage() {
           </section>
 
           {/* Mid CTA with photo */}
-          <section className={`relative overflow-hidden py-16 md:py-24 ${SITE_PX}`}>
-            <div className="absolute inset-0">
-              <Image src={media.hero} alt="" fill className="object-cover" sizes="100vw" quality={70} />
-              <div className="absolute inset-0 bg-black/75" />
-            </div>
-            <div className={`relative ${SITE_INNER} max-w-4xl text-white`}>
-              <h2 className="mb-4 text-2xl font-black tracking-tight md:text-4xl" style={montserrat}>
-                {page.midCtaTitle}
-              </h2>
-              <p className="mb-8 max-w-2xl text-lg leading-relaxed text-white/80">{page.midCtaText}</p>
-              <OrderCtaPill
-                size="sm"
-                label={page.contactLabel}
-                onClick={openModal}
-                className="w-full sm:w-auto sm:min-w-[14rem]"
-              />
-            </div>
-          </section>
-
-          {/* Showcase gallery */}
-          <section className={`py-14 md:py-20 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl`}>
-              <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={montserrat}>
-                {page.showcaseTitle}
-              </h2>
-              <p className="mb-10 max-w-3xl text-lg leading-relaxed text-gray-600">{page.showcaseIntro}</p>
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {media.gallery.map((src, i) => (
-                  <Link
-                    key={src}
-                    href={getCaseHref(lang, media.caseIds[i])}
-                    className="group overflow-hidden rounded-2xl border border-gray-100 bg-zinc-50"
-                  >
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <Image
-                        src={src}
-                        alt={page.showcaseCaptions[i]}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                        sizes="(max-width: 1024px) 50vw, 33vw"
-                        quality={85}
-                      />
-                    </div>
-                    <div className="p-4">
-                      <p className="font-semibold text-black group-hover:text-[#F05A00]">{page.showcaseCaptions[i]}</p>
-                      <p className="mt-1 text-sm text-gray-500">{page.portfolioLabel} →</p>
-                    </div>
-                  </Link>
-                ))}
+          <section className={`py-16 md:py-24 ${SITE_PX}`}>
+            <div className="relative overflow-hidden rounded-2xl px-6 py-14 md:px-10 md:py-20">
+              <div className="absolute inset-0">
+                <Image src={media.hero} alt={page.midCtaTitle} fill className="object-cover" sizes="100vw" quality={70} />
+                <div className="absolute inset-0 bg-black/75" />
+              </div>
+              <div className="relative text-white">
+                <h2 className="mb-4 text-2xl font-black tracking-tight md:text-4xl" style={display}>
+                  {page.midCtaTitle}
+                </h2>
+                <p className="mb-8 max-w-3xl text-lg leading-relaxed text-white/80">{page.midCtaText}</p>
+                <OrderCtaPill
+                  size="sm"
+                  variant="brand"
+                  label={page.contactLabel}
+                  onClick={openModal}
+                  className="w-full sm:w-auto sm:min-w-[14rem]"
+                />
               </div>
             </div>
           </section>
+
+          {/* Showcase / portfolio */}
+          {showcaseCards.length > 0 ? (
+            <section className={`bg-white py-14 md:py-20 ${SITE_PX}`}>
+              <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+                <div className="max-w-3xl">
+                  <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+                    {page.showcaseTitle}
+                  </h2>
+                  <p className="text-lg leading-relaxed text-gray-600">{page.showcaseIntro}</p>
+                </div>
+                <Link
+                  href={`/${lang}/portfolio`}
+                  className="text-sm font-semibold text-gray-700 underline-offset-4 transition-colors hover:text-brand hover:underline"
+                >
+                  {page.portfolioLabel} →
+                </Link>
+              </div>
+              <div className="-mx-4 overflow-x-auto px-4 pb-2 [scrollbar-width:thin] sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+                <div className="flex w-max gap-5">
+                  {showcaseCards.map((card) => (
+                    <PortfolioCaseCard
+                      key={card.id}
+                      card={card}
+                      lang={lang}
+                      className="w-[min(82vw,20rem)] shrink-0 sm:w-[22rem]"
+                      sizes="352px"
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          ) : null}
 
           {/* Extra sections */}
           {page.sections.length > 2 && (
@@ -371,7 +381,7 @@ export default function SeoSolutionPage() {
               <div className={`${SITE_INNER} max-w-4xl space-y-12`}>
                 {page.sections.slice(2).map((section) => (
                   <div key={section.title}>
-                    <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={montserrat}>
+                    <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
                       {section.title}
                     </h2>
                     {section.paragraphs.map((paragraph) => (
@@ -387,8 +397,8 @@ export default function SeoSolutionPage() {
 
           {/* Process */}
           <section className={`py-14 md:py-20 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-6xl`}>
-              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={montserrat}>
+            <div className={`${SITE_INNER}`}>
+              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
                 {page.processTitle}
               </h2>
               <ol className="grid gap-6 md:grid-cols-3">
@@ -405,69 +415,36 @@ export default function SeoSolutionPage() {
             </div>
           </section>
 
-          {/* FAQ */}
-          <section className={`border-t border-gray-100 py-14 md:py-20 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-4xl`}>
-              <h2 className="mb-8 text-2xl font-black tracking-tight text-black md:text-3xl" style={montserrat}>
-                {page.faqTitle}
-              </h2>
-              <div className="space-y-6">
-                {page.faq.map((item) => (
-                  <div key={item.question} className="border-b border-gray-100 pb-6 last:border-0">
-                    <h3 className="mb-2 text-lg font-bold text-black">{item.question}</h3>
-                    <p className="leading-relaxed text-gray-700">{item.answer}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <FaqAccordion title={page.faqTitle} items={page.faq} sectionClassName={SITE_PX} />
 
-          {/* Final CTA */}
-          <section className={`pb-16 md:pb-24 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} max-w-4xl rounded-2xl bg-black px-6 py-10 text-white md:px-10 md:py-12`}>
-              <h2 className="mb-4 text-2xl font-black tracking-tight md:text-3xl" style={montserrat}>
-                {page.ctaTitle}
-              </h2>
-              <p className="mb-8 max-w-2xl text-lg leading-relaxed text-white/75">{page.ctaText}</p>
-              <div className="flex flex-col flex-wrap gap-3 sm:flex-row">
-                <OrderCtaPill
-                  size="sm"
-                  label={page.contactLabel}
-                  onClick={openModal}
-                  elevated
-                  className="w-full sm:w-auto sm:min-w-[14rem]"
-                />
-                <Link
-                  href={`/${lang}/pricing`}
-                  className="inline-flex items-center justify-center rounded-full border-2 border-white/40 px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-white hover:bg-white/10"
-                >
-                  {page.pricingLabel}
-                </Link>
-                <Link
-                  href={`/${lang}/portfolio`}
-                  className="inline-flex items-center justify-center rounded-full border-2 border-white/40 px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-white hover:bg-white/10"
-                >
-                  {page.portfolioLabel}
-                </Link>
-              </div>
-            </div>
-          </section>
+          {/* Final CTA — на всю ширину */}
+          <SiteCtaBand
+            title={page.ctaTitle}
+            text={page.ctaText}
+            contactLabel={page.contactLabel}
+            pricingLabel={page.pricingLabel}
+            portfolioLabel={page.portfolioLabel}
+            pricingHref={`/${lang}/pricing`}
+            portfolioHref={`/${lang}/portfolio`}
+            onContactClick={openModal}
+            className="pt-16 md:pt-24"
+          />
 
           <section className={`border-t border-gray-100 pb-16 ${SITE_PX}`}>
             <div className={`${SITE_INNER} max-w-4xl pt-10`}>
               <ul className="flex flex-col gap-3 text-sm font-medium sm:flex-row sm:flex-wrap sm:gap-x-6">
                 <li>
-                  <Link href={relatedHref} className="text-gray-800 underline-offset-4 hover:text-[#F05A00] hover:underline">
+                  <Link href={relatedHref} className="text-gray-800 underline-offset-4 hover:text-brand hover:underline">
                     {page.relatedServiceLabel}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${lang}/pricing`} className="text-gray-800 underline-offset-4 hover:text-[#F05A00] hover:underline">
+                  <Link href={`/${lang}/pricing`} className="text-gray-800 underline-offset-4 hover:text-brand hover:underline">
                     {page.pricingLabel}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${lang}/contact`} className="text-gray-800 underline-offset-4 hover:text-[#F05A00] hover:underline">
+                  <Link href={`/${lang}/contact`} className="text-gray-800 underline-offset-4 hover:text-brand hover:underline">
                     {page.contactLabel}
                   </Link>
                 </li>

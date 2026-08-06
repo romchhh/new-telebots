@@ -6,6 +6,7 @@ import {
   getCaseHref,
   getCaseTier,
   isFlagshipCase,
+  isKnownCaseSlug,
   isLightCase,
   type FlagshipCaseId,
   type PortfolioCaseTier,
@@ -17,6 +18,7 @@ export {
   getCaseHref,
   getCaseTier,
   isFlagshipCase,
+  isKnownCaseSlug,
   isLightCase,
 };
 export type { FlagshipCaseId, PortfolioCaseTier };

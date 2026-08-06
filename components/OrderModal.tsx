@@ -67,7 +67,7 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
           <div className="flex-1 flex flex-col space-y-4 overflow-y-auto pr-1">
             {/* Поле імені */}
             <div>
-              <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+              <label className="mb-2 block text-sm font-normal text-brand">
                 {t.modal.name} *
               </label>
               <input
@@ -81,7 +81,7 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
 
             {/* Поле телефону */}
             <div>
-              <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+              <label className="mb-2 block text-sm font-normal text-brand">
                 {t.modal.phone} *
               </label>
               <input
@@ -95,7 +95,7 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
 
             {/* Поле запиту */}
             <div>
-              <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+              <label className="mb-2 block text-sm font-normal text-brand">
                 {t.modal.request}
               </label>
               <textarea
@@ -111,7 +111,7 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
             {/* Кнопка відправки */}
             <button
               type="submit"
-              className="w-full py-3.5 text-white font-normal text-base rounded-full transition hover:opacity-90 bg-black"
+              className="w-full py-3.5 text-neutral-900 font-normal text-base rounded-full transition hover:bg-brand-light bg-brand shadow-md shadow-brand/25"
             >
               {t.modal.submit}
             </button>

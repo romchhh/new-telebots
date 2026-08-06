@@ -87,7 +87,7 @@ export default function WebsitePricingTable() {
         }
       `}</style>
       
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Header */}
         <div className="mb-16 fade-in">
           <h1 className="text-5xl font-light mb-4 text-black tracking-tight">

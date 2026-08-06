@@ -28,9 +28,8 @@ export async function GET() {
     { path: '/about', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
     { path: '/portfolio', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/blog', priority: 0.8, changeFrequency: 'weekly', ukOnly: true },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/pricing', priority: 0.65, changeFrequency: 'monthly' },
+    { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
   ];
 
   const now = new Date().toISOString().slice(0, 10);

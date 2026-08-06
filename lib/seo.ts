@@ -73,7 +73,7 @@ export function trimDescriptionForMeta(description: string, maxLength = 160): st
 /** Root layout title.template is `%s | TeleBots` — strip a manual brand suffix so it is not doubled. */
 export function stripBrandTitleSuffix(title: string): string {
   return title
-    .replace(/\s*(?:\||-|—|–)\s*TeleBots(?:\s+Cases)?\s*$/i, '')
+    .replace(/\s*(?:\||-|—|–)\s*(?:кейс\s+)?TeleBots(?:\s+Cases)?\s*$/i, '')
     .trim();
 }
 
@@ -175,7 +175,7 @@ export function generateMetadata(config: SEOConfig) {
     title,
     description,
     keywords,
-    image = `${baseUrl}/portfolio/portfolio-default.jpg`,
+    image = `${baseUrl}/other/about-hero.png`,
     type = 'website',
     url,
     lang = 'uk',
@@ -299,13 +299,6 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
       streetAddress: legal.legalAddress,
       addressCountry: 'UA',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      bestRating: '5',
-      worstRating: '1',
-      ratingCount: '200',
-    },
     foundingDate: '2020',
     numberOfEmployees: {
       '@type': 'QuantitativeValue',
@@ -348,13 +341,6 @@ export function generateLocalBusinessSchema(lang: Language = 'uk') {
     areaServed: {
       '@type': 'Country',
       name: ['Ukraine', 'United States', 'Poland', 'European Union'],
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      bestRating: '5',
-      worstRating: '1',
-      ratingCount: '200',
     },
     sameAs: [
       'https://t.me/telebotsnowayrm',
@@ -399,6 +385,8 @@ export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
     headline: caseData.title,
     description: buildCaseSeoDescription(caseData, lang),
     image: `${baseUrl}${caseData.mainImage}`,
+    datePublished: '2025-01-15',
+    dateModified: '2026-08-01',
     articleSection: caseData.category || 'Case Study',
     keywords: buildCaseSeoKeywords({
       title: caseData.title,
@@ -489,7 +477,7 @@ const SERVICE_PRODUCT_CONFIG: Record<
   chatbotsPage: {
     slug: 'chatbots',
     imagePath: '/services/services-chatbots.jpg',
-    priceMin: 150,
+    priceMin: 100,
     priceMax: 300,
     names: {
       uk: 'Розробка чат-ботів (Telegram, WhatsApp, Viber)',
@@ -598,33 +586,6 @@ function buildMerchantReturnPolicy(lang: Language) {
   };
 }
 
-function buildProductAggregateRating() {
-  return {
-    '@type': 'AggregateRating',
-    ratingValue: '5.0',
-    reviewCount: '200',
-    bestRating: '5',
-    worstRating: '1',
-  };
-}
-
-function buildProductReview(review: ProductReviewCopy, lang: Language) {
-  return {
-    '@type': 'Review',
-    author: {
-      '@type': 'Organization',
-      name: review.author,
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: '5',
-      bestRating: '5',
-      worstRating: '1',
-    },
-    reviewBody: review.body[lang] ?? review.body.uk,
-  };
-}
-
 export function generateProductSchema(serviceName: string, description: string, lang: Language = 'uk') {
   const config = SERVICE_PRODUCT_CONFIG[serviceName as ServiceProductKey];
   const slug = config?.slug ?? 'websites';
@@ -652,8 +613,6 @@ export function generateProductSchema(serviceName: string, description: string, 
     hasMerchantReturnPolicy: buildMerchantReturnPolicy(lang),
   };
 
-  const reviewSource = config?.review ?? SERVICE_PRODUCT_CONFIG.websitesPage.review;
-
   if (priceMax > priceMin) {
     offer.priceSpecification = {
       '@type': 'PriceSpecification',
@@ -678,8 +637,6 @@ export function generateProductSchema(serviceName: string, description: string, 
       name: 'TeleBots',
     },
     offers: offer,
-    aggregateRating: buildProductAggregateRating(),
-    review: [buildProductReview(reviewSource, lang)],
     category: 'Digital Services',
   };
 }
@@ -820,7 +777,7 @@ export function generateArticleSchemaForBlog(
     ? options.image.startsWith('http')
       ? options.image
       : `${baseUrl}${options.image}`
-    : `${baseUrl}/portfolio/portfolio-default.jpg`;
+    : `${baseUrl}/other/about-hero.png`;
 
   return {
     '@context': 'https://schema.org',
@@ -895,11 +852,6 @@ export function generateSoftwareApplicationSchema(lang: Language = 'uk') {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'UAH',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5.0',
-      ratingCount: '200',
     },
   };
 }

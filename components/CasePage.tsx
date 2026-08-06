@@ -4,20 +4,25 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
+import { ArrowUpRight } from 'lucide-react';
 import { cases } from './cases';
 import { translations, Language } from './translations';
 import OrderModal from './OrderModal';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import SiteCtaBand from '@/components/SiteCtaBand';
 import SuccessMessage from './SuccessMessage';
+import PortfolioCaseCard from '@/components/PortfolioCaseCard';
 import { sendToTelegram } from '@/lib/telegram';
 import { SITE_PX } from '@/lib/siteLayout';
-import { FaArrowLeft, FaExternalLinkAlt } from 'react-icons/fa';
+import { getCaseStudy, getCaseStudyCopy } from '@/lib/caseStudies';
+import { getPortfolioCards } from '@/lib/portfolioCards';
 
 interface CasePageProps {
   caseId: string;
 }
 
 const display = { fontFamily: 'var(--font-display)' };
+const sans = { fontFamily: 'var(--font-sans)' };
 
 function copy(lang: Language, uk: string, en: string, pl: string, ru: string) {
   if (lang === 'en') return en;
@@ -36,19 +41,17 @@ export default function CasePage({ caseId }: CasePageProps) {
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   const caseData = (casesData as Record<string, any>)[caseId];
+  const study = getCaseStudy(caseId);
+  const studyCopy = getCaseStudyCopy(caseId, validLang);
 
-  if (!caseData) {
+  if (!caseData && !study) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="flex min-h-screen items-center justify-center bg-white">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="mb-4 text-2xl font-bold text-gray-900">
             {copy(validLang, 'Кейс не знайдено', 'Case not found', 'Przypadek nie znaleziony', 'Кейс не найден')}
           </h1>
-          <Link
-            href={`/${validLang}/portfolio`}
-            className="inline-flex items-center gap-2 text-black hover:text-gray-600 transition"
-          >
-            <FaArrowLeft />
+          <Link href={`/${validLang}/portfolio`} className="text-brand hover:underline">
             {copy(validLang, 'Повернутися до кейсів', 'Back to cases', 'Powrót do realizacji', 'Вернуться к кейсам')}
           </Link>
         </div>
@@ -63,7 +66,6 @@ export default function CasePage({ caseId }: CasePageProps) {
       request: data.request,
       caseId,
     });
-
     if (success) {
       setIsModalOpen(false);
       setIsSuccessOpen(true);
@@ -80,401 +82,282 @@ export default function CasePage({ caseId }: CasePageProps) {
     }
   };
 
-  const orderLabel = copy(validLang, 'Замовити розробку', 'Order Development', 'Zamów rozwój', 'Заказать разработку');
-  const viewProjectLabel = copy(validLang, 'Переглянути проєкт', 'View Project', 'Zobacz projekt', 'Посмотреть проект');
-  const backLabel = copy(validLang, 'Усі кейси', 'All cases', 'Wszystkie realizacje', 'Все кейсы');
+  const liveUrl = study?.liveUrl || caseData?.liveUrl;
+  const mainImage = study?.mainImage || caseData?.mainImage || '/other/about-hero.png';
+  const related = getPortfolioCards(validLang)
+    .filter((c) => c.id !== caseId)
+    .sort((a, b) => {
+      if (a.category === b.category) return 0;
+      return a.category === 'websites' ? -1 : 1;
+    });
 
-  const scrollToCaseMedia = () => {
-    document.getElementById('case-media')?.scrollIntoView({ behavior: 'smooth' });
-  };
+  const title = studyCopy?.heroTitle || caseData?.title || caseId;
+  const lead = studyCopy?.heroLead || caseData?.subtitle || caseData?.description || '';
+  const crumb = studyCopy?.breadcrumbLabel || caseData?.title || caseId;
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero — стиль як на головній; фото кейсу не на фоні */}
-      <section className="relative h-[100dvh] max-h-[100dvh] overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          {/* eslint-disable-next-line @next/next/no-img-element -- atmospheric hero, not case photo */}
-          <img
-            src="/other/hero-background.webp"
-            alt=""
-            width={1344}
-            height={768}
-            fetchPriority="high"
-            decoding="async"
-            className="absolute inset-0 block size-full object-cover"
-          />
-        </div>
-
-        <div className="absolute inset-0 z-10 bg-black/40" aria-hidden />
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#0a0a0a] text-white">
         <div
-          className="absolute inset-0 z-10 bg-gradient-to-t from-black/92 via-black/50 to-black/10"
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+              linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: '52px 52px',
+          }}
           aria-hidden
         />
         <div
-          className="absolute inset-0 z-10 bg-gradient-to-r from-black/55 via-black/20 to-transparent md:from-black/50"
+          className="pointer-events-none absolute -right-24 top-1/4 h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.22)_0%,transparent_70%)] blur-3xl"
           aria-hidden
         />
 
-        {(caseData.duration || caseData.category) && (
-          <div className="absolute z-20 right-0 top-16 sm:top-24 md:top-28 lg:top-32">
-            <div
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[min(220px,58vw)] w-[min(220px,58vw)] -translate-x-1/2 -translate-y-1/2 sm:h-[min(240px,52vw)] sm:w-[min(240px,52vw)] md:h-[clamp(280px,32vw,440px)] md:w-[clamp(280px,32vw,440px)]"
-              style={{
-                borderRadius: '50%',
-                background:
-                  'radial-gradient(circle, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.38) 38%, rgba(0,0,0,0.14) 62%, transparent 86%)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-              }}
-              aria-hidden
-            />
-            <div className="relative p-3 sm:p-5 md:p-7 lg:p-9 xl:p-10">
-              <div className="relative h-[8.5rem] w-[8.5rem] sm:h-44 sm:w-44 md:h-48 md:w-48 lg:h-60 lg:w-60 xl:h-64 xl:w-64">
-                <div className="absolute inset-0" aria-hidden>
-                  <div className="absolute left-0 right-0 top-1/2 h-px bg-white/35" />
-                  <div className="absolute bottom-0 top-0 left-1/2 w-px bg-white/35" />
-                </div>
-                {caseData.category && (
-                  <div className="absolute right-0 top-0 flex h-1/2 w-1/2 flex-col items-end justify-end p-2 text-right sm:p-3 md:p-4 lg:p-6">
-                    <span
-                      className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-300 sm:text-xs md:text-sm"
-                      style={display}
-                    >
-                      {copy(validLang, 'тип', 'type', 'typ', 'тип')}
-                    </span>
-                    <span
-                      className="line-clamp-3 text-xs font-semibold uppercase leading-tight text-white sm:text-sm md:text-base lg:text-lg"
-                      style={display}
-                    >
-                      {caseData.category}
-                    </span>
-                  </div>
-                )}
-                {caseData.duration && (
-                  <div className="absolute bottom-0 left-0 flex h-1/2 w-1/2 flex-col items-start justify-start p-2 sm:p-3 md:p-4 lg:p-6">
-                    <span
-                      className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-300 sm:text-xs md:text-sm"
-                      style={display}
-                    >
-                      {copy(validLang, 'строк', 'timeline', 'czas', 'срок')}
-                    </span>
-                    <span
-                      className="text-sm font-semibold uppercase leading-tight text-white sm:text-base md:text-xl lg:text-2xl"
-                      style={display}
-                    >
-                      {caseData.duration}
-                    </span>
-                  </div>
-                )}
+        <div className={`relative z-10 pt-24 md:pt-28 ${SITE_PX}`}>
+          <nav className="mb-8 flex flex-wrap items-center gap-2 text-sm text-white/50" style={sans}>
+            <Link href={`/${validLang}`} className="transition-colors hover:text-white">
+              {copy(validLang, 'Головна', 'Home', 'Strona główna', 'Главная')}
+            </Link>
+            <span aria-hidden>/</span>
+            <Link href={`/${validLang}/portfolio`} className="transition-colors hover:text-white">
+              {t.nav.portfolio}
+            </Link>
+            <span aria-hidden>/</span>
+            <span className="text-white/80">{crumb}</span>
+          </nav>
+
+          <div className="grid items-center gap-10 pb-12 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-14 lg:pb-16">
+            <div>
+              <h1
+                className="mb-6 text-[clamp(1.75rem,4.5vw,3.25rem)] font-black uppercase leading-[1.05] tracking-tight text-white"
+                style={display}
+              >
+                {title}
+              </h1>
+              <p className="mb-8 max-w-xl text-base leading-relaxed text-white/70 md:text-lg" style={sans}>
+                {lead}
+              </p>
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                {liveUrl ? (
+                  <a
+                    href={liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-black transition-opacity hover:opacity-90"
+                    style={sans}
+                  >
+                    {studyCopy?.visitSite ||
+                      copy(validLang, 'Переглянути проєкт', 'Visit site', 'Zobacz projekt', 'Смотреть проект')}
+                    <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} />
+                  </a>
+                ) : null}
+                <OrderCtaPill
+                  size="sm"
+                  variant="outline"
+                  label={copy(validLang, 'Обговорити проєкт', 'Discuss a project', 'Omówić projekt', 'Обсудить проект')}
+                  onClick={() => setIsModalOpen(true)}
+                  className="w-full sm:w-auto sm:min-w-[14rem]"
+                />
               </div>
             </div>
-          </div>
-        )}
 
-        <div
-          className={`relative z-20 grid h-full max-h-full w-full overflow-hidden pb-2 pt-16 sm:pb-5 sm:pt-24 lg:pt-28 ${SITE_PX}`}
-          style={{ gridTemplateRows: '1fr auto' }}
-        >
-          <div className="flex min-h-0 flex-col justify-center max-md:items-stretch md:justify-center max-lg:pr-[6.5rem] sm:max-lg:pr-40 lg:pr-64 xl:pr-72">
-            <div className="min-h-0 w-full max-w-[min(100%,52rem)]">
-              <Link
-                href={`/${validLang}/portfolio`}
-                className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/65 transition-colors hover:text-white sm:mb-5 sm:text-sm"
-                style={display}
-              >
-                <FaArrowLeft className="h-3 w-3" />
-                {backLabel}
-              </Link>
-              <h1
-                className="font-black uppercase leading-[0.92] tracking-[-0.02em] text-white text-[clamp(1.75rem,7vw,2.5rem)] sm:text-[clamp(2.25rem,5.5vw,3.25rem)] md:text-5xl md:leading-[0.92] lg:text-6xl xl:text-[4.5rem] xl:leading-[0.9]"
-                style={display}
-              >
-                {caseData.title}
-              </h1>
-              {caseData.subtitle && (
-                <p
-                  className="mt-3 line-clamp-3 text-lg leading-snug text-white/90 sm:mt-4 sm:text-xl md:text-2xl lg:text-3xl"
-                  style={display}
-                >
-                  {caseData.subtitle}
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className="flex min-h-0 shrink-0 flex-col-reverse gap-3 max-sm:-mt-6 sm:mt-0 sm:flex-col sm:gap-5 md:flex-row md:items-end md:justify-between md:gap-8 lg:gap-10">
-            <div className="min-w-0 space-y-3 md:max-w-[48%] lg:max-w-[44%]">
-              {caseData.technologies?.length > 0 && (
-                <div className="flex flex-wrap gap-2">
-                  {caseData.technologies.slice(0, 6).map((tech: string) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-white/25 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white/90 backdrop-blur-sm sm:text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              )}
-              <button
-                type="button"
-                onClick={scrollToCaseMedia}
-                className="hidden items-center gap-2 text-xs uppercase tracking-[0.14em] text-white/65 transition-colors hover:text-white lg:inline-flex md:text-sm"
-                style={display}
-              >
-                {copy(validLang, 'Переглянути фото', 'View photo', 'Zobacz zdjęcie', 'Смотреть фото')}
-                <span className="text-base md:text-lg" aria-hidden>
-                  ↓
-                </span>
-              </button>
-            </div>
-
-            <div className="flex w-full shrink-0 flex-col gap-3 sm:flex-row sm:items-stretch md:w-auto md:flex-col lg:flex-row">
-              {caseData.liveUrl && (
-                <a
-                  href={caseData.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-white/50 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-white hover:bg-white/10 sm:min-w-[12rem]"
-                >
-                  <FaExternalLinkAlt className="h-3.5 w-3.5" />
-                  {viewProjectLabel}
-                </a>
-              )}
-              <OrderCtaPill
-                size="hero"
-                eyebrow={copy(
-                  validLang,
-                  'Хочете схожий проєкт?',
-                  'Want a similar project?',
-                  'Chcesz podobny projekt?',
-                  'Хотите похожий проект?'
-                )}
-                eyebrowMobile={copy(
-                  validLang,
-                  'Обговорити проєкт',
-                  'Discuss project',
-                  'Omówić projekt',
-                  'Обсудить проект'
-                )}
-                label={orderLabel}
-                onClick={() => setIsModalOpen(true)}
-                className="w-full max-w-full md:w-auto"
+            <div className="relative mx-auto w-full max-w-[22rem] overflow-hidden rounded-2xl sm:max-w-md lg:max-w-lg">
+              <Image
+                src={mainImage}
+                alt={title}
+                width={800}
+                height={600}
+                className="h-auto w-full"
+                sizes="(max-width: 640px) 22rem, (max-width: 1024px) 28rem, 32rem"
+                priority
+                quality={85}
               />
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Фото кейсу — окремо */}
-      <section id="case-media" className={`scroll-mt-20 bg-black ${SITE_PX}`}>
-        <div className="mx-auto max-w-6xl py-10 sm:py-12 md:py-16">
-          <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-zinc-900 sm:aspect-[1500/970]">
-            <Image
-              src={caseData.mainImage}
-              alt={`${caseData.title}${caseData.subtitle ? ` — ${caseData.subtitle}` : ''} | TeleBots`}
-              fill
-              className="object-contain"
-              priority
-              quality={90}
-              sizes="(max-width: 1024px) 100vw, 1152px"
-            />
-          </div>
-          {(caseData.client || caseData.category) && (
-            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/60">
-              {caseData.client && (
-                <p>
-                  <span className="uppercase tracking-[0.14em] text-white/40">
-                    {copy(validLang, 'клієнт', 'client', 'klient', 'клиент')}
-                  </span>
-                  <span className="ml-2 text-white/85">{caseData.client}</span>
-                </p>
-              )}
-              {caseData.category && (
-                <p>
-                  <span className="uppercase tracking-[0.14em] text-white/40">
-                    {copy(validLang, 'категорія', 'category', 'kategoria', 'категория')}
-                  </span>
-                  <span className="ml-2 text-white/85">{caseData.category}</span>
-                </p>
-              )}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Action bar */}
-      <section className={`border-b border-zinc-100 bg-white py-10 lg:py-12 ${SITE_PX}`}>
-        <div className="mx-auto flex max-w-6xl flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
-          {caseData.liveUrl && (
-            <a
-              href={caseData.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 rounded-full bg-black px-10 py-4 text-lg font-black text-white transition-colors hover:bg-gray-800 sm:min-w-[16rem]"
-            >
-              <FaExternalLinkAlt className="h-5 w-5" />
-              {viewProjectLabel}
-            </a>
-          )}
-          <OrderCtaPill
-            size="md"
-            label={orderLabel}
-            onClick={() => setIsModalOpen(true)}
-            elevated
-            className="w-full sm:w-auto sm:min-w-[16rem]"
-          />
-        </div>
-      </section>
-
-      {/* Main Content */}
-      <section className={`bg-white py-12 lg:py-16 ${SITE_PX}`}>
-        <div className="mx-auto max-w-6xl">
-          {caseData.description && (
-            <div className="mb-14">
-              <h2 className="mb-5 text-3xl font-black text-black lg:text-4xl xl:text-5xl">
-                {copy(validLang, 'Опис проєкту', 'Project Description', 'Opis projektu', 'Описание проекта')}
-              </h2>
-              <div className="prose prose-lg max-w-none">
-                {caseData.description.split('\n').map((paragraph: string, index: number) =>
-                  paragraph.trim() ? (
-                    <p key={index} className="mb-4 text-xl leading-relaxed text-gray-700 lg:text-2xl">
-                      {paragraph}
-                    </p>
-                  ) : null
-                )}
-              </div>
-            </div>
-          )}
-
-          {caseData.gallery && caseData.gallery.length > 0 && (
-            <div className="mb-14">
-              <h2 className="mb-6 text-3xl font-black text-black lg:text-4xl xl:text-5xl">
-                {copy(validLang, 'Галерея проєкту', 'Project gallery', 'Galeria projektu', 'Галерея проекта')}
-              </h2>
-              <div className="grid grid-cols-1 gap-8">
-                {caseData.gallery.map((src: string, index: number) => (
-                  <div
-                    key={index}
-                    className="relative w-full overflow-hidden rounded-2xl border border-gray-200 bg-gray-50"
-                  >
-                    {/\.(webm|mp4|mov)$/i.test(src) ? (
-                      <video
-                        className="h-auto max-h-[78vh] w-full bg-black object-contain"
-                        controls
-                        autoPlay
-                        loop
-                        playsInline
-                        muted
-                        preload="metadata"
-                      >
-                        <source
-                          src={src}
-                          type={
-                            src.toLowerCase().endsWith('.webm')
-                              ? 'video/webm'
-                              : src.toLowerCase().endsWith('.mp4')
-                                ? 'video/mp4'
-                                : 'video/quicktime'
-                          }
-                        />
-                      </video>
-                    ) : (
-                      <Image
-                        src={src}
-                        alt={`${caseData.title} — ${index + 2}`}
-                        width={1200}
-                        height={800}
-                        className="h-auto max-h-[78vh] w-full object-contain"
-                        quality={90}
-                        sizes="(max-width: 1024px) 100vw, 1152px"
-                      />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {caseData.features && (
-            <div className="mb-14">
-              <h2 className="mb-6 text-3xl font-black text-black lg:text-4xl xl:text-5xl">
-                {copy(validLang, 'Основні функції', 'Key Features', 'Kluczowe funkcje', 'Основные функции')}
-              </h2>
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {caseData.features.map((feature: string, index: number) => (
-                  <div key={index} className="flex items-start gap-3 border-b border-gray-200 p-4">
-                    <div className="mt-2.5 h-2 w-2 flex-shrink-0 rounded-full bg-black" />
-                    <p className="text-lg font-normal leading-relaxed text-gray-700 lg:text-xl">{feature}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {caseData.results && (
-            <div className="mb-14">
-              <h2 className="mb-6 text-center text-3xl font-black text-black lg:text-4xl xl:text-5xl">
-                {copy(validLang, 'Результати', 'Results', 'Wyniki', 'Результаты')}
-              </h2>
-              <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-                {caseData.results.map((result: { value: string; label: string }, index: number) => (
-                  <div key={index} className="text-center">
-                    <div className="mb-2 text-4xl font-black text-black lg:text-5xl xl:text-6xl">
-                      {result.value}
+          {studyCopy?.stats?.length ? (
+            <div className="pb-10 md:pb-14">
+              <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-4">
+                {studyCopy.stats.map((stat) => (
+                  <div key={stat.label} className="bg-[#0a0a0a]/90 px-4 py-6 sm:px-6 sm:py-8">
+                    <div className="mb-2 text-3xl font-black text-brand sm:text-4xl" style={display}>
+                      {stat.value}
                     </div>
-                    <p className="text-base font-normal uppercase tracking-[0.1em] text-gray-600">
-                      {result.label}
+                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-brand/80 sm:text-sm">
+                      {stat.label}
                     </p>
                   </div>
                 ))}
               </div>
             </div>
-          )}
-
-          {caseData.portfolioCategory && (
-            <div className="mb-12 text-center">
-              <p className="mb-4 text-base font-semibold text-gray-600">
-                {copy(validLang, "Повʼязана послуга:", 'Related service:', 'Powiązana usługa:', 'Связанная услуга:')}
-              </p>
-              <Link
-                href={
-                  ['chatbots', 'websites', 'design'].includes(caseData.portfolioCategory)
-                    ? `/${validLang}/services/${caseData.portfolioCategory}`
-                    : `/${validLang}/services`
-                }
-                className="inline-flex items-center gap-2 rounded-full border-2 border-black px-6 py-3 font-black text-black transition-colors hover:bg-black hover:text-white"
-              >
-                {caseData.portfolioCategory === 'chatbots' && (t.services?.chatbotsPage?.title ?? 'Чат-боти')}
-                {caseData.portfolioCategory === 'websites' && (t.services?.websitesPage?.title ?? 'Сайти')}
-                {caseData.portfolioCategory === 'design' && (t.services?.designPage?.title ?? 'Дизайн')}
-                {!['chatbots', 'websites', 'design'].includes(caseData.portfolioCategory) &&
-                  (t.nav?.services ?? 'Що ми робимо?')}
-                <FaExternalLinkAlt className="h-4 w-4" />
-              </Link>
-            </div>
-          )}
-
-          <div className="mx-auto flex max-w-md justify-center text-center">
-            <OrderCtaPill
-              size="md"
-              label={orderLabel}
-              onClick={() => setIsModalOpen(true)}
-              elevated
-              className="w-full"
-            />
-          </div>
+          ) : null}
         </div>
       </section>
+
+      {/* CHALLENGE */}
+      {studyCopy?.challenge ? (
+        <section className={`border-b border-gray-100 bg-white py-16 md:py-24 ${SITE_PX}`}>
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-gray-400 md:text-sm" style={sans}>
+                {studyCopy.challenge.eyebrow}
+              </p>
+              <h2 className="text-3xl font-black tracking-tight text-black md:text-4xl lg:text-5xl" style={display}>
+                {studyCopy.challenge.title}
+              </h2>
+            </div>
+            <div>
+              <p className="mb-8 text-lg leading-relaxed text-gray-700 md:text-xl lg:text-2xl lg:leading-relaxed" style={sans}>
+                {studyCopy.challenge.lead}
+              </p>
+              <ul className="space-y-4 md:space-y-5">
+                {studyCopy.challenge.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-base leading-relaxed text-gray-800 md:text-lg lg:text-xl lg:leading-relaxed"
+                    style={sans}
+                  >
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-brand md:mt-3" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* SOLUTION */}
+      {studyCopy?.solution ? (
+        <section className={`border-b border-gray-100 bg-white py-16 md:py-24 ${SITE_PX}`}>
+          <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
+            <div>
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-gray-400 md:text-sm" style={sans}>
+                {studyCopy.solution.eyebrow}
+              </p>
+              <h2 className="text-3xl font-black tracking-tight text-black md:text-4xl lg:text-5xl" style={display}>
+                {studyCopy.solution.title}
+              </h2>
+            </div>
+            <div>
+              <p className="mb-8 text-lg leading-relaxed text-gray-700 md:text-xl lg:text-2xl lg:leading-relaxed" style={sans}>
+                {studyCopy.solution.lead}
+              </p>
+              <ul className="space-y-4 md:space-y-5">
+                {studyCopy.solution.items.map((item) => (
+                  <li
+                    key={item}
+                    className="flex gap-3 text-base leading-relaxed text-gray-800 md:text-lg lg:text-xl lg:leading-relaxed"
+                    style={sans}
+                  >
+                    <span className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-black md:mt-3" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="mx-auto mt-12 max-w-xl overflow-hidden rounded-2xl md:mt-16 md:max-w-2xl">
+            <Image
+              src={mainImage}
+              alt={title}
+              width={900}
+              height={675}
+              className="h-auto w-full"
+              sizes="(max-width: 768px) 36rem, 42rem"
+              quality={85}
+            />
+          </div>
+        </section>
+      ) : null}
+
+      {/* OUTCOME */}
+      {studyCopy?.outcome ? (
+        <section className={`bg-white py-16 md:py-24 ${SITE_PX}`}>
+          <div className="mx-auto max-w-3xl text-center lg:max-w-4xl">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-gray-400 md:text-sm" style={sans}>
+              {studyCopy.outcome.eyebrow}
+            </p>
+            <h2 className="mb-6 text-3xl font-black tracking-tight text-black md:text-4xl lg:text-5xl" style={display}>
+              {studyCopy.outcome.title}
+            </h2>
+            <p className="text-lg leading-relaxed text-gray-700 md:text-xl lg:text-2xl lg:leading-relaxed" style={sans}>
+              {studyCopy.outcome.text}
+            </p>
+            {liveUrl ? (
+              <a
+                href={liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-10 inline-flex items-center gap-2 rounded-full border-2 border-black px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-black transition-colors hover:bg-black hover:text-white md:text-base"
+                style={sans}
+              >
+                {studyCopy.visitSite}
+                <ArrowUpRight className="h-4 w-4" />
+              </a>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
+      {/* RELATED */}
+      {related.length > 0 ? (
+        <section className={`border-t border-gray-100 bg-[#0a0a0a] py-16 text-white md:py-24 ${SITE_PX}`}>
+          <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/40">RELATED</p>
+              <h2 className="text-2xl font-black md:text-3xl" style={display}>
+                {studyCopy?.relatedTitle ||
+                  copy(validLang, 'Інші кейси', 'Other cases', 'Inne case’y', 'Другие кейсы')}
+              </h2>
+            </div>
+            <Link
+              href={`/${validLang}/portfolio`}
+              className="text-sm font-semibold text-white/70 underline-offset-4 transition-colors hover:text-brand hover:underline"
+            >
+              {studyCopy?.relatedCta ||
+                copy(validLang, 'Усі кейси', 'All cases', 'Wszystkie case’y', 'Все кейсы')}{' '}
+              →
+            </Link>
+          </div>
+          <div className="-mx-4 overflow-x-auto px-4 pb-2 [scrollbar-width:thin] sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div className="flex w-max gap-5">
+              {related.map((card) => (
+                <PortfolioCaseCard
+                  key={card.id}
+                  card={card}
+                  lang={validLang}
+                  className="w-[min(82vw,20rem)] shrink-0 sm:w-[22rem]"
+                  sizes="352px"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <SiteCtaBand
+        title={t.about.homeCta.title}
+        text={t.about.homeCta.text}
+        contactLabel={t.about.homeCta.contactLabel}
+        pricingLabel={t.about.homeCta.pricingLabel}
+        portfolioLabel={t.about.homeCta.portfolioLabel}
+        pricingHref={`/${validLang}/pricing`}
+        portfolioHref={`/${validLang}/portfolio`}
+        onContactClick={() => setIsModalOpen(true)}
+        className="pt-16 md:pt-20"
+      />
 
       <OrderModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        serviceName={caseData.title}
+        serviceName={title}
         t={t}
         onSubmit={handleSubmit}
       />
-
       <SuccessMessage
         isOpen={isSuccessOpen}
         onClose={() => setIsSuccessOpen(false)}

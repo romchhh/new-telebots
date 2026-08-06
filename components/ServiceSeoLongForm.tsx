@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, type ReactNode } from 'react';
+import { type ReactNode } from 'react';
 import type { ServiceLongFormBundle, ServiceRichBlock } from '@/lib/servicePagesSeo/types';
-import { useScrollAnimation } from '@/components/useScrollAnimation';
+import FaqAccordion from '@/components/FaqAccordion';
 import { SITE_PX } from '@/lib/siteLayout';
 
 interface ServiceSeoLongFormProps {
@@ -10,7 +10,7 @@ interface ServiceSeoLongFormProps {
 }
 
 const display = { fontFamily: 'var(--font-display)' } as const;
-const shell = 'max-w-7xl mx-auto w-full';
+const shell = 'mx-auto w-full';
 const sectionPad = SITE_PX;
 const sectionY = 'py-20 md:py-28';
 
@@ -56,9 +56,6 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
     designExtras,
   } = copy;
 
-  const [faqRef, isFaqVisible] = useScrollAnimation();
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-
   const body = 'text-gray-900 text-lg md:text-xl leading-snug font-light';
 
   return (
@@ -67,7 +64,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
       <section className={`${sectionY} ${sectionPad} bg-white border-t border-gray-100`}>
         <div className={shell}>
           <SectionTitle index={1}>{whatWeDoTitle}</SectionTitle>
-          <div className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 w-full">
             {whatWeDoItems.map((item: ServiceRichBlock) => (
               <article
                 key={item.title}
@@ -90,7 +87,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
         <section className={`${sectionY} ${sectionPad} bg-white border-t border-gray-100`}>
           <div className={shell}>
             <SectionTitle index={2}>{websitesExtras.scopeTitle}</SectionTitle>
-            <ul className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
+            <ul className="flex flex-wrap justify-center gap-6 w-full">
               {websitesExtras.scopeItems.map((line: string) => (
                 <li
                   key={line}
@@ -108,7 +105,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
         <section className={`${sectionY} ${sectionPad} bg-white border-t border-gray-100`}>
           <div className={shell}>
             <SectionTitle index={2}>{designExtras.processTitle}</SectionTitle>
-            <ol className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
+            <ol className="flex flex-wrap justify-center gap-6 w-full">
               {designExtras.processItems.map((step: string, i: number) => (
                 <li
                   key={step}
@@ -132,7 +129,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
       <section className={`${sectionY} ${sectionPad} bg-white border-t border-gray-100`}>
         <div className={shell}>
           <SectionTitle index={3}>{techTitle}</SectionTitle>
-          <ul className="flex flex-wrap justify-center gap-6 max-w-7xl mx-auto">
+          <ul className="flex flex-wrap justify-center gap-6 w-full">
             {techLines.map((line: string) => (
               <li
                 key={line}
@@ -145,56 +142,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
         </div>
       </section>
 
-      <section className={`${sectionY} ${sectionPad} bg-black`}>
-        <div className={`${shell} max-w-4xl`}>
-          <div className={`scroll-animate-up ${isFaqVisible ? 'animate' : ''}`} ref={faqRef}>
-            <SectionTitle index={4} dark>
-              {faqTitle}
-            </SectionTitle>
-
-            <div className="space-y-0">
-              {faq.map((item: { question: string; answer: string }, index: number) => (
-                <div key={index} className="border-t border-white/20 last:border-b">
-                  <button
-                    type="button"
-                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                    className="w-full flex items-center justify-between gap-6 py-6 md:py-8 text-left group"
-                    aria-expanded={openFaqIndex === index}
-                  >
-                    <span
-                      className="text-white text-xl md:text-2xl lg:text-3xl font-light leading-snug"
-                      style={display}
-                    >
-                      {item.question}
-                    </span>
-                    <span
-                      className="text-white text-2xl md:text-3xl font-light flex-shrink-0 transition-transform duration-300"
-                      style={{ transform: openFaqIndex === index ? 'rotate(45deg)' : 'rotate(0deg)' }}
-                      aria-hidden
-                    >
-                      +
-                    </span>
-                  </button>
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      openFaqIndex === index ? 'max-h-[min(2000px,90vh)] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <div className="pb-6 md:pb-8 pr-4 sm:pr-12">
-                      <p
-                        className="text-gray-300 text-lg md:text-xl font-light leading-relaxed"
-                        style={display}
-                      >
-                        {item.answer}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <FaqAccordion title={faqTitle} items={faq} sectionClassName={sectionPad} />
     </>
   );
 }

@@ -3,37 +3,55 @@
  * Used by middleware for 308 redirects of light case URLs.
  */
 
+/** Активні кейси з картками на хабі — окремі URL /portfolio/[slug]. */
 export const FLAGSHIP_CASE_IDS = [
   'tradeground-bot',
   '13vplus',
   'dr-tolstikova-bot',
   'nieznany-piekarz',
+  'applum-bot',
+  'flixmarket',
+  'chars-kyiv',
+  'smart-bodycourse-bot',
+  'cosmy',
+  'normalnoauto',
+  'newlineschool',
+  'butenko-fit',
+  'wesauto',
+  'carbit',
+  'movna-test',
+  'wayofprocessing',
+  '13pm',
+  'kls',
+  'emvi-digital',
+  'litun-edu',
+  'zavadska',
+  'dente',
+  'toptrendshop',
+  'royal-academy',
+  'kreona',
+  'journey-zavadska',
+  'vevyne-dating-bot',
+  // SEO-резерв без карток (старі URL → 308 на хаб, поки немає контенту)
   'nutritionist-bot',
   'cats-fresh',
-  'applum-bot',
   'webinar-bot',
-  'flixmarket',
   'alexandraaleksiuk',
   'offer-dpuchkov',
   'vsk-technology',
   'v12-auto',
   'tripvibe',
   'tron-energy-bot',
-  'chars-kyiv',
   'style-chat-vakhula',
   'landscaper-academy',
-  'smart-bodycourse-bot',
 ] as const;
 
 export type FlagshipCaseId = (typeof FLAGSHIP_CASE_IDS)[number];
 
+/** Light SEO-слаги без окремих сторінок (308 → /portfolio?case=). */
 export const LIGHT_CASE_IDS = [
   'easyplay',
-  'cosmy',
-  'normalnoauto',
   'kvartyrant',
-  'newlineschool',
-  'butenko-fit',
   'snagging-services-uae',
   'space-traffic',
   'ukr-bus',
@@ -52,6 +70,11 @@ export function isFlagshipCase(caseId: string): boolean {
 
 export function isLightCase(caseId: string): boolean {
   return LIGHT_SET.has(caseId);
+}
+
+/** Усі зарезервовані SEO-слаги (flagship + light). */
+export function isKnownCaseSlug(caseId: string): boolean {
+  return FLAGSHIP_SET.has(caseId) || LIGHT_SET.has(caseId);
 }
 
 export function getCaseTier(caseId: string): PortfolioCaseTier {

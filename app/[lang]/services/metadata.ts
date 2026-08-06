@@ -21,12 +21,12 @@ export async function generateMetadata({
     : 'Услуги: Telegram-боты, чат-боты и сайты под ключ | TeleBots';
 
   const description = lang === 'uk'
-    ? 'Замовити розробку Telegram-бота від $150, сайту від $300, UI/UX від $150. Чат-боти з оплатою, CRM, e-commerce на Next.js. Безкоштовна консультація, прозорі ціни, 200+ проєктів.'
+    ? 'Замовити розробку Telegram-бота від $100, лендінгу від $150, інтернет-магазину від $400, UI/UX від $150. Чат-боти з оплатою, CRM, e-commerce на Next.js. Безкоштовна консультація, 200+ проєктів.'
     : lang === 'en'
-    ? 'Telegram bots from $150, websites from $300, UI/UX from $150. Chatbots with payments, CRM, Next.js e-commerce. Free consultation, transparent pricing, 200+ projects.'
+    ? 'Telegram bots from $100, landings from $150, online stores from $400, UI/UX from $150. Chatbots with payments, CRM, Next.js e-commerce. Free consultation, 200+ projects.'
     : lang === 'pl'
-    ? 'Boty Telegram od $150, strony od $300, UI/UX od $150. Chatboty z płatnościami, CRM, e-commerce Next.js. Darmowa konsultacja, przejrzyste ceny, 200+ projektów.'
-    : 'Telegram-боты от $150, сайты от $300, UI/UX от $150. Чат-боты с оплатой, CRM, e-commerce на Next.js. Бесплатная консультация, прозрачные цены, 200+ проектов.';
+    ? 'Boty Telegram od $100, landingi od $150, sklepy od $400, UI/UX od $150. Chatboty z płatnościami, CRM, e-commerce Next.js. Darmowa konsultacja, 200+ projektów.'
+    : 'Telegram-боты от $100, лендинги от $150, интернет-магазины от $400, UI/UX от $150. Чат-боты с оплатой, CRM, e-commerce на Next.js. Бесплатная консультация, 200+ проектов.';
 
   const keywords = lang === 'uk'
     ? 'послуги TeleBots, розробка Telegram-ботів, замовити телеграм бота, чат-бот для бізнесу, чат бот ціна, розробка чат ботів ціна, розробка сайту під ключ, інтернет-магазин під ключ, UI/UX, автоматизація бізнесу'

@@ -65,7 +65,7 @@ export default function ContactFormBlock({
 
       <form onSubmit={handleSubmit} className="space-y-10">
         <div>
-          <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+          <label className="mb-2 block text-sm font-normal text-brand">
             {t.contact.name} *
           </label>
           <input
@@ -80,7 +80,7 @@ export default function ContactFormBlock({
         </div>
 
         <div>
-          <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+          <label className="mb-2 block text-sm font-normal text-brand">
             {t.contact.phone} *
           </label>
           <input
@@ -95,7 +95,7 @@ export default function ContactFormBlock({
         </div>
 
         <div>
-          <label className="block text-sm font-normal mb-2" style={{ color: '#E76F51' }}>
+          <label className="mb-2 block text-sm font-normal text-brand">
             {t.contact.project}
           </label>
           <textarea
@@ -111,7 +111,7 @@ export default function ContactFormBlock({
         <div className="w-full pt-2 text-center lg:text-left">
           <button
             type="submit"
-            className="inline-flex items-center justify-center min-w-[min(100%,280px)] sm:min-w-[300px] md:min-w-[340px] px-14 py-5 md:px-16 md:py-6 text-white font-semibold text-lg md:text-xl rounded-full transition hover:opacity-90 bg-black tracking-wide"
+            className="inline-flex items-center justify-center min-w-[min(100%,280px)] sm:min-w-[300px] md:min-w-[340px] px-14 py-5 md:px-16 md:py-6 text-neutral-900 font-semibold text-lg md:text-xl rounded-full transition hover:bg-brand-light bg-brand tracking-wide shadow-md shadow-brand/25"
           >
             {t.contact.submit}
           </button>

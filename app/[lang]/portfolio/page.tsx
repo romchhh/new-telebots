@@ -103,10 +103,7 @@ export default function PortfolioPage() {
         ]}
       />
       {portfolioItems.length > 0 && (
-        <>
-          <StructuredData type="itemList" items={portfolioItems} />
-          <StructuredData type="collectionPage" />
-        </>
+        <StructuredData type="itemList" items={portfolioItems} />
       )}
       <div className="min-h-screen bg-white">
         <a 

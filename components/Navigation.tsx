@@ -3,11 +3,11 @@
 import { useState, useEffect, type CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { X, ArrowUpRight } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
-import { SITE_CONTAINER, SITE_PX, SITE_INSET_L } from '@/lib/siteLayout';
+import { SITE_PX, SITE_INSET_L } from '@/lib/siteLayout';
 
 interface NavigationProps {
   isScrolled: boolean;
@@ -24,16 +24,12 @@ let consultWidgetShownInRuntime = false;
 let consultWidgetDismissedInRuntime = false;
 
 const headerLogoStyle: CSSProperties = {
-  color: '#fff',
   fontSize: 20,
   fontWeight: 900,
   fontFamily: "'Arial Black', sans-serif",
   letterSpacing: '-0.5px',
   lineHeight: 1,
 };
-
-const navLinkClass =
-  'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-white transition-colors hover:text-gray-400 lg:text-[13px]';
 
 export default function Navigation({ isScrolled, solidHeader = false, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
   const headerSolid = solidHeader || isScrolled;
@@ -42,6 +38,10 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
   const [showConsultWidget, setShowConsultWidget] = useState(false);
   const currentLanguage = currentLang || lang;
   const showLanguageSelector = currentLanguage !== 'ru';
+
+  const navLinkClass = headerSolid
+    ? 'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-black transition-colors hover:text-brand lg:text-[13px]'
+    : 'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-white transition-colors hover:text-brand-light lg:text-[13px]';
 
   useEffect(() => {
     setMounted(true);
@@ -66,7 +66,6 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
     return () => window.clearTimeout(timer);
   }, [mounted, onConsultClick]);
 
-  // Блокуємо скрол через overflow hidden
   useEffect(() => {
     if (isMenuOpen) {
       document.documentElement.style.overflow = 'hidden';
@@ -82,49 +81,64 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
   }, [isMenuOpen]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      headerSolid ? 'bg-black/95 backdrop-blur-sm' : 'bg-transparent'
-    }`}>
-      <div className={`flex h-16 items-center justify-between lg:h-20 ${SITE_CONTAINER}`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        headerSolid
+          ? 'border-b border-black/5 bg-white/95 shadow-sm backdrop-blur-sm'
+          : 'border-b border-transparent bg-transparent'
+      }`}
+    >
+      <div className={`relative flex h-16 items-center justify-between lg:h-20 ${SITE_PX}`}>
         <Link
           href={`/${currentLanguage}`}
-          className="inline-flex h-12 flex-shrink-0 items-center transition-opacity hover:opacity-90"
+          className="relative z-10 inline-flex h-12 flex-shrink-0 items-center transition-opacity hover:opacity-90"
           aria-label="TeleBots"
         >
-          <span style={headerLogoStyle}>telebots.</span>
+          <span style={{ ...headerLogoStyle, color: headerSolid ? '#000' : '#fff' }}>telebots.</span>
         </Link>
 
-        <div className="hidden items-center gap-7 xl:gap-9 lg:flex">
-          <a href="https://brand.telebots.site/" target="_blank" rel="noopener noreferrer" className={navLinkClass}>
-            {t.nav.brand}
-          </a>
-          <Link href={`/${currentLanguage}/services`} className={navLinkClass}>
-            {t.nav.services}
-          </Link>
-          <Link href={`/${currentLanguage}/portfolio`} className={navLinkClass}>
-            {t.nav.portfolio}
-          </Link>
-          <Link href={`/${currentLanguage}/blog`} className={navLinkClass}>
-            {t.nav.blog}
-          </Link>
-          <Link href={`/${currentLanguage}/pricing`} className={navLinkClass}>
-            {t.nav.pricing}
-          </Link>
-          <Link href={`/${currentLanguage}/contact`} className={navLinkClass}>
-            {t.nav.contact}
-          </Link>
+        <div className="pointer-events-none absolute inset-x-0 hidden justify-center lg:flex">
+          <div className="pointer-events-auto flex items-center gap-7 xl:gap-9">
+            <Link href={`/${currentLanguage}/services`} className={navLinkClass}>
+              {t.nav.services}
+            </Link>
+            <Link href={`/${currentLanguage}/portfolio`} className={navLinkClass}>
+              {t.nav.portfolio}
+            </Link>
+            <Link href={`/${currentLanguage}/blog`} className={navLinkClass}>
+              {t.nav.blog}
+            </Link>
+            <Link href={`/${currentLanguage}/pricing`} className={navLinkClass}>
+              {t.nav.pricing}
+            </Link>
+            <Link href={`/${currentLanguage}/contact`} className={navLinkClass}>
+              {t.nav.contact}
+            </Link>
+          </div>
+        </div>
+
+        <div className="relative z-10 hidden items-center gap-5 xl:gap-6 lg:flex">
           {onConsultClick && (
-            <button
-              type="button"
+            <OrderCtaPill
+              size="sm"
+              variant="brand"
+              label={t.nav.consultation}
               onClick={onConsultClick}
-              className="inline-flex h-12 items-center justify-center rounded-full border-2 border-white px-8 text-xs font-semibold uppercase leading-none tracking-[0.25em] text-white transition-colors hover:bg-white hover:text-black lg:text-[13px]"
-            >
-              {t.nav.consultation}
-            </button>
+              className="min-h-12 !py-1.5 !pl-5 !pr-1.5 shadow-none"
+            />
           )}
           {showLanguageSelector && (
-            <span className="inline-flex h-12 items-center border-l border-white/20 pl-7 xl:pl-9">
-              <LanguageSelector lang={lang} setLang={setLang} isScrolled={isScrolled} currentLang={currentLanguage} />
+            <span
+              className={`inline-flex h-12 items-center border-l pl-5 xl:pl-6 ${
+                headerSolid ? 'border-black/15' : 'border-white/25'
+              }`}
+            >
+              <LanguageSelector
+                lang={lang}
+                setLang={setLang}
+                isScrolled={headerSolid}
+                currentLang={currentLanguage}
+              />
             </span>
           )}
         </div>
@@ -133,16 +147,16 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
-          className="relative z-50 inline-flex h-12 w-12 items-center justify-center text-white transition lg:hidden"
+          className="relative z-50 inline-flex h-12 w-12 items-center justify-center text-brand transition hover:text-brand-dark lg:hidden"
           aria-label="Toggle menu"
         >
           {isMenuOpen ? (
-            <X className="w-6 h-6" />
+            <X className="h-6 w-6" strokeWidth={2.25} />
           ) : (
-            <div className="flex flex-col gap-1.5 w-7">
-              <div className="h-0.5 bg-current w-full"></div>
-              <div className="h-0.5 bg-current w-full"></div>
-              <div className="h-0.5 bg-current w-3/4"></div>
+            <div className="flex w-7 flex-col gap-1.5">
+              <div className="h-0.5 w-full rounded-full bg-current" />
+              <div className="h-0.5 w-full rounded-full bg-current" />
+              <div className="h-0.5 w-3/4 rounded-full bg-current" />
             </div>
           )}
         </button>
@@ -150,64 +164,53 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
 
       {mounted && isMenuOpen && createPortal(
         <div
-          className="fixed inset-0 bg-black lg:hidden z-[9999]"
+          className="fixed inset-0 bg-white lg:hidden z-[9999]"
           style={{ top: 0, left: 0, right: 0, bottom: 0 }}
           onClick={() => setIsMenuOpen(false)}
         >
           <button
             onClick={() => setIsMenuOpen(false)}
-            className={`absolute top-6 right-6 z-[10000] ${
-              isScrolled ? 'text-white' : 'text-white'
-            }`}
+            className="absolute right-6 top-6 z-[10000] text-brand transition hover:text-brand-dark"
             aria-label="Close menu"
           >
-            <X className="w-6 h-6" />
+            <X className="h-6 w-6" strokeWidth={2.25} />
           </button>
-          <div 
-            className={`flex flex-col items-center justify-center h-full w-full space-y-6 ${SITE_PX}`}
+          <div
+            className={`flex h-full w-full flex-col items-center justify-center space-y-6 ${SITE_PX}`}
             onClick={(e) => e.stopPropagation()}
           >
-            <a
-              href="https://brand.telebots.site/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
-            >
-              {t.nav.brand}
-            </a>
             <Link
               href={`/${currentLanguage}/services`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
+              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
             >
               {t.nav.services}
             </Link>
             <Link
               href={`/${currentLanguage}/portfolio`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
+              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
             >
               {t.nav.portfolio}
             </Link>
             <Link
               href={`/${currentLanguage}/blog`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
+              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
             >
               {t.nav.blog}
             </Link>
             <Link
               href={`/${currentLanguage}/pricing`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
+              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
             >
               {t.nav.pricing}
             </Link>
             <Link
               href={`/${currentLanguage}/contact`}
               onClick={() => setIsMenuOpen(false)}
-              className="text-white text-2xl tracking-wider hover:text-gray-400 transition font-semibold"
+              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
             >
               {t.nav.contact}
             </Link>
@@ -218,14 +221,18 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
                   setIsMenuOpen(false);
                   onConsultClick();
                 }}
-                className="mt-6 px-10 py-4 text-xl tracking-[0.25em] font-semibold uppercase rounded-full border-2 border-white text-white hover:bg-white hover:text-black transition-colors"
+                className="mt-6 inline-flex items-center gap-3 rounded-full bg-brand px-7 py-3.5 text-sm font-bold uppercase tracking-[0.18em] text-neutral-900 transition hover:bg-brand-light"
+                style={{ fontFamily: 'var(--font-sans)' }}
               >
                 {t.nav.consultation}
+                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-white">
+                  <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
+                </span>
               </button>
             )}
-            
+
             {showLanguageSelector && (
-              <div className="pt-6 flex justify-center">
+              <div className="flex justify-center pt-6">
                 <LanguageSelector lang={lang} setLang={setLang} isMobile={true} isScrolled={true} currentLang={currentLanguage} />
               </div>
             )}
@@ -268,4 +275,3 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
     </nav>
   );
 }
-

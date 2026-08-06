@@ -71,6 +71,13 @@ export const translations = {
         blogBot: 'Скільки коштує Telegram-бот',
         blogSite: 'Скільки коштує сайт',
       },
+      homeCta: {
+        title: 'Потрібен бот, сайт чи інтеграція під ваш процес?',
+        text: 'Коротко опишіть задачу — запропонуємо сценарій, строк і орієнтовну ціну.',
+        contactLabel: 'Написати нам',
+        pricingLabel: 'Ціни та пакети',
+        portfolioLabel: 'Кейси в портфоліо',
+      },
       ourWork: 'Наша робота',
       ourWorkDesc: 'Ми реалізуємо проєкти, які відповідають потребам наших клієнтів і забезпечують довгострокову цінність для вашого бізнесу.',
       portfolio: 'Кейси',
@@ -184,7 +191,9 @@ export const translations = {
       filterAll: 'Всі проєкти',
       filterChatbots: 'Чат-боти',
       filterWebsites: 'Сайти',
-      viewDetails: 'Детальніше'
+      viewDetails: 'Детальніше',
+      emptyTitle: 'Кейси скоро з’являться',
+      emptyText: 'Ми оновлюємо портфоліо. Тим часом можете подивитися послуги або написати нам.',
     },
     services: {
       passion: 'Розробка Telegram-ботів, сайтів і дизайну під ключ',
@@ -721,6 +730,13 @@ export const translations = {
         blogBot: 'How much does a Telegram bot cost',
         blogSite: 'How much does a website cost',
       },
+      homeCta: {
+        title: 'Need a bot, website, or integration for your process?',
+        text: 'Briefly describe the task — we’ll propose a scenario, timeline, and ballpark price.',
+        contactLabel: 'Message us',
+        pricingLabel: 'Pricing and packages',
+        portfolioLabel: 'Portfolio cases',
+      },
       ourWork: 'Our Work',
       ourWorkDesc: 'We selectively pursue opportunities that fit our clients\' needs and provide long-term value to your business.',
       portfolio: 'Cases',
@@ -834,7 +850,9 @@ export const translations = {
       filterAll: 'All Projects',
       filterChatbots: 'Chatbots',
       filterWebsites: 'Websites',
-      viewDetails: 'View Details'
+      viewDetails: 'View Details',
+      emptyTitle: 'Cases coming soon',
+      emptyText: 'We are refreshing the portfolio. Meanwhile, browse our services or get in touch.',
     },
     services: {
       passion: 'From landing pages to complex web systems — under one roof',
@@ -1304,6 +1322,13 @@ export const translations = {
         blogBot: 'Ile kosztuje bot Telegram',
         blogSite: 'Ile kosztuje strona',
       },
+      homeCta: {
+        title: 'Potrzebujesz bota, strony lub integracji pod swój proces?',
+        text: 'Krótko opisz zadanie — zaproponujemy scenariusz, termin i orientacyjną cenę.',
+        contactLabel: 'Napisz do nas',
+        pricingLabel: 'Ceny i pakiety',
+        portfolioLabel: 'Case’y w portfolio',
+      },
       ourWork: 'Nasza praca',
       ourWorkDesc: 'Selektywnie realizujemy projekty, które odpowiadają potrzebom naszych klientów i zapewniają długoterminową wartość dla Twojego biznesu.',
       portfolio: 'Realizacje',
@@ -1417,7 +1442,9 @@ export const translations = {
       filterAll: 'Wszystkie projekty',
       filterChatbots: 'Chatboty',
       filterWebsites: 'Strony',
-      viewDetails: 'Zobacz szczegóły'
+      viewDetails: 'Zobacz szczegóły',
+      emptyTitle: 'Realizacje wkrótce',
+      emptyText: 'Odświeżamy portfolio. W międzyczasie zobacz usługi lub napisz do nas.',
     },
     services: {
       passion: 'Od landing page do złożonych systemów web — w jednym miejscu',
@@ -1887,6 +1914,13 @@ export const translations = {
         blogBot: 'Сколько стоит Telegram-бот',
         blogSite: 'Сколько стоит сайт',
       },
+      homeCta: {
+        title: 'Нужен бот, сайт или интеграция под ваш процесс?',
+        text: 'Кратко опишите задачу — предложим сценарий, срок и ориентировочную цену.',
+        contactLabel: 'Написать нам',
+        pricingLabel: 'Цены и пакеты',
+        portfolioLabel: 'Кейсы в портфолио',
+      },
       ourWork: 'Наша работа',
       ourWorkDesc: 'Мы избирательно реализуем проекты, которые соответствуют потребностям наших клиентов и обеспечивают долгосрочную ценность для вашего бизнеса.',
       portfolio: 'Кейсы',
@@ -2000,7 +2034,9 @@ export const translations = {
       filterAll: 'Все проекты',
       filterChatbots: 'Чат-боты',
       filterWebsites: 'Сайты',
-      viewDetails: 'Подробнее'
+      viewDetails: 'Подробнее',
+      emptyTitle: 'Кейсы скоро появятся',
+      emptyText: 'Мы обновляем портфолио. Пока можете посмотреть услуги или написать нам.',
     },
     services: {
       passion: 'От лендинга до сложных веб-систем — под одной крышей',

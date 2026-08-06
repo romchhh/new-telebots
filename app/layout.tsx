@@ -3,15 +3,35 @@ import Script from "next/script";
 import { headers } from "next/headers";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
-import { Montserrat } from "next/font/google";
+import { Manrope, Montserrat, Unbounded } from "next/font/google";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
+/** Основний текст / UI */
+const manrope = Manrope({
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-manrope",
+});
+
+/**
+ * Заголовки (поза hero): Unbounded
+ * Геометричний display з кирилицею — серйозніше за Oswald, без «спортивного» стиснення.
+ */
+const unbounded = Unbounded({
+  subsets: ["latin", "cyrillic"],
+  weight: ["500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-unbounded",
+});
+
+/** Hero-секції — без змін */
 const montserrat = Montserrat({
-  subsets: ['latin', 'cyrillic'],
-  weight: ['400', '700', '900'],
-  display: 'swap',
-  variable: '--font-montserrat',
+  subsets: ["latin", "cyrillic"],
+  weight: ["400", "700", "900"],
+  display: "swap",
+  variable: "--font-montserrat",
 });
 
 export const viewport: Viewport = {
@@ -58,14 +78,14 @@ export const metadata: Metadata = {
     siteName: "TeleBots",
     title: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     description:
-      "Telegram-боти, сайти та e-commerce під ключ. 200+ проєктів, консультація, старт від 24 год.",
+      "Telegram-боти від $100, лендінги від $150, e-commerce від $400. 200+ проєктів, консультація, старт від 24 год.",
     images: [
       {
-        url: `${siteUrl}/portfolio/portfolio-default.jpg`,
+        url: `${siteUrl}/other/about-hero.png`,
         width: 1200,
         height: 630,
         alt: "TeleBots - Professional Digital Solutions",
-        type: "image/jpeg",
+        type: "image/png",
       },
     ],
   },
@@ -73,8 +93,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     description:
-      "Telegram-боти, сайти та e-commerce під ключ. 200+ проєктів, консультація, старт від 24 год.",
-    images: [`${siteUrl}/portfolio/portfolio-default.jpg`],
+      "Telegram-боти від $100, лендінги від $150, e-commerce від $400. 200+ проєктів, консультація, старт від 24 год.",
+    images: [`${siteUrl}/other/about-hero.png`],
     creator: "@telebotsnowayrm",
     site: "@telebotsnowayrm",
   },
@@ -122,7 +142,11 @@ export default async function RootLayout({
   const htmlLang = ['uk', 'en', 'pl', 'ru'].includes(lang) ? lang : 'uk';
 
   return (
-    <html lang={htmlLang} prefix="og: https://ogp.me/ns#" className={montserrat.variable}>
+    <html
+      lang={htmlLang}
+      prefix="og: https://ogp.me/ns#"
+      className={`${manrope.variable} ${unbounded.variable} ${montserrat.variable}`}
+    >
       <head>
         {/* Hero LCP — один файл і один preload для всіх breakpoints (узгоджено з HeroImage) */}
         <link rel="preload" as="image" href="/other/hero-background.webp" fetchPriority="high" type="image/webp" />
@@ -154,10 +178,7 @@ export default async function RootLayout({
         <link rel="author" href={`${siteUrl}/uk/about`} />
         
         {/* canonical і hreflang — у generateMetadata для кожної сторінки [lang] */}
-        {/* Social Media OG Tags */}
-        <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || ''} />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="TeleBots" />
+        {/* OG type/site_name — через metadata.openGraph, без хардкоду (інакше article → website) */}
         
         {/* Instagram specific */}
         <meta property="instagram:account" content="@telebotsnowayrm" />
@@ -165,7 +186,6 @@ export default async function RootLayout({
         {/* Pinterest */}
         <meta name="pinterest-rich-pin" content="true" />
         
-        {/* og:site_name задано в metadata.openGraph */}
         <meta name="application-name" content="TeleBots" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="geo.region" content="UA-32" />

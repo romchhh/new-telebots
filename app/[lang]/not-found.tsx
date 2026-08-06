@@ -102,7 +102,7 @@ export default function NotFound() {
             {/* Ліва частина - 404 та текст */}
             <div className="text-center md:text-left">
               <div className="mb-8 relative inline-block">
-                <h1 className="text-[12rem] md:text-[18rem] font-black text-white leading-none mb-4 relative z-10" style={{ fontFamily: 'var(--font-sans)' }}>
+                <h1 className="text-[12rem] md:text-[18rem] font-black text-white leading-none mb-4 relative z-10" style={{ fontFamily: 'var(--font-display)' }}>
                   404
                 </h1>
                 <div className="absolute inset-0 blur-3xl opacity-30 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600" />
@@ -111,7 +111,7 @@ export default function NotFound() {
               <div className="mb-8">
                 <div className="flex items-center justify-center md:justify-start mb-6">
                   <div className="w-12 h-px bg-white/50 mr-4"></div>
-                  <h2 className="text-sm font-black text-white/80 tracking-wider uppercase" style={{ fontFamily: 'var(--font-sans)', letterSpacing: '0.2em' }}>
+                  <h2 className="text-sm font-black text-white/80 tracking-wider uppercase" style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.2em' }}>
                     {t.footer.notFound}
                   </h2>
                   <div className="w-12 h-px bg-white/50 ml-4"></div>
@@ -155,7 +155,7 @@ export default function NotFound() {
               <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
                 <div className="flex items-center mb-6">
                   <Search className="w-5 h-5 mr-3 text-white/60" />
-                  <h3 className="text-lg font-black text-white uppercase tracking-wider" style={{ fontFamily: 'var(--font-sans)', letterSpacing: '0.1em' }}>
+                  <h3 className="text-lg font-black text-white uppercase tracking-wider" style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.1em' }}>
                     {lang === 'uk' ? 'Швидка навігація' : lang === 'en' ? 'Quick Navigation' : lang === 'pl' ? 'Szybka nawigacja' : 'Быстрая навигация'}
                   </h3>
                 </div>

@@ -4,10 +4,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Instagram, Send } from 'lucide-react';
 import OrderCtaPill from '@/components/OrderCtaPill';
-import LanguageSelector from './LanguageSelector';
 import { Language } from './translations';
 import { legal } from '@/lib/legal';
-import { SITE_CONTAINER } from '@/lib/siteLayout';
+import { SITE_PX } from '@/lib/siteLayout';
 
 interface FooterProps {
   t: typeof import('./translations').translations.uk;
@@ -19,17 +18,16 @@ interface FooterProps {
 
 export default function Footer({ t, lang, setLang, currentLang, onConsultClick }: FooterProps) {
   const currentLanguage = currentLang || lang;
-  const showLanguageSelector = currentLanguage !== 'ru';
   return (
-    <footer id="contact" className="bg-black text-white">
-      <div className={`${SITE_CONTAINER} py-20`}>
+    <footer id="contact" className="border-t border-black/10 bg-white text-black">
+      <div className={`${SITE_PX} py-20`}>
         <div className="grid md:grid-cols-3 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-1 text-left">
             <div className="flex items-center mb-8 justify-start">
               <div className="relative h-3 w-auto max-w-[50px]">
                 <Image
-                  src="/whitelogo_new.png"
+                  src="/blacklogo.png"
                   alt="TeleBots — сайти, боти та e-commerce під ключ"
                   width={50}
                   height={12}
@@ -37,51 +35,40 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                 />
               </div>
             </div>
-            <p className="text-gray-400 text-[15px] md:text-[16px] lg:text-[17px] font-normal leading-[1.65]">
+            <p className="text-gray-600 text-[15px] md:text-[16px] lg:text-[17px] font-normal leading-[1.65]">
               {t.footer.description}
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="text-center md:text-left">
-            <h4 className="text-sm font-black tracking-wider mb-6">
+            <h4 className="text-sm font-black tracking-wider mb-6 text-black">
               {t.footer.quickLinks}
             </h4>
             <nav aria-label="Footer navigation">
               <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 md:flex-col md:items-start md:space-y-3 md:gap-0">
                 <li>
-                  <a 
-                    href="https://brand.telebots.site/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" 
-                    aria-label={`${t.nav.brand} - TeleBots`}
-                  >
-                    {t.nav.brand}
-                  </a>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/services`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.services} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/services`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.services} - TeleBots`}>
                     {t.nav.services}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/services/websites`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                  <Link href={`/${currentLanguage}/services/websites`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {t.services.websitesPage.title}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                  <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {t.services.chatbotsPage.title}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/services/design`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                  <Link href={`/${currentLanguage}/services/design`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {t.services.designPage.title}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/solutions/telegram-bots`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                  <Link href={`/${currentLanguage}/solutions/telegram-bots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {currentLanguage === 'en'
                       ? 'Telegram bots'
                       : currentLanguage === 'pl'
@@ -92,7 +79,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/solutions/landing-pages`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                  <Link href={`/${currentLanguage}/solutions/landing-pages`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {currentLanguage === 'en'
                       ? 'Landing pages'
                       : currentLanguage === 'pl'
@@ -103,7 +90,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/solutions/online-stores`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap">
+                  <Link href={`/${currentLanguage}/solutions/online-stores`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {currentLanguage === 'en'
                       ? 'Online stores'
                       : currentLanguage === 'pl'
@@ -114,17 +101,17 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/portfolio`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.portfolio} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/portfolio`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.portfolio} - TeleBots`}>
                     {t.nav.portfolio}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/blog`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.blog} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/blog`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.blog} - TeleBots`}>
                     {t.nav.blog}
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/contact`} className="text-gray-400 hover:text-white transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.contact} - TeleBots`}>
+                  <Link href={`/${currentLanguage}/contact`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.contact} - TeleBots`}>
                     {t.nav.contact}
                   </Link>
                 </li>
@@ -134,30 +121,30 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
 
           {/* Contact / Legal */}
           <div className="text-center md:text-left">
-            <h4 className="text-sm font-black tracking-wider mb-6">
+            <h4 className="text-sm font-black tracking-wider mb-6 text-black">
               {t.footer.contact}
             </h4>
             <ul className="space-y-3 mb-6">
-              <li className="text-gray-400 text-sm font-semibold">
+              <li className="text-gray-600 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.legalBlockTitle}</span>
                 <span className="block text-xs font-normal text-gray-500 mt-2 mb-0.5">{t.footer.recipientLabel}</span>
-                <span className="text-white">{t.footer.companyName}</span>
-                <span className="block text-gray-400 mt-1 break-all">{t.footer.footerIban}: {legal.iban}</span>
-                <span className="block text-gray-400 mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</span>
+                <span className="text-black">{t.footer.companyName}</span>
+                <span className="block text-gray-600 mt-1 break-all">{t.footer.footerIban}: {legal.iban}</span>
+                <span className="block text-gray-600 mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</span>
               </li>
-              <li className="text-gray-400 text-sm font-semibold">
+              <li className="text-gray-600 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.address}</span>
-                <span className="text-white">{t.footer.legalAddress}</span>
+                <span className="text-black">{t.footer.legalAddress}</span>
               </li>
-              <li className="text-gray-400 text-sm font-semibold">
+              <li className="text-gray-600 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.phone}</span>
-                <a href={`tel:${legal.phoneRaw}`} className="hover:text-white transition" aria-label={`Phone - ${legal.phone}`}>
+                <a href={`tel:${legal.phoneRaw}`} className="hover:text-brand transition" aria-label={`Phone - ${legal.phone}`}>
                   {legal.phone}
                 </a>
               </li>
-              <li className="text-gray-400 text-sm font-semibold">
+              <li className="text-gray-600 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.email}</span>
-                <a href={`mailto:${legal.email}`} className="hover:text-white transition break-all" aria-label={`Email - ${legal.email}`}>
+                <a href={`mailto:${legal.email}`} className="hover:text-brand transition break-all" aria-label={`Email - ${legal.email}`}>
                   {legal.email}
                 </a>
               </li>
@@ -167,7 +154,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                 href="https://www.instagram.com/telebotsnowayrm/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full border border-gray-600 hover:border-white hover:bg-white/10"
+                className="text-gray-600 hover:text-brand transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 hover:border-black hover:bg-black/5"
                 aria-label="Instagram - TeleBots"
                 title="Instagram"
               >
@@ -177,7 +164,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                 href="https://t.me/TeleBotsNowayrmChannel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full border border-gray-600 hover:border-white hover:bg-white/10"
+                className="text-gray-600 hover:text-brand transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 hover:border-black hover:bg-black/5"
                 aria-label="Telegram - TeleBots"
                 title="Telegram"
               >
@@ -188,6 +175,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
               <div className="mt-8 flex justify-center md:justify-start w-full max-w-sm">
                 <OrderCtaPill
                   size="sm"
+                  variant="brand"
                   label={t.nav.consultation}
                   onClick={onConsultClick}
                   className="w-full"
@@ -198,21 +186,21 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm font-semibold mb-4 md:mb-0 text-center md:text-left">
             © 2026 TeleBots. {t.footer.rights}
           </p>
           <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
-            <Link href={`/${currentLanguage}/privacy`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
+            <Link href={`/${currentLanguage}/privacy`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.privacy}
             </Link>
-            <Link href={`/${currentLanguage}/terms`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
+            <Link href={`/${currentLanguage}/terms`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.terms}
             </Link>
-            <Link href={`/${currentLanguage}/refund`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
+            <Link href={`/${currentLanguage}/refund`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.refund}
             </Link>
-            <Link href={`/${currentLanguage}/pricing`} className="text-gray-500 hover:text-white transition text-sm font-semibold">
+            <Link href={`/${currentLanguage}/pricing`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.pricing}
             </Link>
           </div>
@@ -221,4 +209,3 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
     </footer>
   );
 }
-

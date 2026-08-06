@@ -14,7 +14,7 @@ export default function BlogRelatedSection({ related }: BlogRelatedSectionProps)
       <div className="mx-auto max-w-4xl">
         <h2
           className="mb-6 text-xl font-bold text-black md:text-2xl"
-          style={{ fontFamily: 'var(--font-sans)' }}
+          style={{ fontFamily: 'var(--font-display)' }}
         >
           Читайте також
         </h2>
@@ -28,7 +28,7 @@ export default function BlogRelatedSection({ related }: BlogRelatedSectionProps)
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-gray-400">
                   {post.readingTimeMinutes} хв
                 </p>
-                <p className="mt-2 text-lg font-semibold leading-snug text-black group-hover:text-[#F05A00]">
+                <p className="mt-2 text-lg font-semibold leading-snug text-black group-hover:text-brand">
                   {post.title}
                 </p>
                 <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-gray-600">{post.excerpt}</p>

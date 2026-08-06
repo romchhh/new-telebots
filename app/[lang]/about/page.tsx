@@ -17,6 +17,7 @@ import { legal } from '@/lib/legal';
 import { SITE_PX, SITE_CONTAINER, SITE_INNER_WIDE } from '@/lib/siteLayout';
 import AboutHeadline from '@/components/AboutHeadline';
 import AboutServiceTeasers from '@/components/AboutServiceTeasers';
+import FaqAccordion from '@/components/FaqAccordion';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 
 export default function AboutPage() {
@@ -68,8 +69,6 @@ export default function AboutPage() {
   const [mediaRef, isMediaVisible] = useScrollAnimation();
   const [mediaContentRef, isMediaContentVisible] = useScrollAnimation();
   const [quoteRef, isQuoteVisible] = useScrollAnimation();
-  const [faqRef, isFaqVisible] = useScrollAnimation();
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
@@ -140,7 +139,7 @@ export default function AboutPage() {
         <div className="absolute inset-0">
           <Image
             src="/other/about-hero-macbook.jpg"
-            alt=""
+            alt="TeleBots — робоче місце команди розробки"
             fill
             priority
             sizes="100vw"
@@ -190,37 +189,37 @@ export default function AboutPage() {
       {/* Фото + сітка — як на головній (AboutSection): на фото stats.cta, ourWorkDesc у першій колонці */}
       <section className={`relative bg-white pb-20 md:pb-28 lg:pb-36 ${SITE_PX}`}>
         <div className={SITE_INNER_WIDE}>
-          <div className="w-screen relative left-1/2 -translate-x-1/2 overflow-hidden mb-16 md:mb-20">
-            <div className="relative w-full aspect-[4031/2981]">
+          <div className="relative mb-6 overflow-hidden rounded-2xl md:mb-20">
+            <div className="relative h-[200px] w-full sm:h-[220px] md:h-[240px] lg:h-[260px]">
               <Image
                 src="/other/about-hero.png"
                 alt="TeleBots"
                 fill
-                className="object-cover"
-                sizes="100vw"
+                className="object-cover object-center"
+                sizes="(max-width: 768px) 100vw, 90vw"
                 priority
               />
               <div
-                className="absolute inset-x-0 top-0 h-[30%] md:h-[25%] pointer-events-none w-full"
+                className="pointer-events-none absolute inset-0 w-full"
                 style={{
-                  background: 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 30%, rgba(0,0,0,0.08) 60%, transparent 100%)',
-                  backdropFilter: 'blur(4px)',
-                  WebkitBackdropFilter: 'blur(4px)',
+                  background:
+                    'linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.25) 100%)',
                 }}
+                aria-hidden
               />
-              <div className="absolute inset-0 flex flex-col items-center justify-between pt-[4%] md:pt-[3%] pb-[4%] md:pb-[2%]">
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 px-6 py-4 md:gap-5 md:px-10">
                 <p
-                  className={`text-center text-white text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold md:font-extrabold leading-[1.45] max-w-4xl md:max-w-5xl tracking-[0.02em] ${SITE_PX}`}
+                  className="max-w-3xl text-center text-sm font-semibold leading-snug tracking-[0.01em] text-white sm:text-base md:max-w-4xl md:text-lg md:font-bold lg:text-xl"
                   style={{
                     fontFamily: 'var(--font-sans)',
-                    textShadow: '0 2px 20px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)',
+                    textShadow: '0 2px 16px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3)',
                   }}
                 >
                   {t.about.photoMessage}
                 </p>
-                <div className={`hidden md:block w-full max-w-md ${SITE_PX}`}>
+                <div className="hidden w-full max-w-sm md:block">
                   <OrderCtaPill
-                    size="md"
+                    size="sm"
                     label={t.modal.title}
                     onClick={openModal}
                     className="w-full"
@@ -228,16 +227,16 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className={`md:hidden flex justify-center py-8 bg-white ${SITE_PX}`}>
-              <OrderCtaPill
-                size="md"
-                label={t.modal.title}
-                onClick={openModal}
-                elevated
-                className="w-full max-w-md"
-              />
-            </div>
+          <div className="mb-16 flex justify-center md:hidden">
+            <OrderCtaPill
+              size="md"
+              label={t.modal.title}
+              onClick={openModal}
+              elevated
+              className="w-full max-w-md"
+            />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-14 lg:gap-24">
@@ -347,38 +346,38 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Чорна секція Чому обирають нас? — на всю ширину, як на сторінці послуг */}
-      <section className={`w-full bg-black text-white py-20 md:py-24 lg:py-28 ${SITE_PX}`} ref={mediaRef}>
-        <div className={`max-w-7xl mx-auto scroll-animate-up ${isMediaContentVisible ? 'animate' : ''}`} ref={mediaContentRef}>
-          <h2 className="text-sm font-bold text-white/80 tracking-[0.3em] uppercase mb-6">
+      {/* Статистика — білий фон, як на головній */}
+      <section className={`w-full border-y border-black/5 bg-white py-20 text-black md:py-24 lg:py-28 ${SITE_PX}`} ref={mediaRef}>
+        <div className={`w-full scroll-animate-up ${isMediaContentVisible ? 'animate' : ''}`} ref={mediaContentRef}>
+          <h2 className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-gray-500">
             {t.about.whyChoose}
           </h2>
-          <p className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-normal leading-[1.75] mb-16 max-w-4xl">
+          <p className="mb-16 max-w-4xl text-xl font-normal leading-[1.75] text-gray-700 md:text-2xl lg:text-3xl">
             {t.about.pageIntro}
           </p>
-          <div className="grid md:grid-cols-3 gap-10 md:gap-12 mb-16">
+          <div className="mb-16 grid gap-10 md:grid-cols-3 md:gap-12">
             <div>
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 leading-none">
+              <div className="mb-2 text-4xl font-black leading-none text-brand md:text-5xl lg:text-6xl">
                 200+
               </div>
-              <p className="text-gray-400 font-normal text-lg md:text-xl">{t.about.stats.projects}</p>
+              <p className="text-lg font-normal text-gray-600 md:text-xl">{t.about.stats.projects}</p>
             </div>
             <div>
-              <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-2 leading-none">
+              <div className="mb-2 text-4xl font-black leading-none text-brand md:text-5xl lg:text-6xl">
                 4
               </div>
-              <p className="text-gray-400 font-normal text-lg md:text-xl">{t.about.stats.years}</p>
+              <p className="text-lg font-normal text-gray-600 md:text-xl">{t.about.stats.years}</p>
             </div>
             <div>
-              <p className="text-xl md:text-2xl text-gray-300 font-normal leading-[1.75]">
+              <p className="text-xl font-normal leading-[1.75] text-gray-700 md:text-2xl">
                 {t.about.stats.support}
               </p>
             </div>
           </div>
-          <div className="text-center pt-4">
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white">
+          <div className="mx-auto max-w-4xl pt-4 text-center">
+            <p className="text-lg font-bold leading-relaxed text-black sm:text-xl md:text-2xl lg:text-3xl">
               {t.about.stats.cta}
-            </h3>
+            </p>
           </div>
         </div>
       </section>
@@ -418,7 +417,7 @@ export default function AboutPage() {
               {t.about.servicesDesc}
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
-              <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
+              <Link href={`/${lang}/services/websites`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
                 <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
                   {t.services.websites}
                 </h3>
@@ -430,7 +429,7 @@ export default function AboutPage() {
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </span>
               </Link>
-              <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
+              <Link href={`/${lang}/services/chatbots`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
                 <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
                   {t.services.chatbots}
                 </h3>
@@ -442,7 +441,7 @@ export default function AboutPage() {
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </span>
               </Link>
-              <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
+              <Link href={`/${lang}/solutions/data-parsers`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
                 <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
                   {t.services.parsers}
                 </h3>
@@ -454,7 +453,7 @@ export default function AboutPage() {
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </span>
               </Link>
-              <Link href={`/${lang}/services`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
+              <Link href={`/${lang}/services/design`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
                 <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
                   {t.services.designService}
                 </h3>
@@ -504,45 +503,13 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Секція FAQ */}
-      <section className={`py-20 md:py-28 bg-black ${SITE_PX}`}>
-        <div className="max-w-4xl mx-auto">
-          <div className={`scroll-animate-up ${isFaqVisible ? 'animate' : ''}`} ref={faqRef}>
-            <h2 className="text-sm font-bold text-white/80 tracking-[0.3em] uppercase mb-10">
-              {t.about.faq?.title || 'Часті запитання'}
-            </h2>
-            
-            <div className="space-y-0">
-              {t.about.faq?.items?.map((item: { question: string; answer: string }, index: number) => (
-                <div key={index} className="border-t border-white/20 last:border-b">
-                  <button
-                    onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                    className="w-full flex items-center justify-between py-6 md:py-8 text-left group"
-                  >
-                    <span className="text-white text-lg md:text-xl lg:text-2xl font-normal pr-8">
-                      {item.question}
-                    </span>
-                    <span className="text-white text-2xl md:text-3xl font-light flex-shrink-0 transition-transform duration-300" style={{ transform: openFaqIndex === index ? 'rotate(45deg)' : 'rotate(0deg)' }}>
-                      +
-                    </span>
-                  </button>
-                  <div 
-                    className={`overflow-hidden transition-all duration-300 ${
-                      openFaqIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-                    }`}
-                  >
-                    <div className="pb-6 md:pb-8 pr-12">
-                      <p className="text-gray-300 text-base md:text-lg lg:text-xl font-normal leading-relaxed">
-                        {item.answer}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {(t.about.faq?.items?.length ?? 0) > 0 ? (
+        <FaqAccordion
+          title={t.about.faq?.title || 'Часті запитання'}
+          items={t.about.faq!.items}
+          sectionClassName={SITE_PX}
+        />
+      ) : null}
         </main>
         <Footer
           t={t}

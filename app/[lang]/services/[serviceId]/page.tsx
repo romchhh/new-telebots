@@ -5,8 +5,8 @@ import { useParams, useRouter } from 'next/navigation';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { cases } from '@/components/cases';
-import { getCaseHref, isFlagshipCase } from '@/lib/portfolioCases';
+import { getPortfolioCards } from '@/lib/portfolioCards';
+import PortfolioCaseCard from '@/components/PortfolioCaseCard';
 import ServiceHeroSection from '@/components/ServiceHeroSection';
 import ServiceAudienceSection from '@/components/ServiceAudienceSection';
 import ContactDetailsColumn from '@/components/ContactDetailsColumn';
@@ -16,6 +16,7 @@ import Footer from '@/components/Footer';
 import PricingTable from '@/components/PricingTable';
 import OrderModal from '@/components/OrderModal';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import SiteCtaBand from '@/components/SiteCtaBand';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
 import ServiceSeoLongForm from '@/components/ServiceSeoLongForm';
@@ -24,6 +25,7 @@ import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { getServiceSeoLongForm } from '@/lib/servicePagesSeoContent';
 import { sendToTelegram } from '@/lib/telegram';
 import { SITE_PX } from '@/lib/siteLayout';
+import { siteUrl as baseUrl } from '@/lib/site';
 import {
   SERVICE_IDS,
   getServiceKeyForTranslations,
@@ -120,23 +122,8 @@ export default function ServicePage() {
   }
 
   const imageSrc = SERVICE_IMAGES[serviceId];
-  const casesData = (cases as any)[lang] || (cases as any).uk;
-  const caseEntries = Object.entries(casesData) as [string, { portfolioCategory?: string; mainImage?: string; title?: string; subtitle?: string }][];
   const desiredCategory = serviceId === 'chatbots' ? 'chatbots' : 'websites';
-  const serviceCases = caseEntries
-    .filter(([, data]) => (data.portfolioCategory || 'websites') === desiredCategory)
-    .sort(([a], [b]) => Number(isFlagshipCase(b)) - Number(isFlagshipCase(a)))
-    .slice(0, 3)
-    .map(([caseId, data]) => ({
-      caseId,
-      image: data.mainImage || '/portfolio/portfolio-dr-tolstikova-bot.jpg',
-      title: data.title || 'Project',
-      subtitle: data.subtitle || '',
-    }));
-
-  const featured = serviceCases[0];
-  const featuredImage = featured?.image ?? '/portfolio/portfolio-default.jpg';
-  const featuredHref = featured ? getCaseHref(lang, featured.caseId) : `/${lang}/portfolio`;
+  const serviceCases = getPortfolioCards(lang).filter((c) => c.category === desiredCategory);
 
   const serviceExtended = service as typeof service & {
     serviceHero?: import('@/components/ServiceHeroSection').ServiceHeroCopy;
@@ -163,7 +150,7 @@ export default function ServicePage() {
         type="service"
         serviceName={serviceTitle}
         serviceDescription={service.subtitle}
-        serviceUrl={process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/${lang}/services/${serviceId}` : undefined}
+        serviceUrl={`${baseUrl}/${lang}/services/${serviceId}`}
       />
       {longForm?.faq?.length ? (
         <StructuredData type="faq" faqs={longForm.faq.map((f) => ({ question: f.question, answer: f.answer }))} />
@@ -218,7 +205,7 @@ export default function ServicePage() {
                 <div className="max-w-4xl">
                   <h1
                     className="font-bold text-white mb-4 md:mb-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
-                    style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.05em' }}
+                    style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.05em' }}
                   >
                     {serviceTitle}
                   </h1>
@@ -251,19 +238,19 @@ export default function ServicePage() {
             id={!audienceCopy?.items?.length ? 'service-main' : undefined}
             className={`py-20 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isDescVisible ? 'animate' : ''}`}
           >
-            <div className="max-w-7xl mx-auto w-full">
+            <div className="w-full">
               {serviceExtended.descriptionSectionTitle ? (
                 <div className="mb-10 md:mb-14 text-center">
                   <p
                     className="pointer-events-none select-none text-[clamp(2.75rem,12vw,8.5rem)] font-light text-gray-100 leading-[0.88]"
-                    style={{ fontFamily: 'var(--font-montserrat)' }}
+                    style={{ fontFamily: 'var(--font-display)' }}
                     aria-hidden
                   >
                     TeleBots
                   </p>
                   <h2
                     className="relative z-10 -mt-5 sm:-mt-7 md:-mt-9 text-3xl sm:text-4xl lg:text-5xl font-black text-black tracking-tight leading-tight"
-                    style={{ fontFamily: 'var(--font-montserrat)' }}
+                    style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {serviceExtended.descriptionSectionTitle}
                   </h2>
@@ -275,7 +262,7 @@ export default function ServicePage() {
                     <p
                       key={idx}
                       className="text-lg md:text-xl text-gray-900 leading-snug font-light"
-                      style={{ fontFamily: 'var(--font-montserrat)' }}
+                      style={{ fontFamily: 'var(--font-display)' }}
                     >
                       {paragraph}
                     </p>
@@ -284,7 +271,7 @@ export default function ServicePage() {
               ) : (
                 <p
                   className="max-w-3xl mx-auto text-xl md:text-2xl text-gray-900 leading-snug font-light text-center"
-                  style={{ fontFamily: 'var(--font-montserrat)' }}
+                  style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {service.description}
                 </p>
@@ -314,6 +301,57 @@ export default function ServicePage() {
             </div>
           </section>
 
+          {/* Приклади робіт — одразу після короткого опису */}
+          {serviceCases.length > 0 && (
+            <section
+              ref={portfolioRef}
+              className={`bg-black text-white py-20 md:py-28 scroll-animate-up ${SITE_PX} ${isPortfolioVisible ? 'animate' : ''}`}
+            >
+              <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
+                <div className="max-w-2xl">
+                  <span
+                    className="mb-2 block text-[6rem] font-light leading-none text-white/[0.08] select-none md:text-[8rem] -mb-6 md:-mb-8"
+                    style={{ fontFamily: 'var(--font-display)' }}
+                    aria-hidden
+                  >
+                    03
+                  </span>
+                  <h2 className="relative z-10 text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">
+                    {t.services.servicePagePortfolioTitle}
+                  </h2>
+                  <p className="mt-4 max-w-lg text-base leading-relaxed text-gray-400">
+                    {t.services.servicePagePortfolioSubtitle}
+                  </p>
+                </div>
+                <Link
+                  href={`/${lang}/portfolio`}
+                  className="group inline-flex h-28 w-28 shrink-0 items-center justify-center rounded-full border border-white/40 px-3 text-center transition-all duration-300 hover:bg-white hover:text-black sm:h-36 sm:w-36"
+                >
+                  <span className="text-xs font-semibold uppercase leading-snug tracking-[0.15em]">
+                    {t.portfolio.viewPortfolio}
+                  </span>
+                </Link>
+              </div>
+
+              <div
+                className="w-full overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:thin] [scrollbar-color:rgba(255,255,255,0.25)_transparent]"
+                style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
+              >
+                <div className="flex w-max gap-4 sm:gap-5">
+                  {serviceCases.map((card) => (
+                    <PortfolioCaseCard
+                      key={card.id}
+                      card={card}
+                      lang={lang}
+                      className="w-[min(82vw,18rem)] shrink-0 sm:w-[20rem] lg:w-[22rem]"
+                      sizes="352px"
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
           {longForm ? <ServiceSeoLongForm copy={longForm} /> : null}
 
           {/* Info blocks: what we do, terms, integrations */}
@@ -329,10 +367,10 @@ export default function ServicePage() {
             };
             const cardClass = 'rounded-3xl p-6 sm:p-8 border border-gray-200/70 bg-white/45 backdrop-blur-xl shadow-[0_18px_45px_rgba(0,0,0,0.07)] hover:shadow-[0_26px_60px_rgba(0,0,0,0.11)] hover:bg-white/75 hover:border-gray-300/90 transition-all duration-300';
             const textClass = 'text-lg md:text-xl text-gray-900 leading-snug font-light';
-            const headingStyle = { fontFamily: 'var(--font-montserrat)' };
+            const headingStyle = { fontFamily: 'var(--font-display)' };
             return (
               <section ref={blocksRef} className={`py-20 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isBlocksVisible ? 'animate' : ''}`}>
-                <div className="max-w-7xl mx-auto space-y-14 md:space-y-16">
+                <div className="w-full space-y-14 md:space-y-16">
                   {[
                     { title: titles.whatWeDo, items: content.whatWeDo, index: 5 },
                     { title: titles.terms, items: content.terms || [], index: 6 },
@@ -371,86 +409,6 @@ export default function ServicePage() {
             );
           })()}
 
-          {/* Portfolio */}
-          <section ref={portfolioRef} className={`bg-black text-white py-20 md:py-28 scroll-animate-up ${SITE_PX} ${isPortfolioVisible ? 'animate' : ''}`}>
-            <div className="max-w-6xl xl:max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-              <div className="flex flex-col justify-center order-2 lg:order-1">
-                <div className="mb-4">
-                  <span
-                    className="block text-[6rem] md:text-[8rem] font-light leading-none text-white/[0.08] select-none -mb-6 md:-mb-8"
-                    style={{ fontFamily: 'var(--font-montserrat)' }}
-                    aria-hidden
-                  >
-                    08
-                  </span>
-                  <h2 className="relative z-10 text-3xl sm:text-4xl lg:text-5xl font-black leading-tight">
-                    {t.services.servicePagePortfolioTitle}
-                  </h2>
-                </div>
-                <p className="text-base text-gray-400 leading-relaxed max-w-sm mb-10">
-                  {t.services.servicePagePortfolioSubtitle}
-                </p>
-                <Link
-                  href={`/${lang}/portfolio`}
-                  className="group flex items-center justify-center w-36 h-36 sm:w-44 sm:h-44 border border-white/40 rounded-full hover:bg-white hover:text-black transition-all duration-300 text-center px-3"
-                >
-                  <span className="text-xs font-semibold tracking-[0.15em] uppercase text-center leading-snug">{t.portfolio.viewPortfolio}</span>
-                </Link>
-              </div>
-              <div className="relative w-full order-1 lg:order-2">
-                <Link href={featuredHref} className="block group relative w-full aspect-[16/10] rounded-2xl overflow-hidden">
-                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
-                  <Image
-                    src={featuredImage}
-                    alt={featured?.title ?? t.portfolio.featuredProject}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    quality={85}
-                    loading="lazy"
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
-                    <p className="text-xs tracking-[0.2em] text-gray-400 mb-1">{t.portfolio.viewDetails}</p>
-                    <h3 className="text-lg sm:text-xl font-black">{featured?.title ?? t.portfolio.featuredProject}</h3>
-                    {featured?.subtitle ? (
-                      <p className="text-sm text-gray-300 mt-1.5 line-clamp-2">{featured.subtitle}</p>
-                    ) : null}
-                  </div>
-                </Link>
-
-                {serviceCases.length > 1 && (
-                  <div className="mt-5 overflow-hidden w-full">
-                    <div
-                      className="flex overflow-x-scroll gap-3 py-2 scroll-smooth snap-x snap-mandatory [scrollbar-width:none]"
-                      style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
-                    >
-                      {serviceCases.slice(1).map((item) => (
-                        <Link
-                          key={item.caseId}
-                          href={getCaseHref(lang, item.caseId)}
-                          className="group flex-shrink-0 w-[200px] min-w-[200px] sm:w-[240px] sm:min-w-[240px] aspect-[4/3] relative overflow-hidden rounded-xl snap-start"
-                        >
-                          <Image
-                            src={item.image}
-                            alt={item.title}
-                            fill
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                            sizes="240px"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                          <div className="absolute inset-x-0 bottom-0 p-3">
-                            <h3 className="text-xs sm:text-sm font-semibold line-clamp-2">{item.title}</h3>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </section>
-
           {/* Pricing + ефект при скролі */}
           {hasPricing(serviceId) && (
             <div ref={pricingRef} className={`scroll-animate-up ${isPricingVisible ? 'animate' : ''}`}>
@@ -466,32 +424,25 @@ export default function ServicePage() {
           )}
 
           {/* CTA */}
-          <section ref={ctaRef} className={`py-20 md:py-24 bg-black text-white border-t border-white/10 scroll-animate-up ${SITE_PX} ${isCtaVisible ? 'animate' : ''}`}>
-            <div className="max-w-2xl mx-auto w-full text-center">
-              <span
-                className="block text-[6rem] md:text-[8rem] font-light leading-none text-white/[0.08] select-none -mb-6 md:-mb-8"
-                style={{ fontFamily: 'var(--font-montserrat)' }}
-                aria-hidden
-              >
-                10
-              </span>
-              <h2 className="relative z-10 text-2xl sm:text-3xl md:text-4xl font-black text-white mb-8 leading-tight">
-                {lang === 'uk' ? 'Залишити заявку на розробку' : t.modal.title}
-              </h2>
-              <OrderCtaPill
-                size="md"
-                label={lang === 'uk' ? 'Обговорити проєкт' : service.button}
-                onClick={openModal}
-                className="mx-auto w-full max-w-md"
-              />
-            </div>
-          </section>
+          <div ref={ctaRef} className={`scroll-animate-up ${isCtaVisible ? 'animate' : ''}`}>
+            <SiteCtaBand
+              title={t.about.homeCta.title}
+              text={t.about.homeCta.text}
+              contactLabel={t.about.homeCta.contactLabel}
+              pricingLabel={t.about.homeCta.pricingLabel}
+              portfolioLabel={t.about.homeCta.portfolioLabel}
+              pricingHref={`/${lang}/pricing`}
+              portfolioHref={`/${lang}/portfolio`}
+              onContactClick={openModal}
+              className="pt-16 md:pt-20"
+            />
+          </div>
 
           <section
             ref={contactBlockRef}
             className={`py-20 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isContactBlockVisible ? 'animate' : ''}`}
           >
-            <div className="max-w-6xl mx-auto w-full grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
+            <div className="w-full grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
               <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
                 <ContactFormBlock
                   t={t}

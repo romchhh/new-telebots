@@ -8,7 +8,7 @@ export type PricingPlanCard = {
   popular?: boolean;
 };
 
-const headingStyle = { fontFamily: 'var(--font-sans)' };
+const headingStyle = { fontFamily: 'var(--font-display)' };
 
 interface PricingPlansGridProps {
   plans: PricingPlanCard[];

@@ -2,24 +2,19 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { translations, Language } from './translations';
 import { useScrollAnimation } from './useScrollAnimation';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import CasePreviewModal from '@/components/CasePreviewModal';
-import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
+import PortfolioCaseCard from '@/components/PortfolioCaseCard';
+import { SITE_PX } from '@/lib/siteLayout';
+import { getPortfolioCards } from '@/lib/portfolioCards';
 import {
-  getCaseCategory,
-  getCaseHref,
   getCasesData,
-  getOrderedCaseIds,
   isFlagshipCase,
   type PortfolioCaseData,
 } from '@/lib/portfolioCases';
-
-const BLUR_DATA =
-  'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADY=';
 
 type PortfolioProps = {
   onOrderClick?: () => void;
@@ -33,6 +28,7 @@ export default function Portfolio({ onOrderClick }: PortfolioProps) {
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const t = translations[validLang];
   const casesData = getCasesData(validLang);
+  const cards = getPortfolioCards(validLang);
 
   const [selectedCategory, setSelectedCategory] = useState<'all' | 'chatbots' | 'websites'>('all');
   const [previewCaseId, setPreviewCaseId] = useState<string | null>(null);
@@ -78,111 +74,42 @@ export default function Portfolio({ onOrderClick }: PortfolioProps) {
     }
   }, [searchParams, casesData, router, validLang]);
 
-  const works = getOrderedCaseIds(validLang).map((caseId) => {
-    const caseData = casesData[caseId];
-    return {
-      title: caseData?.title ?? 'Project',
-      alt: caseData?.subtitle ?? '',
-      image: caseData?.mainImage || '/portfolio/portfolio-dr-tolstikova-bot.jpg',
-      caseId,
-      category: getCaseCategory(caseId, caseData),
-      flagship: isFlagshipCase(caseId),
-    };
-  });
-
-  const filtered = selectedCategory === 'all'
-    ? works
-    : works.filter((w) => w.category === selectedCategory);
-
-  const sizePatterns = [
-    { colSpan: 4, rowSpan: 1 },
-    { colSpan: 2, rowSpan: 1 },
-    { colSpan: 2, rowSpan: 1 },
-    { colSpan: 1, rowSpan: 2 },
-    { colSpan: 2, rowSpan: 2 },
-    { colSpan: 1, rowSpan: 1 },
-    { colSpan: 2, rowSpan: 1 },
-    { colSpan: 1, rowSpan: 2 },
-    { colSpan: 1, rowSpan: 1 },
-    { colSpan: 2, rowSpan: 1 },
-    { colSpan: 2, rowSpan: 1 },
-    { colSpan: 1, rowSpan: 1 },
-    { colSpan: 4, rowSpan: 1 },
-    { colSpan: 1, rowSpan: 2 },
-    { colSpan: 2, rowSpan: 2 },
-    { colSpan: 1, rowSpan: 1 },
-    { colSpan: 2, rowSpan: 1 },
-    { colSpan: 1, rowSpan: 2 },
-    { colSpan: 1, rowSpan: 1 },
-    { colSpan: 2, rowSpan: 1 },
-    { colSpan: 1, rowSpan: 1 },
-  ];
-
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1920);
-  const [containerWidth, setContainerWidth] = useState(0);
-  const gridContainerRef = React.useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const onResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', onResize);
-    onResize();
-    return () => window.removeEventListener('resize', onResize);
-  }, []);
-
-  useEffect(() => {
-    const el = gridContainerRef.current;
-    if (!el) return;
-    const ro = new ResizeObserver((entries) => {
-      for (const e of entries) setContainerWidth(e.contentRect.width);
-    });
-    ro.observe(el);
-    return () => ro.disconnect();
-  }, []);
-
-  const COLS = windowWidth <= 768 ? 2 : windowWidth <= 1024 ? 3 : 4;
-  const gapPx = windowWidth >= 640 ? 16 : 12;
-  const cellSize = containerWidth > 0
-    ? Math.max(100, (containerWidth - (COLS - 1) * gapPx) / COLS)
-    : 200;
-  const rowHeight = cellSize;
-
-  const getSpan = (workIndex: number, kind: 'col' | 'row') => {
-    const p = sizePatterns[workIndex % sizePatterns.length];
-    let c = kind === 'col' ? p.colSpan : p.rowSpan;
-    if (kind === 'col') c = Math.min(c, COLS);
-    else if (COLS <= 2) c = Math.min(c, 2);
-    return Math.max(1, c);
-  };
+  const filtered =
+    selectedCategory === 'all'
+      ? [...cards].sort((a, b) => {
+          if (a.category === b.category) return 0;
+          return a.category === 'websites' ? -1 : 1;
+        })
+      : cards.filter((c) => c.category === selectedCategory);
 
   const previewData: PortfolioCaseData | null =
     previewCaseId && casesData[previewCaseId] ? casesData[previewCaseId] : null;
 
   return (
     <div className="min-h-screen bg-white">
-      <section className="relative bg-black text-white pt-16 md:pt-24 pb-8 md:pb-12 overflow-hidden">
+      <section className="relative overflow-hidden bg-black pb-8 pt-16 text-white md:pb-12 md:pt-24">
         <div
-          className="pointer-events-none absolute inset-0 opacity-[0.38]"
-          style={{
-            backgroundImage: `
-              linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px),
-              linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)
-            `,
-            backgroundSize: '48px 48px',
-          }}
+          className="pointer-events-none absolute -right-24 top-1/4 z-[5] h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.22)_0%,transparent_70%)] blur-3xl"
           aria-hidden
         />
-        <div className="pointer-events-none absolute -right-20 top-1/3 h-[min(65vw,520px)] w-[min(65vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl" aria-hidden />
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+        <div
+          className="pointer-events-none absolute -left-16 bottom-0 z-[5] h-[min(50vw,360px)] w-[min(50vw,360px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.12)_0%,transparent_70%)] blur-3xl"
+          aria-hidden
+        />
+        <div className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
           <div
-            className={`p-8 sm:p-12 lg:p-16 xl:p-24 flex flex-col justify-center scroll-animate-left ${isContentVisible ? 'animate' : ''}`}
+            className={`flex flex-col justify-center p-8 sm:p-12 lg:p-16 xl:p-24 scroll-animate-left ${isContentVisible ? 'animate' : ''}`}
             ref={contentRef}
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
+            <h1
+              className="mb-8 text-4xl font-black leading-tight sm:mb-12 sm:text-5xl lg:text-6xl"
+              style={{ fontFamily: 'var(--font-montserrat)' }}
+            >
               {t.portfolio.title}
             </h1>
             <OrderCtaPill
               size="md"
+              variant="brand"
               label={t.portfolio.viewPortfolio}
               onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
               className="w-full max-w-md"
@@ -190,166 +117,126 @@ export default function Portfolio({ onOrderClick }: PortfolioProps) {
           </div>
 
           <div
-            className={`relative w-full aspect-[1500/970] overflow-hidden rounded-lg scroll-animate-right ${isImageVisible ? 'animate' : ''}`}
+            className={`relative aspect-[1500/970] w-full overflow-hidden rounded-lg scroll-animate-right ${isImageVisible ? 'animate' : ''}`}
             ref={imageRef}
           >
-          <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
             <Image
-              src="/portfolio/portfolio-default.jpg"
-              alt="Featured project"
+              src="/other/portfolio-hero.jpg"
+              alt={t.portfolio.featuredProject}
               fill
               className="object-contain"
               sizes="100vw"
               priority
             />
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black via-black/80 to-transparent p-6 sm:p-8 z-10">
-              <p className="text-xs font-normal tracking-[0.2em] text-gray-400 mb-2">{t.portfolio.website}</p>
-              <h3 className="text-xl sm:text-2xl font-black">{t.portfolio.featuredProject}</h3>
+            <div className="absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black via-black/80 to-transparent p-6 sm:p-8">
+              <p className="mb-2 text-xs font-normal tracking-[0.2em] text-gray-400">
+                {t.portfolio.website}
+              </p>
+              <h3 className="text-xl font-black sm:text-2xl">{t.portfolio.featuredProject}</h3>
             </div>
           </div>
         </div>
+        <div
+          className="pointer-events-none absolute inset-0 z-20"
+          style={{
+            backgroundImage: `
+              linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px),
+              linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px)
+            `,
+            backgroundSize: '52px 52px',
+          }}
+          aria-hidden
+        />
       </section>
 
       <section
-        className="border-b border-zinc-200/90 bg-zinc-50"
+        id="portfolio"
+        className="relative overflow-hidden bg-white"
         aria-labelledby="portfolio-intro-heading"
+        ref={portfolioRef}
       >
-        <div className={`py-14 md:py-20 lg:py-24 ${SITE_INNER_WIDE}`}>
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-64 bg-[radial-gradient(ellipse_at_top,rgba(244,114,182,0.12),transparent_65%)]"
+          aria-hidden
+        />
+        <div className={`relative pt-14 md:pt-20 lg:pt-24 ${SITE_PX}`}>
           <div
-            className={`mx-auto max-w-3xl text-center scroll-animate-up ${isIntroVisible ? 'animate' : ''}`}
+            className={`scroll-animate-up grid items-end gap-10 lg:grid-cols-[minmax(0,1.55fr)_minmax(0,0.85fr)] lg:gap-16 ${isIntroVisible ? 'animate' : ''}`}
             ref={introRef}
           >
-            <h2
-              id="portfolio-intro-heading"
-              className="mb-6 text-3xl font-black leading-[1.12] tracking-tight text-black sm:text-4xl md:text-5xl"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
-            >
-              <span className="block">{t.portfolio.heroIntroLine1}</span>
-              <span className="mt-2 block text-black/75">{t.portfolio.heroIntroLine2}</span>
-            </h2>
-            <p
-              className="text-lg leading-relaxed text-zinc-600 md:text-xl md:leading-relaxed"
-              style={{ fontFamily: 'var(--font-montserrat)' }}
-            >
-              {t.portfolio.heroIntroDescription}
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="portfolio" className={`py-16 sm:py-20 bg-white ${SITE_PX}`} ref={portfolioRef}>
-        <div className="w-full max-w-6xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
-            <button
-              onClick={() => setSelectedCategory('all')}
-              className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-200 ${
-                selectedCategory === 'all'
-                  ? 'bg-black text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900'
-              }`}
-            >
-              {t.portfolio.filterAll}
-            </button>
-            <button
-              onClick={() => setSelectedCategory('chatbots')}
-              className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-200 ${
-                selectedCategory === 'chatbots'
-                  ? 'bg-black text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900'
-              }`}
-            >
-              {t.portfolio.filterChatbots}
-            </button>
-            <button
-              onClick={() => setSelectedCategory('websites')}
-              className={`px-5 py-2.5 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-medium transition-all duration-200 ${
-                selectedCategory === 'websites'
-                  ? 'bg-black text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900'
-              }`}
-            >
-              {t.portfolio.filterWebsites}
-            </button>
-          </div>
-
-          <div ref={gridContainerRef} className="w-full">
-            <div
-              className={`grid transition-all duration-500 ${
-                isPortfolioVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-              style={{
-                gridTemplateColumns: `repeat(${COLS}, 1fr)`,
-                gridAutoRows: `${rowHeight}px`,
-                gridAutoFlow: 'dense',
-                gap: gapPx,
-              }}
-            >
-            {filtered.map((work, index) => {
-              const colSpan = getSpan(index, 'col');
-              const rowSpan = getSpan(index, 'row');
-              const cardInner = (
-                <>
-                  <div className="absolute inset-0 w-full h-full">
-                    <Image
-                      src={work.image}
-                      alt={work.alt || work.title}
-                      fill
-                      className="object-cover object-center min-w-full min-h-full transition-transform duration-500 group-hover:scale-110"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      loading={index < 8 ? 'eager' : 'lazy'}
-                      quality={85}
-                      placeholder="blur"
-                      blurDataURL={BLUR_DATA}
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-black/45" />
-                  <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/95 via-black/70 to-transparent p-3 sm:p-4 md:p-5">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white leading-tight line-clamp-2 mb-1">
-                      {work.title}
-                    </h3>
-                    <p className="text-base sm:text-lg text-gray-300 line-clamp-2 mb-2 sm:mb-3 leading-snug">
-                      {work.alt}
-                    </p>
-                    <span className="inline-flex items-center gap-1.5 text-white text-xs sm:text-sm font-semibold">
-                      {t.portfolio.viewDetails}
-                      <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </div>
-                </>
-              );
-
-              return (
-                <div
-                  key={work.caseId}
-                  className="group relative overflow-hidden rounded-lg"
-                  style={{
-                    gridColumn: `span ${colSpan}`,
-                    gridRow: `span ${rowSpan}`,
-                  }}
-                >
-                  {work.flagship ? (
-                    <Link
-                      href={getCaseHref(validLang, work.caseId)}
-                      className="absolute inset-0 block"
-                    >
-                      {cardInner}
-                    </Link>
-                  ) : (
-                    <button
-                      type="button"
-                      className="absolute inset-0 block w-full text-left"
-                      onClick={() => openLightCase(work.caseId)}
-                      aria-label={work.title}
-                    >
-                      {cardInner}
-                    </button>
-                  )}
-                </div>
-              );
-            })}
+            <div className="max-w-3xl">
+              <h2
+                id="portfolio-intro-heading"
+                className="text-3xl font-black leading-[1.08] tracking-tight text-black sm:text-4xl md:text-5xl lg:text-[3.35rem]"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                <span className="block">{t.portfolio.heroIntroLine1}</span>
+                <span className="mt-1.5 block text-brand sm:mt-2">{t.portfolio.heroIntroLine2}</span>
+              </h2>
+              <p
+                className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-600 sm:text-lg md:mt-7 md:text-xl md:leading-relaxed"
+                style={{ fontFamily: 'var(--font-sans)' }}
+              >
+                {t.portfolio.heroIntroDescription}
+              </p>
             </div>
+
+            <dl className="grid grid-cols-2 gap-6 border-t border-zinc-200 pt-6 sm:gap-8 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-10">
+              <div>
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                  {t.portfolio.startDate.label}
+                </dt>
+                <dd
+                  className="mt-2 text-3xl font-black tracking-tight text-black sm:text-4xl"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {t.portfolio.startDate.value}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-400">
+                  {t.portfolio.duration.label}
+                </dt>
+                <dd
+                  className="mt-2 text-3xl font-black tracking-tight text-black sm:text-4xl"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {t.portfolio.duration.value}
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-2 border-t border-zinc-100 pt-8 sm:mt-12 sm:gap-3 sm:pt-10 md:mt-14">
+            {(
+              [
+                ['all', t.portfolio.filterAll],
+                ['websites', t.portfolio.filterWebsites],
+                ['chatbots', t.portfolio.filterChatbots],
+              ] as const
+            ).map(([key, label]) => (
+              <button
+                key={key}
+                type="button"
+                onClick={() => setSelectedCategory(key)}
+                className={`rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200 sm:px-6 sm:py-3 sm:text-base ${
+                  selectedCategory === key
+                    ? 'bg-brand text-neutral-900 shadow-lg shadow-brand/25'
+                    : 'bg-zinc-100 text-zinc-600 hover:bg-brand-soft hover:text-brand-dark'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
+          <div
+            className={`grid grid-cols-2 gap-3 pb-16 pt-8 sm:gap-5 sm:pb-20 sm:pt-10 md:gap-6 md:pb-24 lg:grid-cols-3 lg:gap-7 scroll-animate-up ${isPortfolioVisible ? 'animate' : ''}`}
+          >
+            {filtered.map((card) => (
+              <PortfolioCaseCard key={card.id} card={card} lang={validLang} />
+            ))}
           </div>
         </div>
       </section>

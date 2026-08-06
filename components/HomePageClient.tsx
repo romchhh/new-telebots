@@ -9,6 +9,7 @@ import AboutSection from '@/components/AboutSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import AboutStatsBanner from '@/components/AboutStatsBanner';
 import HomeResourceLinks from '@/components/HomeResourceLinks';
+import SiteCtaBand from '@/components/SiteCtaBand';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
@@ -120,6 +121,16 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
           <PortfolioSection t={t} />
           <AboutStatsBanner t={t} />
           <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
+          <SiteCtaBand
+            title={t.about.homeCta.title}
+            text={t.about.homeCta.text}
+            contactLabel={t.about.homeCta.contactLabel}
+            pricingLabel={t.about.homeCta.pricingLabel}
+            portfolioLabel={t.about.homeCta.portfolioLabel}
+            pricingHref={`/${lang}/pricing`}
+            portfolioHref={`/${lang}/portfolio`}
+            onContactClick={openModal}
+          />
         </main>
 
         <Footer

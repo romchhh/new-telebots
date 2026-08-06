@@ -20,16 +20,16 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
     case 'chatbots':
       return {
         title: u(
-          'Розробка чат-ботів і Telegram-ботів під ключ | від $150 | TeleBots',
-          'Chatbot & Telegram bot development | from $150 | TeleBots',
-          'Chatboty i boty Telegram pod klucz | od $150 | TeleBots',
-          'Разработка чат-ботов и Telegram-ботов | от $150 | TeleBots'
+          'Послуги розробки чат-ботів і Telegram-ботів | від $100',
+          'Chatbot & Telegram bot services | from $100',
+          'Usługi chatbotów i botów Telegram | od $100',
+          'Услуги разработки чат-ботов и Telegram-ботов | от $100'
         ),
         description: u(
-          'Чат-бот для бізнесу з оплатою, CRM і AI від $150. Замовити розробку Telegram-бота: старт за 24 год, 200+ проєктів. Безкоштовна консультація — TeleBots.',
-          'Business chatbot with payments, CRM and AI from $150. Order Telegram bot development: kickoff in 24h, 200+ projects. Free consultation — TeleBots.',
-          'Chatbot biznesowy z płatnościami, CRM i AI od $150. Bot Telegram pod klucz: start w 24h, 200+ projektów. Darmowa konsultacja — TeleBots.',
-          'Чат-бот для бизнеса с оплатой, CRM и AI от $150. Заказать Telegram-бота: старт за 24 ч, 200+ проектов. Бесплатная консультация — TeleBots.'
+          'Чат-бот для бізнесу з оплатою, CRM і AI від $100. Замовити розробку Telegram-бота: старт за 24 год, 200+ проєктів. Безкоштовна консультація — TeleBots.',
+          'Business chatbot with payments, CRM and AI from $100. Order Telegram bot development: kickoff in 24h, 200+ projects. Free consultation — TeleBots.',
+          'Chatbot biznesowy z płatnościami, CRM i AI od $100. Bot Telegram pod klucz: start w 24h, 200+ projektów. Darmowa konsultacja — TeleBots.',
+          'Чат-бот для бизнеса с оплатой, CRM и AI от $100. Заказать Telegram-бота: старт за 24 ч, 200+ проектов. Бесплатная консультация — TeleBots.'
         ),
         openGraphTitle: u(
           'Розробка Telegram-ботів під ключ | TeleBots',
@@ -53,16 +53,16 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
     case 'websites':
       return {
         title: u(
-          'Розробка сайтів під ключ — лендінги, візитки, інтернет-магазини | TeleBots',
-          'Website development end-to-end — landings, business sites, e-commerce | TeleBots',
-          'Strony pod klucz — landingi, wizytówki, e-commerce | TeleBots',
-          'Разработка сайтов под ключ — лендинги, визитки, интернет-магазины | TeleBots'
+          'Розробка сайтів під ключ — лендінги від $150, магазини від $400',
+          'Website development — landings from $150, stores from $400',
+          'Strony pod klucz — landingi od $150, sklepy od $400',
+          'Разработка сайтов под ключ — лендинги от $150, магазины от $400'
         ),
         description: u(
-          'Розробка сайту під ключ: лендінги, корпоративні сайти та e-commerce на Next.js. SEO, швидкість, адаптив. Типово 2 тижні. Безкоштовна консультація.',
-          'Websites end-to-end: landings, corporate sites, and Next.js e-commerce. SEO, speed, responsive delivery. Free consultation.',
-          'Strony pod klucz: landingi, serwisy firmowe i e-commerce na Next.js. SEO, szybkość, RWD. Darmowa konsultacja.',
-          'Сайты под ключ: лендинги, корпоративные сайты и e-commerce на Next.js. SEO, скорость, адаптив. Бесплатная консультация.'
+          'Розробка сайту під ключ: лендінги від $150, корпоративні сайти та e-commerce від $400 на Next.js. SEO, швидкість, адаптив. Безкоштовна консультація.',
+          'Websites end-to-end: landings from $150, corporate sites and Next.js e-commerce from $400. SEO, speed, responsive. Free consultation.',
+          'Strony pod klucz: landingi od $150, serwisy firmowe i e-commerce Next.js od $400. SEO, szybkość, RWD. Darmowa konsultacja.',
+          'Сайты под ключ: лендинги от $150, корпоративные сайты и e-commerce от $400 на Next.js. SEO, скорость, адаптив. Бесплатная консультация.'
         ),
         openGraphTitle: u(
           'Розробка сайтів під ключ | TeleBots',

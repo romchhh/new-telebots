@@ -4,9 +4,9 @@ type AllLandings = Record<SeoLandingSlug, SeoLandingCopy>;
 
 export const EN_SEO_LANDINGS: AllLandings = {
   'telegram-bots': {
-    metaTitle: 'Custom Telegram Bot Development | from $150 | TeleBots',
+    metaTitle: 'Custom Telegram Bot Development | from $100 | TeleBots',
     metaDescription:
-      'Order a Telegram bot for business: leads, payments, CRM, AI. Start in 24h, from $150. 200+ projects. Free consultation — TeleBots.',
+      'Order a Telegram bot for business: leads, payments, CRM, AI. Start in 24h, from $100. 200+ projects. Free consultation — TeleBots.',
     keywords:
       'telegram bot development, order telegram bot, create telegram bot, telegram bot for business, bot with payments, crm telegram integration, telegram bot price, TeleBots',
     h1: 'Custom Telegram bot development for business',
@@ -80,7 +80,7 @@ export const EN_SEO_LANDINGS: AllLandings = {
     ],
     stats: [
       { value: '200+', label: 'projects' },
-      { value: 'from $150', label: 'bot starting price' },
+      { value: 'from $100', label: 'bot starting price' },
       { value: '24h', label: 'response time' },
       { value: '3–10 days', label: 'typical MVP' },
     ],
@@ -120,7 +120,7 @@ export const EN_SEO_LANDINGS: AllLandings = {
       {
         question: 'How much does a Telegram bot cost?',
         answer:
-          'A simple lead bot starts from $150. A bot with payments, CRM, and richer logic usually starts from $300–800+. We give an exact estimate after the brief.',
+          'A simple lead bot starts from $100. A bot with payments, CRM, and richer logic usually starts from $300–800+. We give an exact estimate after the brief.',
       },
       {
         question: 'How long does development take?',
@@ -154,9 +154,9 @@ export const EN_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Telegram bots',
   },
   'landing-pages': {
-    metaTitle: 'Landing Page Development | from $300 | TeleBots',
+    metaTitle: 'Landing Page Development | from $150 | TeleBots',
     metaDescription:
-      'Order a turnkey landing page: conversion structure, responsive design, SEO foundation, fast launch. Typically 1–2 weeks. Free consultation — TeleBots.',
+      'Order a turnkey landing page: conversion structure, responsive design, SEO foundation, fast launch from $150. Typically 1–2 weeks. Free consultation — TeleBots.',
     keywords:
       'landing page development, turnkey landing, order landing page, landing page, sales landing, one-page website, landing page price, TeleBots',
     h1: 'Turnkey landing page development — a page that sells',
@@ -228,7 +228,7 @@ export const EN_SEO_LANDINGS: AllLandings = {
       'Personal / expert format',
     ],
     stats: [
-      { value: 'from $300', label: 'turnkey landing' },
+      { value: 'from $150', label: 'turnkey landing' },
       { value: '7–14 days', label: 'typical timeline' },
       { value: 'Next.js', label: 'modern stack' },
       { value: 'SEO foundation', label: 'from day one' },
@@ -261,7 +261,7 @@ export const EN_SEO_LANDINGS: AllLandings = {
       {
         question: 'How much does a landing page cost?',
         answer:
-          'A typical turnkey landing starts from $300. Complex animations, integrations, or multilingual setups affect the estimate.',
+          'A typical turnkey landing starts from $150. Complex animations, integrations, or multilingual setups affect the estimate.',
       },
       {
         question: 'How fast can we launch?',
@@ -287,9 +287,9 @@ export const EN_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Landing pages',
   },
   'online-stores': {
-    metaTitle: 'Online Store Development | Next.js | TeleBots',
+    metaTitle: 'Online Store Development | from $400 | TeleBots',
     metaDescription:
-      'Turnkey online store: catalog, cart, payments, shipping, admin. Next.js, SEO, and speed. Free consultation — TeleBots.',
+      'Turnkey online store from $400: catalog, cart, payments, shipping, admin. Next.js, SEO, and speed. Free consultation — TeleBots.',
     keywords:
       'online store development, turnkey ecommerce, create online store, ecommerce Next.js, store with payments, online store price, TeleBots',
     h1: 'Turnkey online store development',
@@ -361,10 +361,10 @@ export const EN_SEO_LANDINGS: AllLandings = {
       'Nieznany Piekarz — e-commerce platform',
     ],
     stats: [
+      { value: 'from $400', label: 'store starting price' },
       { value: 'Next.js', label: 'speed and SEO' },
       { value: 'payments', label: 'cards / crypto' },
       { value: 'mobile', label: 'first UX' },
-      { value: 'turnkey', label: 'from idea to launch' },
     ],
     sections: [
       {
@@ -394,7 +394,7 @@ export const EN_SEO_LANDINGS: AllLandings = {
       {
         question: 'How much does an online store cost?',
         answer:
-          'It depends on entities and integrations. Starting price is typically higher than a landing; we give a range after a short requirements review.',
+          'A typical turnkey online store starts from $400. Price depends on catalog, integrations, and checkout logic; we give a range after a short requirements review.',
       },
       {
         question: 'Can you import products from Excel / another store?',

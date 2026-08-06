@@ -23,7 +23,7 @@ export function parseBlogInline(text: string): ReactNode[] {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium text-black underline underline-offset-2 hover:no-underline"
+          className="font-medium text-brand underline underline-offset-2 hover:text-brand-dark hover:no-underline"
         >
           {label}
         </a>
@@ -31,7 +31,7 @@ export function parseBlogInline(text: string): ReactNode[] {
         <Link
           key={key++}
           href={href}
-          className="font-medium text-black underline underline-offset-2 hover:no-underline"
+          className="font-medium text-brand underline underline-offset-2 hover:text-brand-dark hover:no-underline"
         >
           {label}
         </Link>

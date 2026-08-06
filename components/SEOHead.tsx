@@ -30,7 +30,7 @@ export default function SEOHead({ title, description, image, type = 'website', c
 
   const finalTitle = title || caseData?.title || t.hero.title;
   const finalDescription = description || caseData?.subtitle || t.hero.subtitle;
-  const finalImage = image || caseData?.mainImage || `${baseUrl}/portfolio/portfolio-default.jpg`;
+  const finalImage = image || caseData?.mainImage || `${baseUrl}/other/about-hero.png`;
 
   const structuredData = {
     '@context': 'https://schema.org',

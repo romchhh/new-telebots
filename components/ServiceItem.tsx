@@ -51,9 +51,9 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl">
             <OrderCtaPill
               size="md"
+              variant="brand"
               label={service.button}
               onClick={() => onOrderClick(service.title)}
-              elevated
               className="w-full sm:flex-1 sm:min-w-0"
             />
             <Link

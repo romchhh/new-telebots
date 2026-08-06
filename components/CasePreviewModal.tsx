@@ -41,7 +41,7 @@ export default function CasePreviewModal({
     };
   }, [onClose]);
 
-  const image = caseData.mainImage || '/portfolio/portfolio-default.jpg';
+  const image = caseData.mainImage || '/other/about-hero.png';
   const features = (caseData.features || []).slice(0, 6);
   const results = (caseData.results || []).slice(0, 4);
 

@@ -34,19 +34,21 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         )}
       </div>
       <div className="flex flex-1 flex-col p-5 md:p-6">
-        <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-gray-500">
+        <div className="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand">
           <span>{label}</span>
-          <span aria-hidden>·</span>
-          <span>{post.readingTimeMinutes} хв</span>
+          <span className="text-gray-400" aria-hidden>·</span>
+          <span className="text-gray-500">{post.readingTimeMinutes} хв</span>
         </div>
         <h3
-          className="mb-2 text-lg font-black leading-snug text-black group-hover:underline md:text-xl"
-          style={{ fontFamily: 'var(--font-sans)' }}
+          className="mb-2 text-lg font-black leading-snug text-black transition-colors group-hover:text-brand md:text-xl"
+          style={{ fontFamily: 'var(--font-display)' }}
         >
           {post.title}
         </h3>
         <p className="line-clamp-3 flex-1 text-sm leading-relaxed text-gray-600">{post.excerpt}</p>
-        <span className="mt-4 text-sm font-semibold uppercase tracking-wider text-black">Читати →</span>
+        <span className="mt-4 text-sm font-semibold uppercase tracking-wider text-black transition-colors group-hover:text-brand">
+          Читати →
+        </span>
       </div>
     </Link>
   );

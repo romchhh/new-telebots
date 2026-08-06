@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { LOCALE_COOKIE_NAME, resolvePreferredLanguage } from '@/lib/locale';
-import { isLightCase } from '@/lib/portfolioCaseTiers';
+import { isFlagshipCase, isLightCase } from '@/lib/portfolioCaseTiers';
+import { cases } from '@/components/cases';
 import { CANONICAL_HOST } from '@/lib/site';
 
 /** Постійний редірект (308) — Google передає сигнали на цільовий URL */
@@ -96,14 +97,20 @@ export function middleware(request: NextRequest) {
     return permanentRedirect(new URL(ukPath, request.url));
   }
 
-  // Light кейси без окремого URL → хаб /portfolio?case= (зберігаємо UX, віддаємо crawl budget)
-  const lightCaseMatch = pathname.match(/^\/(uk|en|pl|ru)\/portfolio\/([^/]+)\/?$/);
-  if (lightCaseMatch) {
-    const [, lang, caseId] = lightCaseMatch;
+  // Кейси: light → хаб з ?case=; flagship без контенту → хаб (SEO-слаги збережені)
+  const portfolioCaseMatch = pathname.match(/^\/(uk|en|pl|ru)\/portfolio\/([^/]+)\/?$/);
+  if (portfolioCaseMatch) {
+    const [, lang, caseId] = portfolioCaseMatch;
     if (isLightCase(caseId)) {
       const target = new URL(`/${lang}/portfolio`, request.url);
       target.searchParams.set('case', caseId);
       return permanentRedirect(target);
+    }
+    if (isFlagshipCase(caseId)) {
+      const langCases = (cases as Record<string, Record<string, unknown>>)[lang] || cases.uk;
+      if (!langCases?.[caseId]) {
+        return permanentRedirect(new URL(`/${lang}/portfolio`, request.url));
+      }
     }
   }
 
