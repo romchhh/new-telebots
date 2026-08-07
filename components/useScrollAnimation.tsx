@@ -2,31 +2,40 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(options = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }) {
+/**
+ * One-shot IntersectionObserver — без пересоздання на кожен рендер.
+ * options як об'єкт у deps раніше глючив (новий {} щоразу).
+ */
+export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
+  threshold = 0.08
+) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef<T>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      options
-    );
+    const el = ref.current;
+    if (!el) return;
 
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      setIsVisible(true);
+      return;
     }
 
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, [options]);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setIsVisible(true);
+        observer.disconnect();
+      },
+      { threshold, rootMargin: '0px 0px -6% 0px' }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [threshold]);
 
   return [ref, isVisible] as const;
 }
-

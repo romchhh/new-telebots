@@ -1,11 +1,14 @@
 type KeyboardKeyBadgeProps = {
-  n: number;
+  /** Number shown as 01, 02… (ignored if `symbol` is set). */
+  n?: number;
+  /** Keyboard glyph / short label (e.g. ⌘, ⌥, ⇧). */
+  symbol?: string;
   className?: string;
 };
 
-/** Цифра у вигляді клавіші клавіатури — рожева з білим текстом. */
-export default function KeyboardKeyBadge({ n, className = '' }: KeyboardKeyBadgeProps) {
-  const label = String(n).padStart(2, '0');
+/** Клавіша: рожева з білим текстом — цифра або символ. */
+export default function KeyboardKeyBadge({ n = 1, symbol, className = '' }: KeyboardKeyBadgeProps) {
+  const label = symbol ?? String(n).padStart(2, '0');
 
   return (
     <span
@@ -16,3 +19,6 @@ export default function KeyboardKeyBadge({ n, className = '' }: KeyboardKeyBadge
     </span>
   );
 }
+
+/** Символи для benefit-карток на solutions (циклічно). */
+export const KEYBOARD_BENEFIT_SYMBOLS = ['⌘', '⌥', '⇧', '⌃', '⏎', '⎋'] as const;

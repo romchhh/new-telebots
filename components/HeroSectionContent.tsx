@@ -31,8 +31,6 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
             borderRadius: '50%',
             background:
               'radial-gradient(circle, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.38) 38%, rgba(0,0,0,0.14) 62%, transparent 86%)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
           }}
           aria-hidden
         />

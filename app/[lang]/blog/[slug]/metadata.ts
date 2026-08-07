@@ -26,8 +26,6 @@ export async function generateMetadata({
       image,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
-      openGraphTitle: post.title,
-      openGraphDescription: post.description,
     }),
   };
 }

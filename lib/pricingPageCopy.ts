@@ -100,7 +100,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'websites',
         plansNote:
-          'Тарифи на сайти та інтернет-магазини: від лендингу ($300–500) до корпоративного сайту ($500–800) та e-commerce ($800+). Розробка на Next.js, адаптив, SEO, адмінка та інтеграції за обсягом ТЗ.',
+          'Тарифи на сайти та інтернет-магазини: від лендингу ($150–300) до корпоративного сайту ($500–800) та e-commerce (від $400). Розробка на Next.js, адаптив, SEO, адмінка та інтеграції за обсягом ТЗ.',
         bullets: [
           'Лендинги та промо-сторінки з формами заявок і базовою аналітикою',
           'Корпоративні сайти з кількома розділами, блогом, мультимовністю',
@@ -164,7 +164,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         question: 'Скільки коштує розробка сайту або інтернет-магазину?',
         answer:
-          'Лендинг — $300–500, корпоративний сайт — $500–800, інтернет-магазин — від $800. У вартість зазвичай входить верстка, базове SEO, адмін-панель і тестування; інтеграції та додаткові мови обговорюються окремо.',
+          'Лендинг — $150–300, корпоративний сайт — $500–800, інтернет-магазин — від $400. У вартість зазвичай входить верстка, базове SEO, адмін-панель і тестування; інтеграції та додаткові мови обговорюються окремо.',
       },
       {
         question: 'Чи є приховані платежі в ціні розробки?',
@@ -242,7 +242,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'websites',
         plansNote:
-          'Website & e-commerce tiers: landing ($300–500), corporate site ($500–800), online store ($800+). Next.js build, responsive layout, SEO, admin panel and integrations per agreed scope.',
+          'Website & e-commerce tiers: landing ($150–300), corporate site ($500–800), online store (from $400). Next.js build, responsive layout, SEO, admin panel and integrations per agreed scope.',
         bullets: [
           'Landing pages with lead forms and basic analytics',
           'Corporate sites with multiple sections, blog, multilingual setup',
@@ -306,7 +306,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         question: 'How much does a website or online store cost?',
         answer:
-          'Landing page — $300–500, corporate site — $500–800, e-commerce — from $800. Development usually includes layout, basic SEO, admin panel and QA; integrations and extra languages are scoped separately.',
+          'Landing page — $150–300, corporate site — $500–800, e-commerce — from $400. Development usually includes layout, basic SEO, admin panel and QA; integrations and extra languages are scoped separately.',
       },
       {
         question: 'Are there hidden fees in the quoted price?',
@@ -384,7 +384,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'websites',
         plansNote:
-          'Taryfy stron i e-commerce: landing ($300–500), strona firmowa ($500–800), sklep online ($800+). Next.js, responsywność, SEO, panel admina i integracje według zakresu.',
+          'Taryfy stron i e-commerce: landing ($150–300), strona firmowa ($500–800), sklep online (od $400). Next.js, responsywność, SEO, panel admina i integracje według zakresu.',
         bullets: [
           'Landingi z formularzami leadów i podstawową analityką',
           'Strony firmowe z wieloma sekcjami, blogiem, wielojęzycznością',
@@ -448,7 +448,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         question: 'Ile kosztuje strona lub sklep internetowy?',
         answer:
-          'Landing — $300–500, strona firmowa — $500–800, sklep online — od $800. W cenie zwykle layout, podstawowe SEO, panel admina i testy; integracje i dodatkowe języki osobno.',
+          'Landing — $150–300, strona firmowa — $500–800, sklep online — od $400. W cenie zwykle layout, podstawowe SEO, panel admina i testy; integracje i dodatkowe języki osobno.',
       },
       {
         question: 'Czy są ukryte opłaty w cenie rozwoju?',
@@ -526,7 +526,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'websites',
         plansNote:
-          'Тарифы на сайты и интернет-магазины: лендинг ($300–500), корпоративный сайт ($500–800), e-commerce ($800+). Next.js, адаптив, SEO, админка и интеграции по объёму ТЗ.',
+          'Тарифы на сайты и интернет-магазины: лендинг ($150–300), корпоративный сайт ($500–800), e-commerce (от $400). Next.js, адаптив, SEO, админка и интеграции по объёму ТЗ.',
         bullets: [
           'Лендинги и промо-страницы с формами заявок и базовой аналитикой',
           'Корпоративные сайты с несколькими разделами, блогом, мультиязычностью',
@@ -590,7 +590,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         question: 'Сколько стоит разработка сайта или интернет-магазина?',
         answer:
-          'Лендинг — $300–500, корпоративный сайт — $500–800, интернет-магазин — от $800. Обычно включены вёрстка, базовое SEO, админ-панель и тестирование; интеграции и языки обсуждаются отдельно.',
+          'Лендинг — $150–300, корпоративный сайт — $500–800, интернет-магазин — от $400. Обычно включены вёрстка, базовое SEO, админ-панель и тестирование; интеграции и языки обсуждаются отдельно.',
       },
       {
         question: 'Есть ли скрытые платежи в цене разработки?',

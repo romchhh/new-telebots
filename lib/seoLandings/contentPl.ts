@@ -9,7 +9,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       'Zamów bota Telegram dla biznesu: leady, płatności, CRM, AI. Start od 24h, od $100. 200+ projektów. Bezpłatna konsultacja — TeleBots.',
     keywords:
       'tworzenie botów telegram, zamówić bota telegram, bot telegram dla biznesu, bot z płatnością, integracja crm telegram, cena bota telegram, TeleBots',
-    h1: 'Tworzenie botów Telegram pod klucz dla biznesu',
+    h1: 'Tworzenie botów Telegram pod klucz — od $100',
     intro:
       'Budujemy boty Telegram, które zbierają zgłoszenia, przyjmują płatności, odpowiadają klientom i łączą się z CRM. Bez zbędnego „kodu dla kodu” — tylko scenariusze, które oszczędzają czas i generują sprzedaż.',
     lead:
@@ -159,7 +159,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       'Zamów landing pod klucz: struktura pod konwersję, responsywność, baza SEO, szybki start od $150. Typowo 1–2 tygodnie. Bezpłatna konsultacja — TeleBots.',
     keywords:
       'tworzenie landingu, landing pod klucz, zamówić landing, landing page, sprzedający landing, strona jednostronicowa, cena landingu, TeleBots',
-    h1: 'Tworzenie landing page pod klucz — strona, która sprzedaje',
+    h1: 'Tworzenie landing page pod klucz — od $150',
     intro:
       'Budujemy landingu pod start oferty, reklamy i zbieranie zgłoszeń: jasna struktura, szybkie ładowanie, responsywność oraz formularz/CTA prowadzące do kontaktu lub płatności.',
     lead:
@@ -292,7 +292,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       'Sklep internetowy pod klucz od $400: katalog, koszyk, płatności, dostawa, admin. Next.js, SEO i szybkość. Konsultacja bezpłatna — TeleBots.',
     keywords:
       'tworzenie sklepu internetowego, sklep internetowy pod klucz, stworzyć sklep online, e-commerce Next.js, sklep z płatnością, cena sklepu internetowego, TeleBots',
-    h1: 'Tworzenie sklepu internetowego pod klucz',
+    h1: 'Tworzenie sklepu internetowego pod klucz — od $400',
     intro:
       'Budujemy e-commerce wygodny dla kupującego i dla Ciebie: katalog, filtry, koszyk, płatności, statusy zamówień oraz integracje z dostawą lub CRM.',
     lead:

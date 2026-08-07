@@ -73,6 +73,15 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/:path*\\.(js|css|woff2|woff)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
         source: '/:path*\\.(png|jpg|jpeg|gif|webp|avif|ico|svg)',
         headers: [
           {

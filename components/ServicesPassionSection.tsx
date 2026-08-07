@@ -41,7 +41,7 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
           className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[3px]" style={{ WebkitBackdropFilter: 'blur(3px)' }} />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.35]"
         style={{

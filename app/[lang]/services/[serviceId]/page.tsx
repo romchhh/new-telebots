@@ -366,8 +366,8 @@ export default function ServicePage() {
               integrations: (blocksRaw.integrationsTitle as string) || 'Інтеграції',
             };
             const cardClass =
-              'rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 md:p-8 border border-gray-200/70 bg-white/45 backdrop-blur-xl shadow-[0_12px_32px_rgba(0,0,0,0.06)] sm:shadow-[0_18px_45px_rgba(0,0,0,0.07)] transition-all duration-300';
-            const textClass = 'text-sm sm:text-base md:text-lg text-gray-700 leading-snug font-normal';
+              'rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:rounded-3xl sm:p-6 md:p-8';
+            const textClass = 'text-sm font-normal leading-snug text-gray-700 sm:text-base md:text-lg';
             const headingStyle = { fontFamily: 'var(--font-display)' };
             return (
               <section ref={blocksRef} className={`py-16 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isBlocksVisible ? 'animate' : ''}`}>

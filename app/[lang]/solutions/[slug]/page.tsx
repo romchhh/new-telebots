@@ -24,6 +24,7 @@ import {
 import SiteCtaBand from '@/components/SiteCtaBand';
 import FaqAccordion from '@/components/FaqAccordion';
 import PortfolioCaseCard from '@/components/PortfolioCaseCard';
+import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
 import { getPortfolioCards } from '@/lib/portfolioCards';
 
 const display = { fontFamily: 'var(--font-display)' };
@@ -143,8 +144,23 @@ export default function SeoSolutionPage() {
 
         <main id="main-content">
           {/* Hero + photo */}
-          <section className={`border-b border-gray-100 bg-white pt-24 md:pt-28 ${SITE_PX}`}>
-            <div className={`${SITE_INNER} pb-14 md:pb-20`}>
+          <section className={`relative overflow-hidden border-b border-gray-100 bg-white pt-24 md:pt-28 ${SITE_PX}`}>
+            <div
+              className="pointer-events-none absolute inset-0 z-0"
+              style={{
+                backgroundImage: `
+                  linear-gradient(90deg, rgba(0,0,0,0.055) 1px, transparent 1px),
+                  linear-gradient(rgba(0,0,0,0.055) 1px, transparent 1px)
+                `,
+                backgroundSize: '52px 52px',
+              }}
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -right-24 top-1/4 z-0 h-[min(60vw,420px)] w-[min(60vw,420px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.12)_0%,transparent_70%)] blur-3xl"
+              aria-hidden
+            />
+            <div className={`relative z-10 ${SITE_INNER} pb-14 md:pb-20`}>
               <p className="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500">
                 <Link href={`/${lang}/services`} className="transition-colors hover:text-brand">
                   {t.nav.services}
@@ -161,8 +177,8 @@ export default function SeoSolutionPage() {
                   >
                     {page.h1}
                   </h1>
-                  <p className="mb-4 text-lg leading-relaxed text-gray-700 md:text-xl">{page.intro}</p>
-                  <p className="mb-8 text-base leading-relaxed text-gray-600 md:text-lg">{page.lead}</p>
+                  <p className="mb-3 text-sm leading-relaxed text-gray-700 md:text-base">{page.intro}</p>
+                  <p className="mb-8 text-sm leading-relaxed text-gray-600 md:text-base">{page.lead}</p>
                   <div className="flex flex-col flex-wrap gap-3 sm:flex-row">
                     <OrderCtaPill
                       size="sm"
@@ -217,14 +233,19 @@ export default function SeoSolutionPage() {
               <h2 className="mb-8 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
                 {page.benefitsTitle}
               </h2>
-              <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {page.benefits.map((item) => (
+              <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+                {page.benefits.map((item, i) => (
                   <li
                     key={item}
-                    className="rounded-2xl border border-gray-100 bg-white p-5 text-gray-800 leading-relaxed shadow-[0_8px_30px_rgba(0,0,0,0.04)]"
+                    className="flex flex-col rounded-2xl border border-zinc-200 bg-zinc-50 p-3.5 shadow-[0_3px_0_#d4d4d8,0_8px_20px_rgba(0,0,0,0.06)] sm:rounded-3xl sm:p-5"
                   >
-                    <span className="mb-3 block h-1.5 w-1.5 rounded-full bg-brand" aria-hidden />
-                    {item}
+                    <KeyboardKeyBadge
+                      symbol={KEYBOARD_BENEFIT_SYMBOLS[i % KEYBOARD_BENEFIT_SYMBOLS.length]}
+                      className="mb-2.5 sm:mb-4"
+                    />
+                    <p className="text-xs leading-snug text-gray-700 sm:text-sm sm:leading-snug md:text-base">
+                      {item}
+                    </p>
                   </li>
                 ))}
               </ul>
@@ -239,7 +260,7 @@ export default function SeoSolutionPage() {
               </h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {page.audience.map((item, i) => (
-                  <div key={item} className="rounded-2xl border border-white/15 bg-white/5 p-5 backdrop-blur-sm">
+                  <div key={item} className="rounded-2xl border border-white/15 bg-white/10 p-5">
                     <span className="mb-3 block text-sm font-light italic text-white/40" style={display}>
                       [{String(i + 1).padStart(2, '0')}]
                     </span>

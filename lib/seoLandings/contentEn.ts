@@ -9,7 +9,7 @@ export const EN_SEO_LANDINGS: AllLandings = {
       'Order a Telegram bot for business: leads, payments, CRM, AI. Start in 24h, from $100. 200+ projects. Free consultation — TeleBots.',
     keywords:
       'telegram bot development, order telegram bot, create telegram bot, telegram bot for business, bot with payments, crm telegram integration, telegram bot price, TeleBots',
-    h1: 'Custom Telegram bot development for business',
+    h1: 'Custom Telegram bot development — from $100',
     intro:
       'We build Telegram bots that collect leads, accept payments, answer customers, and connect to CRM. No code for its own sake — only flows that save time and drive sales.',
     lead:
@@ -159,7 +159,7 @@ export const EN_SEO_LANDINGS: AllLandings = {
       'Order a turnkey landing page: conversion structure, responsive design, SEO foundation, fast launch from $150. Typically 1–2 weeks. Free consultation — TeleBots.',
     keywords:
       'landing page development, turnkey landing, order landing page, landing page, sales landing, one-page website, landing page price, TeleBots',
-    h1: 'Turnkey landing page development — a page that sells',
+    h1: 'Turnkey landing page development — from $150',
     intro:
       'We build landing pages for offer launches, ads, and lead capture: clear structure, fast load, responsive layout, and forms/CTAs that drive contact or payment.',
     lead:
@@ -292,7 +292,7 @@ export const EN_SEO_LANDINGS: AllLandings = {
       'Turnkey online store from $400: catalog, cart, payments, shipping, admin. Next.js, SEO, and speed. Free consultation — TeleBots.',
     keywords:
       'online store development, turnkey ecommerce, create online store, ecommerce Next.js, store with payments, online store price, TeleBots',
-    h1: 'Turnkey online store development',
+    h1: 'Turnkey online store development — from $400',
     intro:
       'We build e-commerce that’s convenient for buyers and for you: catalog, filters, cart, payments, order statuses, and integrations with shipping or CRM.',
     lead:

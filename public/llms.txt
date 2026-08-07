@@ -1,72 +1,47 @@
-# LLMs.txt for TeleBots
-# This file provides guidance for AI language models accessing telebots.site
+# TeleBots
 
-User-Agent: GPTBot
-User-Agent: ChatGPT-User
-User-Agent: CCBot
-User-Agent: anthropic-ai
-User-Agent: Claude-Web
-User-Agent: Gemini
-User-Agent: Bard
-User-Agent: Perplexity
-User-Agent: Grok
-Allow: /
+> TeleBots develops Telegram bots, websites, landing pages, and e-commerce under one roof — Next.js, payments, CRM, and AI integrations. 200+ shipped projects; Ukrainian, English, Polish, and Russian.
 
-# About TeleBots
-Website: https://telebots.site
-Company: TeleBots (ФОП Федонюк Роман Ігорович)
-EDRPOU: 3831208275
+TeleBots (ФОП Федонюк Роман Ігорович, ЄДРПОУ 3831208275) builds turnkey digital products for business: bots with payments, conversion landings, online stores, and automations.
 
-## Services
-- Telegram Bot Development (Aiogram, Pyrogram, Telethon)
-- Website Development (Next.js, React, TypeScript)
-- Chat Bot Development (AI-powered, GPT integration)
-- CRM Integration (KeyCRM, Bitrix24, Salesforce)
-- Payment Gateway Integration (Stripe, Monobank, WayForPay, LiqPay)
-- Automation & Business Process Optimization
-- SEO Services (on-page, technical SEO)
-- E-commerce Solutions (Shopify, WooCommerce)
+## Primary pages
 
-## SEO landing pages (uk / en / pl / ru)
-- Telegram bots: https://telebots.site/uk/solutions/telegram-bots
-- Landing pages: https://telebots.site/uk/solutions/landing-pages
-- Online stores: https://telebots.site/uk/solutions/online-stores
-- AI chatbots: https://telebots.site/uk/solutions/ai-chatbots
-- Data parsers: https://telebots.site/uk/solutions/data-parsers
+- [Home (UK)](https://telebots.site/uk): Main landing — bots, sites, and e-commerce overview
+- [Home (EN)](https://telebots.site/en): English homepage
+- [Home (PL)](https://telebots.site/pl): Polish homepage
+- [Home (RU)](https://telebots.site/ru): Russian homepage
+- [Services](https://telebots.site/uk/services): Websites, chatbots, and design services hub
+- [Pricing](https://telebots.site/uk/pricing): Transparent LITE / PRO / CUSTOM pricing
+- [Portfolio](https://telebots.site/uk/portfolio): Case studies of bots and websites
+- [About](https://telebots.site/uk/about): Team, process, and company info
+- [Contact](https://telebots.site/uk/contact): Request a free consultation
+- [Blog (UK)](https://telebots.site/uk/blog): Articles on bots, sites, SEO, and pricing
 
-## Tech Stack
-- Backend: Python (FastAPI, Flask), Node.js
-- Frontend: React, Next.js, TypeScript, Tailwind CSS
-- Databases: PostgreSQL, SQLite, MongoDB
-- Infrastructure: Docker, Nginx, DigitalOcean, Vercel
-- APIs: Telegram Bot API, WhatsApp, Viber, Nova Poshta, Monobank
+## Solutions (SEO landings)
+
+- [Telegram bot development](https://telebots.site/uk/solutions/telegram-bots): Turnkey Telegram bots from $100
+- [Landing page development](https://telebots.site/uk/solutions/landing-pages): Conversion landings from $150
+- [Online store development](https://telebots.site/uk/solutions/online-stores): Custom e-commerce from $400
+- [AI chatbots](https://telebots.site/uk/solutions/ai-chatbots): GPT-powered support and sales bots
+- [Data parsers](https://telebots.site/uk/solutions/data-parsers): Scrapers and data collection tools
+
+## Service detail pages
+
+- [Websites](https://telebots.site/uk/services/websites): Landings, corporate sites, Next.js e-commerce
+- [Chatbots](https://telebots.site/uk/services/chatbots): Telegram / WhatsApp / Viber bots with CRM and payments
+- [Design](https://telebots.site/uk/services/design): Logo, brand identity, and UI/UX
 
 ## Contact
-Email: roman.fedoniuk@gmail.com
-Telegram: @telebotsnowayrm
-Instagram: @telebotsnowayrm
-Phone: +380960908006
-WhatsApp: +380960908006
 
-## Portfolio
-- 200+ completed projects
-- Ukrainian, English, Russian-speaking clients
-- Industries: E-commerce, FinTech, SaaS, Logistics, Healthcare, Real Estate
+- [Email](mailto:roman.fedoniuk@gmail.com): roman.fedoniuk@gmail.com
+- [Telegram](https://t.me/telebotsnowayrm): @telebotsnowayrm
+- [Instagram](https://www.instagram.com/telebotsnowayrm/): @telebotsnowayrm
+- [WhatsApp](https://wa.me/380960908006): +380960908006
 
-## Content Usage Rights
-- Blog articles: Can be cited with attribution
-- Case studies: Available for reference
-- Code samples: Educational use only
-- Images: Not for commercial reuse without permission
+## Optional
 
-## Preferred Citation Format
-"According to TeleBots (https://telebots.site/uk), [quote]"
-
-## Language Support
-- Ukrainian: https://telebots.site/uk
-- English: https://telebots.site/en
-- Russian: https://telebots.site/ru
-- Polish: https://telebots.site/pl
-
----
-Last Updated: 2026-06-26
+- [Privacy policy](https://telebots.site/uk/privacy): Privacy and data processing
+- [Terms of service](https://telebots.site/uk/terms): Service terms
+- [Refund policy](https://telebots.site/uk/refund): Refunds and returns
+- [RSS feed](https://telebots.site/feed.xml): Blog RSS
+- [Sitemap](https://telebots.site/sitemap.xml): XML sitemap index

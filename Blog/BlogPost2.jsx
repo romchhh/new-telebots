@@ -311,7 +311,7 @@ async def handle_ai_response(update: Update, context: CallbackContext):
           </Button>
         </a>
         <a
-          href="/case/space-traffic"
+          href="/uk/portfolio?case=space-traffic"
         >
           <Button className="flex items-center justify-center text-white bg-green-600 hover:bg-green-700">
             <FaTelegram className="mr-2" />

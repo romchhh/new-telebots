@@ -328,7 +328,7 @@ const limiter = rateLimit({
           </BlogLegacyButton>
         </a>
         <a
-          href="/case/cats-fresh"
+          href="/uk/portfolio/cats-fresh"
         >
           <BlogLegacyButton className="flex items-center justify-center text-white bg-green-600 hover:bg-green-700">
             <FaTelegram className="mr-2" />

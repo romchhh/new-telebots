@@ -146,7 +146,7 @@ export default function AboutPage() {
             className="object-cover object-top"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20 backdrop-blur-[2px]" style={{ WebkitBackdropFilter: 'blur(2px)' }} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.28]"
           style={{

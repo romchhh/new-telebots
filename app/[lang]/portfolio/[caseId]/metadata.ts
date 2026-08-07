@@ -5,6 +5,8 @@ import { isFlagshipCase, isLightCase } from '@/lib/portfolioCases';
 import {
   buildCaseSeoDescription,
   buildCaseSeoKeywords,
+  CASE_ARTICLE_MODIFIED,
+  CASE_ARTICLE_PUBLISHED,
   generateMetadata as generateSEOMetadata,
 } from '@/lib/seo';
 import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
@@ -64,6 +66,8 @@ export async function generateMetadata(params: {
       lang,
       caseId: params.caseId,
       openGraphDescription: ogDescription,
+      publishedTime: CASE_ARTICLE_PUBLISHED,
+      modifiedTime: CASE_ARTICLE_MODIFIED,
       hreflangLangs: hreflangLangs.length > 0 ? hreflangLangs : ['uk'],
     }),
     keywords,

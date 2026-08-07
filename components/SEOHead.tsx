@@ -42,7 +42,8 @@ export default function SEOHead({ title, description, image, type = 'website', c
     ...(type === 'article' && caseData ? {
       headline: caseData.title,
       image: `${baseUrl}${caseData.mainImage}`,
-      datePublished: new Date().toISOString(),
+      datePublished: '2025-01-15',
+      dateModified: '2026-08-01',
       author: {
         '@type': 'Organization',
         name: 'TeleBots',

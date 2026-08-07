@@ -97,6 +97,31 @@ export function middleware(request: NextRequest) {
     return permanentRedirect(new URL(ukPath, request.url));
   }
 
+  // Legacy /case/:id → portfolio (flagship URL, hub modal, or hub if no case content)
+  const resolveLegacyCaseRedirect = (lang: string, caseId: string) => {
+    if (isLightCase(caseId) || !isFlagshipCase(caseId)) {
+      const target = new URL(`/${lang}/portfolio`, request.url);
+      target.searchParams.set('case', caseId);
+      return permanentRedirect(target);
+    }
+    const langCases = (cases as Record<string, Record<string, unknown>>)[lang] || cases.uk;
+    if (!langCases?.[caseId]) {
+      return permanentRedirect(new URL(`/${lang}/portfolio`, request.url));
+    }
+    return permanentRedirect(new URL(`/${lang}/portfolio/${caseId}`, request.url));
+  };
+
+  const bareCaseMatch = pathname.match(/^\/case\/([^/]+)\/?$/);
+  if (bareCaseMatch) {
+    return resolveLegacyCaseRedirect(getPreferredLanguage(request), bareCaseMatch[1]);
+  }
+
+  const langCaseMatch = pathname.match(/^\/(uk|en|pl|ru)\/case\/([^/]+)\/?$/);
+  if (langCaseMatch) {
+    const [, lang, caseId] = langCaseMatch;
+    return resolveLegacyCaseRedirect(lang, caseId);
+  }
+
   // Кейси: light → хаб з ?case=; flagship без контенту → хаб (SEO-слаги збережені)
   const portfolioCaseMatch = pathname.match(/^\/(uk|en|pl|ru)\/portfolio\/([^/]+)\/?$/);
   if (portfolioCaseMatch) {

@@ -35,7 +35,7 @@ export default function ServiceAudienceSection({ copy }: ServiceAudienceSectionP
             return (
               <div
                 key={num}
-                className="w-[calc(50%-6px)] min-w-0 max-w-[420px] rounded-2xl border border-gray-200/70 bg-white/45 p-3.5 shadow-[0_12px_32px_rgba(0,0,0,0.06)] backdrop-blur-xl transition-all duration-300 sm:w-[calc(50%-12px)] sm:rounded-3xl sm:p-6 sm:shadow-[0_18px_45px_rgba(0,0,0,0.07)] md:w-[calc(33.333%-16px)] md:p-8"
+                className="w-[calc(50%-6px)] min-w-0 max-w-[420px] rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:w-[calc(50%-12px)] sm:rounded-3xl sm:p-6 md:w-[calc(33.333%-16px)] md:p-8"
               >
                 <KeyboardKeyBadge n={i + 1} className="mb-2.5 sm:mb-5" />
                 <p className="mt-0.5 text-sm leading-snug font-normal text-gray-700 sm:text-base sm:leading-snug">

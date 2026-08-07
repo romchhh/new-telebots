@@ -363,6 +363,10 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
   };
 }
 
+/** Stable case-study dates for Article JSON-LD + Open Graph (no per-case chronology yet). */
+export const CASE_ARTICLE_PUBLISHED = '2025-01-15';
+export const CASE_ARTICLE_MODIFIED = '2026-08-01';
+
 export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
   if (!isFlagshipCase(caseId)) return null;
 
@@ -385,8 +389,8 @@ export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
     headline: caseData.title,
     description: buildCaseSeoDescription(caseData, lang),
     image: `${baseUrl}${caseData.mainImage}`,
-    datePublished: '2025-01-15',
-    dateModified: '2026-08-01',
+    datePublished: CASE_ARTICLE_PUBLISHED,
+    dateModified: CASE_ARTICLE_MODIFIED,
     articleSection: caseData.category || 'Case Study',
     keywords: buildCaseSeoKeywords({
       title: caseData.title,
@@ -456,7 +460,7 @@ const SERVICE_PRODUCT_CONFIG: Record<
   websitesPage: {
     slug: 'websites',
     imagePath: '/services/services-websites.jpg',
-    priceMin: 300,
+    priceMin: 150,
     priceMax: 800,
     names: {
       uk: 'Розробка веб-сайтів та інтернет-магазинів',
@@ -590,7 +594,7 @@ export function generateProductSchema(serviceName: string, description: string, 
   const config = SERVICE_PRODUCT_CONFIG[serviceName as ServiceProductKey];
   const slug = config?.slug ?? 'websites';
   const imagePath = config?.imagePath ?? '/services/services-websites.jpg';
-  const priceMin = config?.priceMin ?? 300;
+  const priceMin = config?.priceMin ?? 100;
   const priceMax = config?.priceMax ?? priceMin;
   const name = config?.names[lang] ?? serviceName;
   const productUrl = `${baseUrl}/${lang}/services/${slug}`;

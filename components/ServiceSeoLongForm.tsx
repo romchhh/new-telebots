@@ -57,10 +57,10 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
     designExtras,
   } = copy;
 
-  const body = 'text-gray-700 text-sm leading-snug sm:text-base md:text-lg md:leading-snug font-normal';
+  const body = 'text-sm font-normal leading-snug text-gray-700 sm:text-base md:text-lg';
   const card =
-    'w-[calc(50%-6px)] min-w-0 max-w-[420px] md:w-[calc(33.333%-16px)] rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 md:p-8 border border-gray-200/70 bg-white/45 backdrop-blur-xl shadow-[0_12px_32px_rgba(0,0,0,0.06)] sm:shadow-[0_18px_45px_rgba(0,0,0,0.07)] transition-all duration-300';
-  const cardGap = 'flex flex-wrap justify-center gap-3 sm:gap-6 w-full';
+    'w-[calc(50%-6px)] min-w-0 max-w-[420px] rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:w-[calc(50%-12px)] sm:rounded-3xl sm:p-6 md:w-[calc(33.333%-16px)] md:p-8';
+  const cardGap = 'flex w-full flex-wrap justify-center gap-3 sm:gap-6';
 
   return (
     <>

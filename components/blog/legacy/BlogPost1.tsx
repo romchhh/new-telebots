@@ -651,7 +651,7 @@ logger.error('Помилка: %s', str(error))
           </BlogLegacyButton>
         </a>
         <a
-          href="/case/nutritionist-bot"
+          href="/uk/portfolio/nutritionist-bot"
           className="w-full md:w-auto"
         >
           <BlogLegacyButton className="flex items-center justify-center text-white w-full bg-green-600 hover:bg-green-700">
