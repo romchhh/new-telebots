@@ -410,6 +410,7 @@ const kls: CaseStudyDefinition = {
 
 const wayOfProcessing: CaseStudyDefinition = {
   id: 'wayofprocessing',
+  liveUrl: 'https://wayofprocessing.com/',
   mainImage: '/portfolio/portfolio-wayofprocessing.jpg',
   portfolioCategory: 'websites',
   copy: withRelated({
@@ -418,7 +419,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       heroTitle: 'WayOfProcessing — сайт міжнародного платіжного процесингу',
       heroLead:
         'Сучасний сайт для сервісу міжнародного процесингу платежів через Stripe. Акцент на експертності, довірі й зрозумілій презентації послуг: підключення, переваги, кейси для різних ніш і шлях до консультації.',
-      visitSite: 'Обговорити подібний проєкт',
+      visitSite: 'Відкрити сайт',
       stats: [
         { value: '1', label: 'фокус на Stripe-процесингу' },
         { value: '↑', label: 'довіра через цифри й переваги' },
@@ -465,7 +466,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       heroTitle: 'WayOfProcessing — international payment processing website',
       heroLead:
         'A modern site for an international payment processing service via Stripe. Built around expertise, trust and a clear service story: onboarding, benefits, niche use cases and a path to consultation.',
-      visitSite: 'Discuss a similar project',
+      visitSite: 'Visit site',
       stats: [
         { value: '1', label: 'focus on Stripe processing' },
         { value: '↑', label: 'trust via proof & benefits' },
@@ -512,7 +513,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       heroTitle: 'WayOfProcessing — strona międzynarodowego processingu płatności',
       heroLead:
         'Nowoczesna strona serwisu processingu płatności przez Stripe. Eksperckość, zaufanie i jasna prezentacja usług: podłączenie, korzyści, case’y i ścieżka do konsultacji.',
-      visitSite: 'Omów podobny projekt',
+      visitSite: 'Otwórz stronę',
       stats: [
         { value: '1', label: 'fokus na Stripe processing' },
         { value: '↑', label: 'zaufanie przez liczby i korzyści' },
@@ -558,7 +559,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       heroTitle: 'WayOfProcessing — сайт международного платёжного процессинга',
       heroLead:
         'Современный сайт сервиса международного процессинга платежей через Stripe. Акцент на экспертности, доверии и понятной презентации услуг.',
-      visitSite: 'Обсудить похожий проект',
+      visitSite: 'Открыть сайт',
       stats: [
         { value: '1', label: 'фокус на Stripe-процессинге' },
         { value: '↑', label: 'доверие через цифры и преимущества' },
@@ -604,7 +605,7 @@ const wayOfProcessing: CaseStudyDefinition = {
 
 const emviDigital: CaseStudyDefinition = {
   id: 'emvi-digital',
-  liveUrl: 'https://www.emvi.digital/',
+  liveUrl: 'https://emvi-digital.vercel.app/',
   mainImage: '/portfolio/portfolio-emvi-digital.jpg',
   portfolioCategory: 'websites',
   copy: withRelated({

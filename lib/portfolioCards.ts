@@ -313,6 +313,7 @@ export const PORTFOLIO_CARDS: PortfolioCard[] = [
     id: 'wayofprocessing',
     image: '/portfolio/portfolio-wayofprocessing.jpg',
     category: 'websites',
+    liveUrl: 'https://wayofprocessing.com/',
     copy: t(
       'WAY OF PROCESSING',
       'Сайт міжнародного платіжного процесингу (Stripe)',
@@ -362,7 +363,7 @@ export const PORTFOLIO_CARDS: PortfolioCard[] = [
     id: 'emvi-digital',
     image: '/portfolio/portfolio-emvi-digital.jpg',
     category: 'websites',
-    liveUrl: 'https://www.emvi.digital/',
+    liveUrl: 'https://emvi-digital.vercel.app/',
     copy: t(
       'EMVI DIGITAL',
       'Сайт digital-агенції: контент, брендинг, e-commerce',

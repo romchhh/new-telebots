@@ -24,7 +24,7 @@ import {
 import SiteCtaBand from '@/components/SiteCtaBand';
 import FaqAccordion from '@/components/FaqAccordion';
 import PortfolioCaseCard from '@/components/PortfolioCaseCard';
-import KeyboardKeyBadge from '@/components/KeyboardKeyBadge';
+import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
 import { getPortfolioCards } from '@/lib/portfolioCards';
 
 const display = { fontFamily: 'var(--font-display)' };
@@ -239,7 +239,10 @@ export default function SeoSolutionPage() {
                     key={item}
                     className="flex min-w-0 flex-col rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:rounded-3xl sm:p-6"
                   >
-                    <KeyboardKeyBadge n={i + 1} className="mb-2.5 sm:mb-5" />
+                    <KeyboardKeyBadge
+                      symbol={KEYBOARD_BENEFIT_SYMBOLS[i % KEYBOARD_BENEFIT_SYMBOLS.length]}
+                      className="mb-2.5 sm:mb-5"
+                    />
                     <p className="mt-0.5 text-sm leading-snug font-normal text-gray-700 sm:text-base sm:leading-snug">
                       {item}
                     </p>

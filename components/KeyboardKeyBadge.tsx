@@ -31,3 +31,6 @@ export default function KeyboardKeyBadge({
     </span>
   );
 }
+
+/** Символи для benefit-карток на solutions (циклічно). */
+export const KEYBOARD_BENEFIT_SYMBOLS = ['⌘', '⌥', '⇧', '⌃', '⏎', '⎋'] as const;
