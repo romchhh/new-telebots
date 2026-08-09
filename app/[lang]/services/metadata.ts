@@ -13,12 +13,12 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Послуги: Telegram-боти, чат-боти та сайти під ключ | TeleBots'
+    ? 'Послуги: Telegram-боти, чат-боти та сайти під ключ'
     : lang === 'en'
-    ? 'Services: Telegram Bots, Chatbots & Websites | TeleBots'
+    ? 'Services: Telegram Bots, Chatbots & Websites'
     : lang === 'pl'
-    ? 'Usługi: boty Telegram, chatboty i strony | TeleBots'
-    : 'Услуги: Telegram-боты, чат-боты и сайты под ключ | TeleBots';
+    ? 'Usługi: boty Telegram, chatboty i strony'
+    : 'Услуги: Telegram-боты, чат-боты и сайты под ключ';
 
   const description = lang === 'uk'
     ? 'Замовити розробку Telegram-бота від $100, лендінгу від $150, інтернет-магазину від $400, UI/UX від $150. Чат-боти з оплатою, CRM, e-commerce на Next.js. Безкоштовна консультація, 200+ проєктів.'

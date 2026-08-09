@@ -48,12 +48,12 @@ export interface PricingPageCopy {
 
 export const pricingPageCopy: Record<Language, PricingPageCopy> = {
   uk: {
-    metaTitle: 'Ціни на чат-боти та Telegram-ботів | від $100 | TeleBots',
+    metaTitle: 'Ціни на чат-боти та Telegram-ботів | від $100',
     metaDescription:
       'Чат-бот для бізнесу від $100, Telegram-бот з оплатою від $200, лендінг від $150, інтернет-магазин від $400. Прозорі тарифи LITE/PRO/CUSTOM. Безкоштовна консультація та оцінка проєкту.',
     metaKeywords:
       'чат бот ціна, розробка чат ботів ціна, вартість телеграм бота, ціни розробка сайту київ, лендинг ціна україна, чат-бот замовити вартість, розробка інтернет магазину ціна, UI UX дизайн вартість, стоимость чат бота',
-    h1: 'Ціни на розробку сайтів і Telegram-ботів у TeleBots',
+    h1: 'Ціни на розробку сайтів і Telegram-ботів',
     subtitle:
       'Прозорі діапазони бюджету для сайтів, ботів і дизайну: орієнтуйтесь у вилках, а точну суму отримайте після брифу та узгодженого ТЗ.',
     intro:
@@ -190,12 +190,12 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
   },
   en: {
-    metaTitle: 'Chatbot & Telegram bot pricing | from $100 | TeleBots',
+    metaTitle: 'Chatbot & Telegram bot pricing | from $100',
     metaDescription:
       'Business chatbot from $100, Telegram bot with payments from $200, landing from $150, online store from $400. Transparent LITE/PRO/CUSTOM tiers. Free consultation and project estimate.',
     metaKeywords:
       'telegram bot price, chatbot development cost, website development cost Ukraine, landing page pricing, ecommerce development quote, UI UX design cost, chatbot development estimate',
-    h1: 'Pricing and cost estimates — TeleBots',
+    h1: 'Pricing and cost estimates',
     subtitle:
       'Clear budget bands for sites, bots and design — use the ranges as a guide; the exact quote follows your brief and agreed scope.',
     intro:
@@ -332,12 +332,12 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
   },
   pl: {
-    metaTitle: 'Ceny chatbotów i botów Telegram | od $100 | TeleBots',
+    metaTitle: 'Ceny chatbotów i botów Telegram | od $100',
     metaDescription:
       'Chatbot biznesowy od $100, bot Telegram z płatnościami od $200, landing od $150, sklep od $400. Przejrzyste pakiety LITE/PRO/CUSTOM. Darmowa konsultacja i wycena projektu.',
     metaKeywords:
       'cena bota telegram, koszt chatbota, koszt strony www, landing page cena, sklep internetowy wycena, projektowanie UI UX cena, chatbot dla firmy cena',
-    h1: 'Ceny i orientacyjne koszty — TeleBots',
+    h1: 'Ceny i orientacyjne koszty',
     subtitle:
       'Przejrzyste przedziały cenowe dla stron, botów i designu — widełki pomagają zaplanować budżet; dokładna wycena po briefie i zakresie.',
     intro:
@@ -474,12 +474,12 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
   },
   ru: {
-    metaTitle: 'Цены на чат-боты и Telegram-ботов | от $100 | TeleBots',
+    metaTitle: 'Цены на чат-боты и Telegram-ботов | от $100',
     metaDescription:
       'Чат-бот для бизнеса от $100, Telegram-бот с оплатой от $200, лендинг от $150, интернет-магазин от $400. Прозрачные тарифы LITE/PRO/CUSTOM. Бесплатная консультация и оценка проекта.',
     metaKeywords:
       'стоимость чат бота, цена разработка сайта, стоимость телеграм бота, лендинг цена, чат-бот стоимость, интернет магазин разработка цена, UI UX дизайн стоимость',
-    h1: 'Цены и ориентиры стоимости услуг TeleBots',
+    h1: 'Цены и ориентиры стоимости услуг',
     subtitle:
       'Понятные диапазоны бюджета для сайтов, ботов и дизайна — ориентируйтесь по вилкам; точная сумма после брифа и согласованного ТЗ.',
     intro:

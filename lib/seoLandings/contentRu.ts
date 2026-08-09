@@ -4,7 +4,7 @@ type AllLandings = Record<SeoLandingSlug, SeoLandingCopy>;
 
 export const RU_SEO_LANDINGS: AllLandings = {
   'telegram-bots': {
-    metaTitle: 'Разработка Telegram-ботов под ключ | от $100 | TeleBots',
+    metaTitle: 'Разработка Telegram-ботов под ключ | от $100',
     metaDescription:
       'Заказать разработку Telegram-бота для бизнеса: лиды, оплата, CRM, AI. Старт от 24 ч, от $100. 200+ проектов. Бесплатная консультация — TeleBots.',
     keywords:
@@ -154,7 +154,7 @@ export const RU_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Telegram-боты',
   },
   'landing-pages': {
-    metaTitle: 'Разработка лендинга под ключ | от $150 | TeleBots',
+    metaTitle: 'Разработка лендинга под ключ | от $150',
     metaDescription:
       'Заказать лендинг под ключ: структура под конверсию, адаптив, SEO-база, быстрый запуск от $150. Типично 1–2 недели. Бесплатная консультация — TeleBots.',
     keywords:
@@ -287,7 +287,7 @@ export const RU_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Лендинги',
   },
   'online-stores': {
-    metaTitle: 'Разработка интернет-магазина под ключ | от $400 | TeleBots',
+    metaTitle: 'Разработка интернет-магазина под ключ | от $400',
     metaDescription:
       'Интернет-магазин под ключ от $400: каталог, корзина, оплата, доставка, админка. Next.js, SEO и скорость. Консультация бесплатно — TeleBots.',
     keywords:
@@ -421,12 +421,12 @@ export const RU_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Интернет-магазины',
   },
   'ai-chatbots': {
-    metaTitle: 'AI-чат-бот для бизнеса | Telegram и сайт | TeleBots',
+    metaTitle: 'AI-чат-бот для бизнеса | Telegram и сайт',
     metaDescription:
       'AI-чат-бот на базе GPT: ответы из вашей базы знаний, квалификация лидов, поддержка 24/7 в Telegram или на сайте. Консультация — TeleBots.',
     keywords:
       'ai чат-бот, chatgpt бот для бизнеса, ai бот telegram, нейросеть для поддержки, бот с искусственным интеллектом, ai консультант, TeleBots',
-    h1: 'AI-чат-боты для поддержки, продаж и онбординга',
+    h1: 'AI-чат-бот для бизнеса — Telegram и сайт',
     intro:
       'Подключаем AI к Telegram или виджету на сайте: бот отвечает на языке клиента, опирается на ваши документы и передаёт сложные диалоги менеджеру.',
     lead:
@@ -553,12 +553,12 @@ export const RU_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'AI-чат-боты',
   },
   'data-parsers': {
-    metaTitle: 'Разработка парсеров и сбор данных | Excel, API, CRM | TeleBots',
+    metaTitle: 'Разработка парсеров и сбор данных',
     metaDescription:
       'Парсеры под ключ: цены, товары, объявления, мониторинг конкурентов. Экспорт в Excel, Google Sheets, БД или API. Консультация — TeleBots.',
     keywords:
       'разработка парсера, парсинг сайтов, сбор данных, парсер цен, парсер маркетплейса, экспорт excel, мониторинг конкурентов, TeleBots',
-    h1: 'Парсеры и автоматический сбор данных для бизнеса',
+    h1: 'Разработка парсеров и сбор данных для бизнеса',
     intro:
       'Автоматизируем сбор данных с сайтов, маркетплейсов и открытых источников: вместо часов копирования — обновляемые таблицы, отчёты или API под ваш процесс.',
     lead:

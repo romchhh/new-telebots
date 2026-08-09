@@ -12,12 +12,12 @@ export async function generateMetadata({
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
 
   const title = lang === 'uk'
-    ? 'Портфоліо: кейси Telegram-ботів і сайтів — TeleBots'
+    ? 'Портфоліо: кейси Telegram-ботів і сайтів'
     : lang === 'en'
-    ? 'Website & Telegram Bot Development Cases — TeleBots'
+    ? 'Website & Telegram Bot Development Cases'
     : lang === 'pl'
-    ? 'Przypadki: strony www i boty Telegram — TeleBots'
-    : 'Кейсы разработки сайтов и телеграм ботов — TeleBots';
+    ? 'Przypadki: strony www i boty Telegram'
+    : 'Кейсы разработки сайтов и телеграм ботов';
 
   const description = lang === 'uk'
     ? 'Реальні проєкти: Telegram-боти, міні-додатки, сайти та інтернет-магазини з оплатою та інтеграціями. E-commerce, маркетплейси, автоматизація. 200+ кейсів TeleBots.'

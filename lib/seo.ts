@@ -70,11 +70,40 @@ export function trimDescriptionForMeta(description: string, maxLength = 160): st
   return lastSpace > maxLength * 0.7 ? trimmed.slice(0, lastSpace) + '...' : trimmed + '...';
 }
 
-/** Root layout title.template is `%s | TeleBots` — strip a manual brand suffix so it is not doubled. */
+/**
+ * Strip trailing brand suffixes so we never emit `TeleBots | TeleBots`
+ * or legacy `TeleBots Portfolio` / `TeleBots Cases`.
+ */
 export function stripBrandTitleSuffix(title: string): string {
-  return title
-    .replace(/\s*(?:\||-|—|–)\s*(?:кейс\s+)?TeleBots(?:\s+Cases)?\s*$/i, '')
-    .trim();
+  let next = (title || '').replace(/\s+/g, ' ').trim();
+  for (let i = 0; i < 4; i++) {
+    const stripped = next
+      .replace(/\s*(?:\||-|—|–)\s*(?:кейс\s+)?TeleBots(?:\s+(?:Cases|Portfolio))?\s*$/i, '')
+      .trim();
+    if (stripped === next) break;
+    next = stripped;
+  }
+  // Bare trailing brand without separator ("Блог TeleBots")
+  next = next.replace(/(?:^|\s)TeleBots$/i, '').trim();
+  // Dangling separators left after partial cleanup
+  next = next.replace(/\s*(?:\||-|—|–)\s*$/g, '').trim();
+  return next;
+}
+
+/** Soft SERP limit — beyond this Google often truncates the visible snippet. */
+const TITLE_SOFT_MAX = 60;
+const BRAND_SUFFIX = ' | TeleBots';
+
+/**
+ * Single brand format for document + OG/Twitter titles.
+ * Skip `| TeleBots` when branding would push past ~60 chars (typical SERP cut),
+ * so portfolio/case titles keep client + offer instead of truncating mid-phrase.
+ */
+export function withBrandTitle(title: string): string {
+  const bare = stripBrandTitleSuffix(title);
+  if (!bare || /^TeleBots$/i.test(bare)) return 'TeleBots';
+  const branded = `${bare}${BRAND_SUFFIX}`;
+  return branded.length <= TITLE_SOFT_MAX ? branded : bare;
 }
 
 export interface SEOConfig {
@@ -189,17 +218,11 @@ export function generateMetadata(config: SEOConfig) {
 
   const currentUrl = url || buildPageUrl(lang);
   const pathSuffix = url ? extractLangPathSuffix(new URL(url).pathname, lang) : '';
-  const pageTitle = stripBrandTitleSuffix(title);
-  // Bare brand would become "TeleBots | TeleBots" via the root template — use absolute instead.
-  const documentTitle =
-    !pageTitle || /^TeleBots$/i.test(pageTitle)
-      ? { absolute: pageTitle || 'TeleBots' }
-      : pageTitle;
+  // Absolute title: nested portfolio/case layouts sometimes skip root `title.template`,
+  // which left case pages without `| TeleBots` while OG still had it.
+  const brandedTitle = withBrandTitle(title);
+  const ogTitle = openGraphTitle ? withBrandTitle(openGraphTitle) : brandedTitle;
   const metaDescription = trimDescriptionForMeta(description);
-  // og/twitter do not use the root title.template — keep a single brand suffix there.
-  const ogTitle =
-    openGraphTitle ??
-    (pageTitle && !/^TeleBots$/i.test(pageTitle) ? `${pageTitle} | TeleBots` : 'TeleBots');
   const ogDescription = openGraphDescription
     ? trimDescriptionForMeta(openGraphDescription)
     : metaDescription;
@@ -220,7 +243,7 @@ export function generateMetadata(config: SEOConfig) {
       : {};
 
   return {
-    title: documentTitle,
+    title: { absolute: brandedTitle },
     description: metaDescription,
     keywords,
     openGraph: {
@@ -267,20 +290,72 @@ export function generateMetadata(config: SEOConfig) {
   };
 }
 
+/** Stable entity id — same across all locales so Google merges Knowledge Graph signals. */
+export const ORGANIZATION_ENTITY_ID = `${baseUrl}/#organization`;
+
+const ORGANIZATION_SAME_AS = [
+  'https://t.me/telebotsnowayrm',
+  'https://www.instagram.com/telebotsnowayrm/',
+  'https://t.me/TeleBotsNowayrmChannel',
+  'https://github.com/romchhh',
+  `${baseUrl}/schema/organization`,
+] as const;
+
+function organizationPostalAddress() {
+  return {
+    '@type': 'PostalAddress' as const,
+    streetAddress: legal.legalAddress,
+    addressLocality: 'Київ',
+    addressRegion: 'Київ',
+    postalCode: '01000',
+    addressCountry: 'UA',
+  };
+}
+
+function organizationDescription(lang: Language): string {
+  if (lang === 'uk') {
+    return 'TeleBots (telebots.site) — українська студія розробки Telegram-ботів і сайтів під ключ: лендинги, e-commerce, SEO, CRM та оплата. ФОП Федонюк Р.І., Київ. 200+ проєктів.';
+  }
+  if (lang === 'en') {
+    return 'TeleBots (telebots.site) is a Kyiv, Ukraine software studio for Telegram bots, websites, landings and e-commerce — CRM, payments and SEO. Not a cybersecurity group. 200+ projects.';
+  }
+  if (lang === 'pl') {
+    return 'TeleBots (telebots.site) — studio z Kijowa: boty Telegram, strony, landingi i e-commerce, CRM, płatności i SEO. To nie grupa cyberbezpieczeństwa. 200+ projektów.';
+  }
+  return 'TeleBots (telebots.site) — студия в Киеве: Telegram-боты, сайты, лендинги и e-commerce, CRM, оплата и SEO. Не связана с хакерскими группировками. 200+ проектов.';
+}
+
 export function generateOrganizationSchema(lang: Language = 'uk') {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': ORGANIZATION_ENTITY_ID,
     name: 'TeleBots',
-    url: `${baseUrl}/${lang}`,
-    logo: `${baseUrl}/whitelogo_new.png`,
-    description: lang === 'uk'
-      ? 'Розробка Telegram-ботів і сайтів під ключ: лендинги, e-commerce, SEO, інтеграції з CRM і оплатою. 200+ проєктів, консультація, старт від 24 год.'
-      : lang === 'en'
-      ? 'Website and e-commerce development, landing pages and SEO. Telegram bots, chatbots, and integrations. Quick start in 24 hours, 200+ projects.'
-      : lang === 'pl'
-      ? 'Tworzenie stron i sklepów online, landingi i SEO. Boty Telegram, chatboty, integracje. Szybki start w 24 godziny, 200+ projektów.'
-      : 'Разработка сайтов и интернет-магазинов под ключ, лендинги и SEO. Телеграм боты и чат-боты, интеграции. Быстрый старт за 24 часа, 200+ проектов.',
+    legalName: legal.companyName,
+    alternateName: ['TeleBots.site', 'TeleBots Ukraine', 'TeleBots Kyiv'],
+    url: baseUrl,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${baseUrl}/whitelogo_new.png`,
+      width: 512,
+      height: 512,
+    },
+    image: `${baseUrl}/whitelogo_new.png`,
+    description: organizationDescription(lang),
+    disambiguatingDescription:
+      lang === 'en'
+        ? 'Ukrainian web and Telegram bot development agency at telebots.site — unrelated to any threat actor or malware group named TeleBots.'
+        : lang === 'pl'
+          ? 'Ukraińska agencja tworzenia stron i botów Telegram (telebots.site) — bez związku z grupami cyberprzestępczymi o podobnej nazwie.'
+          : lang === 'ru'
+            ? 'Украинская студия разработки сайтов и Telegram-ботов (telebots.site) — не связана с хакерскими группировками под похожим именем.'
+            : 'Українська студія розробки сайтів і Telegram-ботів (telebots.site) — не пов’язана з хакерськими угрупованнями під схожою назвою.',
+    taxID: legal.edrpou,
+    identifier: {
+      '@type': 'PropertyValue',
+      name: 'EDRPOU',
+      value: legal.edrpou,
+    },
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: legal.phone,
@@ -289,43 +364,47 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
       areaServed: ['UA', 'US', 'PL', 'EU'],
       availableLanguage: ['uk', 'en', 'pl', 'ru'],
     },
-    sameAs: [
-      'https://t.me/telebotsnowayrm',
-      'https://www.instagram.com/telebotsnowayrm/',
-      'https://t.me/TeleBotsNowayrmChannel',
-    ],
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: legal.legalAddress,
-      addressCountry: 'UA',
-    },
+    sameAs: [...ORGANIZATION_SAME_AS],
+    address: organizationPostalAddress(),
     foundingDate: '2020',
     numberOfEmployees: {
       '@type': 'QuantitativeValue',
       value: '5-10',
     },
+    brand: {
+      '@type': 'Brand',
+      name: 'TeleBots',
+      url: baseUrl,
+    },
+    knowsAbout: [
+      'Telegram bot development',
+      'Website development',
+      'E-commerce',
+      'Next.js',
+      'Chatbots',
+      'Business automation',
+    ],
   };
 }
 
 export function generateLocalBusinessSchema(lang: Language = 'uk') {
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': `${baseUrl}/${lang}#organization`,
+    '@type': 'ProfessionalService',
+    '@id': `${baseUrl}/#localbusiness`,
     name: 'TeleBots',
+    legalName: legal.companyName,
+    alternateName: ['TeleBots.site', 'TeleBots Ukraine'],
     image: `${baseUrl}/whitelogo_new.png`,
     logo: `${baseUrl}/whitelogo_new.png`,
     url: `${baseUrl}/${lang}`,
     telephone: legal.phone,
     email: legal.email,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: legal.legalAddress,
-      addressLocality: 'Київ',
-      addressRegion: 'Київ',
-      postalCode: '01000',
-      addressCountry: 'UA',
+    description: organizationDescription(lang),
+    parentOrganization: {
+      '@id': ORGANIZATION_ENTITY_ID,
     },
+    address: organizationPostalAddress(),
     geo: {
       '@type': 'GeoCoordinates',
       latitude: '50.4501',
@@ -342,11 +421,7 @@ export function generateLocalBusinessSchema(lang: Language = 'uk') {
       '@type': 'Country',
       name: ['Ukraine', 'United States', 'Poland', 'European Union'],
     },
-    sameAs: [
-      'https://t.me/telebotsnowayrm',
-      'https://www.instagram.com/telebotsnowayrm/',
-      'https://t.me/TeleBotsNowayrmChannel',
-    ],
+    sameAs: [...ORGANIZATION_SAME_AS],
   };
 }
 

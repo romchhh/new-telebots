@@ -4,7 +4,7 @@ type AllLandings = Record<SeoLandingSlug, SeoLandingCopy>;
 
 export const PL_SEO_LANDINGS: AllLandings = {
   'telegram-bots': {
-    metaTitle: 'Tworzenie botów Telegram pod klucz | od $100 | TeleBots',
+    metaTitle: 'Tworzenie botów Telegram pod klucz | od $100',
     metaDescription:
       'Zamów bota Telegram dla biznesu: leady, płatności, CRM, AI. Start od 24h, od $100. 200+ projektów. Bezpłatna konsultacja — TeleBots.',
     keywords:
@@ -154,7 +154,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Boty Telegram',
   },
   'landing-pages': {
-    metaTitle: 'Tworzenie landing page pod klucz | od $150 | TeleBots',
+    metaTitle: 'Tworzenie landing page pod klucz | od $150',
     metaDescription:
       'Zamów landing pod klucz: struktura pod konwersję, responsywność, baza SEO, szybki start od $150. Typowo 1–2 tygodnie. Bezpłatna konsultacja — TeleBots.',
     keywords:
@@ -287,7 +287,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Landingi',
   },
   'online-stores': {
-    metaTitle: 'Tworzenie sklepu internetowego pod klucz | od $400 | TeleBots',
+    metaTitle: 'Tworzenie sklepu internetowego pod klucz | od $400',
     metaDescription:
       'Sklep internetowy pod klucz od $400: katalog, koszyk, płatności, dostawa, admin. Next.js, SEO i szybkość. Konsultacja bezpłatna — TeleBots.',
     keywords:
@@ -421,12 +421,12 @@ export const PL_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Sklepy internetowe',
   },
   'ai-chatbots': {
-    metaTitle: 'Chatbot AI dla biznesu | Telegram i strona | TeleBots',
+    metaTitle: 'Chatbot AI dla biznesu | Telegram i strona',
     metaDescription:
       'Chatbot AI na bazie GPT: odpowiedzi z Twojej bazy wiedzy, kwalifikacja leadów, wsparcie 24/7 w Telegramie lub na stronie. Konsultacja — TeleBots.',
     keywords:
       'chatbot ai, bot chatgpt dla biznesu, bot ai telegram, sieć neuronowa do wsparcia, bot ze sztuczną inteligencją, konsultant ai, TeleBots',
-    h1: 'Chatboty AI do wsparcia, sprzedaży i onboardingu',
+    h1: 'Chatbot AI dla biznesu — Telegram i strona',
     intro:
       'Podłączamy AI do Telegrama lub widgetu na stronie: bot odpowiada językiem klienta, opiera się na Twoich dokumentach i przekazuje złożone dialogi menedżerowi.',
     lead:
@@ -553,12 +553,12 @@ export const PL_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Chatboty AI',
   },
   'data-parsers': {
-    metaTitle: 'Tworzenie parserów i zbieranie danych | Excel, API, CRM | TeleBots',
+    metaTitle: 'Tworzenie parserów i zbieranie danych',
     metaDescription:
       'Parsery pod klucz: ceny, produkty, ogłoszenia, monitoring konkurencji. Eksport do Excel, Google Sheets, DB lub API. Konsultacja — TeleBots.',
     keywords:
       'tworzenie parsera, parsing stron, zbieranie danych, parser cen, parser marketplace, eksport excel, monitoring konkurencji, TeleBots',
-    h1: 'Parsery i automatyczne zbieranie danych dla biznesu',
+    h1: 'Tworzenie parserów i zbieranie danych dla biznesu',
     intro:
       'Automatyzujemy zbieranie danych ze stron, marketplace’ów i otwartych źródeł: zamiast godzin kopiowania — aktualizowane tabele, raporty lub API pod Twój proces.',
     lead:

@@ -97,6 +97,15 @@ export function middleware(request: NextRequest) {
     return permanentRedirect(new URL(ukPath, request.url));
   }
 
+  // Legacy /prices → /pricing (indexed 404s in GSC)
+  if (pathname === '/prices' || pathname === '/prices/') {
+    return permanentRedirect(new URL(`/${getPreferredLanguage(request)}/pricing`, request.url));
+  }
+  const pricesMatch = pathname.match(/^\/(uk|en|pl|ru)\/prices\/?$/);
+  if (pricesMatch) {
+    return permanentRedirect(new URL(`/${pricesMatch[1]}/pricing`, request.url));
+  }
+
   // Legacy /case/:id → portfolio (flagship URL, hub modal, or hub if no case content)
   const resolveLegacyCaseRedirect = (lang: string, caseId: string) => {
     if (isLightCase(caseId) || !isFlagshipCase(caseId)) {

@@ -8,7 +8,7 @@ const postCount = allBlogPosts.length;
 export async function generateMetadata(): Promise<Metadata> {
   return {
     ...generateSEOMetadata({
-      title: 'Блог TeleBots: ціни, Telegram-боти, сайти та SEO',
+      title: 'Блог: ціни, Telegram-боти, сайти та SEO',
       description: `${postCount} статей українською про розробку сайтів, Telegram-ботів, ціни TeleBots, SEO та автоматизацію бізнесу. Практичні гайди та кейси.`,
       keywords:
         'блог telebots, скільки коштує сайт, telegram бот гайд, seo блог, розробка сайтів україна, ціни на бота',

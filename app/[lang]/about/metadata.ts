@@ -13,12 +13,12 @@ export async function generateMetadata({
   const t = translations[lang];
 
   const title = lang === 'uk'
-    ? 'Про нас | Розробка ботів для бізнесу — TeleBots'
+    ? 'Про нас | Розробка ботів і сайтів для бізнесу'
     : lang === 'en'
-    ? 'About Us | Bot Development for Business — TeleBots'
+    ? 'About us | Bot and website development for business'
     : lang === 'pl'
-    ? 'O nas | Boty dla biznesu — TeleBots'
-    : 'О нас | Разработка ботов для бизнеса — TeleBots';
+    ? 'O nas | Boty i strony dla biznesu'
+    : 'О нас | Разработка ботов и сайтов для бизнеса';
 
   const description = lang === 'uk'
     ? 'Досвід та автоматизація бізнесу. Команда TeleBots: розробка телеграм ботів, чат-ботів, сайтів. 200+ проєктів. Безкоштовна консультація.'

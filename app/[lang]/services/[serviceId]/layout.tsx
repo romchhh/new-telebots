@@ -32,10 +32,10 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
           'Чат-бот для бизнеса с оплатой, CRM и AI от $100. Заказать Telegram-бота: старт за 24 ч, 200+ проектов. Бесплатная консультация — TeleBots.'
         ),
         openGraphTitle: u(
-          'Розробка Telegram-ботів під ключ | TeleBots',
-          'Telegram bot development end-to-end | TeleBots',
-          'Boty Telegram pod klucz | TeleBots',
-          'Разработка Telegram-ботов под ключ | TeleBots'
+          'Розробка Telegram-ботів під ключ',
+          'Telegram bot development end-to-end',
+          'Boty Telegram pod klucz',
+          'Разработка Telegram-ботов под ключ'
         ),
         openGraphDescription: u(
           'Автоматизуйте продажі та підтримку через Telegram-бота: оплата, CRM, AI — від 24 годин.',
@@ -65,10 +65,10 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
           'Сайты под ключ: лендинги от $150, корпоративные сайты и e-commerce от $400 на Next.js. SEO, скорость, адаптив. Бесплатная консультация.'
         ),
         openGraphTitle: u(
-          'Розробка сайтів під ключ | TeleBots',
-          'Website development end-to-end | TeleBots',
-          'Strony pod klucz | TeleBots',
-          'Разработка сайтов под ключ | TeleBots'
+          'Розробка сайтів під ключ',
+          'Website development end-to-end',
+          'Strony pod klucz',
+          'Разработка сайтов под ключ'
         ),
         openGraphDescription: u(
           'Від лендінгу до інтернет-магазину: SEO-база, сучасний стек, швидкий запуск.',
@@ -86,10 +86,10 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
     case 'design':
       return {
         title: u(
-          'Дизайн логотипу, айдентика та UI/UX для сайтів і застосунків | TeleBots',
-          'Logo, brand identity & UI/UX for web and apps | TeleBots',
-          'Logo, identyfikacja i UI/UX dla stron i aplikacji | TeleBots',
-          'Дизайн логотипа, айдентика и UI/UX для сайтов и приложений | TeleBots'
+          'Дизайн логотипу, айдентика та UI/UX для сайтів і застосунків',
+          'Logo, brand identity & UI/UX for web and apps',
+          'Logo, identyfikacja i UI/UX dla stron i aplikacji',
+          'Дизайн логотипа, айдентика и UI/UX для сайтов и приложений'
         ),
         description: u(
           'Логотип, фірмовий стиль і UI/UX у Figma: брендбук, макети під розробку та друк. Безкоштовна консультація.',
@@ -98,10 +98,10 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
           'Логотип, фирменный стиль и UI/UX в Figma: брендбук и макеты под разработку. Бесплатная консультация.'
         ),
         openGraphTitle: u(
-          'Дизайн та айдентика для бізнесу | TeleBots',
-          'Design & brand identity for business | TeleBots',
-          'Design i identyfikacja dla biznesu | TeleBots',
-          'Дизайн и айдентика для бизнеса | TeleBots'
+          'Дизайн та айдентика для бізнесу',
+          'Design & brand identity for business',
+          'Design i identyfikacja dla biznesu',
+          'Дизайн и айдентика для бизнеса'
         ),
         openGraphDescription: u(
           'Логотип, брендбук, UI/UX для сайту чи застосунку — від ідеї до макетів у Figma.',
@@ -129,10 +129,10 @@ export async function generateMetadata({
   const { lang: langParam, serviceId } = await params;
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const id = SERVICE_IDS.includes(serviceId as ServiceId) ? (serviceId as ServiceId) : null;
-  if (!id) return { title: 'TeleBots' };
+  if (!id) return { title: { absolute: 'TeleBots' } };
 
   const seo = getServiceSEO(id, lang);
-  if (!seo.title) return { title: 'TeleBots' };
+  if (!seo.title) return { title: { absolute: 'TeleBots' } };
 
   return {
     ...generateSEOMetadata({

@@ -10,7 +10,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
-  if (!post) return { title: 'TeleBots' };
+  if (!post) return { title: { absolute: 'TeleBots' } };
 
   const image = post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`;
 

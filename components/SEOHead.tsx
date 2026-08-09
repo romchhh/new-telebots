@@ -61,6 +61,7 @@ export default function SEOHead({ title, description, image, type = 'website', c
         'https://t.me/telebotsnowayrm',
         'https://www.instagram.com/telebotsnowayrm/',
         'https://t.me/TeleBotsNowayrmChannel',
+        'https://github.com/romchhh',
       ],
     }),
   };

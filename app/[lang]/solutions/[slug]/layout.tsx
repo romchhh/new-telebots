@@ -26,11 +26,11 @@ export async function generateMetadata({
     : 'uk') as Language;
 
   if (!isSeoLandingSlug(slug)) {
-    return { title: 'TeleBots' };
+    return { title: { absolute: 'TeleBots' } };
   }
 
   const page = getSeoLanding(lang, slug);
-  if (!page) return { title: 'TeleBots' };
+  if (!page) return { title: { absolute: 'TeleBots' } };
 
   return generateSEOMetadata({
     title: page.metaTitle,

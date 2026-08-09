@@ -2,7 +2,7 @@
 
 > TeleBots develops Telegram bots, websites, landing pages, and e-commerce under one roof — Next.js, payments, CRM, and AI integrations. 200+ shipped projects; Ukrainian, English, Polish, and Russian.
 
-TeleBots (ФОП Федонюк Роман Ігорович, ЄДРПОУ 3831208275) builds turnkey digital products for business: bots with payments, conversion landings, online stores, and automations.
+TeleBots (telebots.site; ФОП Федонюк Роман Ігорович, ЄДРПОУ 3831208275, Kyiv, Ukraine) builds turnkey digital products for business: bots with payments, conversion landings, online stores, and automations. Unrelated to any cybersecurity threat actor that may share a similar name.
 
 ## Primary pages
 

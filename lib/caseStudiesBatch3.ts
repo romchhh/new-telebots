@@ -611,7 +611,7 @@ const emviDigital: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'EMVI Digital',
-      heroTitle: 'EMVI Digital — сайт digital-агенції контенту, брендингу та e-commerce',
+      heroTitle: 'EMVI Digital — сайт агенції контенту та e-commerce',
       heroLead:
         'Сучасний сайт для digital-агенції: стильна візуальна подача, зрозумілі послуги, кейси й пакети співпраці. Структура, адаптив і швидкість допомагають швидко оцінити можливості агенції та залишити заявку.',
       visitSite: 'Відкрити сайт',
@@ -658,7 +658,7 @@ const emviDigital: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'EMVI Digital',
-      heroTitle: 'EMVI Digital — agency site for content, branding and e-commerce',
+      heroTitle: 'EMVI Digital — agency site for content & e-commerce',
       heroLead:
         'A modern digital agency website: strong visuals, clear services, cases and collaboration packages. Structure, responsiveness and speed help prospects evaluate the agency and send a request.',
       visitSite: 'Visit site',
@@ -705,7 +705,7 @@ const emviDigital: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'EMVI Digital',
-      heroTitle: 'EMVI Digital — strona agencji content, branding i e-commerce',
+      heroTitle: 'EMVI Digital — strona agencji content i e-commerce',
       heroLead:
         'Nowoczesna strona agencji digital: stylowa wizualizacja, jasne usługi, case’y i pakiety współpracy. Struktura, responsywność i szybkość prowadzą do zgłoszenia.',
       visitSite: 'Otwórz stronę',
@@ -751,7 +751,7 @@ const emviDigital: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'EMVI Digital',
-      heroTitle: 'EMVI Digital — сайт digital-агентства контента, брендинга и e-commerce',
+      heroTitle: 'EMVI Digital — сайт агентства контента и e-commerce',
       heroLead:
         'Современный сайт digital-агентства: стильная визуальная подача, понятные услуги, кейсы и пакеты сотрудничества.',
       visitSite: 'Открыть сайт',

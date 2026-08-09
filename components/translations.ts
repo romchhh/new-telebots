@@ -13,7 +13,7 @@ export const translations = {
       consultationWidgetCta: 'Залишити заявку'
     },
     hero: {
-      title: 'Розробка чат-ботів і сайтів під ключ',
+      title: 'Розробка Telegram-ботів і сайтів під ключ',
       subtitle: 'Чат-боти, веб, парсери, дизайн — від ідеї до запуску',
       intro:
         'Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.',
@@ -36,9 +36,9 @@ export const translations = {
       title:
         'TeleBots — сайти, чат-боти та e-commerce під ключ: від консультації до запуску. CRM, оплати, Next.js, 200+ проєктів.',
       headline: {
-        title: 'Запускаємо сайти, чат-боти та інтернет-магазини так, щоб заявки стабільно доходили до оплати',
-        sub: 'Спочатку — безкоштовна консультація й зрозуміла оцінка. Далі одна команда веде проєкт від структури та макетів до продакшену й супроводу.',
-        body: 'Понад 200 реалізованих рішень за чотири роки: Next.js, CRM, оплати, розсилки та AI за потреби. Без перекладання задач між десятком виконавців.',
+        title: 'Про нас — розробка ботів і сайтів для бізнесу',
+        sub: 'Запускаємо сайти, чат-боти та інтернет-магазини так, щоб заявки стабільно доходили до оплати.',
+        body: 'Спочатку — безкоштовна консультація й зрозуміла оцінка. Одна команда веде проєкт від структури та макетів до продакшену. Понад 200 рішень за чотири роки: Next.js, CRM, оплати, розсилки та AI за потреби.',
       },
       principles: {
         eyebrow: 'кожен проєкт тримається на зрозумілій бізнес-меті',
@@ -672,7 +672,7 @@ export const translations = {
       consultationWidgetCta: 'Send a request'
     },
     hero: {
-      title: 'We build bots, websites, and automation end to end',
+      title: 'Telegram bot & website development end to end',
       subtitle: 'Chatbots, web, parsers, design — from idea to launch',
       intro:
         'Full cycle: messengers, web, e-commerce, data, brand & UI/UX. One team — no extra middlemen.',
@@ -695,9 +695,9 @@ export const translations = {
       title:
         'TeleBots — websites, chatbots & e-commerce: consult to launch. CRM, payments, Next.js, 200+ projects.',
       headline: {
-        title: 'We ship websites, chatbots, and e-commerce so leads reliably turn into paid orders',
-        sub: 'We start with a free consult and a clear estimate. One team takes you from structure and UI to production and ongoing care.',
-        body: '200+ launches over four years: Next.js, CRM, payments, messaging, and AI when you need it — without juggling a dozen vendors.',
+        title: 'About us — bot and website development for business',
+        sub: 'We ship websites, chatbots, and e-commerce so leads reliably turn into paid orders.',
+        body: 'Free consult and a clear estimate first. One team from structure and UI to production. 200+ launches over four years: Next.js, CRM, payments, messaging, and AI when you need it.',
       },
       principles: {
         eyebrow: 'every project stands on a clear business goal',
@@ -855,7 +855,7 @@ export const translations = {
       emptyText: 'We are refreshing the portfolio. Meanwhile, browse our services or get in touch.',
     },
     services: {
-      passion: 'From landing pages to complex web systems — under one roof',
+      passion: 'Turnkey Telegram bots, websites & design',
       passionTitle: 'Websites, messenger bots, e-commerce, scraping, and brand',
       passionDesc:
         'We architect, build, and support after launch. CRM, payments, and analytics — wired to how you work.',
@@ -1264,7 +1264,7 @@ export const translations = {
       consultationWidgetCta: 'Wyślij zapytanie'
     },
     hero: {
-      title: 'Tworzymy boty, strony i automatyzację pod klucz',
+      title: 'Tworzenie botów Telegram i stron pod klucz',
       subtitle: 'Chatboty, web, parsery, design — od pomysłu do startu',
       intro:
         'Pełny cykl: komunikatory, web, e-commerce, dane, branding i UI/UX. Jeden zespół — bez pośredników.',
@@ -1287,9 +1287,9 @@ export const translations = {
       title:
         'TeleBots — strony, chatboty i e-commerce pod klucz: od konsultacji do startu. CRM, płatności, Next.js, 200+ projektów.',
       headline: {
-        title: 'Wdrażamy strony, chatboty i sklepy tak, by leady konsekwentnie zmieniały się w płatności',
-        sub: 'Zaczynamy od bezpłatnej konsultacji i jasnej wyceny. Jeden zespół prowadzi projekt od struktury i UI po produkcję i opiekę.',
-        body: 'Ponad 200 wdrożeń w 4 lata: Next.js, CRM, płatności, mailingi i AI w razie potrzeby — bez przerzucania pracy między podwykonawcami.',
+        title: 'O nas — boty i strony dla biznesu',
+        sub: 'Wdrażamy strony, chatboty i sklepy tak, by leady konsekwentnie zmieniały się w płatności.',
+        body: 'Zaczynamy od bezpłatnej konsultacji i jasnej wyceny. Jeden zespół od struktury i UI po produkcję. Ponad 200 wdrożeń w 4 lata: Next.js, CRM, płatności, mailingi i AI w razie potrzeby.',
       },
       principles: {
         eyebrow: 'każdy projekt opiera się na jasnym celu biznesowym',
@@ -1447,7 +1447,7 @@ export const translations = {
       emptyText: 'Odświeżamy portfolio. W międzyczasie zobacz usługi lub napisz do nas.',
     },
     services: {
-      passion: 'Od landing page do złożonych systemów web — w jednym miejscu',
+      passion: 'Boty Telegram, strony i design pod klucz',
       passionTitle: 'Strony, boty w komunikatorach, e-commerce, parsing i branding',
       passionDesc:
         'Projektujemy architekturę, kodujemy i utrzymujemy po starcie. CRM, płatności i analityka — pod Twoje procesy.',
@@ -1856,7 +1856,7 @@ export const translations = {
       consultationWidgetCta: 'Оставить заявку'
     },
     hero: {
-      title: 'Разрабатываем ботов, сайты и автоматизацию под ключ',
+      title: 'Разработка Telegram-ботов и сайтов под ключ',
       subtitle: 'Чат-боты, веб, парсеры, дизайн — от идеи до запуска',
       intro:
         'Полный цикл: мессенджеры, веб, e-commerce, данные, бренд и UI/UX. Одна команда — без лишних подрядчиков.',
@@ -1879,9 +1879,9 @@ export const translations = {
       title:
         'TeleBots — сайты, чат-боты и e-commerce под ключ: от консультации до запуска. CRM, оплаты, Next.js, 200+ проектов.',
       headline: {
-        title: 'Запускаем сайты, чат-боты и интернет-магазины так, чтобы заявки стабильно доходили до оплаты',
-        sub: 'Сначала — бесплатная консультация и понятная оценка. Дальше одна команда ведёт проект от структуры и макетов до продакшена и сопровождения.',
-        body: 'Более 200 решений за четыре года: Next.js, CRM, оплаты, рассылки и AI по необходимости. Без перекладывания задач между десятком подрядчиков.',
+        title: 'О нас — разработка ботов и сайтов для бизнеса',
+        sub: 'Запускаем сайты, чат-боты и интернет-магазины так, чтобы заявки стабильно доходили до оплаты.',
+        body: 'Сначала — бесплатная консультация и понятная оценка. Одна команда от структуры и макетов до продакшена. Более 200 решений за четыре года: Next.js, CRM, оплаты, рассылки и AI по необходимости.',
       },
       principles: {
         eyebrow: 'каждый проект держится на понятной бизнес-цели',
@@ -2039,7 +2039,7 @@ export const translations = {
       emptyText: 'Мы обновляем портфолио. Пока можете посмотреть услуги или написать нам.',
     },
     services: {
-      passion: 'От лендинга до сложных веб-систем — под одной крышей',
+      passion: 'Разработка Telegram-ботов, сайтов и дизайна под ключ',
       passionTitle: 'Сайты, боты в мессенджерах, e-commerce, парсинг и бренд',
       passionDesc:
         'Проектируем архитектуру, разрабатываем и сопровождаем после запуска. CRM, оплаты и аналитика — под ваши процессы.',

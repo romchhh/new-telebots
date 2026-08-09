@@ -32,7 +32,7 @@ export async function generateMetadata(params: {
   // Light / unknown: noindex — middleware 308 should already send crawlers to /portfolio
   if (!caseData || isLightCase(params.caseId) || !isFlagshipCase(params.caseId)) {
     return {
-      title: 'Case',
+      title: { absolute: 'TeleBots' },
       description: 'Portfolio case',
       robots: { index: false, follow: true },
       alternates: {

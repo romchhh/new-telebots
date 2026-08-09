@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
-import LangNotFound from './[lang]/not-found';
+import NotFoundPage from '@/components/NotFoundPage';
 
 export const metadata: Metadata = {
-  title: 'Сторінку не знайдено',
+  title: { absolute: 'Сторінку не знайдено | TeleBots' },
   robots: { index: false, follow: true },
 };
 
-export default LangNotFound;
+export default NotFoundPage;

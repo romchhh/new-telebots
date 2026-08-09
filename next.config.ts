@@ -19,6 +19,17 @@ const nextConfig: NextConfig = {
         destination: `https://${CANONICAL_HOST}/:path*`,
         permanent: true,
       },
+      // Legacy indexed URLs after /prices → /pricing rename (also in middleware)
+      {
+        source: '/prices',
+        destination: '/uk/pricing',
+        permanent: true,
+      },
+      {
+        source: '/:lang(uk|en|pl|ru)/prices',
+        destination: '/:lang/pricing',
+        permanent: true,
+      },
     ];
   },
   images: {
