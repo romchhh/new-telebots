@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { siteUrl as baseUrl } from '@/lib/site';
 import { allBlogPosts } from '@/lib/blog/posts';
+import { getBlogIndexLastmod } from '@/lib/sitemapDates';
 
 function escapeXml(str: string): string {
   return str
@@ -22,7 +23,6 @@ export async function GET() {
     title: post.title,
   }));
 
-  const now = new Date().toISOString().slice(0, 10);
   const lines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
@@ -31,7 +31,7 @@ export async function GET() {
   const blogIndex = `${baseUrl}/uk/blog`;
   lines.push('  <url>');
   lines.push(`    <loc>${escapeXml(blogIndex)}</loc>`);
-  lines.push(`    <lastmod>${now}</lastmod>`);
+  lines.push(`    <lastmod>${getBlogIndexLastmod()}</lastmod>`);
   lines.push('    <changefreq>weekly</changefreq>');
   lines.push('    <priority>0.85</priority>');
   lines.push('  </url>');

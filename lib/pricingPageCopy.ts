@@ -184,6 +184,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
     resourceLinksTitle: 'Корисні матеріали',
     resourceLinks: [
+      { label: 'Telegram-бот для бізнесу 2026', href: '/uk/blog/telegram-bot-dlya-biznesu-2026' },
       { label: 'Скільки коштує Telegram-бот', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
       { label: 'Скільки коштує сайт', href: '/uk/blog/skilky-koshtuye-sayt' },
       { label: 'Розробка чат-ботів', href: '/uk/services/chatbots' },

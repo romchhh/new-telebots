@@ -56,9 +56,19 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const t = translations[lang];
 
   return (
-    <HomePageClient
-      initialLang={lang}
-      heroBackground={<HeroImage alt={t.hero.backgroundImageAlt} />}
-    />
+    <>
+      {/* LCP preload лише на головній — не конкурує з hero інших сторінок */}
+      <link
+        rel="preload"
+        as="image"
+        href="/other/hero-background.webp"
+        fetchPriority="high"
+        type="image/webp"
+      />
+      <HomePageClient
+        initialLang={lang}
+        heroBackground={<HeroImage alt={t.hero.backgroundImageAlt} />}
+      />
+    </>
   );
 }

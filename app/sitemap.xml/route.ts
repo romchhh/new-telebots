@@ -3,6 +3,7 @@ import { cases } from '@/components/cases';
 import { getFlagshipCaseIds } from '@/lib/portfolioCases';
 import { buildHreflangXmlLinks } from '@/lib/seo';
 import { SEO_LANDING_SLUGS } from '@/lib/seoLandings';
+import { SITE_PAGE_LASTMOD } from '@/lib/sitemapDates';
 import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
 
 function escapeXml(str: string): string {
@@ -22,17 +23,17 @@ export async function GET() {
     path: string;
     priority: number;
     changeFrequency: string;
+    lastmod: string;
     ukOnly?: boolean;
   }> = [
-    { path: '', priority: 1.0, changeFrequency: 'daily' },
-    { path: '/about', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/portfolio', priority: 0.9, changeFrequency: 'weekly' },
-    { path: '/contact', priority: 0.8, changeFrequency: 'monthly' },
-    { path: '/pricing', priority: 0.8, changeFrequency: 'monthly' },
+    { path: '', priority: 1.0, changeFrequency: 'daily', lastmod: SITE_PAGE_LASTMOD.home },
+    { path: '/about', priority: 0.9, changeFrequency: 'weekly', lastmod: SITE_PAGE_LASTMOD.about },
+    { path: '/services', priority: 0.9, changeFrequency: 'weekly', lastmod: SITE_PAGE_LASTMOD.services },
+    { path: '/portfolio', priority: 0.9, changeFrequency: 'weekly', lastmod: SITE_PAGE_LASTMOD.portfolio },
+    { path: '/contact', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_PAGE_LASTMOD.contact },
+    { path: '/pricing', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_PAGE_LASTMOD.pricing },
   ];
 
-  const now = new Date().toISOString().slice(0, 10);
   const lines: string[] = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
@@ -55,7 +56,7 @@ export async function GET() {
       lines.push('  <url>');
       lines.push(`    <loc>${escapeXml(url)}</loc>`);
       pushAlternates(route.path, { ukOnly: route.ukOnly });
-      lines.push(`    <lastmod>${now}</lastmod>`);
+      lines.push(`    <lastmod>${route.lastmod}</lastmod>`);
       lines.push(`    <changefreq>${route.changeFrequency}</changefreq>`);
       lines.push(`    <priority>${route.priority}</priority>`);
       lines.push('  </url>');
@@ -68,7 +69,7 @@ export async function GET() {
       lines.push('  <url>');
       lines.push(`    <loc>${escapeXml(url)}</loc>`);
       pushAlternates(`/services/${serviceId}`);
-      lines.push(`    <lastmod>${now}</lastmod>`);
+      lines.push(`    <lastmod>${SITE_PAGE_LASTMOD.serviceDetail}</lastmod>`);
       lines.push('    <changefreq>weekly</changefreq>');
       lines.push('    <priority>0.85</priority>');
       lines.push('  </url>');
@@ -81,7 +82,7 @@ export async function GET() {
       lines.push('  <url>');
       lines.push(`    <loc>${escapeXml(url)}</loc>`);
       pushAlternates(`/solutions/${slug}`);
-      lines.push(`    <lastmod>${now}</lastmod>`);
+      lines.push(`    <lastmod>${SITE_PAGE_LASTMOD.solution}</lastmod>`);
       lines.push('    <changefreq>weekly</changefreq>');
       lines.push('    <priority>0.8</priority>');
       lines.push('  </url>');
@@ -108,7 +109,7 @@ export async function GET() {
         lines.push(`      <image:loc>${escapeXml(`${baseUrl}${caseData.mainImage}`)}</image:loc>`);
         lines.push('    </image:image>');
       }
-      lines.push(`    <lastmod>${now}</lastmod>`);
+      lines.push(`    <lastmod>${SITE_PAGE_LASTMOD.caseStudy}</lastmod>`);
       lines.push('    <changefreq>monthly</changefreq>');
       lines.push('    <priority>0.7</priority>');
       lines.push('  </url>');

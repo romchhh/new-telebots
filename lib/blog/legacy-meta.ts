@@ -12,6 +12,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 18,
     image: legacyBlogImages[1],
     imageAlt: 'Мінімалістичне робоче місце з кодом на екрані монітора',
+    relatedSlugs: ['telegram-bot-dlya-biznesu-2026', 'skilky-koshtuye-telegram-bot', 'rozrobka-telegram-botiv-vid-ideyi'],
     title: 'Як створити Telegram бота: покроковий гайд для початківців',
     description:
       'Покрокова інструкція зі створення Telegram-бота: BotFather, Python, python-telegram-bot, хостинг і перші команди. Поради від TeleBots.',
@@ -43,6 +44,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 14,
     image: legacyBlogImages[3],
     imageAlt: 'Робоче місце розробника, деталі клавіатури',
+    relatedSlugs: ['telegram-bot-dlya-biznesu-2026', 'skilky-koshtuye-telegram-bot', 'yak-stvoryty-telegram-bota'],
     title: 'Професійна розробка Telegram ботів: від ідеї до продакшену',
     description:
       'Етапи розробки бота під ключ: ТЗ, архітектура, код, тести, Docker, моніторинг і підтримка. Досвід TeleBots.',
@@ -58,6 +60,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 12,
     image: legacyBlogImages[4],
     imageAlt: 'Преміум-абстракція для маркетингу та воронок продажів',
+    relatedSlugs: ['telegram-bot-dlya-biznesu-2026', 'skilky-koshtuye-telegram-bot', 'zbit-lidiv-telegram-bot'],
     title: 'Створення ефективних воронок продажів з Telegram ботами',
     description:
       'Як побудувати воронку в Telegram: залучення, прогрів, оплата, аналітика кроків і повторні продажі.',
@@ -73,6 +76,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 13,
     image: legacyBlogImages[5],
     imageAlt: 'Ділова естетика: робочий стіл з гаджетами',
+    relatedSlugs: ['telegram-bot-dlya-biznesu-2026', 'skilky-koshtuye-telegram-bot', 'monetizatsiya-telegram-botiv'],
     title: 'Інтеграція платіжних систем у Telegram ботах',
     description:
       'Mono, LiqPay, WayForPay у боті: прийом оплати, webhooks, безпека та UX для користувача в Україні.',
@@ -133,6 +137,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 16,
     image: legacyBlogImages[9],
     imageAlt: '3D-абстракція потоків даних та штучного інтелекту',
+    relatedSlugs: ['telegram-bot-dlya-biznesu-2026', 'ai-telegram-posibnyk', 'skilky-koshtuye-telegram-bot'],
     title: 'Інтеграція штучного інтелекту в Telegram боти: повний посібник',
     description:
       'GPT, API, промпти, модерація та вартість токенів. Як безпечно додати ШІ в бота для бізнесу.',
@@ -178,6 +183,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 11,
     image: legacyBlogImages[12],
     imageAlt: 'Взаємодія людини та технологій',
+    relatedSlugs: ['telegram-bot-dlya-biznesu-2026', 'voronky-prodazhiv-telegram', 'skilky-koshtuye-telegram-bot'],
     title: 'Збір лідів через Telegram ботів: повний посібник',
     description:
       'Лід-магніти, квізи, UTM і передача заявок у CRM. Зниження вартості ліда з реклами.',

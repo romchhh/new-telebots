@@ -147,18 +147,12 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
-          className="relative z-50 inline-flex h-12 w-12 items-center justify-center text-brand transition hover:text-brand-dark lg:hidden"
-          aria-label="Toggle menu"
+          className="relative z-50 inline-flex h-12 items-center justify-center gap-1.5 px-1 font-mono text-sm font-semibold uppercase tracking-wide text-brand transition hover:text-brand-dark lg:hidden"
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? (
-            <X className="h-6 w-6" strokeWidth={2.25} />
-          ) : (
-            <div className="flex w-7 flex-col gap-1.5">
-              <div className="h-0.5 w-full rounded-full bg-current" />
-              <div className="h-0.5 w-full rounded-full bg-current" />
-              <div className="h-0.5 w-3/4 rounded-full bg-current" />
-            </div>
-          )}
+          {isMenuOpen ? '[close]' : '[menu]'}
+          <ArrowUpRight className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
         </button>
       </div>
 
@@ -170,10 +164,11 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
         >
           <button
             onClick={() => setIsMenuOpen(false)}
-            className="absolute right-6 top-6 z-[10000] text-brand transition hover:text-brand-dark"
+            className="absolute right-6 top-6 z-[10000] inline-flex items-center gap-1.5 font-mono text-sm font-semibold uppercase tracking-wide text-brand transition hover:text-brand-dark"
             aria-label="Close menu"
           >
-            <X className="h-6 w-6" strokeWidth={2.25} />
+            [close]
+            <ArrowUpRight className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
           </button>
           <div
             className={`flex h-full w-full flex-col items-center justify-center space-y-6 ${SITE_PX}`}

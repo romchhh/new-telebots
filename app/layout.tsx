@@ -151,9 +151,6 @@ export default async function RootLayout({
       className={`${manrope.variable} ${unbounded.variable} ${montserrat.variable}`}
     >
       <head>
-        {/* Hero LCP — один файл і один preload для всіх breakpoints (узгоджено з HeroImage) */}
-        <link rel="preload" as="image" href="/other/hero-background.webp" fetchPriority="high" type="image/webp" />
-
         {/* Icons — вкладка браузера та іконка в пошуку Google */}
         <link rel="icon" href="/other/favicon.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/other/favicon.png" />

@@ -186,6 +186,42 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* CEO / засновник */}
+      <section className={`border-t border-gray-100 bg-white pb-16 md:pb-24 ${SITE_PX}`} aria-labelledby="about-founder-name">
+        <div className={`${SITE_INNER_WIDE}`}>
+          <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20">
+            <div className="relative mx-auto aspect-[3/4] w-full max-w-md overflow-hidden rounded-2xl bg-zinc-100 md:mx-0 md:max-w-none">
+              <Image
+                src="/other/roman-fedoniuk.webp"
+                alt={t.about.founder.imageAlt}
+                fill
+                className="object-cover object-[center_20%]"
+                sizes="(max-width: 768px) 90vw, 40vw"
+                quality={80}
+              />
+            </div>
+            <div className="max-w-xl">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
+                {t.about.founder.role}
+              </p>
+              <h2
+                id="about-founder-name"
+                className="mb-5 text-3xl font-black tracking-tight text-black md:text-4xl lg:text-5xl"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                {t.about.founder.name}
+              </h2>
+              <p className="text-lg leading-relaxed text-gray-700 md:text-xl md:leading-[1.65]">
+                {t.about.founder.bio}
+              </p>
+              <div className="mt-8">
+                <OrderCtaPill size="sm" label={t.modal.title} onClick={openModal} className="w-full sm:w-auto" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Фото + сітка — як на головній (AboutSection): на фото stats.cta, ourWorkDesc у першій колонці */}
       <section className={`relative bg-white pb-20 md:pb-28 lg:pb-36 ${SITE_PX}`}>
         <div className={SITE_INNER_WIDE}>

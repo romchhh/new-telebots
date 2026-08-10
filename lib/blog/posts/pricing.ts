@@ -347,11 +347,16 @@ export const pricingPosts: BlogPost[] = [
     slug: 'skilky-koshtuye-telegram-bot',
     category: 'pricing',
     publishedAt: '2026-05-08',
-    updatedAt: '2026-05-25',
+    updatedAt: '2026-08-09',
     readingTimeMinutes: 12,
     image: IMG.telegram,
     imageAlt: 'Telegram-бот та штучний інтелект — 3D-абстракція даних',
     featured: true,
+    relatedSlugs: [
+      'telegram-bot-dlya-biznesu-2026',
+      'skilky-koshtuye-sayt',
+      'skilky-koshtuye-internet-mahazyn',
+    ],
     title: 'Скільки коштує Telegram-бот у 2026: LITE, PRO та CUSTOM',
     description:
       'Ціни на чат-ботів TeleBots: $100–200 (LITE), $200–300 (PRO), індивідуально (CUSTOM). Оплата, CRM, AI, WhatsApp. Старт від 24 год.',
@@ -361,7 +366,7 @@ export const pricingPosts: BlogPost[] = [
     sections: [
       {
         type: 'p',
-        text: `Telegram-бот (чат-бот) замінює або доповнює менеджера на першому етапі: приймає заявки 24/7, продає, нагадує про запис, інтегрується з CRM і Google Sheets. У 2026 році питання «скільки коштує телеграм бот» актуальне для e-commerce, сервісів, освіти та B2B. У [TeleBots](/uk) ${BOTS} — простий сценарій можна запустити від 24 годин; складніший — поетапно з прозорою ціною. Актуальний ${PRICING} — на сайті.`,
+        text: `Telegram-бот (чат-бот) замінює або доповнює менеджера на першому етапі: приймає заявки 24/7, продає, нагадує про запис, інтегрується з CRM і Google Sheets. У 2026 році питання «скільки коштує телеграм бот» актуальне для e-commerce, сервісів, освіти та B2B. Повний огляд сценаріїв для бізнесу — у гайді [«Telegram-бот для бізнесу у 2026»](/uk/blog/telegram-bot-dlya-biznesu-2026). У [TeleBots](/uk) ${BOTS} — простий сценарій можна запустити від 24 годин; складніший — поетапно з прозорою ціною. Актуальний ${PRICING} — на сайті.`,
       },
       {
         type: 'p',
@@ -421,7 +426,7 @@ export const pricingPosts: BlogPost[] = [
       { type: 'h2', text: 'Бот + сайт: одна команда, один бюджет' },
       {
         type: 'p',
-        text: `Популярна схема: [лендинг або магазин](/uk/services/websites) для SEO в Google + Telegram-бот для швидких заявок з Instagram і реклами. Одна команда TeleBots веде обидва канали — без розриву між підрядниками. Приклади — ${PORTFOLIO}.`,
+        text: `Популярна схема: [лендинг або магазин](/uk/services/websites) для SEO в Google + Telegram-бот для швидких заявок з Instagram і реклами. Одна команда TeleBots веде обидва канали — без розриву між підрядниками. Приклади — ${PORTFOLIO}. Стратегія «коли бот окупається» — у [гайді для бізнесу](/uk/blog/telegram-bot-dlya-biznesu-2026).`,
       },
       { type: 'h2', text: 'Що входить у вартість розробки бота' },
       {

@@ -68,6 +68,7 @@ export const translations = {
       homeResources: {
         title: 'Корисні матеріали',
         pricing: 'Ціни на розробку',
+        blogHub: 'Telegram-бот для бізнесу 2026',
         blogBot: 'Скільки коштує Telegram-бот',
         blogSite: 'Скільки коштує сайт',
       },
@@ -94,6 +95,12 @@ export const translations = {
       },
       photoMessage:
         'Безкоштовно обговорюємо вашу задачу, цілі та бюджет. Вже на цьому етапі даємо конкретні рекомендації. Складаємо тз, визначаємо стек і терміни. Ви бачите повну картину ще до старту.',
+      founder: {
+        role: 'CEO · засновник TeleBots',
+        name: 'Роман Федонюк',
+        bio: 'Керую розробкою ботів, сайтів і автоматизацій під бізнес-цілі клієнтів. Від брифу до запуску — прозорі терміни, зрозуміла ціна і продукт, який працює на продажі.',
+        imageAlt: 'Роман Федонюк, CEO TeleBots',
+      },
       pageTitle: 'ПРО НАС',
       pageIntro: 'Шукаєте рішення для бізнесу чи особистих потреб? Ми — команда розробників та дизайнерів: телеграм боти, чат-боти, сайти, інтернет-магазини, воронки. В команді є UI/UX дизайнер: розробляємо лого, айдентику, дизайн сайтів та додатків.',
       quote: 'Кожний проєкт є унікальним кейсом, що створений вирішувати проблему саме для вашого випадку.',
@@ -229,11 +236,12 @@ export const translations = {
         button: 'Замовити розробку',
         serviceHero: {
           tagline: 'Швидкі сайти з адмінкою, SEO та інтеграціями — без зайвого коду з вашого боку.',
-          title: 'Розробка сайтів під ключ — від лендінгу до інтернет-магазину',
+          title: 'Розробка сайтів під ключ',
           subtitle: '',
           intro:
-            'Безкоштовна консультація, прозорі терміни й підтримка після релізу. 200+ проєктів за плечима — знаємо, як звести дизайн, швидкість і конверсію в одне рішення.',
+            'Від лендінгу до e-commerce. Безкоштовна консультація, прозорі терміни й підтримка після релізу.',
           ctaQuestion: 'Обговоримо вашу задачу без зобовʼязань?',
+          ctaQuestionShort: 'Безкоштовна консультація',
           startDate: { label: 'швидкий старт', value: 'від 1 тижня' },
           duration: { label: 'типовий лендинг', value: '1–2 тижні' },
         },
@@ -269,11 +277,12 @@ export const translations = {
         button: 'Замовити розробку',
         serviceHero: {
           tagline: 'Бот у месенджері закриває перші запити та заявки 24/7 — поки ви займаєтесь бізнесом.',
-          title: 'Розробка Telegram ботів та чат-ботів під ключ',
+          title: 'Розробка Telegram-ботів під ключ',
           subtitle: '',
           intro:
-            'Старт простих сценаріїв — за 24 години; складніші сценарії з оплатами та інтеграціями — поетапно й прозоро. Один контакт — від ідеї до робочого бота.',
+            'Оплата, CRM і розсилки. Прості сценарії — від 24 год; складніші — поетапно й прозоро.',
           ctaQuestion: 'Підберемо архітектуру під ваші продажі?',
+          ctaQuestionShort: 'Безкоштовна консультація',
           startDate: { label: 'перший прототип', value: 'за 24 год' },
           duration: { label: 'повний цикл', value: '2–4 тижні' },
         },
@@ -322,11 +331,12 @@ export const translations = {
         button: 'Замовити дизайн',
         serviceHero: {
           tagline: 'Лого та інтерфейси, які працюють на впізнаваність і конверсію — не лише «красиву картинку».',
-          title: 'Дизайн для бізнесу: логотип, айдентика та UI/UX під ключ',
+          title: 'Дизайн логотипів і UI/UX під ключ',
           subtitle: '',
           intro:
-            '2–3 раунди правок у межах ТЗ, файли для друку та коду. Знаємо, як звести бренд і технічну реалізацію, щоб верстка виглядала як у макеті.',
+            'Figma, айдентика, макети під верстку. 2–3 раунди правок у межах ТЗ — від ідеї до передачі в код.',
           ctaQuestion: 'Розкажіть про бренд — запропонуємо формат і обсяг?',
+          ctaQuestionShort: 'Безкоштовна консультація',
           startDate: { label: 'концепт лого', value: '3–7 днів' },
           duration: { label: 'UI/UX проєкт', value: 'від 2 тижнів' },
         },
@@ -727,6 +737,7 @@ export const translations = {
       homeResources: {
         title: 'Useful guides',
         pricing: 'Development pricing',
+        blogHub: 'Telegram bot for business 2026',
         blogBot: 'How much does a Telegram bot cost',
         blogSite: 'How much does a website cost',
       },
@@ -753,6 +764,12 @@ export const translations = {
       },
       photoMessage:
         'We discuss your task, goals, and budget at no charge. At this stage we already give concrete recommendations. We draft the spec, pick the stack, and set timelines. You see the full picture before work begins.',
+      founder: {
+        role: 'CEO · founder of TeleBots',
+        name: 'Roman Fedoniuk',
+        bio: 'I lead bot, website, and automation projects built around business goals. From brief to launch — clear timelines, transparent pricing, and products that drive sales.',
+        imageAlt: 'Roman Fedoniuk, CEO of TeleBots',
+      },
       pageTitle: 'ABOUT US',
       pageIntro: 'Looking for a solution for business or personal needs? We are a team of developers and designers: Telegram bots, chatbots, websites, online stores, funnels. Our team includes a UI/UX designer: we create logos, brand identity, and design for websites and apps.',
       quote: 'Each project is a unique case, created to solve a problem specifically for your situation.',
@@ -888,11 +905,12 @@ export const translations = {
         button: 'Order Development',
         serviceHero: {
           tagline: 'Fast sites with admin, SEO, and integrations — without you touching code.',
-          title: 'Website development end-to-end — from landings to e-commerce',
-          subtitle: 'Next.js, responsive layouts, payments, and analytics — one team from spec to launch',
+          title: 'Website development end-to-end',
+          subtitle: '',
           intro:
-            'Free consultation, clear timelines, and post-launch support. 200+ projects behind us — we know how to align design, speed, and conversion.',
+            'From landings to e-commerce. Free consultation, clear timelines, and post-launch support.',
           ctaQuestion: 'Want to talk through your goals with no commitment?',
+          ctaQuestionShort: 'Free consultation',
           startDate: { label: 'quick kickoff', value: 'from 1 week' },
           duration: { label: 'typical landing', value: '1–2 weeks' },
         },
@@ -928,11 +946,12 @@ export const translations = {
         button: 'Order Development',
         serviceHero: {
           tagline: 'A messenger bot handles first-line requests and leads 24/7 while you run the business.',
-          title: 'Telegram & chatbot development end-to-end',
-          subtitle: 'Payments, CRM, broadcasts, and AI — mapped to your sales and support',
+          title: 'Telegram bot development end-to-end',
+          subtitle: '',
           intro:
-            'Simple flows can start in 24 hours; larger builds with payments and integrations ship in clear stages. One partner from idea to a working bot.',
+            'Payments, CRM, and broadcasts. Simple flows from 24h; larger builds in clear stages.',
           ctaQuestion: 'Want us to propose an architecture for your sales flow?',
+          ctaQuestionShort: 'Free consultation',
           startDate: { label: 'first prototype', value: 'in 24h' },
           duration: { label: 'full build', value: '2–4 weeks' },
         },
@@ -981,11 +1000,12 @@ export const translations = {
         button: 'Order Design',
         serviceHero: {
           tagline: 'Logos and interfaces built for recognition and conversion — not just pretty screens.',
-          title: 'Business design: logo, identity & UI/UX end-to-end',
-          subtitle: 'Identity, web design, and dev handoff — aligned with the TeleBots build team',
+          title: 'Logo & UI/UX design end-to-end',
+          subtitle: '',
           intro:
-            '2–3 revision rounds within scope, print- and code-ready exports. We bridge brand and engineering so the build matches the mockups.',
+            'Figma, brand identity, and layouts ready for build. Focused revision rounds within the agreed scope.',
           ctaQuestion: 'Tell us about the brand — we will suggest scope and format.',
+          ctaQuestionShort: 'Free consultation',
           startDate: { label: 'logo concept', value: '3–7 days' },
           duration: { label: 'UI/UX scope', value: 'from 2 weeks' },
         },
@@ -1319,6 +1339,7 @@ export const translations = {
       homeResources: {
         title: 'Przydatne materiały',
         pricing: 'Cennik rozwoju',
+        blogHub: 'Bot Telegram dla biznesu 2026',
         blogBot: 'Ile kosztuje bot Telegram',
         blogSite: 'Ile kosztuje strona',
       },
@@ -1345,6 +1366,12 @@ export const translations = {
       },
       photoMessage:
         'Bezpłatnie omawiamy Twój cel, założenia i budżet. Już na tym etapie dajemy konkretne rekomendacje. Tworzymy specyfikację, wybieramy stack i terminy. Widzisz pełny obraz jeszcze przed startem.',
+      founder: {
+        role: 'CEO · założyciel TeleBots',
+        name: 'Roman Fedoniuk',
+        bio: 'Prowadzę projekty botów, stron i automatyzacji pod cele biznesowe klientów. Od briefu do startu — jasne terminy, przejrzysta cena i produkt, który sprzedaje.',
+        imageAlt: 'Roman Fedoniuk, CEO TeleBots',
+      },
       pageTitle: 'O NAS',
       pageIntro: 'Szukasz rozwiązania dla biznesu lub potrzeb osobistych? Jesteśmy zespołem deweloperów i projektantów: boty Telegram, chatboty, strony, sklepy online, lejki. W zespole mamy projektanta UI/UX: tworzymy logo, identyfikację wizualną, projektowanie stron i aplikacji.',
       quote: 'Każdy projekt to unikalny przypadek, stworzony, aby rozwiązać problem konkretnie dla Twojej sytuacji.',
@@ -1480,11 +1507,12 @@ export const translations = {
         button: 'Zamów rozwój',
         serviceHero: {
           tagline: 'Szybkie strony z panelem, SEO i integracjami — bez pisania kodu po Twojej stronie.',
-          title: 'Strony pod klucz — od landingów po sklep internetowy',
-          subtitle: 'Next.js, responsywność, płatności i analityka — jeden zespół od specyfikacji do startu',
+          title: 'Strony internetowe pod klucz',
+          subtitle: '',
           intro:
-            'Darmowa konsultacja, jasne terminy i wsparcie po wdrożeniu. 200+ projektów w portfolio — wiemy, jak połączyć design, szybkość i konwersję.',
+            'Od landingów po e-commerce. Darmowa konsultacja, jasne terminy i wsparcie po wdrożeniu.',
           ctaQuestion: 'Omówimy Twój cel bez zobowiązań?',
+          ctaQuestionShort: 'Darmowa konsultacja',
           startDate: { label: 'szybki start', value: 'od 1 tygodnia' },
           duration: { label: 'typowy landing', value: '1–2 tygodnie' },
         },
@@ -1520,11 +1548,12 @@ export const translations = {
         button: 'Zamów rozwój',
         serviceHero: {
           tagline: 'Bot w komunikatorze obsługuje pierwszą linię i leady 24/7, Ty prowadzisz biznes.',
-          title: 'Boty Telegram i chatboty pod klucz',
-          subtitle: 'Płatności, CRM, mailingi i AI — pod Twoją sprzedaż i support',
+          title: 'Boty Telegram pod klucz',
+          subtitle: '',
           intro:
-            'Proste scenariusze mogą ruszyć w 24 h; większe z płatnościami i integracjami — etapami i jasnym zakresem. Jeden kontakt od pomysłu do działającego bota.',
+            'Płatności, CRM i mailingi. Proste scenariusze od 24 h; większe — etapami i jasno.',
           ctaQuestion: 'Zaproponujemy architekturę pod Twój lejek?',
+          ctaQuestionShort: 'Darmowa konsultacja',
           startDate: { label: 'pierwszy prototyp', value: 'w 24 h' },
           duration: { label: 'pełny cykl', value: '2–4 tygodnie' },
         },
@@ -1573,11 +1602,12 @@ export const translations = {
         button: 'Zamów projekt',
         serviceHero: {
           tagline: 'Logo i interfejsy pod rozpoznawalność i konwersję — nie tylko ładny obrazek.',
-          title: 'Design dla biznesu: logo, identyfikacja i UI/UX pod klucz',
-          subtitle: 'Tożsamość, projekt stron i przekazanie do dev — w jednym obiegu z zespołem TeleBots',
+          title: 'Logo i UI/UX pod klucz',
+          subtitle: '',
           intro:
-            '2–3 rundy poprawek w zakresie, pliki pod druk i kod. Łączymy brand z wdrożeniem, żeby front wyglądał jak makiety.',
+            'Figma, identyfikacja, makiety pod wdrożenie. 2–3 rundy poprawek w uzgodnionym zakresie.',
           ctaQuestion: 'Opowiedz o marce — zaproponujemy format i zakres?',
+          ctaQuestionShort: 'Darmowa konsultacja',
           startDate: { label: 'koncepcja logo', value: '3–7 dni' },
           duration: { label: 'projekt UI/UX', value: 'od 2 tygodni' },
         },
@@ -1911,6 +1941,7 @@ export const translations = {
       homeResources: {
         title: 'Полезные материалы',
         pricing: 'Цены на разработку',
+        blogHub: 'Telegram-бот для бизнеса 2026',
         blogBot: 'Сколько стоит Telegram-бот',
         blogSite: 'Сколько стоит сайт',
       },
@@ -1937,6 +1968,12 @@ export const translations = {
       },
       photoMessage:
         'Бесплатно обсуждаем вашу задачу, цели и бюджет. Уже на этом этапе даём конкретные рекомендации. Составляем ТЗ, определяем стек и сроки. Вы видите полную картину ещё до старта.',
+      founder: {
+        role: 'CEO · основатель TeleBots',
+        name: 'Роман Федонюк',
+        bio: 'Руковожу разработкой ботов, сайтов и автоматизаций под бизнес-цели клиентов. От брифа до запуска — прозрачные сроки, понятная цена и продукт, который работает на продажи.',
+        imageAlt: 'Роман Федонюк, CEO TeleBots',
+      },
       pageTitle: 'О НАС',
       pageIntro: 'Ищете решение для бизнеса или личных потребностей? Мы — команда разработчиков и дизайнеров: телеграм боты, чат-боты, сайты, интернет-магазины, воронки. В команде есть UI/UX дизайнер: создаём логотипы, айдентику, дизайн сайтов и приложений.',
       quote: 'Каждый проект - это уникальный кейс, созданный решать проблему именно для вашего случая.',
@@ -2072,11 +2109,12 @@ export const translations = {
         button: 'Заказать разработку',
         serviceHero: {
           tagline: 'Быстрые сайты с админкой, SEO и интеграциями — без лишнего кода с вашей стороны.',
-          title: 'Разработка сайтов под ключ — от лендинга до интернет-магазина',
-          subtitle: 'Next.js, адаптив, оплаты и аналитика — одна команда от ТЗ до запуска',
+          title: 'Разработка сайтов под ключ',
+          subtitle: '',
           intro:
-            'Бесплатная консультация, прозрачные сроки и поддержка после релиза. 200+ проектов за плечами — знаем, как совместить дизайн, скорость и конверсию.',
+            'От лендинга до e-commerce. Бесплатная консультация, прозрачные сроки и поддержка после релиза.',
           ctaQuestion: 'Обсудим задачу без обязательств?',
+          ctaQuestionShort: 'Бесплатная консультация',
           startDate: { label: 'быстрый старт', value: 'от 1 недели' },
           duration: { label: 'типовой лендинг', value: '1–2 недели' },
         },
@@ -2112,11 +2150,12 @@ export const translations = {
         button: 'Заказать разработку',
         serviceHero: {
           tagline: 'Бот в мессенджере закрывает первые запросы и заявки 24/7 — пока вы ведёте бизнес.',
-          title: 'Разработка Telegram-ботов и чат-ботов под ключ',
-          subtitle: 'Оплаты, CRM, рассылки и AI — под ваши продажи и поддержку',
+          title: 'Разработка Telegram-ботов под ключ',
+          subtitle: '',
           intro:
-            'Простые сценарии — за 24 часа; сложнее — с оплатами и интеграциями поэтапно и прозрачно. Один контакт от идеи до рабочего бота.',
+            'Оплата, CRM и рассылки. Простые сценарии — от 24 ч; сложнее — поэтапно и прозрачно.',
           ctaQuestion: 'Подберём архитектуру под ваши продажи?',
+          ctaQuestionShort: 'Бесплатная консультация',
           startDate: { label: 'первый прототип', value: 'за 24 ч' },
           duration: { label: 'полный цикл', value: '2–4 недели' },
         },
@@ -2165,11 +2204,12 @@ export const translations = {
         button: 'Заказать дизайн',
         serviceHero: {
           tagline: 'Лого и интерфейсы под узнаваемость и конверсию — не только «красивую картинку».',
-          title: 'Дизайн для бизнеса: логотип, айдентика и UI/UX под ключ',
-          subtitle: 'Айдентика, веб-дизайн и передача в разработку — в одном контуре с командой TeleBots',
+          title: 'Дизайн логотипов и UI/UX под ключ',
+          subtitle: '',
           intro:
-            '2–3 раунда правок в рамках ТЗ, файлы для печати и кода. Сводим бренд и вёрстку, чтобы фронт совпадал с макетом.',
+            'Figma, айдентика, макеты под вёрстку. 2–3 раунда правок в рамках ТЗ — от идеи до передачи в код.',
           ctaQuestion: 'Расскажите о бренде — предложим формат и объём?',
+          ctaQuestionShort: 'Бесплатная консультация',
           startDate: { label: 'концепт лого', value: '3–7 дней' },
           duration: { label: 'проект UI/UX', value: 'от 2 недель' },
         },

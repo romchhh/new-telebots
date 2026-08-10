@@ -11,6 +11,7 @@ interface HomeResourceLinksProps {
     pricing: string;
     blogBot: string;
     blogSite: string;
+    blogHub?: string;
     telegramBots?: string;
     landingPages?: string;
     onlineStores?: string;
@@ -41,6 +42,10 @@ export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps
     },
     ...(lang === 'uk'
       ? [
+          {
+            href: '/uk/blog/telegram-bot-dlya-biznesu-2026',
+            label: copy.blogHub || 'Telegram-бот для бізнесу',
+          },
           { href: '/uk/blog/skilky-koshtuye-telegram-bot', label: copy.blogBot },
           { href: '/uk/blog/skilky-koshtuye-sayt', label: copy.blogSite },
         ]

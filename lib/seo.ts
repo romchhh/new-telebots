@@ -367,6 +367,13 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
     sameAs: [...ORGANIZATION_SAME_AS],
     address: organizationPostalAddress(),
     foundingDate: '2020',
+    founder: {
+      '@type': 'Person',
+      name: lang === 'en' || lang === 'pl' ? 'Roman Fedoniuk' : 'Роман Федонюк',
+      jobTitle: 'CEO',
+      image: `${baseUrl}/other/roman-fedoniuk.webp`,
+      url: `${baseUrl}/${lang}/about`,
+    },
     numberOfEmployees: {
       '@type': 'QuantitativeValue',
       value: '5-10',

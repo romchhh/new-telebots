@@ -17,6 +17,12 @@ TeleBots (telebots.site; ФОП Федонюк Роман Ігорович, ЄД
 - [Contact](https://telebots.site/uk/contact): Request a free consultation
 - [Blog (UK)](https://telebots.site/uk/blog): Articles on bots, sites, SEO, and pricing
 
+## Blog hubs (UK)
+
+- [Telegram bot for business 2026](https://telebots.site/uk/blog/telegram-bot-dlya-biznesu-2026): Pillar guide — scenarios, pricing, launch path
+- [How much a Telegram bot costs](https://telebots.site/uk/blog/skilky-koshtuye-telegram-bot): LITE / PRO / CUSTOM pricing
+- [How much a website costs](https://telebots.site/uk/blog/skilky-koshtuye-sayt): Landing, business site, e-commerce ranges
+
 ## Solutions (SEO landings)
 
 - [Telegram bot development](https://telebots.site/uk/solutions/telegram-bots): Turnkey Telegram bots from $100

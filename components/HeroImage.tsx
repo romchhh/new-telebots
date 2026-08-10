@@ -1,6 +1,6 @@
 /**
  * Серверний «чистий» <img>: без wrapper next/image для стабільного LCP у Lighthouse mobile.
- * Preload у `app/layout.tsx` має співпадати з цим `src`.
+ * Preload лише на головній (`app/[lang]/page.tsx`) — той самий `src`.
  */
 export default function HeroImage({ alt }: { alt: string }) {
   return (

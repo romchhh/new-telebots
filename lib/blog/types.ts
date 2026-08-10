@@ -36,4 +36,6 @@ export type BlogPost = {
   sections?: BlogSection[];
   /** Повний контент з Blog/BlogPostN.jsx */
   legacyId?: number;
+  /** Явні slug для кластера «Читайте також» (пріоритет над category) */
+  relatedSlugs?: string[];
 };

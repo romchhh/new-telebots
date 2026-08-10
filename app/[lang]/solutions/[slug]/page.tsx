@@ -202,9 +202,10 @@ export default function SeoSolutionPage() {
                     alt={page.h1}
                     fill
                     priority
+                    fetchPriority="high"
                     className="object-cover"
-                    sizes="(max-width: 1024px) 100vw, 560px"
-                    quality={85}
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    quality={75}
                   />
                 </div>
               </div>
@@ -469,6 +470,26 @@ export default function SeoSolutionPage() {
                     {page.contactLabel}
                   </Link>
                 </li>
+                {lang === 'uk' && slug === 'telegram-bots' ? (
+                  <>
+                    <li>
+                      <Link
+                        href="/uk/blog/telegram-bot-dlya-biznesu-2026"
+                        className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                      >
+                        Telegram-бот для бізнесу 2026
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/uk/blog/skilky-koshtuye-telegram-bot"
+                        className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                      >
+                        Скільки коштує Telegram-бот
+                      </Link>
+                    </li>
+                  </>
+                ) : null}
               </ul>
             </div>
           </section>

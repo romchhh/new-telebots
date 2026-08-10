@@ -1,6 +1,7 @@
 'use client';
 
 import OrderCtaPill from '@/components/OrderCtaPill';
+import HeroStatsCircle from '@/components/HeroStatsCircle';
 import { SITE_PX } from '@/lib/siteLayout';
 
 interface HeroSectionContentProps {
@@ -23,54 +24,7 @@ export default function HeroSectionContent({ t, onOrderClick }: HeroSectionConte
         aria-hidden
       />
 
-      {/* Круг з датами — класичний стиль hero, збільшений */}
-      <div className="absolute z-20 right-0 top-16 sm:top-24 md:top-28 lg:top-32">
-        <div
-          className="pointer-events-none absolute left-1/2 top-1/2 h-[min(220px,58vw)] w-[min(220px,58vw)] -translate-x-1/2 -translate-y-1/2 sm:h-[min(240px,52vw)] sm:w-[min(240px,52vw)] md:h-[clamp(280px,32vw,440px)] md:w-[clamp(280px,32vw,440px)]"
-          style={{
-            borderRadius: '50%',
-            background:
-              'radial-gradient(circle, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.38) 38%, rgba(0,0,0,0.14) 62%, transparent 86%)',
-          }}
-          aria-hidden
-        />
-        <div className="relative p-3 sm:p-5 md:p-7 lg:p-9 xl:p-10">
-          <div className="relative h-[8.5rem] w-[8.5rem] sm:h-44 sm:w-44 md:h-48 md:w-48 lg:h-60 lg:w-60 xl:h-64 xl:w-64">
-            <div className="absolute inset-0" aria-hidden>
-              <div className="absolute left-0 right-0 top-1/2 h-px bg-white/35" />
-              <div className="absolute bottom-0 top-0 left-1/2 w-px bg-white/35" />
-            </div>
-            <div className="absolute right-0 top-0 flex h-1/2 w-1/2 flex-col items-end justify-end p-2 text-right sm:p-3 md:p-4 lg:p-6">
-              <span
-                className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-300 sm:text-xs md:text-sm lg:text-base"
-                style={montserrat}
-              >
-                {t.hero.startDate.label}
-              </span>
-              <span
-                className="text-sm font-semibold uppercase leading-tight text-white sm:text-base md:text-xl lg:text-2xl xl:text-3xl"
-                style={montserrat}
-              >
-                {t.hero.startDate.value}
-              </span>
-            </div>
-            <div className="absolute bottom-0 left-0 flex h-1/2 w-1/2 flex-col items-start justify-start p-2 sm:p-3 md:p-4 lg:p-6">
-              <span
-                className="mb-1 text-[10px] uppercase tracking-[0.14em] text-gray-300 sm:text-xs md:text-sm lg:text-base"
-                style={montserrat}
-              >
-                {t.hero.duration.label}
-              </span>
-              <span
-                className="text-sm font-semibold uppercase leading-tight text-white sm:text-base md:text-xl lg:text-2xl xl:text-3xl"
-                style={montserrat}
-              >
-                {t.hero.duration.value}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <HeroStatsCircle startDate={t.hero.startDate} duration={t.hero.duration} />
 
       <div
         className={`relative z-20 grid h-full max-h-full w-full overflow-hidden pb-2 pt-16 sm:pb-5 sm:pt-24 lg:pt-28 ${SITE_PX}`}
