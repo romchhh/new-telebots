@@ -147,12 +147,15 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
-          className="relative z-50 inline-flex h-12 items-center justify-center gap-1.5 px-1 font-mono text-sm font-semibold uppercase tracking-wide text-brand transition hover:text-brand-dark lg:hidden"
+          className="relative z-50 inline-flex h-12 items-center justify-center px-1 font-mono text-base font-bold tracking-wide text-brand transition hover:text-brand-dark lg:hidden"
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
         >
-          {isMenuOpen ? '[close]' : '[menu]'}
-          <ArrowUpRight className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
+          <span className="inline-flex items-center">
+            [{isMenuOpen ? 'close' : 'menu'}
+            <ArrowUpRight className="mx-0.5 h-4 w-4 shrink-0" strokeWidth={2.5} aria-hidden />
+            ]
+          </span>
         </button>
       </div>
 
@@ -162,16 +165,32 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
           style={{ top: 0, left: 0, right: 0, bottom: 0 }}
           onClick={() => setIsMenuOpen(false)}
         >
-          <button
-            onClick={() => setIsMenuOpen(false)}
-            className="absolute right-6 top-6 z-[10000] inline-flex items-center gap-1.5 font-mono text-sm font-semibold uppercase tracking-wide text-brand transition hover:text-brand-dark"
-            aria-label="Close menu"
-          >
-            [close]
-            <ArrowUpRight className="h-4 w-4 shrink-0" strokeWidth={2.25} aria-hidden />
-          </button>
           <div
-            className={`flex h-full w-full flex-col items-center justify-center space-y-6 ${SITE_PX}`}
+            className={`relative z-[10000] flex h-16 items-center justify-between border-b border-black/5 ${SITE_PX}`}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Link
+              href={`/${currentLanguage}`}
+              onClick={() => setIsMenuOpen(false)}
+              className="inline-flex h-12 flex-shrink-0 items-center transition-opacity hover:opacity-90"
+              aria-label="TeleBots"
+            >
+              <span style={{ ...headerLogoStyle, color: '#000' }}>telebots.</span>
+            </Link>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="inline-flex h-12 items-center justify-center px-1 font-mono text-base font-bold tracking-wide text-brand transition hover:text-brand-dark"
+              aria-label="Close menu"
+            >
+              <span className="inline-flex items-center">
+                [close
+                <ArrowUpRight className="mx-0.5 h-4 w-4 shrink-0" strokeWidth={2.5} aria-hidden />
+                ]
+              </span>
+            </button>
+          </div>
+          <div
+            className={`flex h-[calc(100%-4rem)] w-full flex-col items-center justify-center space-y-6 pt-16 sm:pt-20 ${SITE_PX}`}
             onClick={(e) => e.stopPropagation()}
           >
             <Link
@@ -255,6 +274,7 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
             </p>
             <OrderCtaPill
               size="sm"
+              elevated
               label={t.nav.consultationWidgetCta}
               onClick={() => {
                 setShowConsultWidget(false);
