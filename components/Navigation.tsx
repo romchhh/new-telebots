@@ -13,6 +13,8 @@ interface NavigationProps {
   isScrolled: boolean;
   /** Завжди непрозорий хедер (блог, білі сторінки) */
   solidHeader?: boolean;
+  /** Прозорий хедер з темним текстом (білий hero до скролу) */
+  transparentOnLight?: boolean;
   lang: Language;
   setLang: (lang: Language) => void;
   t: typeof import('./translations').translations.uk;
@@ -31,15 +33,16 @@ const headerLogoStyle: CSSProperties = {
   lineHeight: 1,
 };
 
-export default function Navigation({ isScrolled, solidHeader = false, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
+export default function Navigation({ isScrolled, solidHeader = false, transparentOnLight = false, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
   const headerSolid = solidHeader || isScrolled;
+  const headerDark = headerSolid || transparentOnLight;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [showConsultWidget, setShowConsultWidget] = useState(false);
   const currentLanguage = currentLang || lang;
   const showLanguageSelector = currentLanguage !== 'ru';
 
-  const navLinkClass = headerSolid
+  const navLinkClass = headerDark
     ? 'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-black transition-colors hover:text-brand lg:text-[13px]'
     : 'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-white transition-colors hover:text-brand-light lg:text-[13px]';
 
@@ -94,7 +97,7 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
           className="relative z-10 inline-flex h-12 flex-shrink-0 items-center transition-opacity hover:opacity-90"
           aria-label="TeleBots"
         >
-          <span style={{ ...headerLogoStyle, color: headerSolid ? '#000' : '#fff' }}>telebots.</span>
+          <span style={{ ...headerLogoStyle, color: headerDark ? '#000' : '#fff' }}>telebots.</span>
         </Link>
 
         <div className="pointer-events-none absolute inset-x-0 hidden justify-center lg:flex">
@@ -130,13 +133,13 @@ export default function Navigation({ isScrolled, solidHeader = false, lang, setL
           {showLanguageSelector && (
             <span
               className={`inline-flex h-12 items-center border-l pl-5 xl:pl-6 ${
-                headerSolid ? 'border-black/15' : 'border-white/25'
+                headerDark ? 'border-black/15' : 'border-white/25'
               }`}
             >
               <LanguageSelector
                 lang={lang}
                 setLang={setLang}
-                isScrolled={headerSolid}
+                isScrolled={headerDark}
                 currentLang={currentLanguage}
               />
             </span>

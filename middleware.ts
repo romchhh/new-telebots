@@ -38,6 +38,7 @@ const KNOWN_SITE_ROUTES = new Set([
   'contact',
   'about',
   'pricing',
+  'offer',
   'blog',
   'privacy',
   'terms',

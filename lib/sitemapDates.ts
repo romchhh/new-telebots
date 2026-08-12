@@ -12,6 +12,7 @@ export const SITE_PAGE_LASTMOD = {
   portfolio: '2026-08-01',
   contact: '2026-05-25',
   pricing: '2026-05-25',
+  offer: '2026-08-13',
   serviceDetail: '2026-08-09',
   solution: '2026-08-09',
   caseStudy: '2026-08-01',

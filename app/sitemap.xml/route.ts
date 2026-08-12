@@ -32,6 +32,7 @@ export async function GET() {
     { path: '/portfolio', priority: 0.9, changeFrequency: 'weekly', lastmod: SITE_PAGE_LASTMOD.portfolio },
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_PAGE_LASTMOD.contact },
     { path: '/pricing', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_PAGE_LASTMOD.pricing },
+    { path: '/offer', priority: 0.85, changeFrequency: 'weekly', lastmod: SITE_PAGE_LASTMOD.offer },
   ];
 
   const lines: string[] = [

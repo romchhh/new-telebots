@@ -38,6 +38,8 @@ interface StructuredDataProps {
   blogModifiedTime?: string;
   blogImage?: string;
   blogSlug?: string;
+  /** Якщо передано — не читаємо lang з useParams (уникає hydration mismatch) */
+  lang?: Language;
 }
 
 export default function StructuredData({
@@ -58,10 +60,12 @@ export default function StructuredData({
   blogModifiedTime,
   blogImage,
   blogSlug,
+  lang: langProp,
 }: StructuredDataProps) {
   const params = useParams();
   const langParam = params?.lang as string;
-  const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
+  const paramsLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
+  const validLang = langProp ?? paramsLang;
 
   let schema = null;
 

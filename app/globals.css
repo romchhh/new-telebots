@@ -200,6 +200,55 @@ img, video, iframe {
     transform: none;
     transition: none;
   }
+
+  .offer-float,
+  .offer-float-slow {
+    animation: none;
+  }
+}
+
+@keyframes offerFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.offer-float {
+  animation: offerFloat 5.5s ease-in-out infinite;
+}
+
+.offer-float-slow {
+  animation: offerFloat 8s ease-in-out infinite;
+}
+
+@keyframes offerBeamBlink {
+  0%,
+  42% {
+    opacity: 1;
+  }
+  50%,
+  58% {
+    opacity: 0.08;
+  }
+  66%,
+  100% {
+    opacity: 1;
+  }
+}
+
+.offer-beam-blink {
+  animation: offerBeamBlink 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-beam-blink {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 /* Font display optimization */
