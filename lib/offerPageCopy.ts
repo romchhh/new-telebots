@@ -46,8 +46,8 @@ export type OfferPageCopy = {
   ctaNote: string;
   formName: string;
   formNamePlaceholder: string;
-  formAbout: string;
-  formAboutPlaceholder: string;
+  formPhone: string;
+  formPhonePlaceholder: string;
   formSubmit: string;
   formTelegram: string;
   formSuccess: string;
@@ -167,13 +167,13 @@ const uk: OfferPageCopy = {
     },
   ],
   ctaTitle: 'Отримати безкоштовний прототип',
-  ctaLead: 'Залиш імʼя і коротко про сайт — або напиши в Telegram.',
+  ctaLead: 'Залиш імʼя і номер телефону — або напиши в Telegram.',
   ctaButton: 'Отримати безкоштовний прототип',
   ctaNote: 'Без передоплати. Без зобовʼязань. Прототип отримаєш протягом 2 днів.',
   formName: 'Імʼя',
   formNamePlaceholder: 'Як до вас звертатись',
-  formAbout: 'Коротко про сайт',
-  formAboutPlaceholder: 'Ніша, мета, що вже є',
+  formPhone: 'Номер телефону',
+  formPhonePlaceholder: '+380',
   formSubmit: 'Надіслати',
   formTelegram: 'Написати в Telegram',
   formSuccess: 'Заявку надіслано. Відповімо найближчим часом.',
@@ -292,13 +292,13 @@ const en: OfferPageCopy = {
     },
   ],
   ctaTitle: 'Get a free prototype',
-  ctaLead: 'Leave your name and a short note about the site — or message on Telegram.',
+  ctaLead: 'Leave your name and phone number — or message on Telegram.',
   ctaButton: 'Get a free prototype',
   ctaNote: 'No deposit. No commitment. Prototype within 2 days.',
   formName: 'Name',
   formNamePlaceholder: 'How should we address you',
-  formAbout: 'About the site',
-  formAboutPlaceholder: 'Niche, goal, what exists now',
+  formPhone: 'Phone number',
+  formPhonePlaceholder: '+380',
   formSubmit: 'Send',
   formTelegram: 'Message on Telegram',
   formSuccess: 'Request sent. We’ll reply soon.',
@@ -417,13 +417,13 @@ const pl: OfferPageCopy = {
     },
   ],
   ctaTitle: 'Otrzymaj darmowy prototyp',
-  ctaLead: 'Zostaw imię i krótko o stronie — albo napisz na Telegram.',
+  ctaLead: 'Zostaw imię i numer telefonu — albo napisz na Telegram.',
   ctaButton: 'Otrzymaj darmowy prototyp',
   ctaNote: 'Bez przedpłaty. Bez zobowiązań. Prototyp w ciągu 2 dni.',
   formName: 'Imię',
   formNamePlaceholder: 'Jak się do Ciebie zwracać',
-  formAbout: 'Krótko o stronie',
-  formAboutPlaceholder: 'Nisza, cel, co już jest',
+  formPhone: 'Numer telefonu',
+  formPhonePlaceholder: '+48',
   formSubmit: 'Wyślij',
   formTelegram: 'Napisz na Telegram',
   formSuccess: 'Zgłoszenie wysłane. Odpowiemy wkrótce.',
@@ -542,13 +542,13 @@ const ru: OfferPageCopy = {
     },
   ],
   ctaTitle: 'Получить бесплатный прототип',
-  ctaLead: 'Оставьте имя и кратко о сайте — или напишите в Telegram.',
+  ctaLead: 'Оставьте имя и номер телефона — или напишите в Telegram.',
   ctaButton: 'Получить бесплатный прототип',
   ctaNote: 'Без предоплаты. Без обязательств. Прототип получите в течение 2 дней.',
   formName: 'Имя',
   formNamePlaceholder: 'Как к вам обращаться',
-  formAbout: 'Кратко о сайте',
-  formAboutPlaceholder: 'Ниша, цель, что уже есть',
+  formPhone: 'Номер телефона',
+  formPhonePlaceholder: '+380',
   formSubmit: 'Отправить',
   formTelegram: 'Написать в Telegram',
   formSuccess: 'Заявку отправлено. Ответим в ближайшее время.',

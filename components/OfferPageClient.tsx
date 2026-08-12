@@ -33,7 +33,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [successMessage, setSuccessMessage] = useState('');
-  const [formData, setFormData] = useState({ name: '', about: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '' });
   const [formSending, setFormSending] = useState(false);
 
   const t = translations[lang];
@@ -99,13 +99,12 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
     setFormSending(true);
     const success = await sendToTelegram({
       name: formData.name,
-      phone: '—',
-      project: formData.about,
+      phone: formData.phone,
       service: `Offer $200 · ${p.breadcrumb}`,
     });
     setFormSending(false);
     if (success) {
-      setFormData({ name: '', about: '' });
+      setFormData({ name: '', phone: '' });
       setSuccessMessage(p.formSuccess);
       setIsSuccessOpen(true);
     } else {
@@ -472,14 +471,14 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
                   />
                 </div>
                 <div className="mb-10">
-                  <label className="mb-2 block text-sm font-normal text-brand">{p.formAbout} *</label>
+                  <label className="mb-2 block text-sm font-normal text-brand">{p.formPhone} *</label>
                   <input
-                    type="text"
-                    name="about"
+                    type="tel"
+                    name="phone"
                     required
-                    value={formData.about}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, about: e.target.value }))}
-                    placeholder={p.formAboutPlaceholder}
+                    value={formData.phone}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
+                    placeholder={p.formPhonePlaceholder}
                     className="w-full border-0 border-b-2 border-black bg-transparent py-2 text-base font-normal text-black focus:border-black focus:outline-none"
                   />
                 </div>
