@@ -3,7 +3,7 @@
 import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
-import HeroSectionContent from '@/components/HeroSectionContent';
+import ServiceHeroSection from '@/components/ServiceHeroSection';
 import HomePrinciplesSection from '@/components/HomePrinciplesSection';
 import AboutSection from '@/components/AboutSection';
 import PortfolioSection from '@/components/PortfolioSection';
@@ -90,7 +90,7 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         breadcrumbs={[{ name: BREADCRUMB_HOME[lang], url: `/${lang}` }]}
       />
       {mainPageFAQs.length > 0 && <StructuredData type="faq" faqs={mainPageFAQs} />}
-      <div className="min-h-screen w-full overflow-x-clip bg-white">
+      <div className="min-h-screen bg-white">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-black focus:px-4 focus:py-2 focus:text-white"
@@ -109,10 +109,21 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         />
 
         <main id="main-content">
-          <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
-            {heroBackground}
-            <HeroSectionContent t={t} onOrderClick={openModal} />
-          </section>
+          <ServiceHeroSection
+            heroBackground={heroBackground}
+            hero={{
+              tagline: t.hero.tagline,
+              title: t.hero.title,
+              subtitle: t.hero.subtitle,
+              intro: t.hero.intro,
+              ctaQuestion: t.hero.ctaQuestion,
+              ctaQuestionShort: t.hero.ctaQuestionShort,
+              startDate: t.hero.startDate,
+              duration: t.hero.duration,
+            }}
+            orderButtonLabel={t.modal.title}
+            onOrderClick={openModal}
+          />
           <HomePrinciplesSection
             principles={t.about.principles}
             lang={lang}
