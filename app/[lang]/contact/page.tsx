@@ -9,22 +9,13 @@ import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
-import ServiceHeroSection from '@/components/ServiceHeroSection';
-import FullBleedHeroImage from '@/components/FullBleedHeroImage';
-import Breadcrumbs from '@/components/Breadcrumbs';
+import ContactPageHero from '@/components/ContactPageHero';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { SITE_PX } from '@/lib/siteLayout';
 import { BREADCRUMB_HOME, BREADCRUMB_CONTACT } from '@/lib/breadcrumbLabels';
-
-const HERO_ALTS: Record<Language, string> = {
-  uk: 'TeleBots — робоче місце команди розробки',
-  en: 'TeleBots — the development team workspace',
-  pl: 'TeleBots — stanowisko zespołu deweloperskiego',
-  ru: 'TeleBots — рабочее место команды разработки',
-};
 
 export default function ContactPage() {
   const params = useParams();
@@ -99,6 +90,11 @@ export default function ContactPage() {
     { name: BREADCRUMB_CONTACT[lang], url: `/${lang}/contact` },
   ];
 
+  const breadcrumbItems = breadcrumbs.map((crumb, index) => ({
+    name: crumb.name,
+    href: index < breadcrumbs.length - 1 ? crumb.url : undefined,
+  }));
+
   return (
     <>
       <StructuredData type="organization" />
@@ -115,6 +111,7 @@ export default function ContactPage() {
         </a>
         <Navigation
           isScrolled={isScrolled}
+          solidHeader
           lang={lang}
           setLang={handleLangChange}
           t={t}
@@ -123,52 +120,16 @@ export default function ContactPage() {
         />
 
         <main id="main-content">
-          <ServiceHeroSection
-            heroBackground={
-              <FullBleedHeroImage src="/other/about-hero-macbook.jpg" alt={HERO_ALTS[lang]} />
-            }
-            hero={{
-              title: t.contact.title,
-              subtitle: t.contact.subtitle,
-              tagline: t.contact.subtitle,
-              intro: t.contact.help,
-              ctaQuestion: t.hero.ctaQuestion,
-              ctaQuestionShort: t.hero.ctaQuestionShort,
-              startDate: t.hero.startDate,
-              duration: t.hero.duration,
-            }}
-            orderButtonLabel={t.modal.title}
-            onOrderClick={openModal}
-            scrollTargetId="contact-form"
-          />
-
-          <Breadcrumbs
-            items={breadcrumbs.map((crumb, index) => ({
-              name: crumb.name,
-              href: index < breadcrumbs.length - 1 ? crumb.url : undefined,
-            }))}
+          <ContactPageHero
+            title={t.contact.formTitle}
+            subtitle={t.contact.help}
+            breadcrumbs={breadcrumbItems}
           />
 
           <section
             id="contact-form"
-            className={`border-t border-gray-100 bg-white py-20 md:py-28 ${SITE_PX}`}
+            className={`bg-white py-12 md:py-16 ${SITE_PX}`}
           >
-            <div className="mb-10 text-center md:mb-14">
-              <p
-                className="pointer-events-none select-none text-[clamp(2.75rem,12vw,8.5rem)] font-light leading-[0.88] text-gray-100"
-                style={{ fontFamily: 'var(--font-display)' }}
-                aria-hidden
-              >
-                TeleBots
-              </p>
-              <h2
-                className="relative z-10 -mt-5 text-2xl font-semibold leading-tight tracking-tight text-black sm:-mt-7 sm:text-4xl md:-mt-9 lg:text-5xl"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {t.contact.formTitle}
-              </h2>
-            </div>
-
             <div className="grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
               <div
                 ref={formRef}

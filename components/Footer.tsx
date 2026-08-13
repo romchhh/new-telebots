@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
+import type { CSSProperties } from 'react';
 import { Instagram, Send } from 'lucide-react';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
@@ -17,37 +17,42 @@ interface FooterProps {
   onConsultClick?: () => void;
 }
 
+const footerLogoStyle: CSSProperties = {
+  fontSize: 20,
+  fontWeight: 900,
+  fontFamily: "'Arial Black', sans-serif",
+  letterSpacing: '-0.5px',
+  lineHeight: 1,
+  color: '#000',
+};
+
 export default function Footer({ t, lang, setLang, currentLang, onConsultClick }: FooterProps) {
   const currentLanguage = currentLang || lang;
   return (
     <footer id="contact" className="border-t border-black/10 bg-white text-black">
-      <div className={`${SITE_PX} py-20`}>
-        <div className="grid md:grid-cols-3 gap-12 mb-16">
+      <div className={`${SITE_PX} py-12 md:py-20`}>
+        <div className="mb-10 grid gap-10 md:mb-16 md:grid-cols-3 md:gap-12">
           {/* Brand */}
-          <div className="md:col-span-1 text-left">
-            <div className="flex items-center mb-8 justify-start">
-              <div className="relative h-3 w-auto max-w-[50px]">
-                <Image
-                  src="/blacklogo.png"
-                  alt="TeleBots"
-                  width={50}
-                  height={12}
-                  className="h-full w-auto object-contain"
-                />
-              </div>
-            </div>
-            <p className="text-gray-600 text-[15px] md:text-[16px] lg:text-[17px] font-normal leading-[1.65]">
+          <div className="md:col-span-1">
+            <Link
+              href={`/${currentLanguage}`}
+              className="mb-5 inline-flex items-center transition-opacity hover:opacity-90"
+              aria-label="TeleBots"
+            >
+              <span style={footerLogoStyle}>telebots.</span>
+            </Link>
+            <p className="max-w-sm text-[15px] font-normal leading-[1.65] text-gray-600 md:text-[16px] lg:text-[17px]">
               {t.footer.description}
             </p>
           </div>
 
           {/* Quick Links */}
-          <div className="text-center md:text-left">
-            <h2 className="text-sm font-black tracking-wider mb-6 text-black">
+          <div>
+            <h2 className="mb-4 text-sm font-black tracking-wider text-black md:mb-6">
               {t.footer.quickLinks}
             </h2>
             <nav aria-label="Footer navigation">
-              <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 md:flex-col md:items-start md:space-y-3 md:gap-0">
+              <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-2 md:flex md:flex-col md:items-start md:gap-0 md:space-y-3">
                 <li>
                   <Link href={`/${currentLanguage}/services`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.services} - TeleBots`}>
                     {t.nav.services}
@@ -154,11 +159,11 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
           </div>
 
           {/* Contact / Legal */}
-          <div className="text-center md:text-left">
-            <h2 className="text-sm font-black tracking-wider mb-6 text-black">
+          <div>
+            <h2 className="mb-4 text-sm font-black tracking-wider text-black md:mb-6">
               {t.footer.contact}
             </h2>
-            <ul className="space-y-3 mb-6">
+            <ul className="mb-6 space-y-3">
               <li className="text-gray-600 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.legalBlockTitle}</span>
                 <span className="block text-xs font-normal text-gray-500 mt-2 mb-0.5">{t.footer.recipientLabel}</span>
@@ -183,7 +188,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                 </a>
               </li>
             </ul>
-            <div className="flex space-x-4 pt-4 justify-center md:justify-start">
+            <div className="flex gap-3 pt-2 md:pt-4">
               <a
                 href="https://www.instagram.com/telebotsnowayrm/"
                 target="_blank"
@@ -206,7 +211,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
               </a>
             </div>
             {onConsultClick && (
-              <div className="mt-8 flex justify-center md:justify-start w-full max-w-sm">
+              <div className="mt-6 w-full max-w-sm md:mt-8">
                 <OrderCtaPill
                   size="sm"
                   variant="brand"
@@ -220,11 +225,11 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm font-semibold mb-4 md:mb-0 text-center md:text-left">
+        <div className="flex flex-col gap-5 border-t border-gray-200 pt-8 md:flex-row md:items-center md:justify-between">
+          <p className="text-center text-sm font-semibold text-gray-500 md:text-left">
             © 2026 TeleBots. {t.footer.rights}
           </p>
-          <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-3 md:flex md:flex-wrap md:justify-end md:gap-x-6 md:gap-y-2">
             <Link href={`/${currentLanguage}/privacy`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.privacy}
             </Link>
