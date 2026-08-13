@@ -345,7 +345,7 @@ export default function SeoSolutionPage() {
           <section className={`py-16 md:py-24 ${SITE_PX}`}>
             <div className="relative overflow-hidden rounded-2xl px-6 py-14 md:px-10 md:py-20">
               <div className="absolute inset-0">
-                <Image src={media.hero} alt={page.midCtaTitle} fill className="object-cover" sizes="100vw" quality={70} />
+                <Image src={media.gallery[2]} alt={page.midCtaTitle} fill className="object-cover" sizes="100vw" quality={70} />
                 <div className="absolute inset-0 bg-black/75" />
               </div>
               <div className="relative text-white">

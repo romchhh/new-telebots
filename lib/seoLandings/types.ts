@@ -81,9 +81,9 @@ export const SEO_LANDING_IMAGE: Record<SeoLandingSlug, string> = {
 export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
   'telegram-bots': {
     hero: '/services/services-chatbots.jpg',
-    secondary: '/other/about-hero-macbook.jpg',
+    secondary: '/other/workspace-laptop-phone.jpg',
     gallery: [
-      '/services/services-chatbots.jpg',
+      '/other/workspace-laptop-phone.jpg',
       '/other/about-hero-macbook.jpg',
       '/other/archive-iphone.jpg',
     ],
@@ -98,9 +98,9 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
   },
   'landing-pages': {
     hero: '/services/services-websites.jpg',
-    secondary: '/other/about-hero.png',
+    secondary: '/other/workspace-laptop-rocks.jpg',
     gallery: [
-      '/services/services-websites.jpg',
+      '/other/workspace-laptop-rocks.jpg',
       '/other/about-hero.png',
       '/services/services-hero_new.jpg',
     ],
@@ -115,9 +115,9 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
   },
   'online-stores': {
     hero: '/services/services-websites.jpg',
-    secondary: '/other/about-hero.png',
+    secondary: '/other/workspace-code-desk.jpg',
     gallery: [
-      '/services/services-websites.jpg',
+      '/other/workspace-code-desk.jpg',
       '/other/about-hero-macbook.jpg',
       '/other/about-hero.png',
     ],
@@ -125,9 +125,9 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
   },
   'ai-chatbots': {
     hero: '/services/services-chatbots.jpg',
-    secondary: '/other/archive-iphone.jpg',
+    secondary: '/other/workspace-code-desk.jpg',
     gallery: [
-      '/services/services-chatbots.jpg',
+      '/other/workspace-code-desk.jpg',
       '/other/archive-iphone.jpg',
       '/other/about-hero-macbook.jpg',
     ],
@@ -142,9 +142,9 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
   },
   'data-parsers': {
     hero: '/services/services-parsers.jpg',
-    secondary: '/services/services-hero_new.jpg',
+    secondary: '/other/workspace-laptop-rocks.jpg',
     gallery: [
-      '/services/services-parsers.jpg',
+      '/other/workspace-laptop-rocks.jpg',
       '/services/services-hero_new.jpg',
       '/other/about-hero-macbook.jpg',
     ],
@@ -152,9 +152,9 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
   },
   'chatbots-buy': {
     hero: '/services/services-chatbots.jpg',
-    secondary: '/other/about-hero-macbook.jpg',
+    secondary: '/other/workspace-laptop-phone.jpg',
     gallery: [
-      '/services/services-chatbots.jpg',
+      '/other/workspace-laptop-phone.jpg',
       '/other/about-hero-macbook.jpg',
       '/other/archive-iphone.jpg',
     ],
@@ -169,9 +169,9 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
   },
   'chatbot-development-price': {
     hero: '/services/services-chatbots.jpg',
-    secondary: '/other/about-hero-macbook.jpg',
+    secondary: '/other/workspace-laptop-rocks.jpg',
     gallery: [
-      '/services/services-chatbots.jpg',
+      '/other/workspace-laptop-rocks.jpg',
       '/other/about-hero-macbook.jpg',
       '/other/archive-iphone.jpg',
     ],
@@ -186,9 +186,9 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
   },
   'telegram-bot-order-price': {
     hero: '/services/services-chatbots.jpg',
-    secondary: '/other/archive-iphone.jpg',
+    secondary: '/other/workspace-code-desk.jpg',
     gallery: [
-      '/services/services-chatbots.jpg',
+      '/other/workspace-code-desk.jpg',
       '/other/archive-iphone.jpg',
       '/other/about-hero-macbook.jpg',
     ],
