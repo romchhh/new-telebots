@@ -105,7 +105,9 @@ export default function OrderCtaPill({
       ? 'bg-white text-black'
       : isBrand
         ? 'bg-neutral-900 text-white'
-        : 'bg-black text-white';
+        : size === 'hero'
+          ? 'bg-brand text-neutral-900 md:bg-black md:text-white'
+          : 'bg-black text-white';
   const singleLinePaired = paired && !eyebrow;
   const textColClass = singleLinePaired
     ? 'flex min-w-0 flex-1 flex-col items-center justify-center pr-2 text-center'

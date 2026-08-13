@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import type { ReactNode } from 'react';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import HeroStatsCircle from '@/components/HeroStatsCircle';
 import { SITE_PX } from '@/lib/siteLayout';
@@ -17,8 +17,7 @@ export type ServiceHeroCopy = {
 };
 
 interface ServiceHeroSectionProps {
-  imageSrc: string;
-  imageAlt: string;
+  heroBackground: ReactNode;
   hero: ServiceHeroCopy;
   /** @deprecated layout mirrors home — kept for call-site compatibility */
   viewButtonLabel?: string;
@@ -30,26 +29,14 @@ interface ServiceHeroSectionProps {
 const montserrat = { fontFamily: 'var(--font-montserrat)' };
 
 export default function ServiceHeroSection({
-  imageSrc,
-  imageAlt,
+  heroBackground,
   hero,
   orderButtonLabel,
   onOrderClick,
 }: ServiceHeroSectionProps) {
   return (
     <section className="relative h-[100dvh] max-h-[100dvh] overflow-hidden">
-      <div className="absolute inset-0">
-        <Image
-          src={imageSrc}
-          alt={imageAlt}
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          quality={80}
-          className="object-cover"
-        />
-      </div>
+      {heroBackground}
 
       {/* Ті самі шари затемнення, що на головній */}
       <div className="absolute inset-0 z-10 bg-black/35" aria-hidden />

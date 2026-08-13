@@ -151,13 +151,15 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
-          className="relative z-50 inline-flex h-12 items-center justify-center px-1 font-mono text-base font-bold tracking-wide text-brand transition hover:text-brand-dark lg:hidden"
+          className={`relative z-50 inline-flex h-12 items-center justify-center px-1 font-mono text-xl font-bold tracking-wide transition lg:hidden ${
+            headerDark ? 'text-black hover:text-black/70' : 'text-white hover:text-white/80'
+          }`}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
         >
           <span className="inline-flex items-center">
             [{isMenuOpen ? 'close' : 'menu'}
-            <ArrowUpRight className="mx-0.5 h-4 w-4 shrink-0" strokeWidth={2.5} aria-hidden />
+            <ArrowUpRight className="mx-0.5 h-5 w-5 shrink-0" strokeWidth={2.5} aria-hidden />
             ]
           </span>
         </button>
@@ -183,12 +185,12 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
             </Link>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="inline-flex h-12 items-center justify-center px-1 font-mono text-base font-bold tracking-wide text-brand transition hover:text-brand-dark"
+              className="inline-flex h-12 items-center justify-center px-1 font-mono text-xl font-bold tracking-wide text-black transition hover:text-black/70"
               aria-label="Close menu"
             >
               <span className="inline-flex items-center">
                 [close
-                <ArrowUpRight className="mx-0.5 h-4 w-4 shrink-0" strokeWidth={2.5} aria-hidden />
+                <ArrowUpRight className="mx-0.5 h-5 w-5 shrink-0" strokeWidth={2.5} aria-hidden />
                 ]
               </span>
             </button>

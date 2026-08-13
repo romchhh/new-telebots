@@ -17,3 +17,10 @@ export const BREADCRUMB_SERVICES: Record<Language, string> = {
   pl: 'Usługi',
   ru: 'Услуги',
 };
+
+export const BREADCRUMB_CONTACT: Record<Language, string> = {
+  uk: 'Контакти',
+  en: 'Contact',
+  pl: 'Kontakt',
+  ru: 'Контакты',
+};

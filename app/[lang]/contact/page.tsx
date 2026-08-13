@@ -9,19 +9,29 @@ import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
+import ServiceHeroSection from '@/components/ServiceHeroSection';
+import FullBleedHeroImage from '@/components/FullBleedHeroImage';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
-import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
-import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
+import { SITE_PX } from '@/lib/siteLayout';
+import { BREADCRUMB_HOME, BREADCRUMB_CONTACT } from '@/lib/breadcrumbLabels';
+
+const HERO_ALTS: Record<Language, string> = {
+  uk: 'TeleBots — робоче місце команди розробки',
+  en: 'TeleBots — the development team workspace',
+  pl: 'TeleBots — stanowisko zespołu deweloperskiego',
+  ru: 'TeleBots — рабочее место команды разработки',
+};
 
 export default function ContactPage() {
   const params = useParams();
   const router = useRouter();
   const langParam = params?.lang as string;
   const [isScrolled, setIsScrolled] = useState(false);
-  
+
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(validLang);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
@@ -38,14 +48,14 @@ export default function ContactPage() {
     const checkScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    
+
     checkScroll();
     window.scrollTo(0, 0);
-    
+
     const handleScroll = () => {
       checkScroll();
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -57,7 +67,6 @@ export default function ContactPage() {
     router.push(newPath);
   };
 
-  const [titleRef, isTitleVisible] = useScrollAnimation();
   const [formRef, isFormVisible] = useScrollAnimation();
   const [contactsRef, isContactsVisible] = useScrollAnimation();
 
@@ -85,21 +94,20 @@ export default function ContactPage() {
     }
   };
 
+  const breadcrumbs = [
+    { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
+    { name: BREADCRUMB_CONTACT[lang], url: `/${lang}/contact` },
+  ];
+
   return (
     <>
       <StructuredData type="organization" />
       <StructuredData type="localBusiness" />
       <StructuredData type="contactPage" />
-      <StructuredData
-        type="breadcrumb"
-        breadcrumbs={[
-          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
-          { name: t.nav.contact, url: `/${lang}/contact` },
-        ]}
-      />
+      <StructuredData type="breadcrumb" breadcrumbs={breadcrumbs} />
       <div className="min-h-screen bg-white">
-        <a 
-          href="#main-content" 
+        <a
+          href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-black focus:text-white focus:px-4 focus:py-2 focus:rounded"
           aria-label="Skip to main content"
         >
@@ -113,64 +121,97 @@ export default function ContactPage() {
           currentLang={lang}
           onConsultClick={openModal}
         />
-        
+
         <main id="main-content">
-      {/* Смуга як у футері: той самий bg-black і вертикальний ритм (py-20 як у max-w-7xl у footer) */}
-      <div
-        className="w-full bg-black mt-16 py-20 shrink-0"
-        aria-hidden
-      />
-      <section id="contact-form" className={`pt-12 md:pt-16 pb-32 bg-white ${SITE_PX}`}>
-        <div className={SITE_INNER}>
-          <div ref={titleRef} className={`mb-20 scroll-animate-up ${isTitleVisible ? 'animate' : ''}`}>
-            <h1 className="text-4xl lg:text-6xl font-black text-black leading-tight mb-8">
-              {t.contact.title}
-            </h1>
-            <p className="text-xl text-gray-700 font-semibold leading-relaxed max-w-3xl">
-              {t.contact.subtitle}
-            </p>
-          </div>
+          <ServiceHeroSection
+            heroBackground={
+              <FullBleedHeroImage src="/other/about-hero-macbook.jpg" alt={HERO_ALTS[lang]} />
+            }
+            hero={{
+              title: t.contact.title,
+              subtitle: t.contact.subtitle,
+              tagline: t.contact.subtitle,
+              intro: t.contact.help,
+              ctaQuestion: t.hero.ctaQuestion,
+              ctaQuestionShort: t.hero.ctaQuestionShort,
+              startDate: t.hero.startDate,
+              duration: t.hero.duration,
+            }}
+            orderButtonLabel={t.modal.title}
+            onOrderClick={openModal}
+            scrollTargetId="contact-form"
+          />
 
-          <div className="grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
-            <div
-              ref={formRef}
-              className={`scroll-animate-left ${isFormVisible ? 'animate' : ''} lg:pr-10 xl:pr-14 2xl:pr-20`}
-            >
-              <ContactFormBlock t={t} lang={lang} onSuccess={() => setIsSuccessOpen(true)} />
+          <Breadcrumbs
+            items={breadcrumbs.map((crumb, index) => ({
+              name: crumb.name,
+              href: index < breadcrumbs.length - 1 ? crumb.url : undefined,
+            }))}
+          />
+
+          <section
+            id="contact-form"
+            className={`border-t border-gray-100 bg-white py-20 md:py-28 ${SITE_PX}`}
+          >
+            <div className="mb-10 text-center md:mb-14">
+              <p
+                className="pointer-events-none select-none text-[clamp(2.75rem,12vw,8.5rem)] font-light leading-[0.88] text-gray-100"
+                style={{ fontFamily: 'var(--font-display)' }}
+                aria-hidden
+              >
+                TeleBots
+              </p>
+              <h2
+                className="relative z-10 -mt-5 text-2xl font-semibold leading-tight tracking-tight text-black sm:-mt-7 sm:text-4xl md:-mt-9 lg:text-5xl"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                {t.contact.formTitle}
+              </h2>
             </div>
 
-            <div
-              ref={contactsRef}
-              className={`scroll-animate-right ${isContactsVisible ? 'animate' : ''} mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20`}
-            >
-              <ContactDetailsColumn t={t} />
+            <div className="grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
+              <div
+                ref={formRef}
+                className={`scroll-animate-left ${isFormVisible ? 'animate' : ''} lg:pr-10 xl:pr-14 2xl:pr-20`}
+              >
+                <ContactFormBlock
+                  t={t}
+                  lang={lang}
+                  hideTitle
+                  onSuccess={() => setIsSuccessOpen(true)}
+                />
+              </div>
+
+              <div
+                ref={contactsRef}
+                className={`scroll-animate-right ${isContactsVisible ? 'animate' : ''} mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20`}
+              >
+                <ContactDetailsColumn t={t} />
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
         </main>
-      <Footer
-        t={t}
-        lang={lang}
-        setLang={handleLangChange}
-        currentLang={lang}
-        onConsultClick={openModal}
-      />
-      
-      <OrderModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        serviceName={t.modal.title}
-        t={t}
-        onSubmit={handleModalSubmit}
-      />
-      <SuccessMessage
-        isOpen={isSuccessOpen}
-        onClose={() => setIsSuccessOpen(false)}
-        message={t.contact.success}
-      />
+        <Footer
+          t={t}
+          lang={lang}
+          setLang={handleLangChange}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
+
+        <OrderModal
+          isOpen={isModalOpen}
+          onClose={closeModal}
+          serviceName={t.modal.title}
+          t={t}
+          onSubmit={handleModalSubmit}
+        />
+        <SuccessMessage
+          isOpen={isSuccessOpen}
+          onClose={() => setIsSuccessOpen(false)}
+          message={t.contact.success}
+        />
       </div>
     </>
   );
 }
-

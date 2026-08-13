@@ -14,6 +14,8 @@ interface ContactFormBlockProps {
   className?: string;
   /** When set (e.g. on a service page), included in Telegram payload */
   serviceName?: string;
+  /** Приховати внутрішній H2, якщо заголовок уже є в секції сторінки */
+  hideTitle?: boolean;
 }
 
 export default function ContactFormBlock({
@@ -22,6 +24,7 @@ export default function ContactFormBlock({
   onSuccess,
   className = '',
   serviceName,
+  hideTitle = false,
 }: ContactFormBlockProps) {
   const [formData, setFormData] = useState({
     name: '',
@@ -53,9 +56,11 @@ export default function ContactFormBlock({
 
   return (
     <div className={className}>
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-10 md:mb-12 leading-tight">
-        {t.contact.formTitle}
-      </h2>
+      {hideTitle ? null : (
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-10 md:mb-12 leading-tight">
+          {t.contact.formTitle}
+        </h2>
+      )}
 
       <form onSubmit={handleSubmit} className="space-y-10">
         <div>
