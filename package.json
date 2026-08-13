@@ -8,7 +8,8 @@
     "build": "next build --webpack",
     "start": "next start -p 3000",
     "lint": "eslint",
-    "check:routes": "node scripts/check-known-routes.mjs"
+    "check:routes": "node scripts/check-known-routes.mjs",
+    "ping:sitemap": "node scripts/ping-sitemap.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

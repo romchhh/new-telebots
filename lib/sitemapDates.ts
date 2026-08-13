@@ -6,11 +6,11 @@ import { allBlogPosts } from '@/lib/blog/posts';
  * caseStudy синхронізуйте з CASE_ARTICLE_MODIFIED у lib/seo.ts.
  */
 export const SITE_PAGE_LASTMOD = {
-  home: '2026-08-09',
-  about: '2026-08-10',
-  services: '2026-08-09',
-  portfolio: '2026-08-01',
-  contact: '2026-05-25',
+  home: '2026-08-13',
+  about: '2026-08-13',
+  services: '2026-08-13',
+  portfolio: '2026-08-13',
+  contact: '2026-08-13',
   pricing: '2026-08-13',
   offer: '2026-08-13',
   serviceDetail: '2026-08-13',
