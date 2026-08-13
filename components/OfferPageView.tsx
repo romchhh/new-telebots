@@ -135,7 +135,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
 
         <main id="main-content">
           {/* 1 · Hero — як solutions */}
-          <section className={`relative z-10 overflow-hidden border-b border-gray-100 bg-white pt-24 md:pt-28 lg:pt-16 ${SITE_PX}`}>
+          <section className={`relative overflow-hidden border-b border-gray-100 bg-white pt-24 md:pt-28 lg:pt-16 ${SITE_PX}`}>
             <div
               className="pointer-events-none absolute inset-0 z-0"
               style={{
@@ -148,11 +148,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
               aria-hidden
             />
             <div
-              className="pointer-events-none absolute -right-24 top-1/4 z-0 h-[min(60vw,420px)] w-[min(60vw,420px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.14)_0%,transparent_70%)] blur-3xl"
-              aria-hidden
-            />
-            <div
-              className="pointer-events-none absolute -left-16 bottom-0 z-0 h-[min(55vw,380px)] w-[min(55vw,380px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.2)_0%,transparent_70%)] blur-3xl lg:-left-24 lg:bottom-8"
+              className="pointer-events-none absolute -right-24 top-1/4 z-0 h-[min(60vw,420px)] w-[min(60vw,420px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.12)_0%,transparent_70%)] blur-3xl"
               aria-hidden
             />
             <div className={`relative z-10 ${SITE_INNER} pb-14 md:pb-20 lg:pb-12`}>
@@ -200,7 +196,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
                     width={683}
                     height={870}
                     priority
-                    className="h-auto max-h-[min(58vh,500px)] w-auto max-w-full offer-float lg:max-h-[min(52vh,480px)]"
+                    className="h-auto max-h-[min(58vh,500px)] w-auto max-w-full offer-float lg:max-h-[min(54vh,480px)]"
                   />
                 </div>
               </div>
@@ -224,7 +220,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
           </section>
 
           {/* 2 · Risk + UFO */}
-          <section className={`relative z-0 overflow-hidden bg-black py-14 text-white md:py-20 ${SITE_PX}`}>
+          <section className={`bg-black py-14 text-white md:py-20 ${SITE_PX}`}>
             <div className={SITE_INNER}>
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
                 <div>
@@ -241,7 +237,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
                     ))}
                   </ul>
                 </div>
-                <div className="flex items-center justify-center overflow-hidden pt-2 lg:justify-end lg:pt-4">
+                <div className="flex min-h-[150px] items-center justify-center lg:min-h-[175px] lg:justify-end">
                   <OfferUfoBeam />
                 </div>
               </div>

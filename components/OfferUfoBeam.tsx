@@ -7,65 +7,74 @@ type OfferUfoBeamProps = {
 };
 
 type UfoUnitProps = {
-  ufoWidth: string;
-  beamWidth: string;
+  ufoW: number;
+  beamW: number;
+  beamH: number;
   floatDelayClass?: string;
   beamDelayClass?: string;
   className?: string;
 };
 
 function UfoUnit({
-  ufoWidth,
-  beamWidth,
+  ufoW,
+  beamW,
+  beamH,
   floatDelayClass = '',
   beamDelayClass = '',
   className = '',
 }: UfoUnitProps) {
   return (
     <div className={`flex flex-col items-center ${className}`}>
-      <OfferPng
-        src="/offer/ufo.png"
-        alt=""
-        width={507}
-        height={169}
-        className={`relative z-10 ${ufoWidth} offer-float ${floatDelayClass}`}
-      />
-      <OfferPng
-        src="/offer/beam.png"
-        alt=""
-        width={288}
-        height={532}
-        className={`offer-beam-blink -mt-0.5 ${beamWidth} ${beamDelayClass}`}
-      />
+      <div style={{ width: ufoW }}>
+        <OfferPng
+          src="/offer/ufo.png"
+          alt=""
+          width={507}
+          height={169}
+          className={`block h-auto w-full offer-float-sm ${floatDelayClass}`}
+        />
+      </div>
+      <div className="-mt-0.5 overflow-hidden" style={{ width: beamW, height: beamH }}>
+        <OfferPng
+          src="/offer/beam.png"
+          alt=""
+          width={288}
+          height={532}
+          className={`block h-full w-full object-cover object-top offer-beam-blink ${beamDelayClass}`}
+        />
+      </div>
     </div>
   );
 }
 
-/** Три компактні НЛО асиметрично в колонці праворуч */
+/** Три компактні НЛО — не виходять за межі блоку */
 export default function OfferUfoBeam({ className = '' }: OfferUfoBeamProps) {
   return (
     <div
-      className={`relative mx-auto h-[150px] w-full max-w-[11rem] sm:h-[165px] sm:max-w-[12rem] lg:mx-0 lg:ml-auto lg:h-[175px] lg:max-w-[13rem] ${className}`}
+      className={`relative mx-auto h-[108px] w-[128px] overflow-hidden sm:h-[116px] sm:w-[136px] lg:ml-auto lg:mr-0 ${className}`}
     >
       <UfoUnit
-        ufoWidth="w-[68px] sm:w-[72px]"
-        beamWidth="w-[32px] sm:w-[34px]"
+        ufoW={46}
+        beamW={22}
+        beamH={28}
         beamDelayClass="[animation-delay:0.2s]"
-        className="absolute left-0 top-0"
+        className="absolute left-0 top-1"
       />
       <UfoUnit
-        ufoWidth="w-[58px] sm:w-[62px]"
-        beamWidth="w-[28px] sm:w-[30px]"
+        ufoW={40}
+        beamW={19}
+        beamH={24}
         floatDelayClass="[animation-delay:1.1s]"
         beamDelayClass="[animation-delay:0.9s]"
-        className="absolute right-0 top-[16%]"
+        className="absolute right-0 top-[22%]"
       />
       <UfoUnit
-        ufoWidth="w-[50px] sm:w-[54px]"
-        beamWidth="w-[24px] sm:w-[26px]"
+        ufoW={34}
+        beamW={16}
+        beamH={20}
         floatDelayClass="[animation-delay:2.2s]"
         beamDelayClass="[animation-delay:1.6s]"
-        className="absolute bottom-0 left-[30%]"
+        className="absolute bottom-1 left-[32%]"
       />
     </div>
   );

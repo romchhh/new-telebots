@@ -205,6 +205,10 @@ img, video, iframe {
   .offer-float-slow {
     animation: none;
   }
+
+  .offer-float-sm {
+    animation: none;
+  }
 }
 
 @keyframes offerFloat {
@@ -219,6 +223,20 @@ img, video, iframe {
 
 .offer-float {
   animation: offerFloat 5.5s ease-in-out infinite;
+}
+
+.offer-float-sm {
+  animation: offerFloatSm 5.5s ease-in-out infinite;
+}
+
+@keyframes offerFloatSm {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 .offer-float-slow {
