@@ -9,6 +9,14 @@ const nextConfig: NextConfig = {
     // Іконки тягнуться барелем — без цього в бандл потрапляє все сімейство
     optimizePackageImports: ['lucide-react', 'react-icons'],
   },
+  webpack(config) {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '../build/polyfills/polyfill-module': require.resolve('./lib/modern-polyfill.js'),
+      'next/dist/build/polyfills/polyfill-module': require.resolve('./lib/modern-polyfill.js'),
+    };
+    return config;
+  },
   async redirects() {
     return [
       {

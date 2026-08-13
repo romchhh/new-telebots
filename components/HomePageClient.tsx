@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import { HomeModalProvider } from '@/components/HomeModalProvider';
+import ViewportLazy from '@/components/ViewportLazy';
 import type { Language, SiteCopy } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
@@ -42,12 +43,19 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    let raf = 0;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50);
+      });
     };
-    handleScroll();
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    raf = requestAnimationFrame(handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const handleLangChange = (newLang: Language) => {
@@ -102,35 +110,49 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
 
         <main id="main-content">
           {hero}
-          <HomePrinciplesSection
-            principles={t.about.principles}
-            lang={lang}
-            allServicesLabel={t.about.services}
-            pricingLabel={t.nav.pricing}
-          />
-          <AboutSection t={t} onOrderClick={openModal} />
-          <PortfolioSection t={t} />
-          <AboutStatsBanner t={t} />
-          <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
-          <SiteCtaBand
-            title={t.about.homeCta.title}
-            text={t.about.homeCta.text}
-            contactLabel={t.about.homeCta.contactLabel}
-            pricingLabel={t.about.homeCta.pricingLabel}
-            portfolioLabel={t.about.homeCta.portfolioLabel}
-            pricingHref={`/${lang}/pricing`}
-            portfolioHref={`/${lang}/portfolio`}
-            onContactClick={openModal}
-          />
+          <ViewportLazy minHeight="360px">
+            <HomePrinciplesSection
+              principles={t.about.principles}
+              lang={lang}
+              allServicesLabel={t.about.services}
+              pricingLabel={t.nav.pricing}
+            />
+          </ViewportLazy>
+          <ViewportLazy minHeight="480px">
+            <AboutSection t={t} onOrderClick={openModal} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="520px">
+            <PortfolioSection t={t} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="280px">
+            <AboutStatsBanner t={t} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="320px">
+            <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="240px">
+            <SiteCtaBand
+              title={t.about.homeCta.title}
+              text={t.about.homeCta.text}
+              contactLabel={t.about.homeCta.contactLabel}
+              pricingLabel={t.about.homeCta.pricingLabel}
+              portfolioLabel={t.about.homeCta.portfolioLabel}
+              pricingHref={`/${lang}/pricing`}
+              portfolioHref={`/${lang}/portfolio`}
+              onContactClick={openModal}
+            />
+          </ViewportLazy>
         </main>
 
-        <Footer
-          t={t}
-          lang={lang}
-          setLang={handleLangChange}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
+        <ViewportLazy minHeight="320px" rootMargin="800px">
+          <Footer
+            t={t}
+            lang={lang}
+            setLang={handleLangChange}
+            currentLang={lang}
+            onConsultClick={openModal}
+          />
+        </ViewportLazy>
       </div>
 
       {/* Lazy loaded модалі */}

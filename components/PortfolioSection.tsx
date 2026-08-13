@@ -76,7 +76,9 @@ function ZoomingImageBlock({ t }: { t: typeof import('./translations').translati
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
+    let raf = 0;
+
+    const updateProgress = () => {
       const el = containerRef.current;
       if (!el) return;
 
@@ -92,11 +94,17 @@ function ZoomingImageBlock({ t }: { t: typeof import('./translations').translati
       setProgress(clamped);
     };
 
-    handleScroll();
+    const handleScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(updateProgress);
+    };
+
+    raf = requestAnimationFrame(updateProgress);
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll);
+    window.addEventListener('resize', handleScroll, { passive: true });
 
     return () => {
+      cancelAnimationFrame(raf);
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleScroll);
     };
