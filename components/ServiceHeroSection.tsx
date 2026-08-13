@@ -35,7 +35,7 @@ export default function ServiceHeroSection({
   onOrderClick,
 }: ServiceHeroSectionProps) {
   return (
-    <section className="relative h-[100dvh] max-h-[100dvh] overflow-hidden">
+    <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
       {heroBackground}
 
       {/* Ті самі шари затемнення, що на головній */}

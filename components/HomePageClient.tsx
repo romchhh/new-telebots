@@ -90,7 +90,7 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         breadcrumbs={[{ name: BREADCRUMB_HOME[lang], url: `/${lang}` }]}
       />
       {mainPageFAQs.length > 0 && <StructuredData type="faq" faqs={mainPageFAQs} />}
-      <div className="min-h-screen w-full overflow-x-hidden bg-white">
+      <div className="min-h-screen w-full overflow-x-clip bg-white">
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-black focus:px-4 focus:py-2 focus:text-white"
@@ -109,7 +109,7 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         />
 
         <main id="main-content">
-          <section className="relative h-[100dvh] max-h-[100dvh] overflow-hidden">
+          <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
             {heroBackground}
             <HeroSectionContent t={t} onOrderClick={openModal} />
           </section>
