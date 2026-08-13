@@ -19,13 +19,16 @@ import OrderCtaPill from '@/components/OrderCtaPill';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import ServiceSeoLongForm from '@/components/ServiceSeoLongForm';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { getServiceSeoLongForm } from '@/lib/servicePagesSeoContent';
 import { sendToTelegram } from '@/lib/telegram';
+import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { SITE_PX } from '@/lib/siteLayout';
 import { siteUrl as baseUrl } from '@/lib/site';
+import { BREADCRUMB_HOME, BREADCRUMB_SERVICES } from '@/lib/breadcrumbLabels';
 import {
   SERVICE_IDS,
   getServiceKeyForTranslations,
@@ -113,7 +116,7 @@ export default function ServicePage() {
       setSuccessMessage(t.modal.success);
       setIsSuccessOpen(true);
     } else {
-      alert(lang === 'uk' ? 'Помилка відправки. Спробуйте ще раз.' : 'Error sending. Please try again.');
+      alert(SUBMIT_ERROR[lang]);
     }
   };
 
@@ -134,18 +137,18 @@ export default function ServicePage() {
   const longForm = serviceId ? getServiceSeoLongForm(lang, serviceId) : null;
   const audienceCopy = longForm?.audienceSection ?? serviceExtended.audienceSection;
 
+  /** Одне джерело для розмітки і для видимих крихт — щоб вони не розійшлись */
+  const breadcrumbs = [
+    { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
+    { name: BREADCRUMB_SERVICES[lang], url: `/${lang}/services` },
+    { name: serviceTitle, url: `/${lang}/services/${serviceId}` },
+  ];
+
   return (
     <>
       <StructuredData type="organization" />
       <StructuredData type="localBusiness" />
-      <StructuredData
-        type="breadcrumb"
-        breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
-          { name: t.nav.services, url: `/${lang}/services` },
-          { name: serviceTitle, url: `/${lang}/services/${serviceId}` },
-        ]}
-      />
+      <StructuredData type="breadcrumb" breadcrumbs={breadcrumbs} />
       <StructuredData
         type="service"
         serviceName={serviceTitle}
@@ -220,6 +223,13 @@ export default function ServicePage() {
               </div>
             </section>
           )}
+
+          <Breadcrumbs
+            items={breadcrumbs.map((crumb, index) => ({
+              name: crumb.name,
+              href: index < breadcrumbs.length - 1 ? crumb.url : undefined,
+            }))}
+          />
 
           {/* Блок «для вас, якщо» — після героя */}
           {audienceCopy && audienceCopy.items.length > 0 && (

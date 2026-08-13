@@ -10,6 +10,7 @@ import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { SITE_PX } from '@/lib/siteLayout';
 import { legal } from '@/lib/legal';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 export default function TermsPage() {
   const params = useParams();
@@ -59,7 +60,7 @@ export default function TermsPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
+          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
           { name: t.footer.terms, url: `/${lang}/terms` },
         ]}
       />

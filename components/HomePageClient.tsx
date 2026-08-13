@@ -15,6 +15,7 @@ import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 // Lazy load модалів для зменшення initial JavaScript bundle
 const OrderModal = lazy(() => import('@/components/OrderModal'));
@@ -86,7 +87,7 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
       <StructuredData type="website" />
       <StructuredData
         type="breadcrumb"
-        breadcrumbs={[{ name: t.nav.brand, url: `/${lang}` }]}
+        breadcrumbs={[{ name: BREADCRUMB_HOME[lang], url: `/${lang}` }]}
       />
       {mainPageFAQs.length > 0 && <StructuredData type="faq" faqs={mainPageFAQs} />}
       <div className="min-h-screen w-full overflow-x-hidden bg-white">

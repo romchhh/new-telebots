@@ -548,7 +548,7 @@ const drTolstikova: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Dr. Tolstikova',
-      heroTitle: 'Dr. Tolstikova — automatyzacja sprzedaży i subskrypcji w Telegram',
+      heroTitle: 'Dr. Tolstikova — automatyzacja sprzedaży w Telegramie',
       heroLead:
         'Bot Telegram dla Dr. Tolstikovej: sprzedaż, subskrypcje, płatności i analityka działają same — bez managerów i ręcznej rutyny, 24/7.',
       visitSite: 'Otwórz bota',

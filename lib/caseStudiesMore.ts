@@ -463,7 +463,7 @@ const royalAcademy: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Royal Academy',
-      heroTitle: 'Royal Academy School — a school site with a strong first screen',
+      heroTitle: 'Royal Academy School — school site with a strong hero',
       heroLead:
         'A school website built for first impression: vivid design, clear structure, thoughtful CTAs, responsiveness and fast pages. Every block helps visitors find answers and apply.',
       visitSite: 'Visit site',
@@ -509,7 +509,7 @@ const royalAcademy: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Royal Academy',
-      heroTitle: 'Royal Academy School — strona szkoły z mocnym pierwszym ekranem',
+      heroTitle: 'Royal Academy School — strona szkoły z mocnym hero',
       heroLead:
         'Strona szkoły pod pierwsze wrażenie: wyrazisty design, jasna struktura, CTA, responsywność i szybkość. Każdy blok prowadzi do informacji i zgłoszenia.',
       visitSite: 'Otwórz stronę',
@@ -1529,7 +1529,7 @@ const litunEdu: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'TURBO EDUCATION',
-      heroTitle: 'TURBO EDUCATION — сайт Ильи Литуна и образовательной экосистемы',
+      heroTitle: 'TURBO EDUCATION — сайт Ильи Литуна и его экосистемы',
       heroLead:
         'Сайт личного бренда Ильи Литуна и TURBO EDUCATION с акцентом на экспертность, социальное доказательство и удобную презентацию форматов сотрудничества.',
       visitSite: 'Открыть сайт',

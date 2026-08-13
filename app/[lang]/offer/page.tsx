@@ -9,6 +9,7 @@ import {
   generateServiceSchema,
 } from '@/lib/seo';
 import { siteUrl } from '@/lib/site';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 export default async function OfferPage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang: langParam } = await params;
@@ -22,7 +23,7 @@ export default async function OfferPage({ params }: { params: Promise<{ lang: st
     generateLocalBusinessSchema(lang),
     generateBreadcrumbSchema(
       [
-        { name: t.nav.brand, url: `/${lang}` },
+        { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
         { name: p.breadcrumb, url: `/${lang}/offer` },
       ],
       lang

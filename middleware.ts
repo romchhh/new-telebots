@@ -3,6 +3,7 @@ import type { NextRequest } from 'next/server';
 import { LOCALE_COOKIE_NAME, resolvePreferredLanguage } from '@/lib/locale';
 import { isFlagshipCase, isLightCase, isReservedCaseSlug } from '@/lib/portfolioCaseTiers';
 import { CANONICAL_HOST } from '@/lib/site';
+import { KNOWN_SITE_ROUTES as SITE_ROUTES } from '@/lib/siteRoutes';
 
 /** Постійний редірект (308) — Google передає сигнали на цільовий URL */
 const PERMANENT_REDIRECT = 308;
@@ -29,20 +30,8 @@ const ALLOWED_ROOT_PATHS = [
 
 const VALID_LANGS = ['uk', 'en', 'pl', 'ru'] as const;
 
-/** Сторінки без префікса мови — редірект на /uk/... */
-const KNOWN_SITE_ROUTES = new Set([
-  'services',
-  'solutions',
-  'portfolio',
-  'contact',
-  'about',
-  'pricing',
-  'offer',
-  'blog',
-  'privacy',
-  'terms',
-  'refund',
-]);
+/** Сторінки без префікса мови — редірект на /:lang/... */
+const KNOWN_SITE_ROUTES = new Set<string>(SITE_ROUTES);
 
 function isAllowedRootPath(pathname: string): boolean {
   return ALLOWED_ROOT_PATHS.some(

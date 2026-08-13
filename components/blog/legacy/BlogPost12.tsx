@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaUsers, FaChartLine, FaCogs, FaDatabase, FaRocket } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -30,7 +31,7 @@ const BlogPost12 = () => {
     <div className="max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Збір лідів через Telegram ботів: Повний посібник 2026</h1>
 
-      <img src={getLegacyHeroImage(12)} alt="Lead Generation through Telegram Bots" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={12} alt="Lead Generation through Telegram Bots" />
 
       <div className="text-lg text-gray-700 space-y-6">
         <p className="font-semibold text-xl">

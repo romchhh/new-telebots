@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaGithub, FaPython, FaCode, FaRobot, FaDatabase, FaServer, FaLock } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -86,11 +87,11 @@ def schedule_jobs(job_queue: JobQueue) -> None:
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Як створити Telegram бота: покроковий гайд для початківців</h1>
 
       {/* Зображення з оптимізованим alt-текстом */}
-      <img src={getLegacyHeroImage(1)} alt="Як створити Telegram бота: покроковий гайд" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={1} alt="Як створити Telegram бота: покроковий гайд" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h3 className="text-2xl font-bold mb-4">Зміст:</h3>
+        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Вступ</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Створення бота в Telegram</li>
@@ -113,7 +114,7 @@ def schedule_jobs(job_queue: JobQueue) -> None:
         </p>
         
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">Що ви дізнаєтесь:</h4>
+          <h3 className="font-bold mb-2">Що ви дізнаєтесь:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Як створити та налаштувати бота через BotFather</li>
             <li>Основи роботи з Python та python-telegram-bot</li>
@@ -141,9 +142,9 @@ def schedule_jobs(job_queue: JobQueue) -> None:
           <li>Збережіть отриманий токен у надійному місці</li>
         </ol>
         <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold flex items-center">
+          <h3 className="font-bold flex items-center">
             <span className="mr-2">⚠️</span> Важливо:
-          </h4>
+          </h3>
           <p>Ніколи не публікуйте ваш токен бота публічно. Це ключ доступу до вашого бота, який може бути використаний зловмисниками.</p>
         </div>
       </div>
@@ -159,7 +160,7 @@ def schedule_jobs(job_queue: JobQueue) -> None:
         </p>
         
         <div className="bg-gray-100 p-6 rounded-lg mb-6">
-          <h4 className="font-bold mb-4">Необхідні інструменти:</h4>
+          <h3 className="font-bold mb-4">Необхідні інструменти:</h3>
           <ul className="space-y-2">
             <li>✅ Python 3.7 або новіше</li>
             <li>✅ pip (менеджер пакетів Python)</li>
@@ -247,7 +248,7 @@ if __name__ == '__main__':
         </pre>
 
         <div className="bg-green-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🌟 Додаткові функції, які варто додати:</h4>
+          <h3 className="font-bold mb-2">🌟 Додаткові функції, які варто додати:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Обробка різних типів медіа (фото, відео, документи)</li>
             <li>Інлайн клавіатура для інтерактивності</li>
@@ -598,7 +599,7 @@ logger.error('Помилка: %s', str(error))
         </p>
         <div className="grid md:grid-cols-2 gap-4 mb-6">
           <div className="bg-white p-4 rounded-lg shadow">
-            <h4 className="font-bold mb-2">Heroku</h4>
+            <h3 className="font-bold mb-2">Heroku</h3>
             <p>Безкоштовний хостинг для невеликих проектів з простим деплоєм</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow">
@@ -624,7 +625,7 @@ logger.error('Помилка: %s', str(error))
         </p>
         
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <h4 className="font-bold mb-4">🚀 Наступні кроки для вдосконалення:</h4>
+          <h3 className="font-bold mb-4">🚀 Наступні кроки для вдосконалення:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Вивчіть WebHooks для більш ефективної роботи бота</li>
             <li>Реалізуйте систему сповіщень для важливих подій</li>

@@ -16,6 +16,7 @@ import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
+import { BREADCRUMB_HOME, BREADCRUMB_SERVICES } from '@/lib/breadcrumbLabels';
 
 export default function ServicesPage() {
   const params = useParams();
@@ -136,14 +137,14 @@ export default function ServicesPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
-          { name: t.nav.services, url: `/${lang}/services` },
+          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
+          { name: BREADCRUMB_SERVICES[lang], url: `/${lang}/services` },
         ]}
       />
       {services.map((service) => (
         <StructuredData
           key={service.key}
-          type="product"
+          type="serviceOffer"
           serviceName={service.key}
           serviceDescription={t.services[service.key]?.description || ''}
         />

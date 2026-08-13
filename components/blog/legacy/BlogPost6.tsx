@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaCode, FaDesktop, FaMobile, FaSearch, FaRocket, FaShieldAlt } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -85,11 +86,11 @@ const limiter = rateLimit({
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Професійна розробка сучасних веб-сайтів: повний гайд</h1>
-      <img src={getLegacyHeroImage(6)} alt="Website development by TeleBots" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={6} alt="Website development by TeleBots" />
       
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h3 className="text-2xl font-bold mb-4">Зміст:</h3>
+        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Сучасні тенденції веб-розробки</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Технічний стек та архітектура</li>
@@ -113,7 +114,7 @@ const limiter = rateLimit({
         </p>
         
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🚀 Ключові тенденції:</h4>
+          <h3 className="font-bold mb-2">🚀 Ключові тенденції:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Server-Side Rendering (SSR) та Static Site Generation (SSG)</li>
             <li>Progressive Web Apps (PWA)</li>
@@ -142,7 +143,7 @@ const limiter = rateLimit({
         </pre>
 
         <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">⚙️ Переваги сучасного стеку:</h4>
+          <h3 className="font-bold mb-2">⚙️ Переваги сучасного стеку:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Висока продуктивність та масштабованість</li>
             <li>Зручність розробки та підтримки</li>
@@ -165,7 +166,7 @@ const limiter = rateLimit({
         </p>
 
         <div className="bg-green-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🎨 Принципи сучасного дизайну:</h4>
+          <h3 className="font-bold mb-2">🎨 Принципи сучасного дизайну:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Мінімалізм та чистота</li>
             <li>Інтуїтивна навігація</li>
@@ -190,7 +191,7 @@ const limiter = rateLimit({
         </p>
 
         <div className="bg-purple-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">📱 Ключові аспекти мобільної адаптивності:</h4>
+          <h3 className="font-bold mb-2">📱 Ключові аспекти мобільної адаптивності:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Mobile-first підхід до розробки</li>
             <li>Адаптивні зображення та медіа</li>
@@ -218,7 +219,7 @@ const limiter = rateLimit({
         </pre>
 
         <div className="bg-red-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔍 SEO чек-лист:</h4>
+          <h3 className="font-bold mb-2">🔍 SEO чек-лист:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Технічний аудит сайту</li>
             <li>Оптимізація швидкості завантаження</li>
@@ -247,7 +248,7 @@ const limiter = rateLimit({
         </pre>
 
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔒 Основні аспекти безпеки:</h4>
+          <h3 className="font-bold mb-2">🔒 Основні аспекти безпеки:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>HTTPS та SSL сертифікати</li>
             <li>Захист від XSS та CSRF атак</li>
@@ -270,7 +271,7 @@ const limiter = rateLimit({
 
         <div className="space-y-6">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-bold mb-2">📋 Етапи розробки:</h4>
+            <h3 className="font-bold mb-2">📋 Етапи розробки:</h3>
             <ul className="list-disc list-inside space-y-2">
               <li>Discovery та планування</li>
               <li>Прототипування та дизайн</li>
@@ -304,7 +305,7 @@ const limiter = rateLimit({
         </p>
 
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <h4 className="font-bold mb-4">🎯 Що ви отримуєте працюючи з нами:</h4>
+          <h3 className="font-bold mb-4">🎯 Що ви отримуєте працюючи з нами:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Професійну команду розробників</li>
             <li>Сучасні технології та підходи</li>

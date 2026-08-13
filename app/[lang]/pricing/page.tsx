@@ -22,6 +22,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import { getPricingKey } from '@/app/[lang]/services/[serviceId]/metadata';
 import type { ServiceId } from '@/app/[lang]/services/[serviceId]/metadata';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 import {
   PRICING_GALLERY_IMAGES,
   PRICING_HERO_IMAGE,
@@ -182,7 +183,7 @@ export default function PricingPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
+          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
           { name: t.footer.pricing, url: `/${lang}/pricing` },
         ]}
       />

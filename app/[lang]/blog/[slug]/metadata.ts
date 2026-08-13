@@ -16,7 +16,7 @@ export async function generateMetadata({
 
   return {
     ...generateSEOMetadata({
-      title: post.title,
+      title: post.seoTitle ?? post.title,
       description: post.description,
       keywords: post.keywords,
       url: `${baseUrl}/uk/blog/${slug}`,

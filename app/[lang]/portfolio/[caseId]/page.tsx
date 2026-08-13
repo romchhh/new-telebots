@@ -13,6 +13,7 @@ import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { cases } from '@/components/cases';
 import { getCaseHref, isFlagshipCase, isLightCase } from '@/lib/portfolioCases';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 export default function CasePageRoute() {
   const params = useParams();
@@ -113,7 +114,7 @@ export default function CasePageRoute() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
+          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
           { name: t.nav.portfolio, url: `/${lang}/portfolio` },
           { name: currentCaseTitle, url: `/${lang}/portfolio/${caseId}` },
         ]}

@@ -3,13 +3,14 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaMoneyBillWave, FaChartLine, FaUsers, FaRocket, FaAd } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
 
 const MonetizationCard = ({ title, description, revenue, growth }) => (
   <div className="bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 border border-gray-200">
-    <h3 className="text-xl font-semibold text-gray-800 mb-3">{title}</h3>
+    <h2 className="text-xl font-semibold text-gray-800 mb-3">{title}</h2>
     <p className="text-gray-600 mb-4">{description}</p>
     <div className="grid grid-cols-2 gap-4">
       <div>
@@ -29,7 +30,7 @@ const BlogPost13 = () => {
     <div className="max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Монетизація Telegram ботів: Повний посібник 2026</h1>
 
-      <img src={getLegacyHeroImage(13)} alt="Монетизація Telegram ботів" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={13} alt="Монетизація Telegram ботів" />
 
       <div className="text-lg text-gray-700 space-y-6">
         <p className="font-semibold text-xl">

@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaRobot, FaUsers, FaChartLine, FaCogs, FaDatabase, FaShieldAlt } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -116,11 +117,11 @@ class LoyaltySystem:
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Як збільшити продажі та лояльність клієнтів за допомогою Telegram ботів: повне керівництво</h1>
-      <img src={getLegacyHeroImage(7)} alt="Telegram bots for increasing sales and customer loyalty" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={7} alt="Telegram bots for increasing sales and customer loyalty" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h3 className="text-2xl font-bold mb-4">Зміст:</h3>
+        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Автоматизація взаємодії з клієнтами</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Персоналізація та сегментація</li>
@@ -149,7 +150,7 @@ class LoyaltySystem:
         </pre>
 
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🤖 Ключові можливості автоматизації:</h4>
+          <h3 className="font-bold mb-2">🤖 Ключові можливості автоматизації:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Миттєві відповіді 24/7</li>
             <li>Персоналізовані привітання</li>
@@ -178,7 +179,7 @@ class LoyaltySystem:
         </pre>
 
         <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">👥 Стратегії персоналізації:</h4>
+          <h3 className="font-bold mb-2">👥 Стратегії персоналізації:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Сегментація за поведінкою</li>
             <li>Персоналізовані рекомендації</li>
@@ -201,7 +202,7 @@ class LoyaltySystem:
         </p>
 
         <div className="bg-green-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">📊 Ключові метрики:</h4>
+          <h3 className="font-bold mb-2">📊 Ключові метрики:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Конверсія на різних етапах</li>
             <li>Середній чек (Average Order Value)</li>
@@ -229,7 +230,7 @@ class LoyaltySystem:
         </pre>
 
         <div className="bg-purple-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🎁 Елементи програми лояльності:</h4>
+          <h3 className="font-bold mb-2">🎁 Елементи програми лояльності:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Система балів та рівнів</li>
             <li>Персональні знижки</li>
@@ -253,7 +254,7 @@ class LoyaltySystem:
         </p>
 
         <div className="bg-red-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔄 Переваги інтеграції:</h4>
+          <h3 className="font-bold mb-2">🔄 Переваги інтеграції:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Єдина база клієнтів</li>
             <li>Автоматична синхронізація даних</li>
@@ -277,7 +278,7 @@ class LoyaltySystem:
         </p>
 
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔒 Основні аспекти безпеки:</h4>
+          <h3 className="font-bold mb-2">🔒 Основні аспекти безпеки:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Шифрування даних</li>
             <li>Безпечне зберігання credentials</li>
@@ -294,7 +295,7 @@ class LoyaltySystem:
         <h2 className="text-3xl font-bold mb-4">Найкращі практики</h2>
         <div className="space-y-6">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-bold mb-2">✅ Що робити:</h4>
+            <h3 className="font-bold mb-2">✅ Що робити:</h3>
             <ul className="list-disc list-inside space-y-2">
               <li>Регулярно аналізувати метрики</li>
               <li>Тестувати різні підходи</li>
@@ -331,7 +332,7 @@ class LoyaltySystem:
         </p>
 
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <h4 className="font-bold mb-4">🎯 Основні переваги використання Telegram ботів:</h4>
+          <h3 className="font-bold mb-4">🎯 Основні переваги використання Telegram ботів:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Автоматизація процесів</li>
             <li>Персоналізована комунікація</li>

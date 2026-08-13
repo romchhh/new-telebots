@@ -35,6 +35,7 @@ export const telegramBusinessPosts: BlogPost[] = [
       'shtuchnyi-intelekt-v-telegram-boti',
       'zbit-lidiv-telegram-bot',
     ],
+    seoTitle: 'Telegram-бот для бізнесу: сценарії, ціни, запуск',
     title: 'Telegram-бот для бізнесу у 2026: сценарії, ціни та як запустити',
     description:
       'Повний гайд: навіщо бізнесу Telegram-бот у 2026, типові сценарії (ліди, оплата, CRM, AI), орієнтири цін від $100 і як замовити розробку в TeleBots.',

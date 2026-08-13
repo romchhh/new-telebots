@@ -500,43 +500,48 @@ export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
   };
 }
 
+function serviceProvider(lang: Language) {
+  return {
+    '@type': 'Organization' as const,
+    '@id': ORGANIZATION_ENTITY_ID,
+    name: 'TeleBots',
+    url: `${baseUrl}/${lang}`,
+  };
+}
+
+const SERVICE_AREA_SERVED = {
+  '@type': 'Country' as const,
+  name: ['Ukraine', 'United States', 'Poland', 'European Union'],
+};
+
 export function generateServiceSchema(serviceName: string, description: string, lang: Language = 'uk', serviceUrl?: string) {
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: serviceName,
     description,
-    provider: {
-      '@type': 'Organization',
-      name: 'TeleBots',
-      url: `${baseUrl}/${lang}`,
-    },
-    areaServed: {
-      '@type': 'Country',
-      name: ['Ukraine', 'United States', 'Poland', 'European Union'],
-    },
+    provider: serviceProvider(lang),
+    areaServed: SERVICE_AREA_SERVED,
     serviceType: serviceName,
   };
-  if (serviceUrl) schema.url = serviceUrl;
+  if (serviceUrl) {
+    schema.url = serviceUrl;
+    // Спільний @id зі списком послуг — Google зводить обидві згадки в одну сутність
+    schema['@id'] = `${serviceUrl}#service`;
+  }
   return schema;
 }
 
-type ServiceProductKey = 'websitesPage' | 'chatbotsPage' | 'designPage' | 'parsersPage';
+type ServiceOfferKey = 'websitesPage' | 'chatbotsPage' | 'designPage' | 'parsersPage';
 
-type ProductReviewCopy = {
-  author: string;
-  body: Record<Language, string>;
-};
-
-const SERVICE_PRODUCT_CONFIG: Record<
-  ServiceProductKey,
+const SERVICE_OFFER_CONFIG: Record<
+  ServiceOfferKey,
   {
     slug: string;
     imagePath: string;
     priceMin: number;
     priceMax: number;
     names: Record<Language, string>;
-    review: ProductReviewCopy;
   }
 > = {
   websitesPage: {
@@ -550,15 +555,6 @@ const SERVICE_PRODUCT_CONFIG: Record<
       pl: 'Tworzenie stron i sklepów internetowych',
       ru: 'Разработка сайтов и интернет-магазинов',
     },
-    review: {
-      author: 'New Study Line',
-      body: {
-        uk: 'Сайт школи англійської з SEO-блогом та онлайн-тестуванням — повноцінний інструмент для залучення лідів.',
-        en: 'English school website with SEO blog and online testing — a full lead-generation tool.',
-        pl: 'Strona szkoły języka angielskiego z blogiem SEO i testami online — narzędzie do pozyskiwania leadów.',
-        ru: 'Сайт школы английского с SEO-блогом и онлайн-тестированием — полноценный инструмент для лидов.',
-      },
-    },
   },
   chatbotsPage: {
     slug: 'chatbots',
@@ -570,15 +566,6 @@ const SERVICE_PRODUCT_CONFIG: Record<
       en: 'Chatbot development (Telegram, WhatsApp, Viber)',
       pl: 'Rozwój chatbotów (Telegram, WhatsApp, Viber)',
       ru: 'Разработка чат-ботов (Telegram, WhatsApp, Viber)',
-    },
-    review: {
-      author: 'Cosmy',
-      body: {
-        uk: 'Telegram-бот для інтернет-магазину: 400+ клієнтів, на 40% зросла зацікавленість завдяки автоматизації замовлень.',
-        en: 'Telegram bot for e-commerce: 400+ clients and 40% higher engagement through order automation.',
-        pl: 'Bot Telegram dla sklepu: 400+ klientów i 40% większe zaangażowanie dzięki automatyzacji zamówień.',
-        ru: 'Telegram-бот для интернет-магазина: 400+ клиентов и рост вовлечённости на 40% за счёт автоматизации заказов.',
-      },
     },
   },
   designPage: {
@@ -592,15 +579,6 @@ const SERVICE_PRODUCT_CONFIG: Record<
       pl: 'Design: logo, identyfikacja, UI/UX',
       ru: 'Дизайн: логотип, айдентика, UI/UX',
     },
-    review: {
-      author: '13VPLUS',
-      body: {
-        uk: 'Магазин жіночого одягу з сучасним брендингом і зручним шляхом користувача до покупки.',
-        en: 'Women’s fashion store with modern branding and a clear path from browse to purchase.',
-        pl: 'Sklep odzieży damskiej z nowoczesnym brandingiem i wygodną ścieżką do zakupu.',
-        ru: 'Магазин женской одежды с современным брендингом и удобным путём пользователя к покупке.',
-      },
-    },
   },
   parsersPage: {
     slug: 'parsers',
@@ -613,117 +591,49 @@ const SERVICE_PRODUCT_CONFIG: Record<
       pl: 'Rozwój parserów i zbierania danych',
       ru: 'Разработка парсеров и сбора данных',
     },
-    review: {
-      author: 'TeleBots',
-      body: {
-        uk: 'Автоматизований збір даних з маркетплейсів і оголошень — економія годин ручної роботи для аналітики.',
-        en: 'Automated data collection from marketplaces and listings — hours of manual work saved for analytics.',
-        pl: 'Automatyczne zbieranie danych z marketplace’ów i ogłoszeń — oszczędność godzin pracy ręcznej.',
-        ru: 'Автоматизированный сбор данных с маркетплейсов и объявлений — экономия часов ручной работы.',
-      },
-    },
   },
 };
 
-const DIGITAL_SHIPPING_COUNTRIES = ['UA', 'US', 'PL', 'GB', 'DE', 'CA', 'AU'] as const;
-
-function productPriceValidUntil(): string {
-  const date = new Date();
-  date.setFullYear(date.getFullYear() + 1);
-  return date.toISOString().slice(0, 10);
-}
-
-function buildDigitalShippingDetails() {
-  return {
-    '@type': 'OfferShippingDetails',
-    shippingRate: {
-      '@type': 'MonetaryAmount',
-      value: '0',
-      currency: 'USD',
-    },
-    shippingDestination: DIGITAL_SHIPPING_COUNTRIES.map((country) => ({
-      '@type': 'DefinedRegion',
-      addressCountry: country,
-    })),
-    deliveryTime: {
-      '@type': 'ShippingDeliveryTime',
-      handlingTime: {
-        '@type': 'QuantitativeValue',
-        minValue: 1,
-        maxValue: 5,
-        unitCode: 'DAY',
-      },
-      transitTime: {
-        '@type': 'QuantitativeValue',
-        minValue: 0,
-        maxValue: 0,
-        unitCode: 'DAY',
-      },
-    },
-  };
-}
-
-function buildMerchantReturnPolicy(lang: Language) {
-  return {
-    '@type': 'MerchantReturnPolicy',
-    applicableCountry: [...DIGITAL_SHIPPING_COUNTRIES],
-    returnPolicyCategory: 'https://schema.org/MerchantReturnNotPermitted',
-    merchantReturnLink: `${baseUrl}/${lang}/refund`,
-  };
-}
-
-export function generateProductSchema(serviceName: string, description: string, lang: Language = 'uk') {
-  const config = SERVICE_PRODUCT_CONFIG[serviceName as ServiceProductKey];
+/**
+ * Послуги на замовлення — це Service, а не Product: у них немає наявності,
+ * доставки й повернення, тож товарна розмітка тут була б хибним сигналом.
+ */
+export function generateServiceOfferSchema(serviceKey: string, description: string, lang: Language = 'uk') {
+  const config = SERVICE_OFFER_CONFIG[serviceKey as ServiceOfferKey];
   const slug = config?.slug ?? 'websites';
   const imagePath = config?.imagePath ?? '/services/services-websites.jpg';
   const priceMin = config?.priceMin ?? 100;
   const priceMax = config?.priceMax ?? priceMin;
-  const name = config?.names[lang] ?? serviceName;
-  const productUrl = `${baseUrl}/${lang}/services/${slug}`;
-  const imageUrl = `${baseUrl}${imagePath}`;
+  const name = config?.names[lang] ?? serviceKey;
+  const serviceUrl = `${baseUrl}/${lang}/services/${slug}`;
 
-  const offer: Record<string, unknown> = {
-    '@type': 'Offer',
-    price: priceMin.toFixed(2),
+  const priceSpecification: Record<string, unknown> = {
+    '@type': 'PriceSpecification',
     priceCurrency: 'USD',
-    priceValidUntil: productPriceValidUntil(),
-    availability: 'https://schema.org/InStock',
-    itemCondition: 'https://schema.org/NewCondition',
-    url: productUrl,
-    seller: {
-      '@type': 'Organization',
-      name: 'TeleBots',
-      url: `${baseUrl}/${lang}`,
-    },
-    shippingDetails: buildDigitalShippingDetails(),
-    hasMerchantReturnPolicy: buildMerchantReturnPolicy(lang),
+    minPrice: priceMin.toFixed(2),
   };
-
   if (priceMax > priceMin) {
-    offer.priceSpecification = {
-      '@type': 'PriceSpecification',
-      price: priceMin.toFixed(2),
-      minPrice: priceMin.toFixed(2),
-      maxPrice: priceMax.toFixed(2),
-      priceCurrency: 'USD',
-    };
+    priceSpecification.maxPrice = priceMax.toFixed(2);
   }
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': `${productUrl}#product`,
+    '@type': 'Service',
+    '@id': `${serviceUrl}#service`,
     name,
     description,
-    image: [imageUrl],
-    url: productUrl,
-    sku: `telebots-${slug}`,
-    brand: {
-      '@type': 'Brand',
-      name: 'TeleBots',
+    serviceType: name,
+    image: [`${baseUrl}${imagePath}`],
+    url: serviceUrl,
+    provider: serviceProvider(lang),
+    areaServed: SERVICE_AREA_SERVED,
+    offers: {
+      '@type': 'Offer',
+      url: serviceUrl,
+      priceCurrency: 'USD',
+      priceSpecification,
+      seller: serviceProvider(lang),
     },
-    offers: offer,
-    category: 'Digital Services',
   };
 }
 
@@ -808,16 +718,6 @@ export function generateContactPageSchema(lang: Language = 'uk') {
   };
 }
 
-export function generateAggregateRatingSchema(rating: number = 5.0, reviewCount: number = 200) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'AggregateRating',
-    ratingValue: rating.toString(),
-    bestRating: '5',
-    worstRating: '1',
-    ratingCount: reviewCount.toString(),
-  };
-}
 
 export function generateItemListSchema(items: Array<{ name: string; url: string; description?: string }>, lang: Language = 'uk') {
   const toAbsoluteUrl = (url: string) => (url.startsWith('http') ? url : `${baseUrl}${url.startsWith('/') ? '' : '/'}${url}`);
@@ -895,57 +795,3 @@ export function generateArticleSchemaForBlog(
     },
   };
 }
-
-export function generateCollectionPageSchema(lang: Language = 'uk') {
-  const casesData = cases[lang as keyof typeof cases] || cases.uk;
-  const caseCount = Object.keys(casesData).length;
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    name:
-      lang === 'uk'
-        ? 'Кейси розробки сайтів та ботів — TeleBots'
-        : lang === 'en'
-          ? 'Website & Bot Development Cases — TeleBots'
-          : lang === 'pl'
-            ? 'Realizacje stron i botów — TeleBots'
-            : 'Кейсы разработки сайтов и ботов — TeleBots',
-    description:
-      lang === 'uk'
-        ? 'Кейси розробки сайтів, інтернет-магазинів, телеграм ботів і чат-ботів. Приклади проєктів.'
-        : lang === 'en'
-          ? 'Website, e-commerce, Telegram bot and chatbot cases. Project examples.'
-          : lang === 'pl'
-            ? 'Realizacje stron, sklepów, botów Telegram i chatbotów.'
-            : 'Кейсы: сайты, магазины, телеграм боты и чат-боты.',
-    url: `${baseUrl}/${lang}/portfolio`,
-    mainEntity: {
-      '@type': 'ItemList',
-      numberOfItems: caseCount,
-    },
-  };
-}
-
-export function generateSoftwareApplicationSchema(lang: Language = 'uk') {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'SoftwareApplication',
-    name: 'TeleBots Development Services',
-    applicationCategory: 'BusinessApplication',
-    operatingSystem: 'Web, Telegram',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'UAH',
-    },
-  };
-}
-
-
-
-
-
-
-
-

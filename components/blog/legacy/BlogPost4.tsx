@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaFilter, FaRobot, FaChartLine, FaCogs, FaUsers, FaDatabase } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -96,11 +97,11 @@ def setup_funnel_automation():
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Створення ефективних воронок продажів з Telegram ботами</h1>
-      <img src={getLegacyHeroImage(4)} alt="Воронки продажів з чат-ботами" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={4} alt="Воронки продажів з чат-ботами" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h3 className="text-2xl font-bold mb-4">Зміст:</h3>
+        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Вступ та концепція воронок продажів</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Структура воронки в Telegram боті</li>
@@ -125,7 +126,7 @@ def setup_funnel_automation():
         </p>
         
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">Переваги використання ботів для воронок продажів:</h4>
+          <h3 className="font-bold mb-2">Переваги використання ботів для воронок продажів:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Автоматизація процесу продажів</li>
             <li>Цілодобова доступність</li>
@@ -152,7 +153,7 @@ def setup_funnel_automation():
         </pre>
 
         <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🎯 Етапи воронки продажів:</h4>
+          <h3 className="font-bold mb-2">🎯 Етапи воронки продажів:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Залучення користувача</li>
             <li>Визначення потреб</li>
@@ -179,7 +180,7 @@ def setup_funnel_automation():
         </pre>
 
         <div className="bg-green-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">👥 Критерії сегментації:</h4>
+          <h3 className="font-bold mb-2">👥 Критерії сегментації:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Поведінкові патерни</li>
             <li>Історія взаємодії</li>
@@ -206,7 +207,7 @@ def setup_funnel_automation():
         </pre>
 
         <div className="bg-purple-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">⚙️ Можливості автоматизації:</h4>
+          <h3 className="font-bold mb-2">⚙️ Можливості автоматизації:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Автоматичні відповіді</li>
             <li>Розсилки та нагадування</li>
@@ -232,7 +233,7 @@ def setup_funnel_automation():
         </pre>
 
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">📊 Ключові метрики:</h4>
+          <h3 className="font-bold mb-2">📊 Ключові метрики:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Конверсія по етапах</li>
             <li>Час проходження воронки</li>
@@ -255,7 +256,7 @@ def setup_funnel_automation():
         </p>
 
         <div className="bg-red-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔄 Переваги інтеграції з CRM:</h4>
+          <h3 className="font-bold mb-2">🔄 Переваги інтеграції з CRM:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Єдина база клієнтів</li>
             <li>Автоматичне оновлення даних</li>
@@ -271,7 +272,7 @@ def setup_funnel_automation():
         <h2 className="text-3xl font-bold mb-4">Найкращі практики</h2>
         <div className="space-y-6">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-bold mb-2">✅ Що робити:</h4>
+            <h3 className="font-bold mb-2">✅ Що робити:</h3>
             <ul className="list-disc list-inside space-y-2">
               <li>Регулярно аналізувати метрики</li>
               <li>Тестувати різні сценарії</li>
@@ -305,7 +306,7 @@ def setup_funnel_automation():
         </p>
 
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <h4 className="font-bold mb-4">🚀 Наступні кроки:</h4>
+          <h3 className="font-bold mb-4">🚀 Наступні кроки:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Проаналізуйте вашу поточну воронку продажів</li>
             <li>Визначте ключові метрики для відстеження</li>

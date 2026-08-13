@@ -10,18 +10,15 @@ import {
   generateWebSiteSchema,
   generateFAQSchema,
   generateLocalBusinessSchema,
-  generateProductSchema,
+  generateServiceOfferSchema,
   generateHowToSchema,
   generateContactPageSchema,
-  generateAggregateRatingSchema,
   generateItemListSchema,
   generateArticleSchemaForBlog,
-  generateCollectionPageSchema,
-  generateSoftwareApplicationSchema,
 } from '@/lib/seo';
 
 interface StructuredDataProps {
-  type: 'organization' | 'breadcrumb' | 'article' | 'service' | 'website' | 'faq' | 'localBusiness' | 'product' | 'howTo' | 'contactPage' | 'aggregateRating' | 'itemList' | 'blogPosting' | 'collectionPage' | 'softwareApplication';
+  type: 'organization' | 'breadcrumb' | 'article' | 'service' | 'website' | 'faq' | 'localBusiness' | 'serviceOffer' | 'howTo' | 'contactPage' | 'itemList' | 'blogPosting';
   caseId?: string;
   serviceName?: string;
   serviceDescription?: string;
@@ -30,8 +27,6 @@ interface StructuredDataProps {
   faqs?: Array<{ question: string; answer: string }>;
   howToSteps?: Array<{ name: string; text: string }>;
   items?: Array<{ name: string; url: string; description?: string }>;
-  rating?: number;
-  reviewCount?: number;
   blogTitle?: string;
   blogDescription?: string;
   blogPublishedTime?: string;
@@ -52,8 +47,6 @@ export default function StructuredData({
   faqs,
   howToSteps,
   items,
-  rating,
-  reviewCount,
   blogTitle,
   blogDescription,
   blogPublishedTime,
@@ -106,9 +99,9 @@ export default function StructuredData({
         schema = generateServiceSchema(serviceName, serviceDescription, validLang, serviceUrl);
       }
       break;
-    case 'product':
+    case 'serviceOffer':
       if (serviceName && serviceDescription) {
-        schema = generateProductSchema(serviceName, serviceDescription, validLang);
+        schema = generateServiceOfferSchema(serviceName, serviceDescription, validLang);
       }
       break;
     case 'website':
@@ -127,19 +120,10 @@ export default function StructuredData({
     case 'contactPage':
       schema = generateContactPageSchema(validLang);
       break;
-    case 'aggregateRating':
-      schema = generateAggregateRatingSchema(rating, reviewCount);
-      break;
     case 'itemList':
       if (items) {
         schema = generateItemListSchema(items, validLang);
       }
-      break;
-    case 'collectionPage':
-      schema = generateCollectionPageSchema(validLang);
-      break;
-    case 'softwareApplication':
-      schema = generateSoftwareApplicationSchema(validLang);
       break;
   }
 

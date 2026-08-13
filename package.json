@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000 --webpack",
+    "prebuild": "node scripts/check-known-routes.mjs",
     "build": "next build --webpack",
     "start": "next start -p 3000",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:routes": "node scripts/check-known-routes.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

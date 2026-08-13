@@ -43,9 +43,9 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
 
           {/* Quick Links */}
           <div className="text-center md:text-left">
-            <h4 className="text-sm font-black tracking-wider mb-6 text-black">
+            <h2 className="text-sm font-black tracking-wider mb-6 text-black">
               {t.footer.quickLinks}
-            </h4>
+            </h2>
             <nav aria-label="Footer navigation">
               <ul className="flex flex-wrap justify-center md:justify-start gap-x-4 gap-y-2 md:flex-col md:items-start md:space-y-3 md:gap-0">
                 <li>
@@ -113,6 +113,28 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
+                  <Link href={`/${currentLanguage}/solutions/ai-chatbots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'AI chatbots'
+                      : currentLanguage === 'pl'
+                        ? 'Chatboty AI'
+                        : currentLanguage === 'ru'
+                          ? 'AI чат-боты'
+                          : 'AI чат-боти'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/solutions/data-parsers`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'Data parsers'
+                      : currentLanguage === 'pl'
+                        ? 'Parsery danych'
+                        : currentLanguage === 'ru'
+                          ? 'Парсеры данных'
+                          : 'Парсери даних'}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${currentLanguage}/portfolio`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.portfolio} - TeleBots`}>
                     {t.nav.portfolio}
                   </Link>
@@ -133,9 +155,9 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
 
           {/* Contact / Legal */}
           <div className="text-center md:text-left">
-            <h4 className="text-sm font-black tracking-wider mb-6 text-black">
+            <h2 className="text-sm font-black tracking-wider mb-6 text-black">
               {t.footer.contact}
-            </h4>
+            </h2>
             <ul className="space-y-3 mb-6">
               <li className="text-gray-600 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.legalBlockTitle}</span>
@@ -211,6 +233,15 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
             </Link>
             <Link href={`/${currentLanguage}/refund`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.refund}
+            </Link>
+            <Link href={`/${currentLanguage}/offer`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
+              {currentLanguage === 'en'
+                ? 'Public offer'
+                : currentLanguage === 'pl'
+                  ? 'Oferta publiczna'
+                  : currentLanguage === 'ru'
+                    ? 'Публичная оферта'
+                    : 'Публічна оферта'}
             </Link>
             <Link href={`/${currentLanguage}/pricing`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.pricing}

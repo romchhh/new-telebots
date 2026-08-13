@@ -107,6 +107,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 14,
     image: legacyBlogImages[7],
     imageAlt: 'Сучасна студія digital-агенції',
+    seoTitle: 'Продажі та лояльність клієнтів через Telegram-ботів',
     title: 'Як збільшити продажі та лояльність клієнтів за допомогою Telegram ботів',
     description:
       'Автоматизація підтримки, програми лояльності, розсилки та CRM — повне керівництво для бізнесу.',
@@ -122,6 +123,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 17,
     image: legacyBlogImages[8],
     imageAlt: 'Концепт нейромережі та аналітики даних',
+    seoTitle: 'Збір та аналіз даних через Telegram-ботів',
     title: 'Збір та аналіз даних через Telegram ботів: комплексний посібник',
     description:
       'Опитування, метрики, експорт у Sheets і BI. Як перетворити дані з бота на рішення для бізнесу.',
@@ -138,6 +140,7 @@ export const legacyBlogMeta: BlogPost[] = [
     image: legacyBlogImages[9],
     imageAlt: '3D-абстракція потоків даних та штучного інтелекту',
     relatedSlugs: ['telegram-bot-dlya-biznesu-2026', 'ai-telegram-posibnyk', 'skilky-koshtuye-telegram-bot'],
+    seoTitle: 'Штучний інтелект у Telegram-ботах: інтеграція',
     title: 'Інтеграція штучного інтелекту в Telegram боти: повний посібник',
     description:
       'GPT, API, промпти, модерація та вартість токенів. Як безпечно додати ШІ в бота для бізнесу.',
@@ -229,6 +232,7 @@ export const legacyBlogMeta: BlogPost[] = [
     readingTimeMinutes: 10,
     image: legacyBlogImages[15],
     imageAlt: 'Мінімалістична архітектура — масштаб і надійність бізнесу',
+    seoTitle: 'Telegram-боти в Україні: аналіз ринку та прогнози',
     title: 'Перспективи Telegram ботів в Україні: аналіз та прогнози 2026–2027',
     description:
       'Ринок месенджерів, e-commerce, EdTech і держсектор — куди рухається індустрія ботів в Україні.',

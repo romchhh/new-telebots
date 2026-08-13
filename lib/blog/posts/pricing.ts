@@ -23,6 +23,7 @@ export const pricingPosts: BlogPost[] = [
     image: IMG.website,
     imageAlt: 'Розробка сайту під ключ — код на екрані монітора',
     featured: true,
+    seoTitle: 'Скільки коштує сайт у 2026: ціни та бюджет',
     title: 'Скільки коштує сайт у 2026: ціни TeleBots та що впливає на бюджет',
     description:
       'Орієнтири цін на лендинг ($150–300), корпоративний сайт ($500–800) та e-commerce (від $400) від TeleBots. Що входить у вартість, терміни, SEO, Next.js та безкоштовна консультація.',
@@ -195,6 +196,7 @@ export const pricingPosts: BlogPost[] = [
     image: IMG.shop,
     imageAlt: 'Інтернет-магазин — сучасна digital-студія',
     featured: true,
+    seoTitle: 'Скільки коштує інтернет-магазин у 2026: тарифи',
     title: 'Скільки коштує інтернет-магазин у 2026: тарифи та складові ціни',
     description:
       'Вартість інтернет-магазину від $400: каталог, оплата Mono/LiqPay/WayForPay, CRM, SEO, доставка. Порівняння з лендингом. Ціни та етапи TeleBots.',
@@ -491,6 +493,7 @@ export const pricingPosts: BlogPost[] = [
     image: IMG.design,
     imageAlt: 'UI/UX дизайн — макет інтерфейсу смартфона',
     featured: true,
+    seoTitle: 'Скільки коштує дизайн сайту та бренду у 2026',
     title: 'Скільки коштує дизайн сайту та бренду у 2026: LOGO, BRAND, UI/UX',
     description:
       'Ціни на дизайн TeleBots: лого $150–300, фірмовий стиль $300–600, UI/UX від $500. Figma, брендбук, handoff у розробку.',

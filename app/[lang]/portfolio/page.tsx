@@ -12,6 +12,7 @@ import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { getCaseHref, getCasesData, getFlagshipCaseIds } from '@/lib/portfolioCases';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 export default function PortfolioPage() {
   const params = useParams();
@@ -99,7 +100,7 @@ export default function PortfolioPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
+          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
           { name: t.nav.portfolio, url: `/${lang}/portfolio` },
         ]}
       />

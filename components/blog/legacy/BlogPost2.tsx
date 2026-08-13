@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaGithub, FaCode, FaDatabase, FaCloud, FaRobot, FaTools } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -105,11 +106,11 @@ async def handle_ai_response(update: Update, context: CallbackContext):
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Інтеграція Telegram ботів з іншими сервісами: повний гайд</h1>
-      <img src={getLegacyHeroImage(2)} alt="Інтеграція Telegram ботів з іншими сервісами" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={2} alt="Інтеграція Telegram ботів з іншими сервісами" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h3 className="text-2xl font-bold mb-4">Зміст:</h3>
+        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Вступ та важливість інтеграцій</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Інтеграція з CRM-системами</li>
@@ -134,7 +135,7 @@ async def handle_ai_response(update: Update, context: CallbackContext):
         </p>
         
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">Ключові переваги інтеграцій:</h4>
+          <h3 className="font-bold mb-2">Ключові переваги інтеграцій:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Автоматизація рутинних завдань</li>
             <li>Покращення користувацького досвіду</li>
@@ -161,7 +162,7 @@ async def handle_ai_response(update: Update, context: CallbackContext):
         </pre>
 
         <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">⚠️ Важливо при роботі з CRM:</h4>
+          <h3 className="font-bold mb-2">⚠️ Важливо при роботі з CRM:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Завжди валідуйте дані перед відправкою</li>
             <li>Використовуйте механізми дедуплікації</li>
@@ -187,7 +188,7 @@ async def handle_ai_response(update: Update, context: CallbackContext):
         </pre>
 
         <div className="bg-green-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🌟 Додаткові можливості Google інтеграцій:</h4>
+          <h3 className="font-bold mb-2">🌟 Додаткові можливості Google інтеграцій:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Автоматичне створення календарних подій</li>
             <li>Інтеграція з Google Drive для зберігання файлів</li>
@@ -212,7 +213,7 @@ async def handle_ai_response(update: Update, context: CallbackContext):
         </pre>
 
         <div className="bg-purple-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">💡 Можливості Slack інтеграції:</h4>
+          <h3 className="font-bold mb-2">💡 Можливості Slack інтеграції:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Двостороння синхронізація повідомлень</li>
             <li>Сповіщення про важливі події</li>
@@ -237,7 +238,7 @@ async def handle_ai_response(update: Update, context: CallbackContext):
         </pre>
 
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🤖 Можливості AI інтеграції:</h4>
+          <h3 className="font-bold mb-2">🤖 Можливості AI інтеграції:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Генерація тексту та відповідей</li>
             <li>Аналіз настроїв користувачів</li>
@@ -256,7 +257,7 @@ async def handle_ai_response(update: Update, context: CallbackContext):
         
         <div className="space-y-6">
           <div className="bg-red-50 p-4 rounded-lg">
-            <h4 className="font-bold mb-2">🔒 Основні правила безпеки:</h4>
+            <h3 className="font-bold mb-2">🔒 Основні правила безпеки:</h3>
             <ul className="list-disc list-inside space-y-2">
               <li>Використовуйте змінні середовища для зберігання ключів</li>
               <li>Регулярно оновлюйте залежності</li>
@@ -288,7 +289,7 @@ async def handle_ai_response(update: Update, context: CallbackContext):
         </p>
 
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <h4 className="font-bold mb-4">🚀 Наступні кроки для вивчення:</h4>
+          <h3 className="font-bold mb-4">🚀 Наступні кроки для вивчення:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Вивчіть документацію API сервісів, з якими плануєте інтеграцію</li>
             <li>Створіть тестове середовище для експериментів</li>

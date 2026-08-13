@@ -14,6 +14,7 @@ import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 export default function ContactPage() {
   const params = useParams();
@@ -92,7 +93,7 @@ export default function ContactPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
+          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
           { name: t.nav.contact, url: `/${lang}/contact` },
         ]}
       />

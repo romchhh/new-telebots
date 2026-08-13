@@ -29,6 +29,11 @@ export type BlogPost = {
   imageAlt: string;
   featured?: boolean;
   title: string;
+  /**
+   * Коротший варіант для <title>, коли заголовок статті не влазить у видачу.
+   * H1 лишається повним — обрізає лише Google.
+   */
+  seoTitle?: string;
   description: string;
   keywords: string;
   excerpt: string;

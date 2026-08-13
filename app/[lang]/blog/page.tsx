@@ -12,6 +12,7 @@ import { allBlogPosts } from '@/lib/blog/posts';
 import BlogCard from '@/components/blog/BlogCard';
 import { siteUrl } from '@/lib/site';
 import { SITE_PX } from '@/lib/siteLayout';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 const sortedPosts = [...allBlogPosts].sort((a, b) => {
   if (a.featured && !b.featured) return -1;
@@ -84,7 +85,7 @@ export default function BlogPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: '/uk' },
+          { name: BREADCRUMB_HOME['uk'], url: '/uk' },
           { name: t.blog?.title || 'Блог', url: '/uk/blog' },
         ]}
       />

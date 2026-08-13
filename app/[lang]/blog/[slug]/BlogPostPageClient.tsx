@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
+import Breadcrumbs from '@/components/Breadcrumbs';
 import ContactSection from '@/components/ContactSection';
 import BlogPostBody from '@/components/blog/BlogPostBody';
 import BlogRelatedSection from '@/components/blog/BlogRelatedSection';
@@ -16,6 +17,7 @@ import { translations, Language } from '@/components/translations';
 import { SITE_PX } from '@/lib/siteLayout';
 import { getRelatedPosts } from '@/lib/blog/posts';
 import type { BlogPost } from '@/lib/blog/types';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 interface BlogPostPageClientProps {
   post: BlogPost;
@@ -68,17 +70,21 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
     day: 'numeric',
   });
 
+  /** Одне джерело для розмітки і для видимих крихт */
+  const breadcrumbs = [
+    { name: BREADCRUMB_HOME['uk'], url: '/uk' },
+    { name: t.blog.articlesTitle, url: '/uk/blog' },
+    { name: post.title, url: `/uk/blog/${post.slug}` },
+  ];
+  const visibleBreadcrumbs = breadcrumbs.map((crumb, index) => ({
+    name: crumb.name,
+    href: index < breadcrumbs.length - 1 ? crumb.url : undefined,
+  }));
+
   return (
     <>
       <StructuredData type="organization" />
-      <StructuredData
-        type="breadcrumb"
-        breadcrumbs={[
-          { name: t.nav.brand, url: '/uk' },
-          { name: t.blog.articlesTitle, url: '/uk/blog' },
-          { name: post.title, url: `/uk/blog/${post.slug}` },
-        ]}
-      />
+      <StructuredData type="breadcrumb" breadcrumbs={breadcrumbs} />
       <StructuredData
         type="blogPosting"
         blogTitle={post.title}
@@ -107,12 +113,7 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
           {!isLegacy && (
             <>
               <header className={`mx-auto max-w-4xl pb-8 ${SITE_PX}`}>
-                <Link
-                  href="/uk/blog"
-                  className="mb-6 inline-block text-sm font-semibold uppercase tracking-wider text-gray-500 hover:text-black"
-                >
-                  ← {t.blog.backToBlog}
-                </Link>
+                <Breadcrumbs variant="inline" items={visibleBreadcrumbs} />
                 <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
                   {dateStr} · {post.readingTimeMinutes} min
                 </p>
@@ -142,13 +143,8 @@ export default function BlogPostPageClient({ post }: BlogPostPageClientProps) {
 
           {isLegacy && post.legacyId ? (
             <div className="pt-4">
-              <div className={`mx-auto max-w-4xl pb-4 ${SITE_PX}`}>
-                <Link
-                  href="/uk/blog"
-                  className="inline-block text-sm font-semibold uppercase tracking-wider text-gray-500 hover:text-black"
-                >
-                  ← {t.blog.backToBlog}
-                </Link>
+              <div className={`mx-auto max-w-4xl ${SITE_PX}`}>
+                <Breadcrumbs variant="inline" items={visibleBreadcrumbs} />
               </div>
               <LegacyBlogContent legacyId={post.legacyId} />
             </div>

@@ -59,10 +59,10 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
     case 'websites':
       return {
         title: u(
-          'Розробка сайтів під ключ — лендінги від $150, магазини від $400',
+          'Розробка сайтів під ключ — від $150 за лендінг',
           'Website development — landings from $150, stores from $400',
           'Strony pod klucz — landingi od $150, sklepy od $400',
-          'Разработка сайтов под ключ — лендинги от $150, магазины от $400'
+          'Разработка сайтов под ключ — от $150 за лендинг'
         ),
         description: u(
           'Розробка сайту під ключ: лендінги від $150, корпоративні сайти та e-commerce від $400 на Next.js. SEO, швидкість, адаптив. Безкоштовна консультація.',

@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaCode, FaServer, FaBug, FaRocket, FaShieldAlt, FaChartLine } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -95,11 +96,11 @@ async def admin_command(update: Update, context: CallbackContext):
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Професійна розробка Telegram ботів: від ідеї до продакшену</h1>
-      <img src={getLegacyHeroImage(3)} alt="Розробка Telegram ботів" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={3} alt="Розробка Telegram ботів" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h3 className="text-2xl font-bold mb-4">Зміст:</h3>
+        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Вступ та планування</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Архітектура та розробка</li>
@@ -124,7 +125,7 @@ async def admin_command(update: Update, context: CallbackContext):
         </p>
         
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">Ключові етапи планування:</h4>
+          <h3 className="font-bold mb-2">Ключові етапи планування:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Визначення цілей та вимог проекту</li>
             <li>Аналіз цільової аудиторії</li>
@@ -147,7 +148,7 @@ async def admin_command(update: Update, context: CallbackContext):
         </p>
 
         <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🏗️ Архітектурні принципи:</h4>
+          <h3 className="font-bold mb-2">🏗️ Архітектурні принципи:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Модульна структура коду</li>
             <li>Чіткий розподіл відповідальності</li>
@@ -174,7 +175,7 @@ async def admin_command(update: Update, context: CallbackContext):
         </pre>
 
         <div className="bg-green-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🎯 Стратегія тестування:</h4>
+          <h3 className="font-bold mb-2">🎯 Стратегія тестування:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Автоматизовані unit-тести</li>
             <li>Інтеграційне тестування</li>
@@ -201,7 +202,7 @@ async def admin_command(update: Update, context: CallbackContext):
         </pre>
 
         <div className="bg-red-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔒 Заходи безпеки:</h4>
+          <h3 className="font-bold mb-2">🔒 Заходи безпеки:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Шифрування чутливих даних</li>
             <li>Контроль доступу та авторизація</li>
@@ -228,7 +229,7 @@ async def admin_command(update: Update, context: CallbackContext):
         </pre>
 
         <div className="bg-purple-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🚀 DevOps практики:</h4>
+          <h3 className="font-bold mb-2">🚀 DevOps практики:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Контейнеризація з Docker</li>
             <li>CI/CD pipeline</li>
@@ -254,7 +255,7 @@ async def admin_command(update: Update, context: CallbackContext):
         </pre>
 
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">📊 Інструменти моніторингу:</h4>
+          <h3 className="font-bold mb-2">📊 Інструменти моніторингу:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Sentry для відстеження помилок</li>
             <li>Prometheus для метрик</li>
@@ -275,7 +276,7 @@ async def admin_command(update: Update, context: CallbackContext):
         </p>
 
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <h4 className="font-bold mb-4">🎯 Ключові фактори успіху:</h4>
+          <h3 className="font-bold mb-4">🎯 Ключові фактори успіху:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Ретельне планування та проектування</li>
             <li>Використання сучасних технологій</li>

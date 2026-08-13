@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaCreditCard, FaLock, FaCode, FaChartLine, FaDatabase, FaExchangeAlt } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -129,11 +130,11 @@ def check_payment_status(address: str, expected_amount: float):
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Інтеграція платіжних систем у Telegram ботах</h1>
-      <img src={getLegacyHeroImage(5)} alt="Інтеграція платіжних систем" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={5} alt="Інтеграція платіжних систем" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h3 className="text-2xl font-bold mb-4">Зміст:</h3>
+        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Вступ та огляд платіжних систем</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Інтеграція Stripe</li>
@@ -158,7 +159,7 @@ def check_payment_status(address: str, expected_amount: float):
         </p>
         
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">Популярні платіжні системи:</h4>
+          <h3 className="font-bold mb-2">Популярні платіжні системи:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Stripe - міжнародні платежі</li>
             <li>LiqPay - популярний в Україні</li>
@@ -185,7 +186,7 @@ def check_payment_status(address: str, expected_amount: float):
         </pre>
 
         <div className="bg-yellow-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔑 Ключові особливості Stripe:</h4>
+          <h3 className="font-bold mb-2">🔑 Ключові особливості Stripe:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Підтримка багатьох валют</li>
             <li>Безпечна обробка платежів</li>
@@ -212,7 +213,7 @@ def check_payment_status(address: str, expected_amount: float):
         </pre>
 
         <div className="bg-green-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔄 Обробка подій:</h4>
+          <h3 className="font-bold mb-2">🔄 Обробка подій:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Підтвердження платежу</li>
             <li>Обробка помилок</li>
@@ -238,7 +239,7 @@ def check_payment_status(address: str, expected_amount: float):
         </pre>
 
         <div className="bg-purple-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">💳 Можливості LiqPay:</h4>
+          <h3 className="font-bold mb-2">💳 Можливості LiqPay:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Карткові платежі</li>
             <li>Платежі через термінали</li>
@@ -265,7 +266,7 @@ def check_payment_status(address: str, expected_amount: float):
         </pre>
 
         <div className="bg-blue-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🌐 Особливості крипто-платежів:</h4>
+          <h3 className="font-bold mb-2">🌐 Особливості крипто-платежів:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Низькі комісії</li>
             <li>Міжнародні перекази</li>
@@ -288,7 +289,7 @@ def check_payment_status(address: str, expected_amount: float):
         </p>
 
         <div className="bg-red-50 p-4 rounded-lg mb-6">
-          <h4 className="font-bold mb-2">🔒 Заходи безпеки:</h4>
+          <h3 className="font-bold mb-2">🔒 Заходи безпеки:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>SSL/TLS шифрування</li>
             <li>Токенізація даних карток</li>
@@ -304,7 +305,7 @@ def check_payment_status(address: str, expected_amount: float):
         <h2 className="text-3xl font-bold mb-4">Найкращі практики</h2>
         <div className="space-y-6">
           <div className="bg-green-50 p-4 rounded-lg">
-            <h4 className="font-bold mb-2">✅ Рекомендації:</h4>
+            <h3 className="font-bold mb-2">✅ Рекомендації:</h3>
             <ul className="list-disc list-inside space-y-2">
               <li>Використовуйте тестове середовище</li>
               <li>Обробляйте помилки коректно</li>
@@ -338,7 +339,7 @@ def check_payment_status(address: str, expected_amount: float):
         </p>
 
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
-          <h4 className="font-bold mb-4">🚀 Наступні кроки:</h4>
+          <h3 className="font-bold mb-4">🚀 Наступні кроки:</h3>
           <ul className="list-disc list-inside space-y-2">
             <li>Оберіть відповідну платіжну систему</li>
             <li>Налаштуйте тестове середовище</li>

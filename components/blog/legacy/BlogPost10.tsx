@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaRobot, FaChartLine, FaLock, FaRocket, FaBrain, FaDatabase, FaMobileAlt } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -173,7 +174,7 @@ class CrossPlatformBot:
       {/* Заголовок та вступ */}
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Безпека Telegram ботів: Комплексний посібник із захисту даних та користувачів у 2026 році</h1>
 
-      <img src={getLegacyHeroImage(10)} alt="Безпека Telegram ботів" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={10} alt="Безпека Telegram ботів" />
 
       <div className="text-lg text-gray-700 space-y-6">
         <p className="font-semibold text-xl">

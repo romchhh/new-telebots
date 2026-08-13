@@ -27,7 +27,7 @@ const carbit: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Carbit',
-      heroTitle: 'Carbit — SaaS-моніторинг автооголошень AUTO.RIA, OLX і Telegram',
+      heroTitle: 'Carbit — SaaS-моніторинг автооголошень AUTO.RIA та OLX',
       heroLead:
         'Вебсервіс для моніторингу автомобільних оголошень, який об’єднує AUTO.RIA, OLX та Telegram в одному пошуку. Швидкий старт, зручні фільтри, зрозумілі тарифи й миттєві сповіщення про нові лоти.',
       visitSite: 'Відкрити сайт',
@@ -74,7 +74,7 @@ const carbit: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Carbit',
-      heroTitle: 'Carbit — SaaS monitoring for AUTO.RIA, OLX and Telegram listings',
+      heroTitle: 'Carbit — SaaS monitoring for AUTO.RIA and OLX listings',
       heroLead:
         'A web service that monitors car listings across AUTO.RIA, OLX and Telegram in one search. Fast setup, clear filters, transparent pricing and instant alerts on new ads.',
       visitSite: 'Visit site',
@@ -167,7 +167,7 @@ const carbit: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Carbit',
-      heroTitle: 'Carbit — SaaS-мониторинг автообъявлений AUTO.RIA, OLX и Telegram',
+      heroTitle: 'Carbit — SaaS-мониторинг автообъявлений AUTO.RIA и OLX',
       heroLead:
         'Веб-сервис мониторинга автомобильных объявлений: AUTO.RIA, OLX и Telegram в одном поиске. Быстрый старт, фильтры, тарифы и мгновенные уведомления.',
       visitSite: 'Открыть сайт',

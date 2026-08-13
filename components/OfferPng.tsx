@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image';
+
 type OfferPngProps = {
   src: string;
   alt?: string;
@@ -20,15 +22,12 @@ export default function OfferPng({
   priority = false,
 }: OfferPngProps) {
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
+    <Image
       src={src}
       alt={alt}
       width={width}
       height={height}
-      loading={priority ? 'eager' : 'lazy'}
-      decoding="async"
-      fetchPriority={priority ? 'high' : 'auto'}
+      priority={priority}
       className={`block h-auto max-w-full ${className}`}
     />
   );

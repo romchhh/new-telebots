@@ -45,6 +45,17 @@ export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps
               : 'Разработка чат-ботов цена',
     },
     {
+      href: `/${lang}/solutions/telegram-bot-order-price`,
+      label:
+        lang === 'uk'
+          ? 'Замовити Telegram-бота: ціна'
+          : lang === 'en'
+            ? 'Order a Telegram bot: price'
+            : lang === 'pl'
+              ? 'Zamów bota Telegram: cena'
+              : 'Заказать Telegram-бота: цена',
+    },
+    {
       href: `/${lang}/solutions/telegram-bots`,
       label:
         copy.telegramBots ||

@@ -510,7 +510,7 @@ const wayOfProcessing: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'WayOfProcessing',
-      heroTitle: 'WayOfProcessing — strona międzynarodowego processingu płatności',
+      heroTitle: 'WayOfProcessing — strona processingu płatności',
       heroLead:
         'Nowoczesna strona serwisu processingu płatności przez Stripe. Eksperckość, zaufanie i jasna prezentacja usług: podłączenie, korzyści, case’y i ścieżka do konsultacji.',
       visitSite: 'Otwórz stronę',

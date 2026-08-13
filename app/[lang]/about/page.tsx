@@ -20,6 +20,7 @@ import AboutHeadline from '@/components/AboutHeadline';
 import AboutServiceTeasers from '@/components/AboutServiceTeasers';
 import FaqAccordion from '@/components/FaqAccordion';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 export default function AboutPage() {
   const params = useParams();
@@ -107,7 +108,7 @@ export default function AboutPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
+          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
           { name: t.about.pageTitle, url: `/${lang}/about` },
         ]}
       />

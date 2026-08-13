@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { Suspense, useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { useParams, useRouter, useSearchParams } from 'next/navigation';
 import { translations, Language } from './translations';
@@ -20,10 +20,24 @@ type PortfolioProps = {
   onOrderClick?: () => void;
 };
 
+/**
+ * useSearchParams змушує найближчий Suspense віддавати fallback у статичному HTML.
+ * Тримаємо його в окремому вузлі, щоб герой з <h1> потрапляв у пререндер.
+ */
+function CaseQueryWatcher({ onCaseChange }: { onCaseChange: (caseId: string | null) => void }) {
+  const searchParams = useSearchParams();
+  const caseFromQuery = searchParams.get('case');
+
+  useEffect(() => {
+    onCaseChange(caseFromQuery);
+  }, [caseFromQuery, onCaseChange]);
+
+  return null;
+}
+
 export default function Portfolio({ onOrderClick }: PortfolioProps) {
   const params = useParams();
   const router = useRouter();
-  const searchParams = useSearchParams();
   const langParam = params?.lang as string;
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const t = translations[validLang];
@@ -59,20 +73,22 @@ export default function Portfolio({ onOrderClick }: PortfolioProps) {
     }
   }, [router]);
 
-  useEffect(() => {
-    const caseFromQuery = searchParams.get('case');
-    if (!caseFromQuery) {
-      setPreviewCaseId(null);
-      return;
-    }
-    if (casesData[caseFromQuery] && !isFlagshipCase(caseFromQuery)) {
-      setPreviewCaseId(caseFromQuery);
-      return;
-    }
-    if (isFlagshipCase(caseFromQuery)) {
-      router.replace(`/${validLang}/portfolio/${caseFromQuery}`);
-    }
-  }, [searchParams, casesData, router, validLang]);
+  const handleCaseQuery = useCallback(
+    (caseFromQuery: string | null) => {
+      if (!caseFromQuery) {
+        setPreviewCaseId(null);
+        return;
+      }
+      if (casesData[caseFromQuery] && !isFlagshipCase(caseFromQuery)) {
+        setPreviewCaseId(caseFromQuery);
+        return;
+      }
+      if (isFlagshipCase(caseFromQuery)) {
+        router.replace(`/${validLang}/portfolio/${caseFromQuery}`);
+      }
+    },
+    [casesData, router, validLang]
+  );
 
   const filtered =
     selectedCategory === 'all'
@@ -87,6 +103,9 @@ export default function Portfolio({ onOrderClick }: PortfolioProps) {
 
   return (
     <div className="min-h-screen bg-white">
+      <Suspense fallback={null}>
+        <CaseQueryWatcher onCaseChange={handleCaseQuery} />
+      </Suspense>
       <section className="relative overflow-hidden bg-black pb-8 pt-16 text-white md:pb-12 md:pt-24">
         <div
           className="pointer-events-none absolute -right-24 top-1/4 z-[5] h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.22)_0%,transparent_70%)] blur-3xl"
@@ -133,7 +152,7 @@ export default function Portfolio({ onOrderClick }: PortfolioProps) {
               <p className="mb-2 text-xs font-normal tracking-[0.2em] text-gray-400">
                 {t.portfolio.website}
               </p>
-              <h3 className="text-xl font-black sm:text-2xl">{t.portfolio.featuredProject}</h3>
+              <h2 className="text-xl font-black sm:text-2xl">{t.portfolio.featuredProject}</h2>
             </div>
           </div>
         </div>

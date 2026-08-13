@@ -9,6 +9,7 @@ import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { SITE_PX } from '@/lib/siteLayout';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
 export default function PrivacyPage() {
   const params = useParams();
@@ -58,7 +59,7 @@ export default function PrivacyPage() {
       <StructuredData
         type="breadcrumb"
         breadcrumbs={[
-          { name: t.nav.brand, url: `/${lang}` },
+          { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
           { name: t.footer.privacy, url: `/${lang}/privacy` },
         ]}
       />

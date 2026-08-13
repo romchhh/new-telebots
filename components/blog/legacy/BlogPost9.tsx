@@ -3,6 +3,7 @@
 
 
 import { getLegacyHeroImage } from '@/lib/blog/legacy-meta';
+import LegacyBlogHero from './LegacyBlogHero';
 import React from 'react';
 import { FaTelegram, FaMoneyBillWave, FaChartBar, FaCogs, FaBullseye, FaRocket, FaUsers, FaShoppingCart } from 'react-icons/fa';
 import BlogLegacyButton from './BlogLegacyButton';
@@ -191,7 +192,7 @@ class MarketingAutomation {
     <div className="max-w-4xl mx-auto">
       <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Інтеграція штучного інтелекту в Telegram боти: Повний посібник 2026</h1>
       
-      <img src={getLegacyHeroImage(9)} alt="Інтеграція штучного інтелекту в Telegram боти" className="w-full h-72 object-cover mb-6 rounded-lg shadow-md" />
+      <LegacyBlogHero legacyId={9} alt="Інтеграція штучного інтелекту в Telegram боти" />
       
       <div className="text-lg text-gray-700 space-y-6">
         <p className="font-semibold text-xl">
