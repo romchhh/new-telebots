@@ -20,16 +20,16 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
     case 'chatbots':
       return {
         title: u(
-          'Послуги розробки чат-ботів і Telegram-ботів | від $100',
-          'Chatbot & Telegram bot services | from $100',
-          'Usługi chatbotów i botów Telegram | od $100',
-          'Услуги разработки чат-ботов и Telegram-ботов | от $100'
+          'Чат-боти купити | Розробка Telegram-ботів від $100',
+          'Buy chatbots | Telegram bot development from $100',
+          'Kup chatboty | Boty Telegram od $100',
+          'Чат-боты купить | Разработка Telegram-ботов от $100'
         ),
         description: u(
-          'Чат-бот для бізнесу з оплатою, CRM і AI від $100. Замовити розробку Telegram-бота: старт за 24 год, 200+ проєктів. Безкоштовна консультація — TeleBots.',
-          'Business chatbot with payments, CRM and AI from $100. Order Telegram bot development: kickoff in 24h, 200+ projects. Free consultation — TeleBots.',
-          'Chatbot biznesowy z płatnościami, CRM i AI od $100. Bot Telegram pod klucz: start w 24h, 200+ projektów. Darmowa konsultacja — TeleBots.',
-          'Чат-бот для бизнеса с оплатой, CRM и AI от $100. Заказать Telegram-бота: старт за 24 ч, 200+ проектов. Бесплатная консультация — TeleBots.'
+          'Чат-боти купити під ключ: розробка чат-ботів ціна від $100. Telegram з оплатою, CRM, AI. 200+ проєктів. Безкоштовна консультація — TeleBots agency Ukraine.',
+          'Buy business chatbots turnkey from $100. Telegram with payments, CRM, AI. 200+ projects. Free consultation — TeleBots agency Ukraine.',
+          'Kup chatboty biznesowe pod klucz od $100. Telegram z płatnościami, CRM, AI. 200+ projektów — TeleBots.',
+          'Чат-боты купить под ключ от $100. Telegram с оплатой, CRM, AI. 200+ проектов — TeleBots agency Ukraine.'
         ),
         openGraphTitle: u(
           'Розробка Telegram-ботів під ключ',
@@ -44,7 +44,7 @@ function getServiceSEO(serviceId: ServiceId, lang: Language): ServiceSeoMeta {
           'Автоматизация продаж и поддержки через Telegram-бота: оплата, CRM, AI — от 24 часов.'
         ),
         keywords: u(
-          'замовити телеграм бота, розробка Telegram-бота, чат-бот для бізнесу, чат-бот майстер для бізнесу, чат бот ціна, розробка чат ботів ціна, бот з оплатою, CRM для бота, AI чат-бот, TeleBots',
+          'чат боти купити, замовити телеграм бота, розробка Telegram-бота, чат-бот для бізнесу, чат бот ціна, розробка чат ботів ціна, telegram бот на замовлення, бот з оплатою, CRM для бота, AI чат-бот, TeleBots agency Ukraine',
           'order telegram bot, Telegram bot development, business chatbot, bot payments, CRM bot integration, AI chatbot, turnkey bot, TeleBots',
           'zamów bota Telegram, rozwój bota Telegram, chatbot biznesowy, płatności w bocie, CRM, chatbot AI, TeleBots',
           'заказать телеграм бота, разработка Telegram-бота, чат-бот для бизнеса, оплата в боте, CRM, AI чат-бот, TeleBots'

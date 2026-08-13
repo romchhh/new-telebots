@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -21,6 +22,44 @@ import FaqAccordion from '@/components/FaqAccordion';
 import { getPricingKey } from '@/app/[lang]/services/[serviceId]/metadata';
 import type { ServiceId } from '@/app/[lang]/services/[serviceId]/metadata';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
+import {
+  PRICING_GALLERY_IMAGES,
+  PRICING_HERO_IMAGE,
+  PRICING_SECTION_IMAGES,
+} from '@/lib/pricingPageMedia';
+
+const display = { fontFamily: 'var(--font-display)' };
+
+function PricingImage({
+  src,
+  alt,
+  className = '',
+  priority = false,
+  aspectClass = 'aspect-[4/3]',
+  sizes = '(max-width: 1024px) 100vw, 50vw',
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  priority?: boolean;
+  aspectClass?: string;
+  sizes?: string;
+}) {
+  return (
+    <div className={`relative overflow-hidden rounded-2xl bg-zinc-100 ${aspectClass} ${className}`}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        fetchPriority={priority ? 'high' : undefined}
+        className="object-cover"
+        sizes={sizes}
+        quality={85}
+      />
+    </div>
+  );
+}
 
 function CtaCluster({
   lang,
@@ -173,14 +212,63 @@ export default function PricingPage() {
         />
 
         <main id="main-content">
-          <section className={`pt-24 md:pt-28 pb-16 md:pb-24 bg-white border-b border-gray-100 ${SITE_PX}`}>
+          <section className={`relative overflow-hidden border-b border-gray-100 bg-white pt-24 md:pt-28 ${SITE_PX}`}>
+            <div
+              className="pointer-events-none absolute inset-0 z-0"
+              style={{
+                backgroundImage: `
+                  linear-gradient(90deg, rgba(0,0,0,0.055) 1px, transparent 1px),
+                  linear-gradient(rgba(0,0,0,0.055) 1px, transparent 1px)
+                `,
+                backgroundSize: '52px 52px',
+              }}
+              aria-hidden
+            />
+            <div
+              className="pointer-events-none absolute -right-24 top-1/4 z-0 h-[min(60vw,420px)] w-[min(60vw,420px)] rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.12)_0%,transparent_70%)] blur-3xl"
+              aria-hidden
+            />
+            <article className={`relative z-10 ${SITE_INNER} pb-12 md:pb-16`}>
+              <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+                <div>
+                  <h1
+                    className="mb-6 text-4xl font-black leading-tight text-black lg:text-5xl xl:text-6xl"
+                    style={display}
+                  >
+                    {p.h1}
+                  </h1>
+                  <p className="mb-8 max-w-3xl text-xl font-semibold leading-snug text-gray-800 md:text-2xl">
+                    {p.subtitle}
+                  </p>
+                  <CtaCluster lang={lang} p={p} onConsult={() => openModal()} />
+                </div>
+                <PricingImage src={PRICING_HERO_IMAGE} alt={p.h1} priority aspectClass="aspect-[4/3] lg:aspect-[5/4]" />
+              </div>
+            </article>
+          </section>
+
+          <section className={`pb-16 md:pb-24 bg-white ${SITE_PX}`}>
             <article className={SITE_INNER}>
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-black text-black leading-tight mb-6">{p.h1}</h1>
-              <p className="text-xl md:text-2xl text-gray-800 font-semibold leading-snug mb-8 max-w-3xl">{p.subtitle}</p>
               <p className="text-lg text-gray-800 leading-relaxed font-semibold mb-6">{p.intro}</p>
               <p className="text-lg text-gray-700 leading-relaxed mb-10">{p.introSecondary}</p>
 
-              <CtaCluster lang={lang} p={p} onConsult={() => openModal()} className="mb-14" />
+              <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+                {PRICING_GALLERY_IMAGES.map((src, index) => {
+                  const section = p.sections[index];
+                  const label = section
+                    ? t.services[getPricingKey(section.id as ServiceId)].categoryLabel
+                    : p.h1;
+                  return (
+                    <PricingImage
+                      key={src}
+                      src={src}
+                      alt={label}
+                      aspectClass="aspect-[16/10]"
+                      sizes="(max-width: 640px) 100vw, 33vw"
+                    />
+                  );
+                })}
+              </div>
 
               <p className="text-base text-gray-700 leading-relaxed mb-14 border-l-4 border-brand pl-6 py-2">
                 {p.paymentAndEstimate}
@@ -229,17 +317,33 @@ export default function PricingPage() {
                 </ul>
               </div>
 
-              {p.sections.map((section) => {
+              {p.sections.map((section, sectionIndex) => {
                 const pricingData = t.services[getPricingKey(section.id as ServiceId)];
+                const media = PRICING_SECTION_IMAGES[section.id];
+                const imageLeft = sectionIndex % 2 === 0;
                 return (
                   <section
                     key={section.id}
                     id={section.id}
                     className="mb-16 md:mb-24 pb-16 border-b border-gray-200 last:border-b-0"
                   >
-                    <p className="mb-8 max-w-3xl text-lg font-medium leading-relaxed text-gray-800">
-                      {section.plansNote}
-                    </p>
+                    <div
+                      className={`mb-10 grid items-start gap-8 lg:grid-cols-2 lg:gap-12 ${
+                        imageLeft ? '' : 'lg:[&>*:first-child]:order-2 lg:[&>*:last-child]:order-1'
+                      }`}
+                    >
+                      <PricingImage
+                        src={media.primary}
+                        alt={pricingData.categoryLabel}
+                        aspectClass="aspect-[4/3] lg:aspect-[5/4]"
+                      />
+                      <div>
+                        <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+                          {pricingData.categoryLabel}
+                        </h2>
+                        <p className="text-lg font-medium leading-relaxed text-gray-800">{section.plansNote}</p>
+                      </div>
+                    </div>
                     <PricingTable
                       pricing={pricingData}
                       lang={lang}
@@ -253,6 +357,13 @@ export default function PricingPage() {
                           <li key={i}>{item}</li>
                         ))}
                       </ul>
+                      <PricingImage
+                        src={media.secondary}
+                        alt={pricingData.categoryLabel}
+                        aspectClass="aspect-[21/9] md:aspect-[2.4/1]"
+                        sizes="100vw"
+                        className="mb-8"
+                      />
                       {section.paragraphs.map((para, i) => (
                         <p key={i} className="text-gray-700 leading-relaxed mb-4 last:mb-0">
                           {para}

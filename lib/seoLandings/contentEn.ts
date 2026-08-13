@@ -1,6 +1,11 @@
 import type { SeoLandingCopy, SeoLandingSlug } from './types';
 
-type AllLandings = Record<SeoLandingSlug, SeoLandingCopy>;
+type CoreSeoLandingSlug = Exclude<
+  SeoLandingSlug,
+  'chatbots-buy' | 'chatbot-development-price' | 'telegram-bot-order-price'
+>;
+
+type AllLandings = Record<CoreSeoLandingSlug, SeoLandingCopy>;
 
 export const EN_SEO_LANDINGS: AllLandings = {
   'telegram-bots': {

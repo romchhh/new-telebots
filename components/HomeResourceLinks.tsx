@@ -23,6 +23,28 @@ export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps
   const links = [
     { href: `/${lang}/pricing`, label: copy.pricing },
     {
+      href: `/${lang}/solutions/chatbots-buy`,
+      label:
+        lang === 'uk'
+          ? 'Чат-боти купити'
+          : lang === 'en'
+            ? 'Buy chatbots'
+            : lang === 'pl'
+              ? 'Kup chatboty'
+              : 'Чат-боты купить',
+    },
+    {
+      href: `/${lang}/solutions/chatbot-development-price`,
+      label:
+        lang === 'uk'
+          ? 'Розробка чат-ботів ціна'
+          : lang === 'en'
+            ? 'Chatbot development price'
+            : lang === 'pl'
+              ? 'Cena chatbotów'
+              : 'Разработка чат-ботов цена',
+    },
+    {
       href: `/${lang}/solutions/telegram-bots`,
       label:
         copy.telegramBots ||

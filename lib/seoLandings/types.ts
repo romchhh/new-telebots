@@ -4,6 +4,9 @@ export const SEO_LANDING_SLUGS = [
   'online-stores',
   'ai-chatbots',
   'data-parsers',
+  'chatbots-buy',
+  'chatbot-development-price',
+  'telegram-bot-order-price',
 ] as const;
 
 export type SeoLandingSlug = (typeof SEO_LANDING_SLUGS)[number];
@@ -59,6 +62,9 @@ export const SEO_LANDING_RELATED_SERVICE: Record<SeoLandingSlug, SeoLandingRelat
   'online-stores': 'websites',
   'ai-chatbots': 'chatbots',
   'data-parsers': null,
+  'chatbots-buy': 'chatbots',
+  'chatbot-development-price': 'chatbots',
+  'telegram-bot-order-price': 'chatbots',
 };
 
 export const SEO_LANDING_IMAGE: Record<SeoLandingSlug, string> = {
@@ -67,6 +73,9 @@ export const SEO_LANDING_IMAGE: Record<SeoLandingSlug, string> = {
   'online-stores': '/services/services-websites.jpg',
   'ai-chatbots': '/services/services-chatbots.jpg',
   'data-parsers': '/services/services-parsers.jpg',
+  'chatbots-buy': '/services/services-chatbots.jpg',
+  'chatbot-development-price': '/services/services-chatbots.jpg',
+  'telegram-bot-order-price': '/services/services-chatbots.jpg',
 };
 
 export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
@@ -140,5 +149,56 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero-macbook.jpg',
     ],
     caseIds: ['carbit', 'normalnoauto', 'tradeground-bot', 'flixmarket', 'wayofprocessing', 'applum-bot'],
+  },
+  'chatbots-buy': {
+    hero: '/services/services-chatbots.jpg',
+    secondary: '/other/about-hero-macbook.jpg',
+    gallery: [
+      '/services/services-chatbots.jpg',
+      '/other/about-hero-macbook.jpg',
+      '/other/archive-iphone.jpg',
+    ],
+    caseIds: [
+      'tradeground-bot',
+      'dr-tolstikova-bot',
+      'applum-bot',
+      'flixmarket',
+      'cosmy',
+      'vevyne-dating-bot',
+    ],
+  },
+  'chatbot-development-price': {
+    hero: '/services/services-chatbots.jpg',
+    secondary: '/other/about-hero-macbook.jpg',
+    gallery: [
+      '/services/services-chatbots.jpg',
+      '/other/about-hero-macbook.jpg',
+      '/other/archive-iphone.jpg',
+    ],
+    caseIds: [
+      'tradeground-bot',
+      'dr-tolstikova-bot',
+      'applum-bot',
+      'flixmarket',
+      'cosmy',
+      'smart-bodycourse-bot',
+    ],
+  },
+  'telegram-bot-order-price': {
+    hero: '/services/services-chatbots.jpg',
+    secondary: '/other/archive-iphone.jpg',
+    gallery: [
+      '/services/services-chatbots.jpg',
+      '/other/archive-iphone.jpg',
+      '/other/about-hero-macbook.jpg',
+    ],
+    caseIds: [
+      'tradeground-bot',
+      'applum-bot',
+      'flixmarket',
+      'cosmy',
+      'vevyne-dating-bot',
+      'journey-zavadska',
+    ],
   },
 };

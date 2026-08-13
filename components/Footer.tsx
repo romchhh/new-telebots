@@ -68,6 +68,17 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
+                  <Link href={`/${currentLanguage}/solutions/chatbots-buy`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'Buy chatbots'
+                      : currentLanguage === 'pl'
+                        ? 'Kup chatboty'
+                        : currentLanguage === 'ru'
+                          ? 'Чат-боты купить'
+                          : 'Чат-боти купити'}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${currentLanguage}/solutions/telegram-bots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {currentLanguage === 'en'
                       ? 'Telegram bots'

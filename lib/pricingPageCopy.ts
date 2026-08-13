@@ -48,11 +48,11 @@ export interface PricingPageCopy {
 
 export const pricingPageCopy: Record<Language, PricingPageCopy> = {
   uk: {
-    metaTitle: 'Ціни на чат-боти та Telegram-ботів | від $100',
+    metaTitle: 'Розробка чат-ботів ціна | Telegram-боти від $100',
     metaDescription:
-      'Чат-бот для бізнесу від $100, Telegram-бот з оплатою від $200, лендінг від $150, інтернет-магазин від $400. Прозорі тарифи LITE/PRO/CUSTOM. Безкоштовна консультація та оцінка проєкту.',
+      'Розробка чат-ботів ціна від $100: чат-боти купити під ключ, Telegram з оплатою від $200. LITE/PRO/CUSTOM. 200+ проєктів. Безкоштовна консультація — TeleBots agency Ukraine.',
     metaKeywords:
-      'чат бот ціна, розробка чат ботів ціна, вартість телеграм бота, ціни розробка сайту київ, лендинг ціна україна, чат-бот замовити вартість, розробка інтернет магазину ціна, UI UX дизайн вартість, стоимость чат бота',
+      'чат бот ціна, розробка чат ботів ціна, чат боти купити, вартість телеграм бота, telegram бот на замовлення ціна, чат-бот замовити вартість, TeleBots',
     h1: 'Ціни на розробку сайтів і Telegram-ботів',
     subtitle:
       'Прозорі діапазони бюджету для сайтів, ботів і дизайну: орієнтуйтесь у вилках, а точну суму отримайте після брифу та узгодженого ТЗ.',
@@ -184,16 +184,17 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
     resourceLinksTitle: 'Корисні матеріали',
     resourceLinks: [
+      { label: 'Чат-боти купити', href: '/uk/solutions/chatbots-buy' },
+      { label: 'Розробка чат-ботів ціна', href: '/uk/solutions/chatbot-development-price' },
+      { label: 'Telegram-бот на замовлення', href: '/uk/solutions/telegram-bot-order-price' },
       { label: 'Telegram-бот для бізнесу 2026', href: '/uk/blog/telegram-bot-dlya-biznesu-2026' },
-      { label: 'Скільки коштує Telegram-бот', href: '/uk/blog/skilky-koshtuye-telegram-bot' },
-      { label: 'Скільки коштує сайт', href: '/uk/blog/skilky-koshtuye-sayt' },
       { label: 'Розробка чат-ботів', href: '/uk/services/chatbots' },
     ],
   },
   en: {
-    metaTitle: 'Chatbot & Telegram bot pricing | from $100',
+    metaTitle: 'Chatbot development price | Telegram bots from $100',
     metaDescription:
-      'Business chatbot from $100, Telegram bot with payments from $200, landing from $150, online store from $400. Transparent LITE/PRO/CUSTOM tiers. Free consultation and project estimate.',
+      'Chatbot development price from $100. Buy turnkey Telegram bots, payments from $200. LITE/PRO/CUSTOM. 200+ projects. Free consultation — TeleBots agency Ukraine.',
     metaKeywords:
       'telegram bot price, chatbot development cost, website development cost Ukraine, landing page pricing, ecommerce development quote, UI UX design cost, chatbot development estimate',
     h1: 'Pricing and cost estimates',
@@ -327,9 +328,11 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
     resourceLinksTitle: 'Related guides',
     resourceLinks: [
+      { label: 'Buy chatbots', href: '/en/solutions/chatbots-buy' },
+      { label: 'Chatbot development price', href: '/en/solutions/chatbot-development-price' },
+      { label: 'Custom Telegram bot cost', href: '/en/solutions/telegram-bot-order-price' },
       { label: 'Telegram bot development', href: '/en/solutions/telegram-bots' },
-      { label: 'Landing pages', href: '/en/solutions/landing-pages' },
-      { label: 'Chatbot development services', href: '/en/services/chatbots' },
+      { label: 'Chatbot services', href: '/en/services/chatbots' },
     ],
   },
   pl: {
@@ -469,8 +472,10 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
     resourceLinksTitle: 'Powiązane materiały',
     resourceLinks: [
+      { label: 'Kup chatboty', href: '/pl/solutions/chatbots-buy' },
+      { label: 'Cena rozwoju chatbotów', href: '/pl/solutions/chatbot-development-price' },
+      { label: 'Bot Telegram na zamówienie', href: '/pl/solutions/telegram-bot-order-price' },
       { label: 'Boty Telegram', href: '/pl/solutions/telegram-bots' },
-      { label: 'Landing pages', href: '/pl/solutions/landing-pages' },
       { label: 'Rozwój chatbotów', href: '/pl/services/chatbots' },
     ],
   },
@@ -611,8 +616,10 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
     resourceLinksTitle: 'Полезные материалы',
     resourceLinks: [
+      { label: 'Чат-боты купить', href: '/ru/solutions/chatbots-buy' },
+      { label: 'Разработка чат-ботов цена', href: '/ru/solutions/chatbot-development-price' },
+      { label: 'Telegram-бот на заказ', href: '/ru/solutions/telegram-bot-order-price' },
       { label: 'Telegram-боты', href: '/ru/solutions/telegram-bots' },
-      { label: 'Лендинги', href: '/ru/solutions/landing-pages' },
       { label: 'Разработка чат-ботов', href: '/ru/services/chatbots' },
     ],
   },

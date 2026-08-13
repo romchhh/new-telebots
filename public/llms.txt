@@ -25,11 +25,15 @@ TeleBots (telebots.site; ФОП Федонюк Роман Ігорович, ЄД
 
 ## Solutions (SEO landings)
 
+- [Buy chatbots (UK)](https://telebots.site/uk/solutions/chatbots-buy): High-intent — buy business chatbots from $100
+- [Chatbot development price (UK)](https://telebots.site/uk/solutions/chatbot-development-price): Pricing-focused landing
+- [Custom Telegram bot cost (UK)](https://telebots.site/uk/solutions/telegram-bot-order-price): Order cost and FAQ
 - [Telegram bot development](https://telebots.site/uk/solutions/telegram-bots): Turnkey Telegram bots from $100
 - [Landing page development](https://telebots.site/uk/solutions/landing-pages): Conversion landings from $150
 - [Online store development](https://telebots.site/uk/solutions/online-stores): Custom e-commerce from $400
 - [AI chatbots](https://telebots.site/uk/solutions/ai-chatbots): GPT-powered support and sales bots
 - [Data parsers](https://telebots.site/uk/solutions/data-parsers): Scrapers and data collection tools
+- [Site for $200 offer (UK)](https://telebots.site/uk/offer): Free prototype + fixed $200 package
 
 ## Service detail pages
 
