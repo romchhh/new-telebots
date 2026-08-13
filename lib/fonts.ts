@@ -1,23 +1,15 @@
-import { Manrope, Montserrat, Unbounded } from 'next/font/google';
+import { Manrope, Montserrat } from 'next/font/google';
 
 /**
- * Ваги не вказуємо навмисно: усі три сімейства мають варіативні версії,
+ * Ваги не вказуємо навмисно: сімейства мають варіативні версії,
  * тож Google віддає один файл на сабсет замість окремого файлу на кожну вагу.
  */
 
-/** Основний текст / UI — без preload, щоб не конкурувати з LCP-зображенням */
+/** Основний текст / UI та заголовки поза hero */
 export const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
   variable: '--font-manrope',
-  preload: false,
-});
-
-/** Заголовки поза hero */
-export const unbounded = Unbounded({
-  subsets: ['latin', 'cyrillic'],
-  display: 'swap',
-  variable: '--font-unbounded',
   preload: false,
 });
 
@@ -29,4 +21,4 @@ export const montserrat = Montserrat({
   preload: true,
 });
 
-export const fontVariables = `${manrope.variable} ${unbounded.variable} ${montserrat.variable}`;
+export const fontVariables = `${manrope.variable} ${montserrat.variable}`;

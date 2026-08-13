@@ -28,7 +28,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-unbounded), var(--font-manrope), sans-serif;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
   /* Brand accent — світлий рожевий */
   --brand: #f472b6;
   --brand-light: #f9a8d4;
@@ -44,7 +44,7 @@
   --color-brand-dark: var(--brand-dark);
   --color-brand-soft: var(--brand-soft);
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-unbounded), var(--font-manrope), sans-serif;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -72,7 +72,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Заголовки поза hero — Unbounded; hero перевизначає через --font-montserrat */
+/* Заголовки поза hero — Manrope; hero перевизначає через --font-montserrat */
 h1,
 h2,
 h3,
