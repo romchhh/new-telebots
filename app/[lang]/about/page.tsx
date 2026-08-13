@@ -11,6 +11,7 @@ import OrderCtaPill from '@/components/OrderCtaPill';
 import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
 import { sendToTelegram } from '@/lib/telegram';
+import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { legal } from '@/lib/legal';
@@ -87,7 +88,7 @@ export default function AboutPage() {
       closeModal();
       setIsSuccessOpen(true);
     } else {
-      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+      alert(SUBMIT_ERROR[lang]);
     }
   };
 

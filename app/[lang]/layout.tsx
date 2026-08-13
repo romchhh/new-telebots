@@ -1,5 +1,10 @@
 import { notFound } from 'next/navigation';
+import SiteHtmlShell from '@/components/SiteHtmlShell';
 import { SITE_LANGUAGES } from '@/lib/site';
+
+export function generateStaticParams() {
+  return SITE_LANGUAGES.map((lang) => ({ lang }));
+}
 
 export default async function LangLayout({
   children,
@@ -12,5 +17,5 @@ export default async function LangLayout({
   if (!SITE_LANGUAGES.includes(lang as (typeof SITE_LANGUAGES)[number])) {
     notFound();
   }
-  return <>{children}</>;
+  return <SiteHtmlShell lang={lang}>{children}</SiteHtmlShell>;
 }

@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { LOCALE_COOKIE_NAME, resolvePreferredLanguage } from '@/lib/locale';
-import { isFlagshipCase, isLightCase } from '@/lib/portfolioCaseTiers';
-import { cases } from '@/components/cases';
+import { isFlagshipCase, isLightCase, isReservedCaseSlug } from '@/lib/portfolioCaseTiers';
 import { CANONICAL_HOST } from '@/lib/site';
 
 /** Постійний редірект (308) — Google передає сигнали на цільовий URL */
@@ -114,8 +113,7 @@ export function middleware(request: NextRequest) {
       target.searchParams.set('case', caseId);
       return permanentRedirect(target);
     }
-    const langCases = (cases as Record<string, Record<string, unknown>>)[lang] || cases.uk;
-    if (!langCases?.[caseId]) {
+    if (isReservedCaseSlug(caseId)) {
       return permanentRedirect(new URL(`/${lang}/portfolio`, request.url));
     }
     return permanentRedirect(new URL(`/${lang}/portfolio/${caseId}`, request.url));
@@ -141,11 +139,8 @@ export function middleware(request: NextRequest) {
       target.searchParams.set('case', caseId);
       return permanentRedirect(target);
     }
-    if (isFlagshipCase(caseId)) {
-      const langCases = (cases as Record<string, Record<string, unknown>>)[lang] || cases.uk;
-      if (!langCases?.[caseId]) {
-        return permanentRedirect(new URL(`/${lang}/portfolio`, request.url));
-      }
+    if (isReservedCaseSlug(caseId)) {
+      return permanentRedirect(new URL(`/${lang}/portfolio`, request.url));
     }
   }
 

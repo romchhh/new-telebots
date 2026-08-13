@@ -12,6 +12,7 @@ import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
+import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 export default function ContactPage() {
@@ -79,7 +80,7 @@ export default function ContactPage() {
       closeModal();
       setIsSuccessOpen(true);
     } else {
-      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+      alert(SUBMIT_ERROR[lang]);
     }
   };
 

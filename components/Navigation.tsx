@@ -8,6 +8,7 @@ import LanguageSelector from './LanguageSelector';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
 import { SITE_PX, SITE_INSET_L } from '@/lib/siteLayout';
+import { BLOG_PATH } from '@/lib/site';
 
 interface NavigationProps {
   isScrolled: boolean;
@@ -108,7 +109,7 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
             <Link href={`/${currentLanguage}/portfolio`} className={navLinkClass}>
               {t.nav.portfolio}
             </Link>
-            <Link href={`/${currentLanguage}/blog`} className={navLinkClass}>
+            <Link href={BLOG_PATH} className={navLinkClass}>
               {t.nav.blog}
             </Link>
             <Link href={`/${currentLanguage}/pricing`} className={navLinkClass}>
@@ -211,7 +212,7 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
               {t.nav.portfolio}
             </Link>
             <Link
-              href={`/${currentLanguage}/blog`}
+              href={BLOG_PATH}
               onClick={() => setIsMenuOpen(false)}
               className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
             >

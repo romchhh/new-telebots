@@ -5,6 +5,10 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  experimental: {
+    // Іконки тягнуться барелем — без цього в бандл потрапляє все сімейство
+    optimizePackageImports: ['lucide-react', 'react-icons'],
+  },
   async redirects() {
     return [
       {

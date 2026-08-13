@@ -20,6 +20,13 @@ const languages = [
   { code: 'pl' as Language, name: 'PL' }
 ];
 
+const CHOOSE_LANGUAGE: Record<Language, string> = {
+  uk: 'Оберіть мову',
+  en: 'Choose language',
+  pl: 'Wybierz język',
+  ru: 'Выберите язык',
+};
+
 export default function LanguageSelector({ lang, setLang, isMobile = false, isScrolled = false, currentLang }: LanguageSelectorProps) {
   const [isOpen, setIsOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -55,7 +62,7 @@ export default function LanguageSelector({ lang, setLang, isMobile = false, isSc
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className={iconClass}
-        aria-label="Оберіть мову"
+        aria-label={CHOOSE_LANGUAGE[currentLanguage]}
         aria-expanded={isOpen}
         aria-haspopup="true"
       >

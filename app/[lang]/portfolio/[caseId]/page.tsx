@@ -10,6 +10,7 @@ import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
+import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { cases } from '@/components/cases';
 import { getCaseHref, isFlagshipCase, isLightCase } from '@/lib/portfolioCases';
 
@@ -101,7 +102,7 @@ export default function CasePageRoute() {
       closeConsultModal();
       setIsSuccessOpen(true);
     } else {
-      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+      alert(SUBMIT_ERROR[lang]);
     }
   };
 

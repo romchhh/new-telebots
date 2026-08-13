@@ -14,6 +14,7 @@ import Footer from '@/components/Footer';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
+import { SUBMIT_ERROR } from '@/lib/formMessages';
 
 // Lazy load модалів для зменшення initial JavaScript bundle
 const OrderModal = lazy(() => import('@/components/OrderModal'));
@@ -74,7 +75,7 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
       closeModal();
       setIsSuccessOpen(true);
     } else {
-      alert("Помилка відправки. Спробуйте ще раз або зв'яжіться з нами безпосередньо.");
+      alert(SUBMIT_ERROR[lang]);
     }
   };
 

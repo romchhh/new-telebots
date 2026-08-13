@@ -10,6 +10,7 @@ import OrderModal from '@/components/OrderModal';
 import SuccessMessage from '@/components/SuccessMessage';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
+import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { getCaseHref, getCasesData, getFlagshipCaseIds } from '@/lib/portfolioCases';
 
 export default function PortfolioPage() {
@@ -87,7 +88,7 @@ export default function PortfolioPage() {
       closeModal();
       setIsSuccessOpen(true);
     } else {
-      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+      alert(SUBMIT_ERROR[lang]);
     }
   };
 

@@ -14,6 +14,7 @@ import SuccessMessage from '@/components/SuccessMessage';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
+import { SUBMIT_ERROR } from '@/lib/formMessages';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 export default function ServicesPage() {
@@ -105,7 +106,7 @@ export default function ServicesPage() {
       setSuccessMessage(t.modal.success);
       setIsSuccessOpen(true);
     } else {
-      alert('Помилка відправки. Спробуйте ще раз або зв\'яжіться з нами безпосередньо.');
+      alert(SUBMIT_ERROR[lang]);
     }
   };
 

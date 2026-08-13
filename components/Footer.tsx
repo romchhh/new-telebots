@@ -7,6 +7,7 @@ import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
 import { legal } from '@/lib/legal';
 import { SITE_PX } from '@/lib/siteLayout';
+import { BLOG_PATH } from '@/lib/site';
 
 interface FooterProps {
   t: typeof import('./translations').translations.uk;
@@ -28,7 +29,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
               <div className="relative h-3 w-auto max-w-[50px]">
                 <Image
                   src="/blacklogo.png"
-                  alt="TeleBots — сайти, боти та e-commerce під ключ"
+                  alt="TeleBots"
                   width={50}
                   height={12}
                   className="h-full w-auto object-contain"
@@ -117,7 +118,7 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
-                  <Link href={`/${currentLanguage}/blog`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.blog} - TeleBots`}>
+                  <Link href={BLOG_PATH} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.blog} - TeleBots`}>
                     {t.nav.blog}
                   </Link>
                 </li>

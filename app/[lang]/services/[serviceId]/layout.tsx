@@ -2,7 +2,13 @@ import { Metadata } from 'next';
 import { translations, Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { getServiceKeyForTranslations, SERVICE_IDS, type ServiceId } from './metadata';
-import { siteUrl as baseUrl } from '@/lib/site';
+import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
+
+export function generateStaticParams() {
+  return SITE_LANGUAGES.flatMap((lang) =>
+    SERVICE_IDS.map((serviceId) => ({ lang, serviceId }))
+  );
+}
 
 type ServiceSeoMeta = {
   title: string;

@@ -4,7 +4,7 @@
  */
 
 /** Активні кейси з картками на хабі — окремі URL /portfolio/[slug]. */
-export const FLAGSHIP_CASE_IDS = [
+export const LIVE_CASE_IDS = [
   'tradeground-bot',
   '13vplus',
   'dr-tolstikova-bot',
@@ -32,7 +32,13 @@ export const FLAGSHIP_CASE_IDS = [
   'kreona',
   'journey-zavadska',
   'vevyne-dating-bot',
-  // SEO-резерв без карток (старі URL → 308 на хаб, поки немає контенту)
+] as const;
+
+/**
+ * SEO-резерв: старі проіндексовані URL без контенту (308 → хаб).
+ * Тримаємо окремо від LIVE_CASE_IDS, щоб middleware не тягнув дані кейсів.
+ */
+export const RESERVED_CASE_IDS = [
   'nutritionist-bot',
   'cats-fresh',
   'webinar-bot',
@@ -45,6 +51,8 @@ export const FLAGSHIP_CASE_IDS = [
   'style-chat-vakhula',
   'landscaper-academy',
 ] as const;
+
+export const FLAGSHIP_CASE_IDS = [...LIVE_CASE_IDS, ...RESERVED_CASE_IDS] as const;
 
 export type FlagshipCaseId = (typeof FLAGSHIP_CASE_IDS)[number];
 
@@ -61,6 +69,7 @@ export const LIGHT_CASE_IDS = [
 
 const FLAGSHIP_SET = new Set<string>(FLAGSHIP_CASE_IDS);
 const LIGHT_SET = new Set<string>(LIGHT_CASE_IDS);
+const RESERVED_SET = new Set<string>(RESERVED_CASE_IDS);
 
 export type PortfolioCaseTier = 'flagship' | 'light';
 
@@ -70,6 +79,11 @@ export function isFlagshipCase(caseId: string): boolean {
 
 export function isLightCase(caseId: string): boolean {
   return LIGHT_SET.has(caseId);
+}
+
+/** Слаг зарезервовано під SEO, але сторінки з контентом ще немає. */
+export function isReservedCaseSlug(caseId: string): boolean {
+  return RESERVED_SET.has(caseId);
 }
 
 /** Усі зарезервовані SEO-слаги (flagship + light). */
