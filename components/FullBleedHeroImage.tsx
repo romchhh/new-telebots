@@ -3,18 +3,10 @@ import Image from 'next/image';
 type FullBleedHeroImageProps = {
   src: string;
   alt: string;
-  /**
-   * Висота кадра. На головній має бути < 100svh: Chrome обнуляє LCP,
-   * якщо площа зображення ≥ площі вьюпорта (NO_LCP у PageSpeed).
-   */
-  imageHeight?: string;
 };
 
-export default function FullBleedHeroImage({
-  src,
-  alt,
-  imageHeight = 'calc(100% - 4px)',
-}: FullBleedHeroImageProps) {
+/** LCP-герой: next/image + priority. Висота < 100% — Chrome не вважає кадр фоном (NO_LCP). */
+export default function FullBleedHeroImage({ src, alt }: FullBleedHeroImageProps) {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-black">
       <Image
@@ -32,7 +24,7 @@ export default function FullBleedHeroImage({
           bottom: 'auto',
           left: 0,
           width: '100%',
-          height: imageHeight,
+          height: 'calc(100% - 4px)',
         }}
       />
     </div>

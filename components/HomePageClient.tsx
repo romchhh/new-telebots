@@ -1,22 +1,22 @@
 'use client';
 
 import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
+import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
-import ServiceHeroSection from '@/components/ServiceHeroSection';
+import HeroSectionContent from '@/components/HeroSectionContent';
 import HomePrinciplesSection from '@/components/HomePrinciplesSection';
-import AboutSection from '@/components/AboutSection';
-import PortfolioSection from '@/components/PortfolioSection';
 import AboutStatsBanner from '@/components/AboutStatsBanner';
 import HomeResourceLinks from '@/components/HomeResourceLinks';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import Footer from '@/components/Footer';
-import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
-import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 
+// Нижче hero — після LCP, щоб не конкурували з героєм за мережу та main thread
+const AboutSection = dynamic(() => import('@/components/AboutSection'), { ssr: false });
+const PortfolioSection = dynamic(() => import('@/components/PortfolioSection'), { ssr: false });
 // Lazy load модалів для зменшення initial JavaScript bundle
 const OrderModal = lazy(() => import('@/components/OrderModal'));
 const SuccessMessage = lazy(() => import('@/components/SuccessMessage'));
@@ -40,12 +40,13 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
   }, [validLang]);
 
   const t = translations[lang];
-  const mainPageFAQs = t.about.faq?.items?.slice(0, 4) || [];
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -82,14 +83,6 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
 
   return (
     <>
-      <StructuredData type="organization" />
-      <StructuredData type="localBusiness" />
-      <StructuredData type="website" />
-      <StructuredData
-        type="breadcrumb"
-        breadcrumbs={[{ name: BREADCRUMB_HOME[lang], url: `/${lang}` }]}
-      />
-      {mainPageFAQs.length > 0 && <StructuredData type="faq" faqs={mainPageFAQs} />}
       <div className="min-h-screen bg-white">
         <a
           href="#main-content"
@@ -109,21 +102,10 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         />
 
         <main id="main-content">
-          <ServiceHeroSection
-            heroBackground={heroBackground}
-            hero={{
-              tagline: t.hero.tagline,
-              title: t.hero.title,
-              subtitle: t.hero.subtitle,
-              intro: t.hero.intro,
-              ctaQuestion: t.hero.ctaQuestion,
-              ctaQuestionShort: t.hero.ctaQuestionShort,
-              startDate: t.hero.startDate,
-              duration: t.hero.duration,
-            }}
-            orderButtonLabel={t.modal.title}
-            onOrderClick={openModal}
-          />
+          <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
+            {heroBackground}
+            <HeroSectionContent t={t} onOrderClick={openModal} />
+          </section>
           <HomePrinciplesSection
             principles={t.about.principles}
             lang={lang}

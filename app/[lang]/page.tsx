@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import HomePageClient from '@/components/HomePageClient';
 import HeroImage from '@/components/HeroImage';
+import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 import { siteUrl as baseUrl } from '@/lib/site';
 
 export async function generateMetadata({
@@ -54,11 +56,25 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
   const { lang: langParam } = await params;
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const t = translations[lang];
+  const mainPageFAQs = t.about.faq?.items?.slice(0, 4) || [];
 
   return (
-    <HomePageClient
-      initialLang={lang}
-      heroBackground={<HeroImage alt={t.hero.backgroundImageAlt} />}
-    />
+    <>
+      <StructuredData type="organization" lang={lang} />
+      <StructuredData type="localBusiness" lang={lang} />
+      <StructuredData type="website" lang={lang} />
+      <StructuredData
+        type="breadcrumb"
+        lang={lang}
+        breadcrumbs={[{ name: BREADCRUMB_HOME[lang], url: `/${lang}` }]}
+      />
+      {mainPageFAQs.length > 0 ? (
+        <StructuredData type="faq" lang={lang} faqs={mainPageFAQs} />
+      ) : null}
+      <HomePageClient
+        initialLang={lang}
+        heroBackground={<HeroImage alt={t.hero.backgroundImageAlt} />}
+      />
+    </>
   );
 }
