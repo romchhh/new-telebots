@@ -2478,4 +2478,5 @@ export const translations = {
 
 export type TranslationKey = keyof typeof translations;
 export type Language = 'uk' | 'en' | 'pl' | 'ru';
+export type SiteCopy = (typeof translations)['uk'];
 

@@ -5,12 +5,12 @@ import { Manrope, Montserrat, Unbounded } from 'next/font/google';
  * тож Google віддає один файл на сабсет замість окремого файлу на кожну вагу.
  */
 
-/** Основний текст / UI */
+/** Основний текст / UI — без preload, щоб не конкурувати з LCP-зображенням */
 export const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
   variable: '--font-manrope',
-  preload: true,
+  preload: false,
 });
 
 /** Заголовки поза hero */
@@ -18,7 +18,7 @@ export const unbounded = Unbounded({
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
   variable: '--font-unbounded',
-  preload: true,
+  preload: false,
 });
 
 /** Hero-секції */

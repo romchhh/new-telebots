@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import HomePageClient from '@/components/HomePageClient';
 import HeroImage from '@/components/HeroImage';
+import HeroSectionOverlay from '@/components/HeroSectionOverlay';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
@@ -60,6 +61,12 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
   return (
     <>
+      <link
+        rel="preload"
+        as="image"
+        href="/other/hero-background.webp"
+        fetchPriority="high"
+      />
       <StructuredData type="organization" lang={lang} />
       <StructuredData type="localBusiness" lang={lang} />
       <StructuredData type="website" lang={lang} />
@@ -73,7 +80,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       ) : null}
       <HomePageClient
         initialLang={lang}
-        heroBackground={<HeroImage alt={t.hero.backgroundImageAlt} />}
+        t={t}
+        hero={
+          <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
+            <HeroImage alt={t.hero.backgroundImageAlt} />
+            <HeroSectionOverlay hero={t.hero} orderLabel={t.modal.title} />
+          </section>
+        }
       />
     </>
   );

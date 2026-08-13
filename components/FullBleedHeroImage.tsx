@@ -5,7 +5,7 @@ type FullBleedHeroImageProps = {
   alt: string;
 };
 
-/** LCP-герой: next/image + priority. Висота < 100% — Chrome не вважає кадр фоном (NO_LCP). */
+/** LCP-герой: прямий .webp без _next/image — файл 19KB, оптимізатор лише додає RTT. */
 export default function FullBleedHeroImage({ src, alt }: FullBleedHeroImageProps) {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden bg-black">
@@ -15,8 +15,8 @@ export default function FullBleedHeroImage({ src, alt }: FullBleedHeroImageProps
         fill
         priority
         fetchPriority="high"
+        unoptimized
         sizes="100vw"
-        quality={75}
         className="object-cover object-top"
         style={{
           top: 0,

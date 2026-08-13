@@ -4,42 +4,41 @@ import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
-import HeroSectionContent from '@/components/HeroSectionContent';
-import HomePrinciplesSection from '@/components/HomePrinciplesSection';
-import AboutStatsBanner from '@/components/AboutStatsBanner';
-import HomeResourceLinks from '@/components/HomeResourceLinks';
-import SiteCtaBand from '@/components/SiteCtaBand';
-import Footer from '@/components/Footer';
-import { translations, Language } from '@/components/translations';
+import { HomeModalProvider } from '@/components/HomeModalProvider';
+import type { Language, SiteCopy } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 
 // Нижче hero — після LCP, щоб не конкурували з героєм за мережу та main thread
 const AboutSection = dynamic(() => import('@/components/AboutSection'), { ssr: false });
 const PortfolioSection = dynamic(() => import('@/components/PortfolioSection'), { ssr: false });
+const HomePrinciplesSection = dynamic(() => import('@/components/HomePrinciplesSection'), { ssr: false });
+const AboutStatsBanner = dynamic(() => import('@/components/AboutStatsBanner'), { ssr: false });
+const HomeResourceLinks = dynamic(() => import('@/components/HomeResourceLinks'), { ssr: false });
+const SiteCtaBand = dynamic(() => import('@/components/SiteCtaBand'), { ssr: false });
+const Footer = dynamic(() => import('@/components/Footer'), { ssr: false });
 // Lazy load модалів для зменшення initial JavaScript bundle
 const OrderModal = lazy(() => import('@/components/OrderModal'));
 const SuccessMessage = lazy(() => import('@/components/SuccessMessage'));
 
 interface HomePageClientProps {
   initialLang: Language;
-  /** Серверний слот: `<HeroImage />` з HTML для LCP */
-  heroBackground: ReactNode;
+  t: SiteCopy;
+  /** Серверний слот: hero-секція з LCP-зображенням і SSR-заголовком */
+  hero: ReactNode;
 }
 
-export default function HomePageClient({ initialLang, heroBackground }: HomePageClientProps) {
+export default function HomePageClient({ initialLang, t, hero }: HomePageClientProps) {
   const params = useParams();
   const langParam = params?.lang as string;
-  const [isScrolled, setIsScrolled] = useState(false);
 
   const validLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const [lang, setLang] = useState<Language>(initialLang);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     setLang(validLang);
   }, [validLang]);
-
-  const t = translations[lang];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -82,7 +81,7 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
   };
 
   return (
-    <>
+    <HomeModalProvider openModal={openModal}>
       <div className="min-h-screen bg-white">
         <a
           href="#main-content"
@@ -102,10 +101,7 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
         />
 
         <main id="main-content">
-          <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
-            {heroBackground}
-            <HeroSectionContent t={t} onOrderClick={openModal} />
-          </section>
+          {hero}
           <HomePrinciplesSection
             principles={t.about.principles}
             lang={lang}
@@ -158,6 +154,6 @@ export default function HomePageClient({ initialLang, heroBackground }: HomePage
           />
         )}
       </Suspense>
-    </>
+    </HomeModalProvider>
   );
 }
