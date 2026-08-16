@@ -21,6 +21,7 @@ export type OrderCtaPillProps = {
   paired?: boolean;
   /** Тінь і рамка — на білому фоні */
   elevated?: boolean;
+  type?: 'button' | 'submit';
 };
 
 const SIZE_STYLES: Record<
@@ -64,6 +65,7 @@ export default function OrderCtaPill({
   variant = 'solid',
   paired = false,
   elevated = false,
+  type = 'button',
 }: OrderCtaPillProps) {
   const s = SIZE_STYLES[size];
   const isOutline = variant === 'outline';
@@ -152,7 +154,7 @@ export default function OrderCtaPill({
 
   return (
     <button
-      type="button"
+      type={type}
       onClick={onClick}
       aria-label={label}
       className={classes}

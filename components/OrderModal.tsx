@@ -4,6 +4,7 @@ import { FormEvent, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { legal } from '@/lib/legal';
+import { WEBMCP_ORDER } from '@/lib/webmcp';
 
 interface OrderModalProps {
   isOpen: boolean;
@@ -63,45 +64,58 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
           {t.modal.title}
         </h2>
 
-        <form onSubmit={handleSubmit} className="flex-1 flex flex-col">
+        <form
+          onSubmit={handleSubmit}
+          className="flex-1 flex flex-col"
+          toolname={WEBMCP_ORDER.toolname}
+          tooldescription={WEBMCP_ORDER.tooldescription}
+        >
           <div className="flex-1 flex flex-col space-y-4 overflow-y-auto pr-1">
             {/* Поле імені */}
             <div>
-              <label className="mb-2 block text-sm font-normal text-brand">
+              <label htmlFor="order-name" className="mb-2 block text-sm font-normal text-brand">
                 {t.modal.name} *
               </label>
               <input
+                id="order-name"
                 type="text"
                 name="name"
                 required
+                autoComplete="name"
                 placeholder={t.modal.namePlaceholder}
+                toolparamdescription={WEBMCP_ORDER.params.name}
                 className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
               />
             </div>
 
             {/* Поле телефону */}
             <div>
-              <label className="mb-2 block text-sm font-normal text-brand">
+              <label htmlFor="order-phone" className="mb-2 block text-sm font-normal text-brand">
                 {t.modal.phone} *
               </label>
               <input
+                id="order-phone"
                 type="tel"
                 name="phone"
                 required
+                autoComplete="tel"
                 placeholder={t.modal.phonePlaceholder}
+                toolparamdescription={WEBMCP_ORDER.params.phone}
                 className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
               />
             </div>
 
             {/* Поле запиту */}
             <div>
-              <label className="mb-2 block text-sm font-normal text-brand">
+              <label htmlFor="order-request" className="mb-2 block text-sm font-normal text-brand">
                 {t.modal.request}
               </label>
               <textarea
+                id="order-request"
                 name="request"
                 rows={3}
                 placeholder={t.modal.requestPlaceholder}
+                toolparamdescription={WEBMCP_ORDER.params.request}
                 className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent resize-none"
               />
             </div>

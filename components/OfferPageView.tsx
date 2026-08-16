@@ -17,6 +17,7 @@ import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/Keyboar
 import { translations, Language } from '@/components/translations';
 import { offerPageCopy, OFFER_TELEGRAM_URL } from '@/lib/offerPageCopy';
 import { sendToTelegram } from '@/lib/telegram';
+import { WEBMCP_OFFER } from '@/lib/webmcp';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 import { getPortfolioCards } from '@/lib/portfolioCards';
 
@@ -457,28 +458,39 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
                 <p className="text-sm leading-relaxed text-gray-500">{p.ctaNote}</p>
               </div>
 
-              <form onSubmit={handleFormSubmit} className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8">
+              <form
+                onSubmit={handleFormSubmit}
+                className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
+                toolname={WEBMCP_OFFER.toolname}
+                tooldescription={WEBMCP_OFFER.tooldescription}
+              >
                 <div className="mb-8">
-                  <label className="mb-2 block text-sm font-normal text-brand">{p.formName} *</label>
+                  <label htmlFor="offer-name" className="mb-2 block text-sm font-normal text-brand">{p.formName} *</label>
                   <input
+                    id="offer-name"
                     type="text"
                     name="name"
                     required
+                    autoComplete="name"
                     value={formData.name}
                     onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
                     placeholder={p.formNamePlaceholder}
+                    toolparamdescription={WEBMCP_OFFER.params.name}
                     className="w-full border-0 border-b-2 border-black bg-transparent py-2 text-base font-normal text-black focus:border-black focus:outline-none"
                   />
                 </div>
                 <div className="mb-10">
-                  <label className="mb-2 block text-sm font-normal text-brand">{p.formPhone} *</label>
+                  <label htmlFor="offer-phone" className="mb-2 block text-sm font-normal text-brand">{p.formPhone} *</label>
                   <input
+                    id="offer-phone"
                     type="tel"
                     name="phone"
                     required
+                    autoComplete="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
                     placeholder={p.formPhonePlaceholder}
+                    toolparamdescription={WEBMCP_OFFER.params.phone}
                     className="w-full border-0 border-b-2 border-black bg-transparent py-2 text-base font-normal text-black focus:border-black focus:outline-none"
                   />
                 </div>
@@ -486,11 +498,8 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
                   <OrderCtaPill
                     size="sm"
                     variant="brand"
+                    type="submit"
                     label={formSending ? '…' : p.formSubmit}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      (e.currentTarget as HTMLElement).closest('form')?.requestSubmit();
-                    }}
                     className="w-full sm:w-auto sm:min-w-[12rem]"
                   />
                   <a

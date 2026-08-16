@@ -274,3 +274,15 @@ img, video, iframe {
   font-display: swap;
 }
 
+/* WebMCP: фокус, коли агент заповнює форму */
+form:tool-form-active {
+  outline: 1px dashed var(--brand);
+  outline-offset: 4px;
+}
+
+button:tool-submit-active,
+input:tool-submit-active {
+  outline: 1px dashed var(--brand-dark);
+  outline-offset: 2px;
+}
+

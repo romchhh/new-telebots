@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react';
 import { sendToTelegram } from '@/lib/telegram';
 import { translations, Language } from '@/components/translations';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
+import { WEBMCP_CONSULTATION } from '@/lib/webmcp';
 
 type T = (typeof translations)['uk'];
 
@@ -62,47 +63,60 @@ export default function ContactFormBlock({
         </h2>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-10">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-10"
+        toolname={WEBMCP_CONSULTATION.toolname}
+        tooldescription={WEBMCP_CONSULTATION.tooldescription}
+      >
         <div>
-          <label className="mb-2 block text-sm font-normal text-brand">
+          <label htmlFor="contact-name" className="mb-2 block text-sm font-normal text-brand">
             {t.contact.name} *
           </label>
           <input
+            id="contact-name"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
+            autoComplete="name"
             placeholder={t.contact.namePlaceholder}
+            toolparamdescription={WEBMCP_CONSULTATION.params.name}
             className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
           />
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-normal text-brand">
+          <label htmlFor="contact-phone" className="mb-2 block text-sm font-normal text-brand">
             {t.contact.phone} *
           </label>
           <input
+            id="contact-phone"
             type="tel"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
             required
+            autoComplete="tel"
             placeholder={t.contact.phonePlaceholder}
+            toolparamdescription={WEBMCP_CONSULTATION.params.phone}
             className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent"
           />
         </div>
 
         <div>
-          <label className="mb-2 block text-sm font-normal text-brand">
+          <label htmlFor="contact-project" className="mb-2 block text-sm font-normal text-brand">
             {t.contact.project}
           </label>
           <textarea
+            id="contact-project"
             name="project"
             value={formData.project}
             onChange={handleChange}
             rows={4}
             placeholder={t.contact.projectPlaceholder}
+            toolparamdescription={WEBMCP_CONSULTATION.params.project}
             className="w-full py-2 text-black font-normal text-base border-0 border-b-2 border-black focus:outline-none focus:border-black bg-transparent resize-none"
           />
         </div>
