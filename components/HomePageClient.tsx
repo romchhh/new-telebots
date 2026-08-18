@@ -1,17 +1,23 @@
 'use client';
 
 import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
+import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-import SiteCtaBand from '@/components/SiteCtaBand';
-import AboutSection from '@/components/AboutSection';
-import PortfolioSection from '@/components/PortfolioSection';
 import { HomeModalProvider } from '@/components/HomeModalProvider';
+import ViewportLazy from '@/components/ViewportLazy';
 import type { Language, SiteCopy } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 
+// Нижче hero — після LCP, щоб не конкурували з героєм за мережу та main thread
+const AboutSection = dynamic(() => import('@/components/AboutSection'), { ssr: false });
+const PortfolioSection = dynamic(() => import('@/components/PortfolioSection'), { ssr: false });
+const HomePrinciplesSection = dynamic(() => import('@/components/HomePrinciplesSection'), { ssr: false });
+const AboutStatsBanner = dynamic(() => import('@/components/AboutStatsBanner'), { ssr: false });
+const HomeResourceLinks = dynamic(() => import('@/components/HomeResourceLinks'), { ssr: false });
+const SiteCtaBand = dynamic(() => import('@/components/SiteCtaBand'), { ssr: false });
+const Footer = dynamic(() => import('@/components/Footer'), { ssr: false });
 const OrderModal = lazy(() => import('@/components/OrderModal'));
 const SuccessMessage = lazy(() => import('@/components/SuccessMessage'));
 
@@ -20,13 +26,9 @@ interface HomePageClientProps {
   t: SiteCopy;
   /** Серверний слот: hero-секція з LCP-зображенням і SSR-заголовком */
   hero: ReactNode;
-  /** Послуги / принципи одразу під hero — в initial HTML */
-  principles: ReactNode;
-  /** Цифри та внутрішні лінки після фото-секцій — теж SSR */
-  afterPortfolio: ReactNode;
 }
 
-export default function HomePageClient({ initialLang, t, hero, principles, afterPortfolio }: HomePageClientProps) {
+export default function HomePageClient({ initialLang, t, hero }: HomePageClientProps) {
   const params = useParams();
   const langParam = params?.lang as string;
 
@@ -107,29 +109,49 @@ export default function HomePageClient({ initialLang, t, hero, principles, after
 
         <main id="main-content">
           {hero}
-          {principles}
-          <AboutSection t={t} onOrderClick={openModal} />
-          <PortfolioSection t={t} />
-          {afterPortfolio}
-          <SiteCtaBand
-            title={t.about.homeCta.title}
-            text={t.about.homeCta.text}
-            contactLabel={t.about.homeCta.contactLabel}
-            pricingLabel={t.about.homeCta.pricingLabel}
-            portfolioLabel={t.about.homeCta.portfolioLabel}
-            pricingHref={`/${lang}/pricing`}
-            portfolioHref={`/${lang}/portfolio`}
-            onContactClick={openModal}
-          />
+          <ViewportLazy minHeight="360px">
+            <HomePrinciplesSection
+              principles={t.about.principles}
+              lang={lang}
+              allServicesLabel={t.about.services}
+              pricingLabel={t.nav.pricing}
+            />
+          </ViewportLazy>
+          <ViewportLazy minHeight="480px">
+            <AboutSection t={t} onOrderClick={openModal} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="520px">
+            <PortfolioSection t={t} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="280px">
+            <AboutStatsBanner t={t} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="320px">
+            <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="240px">
+            <SiteCtaBand
+              title={t.about.homeCta.title}
+              text={t.about.homeCta.text}
+              contactLabel={t.about.homeCta.contactLabel}
+              pricingLabel={t.about.homeCta.pricingLabel}
+              portfolioLabel={t.about.homeCta.portfolioLabel}
+              pricingHref={`/${lang}/pricing`}
+              portfolioHref={`/${lang}/portfolio`}
+              onContactClick={openModal}
+            />
+          </ViewportLazy>
         </main>
 
-        <Footer
-          t={t}
-          lang={lang}
-          setLang={handleLangChange}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
+        <ViewportLazy minHeight="320px" rootMargin="800px">
+          <Footer
+            t={t}
+            lang={lang}
+            setLang={handleLangChange}
+            currentLang={lang}
+            onConsultClick={openModal}
+          />
+        </ViewportLazy>
       </div>
 
       <Suspense fallback={null}>
