@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useParams } from 'next/navigation';
@@ -48,7 +47,7 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
           </Link>
         </div>
 
-        <ZoomingImageBlock t={t} />
+        <FeaturedImageBlock t={t} />
       </div>
 
       <div className="w-full min-w-0 overflow-hidden">
@@ -71,60 +70,10 @@ export default function PortfolioSection({ t }: PortfolioSectionProps) {
   );
 }
 
-function ZoomingImageBlock({ t }: { t: typeof import('./translations').translations.uk }) {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    let raf = 0;
-
-    const updateProgress = () => {
-      const el = containerRef.current;
-      if (!el) return;
-
-      const rect = el.getBoundingClientRect();
-      const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
-
-      const visibleStart = viewportHeight * 0.1;
-      const visibleEnd = viewportHeight * 0.9;
-      const centerY = rect.top + rect.height / 2;
-
-      const raw = rect.height <= 0 ? 0 : (visibleEnd - centerY) / (visibleEnd - visibleStart);
-      const clamped = Math.max(0, Math.min(1, raw));
-      setProgress(clamped);
-    };
-
-    const handleScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(updateProgress);
-    };
-
-    raf = requestAnimationFrame(updateProgress);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleScroll, { passive: true });
-
-    return () => {
-      cancelAnimationFrame(raf);
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('resize', handleScroll);
-    };
-  }, []);
-
-  const peakFactor = 1 - Math.abs(progress - 0.5) * 2;
-  const scale = 1 + peakFactor * 0.15;
-
+function FeaturedImageBlock({ t }: { t: typeof import('./translations').translations.uk }) {
   return (
-    <div
-      className={`relative flex w-full min-w-0 flex-col justify-center py-6 sm:py-8 lg:py-10 ${SITE_PX}`}
-      ref={containerRef}
-    >
-      <div
-        className="relative aspect-[1500/970] w-full overflow-hidden rounded-lg will-change-transform"
-        style={{
-          transform: `scale(${scale})`,
-          transition: 'transform 80ms linear',
-        }}
-      >
+    <div className={`relative flex w-full min-w-0 flex-col justify-center py-6 sm:py-8 lg:py-10 ${SITE_PX}`}>
+      <div className="relative aspect-[1500/970] w-full overflow-hidden rounded-lg">
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/40 via-transparent to-black/80" />
         <Image
           src="/other/portfolio-hero.jpg"

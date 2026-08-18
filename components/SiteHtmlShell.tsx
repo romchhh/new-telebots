@@ -23,9 +23,8 @@ export default function SiteHtmlShell({
         <link rel="manifest" href="/manifest.json" />
         <link rel="alternate" type="application/rss+xml" title="Блог TeleBots" href={`${siteUrl}/feed.xml`} />
 
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.clarity.ms" />
+        <link rel="dns-prefetch" href="https://a.plerdy.com" />
 
         <meta name="theme-color" content="#000000" />
         <meta name="google-site-verification" content="B6RsISu82MaHNjyNFTkfGrgB0SFwQDHLNrlGh0RoQe4" />
@@ -59,33 +58,56 @@ export default function SiteHtmlShell({
         {children}
         <SpeedInsights />
         <Analytics />
-        {/* Analytics після LCP — не блокують first paint / TBT */}
-        <Script id="gtag-loader" strategy="lazyOnload" src="https://www.googletagmanager.com/gtag/js?id=G-7YWVBBJP8X" />
-        <Script id="gtag-config" strategy="lazyOnload">
+        {/* GTM/Clarity/Plerdy після idle або першої дії — інакше дубль gtag з’їдає TBT (~290 мс). */}
+        <Script id="deferred-third-party" strategy="lazyOnload">
           {`window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());
-gtag('config','G-7YWVBBJP8X');
-gtag('config','AW-16801058748');
 window.gtag_report_conversion=function(url){
   var callback=function(){if(typeof url!='undefined'){window.location=url;}};
-  gtag('event','conversion',{'send_to':'AW-16801058748/CPxTCNPDyqAcELyfr8s-','event_callback':callback});
+  dataLayer.push({event:'conversion',send_to:'AW-16801058748/CPxTCNPDyqAcELyfr8s-',eventCallback:callback});
   return false;
-};`}
-        </Script>
-        <Script id="gtm" strategy="lazyOnload">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-N6GS5CQC');`}
-        </Script>
-        <Script id="ms-clarity" strategy="lazyOnload">
-          {`(function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-          })(window, document, "clarity", "script", "vutiawpnrs");`}
+};
+(function(){
+  if(window.__tbThirdParty)return;
+  function load(){
+    if(window.__tbThirdParty)return;
+    window.__tbThirdParty=1;
+    var d=document;
+    function add(src,id){
+      if(d.getElementById(id))return;
+      var s=d.createElement('script');
+      s.async=true;
+      s.id=id;
+      s.src=src;
+      d.head.appendChild(s);
+    }
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N6GS5CQC');
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src='https://www.clarity.ms/tag/'+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window,document,'clarity','script','vutiawpnrs');
+    if(!window.__plerdyCode){
+      window.__plerdyCode=1;
+      window._protocol=location.protocol=='https:'?'https://':'http://';
+      window._site_hash_code='7a3f2a5c9f1dba10f17b0de6967eeca6';
+      window._suid=80207;
+      var p=d.createElement('script');
+      p.async=true;
+      p.referrerPolicy='strict-origin-when-cross-origin';
+      p.src='https://a.plerdy.com/public/js/click/main.js?v='+Date.now();
+      d.head.appendChild(p);
+    }
+  }
+  var events=['scroll','click','touchstart','keydown'];
+  events.forEach(function(e){window.addEventListener(e,load,{once:true,passive:true});});
+  if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:8000});}
+  else{setTimeout(load,8000);}
+})();`}
         </Script>
       </body>
     </html>
