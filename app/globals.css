@@ -86,7 +86,9 @@ h3,
   box-sizing: border-box;
 }
 
-img, video, iframe {
+img:not([data-nimg='fill']),
+video,
+iframe {
   max-width: 100%;
   height: auto;
 }

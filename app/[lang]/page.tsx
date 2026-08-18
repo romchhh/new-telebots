@@ -64,12 +64,6 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
   return (
     <>
-      <link
-        rel="preload"
-        as="image"
-        href="/other/hero-background.webp"
-        fetchPriority="high"
-      />
       <StructuredData type="organization" lang={lang} />
       <StructuredData type="localBusiness" lang={lang} />
       <StructuredData type="website" lang={lang} />
@@ -85,7 +79,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         initialLang={lang}
         t={t}
         hero={
-          <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
+          <section className="relative overflow-hidden bg-black">
             <HeroImage alt={t.hero.backgroundImageAlt} />
             <HeroSectionOverlay hero={t.hero} orderLabel={t.modal.title} />
           </section>

@@ -5,22 +5,22 @@ type FullBleedHeroImageProps = {
   alt: string;
 };
 
-/** LCP-герой: прямий .webp. Висота контейнера < 100% — Chrome не вважає кадр фоном (NO_LCP). */
+/**
+ * Фото в потоці документа, висота < 100svh.
+ * Повноекранний fill Chrome викидає з LCP (NO_LCP у PageSpeed).
+ */
 export default function FullBleedHeroImage({ src, alt }: FullBleedHeroImageProps) {
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-black">
-      <div className="absolute inset-x-0 top-0 h-[calc(100%-4px)]">
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          priority
-          fetchPriority="high"
-          unoptimized
-          sizes="100vw"
-          className="object-cover object-top"
-        />
-      </div>
+    <div className="relative z-0 w-full bg-black" style={{ height: '90svh' }}>
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority
+        fetchPriority="high"
+        sizes="100vw"
+        className="object-cover object-top"
+      />
     </div>
   );
 }
