@@ -38,12 +38,11 @@ export default function ServiceHeroSection({
   const openFromShell = useHomeModal();
   const openModal = onOrderClick ?? openFromShell;
   return (
-    <section className="relative overflow-hidden bg-black">
+    <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
       {heroBackground}
 
-      <div className="absolute inset-0 z-10">
       {/* Ті самі шари затемнення, що на головній */}
-      <div className="absolute inset-0 bg-black/35" aria-hidden />
+      <div className="absolute inset-0 z-10 bg-black/35" aria-hidden />
       <div
         className="absolute inset-0 z-10 bg-gradient-to-t from-black/92 via-black/50 to-black/10"
         aria-hidden
@@ -118,7 +117,6 @@ export default function ServiceHeroSection({
             />
           </div>
         </div>
-      </div>
       </div>
     </section>
   );

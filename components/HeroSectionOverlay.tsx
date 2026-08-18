@@ -13,8 +13,8 @@ const montserrat = { fontFamily: 'var(--font-montserrat)' };
 /** Серверний оверлей hero — h1 у HTML без очікування гідрації HomePageClient. */
 export default function HeroSectionOverlay({ hero, orderLabel }: HeroSectionOverlayProps) {
   return (
-    <div className="absolute inset-0 z-10">
-      <div className="absolute inset-0 bg-black/35" aria-hidden />
+    <>
+      <div className="absolute inset-0 z-10 bg-black/35" aria-hidden />
       <div
         className="absolute inset-0 z-10 bg-gradient-to-t from-black/92 via-black/50 to-black/10"
         aria-hidden
@@ -69,6 +69,6 @@ export default function HeroSectionOverlay({ hero, orderLabel }: HeroSectionOver
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
