@@ -6,12 +6,12 @@ type FullBleedHeroImageProps = {
 };
 
 /**
- * Фото в потоці документа, висота < 100svh.
- * Повноекранний fill Chrome викидає з LCP (NO_LCP у PageSpeed).
+ * Мобільний PageSpeed: кадр < в’юпорта, інакше Chrome дає NO_LCP.
+ * Десктоп — на всю висоту екрана.
  */
 export default function FullBleedHeroImage({ src, alt }: FullBleedHeroImageProps) {
   return (
-    <div className="relative z-0 w-full bg-black" style={{ height: '90svh' }}>
+    <div className="relative z-0 h-[90svh] w-full bg-black md:h-[100svh]">
       <Image
         src={src}
         alt={alt}
