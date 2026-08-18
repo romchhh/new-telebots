@@ -19,7 +19,7 @@ interface ServiceItemProps {
   imagePosition: 'left' | 'right';
   lang: Language;
   t: typeof import('./translations').translations.uk;
-  onOrderClick: (serviceName: string) => void;
+  onOrderClick?: (serviceName: string) => void;
 }
 
 export default function ServiceItem({ serviceKey, image, imagePosition, lang, t, onOrderClick }: ServiceItemProps) {
@@ -53,7 +53,7 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
               size="md"
               variant="brand"
               label={service.button}
-              onClick={() => onOrderClick(service.title)}
+              onClick={onOrderClick ? () => onOrderClick(service.title) : undefined}
               className="w-full sm:flex-1 sm:min-w-0"
             />
             <Link

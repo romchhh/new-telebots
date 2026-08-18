@@ -1,5 +1,3 @@
-'use client';
-
 import KeyboardKeyBadge from '@/components/KeyboardKeyBadge';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 

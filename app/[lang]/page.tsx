@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import HomePageClient from '@/components/HomePageClient';
 import HeroImage from '@/components/HeroImage';
 import HeroSectionOverlay from '@/components/HeroSectionOverlay';
+import HomePrinciplesSection from '@/components/HomePrinciplesSection';
+import AboutStatsBanner from '@/components/AboutStatsBanner';
+import HomeResourceLinks from '@/components/HomeResourceLinks';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
@@ -86,6 +89,20 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <HeroImage alt={t.hero.backgroundImageAlt} />
             <HeroSectionOverlay hero={t.hero} orderLabel={t.modal.title} />
           </section>
+        }
+        principles={
+          <HomePrinciplesSection
+            principles={t.about.principles}
+            lang={lang}
+            allServicesLabel={t.about.services}
+            pricingLabel={t.nav.pricing}
+          />
+        }
+        afterPortfolio={
+          <>
+            <AboutStatsBanner t={t} />
+            <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
+          </>
         }
       />
     </>

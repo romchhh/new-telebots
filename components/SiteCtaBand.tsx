@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import { useHomeModal } from '@/components/HomeModalProvider';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 
 export type SiteCtaBandProps = {
@@ -12,7 +13,7 @@ export type SiteCtaBandProps = {
   portfolioLabel: string;
   pricingHref: string;
   portfolioHref: string;
-  onContactClick: () => void;
+  onContactClick?: () => void;
   className?: string;
 };
 
@@ -28,6 +29,8 @@ export default function SiteCtaBand({
   onContactClick,
   className = '',
 }: SiteCtaBandProps) {
+  const openFromShell = useHomeModal();
+  const openModal = onContactClick ?? openFromShell;
   return (
     <section className={`w-full pb-16 md:pb-24 ${SITE_PX} ${className}`}>
       <div
@@ -51,7 +54,7 @@ export default function SiteCtaBand({
             size="sm"
             variant="brand"
             label={contactLabel}
-            onClick={onContactClick}
+            onClick={openModal}
             className="w-full sm:w-auto sm:min-w-[14rem]"
           />
           <Link

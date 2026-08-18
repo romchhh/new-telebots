@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import PricingPlansGrid from '@/components/PricingPlansGrid';
+import { useHomeModal } from '@/components/HomeModalProvider';
 import { SITE_PX } from '@/lib/siteLayout';
 
 type Plan = {
@@ -45,6 +46,8 @@ export default function PricingTable({
   sectionIndex,
   centerHeader,
 }: PricingTableProps) {
+  const openFromShell = useHomeModal();
+  const openModal = onContactClick ?? openFromShell;
   const sectionPad = embedded ? 'py-8 sm:py-10 px-0' : `py-16 sm:py-20 ${SITE_PX}`;
 
   return (
@@ -87,10 +90,10 @@ export default function PricingTable({
         <div className="mt-10 text-center sm:mt-12">
           <p className="text-base text-gray-600">
             {pricing.contactNote}{' '}
-            {onContactClick ? (
+            {openModal ? (
               <button
                 type="button"
-                onClick={onContactClick}
+                onClick={openModal}
                 className="cursor-pointer font-semibold text-black underline hover:no-underline"
               >
                 {pricing.contactLink}

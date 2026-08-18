@@ -1,4 +1,5 @@
 import OfferPageClient from '@/components/OfferPageClient';
+import SitePageShell from '@/components/SitePageShell';
 import { translations, Language } from '@/components/translations';
 import { offerPageCopy } from '@/lib/offerPageCopy';
 import {
@@ -41,7 +42,9 @@ export default async function OfferPage({ params }: { params: Promise<{ lang: st
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       ))}
-      <OfferPageClient key={lang} initialLang={lang} />
+      <SitePageShell initialLang={lang} t={t} transparentOnLight modalServiceName={p.metaTitle}>
+        <OfferPageClient key={lang} lang={lang} />
+      </SitePageShell>
     </>
   );
 }

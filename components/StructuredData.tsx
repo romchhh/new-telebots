@@ -1,6 +1,3 @@
-'use client';
-
-import { useParams } from 'next/navigation';
 import { Language } from './translations';
 import {
   generateOrganizationSchema,
@@ -33,7 +30,6 @@ interface StructuredDataProps {
   blogModifiedTime?: string;
   blogImage?: string;
   blogSlug?: string;
-  /** Якщо передано — не читаємо lang з useParams (уникає hydration mismatch) */
   lang?: Language;
 }
 
@@ -53,30 +49,25 @@ export default function StructuredData({
   blogModifiedTime,
   blogImage,
   blogSlug,
-  lang: langProp,
+  lang = 'uk',
 }: StructuredDataProps) {
-  const params = useParams();
-  const langParam = params?.lang as string;
-  const paramsLang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
-  const validLang = langProp ?? paramsLang;
-
   let schema = null;
 
   switch (type) {
     case 'organization':
-      schema = generateOrganizationSchema(validLang);
+      schema = generateOrganizationSchema(lang);
       break;
     case 'localBusiness':
-      schema = generateLocalBusinessSchema(validLang);
+      schema = generateLocalBusinessSchema(lang);
       break;
     case 'breadcrumb':
       if (breadcrumbs) {
-        schema = generateBreadcrumbSchema(breadcrumbs, validLang);
+        schema = generateBreadcrumbSchema(breadcrumbs, lang);
       }
       break;
     case 'article':
       if (caseId) {
-        schema = generateArticleSchema(caseId, validLang);
+        schema = generateArticleSchema(caseId, lang);
       }
       break;
     case 'blogPosting':
@@ -85,7 +76,7 @@ export default function StructuredData({
           blogTitle,
           blogDescription,
           blogPublishedTime,
-          validLang,
+          lang,
           {
             modifiedTime: blogModifiedTime,
             image: blogImage,
@@ -96,16 +87,16 @@ export default function StructuredData({
       break;
     case 'service':
       if (serviceName && serviceDescription) {
-        schema = generateServiceSchema(serviceName, serviceDescription, validLang, serviceUrl);
+        schema = generateServiceSchema(serviceName, serviceDescription, lang, serviceUrl);
       }
       break;
     case 'serviceOffer':
       if (serviceName && serviceDescription) {
-        schema = generateServiceOfferSchema(serviceName, serviceDescription, validLang);
+        schema = generateServiceOfferSchema(serviceName, serviceDescription, lang);
       }
       break;
     case 'website':
-      schema = generateWebSiteSchema(validLang);
+      schema = generateWebSiteSchema(lang);
       break;
     case 'faq':
       if (faqs) {
@@ -114,15 +105,15 @@ export default function StructuredData({
       break;
     case 'howTo':
       if (howToSteps) {
-        schema = generateHowToSchema(howToSteps, validLang);
+        schema = generateHowToSchema(howToSteps, lang);
       }
       break;
     case 'contactPage':
-      schema = generateContactPageSchema(validLang);
+      schema = generateContactPageSchema(lang);
       break;
     case 'itemList':
       if (items) {
-        schema = generateItemListSchema(items, validLang);
+        schema = generateItemListSchema(items, lang);
       }
       break;
   }
@@ -136,11 +127,3 @@ export default function StructuredData({
     />
   );
 }
-
-
-
-
-
-
-
-

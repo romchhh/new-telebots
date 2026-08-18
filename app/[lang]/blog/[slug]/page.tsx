@@ -1,5 +1,7 @@
 import { notFound, redirect } from 'next/navigation';
 import BlogPostPageClient from './BlogPostPageClient';
+import SitePageShell from '@/components/SitePageShell';
+import { translations } from '@/components/translations';
 import { getBlogPostBySlug, getAllBlogSlugs } from '@/lib/blog/posts';
 
 /**
@@ -27,5 +29,9 @@ export default async function BlogArticlePage({
   const post = getBlogPostBySlug(slug);
   if (!post) notFound();
 
-  return <BlogPostPageClient post={post} />;
+  return (
+    <SitePageShell initialLang="uk" t={translations.uk} solidHeader>
+      <BlogPostPageClient post={post} />
+    </SitePageShell>
+  );
 }

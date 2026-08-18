@@ -8,6 +8,7 @@ import { Language } from './translations';
 import { legal } from '@/lib/legal';
 import { SITE_PX } from '@/lib/siteLayout';
 import { BLOG_PATH } from '@/lib/site';
+import { offerPageCopy } from '@/lib/offerPageCopy';
 
 interface FooterProps {
   t: typeof import('./translations').translations.uk;
@@ -140,6 +141,11 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
+                  <Link href={`/${currentLanguage}/offer`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {offerPageCopy[currentLanguage].navLabel}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${currentLanguage}/portfolio`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.portfolio} - TeleBots`}>
                     {t.nav.portfolio}
                   </Link>
@@ -238,15 +244,6 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
             </Link>
             <Link href={`/${currentLanguage}/refund`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.refund}
-            </Link>
-            <Link href={`/${currentLanguage}/offer`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
-              {currentLanguage === 'en'
-                ? 'Public offer'
-                : currentLanguage === 'pl'
-                  ? 'Oferta publiczna'
-                  : currentLanguage === 'ru'
-                    ? 'Публичная оферта'
-                    : 'Публічна оферта'}
             </Link>
             <Link href={`/${currentLanguage}/pricing`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
               {t.footer.pricing}

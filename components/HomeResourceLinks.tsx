@@ -1,5 +1,3 @@
-'use client';
-
 import Link from 'next/link';
 import type { Language } from '@/components/translations';
 import { SITE_PX } from '@/lib/siteLayout';

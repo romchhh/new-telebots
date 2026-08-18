@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { X, ExternalLink } from 'lucide-react';
 import type { Language } from '@/components/translations';
 import type { PortfolioCaseData } from '@/lib/portfolioCases';
+import { useHomeModal } from '@/components/HomeModalProvider';
 
 type CasePreviewModalProps = {
   caseId: string;
@@ -28,6 +29,8 @@ export default function CasePreviewModal({
   onClose,
   onOrderClick,
 }: CasePreviewModalProps) {
+  const openFromShell = useHomeModal();
+  const order = onOrderClick ?? openFromShell;
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -137,18 +140,16 @@ export default function CasePreviewModal({
               <ExternalLink className="h-3.5 w-3.5" />
             </a>
           )}
-          {onOrderClick && (
-            <button
-              type="button"
-              onClick={() => {
-                onClose();
-                onOrderClick();
-              }}
-              className="inline-flex flex-1 items-center justify-center rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800 sm:flex-none"
-            >
-              {copy(lang, 'Замовити подібне', 'Order similar', 'Zamów podobne', 'Заказать похожее')}
-            </button>
-          )}
+          <button
+            type="button"
+            onClick={() => {
+              onClose();
+              order();
+            }}
+            className="inline-flex flex-1 items-center justify-center rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-zinc-800 sm:flex-none"
+          >
+            {copy(lang, 'Замовити подібне', 'Order similar', 'Zamów podobne', 'Заказать похожее')}
+          </button>
         </div>
       </div>
     </div>

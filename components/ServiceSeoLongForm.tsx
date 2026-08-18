@@ -1,5 +1,3 @@
-'use client';
-
 import { type ReactNode } from 'react';
 import type { ServiceLongFormBundle, ServiceRichBlock } from '@/lib/servicePagesSeo/types';
 import FaqAccordion from '@/components/FaqAccordion';

@@ -6,6 +6,7 @@ import { getPortfolioCards } from '@/lib/portfolioCards';
 import { getServiceSeoLongForm } from '@/lib/servicePagesSeoContent';
 import { BREADCRUMB_HOME, BREADCRUMB_SERVICES } from '@/lib/breadcrumbLabels';
 import { siteUrl as baseUrl } from '@/lib/site';
+import SitePageShell from '@/components/SitePageShell';
 import ServicePageClient from './ServicePageClient';
 import {
   SERVICE_IDS,
@@ -53,11 +54,12 @@ export default async function ServicePage({
 
   return (
     <>
-      <StructuredData type="organization" />
-      <StructuredData type="localBusiness" />
-      <StructuredData type="breadcrumb" breadcrumbs={breadcrumbs} />
+      <StructuredData type="organization" lang={lang} />
+      <StructuredData type="localBusiness" lang={lang} />
+      <StructuredData type="breadcrumb" lang={lang} breadcrumbs={breadcrumbs} />
       <StructuredData
         type="service"
+        lang={lang}
         serviceName={service.title}
         serviceDescription={service.subtitle}
         serviceUrl={`${baseUrl}/${lang}/services/${serviceId}`}
@@ -65,21 +67,24 @@ export default async function ServicePage({
       {longForm?.faq?.length ? (
         <StructuredData
           type="faq"
+          lang={lang}
           faqs={longForm.faq.map((item) => ({ question: item.question, answer: item.answer }))}
         />
       ) : null}
-      <ServicePageClient
-        initialLang={lang}
-        serviceId={serviceId}
-        cases={cases}
-        longForm={longForm}
-        heroBackground={
-          <FullBleedHeroImage
-            src={SERVICE_IMAGES[serviceId]}
-            alt={`${service.title} — TeleBots`}
-          />
-        }
-      />
+      <SitePageShell initialLang={lang} t={t} modalServiceName={service.title}>
+        <ServicePageClient
+          lang={lang}
+          serviceId={serviceId}
+          cases={cases}
+          longForm={longForm}
+          heroBackground={
+            <FullBleedHeroImage
+              src={SERVICE_IMAGES[serviceId]}
+              alt={`${service.title} — TeleBots`}
+            />
+          }
+        />
+      </SitePageShell>
     </>
   );
 }

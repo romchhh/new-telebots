@@ -1,6 +1,4 @@
-'use client';
-
-import ContactFormBlock from '@/components/ContactFormBlock';
+import ContactFormWithSuccess from '@/components/ContactFormWithSuccess';
 import ContactDetailsColumn from '@/components/ContactDetailsColumn';
 import { translations, Language } from '@/components/translations';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
@@ -10,7 +8,6 @@ type T = (typeof translations)['uk'];
 interface ContactSectionProps {
   t: T;
   lang: Language;
-  onSuccess?: () => void;
   serviceName?: string;
   id?: string;
   /** h1 на /contact, h2 в кінці статті блогу */
@@ -21,7 +18,6 @@ interface ContactSectionProps {
 export default function ContactSection({
   t,
   lang,
-  onSuccess,
   serviceName,
   id = 'contact-form',
   headingLevel = 'h2',
@@ -43,12 +39,7 @@ export default function ContactSection({
 
         <div className="grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
           <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
-            <ContactFormBlock
-              t={t}
-              lang={lang}
-              serviceName={serviceName}
-              onSuccess={onSuccess}
-            />
+            <ContactFormWithSuccess t={t} lang={lang} serviceName={serviceName} />
           </div>
           <div className="mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20">
             <ContactDetailsColumn t={t} />

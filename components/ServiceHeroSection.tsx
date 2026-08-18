@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import HeroStatsCircle from '@/components/HeroStatsCircle';
+import { useHomeModal } from '@/components/HomeModalProvider';
 import { SITE_PX } from '@/lib/siteLayout';
 
 export type ServiceHeroCopy = {
@@ -22,7 +23,7 @@ interface ServiceHeroSectionProps {
   /** @deprecated layout mirrors home — kept for call-site compatibility */
   viewButtonLabel?: string;
   orderButtonLabel: string;
-  onOrderClick: () => void;
+  onOrderClick?: () => void;
   scrollTargetId?: string;
 }
 
@@ -34,6 +35,8 @@ export default function ServiceHeroSection({
   orderButtonLabel,
   onOrderClick,
 }: ServiceHeroSectionProps) {
+  const openFromShell = useHomeModal();
+  const openModal = onOrderClick ?? openFromShell;
   return (
     <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
       {heroBackground}
@@ -109,7 +112,7 @@ export default function ServiceHeroSection({
               eyebrow={hero.ctaQuestion}
               eyebrowMobile={hero.ctaQuestionShort}
               label={orderButtonLabel}
-              onClick={onOrderClick}
+              onClick={openModal}
               className="w-full max-w-full md:w-auto"
             />
           </div>

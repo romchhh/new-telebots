@@ -42,6 +42,17 @@ const nextConfig: NextConfig = {
         destination: '/:lang/pricing',
         permanent: true,
       },
+      // Legacy /case/:id (Google still has old URLs). Light cases get a second hop in middleware.
+      {
+        source: '/case/:id',
+        destination: '/uk/portfolio/:id',
+        permanent: true,
+      },
+      {
+        source: '/:lang(uk|en|pl|ru)/case/:id',
+        destination: '/:lang/portfolio/:id',
+        permanent: true,
+      },
     ];
   },
   images: {

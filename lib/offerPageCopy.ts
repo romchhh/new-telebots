@@ -13,6 +13,7 @@ export type OfferPageCopy = {
   metaDescription: string;
   metaKeywords: string;
   breadcrumb: string;
+  navLabel: string;
   heroEyebrow: string;
   heroTitle: string;
   heroLead: string;
@@ -59,8 +60,9 @@ const uk: OfferPageCopy = {
     'TeleBots agency Ukraine: безкоштовна консультація + прототип сайту. Якщо подобається — доробимо за $200 за 5 робочих днів. Без передоплати.',
   metaKeywords:
     'сайт за 200 доларів, безкоштовний прототип сайту, розробка сайту МСБ, TeleBots agency Ukraine, TeleBots Україна, лендінг Next.js',
-  breadcrumb: 'Пропозиція $200',
-  heroEyebrow: 'Звичайна пропозиція',
+  breadcrumb: 'Офер $200',
+  navLabel: 'Сайт за $200',
+  heroEyebrow: 'Офер · сайт за $200',
   heroTitle: 'Покажемо як виглядатиме ваш сайт — ще до оплати',
   heroLead:
     'Безкоштовна консультація + прототип сайту. Якщо подобається — доробимо за $200. Отримаєш робочий сайт з головною протягом 2 днів і зрозумієш результат ще до будь-якої передоплати.',
@@ -184,8 +186,9 @@ const en: OfferPageCopy = {
   metaDescription:
     'See how your site will look before you pay. Free consultation + live site prototype. If you like it — we finish it for $200 in 5 business days.',
   metaKeywords: 'website for 200 dollars, free site prototype, SMB website, Next.js landing, TeleBots',
-  breadcrumb: '$200 offer',
-  heroEyebrow: 'Standard offer',
+  breadcrumb: '$200 website offer',
+  navLabel: 'Website for $200',
+  heroEyebrow: 'A TeleBots offer · website for $200',
   heroTitle: 'See how your website will look — before you pay',
   heroLead:
     'Free consultation + live site prototype. If you like it — we finish it for $200. You get a working homepage within 2 days and know the result before any deposit.',
@@ -310,7 +313,8 @@ const pl: OfferPageCopy = {
     'Zobacz, jak będzie wyglądać Twoja strona jeszcze przed płatnością. Darmowa konsultacja + prototyp strony. Jeśli pasuje — dokończymy za $200 w 5 dni roboczych.',
   metaKeywords: 'strona za 200 dolarów, darmowy prototyp strony, strona dla MŚP, landing Next.js, TeleBots',
   breadcrumb: 'Oferta $200',
-  heroEyebrow: 'Standardowa oferta',
+  navLabel: 'Strona za $200',
+  heroEyebrow: 'Oferta · strona za $200',
   heroTitle: 'Pokażemy, jak będzie wyglądać Twoja strona — przed płatnością',
   heroLead:
     'Darmowa konsultacja + prototyp strony. Jeśli pasuje — dokończymy za $200. Działającą stronę główną dostaniesz w ciągu 2 dni, zanim wpłacisz cokolwiek.',
@@ -434,8 +438,9 @@ const ru: OfferPageCopy = {
   metaDescription:
     'Покажем, как будет выглядеть ваш сайт ещё до оплаты. Бесплатная консультация + прототип сайта. Если нравится — доработаем за $200 за 5 рабочих дней.',
   metaKeywords: 'сайт за 200 долларов, бесплатный прототип сайта, сайт для МСБ, лендинг Next.js, TeleBots',
-  breadcrumb: 'Предложение $200',
-  heroEyebrow: 'Обычное предложение',
+  breadcrumb: 'Офер $200',
+  navLabel: 'Сайт за $200',
+  heroEyebrow: 'Офер · сайт за $200',
   heroTitle: 'Покажем, как будет выглядеть ваш сайт — ещё до оплаты',
   heroLead:
     'Бесплатная консультация + прототип сайта. Если нравится — доработаем за $200. Рабочий сайт с главной получите за 2 дня и поймёте результат до любой предоплаты.',

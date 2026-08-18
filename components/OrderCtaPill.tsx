@@ -3,6 +3,7 @@
 import type { MouseEvent } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { useHomeModal } from '@/components/HomeModalProvider';
 
 export type OrderCtaPillSize = 'hero' | 'md' | 'sm';
 export type OrderCtaPillVariant = 'solid' | 'outline' | 'dark' | 'brand';
@@ -67,6 +68,15 @@ export default function OrderCtaPill({
   elevated = false,
   type = 'button',
 }: OrderCtaPillProps) {
+  const openFromShell = useHomeModal();
+  const handleClick =
+    onClick ??
+    (href || type === 'submit'
+      ? undefined
+      : (e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+          e.preventDefault();
+          openFromShell();
+        });
   const s = SIZE_STYLES[size];
   const isOutline = variant === 'outline';
   const isDark = variant === 'dark';
@@ -142,7 +152,7 @@ export default function OrderCtaPill({
     return (
       <Link
         href={href}
-        onClick={onClick}
+        onClick={handleClick}
         className={classes}
         aria-label={label}
         style={{ fontFamily: 'var(--font-sans)' }}
@@ -155,7 +165,7 @@ export default function OrderCtaPill({
   return (
     <button
       type={type}
-      onClick={onClick}
+      onClick={handleClick}
       aria-label={label}
       className={classes}
       style={{ fontFamily: 'var(--font-sans)' }}

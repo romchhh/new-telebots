@@ -25,7 +25,7 @@ export const WEBMCP_ORDER = {
 export const WEBMCP_OFFER = {
   toolname: 'submitOfferRequest',
   tooldescription:
-    'Submit a request about the TeleBots public offer. Requires name and phone.',
+    'Submit a request for the TeleBots $200 website offer (free consult + prototype). Requires name and phone.',
   params: {
     name: 'Full name of the person requesting a callback.',
     phone: 'Phone number with country code, for example +380XXXXXXXXX.',

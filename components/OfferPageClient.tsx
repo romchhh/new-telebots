@@ -1,42 +1,20 @@
-'use client';
-
-import { FormEvent, useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import Navigation from '@/components/Navigation';
-import Footer from '@/components/Footer';
-import OrderModal from '@/components/OrderModal';
 import OrderCtaPill from '@/components/OrderCtaPill';
-import SuccessMessage from '@/components/SuccessMessage';
 import FaqAccordion from '@/components/FaqAccordion';
 import OfferUfoBeam from '@/components/OfferUfoBeam';
 import OfferPng from '@/components/OfferPng';
+import OfferLeadForm from '@/components/OfferLeadForm';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import PortfolioCaseCard from '@/components/PortfolioCaseCard';
 import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
-import { translations, Language } from '@/components/translations';
+import { translations, type Language } from '@/components/translations';
 import { offerPageCopy, OFFER_TELEGRAM_URL } from '@/lib/offerPageCopy';
-import { sendToTelegram } from '@/lib/telegram';
-import { WEBMCP_OFFER } from '@/lib/webmcp';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 import { getPortfolioCards } from '@/lib/portfolioCards';
 
 const display = { fontFamily: 'var(--font-display)' } as const;
 
-interface OfferPageClientProps {
-  initialLang: Language;
-}
-
-export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
-  const router = useRouter();
-  const lang = initialLang;
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
-  const [formData, setFormData] = useState({ name: '', phone: '' });
-  const [formSending, setFormSending] = useState(false);
-
+export default function OfferPageClient({ lang }: { lang: Language }) {
   const t = translations[lang];
   const p = offerPageCopy[lang];
 
@@ -50,91 +28,8 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
     { value: '0$', label: lang === 'uk' ? 'до оплати' : lang === 'pl' ? 'przed płatnością' : lang === 'ru' ? 'до оплаты' : 'before payment' },
   ];
 
-  useEffect(() => {
-    const checkScroll = () => setIsScrolled(window.scrollY > 50);
-    window.scrollTo(0, 0);
-    window.addEventListener('scroll', checkScroll, { passive: true });
-    return () => window.removeEventListener('scroll', checkScroll);
-  }, []);
-
-  const handleLangChange = (newLang: Language) => {
-    const currentPath = window.location.pathname;
-    const newPath = currentPath.replace(/^\/(uk|en|pl|ru)/, `/${newLang}`);
-    router.push(newPath);
-  };
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  const handleModalSubmit = async (data: { name: string; phone: string; request: string }) => {
-    const success = await sendToTelegram({
-      name: data.name,
-      phone: data.phone,
-      request: data.request,
-      service: p.metaTitle,
-    });
-    if (success) {
-      closeModal();
-      setSuccessMessage(t.modal.success);
-      setIsSuccessOpen(true);
-    } else {
-      alert(
-        lang === 'uk'
-          ? 'Помилка відправки. Спробуйте ще раз.'
-          : lang === 'pl'
-            ? 'Błąd wysyłki. Spróbuj ponownie.'
-            : lang === 'ru'
-              ? 'Ошибка отправки. Попробуйте ещё раз.'
-              : 'Error sending. Please try again.'
-      );
-    }
-  };
-
-  const scrollToCta = () => {
-    document.getElementById('offer-cta')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  const handleFormSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    if (formSending) return;
-    setFormSending(true);
-    const success = await sendToTelegram({
-      name: formData.name,
-      phone: formData.phone,
-      service: `Offer $200 · ${p.breadcrumb}`,
-    });
-    setFormSending(false);
-    if (success) {
-      setFormData({ name: '', phone: '' });
-      setSuccessMessage(p.formSuccess);
-      setIsSuccessOpen(true);
-    } else {
-      alert(
-        lang === 'uk'
-          ? 'Помилка відправки. Спробуйте ще раз.'
-          : lang === 'pl'
-            ? 'Błąd wysyłki. Spróbuj ponownie.'
-            : lang === 'ru'
-              ? 'Ошибка отправки. Попробуйте ещё раз.'
-              : 'Error sending. Please try again.'
-      );
-    }
-  };
-
   return (
-    <>
-      <div className="min-h-screen bg-white">
-        <Navigation
-          isScrolled={isScrolled}
-          transparentOnLight
-          lang={lang}
-          setLang={handleLangChange}
-          t={t}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
-
-        <main id="main-content">
+    <main id="main-content">
           {/* 1 · Hero — як solutions */}
           <section className={`relative z-10 overflow-hidden border-b border-gray-100 bg-white pt-24 md:pt-28 lg:pt-16 ${SITE_PX}`}>
             <div
@@ -179,7 +74,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
                       size="sm"
                       variant="brand"
                       label={p.heroCta}
-                      onClick={scrollToCta}
+                      href="#offer-cta"
                       className="w-full sm:w-auto sm:min-w-[14rem]"
                     />
                     <Link
@@ -379,7 +274,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
                       size="sm"
                       variant="brand"
                       label={p.heroCta}
-                      onClick={scrollToCta}
+                      href="#offer-cta"
                       className="w-full sm:w-auto sm:min-w-[14rem]"
                     />
                     <Link
@@ -462,60 +357,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
                 <p className="text-sm leading-relaxed text-gray-500">{p.ctaNote}</p>
               </div>
 
-              <form
-                onSubmit={handleFormSubmit}
-                className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
-                toolname={WEBMCP_OFFER.toolname}
-                tooldescription={WEBMCP_OFFER.tooldescription}
-              >
-                <div className="mb-8">
-                  <label htmlFor="offer-name" className="mb-2 block text-sm font-normal text-brand">{p.formName} *</label>
-                  <input
-                    id="offer-name"
-                    type="text"
-                    name="name"
-                    required
-                    autoComplete="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, name: e.target.value }))}
-                    placeholder={p.formNamePlaceholder}
-                    toolparamdescription={WEBMCP_OFFER.params.name}
-                    className="w-full border-0 border-b-2 border-black bg-transparent py-2 text-base font-normal text-black focus:border-black focus:outline-none"
-                  />
-                </div>
-                <div className="mb-10">
-                  <label htmlFor="offer-phone" className="mb-2 block text-sm font-normal text-brand">{p.formPhone} *</label>
-                  <input
-                    id="offer-phone"
-                    type="tel"
-                    name="phone"
-                    required
-                    autoComplete="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData((prev) => ({ ...prev, phone: e.target.value }))}
-                    placeholder={p.formPhonePlaceholder}
-                    toolparamdescription={WEBMCP_OFFER.params.phone}
-                    className="w-full border-0 border-b-2 border-black bg-transparent py-2 text-base font-normal text-black focus:border-black focus:outline-none"
-                  />
-                </div>
-                <div className="flex flex-col gap-3 sm:flex-row">
-                  <OrderCtaPill
-                    size="sm"
-                    variant="brand"
-                    type="submit"
-                    label={formSending ? '…' : p.formSubmit}
-                    className="w-full sm:w-auto sm:min-w-[12rem]"
-                  />
-                  <a
-                    href={OFFER_TELEGRAM_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center rounded-full border-2 border-black px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-black transition-colors hover:bg-black hover:text-white"
-                  >
-                    {p.formTelegram}
-                  </a>
-                </div>
-              </form>
+              <OfferLeadForm lang={lang} p={p} />
             </div>
           </section>
 
@@ -527,32 +369,8 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
             portfolioLabel={p.whoLink}
             pricingHref={`/${lang}/pricing`}
             portfolioHref={`/${lang}/portfolio`}
-            onContactClick={scrollToCta}
             className="pt-16 md:pt-24"
           />
         </main>
-
-        <Footer
-          t={t}
-          lang={lang}
-          setLang={handleLangChange}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
-      </div>
-
-      <OrderModal
-        isOpen={isModalOpen}
-        onClose={closeModal}
-        onSubmit={handleModalSubmit}
-        t={t}
-        serviceName={p.metaTitle}
-      />
-      <SuccessMessage
-        isOpen={isSuccessOpen}
-        onClose={() => setIsSuccessOpen(false)}
-        message={successMessage || t.modal.success}
-      />
-    </>
   );
 }

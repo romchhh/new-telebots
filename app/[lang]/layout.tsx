@@ -2,6 +2,10 @@ import { notFound } from 'next/navigation';
 import SiteHtmlShell from '@/components/SiteHtmlShell';
 import { SITE_LANGUAGES } from '@/lib/site';
 
+/** Усі мовні сторінки — SSG HTML на білді, без runtime RSC. */
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export function generateStaticParams() {
   return SITE_LANGUAGES.map((lang) => ({ lang }));
 }

@@ -19,6 +19,14 @@ export function buildPageUrl(lang: Language, pathSuffix = ''): string {
   return `${baseUrl}/${lang}${pathSuffix}`;
 }
 
+/** ISO 639-1 + BCP 47, щоб Google не плутав uk/en/pl/ru між собою. */
+const HREFLANG_BCP47: Record<SiteLanguage, string> = {
+  uk: 'uk-UA',
+  en: 'en-US',
+  pl: 'pl-PL',
+  ru: 'ru-RU',
+};
+
 /** hreflang для `<link rel="alternate" hreflang="…">` і sitemap xhtml:link */
 export function buildHreflangLanguages(
   pathSuffix = '',
@@ -26,7 +34,7 @@ export function buildHreflangLanguages(
 ): Record<string, string> {
   if (options.ukOnly) {
     const ukUrl = buildPageUrl('uk', pathSuffix);
-    return { 'x-default': ukUrl, uk: ukUrl };
+    return { 'x-default': ukUrl, uk: ukUrl, 'uk-UA': ukUrl };
   }
 
   const langs = options.langs ?? SITE_LANGUAGES;
@@ -35,7 +43,9 @@ export function buildHreflangLanguages(
   };
 
   for (const lang of langs) {
-    result[lang] = buildPageUrl(lang, pathSuffix);
+    const url = buildPageUrl(lang, pathSuffix);
+    result[lang] = url;
+    result[HREFLANG_BCP47[lang]] = url;
   }
 
   return result;

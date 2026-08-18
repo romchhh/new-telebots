@@ -11,6 +11,12 @@ export const SITE_LANGUAGES = ['uk', 'en', 'pl', 'ru'] as const;
 export type SiteLanguage = (typeof SITE_LANGUAGES)[number];
 export const DEFAULT_SITE_LANGUAGE: SiteLanguage = 'uk';
 
+export function asSiteLang(value: string | undefined): SiteLanguage {
+  return SITE_LANGUAGES.includes(value as SiteLanguage)
+    ? (value as SiteLanguage)
+    : DEFAULT_SITE_LANGUAGE;
+}
+
 /**
  * Блог існує лише українською, тож посилаємось одразу на /uk/blog.
  * Інакше en/pl/ru отримують 308-редірект на кожному кліку.
