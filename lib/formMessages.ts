@@ -6,3 +6,17 @@ export const SUBMIT_ERROR: Record<Language, string> = {
   pl: 'Błąd wysyłki. Spróbuj ponownie lub skontaktuj się z nami bezpośrednio.',
   ru: 'Ошибка отправки. Попробуйте ещё раз или свяжитесь с нами напрямую.',
 };
+
+export const SUBMITTING: Record<Language, string> = {
+  uk: 'Надсилаємо…',
+  en: 'Sending…',
+  pl: 'Wysyłamy…',
+  ru: 'Отправляем…',
+};
+
+export const GOT_IT: Record<Language, string> = {
+  uk: 'Зрозуміло',
+  en: 'Got it',
+  pl: 'Rozumiem',
+  ru: 'Понятно',
+};

@@ -30,11 +30,15 @@ export function useScrollAnimation<T extends HTMLElement = HTMLDivElement>(
         setIsVisible(true);
         observer.disconnect();
       },
-      { threshold, rootMargin: '0px 0px -6% 0px' }
+      { threshold, rootMargin: '80px 0px 0px 0px' }
     );
 
     observer.observe(el);
-    return () => observer.disconnect();
+    const fallback = window.setTimeout(() => setIsVisible(true), 1200);
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, [threshold]);
 
   return [ref, isVisible] as const;

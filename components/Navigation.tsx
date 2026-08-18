@@ -3,6 +3,7 @@
 import { useState, useEffect, type CSSProperties } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { X, ArrowUpRight } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import OrderCtaPill from '@/components/OrderCtaPill';
@@ -42,6 +43,8 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
   const [showConsultWidget, setShowConsultWidget] = useState(false);
   const currentLanguage = currentLang || lang;
   const showLanguageSelector = currentLanguage !== 'ru';
+  const pathname = usePathname();
+  const hideConsultWidget = pathname?.includes('/contact');
 
   const navLinkClass = headerDark
     ? 'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-black transition-colors hover:text-brand lg:text-[13px]'
@@ -52,7 +55,11 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
   }, []);
 
   useEffect(() => {
-    if (!mounted || !onConsultClick) return;
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (!mounted || !onConsultClick || hideConsultWidget) return;
     if (consultWidgetDismissedInRuntime) {
       setShowConsultWidget(false);
       return;
@@ -63,12 +70,37 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
       return;
     }
 
-    const timer = window.setTimeout(() => {
-      setShowConsultWidget(true);
+    const reveal = () => {
+      if (consultWidgetDismissedInRuntime) return;
       consultWidgetShownInRuntime = true;
-    }, 5000);
-    return () => window.clearTimeout(timer);
-  }, [mounted, onConsultClick]);
+      setShowConsultWidget(true);
+    };
+
+    const onScroll = () => {
+      if (window.scrollY > 420) reveal();
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    const timer = window.setTimeout(reveal, 14000);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.clearTimeout(timer);
+    };
+  }, [mounted, onConsultClick, hideConsultWidget]);
+
+  useEffect(() => {
+    if (!isMenuOpen && !showConsultWidget) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      if (isMenuOpen) setIsMenuOpen(false);
+      else if (showConsultWidget) {
+        setShowConsultWidget(false);
+        consultWidgetDismissedInRuntime = true;
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isMenuOpen, showConsultWidget]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -156,6 +188,7 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
           }`}
           aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={isMenuOpen}
+          aria-controls="mobile-nav"
         >
           <span className="inline-flex items-center">
             [{isMenuOpen ? 'close' : 'menu'}
@@ -167,7 +200,11 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
 
       {mounted && isMenuOpen && createPortal(
         <div
-          className="fixed inset-0 bg-white lg:hidden z-[9999]"
+          id="mobile-nav"
+          className="fixed inset-0 z-[9999] bg-white lg:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menu"
           style={{ top: 0, left: 0, right: 0, bottom: 0 }}
           onClick={() => setIsMenuOpen(false)}
         >
@@ -261,8 +298,8 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
         document.body
       )}
 
-      {mounted && showConsultWidget && onConsultClick && createPortal(
-        <div className={`fixed bottom-4 z-[9998] sm:bottom-6 ${SITE_INSET_L}`}>
+      {mounted && showConsultWidget && !isMenuOpen && !hideConsultWidget && onConsultClick && createPortal(
+        <div className={`fixed bottom-4 z-[9998] pb-[env(safe-area-inset-bottom)] sm:bottom-6 ${SITE_INSET_L}`}>
           <div className="relative w-[280px] sm:w-[300px] rounded-2xl border border-black/10 bg-white/95 backdrop-blur-sm shadow-[0_16px_40px_rgba(0,0,0,0.12)] p-5">
             <button
               type="button"

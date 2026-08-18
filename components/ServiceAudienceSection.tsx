@@ -37,8 +37,8 @@ export default function ServiceAudienceSection({ copy }: ServiceAudienceSectionP
                 key={num}
                 className="w-[calc(50%-6px)] min-w-0 max-w-[420px] rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:w-[calc(50%-12px)] sm:rounded-3xl sm:p-6 md:w-[calc(33.333%-16px)] md:p-8"
               >
-                <KeyboardKeyBadge n={i + 1} className="mb-2.5 sm:mb-5" />
-                <p className="mt-0.5 text-sm leading-snug font-normal text-gray-700 sm:text-base sm:leading-snug">
+                <KeyboardKeyBadge n={i + 1} size="sm" className="mb-3 sm:mb-4" />
+                <p className="text-lg font-semibold leading-snug tracking-tight text-black sm:text-xl sm:leading-snug">
                   {text}
                 </p>
               </div>

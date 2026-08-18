@@ -3,7 +3,7 @@
 import { type ReactNode } from 'react';
 import type { ServiceLongFormBundle, ServiceRichBlock } from '@/lib/servicePagesSeo/types';
 import FaqAccordion from '@/components/FaqAccordion';
-import KeyboardKeyBadge from '@/components/KeyboardKeyBadge';
+import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
 import { SITE_PX } from '@/lib/siteLayout';
 
 interface ServiceSeoLongFormProps {
@@ -57,7 +57,8 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
     designExtras,
   } = copy;
 
-  const body = 'text-sm font-normal leading-snug text-gray-700 sm:text-base md:text-lg';
+  const body = 'text-lg font-semibold leading-snug tracking-tight text-black sm:text-xl sm:leading-snug';
+  const desc = 'text-base font-normal leading-snug text-gray-700 sm:text-lg sm:leading-snug';
   const card =
     'w-[calc(50%-6px)] min-w-0 max-w-[420px] rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:w-[calc(50%-12px)] sm:rounded-3xl sm:p-6 md:w-[calc(33.333%-16px)] md:p-8';
   const cardGap = 'flex w-full flex-wrap justify-center gap-3 sm:gap-6';
@@ -69,15 +70,16 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
         <div className={shell}>
           <SectionTitle index={1}>{whatWeDoTitle}</SectionTitle>
           <div className={cardGap}>
-            {whatWeDoItems.map((item: ServiceRichBlock) => (
+            {whatWeDoItems.map((item: ServiceRichBlock, i: number) => (
               <article key={item.title} className={card}>
+                <KeyboardKeyBadge n={i + 1} size="sm" className="mb-3 sm:mb-4" />
                 <h3
-                  className="text-sm sm:text-xl md:text-2xl font-semibold text-black tracking-tight mb-2 sm:mb-3 leading-snug"
+                  className="text-lg sm:text-xl md:text-2xl font-semibold text-black tracking-tight mb-2 sm:mb-3 leading-snug"
                   style={display}
                 >
                   {item.title}
                 </h3>
-                <p className={body}>{item.body}</p>
+                <p className={desc}>{item.body}</p>
               </article>
             ))}
           </div>
@@ -89,8 +91,9 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
           <div className={shell}>
             <SectionTitle index={2}>{websitesExtras.scopeTitle}</SectionTitle>
             <ul className={cardGap}>
-              {websitesExtras.scopeItems.map((line: string) => (
+              {websitesExtras.scopeItems.map((line: string, i: number) => (
                 <li key={line} className={card}>
+                  <KeyboardKeyBadge n={i + 1} size="sm" className="mb-3 sm:mb-4" />
                   <p className={body}>{line}</p>
                 </li>
               ))}
@@ -106,7 +109,7 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
             <ol className={cardGap}>
               {designExtras.processItems.map((step: string, i: number) => (
                 <li key={step} className={card}>
-                  <KeyboardKeyBadge n={i + 1} className="mb-2.5 sm:mb-5" />
+                  <KeyboardKeyBadge n={i + 1} size="sm" className="mb-3 sm:mb-4" />
                   <p className={body}>{step}</p>
                 </li>
               ))}
@@ -119,8 +122,13 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
         <div className={shell}>
           <SectionTitle index={3}>{techTitle}</SectionTitle>
           <ul className={cardGap}>
-            {techLines.map((line: string) => (
+            {techLines.map((line: string, i: number) => (
               <li key={line} className={card}>
+                <KeyboardKeyBadge
+                  symbol={KEYBOARD_BENEFIT_SYMBOLS[i % KEYBOARD_BENEFIT_SYMBOLS.length]}
+                  size="sm"
+                  className="mb-3 sm:mb-4"
+                />
                 <p className={body}>{line}</p>
               </li>
             ))}

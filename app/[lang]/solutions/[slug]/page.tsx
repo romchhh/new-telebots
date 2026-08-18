@@ -242,9 +242,10 @@ export default function SeoSolutionPage() {
                   >
                     <KeyboardKeyBadge
                       symbol={KEYBOARD_BENEFIT_SYMBOLS[i % KEYBOARD_BENEFIT_SYMBOLS.length]}
-                      className="mb-2.5 sm:mb-5"
+                      size="sm"
+                      className="mb-3 sm:mb-4"
                     />
-                    <p className="mt-0.5 text-sm leading-snug font-normal text-gray-700 sm:text-base sm:leading-snug">
+                    <p className="text-lg font-semibold leading-snug tracking-tight text-black sm:text-xl sm:leading-snug">
                       {item}
                     </p>
                   </li>

@@ -3,7 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { sendToTelegram } from '@/lib/telegram';
 import { translations, Language } from '@/components/translations';
-import { SUBMIT_ERROR } from '@/lib/formMessages';
+import { SUBMIT_ERROR, SUBMITTING } from '@/lib/formMessages';
 import { WEBMCP_CONSULTATION } from '@/lib/webmcp';
 
 type T = (typeof translations)['uk'];
@@ -32,13 +32,19 @@ export default function ContactFormBlock({
     phone: '',
     project: '',
   });
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setError('');
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (sending) return;
+    setSending(true);
+    setError('');
 
     const success = await sendToTelegram({
       name: formData.name,
@@ -47,11 +53,13 @@ export default function ContactFormBlock({
       ...(serviceName ? { service: serviceName } : {}),
     });
 
+    setSending(false);
+
     if (success) {
       setFormData({ name: '', phone: '', project: '' });
       onSuccess?.();
     } else {
-      alert(SUBMIT_ERROR[lang]);
+      setError(SUBMIT_ERROR[lang]);
     }
   };
 
@@ -122,11 +130,17 @@ export default function ContactFormBlock({
         </div>
 
         <div className="w-full pt-2 text-center lg:text-left">
+          {error ? (
+            <p role="alert" className="mb-4 text-sm font-medium text-red-600 lg:text-left">
+              {error}
+            </p>
+          ) : null}
           <button
             type="submit"
-            className="inline-flex items-center justify-center min-w-[min(100%,280px)] sm:min-w-[300px] md:min-w-[340px] px-14 py-5 md:px-16 md:py-6 text-neutral-900 font-semibold text-lg md:text-xl rounded-full transition hover:bg-brand-light bg-brand tracking-wide shadow-md shadow-brand/25"
+            disabled={sending}
+            className="inline-flex items-center justify-center min-w-[min(100%,280px)] sm:min-w-[300px] md:min-w-[340px] px-14 py-5 md:px-16 md:py-6 text-neutral-900 font-semibold text-lg md:text-xl rounded-full transition hover:bg-brand-light bg-brand tracking-wide shadow-md shadow-brand/25 disabled:cursor-not-allowed disabled:opacity-70"
           >
-            {t.contact.submit}
+            {sending ? SUBMITTING[lang] : t.contact.submit}
           </button>
         </div>
       </form>

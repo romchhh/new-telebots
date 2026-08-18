@@ -86,7 +86,7 @@ export default function OrderCtaPill({
         ? 'bg-brand text-neutral-900 hover:bg-brand-light'
         : 'bg-white text-black hover:opacity-95';
   const classes = [
-    `group flex h-full ${minHeightClass} items-center justify-between ${gapClass} text-left transition-colors`,
+    `group flex h-full ${minHeightClass} cursor-pointer items-center justify-between ${gapClass} text-left transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand`,
     variantClasses,
     s.root,
     elevated && !isOutline && !isDark && !isBrand

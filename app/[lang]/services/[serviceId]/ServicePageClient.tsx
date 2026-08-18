@@ -14,6 +14,7 @@ import PricingTable from '@/components/PricingTable';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ServiceSeoLongForm from '@/components/ServiceSeoLongForm';
+import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
 import { translations, Language } from '@/components/translations';
 import { useScrollAnimation } from '@/components/useScrollAnimation';
 import { sendToTelegram } from '@/lib/telegram';
@@ -320,7 +321,7 @@ export default function ServicePageClient({
             };
             const cardClass =
               'rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:rounded-3xl sm:p-6 md:p-8';
-            const textClass = 'text-sm font-normal leading-snug text-gray-700 sm:text-base md:text-lg';
+            const textClass = 'text-lg font-semibold leading-snug tracking-tight text-black sm:text-xl sm:leading-snug';
             const headingStyle = { fontFamily: 'var(--font-display)' };
             return (
               <section ref={blocksRef} className={`py-16 md:py-28 bg-white border-t border-gray-100 scroll-animate-up ${SITE_PX} ${isBlocksVisible ? 'animate' : ''}`}>
@@ -352,6 +353,11 @@ export default function ServicePageClient({
                             key={i}
                             className={`w-[calc(50%-6px)] min-w-0 max-w-[420px] md:w-[calc(33.333%-16px)] ${cardClass}`}
                           >
+                            <KeyboardKeyBadge
+                              symbol={KEYBOARD_BENEFIT_SYMBOLS[i % KEYBOARD_BENEFIT_SYMBOLS.length]}
+                              size="sm"
+                              className="mb-3 sm:mb-4"
+                            />
                             <p className={textClass} style={headingStyle}>
                               {item}
                             </p>
