@@ -60,7 +60,8 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                 <span>{p.breadcrumb}</span>
               </p>
 
-              <div className="max-w-3xl">
+              <div className="grid items-center gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
+                <div>
                   <h1
                     className="mb-5 text-4xl font-black leading-tight tracking-tight text-black lg:text-5xl"
                     style={display}
@@ -87,6 +88,18 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                   </div>
                   <p className="mt-4 text-sm text-gray-500">{p.heroNote}</p>
                 </div>
+
+                <div className="flex min-h-[300px] items-center justify-center p-2 sm:min-h-[360px] lg:min-h-0 lg:items-start lg:justify-center lg:-mt-6">
+                  <OfferPng
+                    src="/offer/carcloud.png"
+                    alt="TeleBots offer"
+                    width={683}
+                    height={870}
+                    priority
+                    className="h-auto max-h-[min(58vh,500px)] w-auto max-w-full offer-float lg:max-h-[min(52vh,480px)]"
+                  />
+                </div>
+              </div>
             </div>
           </section>
 

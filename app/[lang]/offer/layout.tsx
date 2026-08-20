@@ -18,7 +18,7 @@ export async function generateMetadata({
       title: p.metaTitle,
       description: p.metaDescription,
       keywords: p.metaKeywords,
-      image: `${baseUrl}/offer/astronaut11.png`,
+      image: `${baseUrl}/offer/carcloud.png`,
       url: `${baseUrl}/${lang}/offer`,
       lang,
     }),
