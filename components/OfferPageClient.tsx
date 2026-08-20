@@ -60,8 +60,7 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                 <span>{p.breadcrumb}</span>
               </p>
 
-              <div className="grid items-center gap-10 lg:grid-cols-2 lg:items-start lg:gap-14">
-                <div>
+              <div className="max-w-3xl">
                   <h1
                     className="mb-5 text-4xl font-black leading-tight tracking-tight text-black lg:text-5xl"
                     style={display}
@@ -88,18 +87,6 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                   </div>
                   <p className="mt-4 text-sm text-gray-500">{p.heroNote}</p>
                 </div>
-
-                <div className="flex min-h-[300px] items-center justify-center p-2 sm:min-h-[360px] lg:min-h-0 lg:items-start lg:justify-center lg:-mt-6">
-                  <OfferPng
-                    src="/offer/carcloud.png"
-                    alt="TeleBots offer"
-                    width={683}
-                    height={870}
-                    priority
-                    className="h-auto max-h-[min(58vh,500px)] w-auto max-w-full offer-float lg:max-h-[min(52vh,480px)]"
-                  />
-                </div>
-              </div>
             </div>
           </section>
 
@@ -163,7 +150,7 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
             </div>
           </section>
 
-          {/* 4 · Free steps + cloud */}
+          {/* 4 · Free steps */}
           <section className={`relative overflow-hidden py-14 md:py-20 ${SITE_PX}`}>
             <div className="absolute inset-0 bg-brand-soft" aria-hidden />
             <div
@@ -175,33 +162,22 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
               aria-hidden
             />
             <div className={`relative ${SITE_INNER}`}>
-              <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-                <div className="relative order-2 flex min-h-[220px] items-center justify-start p-2 sm:min-h-[260px] lg:order-1 lg:min-h-[300px]">
-                  <OfferPng
-                    src="/offer/cloud11.png"
-                    alt=""
-                    width={1047}
-                    height={436}
-                    className="h-auto w-full max-w-[440px] offer-float-slow"
-                  />
+              <div className="max-w-3xl space-y-8">
+                <div>
+                  <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+                    {p.freeTitle}
+                  </h2>
+                  <p className="text-lg leading-relaxed text-gray-700">{p.freeLead}</p>
                 </div>
-                <div className="order-1 space-y-8 lg:order-2">
-                  <div>
-                    <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
-                      {p.freeTitle}
-                    </h2>
-                    <p className="text-lg leading-relaxed text-gray-700">{p.freeLead}</p>
+                {p.freeSteps.map((step) => (
+                  <div key={step.title}>
+                    <p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-brand">
+                      {step.badge}
+                    </p>
+                    <h3 className="mb-2 text-xl font-bold text-black">{step.title}</h3>
+                    <p className="leading-relaxed text-gray-600">{step.text}</p>
                   </div>
-                  {p.freeSteps.map((step) => (
-                    <div key={step.title}>
-                      <p className="mb-2 text-sm font-semibold uppercase tracking-[0.14em] text-brand">
-                        {step.badge}
-                      </p>
-                      <h3 className="mb-2 text-xl font-bold text-black">{step.title}</h3>
-                      <p className="leading-relaxed text-gray-600">{step.text}</p>
-                    </div>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           </section>
@@ -235,6 +211,20 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                 ))}
               </ul>
               <p className="mt-8 text-sm text-gray-500">{p.priceNote}</p>
+              <p className="mt-4 text-sm leading-relaxed text-gray-600">
+                {p.priceScopeText}{' '}
+                <Link href={`/${lang}/pricing`} className="font-semibold text-brand underline-offset-4 hover:underline">
+                  {p.priceScopePricingLabel}
+                </Link>
+                {' · '}
+                <Link
+                  href={`/${lang}/services/websites`}
+                  className="font-semibold text-brand underline-offset-4 hover:underline"
+                >
+                  {p.priceScopeWebsitesLabel}
+                </Link>
+                .
+              </p>
             </div>
           </section>
 
@@ -336,18 +326,6 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
 
           {/* 9 · CTA form */}
           <section id="offer-cta" className={`relative overflow-hidden border-t border-gray-100 bg-zinc-50 py-14 md:py-20 ${SITE_PX}`}>
-            <div
-              className="pointer-events-none absolute -bottom-8 right-0 hidden w-[min(40vw,220px)] opacity-30 sm:block lg:-right-4 lg:w-[260px] lg:opacity-40"
-              aria-hidden
-            >
-              <OfferPng
-                src="/offer/cloud11.png"
-                alt=""
-                width={1047}
-                height={436}
-                className="w-full offer-float-slow"
-              />
-            </div>
             <div className={`relative z-10 ${SITE_INNER} grid items-start gap-10 lg:grid-cols-2 lg:gap-14`}>
               <div>
                 <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>

@@ -34,6 +34,9 @@ export type OfferPageCopy = {
   priceAmount: string;
   priceItems: string[];
   priceNote: string;
+  priceScopeText: string;
+  priceScopePricingLabel: string;
+  priceScopeWebsitesLabel: string;
   casesTitle: string;
   cases: OfferCaseCard[];
   whoTitle: string;
@@ -112,6 +115,10 @@ const uk: OfferPageCopy = {
     '1 раунд правок',
   ],
   priceNote: 'Після затвердження прототипу — фіксована ціна, фіксований склад.',
+  priceScopeText:
+    'Офер $200 стосується лише простих лендингів з простими інтеграціями — форми заявок, CRM, Telegram тощо. Для багатосторінкових сайтів, інтернет-магазинів з оплатами та складніших проєктів діють інші тарифи — дивіться на сторінках',
+  priceScopePricingLabel: 'Ціни та пакети',
+  priceScopeWebsitesLabel: 'Сайти та e-commerce',
   casesTitle: 'Схожі проєкти',
   cases: [
     {
@@ -145,7 +152,7 @@ const uk: OfferPageCopy = {
     {
       question: 'Чи можна на $200 зробити нормальний сайт?',
       answer:
-        'Так — якщо скоуп чіткий: лендінг або невеликий сайт із зафіксованим складом. Саме тому спочатку робимо прототип: бачиш обсяг і результат до оплати.',
+        'Так — для простого лендингу з формою, CRM або Telegram. Не для інтернет-магазинів, оплат і багатосторінкових сайтів — там інші тарифи на сторінках «Ціни» та «Сайти та e-commerce». Спочатку робимо прототип: бачиш обсяг і результат до оплати.',
     },
     {
       question: 'Скільки часу займе прототип?',
@@ -238,6 +245,10 @@ const en: OfferPageCopy = {
     '1 revision round',
   ],
   priceNote: 'After prototype approval — fixed price, fixed scope.',
+  priceScopeText:
+    'The $200 offer applies only to simple landing pages with basic integrations — lead forms, CRM, Telegram, and similar. For multi-page sites, online stores with payments, and more complex projects, see rates on our',
+  priceScopePricingLabel: 'Pricing & packages',
+  priceScopeWebsitesLabel: 'Websites & e-commerce',
   casesTitle: 'Similar projects',
   cases: [
     {
@@ -271,7 +282,7 @@ const en: OfferPageCopy = {
     {
       question: 'Can $200 produce a decent website?',
       answer:
-        'Yes — with a clear scope: a landing or small site with a fixed package. That’s why we prototype first: you see scope and result before paying.',
+        'Yes — for a simple landing with a form, CRM, or Telegram. Not for online stores, payments, or multi-page sites — those have separate rates on Pricing and Websites & e-commerce. We prototype first so you see scope and result before paying.',
     },
     {
       question: 'How long does the prototype take?',
@@ -364,6 +375,10 @@ const pl: OfferPageCopy = {
     '1 runda poprawek',
   ],
   priceNote: 'Po akceptacji prototypu — stała cena, stały zakres.',
+  priceScopeText:
+    'Oferta $200 dotyczy wyłącznie prostych landingów z prostymi integracjami — formularze, CRM, Telegram itd. Dla wielostronicowych stron, sklepów internetowych z płatnościami i bardziej złożonych projektów obowiązują inne stawki — zobacz',
+  priceScopePricingLabel: 'Cennik i pakiety',
+  priceScopeWebsitesLabel: 'Strony i e-commerce',
   casesTitle: 'Podobne projekty',
   cases: [
     {
@@ -397,7 +412,7 @@ const pl: OfferPageCopy = {
     {
       question: 'Czy za $200 da się zrobić normalną stronę?',
       answer:
-        'Tak — przy jasnym zakresie: landing lub mała strona ze stałym pakietem. Dlatego najpierw prototyp: widzisz zakres i wynik przed płatnością.',
+        'Tak — dla prostego landingu z formularzem, CRM lub Telegram. Nie dla sklepów internetowych, płatności i wielostronicowych stron — tam inne stawki na stronach Cennik i Strony i e-commerce. Najpierw prototyp: widzisz zakres i wynik przed płatnością.',
     },
     {
       question: 'Ile trwa prototyp?',
@@ -490,6 +505,10 @@ const ru: OfferPageCopy = {
     '1 раунд правок',
   ],
   priceNote: 'После утверждения прототипа — фиксированная цена, фиксированный состав.',
+  priceScopeText:
+    'Офер $200 — только для простых лендингов с простыми интеграциями: формы, CRM, Telegram и т.п. Для многостраничных сайтов, интернет-магазинов с оплатами и более сложных проектов действуют другие тарифы — смотрите на страницах',
+  priceScopePricingLabel: 'Цены и пакеты',
+  priceScopeWebsitesLabel: 'Сайты и e-commerce',
   casesTitle: 'Похожие проекты',
   cases: [
     {
@@ -523,7 +542,7 @@ const ru: OfferPageCopy = {
     {
       question: 'Можно ли на $200 сделать нормальный сайт?',
       answer:
-        'Да — при чётком скоупе: лендинг или небольшой сайт с зафиксированным составом. Поэтому сначала прототип: видишь объём и результат до оплаты.',
+        'Да — для простого лендинга с формой, CRM или Telegram. Не для интернет-магазинов, оплат и многостраничных сайтов — там другие тарифы на страницах «Цены» и «Сайты и e-commerce». Сначала прототип: видишь объём и результат до оплаты.',
     },
     {
       question: 'Сколько времени займёт прототип?',
