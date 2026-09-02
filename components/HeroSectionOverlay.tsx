@@ -10,8 +10,14 @@ type HeroSectionOverlayProps = {
 
 const montserrat = { fontFamily: 'var(--font-montserrat)' };
 
+function heroLeadText(hero: SiteCopy['hero']) {
+  return [hero.tagline, hero.intro].filter(Boolean).join(' ');
+}
+
 /** Серверний оверлей hero — h1 у HTML без очікування гідрації HomePageClient. */
 export default function HeroSectionOverlay({ hero, orderLabel }: HeroSectionOverlayProps) {
+  const lead = heroLeadText(hero);
+
   return (
     <>
       <div className="absolute inset-0 z-10 bg-black/35" aria-hidden />
@@ -38,28 +44,19 @@ export default function HeroSectionOverlay({ hero, orderLabel }: HeroSectionOver
             >
               {hero.title}
             </h1>
+            {lead ? (
+              <p
+                className="mt-4 text-sm leading-relaxed text-white/85 sm:mt-5 sm:text-base md:mt-6 md:text-lg lg:text-xl"
+                style={montserrat}
+              >
+                {lead}
+              </p>
+            ) : null}
           </div>
         </div>
 
-        <div className="flex min-h-0 shrink-0 flex-col-reverse gap-2 max-sm:-mt-10 sm:mt-0 sm:flex-col sm:gap-5 md:flex-row md:items-end md:justify-between md:gap-8 lg:gap-10">
-          <div className="min-w-0 space-y-1.5 sm:space-y-2 md:max-w-[46%] lg:max-w-[42%]">
-            <p
-              className="text-sm leading-snug text-white/85 sm:text-base sm:leading-relaxed md:text-lg lg:text-xl"
-              style={montserrat}
-            >
-              {hero.tagline}
-            </p>
-            {hero.intro && (
-              <p
-                className="text-sm leading-snug text-white/85 sm:text-base sm:leading-relaxed md:text-lg lg:text-xl"
-                style={montserrat}
-              >
-                {hero.intro}
-              </p>
-            )}
-          </div>
-
-          <div className="w-full shrink-0 sm:mb-0 md:w-auto">
+        <div className="flex min-h-0 shrink-0 flex-col gap-2 sm:gap-5 md:flex-row md:items-end md:justify-end md:gap-8 lg:gap-10">
+          <div className="w-full shrink-0 sm:mb-0 md:w-auto md:ml-auto">
             <HeroOrderCta
               eyebrow={hero.ctaQuestion}
               eyebrowMobile={hero.ctaQuestionShort}
