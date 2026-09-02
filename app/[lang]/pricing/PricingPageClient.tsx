@@ -73,12 +73,13 @@ function CtaCluster({
       </Link>
       <Link
         href={`/${lang}/contact`}
-        className="inline-flex items-center justify-center px-6 py-3.5 rounded-full border-2 border-black text-black font-bold uppercase text-sm tracking-wide hover:bg-black hover:text-white transition-colors text-center"
+        className="inline-flex items-center justify-center px-6 py-3.5 rounded-full border-2 border-brand bg-brand text-neutral-900 font-bold uppercase text-sm tracking-wide hover:bg-brand-light hover:border-brand-light transition-colors text-center"
       >
         {p.btnContactForm}
       </Link>
       <OrderCtaPill
         size="sm"
+        variant="brand"
         label={p.btnConsult}
         elevated
         className="w-full sm:w-auto sm:min-w-[14rem]"
@@ -286,12 +287,13 @@ export default function PricingPageClient({ lang }: { lang: Language }) {
                     <div className="mt-10 flex flex-col sm:flex-row flex-wrap gap-3">
                       <Link
                         href={`/${lang}/services/${section.id}`}
-                        className="inline-flex items-center justify-center px-5 py-3 rounded-full border-2 border-black text-black font-bold text-sm uppercase tracking-wide hover:bg-black hover:text-white transition-colors"
+                        className="inline-flex items-center justify-center px-5 py-3 rounded-full border-2 border-brand text-brand font-bold text-sm uppercase tracking-wide hover:bg-brand hover:text-neutral-900 transition-colors"
                       >
                         {p.btnServicePage}
                       </Link>
                       <OrderCtaPill
                         size="sm"
+                        variant="brand"
                         label={p.btnConsult}
                         elevated
                         className="w-full sm:w-auto sm:min-w-[12rem]"

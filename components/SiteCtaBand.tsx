@@ -41,15 +41,15 @@ export default function SiteCtaBand({
           aria-hidden
         />
         <h2
-          className="relative mb-4 text-2xl font-black tracking-tight md:text-3xl lg:text-4xl"
+          className="relative mb-4 text-center text-2xl font-black tracking-tight md:text-3xl lg:text-4xl"
           style={{ fontFamily: 'var(--font-display)' }}
         >
           {title}
         </h2>
-        <p className="relative mb-8 max-w-3xl text-base leading-relaxed text-white/75 md:text-lg">
+        <p className="relative mx-auto mb-8 max-w-3xl text-center text-base leading-relaxed text-white/75 md:text-lg">
           {text}
         </p>
-        <div className="relative flex flex-col flex-wrap gap-3 sm:flex-row sm:items-stretch">
+        <div className="relative flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row sm:items-stretch">
           <OrderCtaPill
             size="sm"
             variant="brand"

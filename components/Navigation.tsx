@@ -317,7 +317,7 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
             </p>
             <OrderCtaPill
               size="sm"
-              elevated
+              variant="dark"
               label={t.nav.consultationWidgetCta}
               onClick={() => {
                 setShowConsultWidget(false);
