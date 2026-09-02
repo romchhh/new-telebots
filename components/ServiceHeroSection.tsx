@@ -29,6 +29,10 @@ interface ServiceHeroSectionProps {
 
 const montserrat = { fontFamily: 'var(--font-montserrat)' };
 
+function heroLeadText(hero: ServiceHeroCopy) {
+  return [hero.tagline, hero.intro].filter(Boolean).join(' ');
+}
+
 export default function ServiceHeroSection({
   heroBackground,
   hero,
@@ -37,6 +41,7 @@ export default function ServiceHeroSection({
 }: ServiceHeroSectionProps) {
   const openFromShell = useHomeModal();
   const openModal = onOrderClick ?? openFromShell;
+  const lead = heroLeadText(hero);
   return (
     <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
       {heroBackground}
@@ -52,20 +57,20 @@ export default function ServiceHeroSection({
         aria-hidden
       />
 
-      {/* Сітка клітинок поверх затемнення */}
+      {/* Сітка клітинок поверх затемнення — приглушена */}
       <div
         className="pointer-events-none absolute inset-0 z-[15]"
         style={{
           backgroundImage: `
-            linear-gradient(90deg, rgba(255,255,255,0.09) 1px, transparent 1px),
-            linear-gradient(rgba(255,255,255,0.09) 1px, transparent 1px)
+            linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px),
+            linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px)
           `,
           backgroundSize: '48px 48px',
         }}
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -right-20 top-1/3 z-[15] h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.12)_0%,transparent_70%)] blur-3xl"
+        className="pointer-events-none absolute -right-20 top-1/3 z-[15] h-[min(70vw,520px)] w-[min(70vw,520px)] rounded-full bg-[radial-gradient(circle,rgba(255,255,255,0.06)_0%,transparent_70%)] blur-3xl"
         aria-hidden
       />
 
@@ -75,7 +80,6 @@ export default function ServiceHeroSection({
         className={`relative z-20 grid h-full max-h-full w-full overflow-hidden pb-2 pt-16 sm:pb-5 sm:pt-24 lg:pt-28 ${SITE_PX}`}
         style={{ gridTemplateRows: '1fr auto' }}
       >
-        {/* Заголовок: по центру по висоті, з відступом під коло дат */}
         <div className="flex min-h-0 flex-col justify-center max-md:items-stretch md:justify-center max-lg:pr-[6.5rem] sm:max-lg:pr-40 lg:pr-64 xl:pr-72">
           <div className="min-h-0 w-full max-w-[min(100%,52rem)]">
             <h1
@@ -84,29 +88,19 @@ export default function ServiceHeroSection({
             >
               {hero.title}
             </h1>
-          </div>
-        </div>
-
-        {/* Низ: офер зліва, CTA справа (на моб CTA вище) */}
-        <div className="flex min-h-0 shrink-0 flex-col-reverse gap-2 max-sm:-mt-10 sm:mt-0 sm:flex-col sm:gap-5 md:flex-row md:items-end md:justify-between md:gap-8 lg:gap-10">
-          <div className="min-w-0 space-y-1.5 sm:space-y-2 md:max-w-[46%] lg:max-w-[42%]">
-            <p
-              className="text-sm leading-snug text-white/85 sm:text-base sm:leading-relaxed md:text-lg lg:text-xl"
-              style={montserrat}
-            >
-              {hero.tagline}
-            </p>
-            {hero.intro ? (
+            {lead ? (
               <p
-                className="text-sm leading-snug text-white/85 sm:text-base sm:leading-relaxed md:text-lg lg:text-xl"
+                className="mt-4 text-sm leading-relaxed text-white/85 sm:mt-5 sm:text-base md:mt-6 md:text-lg lg:text-xl"
                 style={montserrat}
               >
-                {hero.intro}
+                {lead}
               </p>
             ) : null}
           </div>
+        </div>
 
-          <div className="w-full shrink-0 sm:mb-0 md:w-auto">
+        <div className="flex min-h-0 shrink-0 flex-col gap-2 sm:gap-5 md:flex-row md:items-end md:justify-end md:gap-8 lg:gap-10">
+          <div className="w-full shrink-0 sm:mb-0 md:w-auto md:ml-auto">
             <OrderCtaPill
               size="hero"
               eyebrow={hero.ctaQuestion}
