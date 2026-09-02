@@ -71,12 +71,6 @@ function CtaCluster({
       >
         {p.linkAllServices}
       </Link>
-      <Link
-        href={`/${lang}/contact`}
-        className="inline-flex items-center justify-center px-6 py-3.5 rounded-full border-2 border-brand bg-brand text-neutral-900 font-bold uppercase text-sm tracking-wide hover:bg-brand-light hover:border-brand-light transition-colors text-center"
-      >
-        {p.btnContactForm}
-      </Link>
       <OrderCtaPill
         size="sm"
         variant="brand"
@@ -298,12 +292,6 @@ export default function PricingPageClient({ lang }: { lang: Language }) {
                         elevated
                         className="w-full sm:w-auto sm:min-w-[12rem]"
                       />
-                      <Link
-                        href={`/${lang}/contact#contact-form`}
-                        className="inline-flex items-center justify-center px-5 py-3 rounded-full border-2 border-gray-400 text-gray-900 font-bold text-sm uppercase tracking-wide hover:border-black transition-colors"
-                      >
-                        {p.btnContactForm}
-                      </Link>
                     </div>
                   </section>
                 );

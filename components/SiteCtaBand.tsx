@@ -49,7 +49,7 @@ export default function SiteCtaBand({
         <p className="relative mx-auto mb-8 max-w-3xl text-center text-base leading-relaxed text-white/75 md:text-lg">
           {text}
         </p>
-        <div className="relative flex flex-col flex-wrap items-center justify-center gap-3 sm:flex-row sm:items-stretch">
+        <div className="relative mx-auto flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-stretch sm:justify-center">
           <OrderCtaPill
             size="sm"
             variant="brand"
@@ -59,13 +59,13 @@ export default function SiteCtaBand({
           />
           <Link
             href={pricingHref}
-            className="inline-flex items-center justify-center rounded-full border-2 border-brand bg-transparent px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand transition-colors hover:bg-brand hover:text-neutral-900"
+            className="inline-flex w-full items-center justify-center rounded-full border-2 border-brand bg-transparent px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand transition-colors hover:bg-brand hover:text-neutral-900 sm:w-auto"
           >
             {pricingLabel}
           </Link>
           <Link
             href={portfolioHref}
-            className="inline-flex items-center justify-center rounded-full border-2 border-white/40 px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-brand hover:bg-brand/10"
+            className="inline-flex w-full items-center justify-center rounded-full border-2 border-white/40 px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-brand hover:bg-brand/10 sm:w-auto"
           >
             {portfolioLabel}
           </Link>
