@@ -84,14 +84,14 @@ def schedule_jobs(job_queue: JobQueue) -> None:
   return (
     <div className="max-w-4xl mx-auto">
       {/* Заголовок з ключовим словом */}
-      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Як створити Telegram бота: покроковий гайд для початківців</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Як створити Telegram-бота: покроковий гайд</h1>
 
       {/* Зображення з оптимізованим alt-текстом */}
       <LegacyBlogHero legacyId={1} alt="Як створити Telegram бота: покроковий гайд" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
+        <p className="text-2xl font-bold mb-4">Навігація по статті</p>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Вступ</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Створення бота в Telegram</li>
@@ -622,6 +622,15 @@ logger.error('Помилка: %s', str(error))
         <h2 className="text-3xl font-bold mb-4">Висновок</h2>
         <p className="text-lg mb-6">
           Створення Telegram бота — це захоплюючий процес, який відкриває безліч можливостей для автоматизації та взаємодії з користувачами. Цей покроковий гайд допоможе вам створити свого першого бота навіть без досвіду програмування. Пам'ятайте про безпеку, регулярно оновлюйте залежності та документуйте свій код.
+          Якщо потрібен бот під ключ — дивіться{' '}
+          <a href="/uk/services/chatbots" className="font-semibold text-blue-700 underline-offset-2 hover:underline">
+            розробку чат-ботів
+          </a>
+          {' '}або{' '}
+          <a href="/uk/solutions/telegram-bots" className="font-semibold text-blue-700 underline-offset-2 hover:underline">
+            Telegram-боти для бізнесу
+          </a>
+          .
         </p>
         
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
@@ -652,23 +661,23 @@ logger.error('Помилка: %s', str(error))
           </BlogLegacyButton>
         </a>
         <a
-          href="/uk/portfolio/nutritionist-bot"
+          href="/uk/portfolio/dr-tolstikova-bot"
           className="w-full md:w-auto"
         >
           <BlogLegacyButton className="flex items-center justify-center text-white w-full bg-green-600 hover:bg-green-700">
             <FaRobot className="mr-2" />
-            Переглянути кейс: NutriciologBot
+            Переглянути кейс: Dr. Толстікова
           </BlogLegacyButton>
         </a>
         <a
-          href="https://github.com/your-username/telegram-bot-template"
+          href="https://github.com/python-telegram-bot/python-telegram-bot"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full md:w-auto"
         >
           <BlogLegacyButton className="flex items-center justify-center text-white w-full">
             <FaGithub className="mr-2" />
-            Шаблон коду на GitHub
+            Бібліотека python-telegram-bot
           </BlogLegacyButton>
         </a>
       </div>

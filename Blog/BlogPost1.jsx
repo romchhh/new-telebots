@@ -650,23 +650,23 @@ logger.error('Помилка: %s', str(error))
           </Button>
         </a>
         <a
-          href="/uk/portfolio/nutritionist-bot"
+          href="/uk/portfolio/dr-tolstikova-bot"
           className="w-full md:w-auto"
         >
           <Button className="flex items-center justify-center text-white w-full bg-green-600 hover:bg-green-700">
             <FaRobot className="mr-2" />
-            Переглянути кейс: NutriciologBot
+            Переглянути кейс: Dr. Толстікова
           </Button>
         </a>
         <a
-          href="https://github.com/your-username/telegram-bot-template"
+          href="https://github.com/python-telegram-bot/python-telegram-bot"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full md:w-auto"
         >
           <Button className="flex items-center justify-center text-white w-full">
             <FaGithub className="mr-2" />
-            Шаблон коду на GitHub
+            Бібліотека python-telegram-bot
           </Button>
         </a>
       </div>

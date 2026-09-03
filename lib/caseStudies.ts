@@ -11,6 +11,8 @@ export type CaseStudySection = {
 
 export type CaseStudyCopy = {
   breadcrumbLabel: string;
+  /** Document <title> when it must differ from visible <h1> / heroTitle */
+  seoTitle?: string;
   heroTitle: string;
   heroLead: string;
   visitSite: string;
@@ -60,6 +62,7 @@ const tradeground: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'TradeGround',
+      seoTitle: 'Кейс TradeGround: маркетплейс у Telegram',
       heroTitle: 'TradeGround — маркетплейс у Telegram: бот + міні-додаток',
       heroLead:
         'TradeGroundBot — повноцінний маркетплейс у Telegram: бот і міні-додаток, де можна продавати й купувати товари, не виходячи з месенджера. Ми зібрали каталог, профілі продавців, оплату через Monobank і адмінку в одній системі — як інструмент залучення та утримання користувачів.',
@@ -72,7 +75,7 @@ const tradeground: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту TradeGround',
         lead:
           'Продавати й купувати в Telegram зручно, але без цілісної системи оголошення, оплата, модерація й профілі розсипаються між чатами й ручною роботою. Потрібен був продукт, який тримає весь сценарій маркетплейсу всередині месенджера.',
         items: [
@@ -86,7 +89,7 @@ const tradeground: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для TradeGround',
         lead:
           'Зібрали маркетплейс із двох шарів: бот веде операції та комунікацію, міні-додаток — вітрину й навігацію по каталогу. Кожен блок закриває свою задачу в спільному сценарії.',
         items: [
@@ -107,6 +110,7 @@ const tradeground: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'TradeGround',
+      seoTitle: 'TradeGround case: Telegram marketplace',
       heroTitle: 'TradeGround — Telegram marketplace: bot + mini app',
       heroLead:
         'TradeGroundBot is a full marketplace inside Telegram: a bot and a mini app where people sell and buy without leaving the messenger. Listings, seller profiles, Monobank payments and an admin panel live in one system — built for acquisition and retention.',
@@ -119,7 +123,7 @@ const tradeground: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: TradeGround',
         lead:
           'Buying and selling in Telegram is convenient, but without a unified system listings, payments, moderation and profiles scatter across chats and manual work. The product had to keep the full marketplace journey inside the messenger.',
         items: [
@@ -133,7 +137,7 @@ const tradeground: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for TradeGround',
         lead:
           'We built the marketplace in two layers: the bot handles operations and communication; the mini app handles the storefront and catalog navigation. Each block owns one job in a shared flow.',
         items: [
@@ -154,6 +158,7 @@ const tradeground: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'TradeGround',
+      seoTitle: 'Case TradeGround: marketplace w Telegram',
       heroTitle: 'TradeGround — marketplace w Telegram: bot + miniapp',
       heroLead:
         'TradeGroundBot to pełny marketplace w Telegram: bot i miniaplikacja, gdzie można sprzedawać i kupować bez wychodzenia z komunikatora. Ogłoszenia, profile, płatności Monobank i panel admina w jednym systemie.',
@@ -166,7 +171,7 @@ const tradeground: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu TradeGround',
         lead:
           'Kupowanie i sprzedawanie w Telegram jest wygodne, ale bez spójnego systemu ogłoszenia, płatności i profile rozjeżdżają się między czatami. Potrzebny był produkt, który trzyma całą ścieżkę marketplace w komunikatorze.',
         items: [
@@ -180,7 +185,7 @@ const tradeground: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla TradeGround',
         lead:
           'Marketplace w dwóch warstwach: bot prowadzi operacje i komunikację, miniapp — witrynę i katalog. Każdy blok ma jedno zadanie we wspólnej ścieżce.',
         items: [
@@ -201,6 +206,7 @@ const tradeground: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'TradeGround',
+      seoTitle: 'Кейс TradeGround: маркетплейс в Telegram',
       heroTitle: 'TradeGround — маркетплейс в Telegram: бот + мини-приложение',
       heroLead:
         'TradeGroundBot — полноценный маркетплейс в Telegram: бот и мини-приложение, где можно продавать и покупать, не выходя из мессенджера. Объявления, профили, оплата через Monobank и админка — в одной системе.',
@@ -213,7 +219,7 @@ const tradeground: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта TradeGround',
         lead:
           'Покупать и продавать в Telegram удобно, но без единой системы объявления, оплата и профили рассыпаются между чатами. Нужен был продукт, который держит весь сценарий маркетплейса внутри мессенджера.',
         items: [
@@ -227,7 +233,7 @@ const tradeground: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для TradeGround',
         lead:
           'Маркетплейс из двух слоёв: бот ведёт операции и коммуникацию, мини-приложение — витрину и каталог. Каждый блок закрывает свою задачу в общем сценарии.',
         items: [
@@ -257,6 +263,7 @@ const thirteenVplus: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: '13VPLUS',
+      seoTitle: 'Кейс 13VPLUS: e-commerce жіночого одягу',
       heroTitle: '13VPLUS — інтернет-магазин бренду жіночого одягу',
       heroLead:
         '13VPLUS — магазин про стиль та індивідуальність. Ми створили платформу, яка виглядає так само вишукано, як колекції бренду, і при цьому працює швидко, стабільно й без компромісів: продуманий UX, акуратна стилістика та надійний прийом платежів.',
@@ -269,7 +276,7 @@ const thirteenVplus: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту 13VPLUS',
         lead:
           'Бренду жіночого одягу потрібна була не просто вітрина, а інструмент продажів: рівень візуалу мав відповідати колекціям, а checkout і аналітика — витримувати ріст без постійних технічних компромісів.',
         items: [
@@ -283,7 +290,7 @@ const thirteenVplus: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для 13VPLUS',
         lead:
           'Зібрали e-commerce під бренд: візуал і мікроінтерфейси під колекції, стабільний checkout і технічну основу для просування. Кожен блок працює на довіру й покупку.',
         items: [
@@ -304,6 +311,7 @@ const thirteenVplus: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: '13VPLUS',
+      seoTitle: '13VPLUS case: women\'s fashion e-commerce',
       heroTitle: '13VPLUS — e-commerce for a women’s fashion brand',
       heroLead:
         '13VPLUS is a store about style and individuality. We built a platform that looks as refined as the brand’s collections — and still runs fast and stable, with careful UX, clean styling, and reliable payments.',
@@ -316,7 +324,7 @@ const thirteenVplus: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: 13VPLUS',
         lead:
           'A women’s fashion brand needed more than a brochure site: visuals had to match the collections, while checkout and analytics had to support growth without constant technical compromise.',
         items: [
@@ -330,7 +338,7 @@ const thirteenVplus: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for 13VPLUS',
         lead:
           'We built brand-led e-commerce: visuals and micro-interactions for the collections, a stable checkout, and a technical base for growth. Every block serves trust and purchase.',
         items: [
@@ -351,6 +359,7 @@ const thirteenVplus: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: '13VPLUS',
+      seoTitle: 'Case 13VPLUS: e-commerce odzieży damskiej',
       heroTitle: '13VPLUS — sklep internetowy marki odzieży damskiej',
       heroLead:
         '13VPLUS to sklep o stylu i indywidualności. Zbudowaliśmy platformę tak dopracowaną wizualnie jak kolekcje marki — szybką, stabilną, z przemyślanym UX i niezawodnymi płatnościami.',
@@ -363,7 +372,7 @@ const thirteenVplus: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu 13VPLUS',
         lead:
           'Marce odzieży damskiej potrzebny był narzędzie sprzedaży, nie wizytówka: wizual musi dorównać kolekcjom, a checkout i analityka — wytrzymać wzrost bez ciągłych kompromisów.',
         items: [
@@ -377,7 +386,7 @@ const thirteenVplus: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla 13VPLUS',
         lead:
           'E-commerce pod markę: wizual i mikrointerfejsy pod kolekcje, stabilny checkout oraz baza pod promocję. Każdy blok buduje zaufanie i zakup.',
         items: [
@@ -398,6 +407,7 @@ const thirteenVplus: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: '13VPLUS',
+      seoTitle: 'Кейс 13VPLUS: e-commerce женской одежды',
       heroTitle: '13VPLUS — интернет-магазин бренда женской одежды',
       heroLead:
         '13VPLUS — магазин о стиле и индивидуальности. Мы создали платформу, которая выглядит так же изысканно, как коллекции бренда, и при этом работает быстро и стабильно: продуманный UX, аккуратная стилистика и надёжный приём платежей.',
@@ -410,7 +420,7 @@ const thirteenVplus: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта 13VPLUS',
         lead:
           'Бренду женской одежды нужна была не визитка, а инструмент продаж: визуал на уровне коллекций, а checkout и аналитика — готовые к росту без постоянных компромиссов.',
         items: [
@@ -424,7 +434,7 @@ const thirteenVplus: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для 13VPLUS',
         lead:
           'Собрали e-commerce под бренд: визуал и микроинтерфейсы под коллекции, стабильный checkout и техническую основу для продвижения.',
         items: [
@@ -454,7 +464,8 @@ const drTolstikova: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Dr. Толстікова',
-      heroTitle: 'Dr. Толстікова — автоматизація продажів і підписок у Telegram',
+      seoTitle: 'Автоматизація продажів Dr. Толстікова',
+      heroTitle: 'Dr. Толстікова — автоматизація продажів у Telegram',
       heroLead:
         'Telegram-бот для Dr. Толстікової: продажі, підписки, платежі та аналітика працюють самі — без менеджерів і ручної рутини, 24/7. Бот продає й продовжує підписки, приймає WayForPay і тримає доступ до закритого ком’юніті.',
       visitSite: 'Відкрити бота',
@@ -466,7 +477,7 @@ const drTolstikova: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Dr. Толстікова',
         lead:
           'Продажі підписок, доступ до ком’юніті й перевірка оплат тягнули на ручну роботу. Бізнесу потрібен був контур, який сам продає, продовжує доступ і відсікає прострочені підписки.',
         items: [
@@ -480,7 +491,7 @@ const drTolstikova: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Dr. Толстікова',
         lead:
           'Побудували Telegram-бота як операційний шар бізнесу: продаж, оплата, доступ і контроль підписки в одному сценарії.',
         items: [
@@ -501,7 +512,8 @@ const drTolstikova: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Dr. Tolstikova',
-      heroTitle: 'Dr. Tolstikova — sales and subscription automation in Telegram',
+      seoTitle: 'Dr. Tolstikova sales automation',
+      heroTitle: 'Dr. Tolstikova — sales automation in Telegram',
       heroLead:
         'A Telegram bot for Dr. Tolstikova where sales, subscriptions, payments and analytics run on their own — no managers, no manual routine, 24/7. The bot sells and renews access, takes WayForPay payments and keeps the closed community gated.',
       visitSite: 'Open bot',
@@ -513,7 +525,7 @@ const drTolstikova: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Dr. Tolstikova',
         lead:
           'Subscription sales, community access and payment checks depended on manual work. The business needed a loop that sells, renews access and cuts expired subscriptions on its own.',
         items: [
@@ -527,7 +539,7 @@ const drTolstikova: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Dr. Tolstikova',
         lead:
           'We built a Telegram bot as the business operations layer: sell, pay, grant access and control subscriptions in one flow.',
         items: [
@@ -548,7 +560,8 @@ const drTolstikova: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Dr. Tolstikova',
-      heroTitle: 'Dr. Tolstikova — automatyzacja sprzedaży w Telegramie',
+      seoTitle: 'Automatyzacja sprzedaży Dr. Tolstikova',
+      heroTitle: 'Dr. Tolstikova — automatyzacja sprzedaży w Telegram',
       heroLead:
         'Bot Telegram dla Dr. Tolstikovej: sprzedaż, subskrypcje, płatności i analityka działają same — bez managerów i ręcznej rutyny, 24/7.',
       visitSite: 'Otwórz bota',
@@ -560,7 +573,7 @@ const drTolstikova: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Dr. Tolstikova',
         lead:
           'Sprzedaż subskrypcji, dostęp do społeczności i weryfikacja płatności wymagały ręcznej pracy. Potrzebny był kontur, który sam sprzedaje, odnawia dostęp i odcina wygasłe subskrypcje.',
         items: [
@@ -574,7 +587,7 @@ const drTolstikova: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Dr. Tolstikova',
         lead:
           'Bot Telegram jako warstwa operacyjna: sprzedaż, płatność, dostęp i kontrola subskrypcji w jednej ścieżce.',
         items: [
@@ -595,7 +608,8 @@ const drTolstikova: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Dr. Толстикова',
-      heroTitle: 'Dr. Толстикова — автоматизация продаж и подписок в Telegram',
+      seoTitle: 'Автоматизация продаж Dr. Толстикова',
+      heroTitle: 'Dr. Толстикова — автоматизация продаж в Telegram',
       heroLead:
         'Telegram-бот для Dr. Толстиковой: продажи, подписки, платежи и аналитика работают сами — без менеджеров и ручной рутины, 24/7.',
       visitSite: 'Открыть бота',
@@ -607,7 +621,7 @@ const drTolstikova: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Dr. Толстикова',
         lead:
           'Продажи подписок, доступ в комьюнити и проверка оплат держались на ручной работе. Нужен был контур, который сам продаёт, продлевает доступ и отключает просроченные подписки.',
         items: [
@@ -621,7 +635,7 @@ const drTolstikova: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Dr. Толстикова',
         lead:
           'Telegram-бот как операционный слой: продажа, оплата, доступ и контроль подписки в одном сценарии.',
         items: [
@@ -651,6 +665,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Nieznany Piekarz',
+      seoTitle: 'Кейс Nieznany Piekarz: запис на майстер-класи',
       heroTitle: 'Nieznany Piekarz — запис на майстер-класи онлайн',
       heroLead:
         'Платформа, де купити майстер-клас з кондитерства в Польщі можна за кілька кліків — без дзвінків і очікування. Сайт приймає оплату, показує локації та одразу повідомляє команду про нові записи.',
@@ -663,7 +678,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Nieznany Piekarz',
         lead:
           'Запис на майстер-класи через дзвінки й ручну координацію гальмував ріст. Потрібна була платформа, яка продає місця онлайн і знімає рутину з команди.',
         items: [
@@ -677,7 +692,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Nieznany Piekarz',
         lead:
           'Зібрали сучасну платформу бронювання: Next.js на фронті, платежі та інтеграції на бекенді, UX під швидкий запис.',
         items: [
@@ -698,6 +713,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Nieznany Piekarz',
+      seoTitle: 'Nieznany Piekarz case: masterclass booking',
       heroTitle: 'Nieznany Piekarz — online booking for pastry masterclasses',
       heroLead:
         'A platform where buying a pastry masterclass in Poland takes a few clicks — no calls, no waiting. The site takes payment, shows locations and notifies the team about new bookings instantly.',
@@ -710,7 +726,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Nieznany Piekarz',
         lead:
           'Booking masterclasses by phone and manual coordination slowed growth. The brand needed a platform that sells seats online and removes routine from the team.',
         items: [
@@ -724,7 +740,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Nieznany Piekarz',
         lead:
           'We built a modern booking platform: Next.js on the front, payments and integrations on the back, UX tuned for fast enrollment.',
         items: [
@@ -745,6 +761,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Nieznany Piekarz',
+      seoTitle: 'Case Nieznany Piekarz: zapis na warsztaty',
       heroTitle: 'Nieznany Piekarz — zapis na warsztaty cukiernicze online',
       heroLead:
         'Platforma, na której warsztat cukierniczy w Polsce kupisz w kilka kliknięć — bez telefonów i czekania. Płatność online, mapa lokalizacji i natychmiastowe powiadomienia dla zespołu.',
@@ -757,7 +774,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Nieznany Piekarz',
         lead:
           'Zapisy przez telefon i ręczną koordynację hamowały wzrost. Potrzebna była platforma, która sprzedaje miejsca online i zdejmuje rutynę z zespołu.',
         items: [
@@ -771,7 +788,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Nieznany Piekarz',
         lead:
           'Nowoczesna platforma rezerwacji: Next.js z przodu, płatności i integracje z tyłu, UX pod szybki zapis.',
         items: [
@@ -792,6 +809,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Nieznany Piekarz',
+      seoTitle: 'Кейс Nieznany Piekarz: запись на мастер-классы',
       heroTitle: 'Nieznany Piekarz — онлайн-запись на мастер-классы',
       heroLead:
         'Платформа, где мастер-класс по кондитерству в Польше покупается за несколько кликов — без звонков и ожидания. Оплата онлайн, карта локаций и мгновенные уведомления команде.',
@@ -804,7 +822,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Nieznany Piekarz',
         lead:
           'Запись через звонки и ручную координацию тормозила рост. Нужна была платформа, которая продаёт места онлайн и снимает рутину с команды.',
         items: [
@@ -818,7 +836,7 @@ const nieznanyPiekarz: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Nieznany Piekarz',
         lead:
           'Современная платформа бронирования: Next.js на фронте, платежи и интеграции на бэке, UX под быстрый запись.',
         items: [
@@ -848,6 +866,7 @@ const applum: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Applum',
+      seoTitle: 'Кейс Applum: автоматизація Apple-сервісу',
       heroTitle: 'Applum — автоматизація Apple-сервісу в Telegram',
       heroLead:
         'Власнику Apple-сервісу потрібно було автоматизувати весь бізнес. Ми створили Telegram-бота, який закриває продажі з Trade-In, заявки на ремонт і реферальну програму — замість рутини кількох співробітників.',
@@ -860,7 +879,7 @@ const applum: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Applum',
         lead:
           'Продажі техніки, сервіс і залучення клієнтів тримались на людях. Бізнесу потрібен був бот, який веде клієнта до покупки й знімає операційну рутину.',
         items: [
@@ -874,7 +893,7 @@ const applum: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Applum',
         lead:
           'Зібрали Telegram-бота як єдину точку входу для продажів, сервісу та бонусів — зі smart-діалогами й автоматизаціями.',
         items: [
@@ -895,6 +914,7 @@ const applum: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Applum',
+      seoTitle: 'Applum case: Apple service automation',
       heroTitle: 'Applum — Apple service automation in Telegram',
       heroLead:
         'An Apple service owner needed to automate the whole business. We built a Telegram bot that covers Trade-In sales, repair intake and a referral program — replacing the routine of several staff members.',
@@ -907,7 +927,7 @@ const applum: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Applum',
         lead:
           'Device sales, service and acquisition depended on people. The business needed a bot that guides clients to purchase and removes operational routine.',
         items: [
@@ -921,7 +941,7 @@ const applum: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Applum',
         lead:
           'We built a Telegram bot as a single entry point for sales, service and bonuses — with smart dialogs and automations.',
         items: [
@@ -942,6 +962,7 @@ const applum: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Applum',
+      seoTitle: 'Case Applum: automatyzacja serwisu Apple',
       heroTitle: 'Applum — automatyzacja serwisu Apple w Telegram',
       heroLead:
         'Właściciel serwisu Apple potrzebował zautomatyzować cały biznes. Bot Telegram zamyka sprzedaż z Trade-In, zgłoszenia napraw i program partnerski — zamiast rutyny kilku pracowników.',
@@ -954,7 +975,7 @@ const applum: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Applum',
         lead:
           'Sprzedaż sprzętu, serwis i pozyskiwanie klientów opierały się na ludziach. Potrzebny był bot, który prowadzi do zakupu i zdejmuje rutynę operacyjną.',
         items: [
@@ -968,7 +989,7 @@ const applum: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Applum',
         lead:
           'Bot Telegram jako jeden punkt wejścia: sprzedaż, serwis i bonusy — ze smart-dialogami i automatyzacjami.',
         items: [
@@ -989,6 +1010,7 @@ const applum: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Applum',
+      seoTitle: 'Кейс Applum: автоматизация Apple-сервиса',
       heroTitle: 'Applum — автоматизация Apple-сервиса в Telegram',
       heroLead:
         'Владельцу Apple-сервиса нужно было автоматизировать весь бизнес. Telegram-бот закрывает продажи с Trade-In, заявки на ремонт и реферальную программу — вместо рутины нескольких сотрудников.',
@@ -1001,7 +1023,7 @@ const applum: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Applum',
         lead:
           'Продажи техники, сервис и привлечение клиентов держались на людях. Нужен был бот, который ведёт к покупке и снимает операционную рутину.',
         items: [
@@ -1015,7 +1037,7 @@ const applum: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Applum',
         lead:
           'Telegram-бот как единая точка входа: продажи, сервис и бонусы — со smart-диалогами и автоматизациями.',
         items: [
@@ -1045,6 +1067,7 @@ const flixmarket: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Flix Market',
+      seoTitle: 'Кейс Flix Market: бот для продажу підписок',
       heroTitle: 'Flix Market — бот для оформлення підписок на сервіси',
       heroLead:
         'Онлайн-магазин у Telegram, де можна купити підписки на кіно, музику, VPN та інші сервіси швидко, просто й вигідно. Кілька натискань у боті — і замовлення оформлене з оплатою через Monobank.',
@@ -1057,7 +1080,7 @@ const flixmarket: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Flix Market',
         lead:
           'Продаж підписок на цифрові сервіси потребував швидкого сценарію всередині Telegram: каталог, оплата й підтримка без зайвих кроків і ручної видачі.',
         items: [
@@ -1071,7 +1094,7 @@ const flixmarket: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Flix Market',
         lead:
           'Зібрали бота-магазин підписок: від вибору сервісу до оплати й керування замовленнями в адмінці.',
         items: [
@@ -1092,6 +1115,7 @@ const flixmarket: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Flix Market',
+      seoTitle: 'Flix Market case: Telegram bot for subscriptions',
       heroTitle: 'Flix Market — bot for digital subscription checkout',
       heroLead:
         'A Telegram store where people buy movie, music, VPN and other subscriptions quickly and at better rates. A few taps in the bot — and checkout completes with Monobank payment.',
@@ -1104,7 +1128,7 @@ const flixmarket: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Flix Market',
         lead:
           'Selling digital subscriptions needed a fast path inside Telegram: catalog, payment and support without extra steps or manual fulfillment.',
         items: [
@@ -1118,7 +1142,7 @@ const flixmarket: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Flix Market',
         lead:
           'We built a subscription store bot: from picking a service to payment and order management in the admin panel.',
         items: [
@@ -1139,6 +1163,7 @@ const flixmarket: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Flix Market',
+      seoTitle: 'Case Flix Market: bot do subskrypcji',
       heroTitle: 'Flix Market — bot do subskrypcji usług cyfrowych',
       heroLead:
         'Sklep w Telegram, gdzie kupisz subskrypcje filmów, muzyki, VPN i innych usług szybko i korzystniej. Kilka kliknięć w bocie — płatność Monobank i gotowe.',
@@ -1151,7 +1176,7 @@ const flixmarket: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Flix Market',
         lead:
           'Sprzedaż subskrypcji wymagała szybkiej ścieżki w Telegram: katalog, płatność i wsparcie bez zbędnych kroków i ręcznej realizacji.',
         items: [
@@ -1165,7 +1190,7 @@ const flixmarket: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Flix Market',
         lead:
           'Bot-sklep subskrypcji: od wyboru usługi po płatność i zarządzanie zamówieniami w panelu.',
         items: [
@@ -1186,6 +1211,7 @@ const flixmarket: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Flix Market',
+      seoTitle: 'Кейс Flix Market: бот для подписок',
       heroTitle: 'Flix Market — бот для оформления подписок на сервисы',
       heroLead:
         'Онлайн-магазин в Telegram, где можно купить подписки на кино, музыку, VPN и другие сервисы быстро и выгоднее. Несколько нажатий в боте — и заказ оформлен с оплатой через Monobank.',
@@ -1198,7 +1224,7 @@ const flixmarket: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Flix Market',
         lead:
           'Продажа цифровых подписок требовала быстрого сценария внутри Telegram: каталог, оплата и поддержка без лишних шагов и ручной выдачи.',
         items: [
@@ -1212,7 +1238,7 @@ const flixmarket: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Flix Market',
         lead:
           'Собрали бота-магазин подписок: от выбора сервиса до оплаты и управления заказами в админке.',
         items: [
@@ -1236,12 +1262,13 @@ const flixmarket: CaseStudyDefinition = {
 
 const charsKyiv: CaseStudyDefinition = {
   id: 'chars-kyiv',
-  liveUrl: 'https://charsua.com/',
+  liveUrl: 'https://charsua.com/uk',
   mainImage: '/portfolio/portfolio-chars-kyiv.jpg',
   portfolioCategory: 'websites',
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Chars',
+      seoTitle: 'Кейс Chars: e-commerce платформа продажів',
       heroTitle: 'Chars — e-commerce платформа для онлайн-продажів',
       heroLead:
         'E-commerce платформа, де легко керувати товарами, приймати оплати й відстежувати замовлення без зайвих клопотів. Каталог із фільтрами, онлайн-оплата, Нова Пошта й Telegram-сповіщення про покупки.',
@@ -1254,7 +1281,7 @@ const charsKyiv: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Chars',
         lead:
           'Бренду потрібен був простий онлайн-канал продажів без важкої системи: каталог, checkout, доставка й контроль замовлень у одному місці.',
         items: [
@@ -1268,7 +1295,7 @@ const charsKyiv: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Chars',
         lead:
           'Зібрали e-commerce під щоденну роботу магазину: від каталогу до сповіщень про оплату.',
         items: [
@@ -1289,6 +1316,7 @@ const charsKyiv: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Chars',
+      seoTitle: 'Chars case: e-commerce sales platform',
       heroTitle: 'Chars — e-commerce platform for online sales',
       heroLead:
         'An e-commerce platform to manage products, take payments and track orders without extra friction. Filtered catalog, online checkout, Nova Poshta delivery and Telegram alerts on purchases.',
@@ -1301,7 +1329,7 @@ const charsKyiv: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Chars',
         lead:
           'The brand needed a simple online sales channel without a heavy system: catalog, checkout, delivery and order control in one place.',
         items: [
@@ -1315,7 +1343,7 @@ const charsKyiv: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Chars',
         lead:
           'We built e-commerce for daily store operations: from catalog to payment alerts.',
         items: [
@@ -1336,6 +1364,7 @@ const charsKyiv: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Chars',
+      seoTitle: 'Case Chars: platforma e-commerce',
       heroTitle: 'Chars — platforma e-commerce do sprzedaży online',
       heroLead:
         'Platforma e-commerce do zarządzania produktami, płatnościami i zamówieniami bez zbędnych komplikacji. Filtry, checkout, Nova Poshta i powiadomienia Telegram.',
@@ -1348,7 +1377,7 @@ const charsKyiv: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Chars',
         lead:
           'Marce potrzebny był prosty kanał sprzedaży online bez ciężkiego systemu: katalog, checkout, dostawa i kontrola zamówień w jednym miejscu.',
         items: [
@@ -1362,7 +1391,7 @@ const charsKyiv: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Chars',
         lead:
           'E-commerce pod codzienną pracę sklepu: od katalogu po alerty o płatności.',
         items: [
@@ -1383,6 +1412,7 @@ const charsKyiv: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Chars',
+      seoTitle: 'Кейс Chars: e-commerce платформа продаж',
       heroTitle: 'Chars — e-commerce платформа для онлайн-продаж',
       heroLead:
         'E-commerce платформа для управления товарами, оплаты и заказов без лишней сложности. Фильтры, онлайн-оплата, Новая Почта и Telegram-уведомления о покупках.',
@@ -1395,7 +1425,7 @@ const charsKyiv: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Chars',
         lead:
           'Бренду нужен был простой онлайн-канал продаж без тяжёлой системы: каталог, checkout, доставка и контроль заказов в одном месте.',
         items: [
@@ -1409,7 +1439,7 @@ const charsKyiv: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Chars',
         lead:
           'Собрали e-commerce под ежедневную работу магазина: от каталога до уведомлений об оплате.',
         items: [
@@ -1439,6 +1469,7 @@ const smartBody: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Smart Body',
+      seoTitle: 'Кейс Smart Body: продаж курсу в Telegram',
       heroTitle: 'Smart Body — EdTech-система продажу курсу в Telegram',
       heroLead:
         'Інструмент для автоматизації продажу та доставки контенту авторського курсу зі схуднення. Зручний онбординг, оплата через Monopay і миттєва видача файлів після підтвердження транзакції — автономний магазин 24/7.',
@@ -1451,7 +1482,7 @@ const smartBody: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Smart Body',
         lead:
           'Продаж курсу в Instagram тримався на ручному виставленні рахунків і перевірці чеків. Потрібно було поєднати онбординг, оплату та retention в одному Telegram-сценарії.',
         items: [
@@ -1465,7 +1496,7 @@ const smartBody: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Smart Body',
         lead:
           'Зібрали EdTech-контур у Telegram: прогрів, продаж, оплата й доставка контенту в одному боті.',
         items: [
@@ -1486,6 +1517,7 @@ const smartBody: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Smart Body',
+      seoTitle: 'Smart Body case: course sales in Telegram',
       heroTitle: 'Smart Body — EdTech course sales system in Telegram',
       heroLead:
         'A tool that automates selling and delivering an author’s weight-loss course. Smooth onboarding, Monopay checkout and instant file delivery after payment confirmation — an autonomous store running 24/7.',
@@ -1498,7 +1530,7 @@ const smartBody: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Smart Body',
         lead:
           'Course sales on Instagram depended on manual invoicing and receipt checks. Onboarding, payment and retention had to live in one Telegram flow.',
         items: [
@@ -1512,7 +1544,7 @@ const smartBody: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Smart Body',
         lead:
           'We built an EdTech loop in Telegram: warm-up, sell, pay and deliver content inside one bot.',
         items: [
@@ -1533,6 +1565,7 @@ const smartBody: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Smart Body',
+      seoTitle: 'Case Smart Body: sprzedaż kursu w Telegram',
       heroTitle: 'Smart Body — system EdTech sprzedaży kursu w Telegram',
       heroLead:
         'Narzędzie do automatyzacji sprzedaży i dostawy treści autorskiego kursu odchudzania. Onboarding, Monopay i natychmiastowa wydanie plików po płatności — autonomiczny sklep 24/7.',
@@ -1545,7 +1578,7 @@ const smartBody: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Smart Body',
         lead:
           'Sprzedaż kursu na Instagramie opierała się na ręcznym wystawianiu rachunków i sprawdzaniu płatności. Onboarding, płatność i retention musiały żyć w jednej ścieżce Telegram.',
         items: [
@@ -1559,7 +1592,7 @@ const smartBody: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Smart Body',
         lead:
           'Kontur EdTech w Telegram: rozgrzewka, sprzedaż, płatność i dostawa treści w jednym bocie.',
         items: [
@@ -1580,6 +1613,7 @@ const smartBody: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Smart Body',
+      seoTitle: 'Кейс Smart Body: продажа курса в Telegram',
       heroTitle: 'Smart Body — EdTech-система продажи курса в Telegram',
       heroLead:
         'Инструмент автоматизации продажи и доставки контента авторского курса похудения. Онбординг, оплата через Monopay и мгновенная выдача файлов после подтверждения транзакции — автономный магазин 24/7.',
@@ -1592,7 +1626,7 @@ const smartBody: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Smart Body',
         lead:
           'Продажа курса в Instagram держалась на ручном выставлении счетов и проверке чеков. Нужно было соединить онбординг, оплату и retention в одном Telegram-сценарии.',
         items: [
@@ -1606,7 +1640,7 @@ const smartBody: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Smart Body',
         lead:
           'Собрали EdTech-контур в Telegram: прогрев, продажа, оплата и доставка контента в одном боте.',
         items: [

@@ -55,6 +55,11 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
             <nav aria-label="Footer navigation">
               <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-2 md:flex md:flex-col md:items-start md:gap-0 md:space-y-3">
                 <li>
+                  <Link href={`/${currentLanguage}/about`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.footer.about} - TeleBots`}>
+                    {t.footer.about}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${currentLanguage}/services`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.services} - TeleBots`}>
                     {t.nav.services}
                   </Link>

@@ -27,6 +27,7 @@ const movnaTest: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Level Up Test',
+      seoTitle: 'Кейс Level Up: placement-тест англійської',
       heroTitle: 'Level Up — інтерактивний placement-тест рівня англійської',
       heroLead:
         'Онлайн-тест для визначення рівня англійської: зрозуміле проходження, сучасний дизайн, покроковий сценарій і автоматична рекомендація рівня навчання. Адаптивний інтерфейс робить тест швидким і комфортним на будь-якому пристрої.',
@@ -39,7 +40,7 @@ const movnaTest: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Level Up Test',
         lead:
           'Школі потрібен був інструмент первинного оцінювання знань без ручного розподілу студентів і з комфортним UX для нових учнів.',
         items: [
@@ -53,7 +54,7 @@ const movnaTest: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Level Up Test',
         lead:
           'Зібрали інтерактивний placement-тест як перший крок у воронці школи: від старту до рекомендованого рівня.',
         items: [
@@ -74,6 +75,7 @@ const movnaTest: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Level Up Test',
+      seoTitle: 'Level Up case: English placement test',
       heroTitle: 'Level Up — interactive English placement test',
       heroLead:
         'An online English level test with a clear flow, modern design, step-by-step scenario and automatic recommended learning level. Fully responsive so the experience stays fast and comfortable on any device.',
@@ -86,7 +88,7 @@ const movnaTest: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Level Up Test',
         lead:
           'The school needed a first-assessment tool without manual student sorting — and with a comfortable UX for new learners.',
         items: [
@@ -100,7 +102,7 @@ const movnaTest: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Level Up Test',
         lead:
           'We built an interactive placement test as the first step in the school funnel: from start to recommended level.',
         items: [
@@ -121,6 +123,7 @@ const movnaTest: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Level Up Test',
+      seoTitle: 'Case Level Up: test poziomu angielskiego',
       heroTitle: 'Level Up — interaktywny test poziomu angielskiego',
       heroLead:
         'Online-test poziomu angielskiego: jasny przebieg, nowoczesny design, scenariusz krok po kroku i automatyczna rekomendacja poziomu. Pełna responsywność.',
@@ -133,7 +136,7 @@ const movnaTest: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Level Up Test',
         lead:
           'Szkole potrzebne było narzędzie wstępnej oceny bez ręcznego rozdzielania studentów i z wygodnym UX.',
         items: [
@@ -147,7 +150,7 @@ const movnaTest: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Level Up Test',
         lead: 'Interaktywny placement-test jako pierwszy krok w lejku szkoły.',
         items: [
           'Scenariusz krok po kroku',
@@ -167,6 +170,7 @@ const movnaTest: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Level Up Test',
+      seoTitle: 'Кейс Level Up: placement-тест английского',
       heroTitle: 'Level Up — интерактивный placement-тест уровня английского',
       heroLead:
         'Онлайн-тест уровня английского: понятное прохождение, современный дизайн, пошаговый сценарий и автоматическая рекомендация уровня обучения. Полный адаптив.',
@@ -179,7 +183,7 @@ const movnaTest: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Level Up Test',
         lead:
           'Школе нужен был инструмент первичной оценки без ручного распределения студентов и с комфортным UX.',
         items: [
@@ -193,7 +197,7 @@ const movnaTest: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Level Up Test',
         lead: 'Интерактивный placement-тест как первый шаг воронки школы.',
         items: [
           'Пошаговый сценарий',
@@ -221,6 +225,7 @@ const kls: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'KLS',
+      seoTitle: 'Кейс KLS: логістика з Китаю',
       heroTitle: 'KLS — сайт логістики: доставка з Китаю в Україну та світом',
       heroLead:
         'Корпоративний сайт логістичної компанії з чітким позиціонуванням: доставка з Китаю в Україну та по світу. Структура веде від першого екрану до контакту й розрахунку вартості — без зайвої складності для клієнта.',
@@ -233,7 +238,7 @@ const kls: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту KLS',
         lead:
           'Логістичній компанії потрібен був сайт, який одразу пояснює географію й сервіс і знімає бар’єр до заявки — без перевантаженої корпоративної «візитки».',
         items: [
@@ -247,7 +252,7 @@ const kls: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для KLS',
         lead:
           'Зібрали лендінг/сайт логістики як інструмент залучення: сильний hero, просте позиціонування й дві головні дії.',
         items: [
@@ -268,6 +273,7 @@ const kls: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'KLS',
+      seoTitle: 'KLS case: China logistics website',
       heroTitle: 'KLS — logistics site: China to Ukraine and worldwide',
       heroLead:
         'A logistics company website with clear positioning: delivery from China to Ukraine and worldwide. The structure leads from the first screen to contact and cost calculation — without unnecessary complexity.',
@@ -280,7 +286,7 @@ const kls: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: KLS',
         lead:
           'The logistics company needed a site that explains geography and service immediately and lowers the barrier to inquiry — without an overloaded corporate brochure.',
         items: [
@@ -294,7 +300,7 @@ const kls: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for KLS',
         lead:
           'We built a logistics landing/site as an acquisition tool: strong hero, simple positioning and two primary actions.',
         items: [
@@ -315,6 +321,7 @@ const kls: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'KLS',
+      seoTitle: 'Case KLS: logistyka z Chin',
       heroTitle: 'KLS — strona logistyki: Chiny → Ukraina i świat',
       heroLead:
         'Strona firmy logistycznej z jasnym pozycjonowaniem: dostawa z Chin do Ukrainy i na świat. Od pierwszego ekranu do kontaktu i wyceny — bez zbędnej złożoności.',
@@ -327,7 +334,7 @@ const kls: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu KLS',
         lead:
           'Firmie logistycznej potrzebna była strona, która od razu tłumaczy geografię i usługę oraz obniża barierę zapytania.',
         items: [
@@ -341,7 +348,7 @@ const kls: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla KLS',
         lead: 'Landing/strona logistyki jako narzędzie pozyskania: mocny hero i dwie główne akcje.',
         items: [
           'Hero z pozycjonowaniem Chiny → UA / świat',
@@ -361,6 +368,7 @@ const kls: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'KLS',
+      seoTitle: 'Кейс KLS: логистика из Китая',
       heroTitle: 'KLS — сайт логистики: доставка из Китая в Украину и по миру',
       heroLead:
         'Корпоративный сайт логистической компании с чётким позиционированием: доставка из Китая в Украину и по миру. От первого экрана до контакта и расчёта стоимости.',
@@ -373,7 +381,7 @@ const kls: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта KLS',
         lead:
           'Логистической компании нужен был сайт, который сразу объясняет географию и сервис и снижает барьер до заявки.',
         items: [
@@ -387,7 +395,7 @@ const kls: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для KLS',
         lead: 'Лендинг/сайт логистики как инструмент привлечения: сильный hero и два главных действия.',
         items: [
           'Hero с позиционированием Китай → Украина / мир',
@@ -410,12 +418,13 @@ const kls: CaseStudyDefinition = {
 
 const wayOfProcessing: CaseStudyDefinition = {
   id: 'wayofprocessing',
-  liveUrl: 'https://wayofprocessing.com/',
+  liveUrl: 'https://wayofprocessing.com/ru',
   mainImage: '/portfolio/portfolio-wayofprocessing.jpg',
   portfolioCategory: 'websites',
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'WayOfProcessing',
+      seoTitle: 'Кейс WayOfProcessing: платіжний процессинг',
       heroTitle: 'WayOfProcessing — сайт міжнародного платіжного процесингу',
       heroLead:
         'Сучасний сайт для сервісу міжнародного процесингу платежів через Stripe. Акцент на експертності, довірі й зрозумілій презентації послуг: підключення, переваги, кейси для різних ніш і шлях до консультації.',
@@ -428,7 +437,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту WayOfProcessing',
         lead:
           'Платіжному сервісу потрібен був сайт, який пояснює складний продукт просто й переконливо — з доказами експертності та чітким шляхом до заявки.',
         items: [
@@ -442,7 +451,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для WayOfProcessing',
         lead:
           'Зібрали B2B-сайт процесингу як воронку довіри: послуги, процес, кейси й консультація.',
         items: [
@@ -463,6 +472,7 @@ const wayOfProcessing: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'WayOfProcessing',
+      seoTitle: 'WayOfProcessing case: payment processing',
       heroTitle: 'WayOfProcessing — international payment processing website',
       heroLead:
         'A modern site for an international payment processing service via Stripe. Built around expertise, trust and a clear service story: onboarding, benefits, niche use cases and a path to consultation.',
@@ -475,7 +485,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: WayOfProcessing',
         lead:
           'The payment service needed a site that explains a complex product simply and convincingly — with proof of expertise and a clear path to inquiry.',
         items: [
@@ -489,7 +499,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for WayOfProcessing',
         lead:
           'We built a B2B processing site as a trust funnel: services, process, cases and consultation.',
         items: [
@@ -510,6 +520,7 @@ const wayOfProcessing: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'WayOfProcessing',
+      seoTitle: 'Case WayOfProcessing: processing płatności',
       heroTitle: 'WayOfProcessing — strona processingu płatności',
       heroLead:
         'Nowoczesna strona serwisu processingu płatności przez Stripe. Eksperckość, zaufanie i jasna prezentacja usług: podłączenie, korzyści, case’y i ścieżka do konsultacji.',
@@ -522,7 +533,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu WayOfProcessing',
         lead:
           'Serwisowi płatności potrzebna była strona, która tłumaczy złożony produkt prosto i buduje zaufanie z jasną ścieżką do zgłoszenia.',
         items: [
@@ -536,7 +547,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla WayOfProcessing',
         lead: 'Strona B2B processingu jako lejek zaufania: usługi, proces, case’y i konsultacja.',
         items: [
           'Pozycjonowanie processingu przez Stripe',
@@ -556,6 +567,7 @@ const wayOfProcessing: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'WayOfProcessing',
+      seoTitle: 'Кейс WayOfProcessing: платёжный процессинг',
       heroTitle: 'WayOfProcessing — сайт международного платёжного процессинга',
       heroLead:
         'Современный сайт сервиса международного процессинга платежей через Stripe. Акцент на экспертности, доверии и понятной презентации услуг.',
@@ -568,7 +580,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта WayOfProcessing',
         lead:
           'Платёжному сервису нужен был сайт, который просто объясняет сложный продукт и ведёт к заявке.',
         items: [
@@ -582,7 +594,7 @@ const wayOfProcessing: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для WayOfProcessing',
         lead: 'B2B-сайт процессинга как воронка доверия: услуги, процесс, кейсы и консультация.',
         items: [
           'Позиционирование процессинга через Stripe',
@@ -611,6 +623,7 @@ const emviDigital: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'EMVI Digital',
+      seoTitle: 'Кейс EMVI Digital: сайт агенції',
       heroTitle: 'EMVI Digital — сайт агенції контенту та e-commerce',
       heroLead:
         'Сучасний сайт для digital-агенції: стильна візуальна подача, зрозумілі послуги, кейси й пакети співпраці. Структура, адаптив і швидкість допомагають швидко оцінити можливості агенції та залишити заявку.',
@@ -623,7 +636,7 @@ const emviDigital: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту EMVI Digital',
         lead:
           'Агенції потрібен був сайт, який виглядає на рівні послуг і швидко пояснює, з чим можна прийти — без розмитої презентації.',
         items: [
@@ -637,7 +650,7 @@ const emviDigital: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для EMVI Digital',
         lead:
           'Зібрали сайт агенції як вітрину експертності: послуги, кейси, пакети й чіткий CTA.',
         items: [
@@ -658,6 +671,7 @@ const emviDigital: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'EMVI Digital',
+      seoTitle: 'EMVI Digital case: agency website',
       heroTitle: 'EMVI Digital — agency site for content & e-commerce',
       heroLead:
         'A modern digital agency website: strong visuals, clear services, cases and collaboration packages. Structure, responsiveness and speed help prospects evaluate the agency and send a request.',
@@ -670,7 +684,7 @@ const emviDigital: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: EMVI Digital',
         lead:
           'The agency needed a site that matches the quality of its work and quickly explains what clients can buy — without a vague presentation.',
         items: [
@@ -684,7 +698,7 @@ const emviDigital: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for EMVI Digital',
         lead:
           'We built the agency site as an expertise showcase: services, cases, packages and a clear CTA.',
         items: [
@@ -705,6 +719,7 @@ const emviDigital: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'EMVI Digital',
+      seoTitle: 'Case EMVI Digital: strona agencji',
       heroTitle: 'EMVI Digital — strona agencji content i e-commerce',
       heroLead:
         'Nowoczesna strona agencji digital: stylowa wizualizacja, jasne usługi, case’y i pakiety współpracy. Struktura, responsywność i szybkość prowadzą do zgłoszenia.',
@@ -717,7 +732,7 @@ const emviDigital: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu EMVI Digital',
         lead:
           'Agencji potrzebna była strona na poziomie usług, która szybko tłumaczy, z czym można przyjść.',
         items: [
@@ -731,7 +746,7 @@ const emviDigital: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla EMVI Digital',
         lead: 'Strona agencji jako witryna eksperckości: usługi, case’y, pakiety i CTA.',
         items: [
           'Stylowy system wizualny',
@@ -751,6 +766,7 @@ const emviDigital: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'EMVI Digital',
+      seoTitle: 'Кейс EMVI Digital: сайт агентства',
       heroTitle: 'EMVI Digital — сайт агентства контента и e-commerce',
       heroLead:
         'Современный сайт digital-агентства: стильная визуальная подача, понятные услуги, кейсы и пакеты сотрудничества.',
@@ -763,7 +779,7 @@ const emviDigital: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта EMVI Digital',
         lead:
           'Агентству нужен был сайт на уровне услуг, который быстро объясняет, с чем можно прийти.',
         items: [
@@ -777,7 +793,7 @@ const emviDigital: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для EMVI Digital',
         lead: 'Сайт агентства как витрина экспертности: услуги, кейсы, пакеты и CTA.',
         items: [
           'Стильная визуальная система',
@@ -805,6 +821,7 @@ const topTrendShop: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'TopTrendShop',
+      seoTitle: 'Кейс TopTrendShop: e-commerce під товарку',
       heroTitle: 'TopTrendShop — e-commerce під товарку та масштабування',
       heroLead:
         'Повноцінний інтернет-магазин під товарний бізнес: швидкий запуск оферів, тест зв’язок і стабільний вихід у плюс. Зручна адмінка, логічні категорії, пошук і «Обрані» — без зайвої бюрократії.',
@@ -817,7 +834,7 @@ const topTrendShop: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту TopTrendShop',
         lead:
           'Товарному бізнесу потрібен був магазин, який витримує рекламні навантаження й дає швидко міняти офери, ціни й креативи — без довгих доопрацювань.',
         items: [
@@ -831,7 +848,7 @@ const topTrendShop: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для TopTrendShop',
         lead:
           'Зібрали e-commerce під операційну швидкість товарки: від адмінки до структури каталогу.',
         items: [
@@ -852,6 +869,7 @@ const topTrendShop: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'TopTrendShop',
+      seoTitle: 'TopTrendShop case: offer-driven e-commerce',
       heroTitle: 'TopTrendShop — e-commerce built for offers and scale',
       heroLead:
         'A full online store for product businesses: fast offer launches, creative testing and stable profitability. Clean admin, logical categories, search and favorites — without unnecessary process friction.',
@@ -864,7 +882,7 @@ const topTrendShop: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: TopTrendShop',
         lead:
           'The product business needed a store that handles ad load and lets the team change offers, prices and creatives fast — without long reworks.',
         items: [
@@ -878,7 +896,7 @@ const topTrendShop: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for TopTrendShop',
         lead:
           'We built e-commerce for operational speed: from admin to catalog structure.',
         items: [
@@ -899,6 +917,7 @@ const topTrendShop: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'TopTrendShop',
+      seoTitle: 'Case TopTrendShop: e-commerce pod oferty',
       heroTitle: 'TopTrendShop — e-commerce pod oferty i skalę',
       heroLead:
         'Pełny sklep internetowy pod biznes produktowy: szybki start ofert, testy kreacji i stabilny plus. Wygodny panel, kategorie, wyszukiwanie i ulubione.',
@@ -911,7 +930,7 @@ const topTrendShop: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu TopTrendShop',
         lead:
           'Biznesowi produktowemu potrzebny był sklep odporny na ruch z reklam i pozwalający szybko zmieniać oferty, ceny i kreacje.',
         items: [
@@ -925,7 +944,7 @@ const topTrendShop: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla TopTrendShop',
         lead: 'E-commerce pod szybkość operacyjną: od panelu po strukturę katalogu.',
         items: [
           'Pełny sklep pod skalowanie ofert',
@@ -945,6 +964,7 @@ const topTrendShop: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'TopTrendShop',
+      seoTitle: 'Кейс TopTrendShop: e-commerce под товарку',
       heroTitle: 'TopTrendShop — e-commerce под товарку и масштабирование',
       heroLead:
         'Полноценный интернет-магазин под товарный бизнес: быстрый запуск офферов, тест связок и стабильный выход в плюс. Удобная админка, категории, поиск и избранное.',
@@ -957,7 +977,7 @@ const topTrendShop: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта TopTrendShop',
         lead:
           'Товарному бизнесу нужен был магазин, который выдерживает рекламную нагрузку и даёт быстро менять офферы, цены и креативы.',
         items: [
@@ -971,7 +991,7 @@ const topTrendShop: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для TopTrendShop',
         lead: 'E-commerce под операционную скорость товарки: от админки до структуры каталога.',
         items: [
           'Полноценный магазин под масштабирование офферов',
@@ -1000,6 +1020,7 @@ const journeyZavadska: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Journey Course',
+      seoTitle: 'Кейс Journey: сайт курсу + Telegram-бот',
       heroTitle: 'Journey — сайт курсу + WayForPay + Telegram-бот доступу',
       heroLead:
         'Запуск онлайн-курсу без технічного головного болю: сайт, оплата через WayForPay і Telegram-бот, який автоматично видає доступ і щодня надсилає матеріали. Оплата → доступ → 7 днів навчання в боті.',
@@ -1012,7 +1033,7 @@ const journeyZavadska: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Journey Course',
         lead:
           'Експерту потрібен був запуск курсу без ручної видачі доступу й розсилки матеріалів — єдиний контур від оплати до щоденного навчання.',
         items: [
@@ -1026,7 +1047,7 @@ const journeyZavadska: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Journey Course',
         lead:
           'Зібрали зв’язку сайт + платіж + бот: від покупки до щоденної доставки контенту.',
         items: [
@@ -1047,6 +1068,7 @@ const journeyZavadska: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Journey Course',
+      seoTitle: 'Journey case: course site + Telegram bot',
       heroTitle: 'Journey — course site + WayForPay + Telegram access bot',
       heroLead:
         'Launch an online course without technical headache: a site, WayForPay checkout and a Telegram bot that grants access and sends daily lessons. Pay → access → 7 days of learning in the bot.',
@@ -1059,7 +1081,7 @@ const journeyZavadska: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Journey Course',
         lead:
           'The expert needed a course launch without manually granting access or sending materials — one loop from payment to daily learning.',
         items: [
@@ -1073,7 +1095,7 @@ const journeyZavadska: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Journey Course',
         lead:
           'We connected site + payment + bot: from purchase to daily content delivery.',
         items: [
@@ -1094,6 +1116,7 @@ const journeyZavadska: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Journey Course',
+      seoTitle: 'Case Journey: strona kursu + bot Telegram',
       heroTitle: 'Journey — strona kursu + WayForPay + bot dostępu',
       heroLead:
         'Start kursu online bez technicznego bólu głowy: strona, płatność WayForPay i bot Telegram, który daje dostęp i codziennie wysyła materiały.',
@@ -1106,7 +1129,7 @@ const journeyZavadska: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Journey Course',
         lead:
           'Ekspertce potrzebny był start kursu bez ręcznego wydawania dostępu i materiałów — jeden kontur od płatności do codziennej nauki.',
         items: [
@@ -1120,7 +1143,7 @@ const journeyZavadska: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Journey Course',
         lead: 'Połączenie strona + płatność + bot: od zakupu do codziennej dostawy treści.',
         items: [
           'Strona kursu jako punkt sprzedaży',
@@ -1140,6 +1163,7 @@ const journeyZavadska: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Journey Course',
+      seoTitle: 'Кейс Journey: сайт курса + Telegram-бот',
       heroTitle: 'Journey — сайт курса + WayForPay + Telegram-бот доступа',
       heroLead:
         'Запуск онлайн-курса без технической головной боли: сайт, оплата WayForPay и Telegram-бот, который выдаёт доступ и ежедневно присылает материалы.',
@@ -1152,7 +1176,7 @@ const journeyZavadska: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Journey Course',
         lead:
           'Эксперту нужен был запуск курса без ручной выдачи доступа и материалов — единый контур от оплаты до ежедневного обучения.',
         items: [
@@ -1166,7 +1190,7 @@ const journeyZavadska: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Journey Course',
         lead: 'Связка сайт + платёж + бот: от покупки до ежедневной доставки контента.',
         items: [
           'Сайт курса как точка продажи',
@@ -1195,6 +1219,7 @@ const butenkoFit: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'ButenkoFit',
+      seoTitle: 'Кейс ButenkoFit: сайт тренерки з пілатесу',
       heroTitle: 'ButenkoFit — сайт сертифікованої тренерки з пілатесу',
       heroLead:
         'Сайт для Юлії ButenkoFit, який передає вайб експертки: замість одного довгого лендінгу — структура з окремими сторінками під програми, повітря, якісні фото й блоки, що закривають питання клієнта до запису.',
@@ -1207,7 +1232,7 @@ const butenkoFit: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту ButenkoFit',
         lead:
           'Головним викликом було не просто зібрати сторінки, а передати вайб Юлії: експертність, спокій і чіткий вибір програми без хаосу довгого лендінгу.',
         items: [
@@ -1221,7 +1246,7 @@ const butenkoFit: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для ButenkoFit',
         lead:
           'Зібрали багатосторінковий сайт під пілатес-бренд: програми, експертність і спокійний продаж 24/7.',
         items: [
@@ -1242,6 +1267,7 @@ const butenkoFit: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'ButenkoFit',
+      seoTitle: 'ButenkoFit case: pilates coach website',
       heroTitle: 'ButenkoFit — website for a certified pilates coach',
       heroLead:
         'A site for Yulia ButenkoFit that carries the coach’s vibe: instead of one long landing — separate pages per program, breathing space, quality photos and blocks that answer client questions before booking.',
@@ -1254,7 +1280,7 @@ const butenkoFit: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: ButenkoFit',
         lead:
           'The core challenge was not just shipping pages — it was transferring Yulia’s vibe: expertise, calm and a clear program choice without a chaotic long landing.',
         items: [
@@ -1268,7 +1294,7 @@ const butenkoFit: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for ButenkoFit',
         lead:
           'We built a multi-page pilates brand site: programs, expertise and calm sales 24/7.',
         items: [
@@ -1289,6 +1315,7 @@ const butenkoFit: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'ButenkoFit',
+      seoTitle: 'Case ButenkoFit: strona trenerki pilates',
       heroTitle: 'ButenkoFit — strona certyfikowanej trenerki pilates',
       heroLead:
         'Strona dla Julii ButenkoFit, która oddaje vibe ekspertki: zamiast jednego długiego landingu — osobne strony programów, powietrze, jakościowe zdjęcia i bloki odpowiadające na pytania przed zapisem.',
@@ -1301,7 +1328,7 @@ const butenkoFit: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu ButenkoFit',
         lead:
           'Głównym wyzwaniem było nie tylko napisać kod, lecz oddać vibe Julii: eksperckość, spokój i jasny wybór programu.',
         items: [
@@ -1315,7 +1342,7 @@ const butenkoFit: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla ButenkoFit',
         lead: 'Wielo-stronicowa strona marki pilates: programy, eksperckość i spokojna sprzedaż 24/7.',
         items: [
           'Osobne strony pod każdy program',
@@ -1335,6 +1362,7 @@ const butenkoFit: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'ButenkoFit',
+      seoTitle: 'Кейс ButenkoFit: сайт тренерки по пилатесу',
       heroTitle: 'ButenkoFit — сайт сертифицированной тренерки по пилатесу',
       heroLead:
         'Сайт для Юлии ButenkoFit, который передаёт вайб экспертки: вместо одного длинного лендинга — структура с отдельными страницами программ, воздух, качественные фото и блоки, закрывающие вопросы до записи.',
@@ -1347,7 +1375,7 @@ const butenkoFit: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта ButenkoFit',
         lead:
           'Главным вызовом было не просто собрать страницы, а передать вайб Юлии: экспертность, спокойствие и ясный выбор программы.',
         items: [
@@ -1361,7 +1389,7 @@ const butenkoFit: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для ButenkoFit',
         lead: 'Многостраничный сайт пилатес-бренда: программы, экспертность и спокойные продажи 24/7.',
         items: [
           'Отдельные страницы под каждую программу',

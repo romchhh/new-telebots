@@ -100,7 +100,7 @@ async def admin_command(update: Update, context: CallbackContext):
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
+        <p className="text-2xl font-bold mb-4">Навігація по статті</p>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Вступ та планування</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Архітектура та розробка</li>

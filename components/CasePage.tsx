@@ -31,6 +31,26 @@ function copy(lang: Language, uk: string, en: string, pl: string, ru: string) {
   return uk;
 }
 
+function caseChallengeHeading(lang: Language, projectName: string) {
+  return copy(
+    lang,
+    `Завдання проєкту ${projectName}`,
+    `Project challenge: ${projectName}`,
+    `Wyzwanie projektu ${projectName}`,
+    `Задача проекта ${projectName}`,
+  );
+}
+
+function caseSolutionHeading(lang: Language, projectName: string) {
+  return copy(
+    lang,
+    `Розробка рішення для ${projectName}`,
+    `Solution built for ${projectName}`,
+    `Rozwiązanie dla ${projectName}`,
+    `Решение для ${projectName}`,
+  );
+}
+
 export default function CasePage({ caseId }: CasePageProps) {
   const params = useParams();
   const langParam = params?.lang as string;
@@ -205,7 +225,7 @@ export default function CasePage({ caseId }: CasePageProps) {
                 {studyCopy.challenge.eyebrow}
               </p>
               <h2 className="text-3xl font-black tracking-tight text-black md:text-4xl lg:text-5xl" style={display}>
-                {studyCopy.challenge.title}
+                {caseChallengeHeading(validLang, crumb)}
               </h2>
             </div>
             <div>
@@ -238,7 +258,7 @@ export default function CasePage({ caseId }: CasePageProps) {
                 {studyCopy.solution.eyebrow}
               </p>
               <h2 className="text-3xl font-black tracking-tight text-black md:text-4xl lg:text-5xl" style={display}>
-                {studyCopy.solution.title}
+                {caseSolutionHeading(validLang, crumb)}
               </h2>
             </div>
             <div>

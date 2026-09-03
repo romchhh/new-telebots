@@ -85,12 +85,12 @@ const limiter = rateLimit({
   return (
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
-      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Професійна розробка сучасних веб-сайтів: повний гайд</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Професійна розробка сучасних веб-сайтів</h1>
       <LegacyBlogHero legacyId={6} alt="Website development by TeleBots" />
       
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
+        <p className="text-2xl font-bold mb-4">Навігація по статті</p>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Сучасні тенденції веб-розробки</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Технічний стек та архітектура</li>
@@ -302,6 +302,15 @@ const limiter = rateLimit({
           Розробка сучасного веб-сайту - це комплексний процес, який вимагає експертизи 
           в різних областях: від технічної розробки до дизайну та безпеки. Важливо 
           обрати надійного партнера, який має досвід та розуміє ваші бізнес-цілі.
+          Детальніше про послугу — на сторінці{' '}
+          <a href="/uk/services/websites" className="font-semibold text-blue-700 underline-offset-2 hover:underline">
+            розробки сайтів під ключ
+          </a>
+          {' '}та{' '}
+          <a href="/uk/solutions/landing-pages" className="font-semibold text-blue-700 underline-offset-2 hover:underline">
+            лендінгів
+          </a>
+          .
         </p>
 
         <div className="bg-blue-50 p-6 rounded-lg mb-8">
@@ -329,11 +338,11 @@ const limiter = rateLimit({
           </BlogLegacyButton>
         </a>
         <a
-          href="/uk/portfolio/cats-fresh"
+          href="/uk/portfolio/13vplus"
         >
           <BlogLegacyButton className="flex items-center justify-center text-white bg-green-600 hover:bg-green-700">
             <FaTelegram className="mr-2" />
-            Переглянути кейс: Cats Fresh
+            Переглянути кейс: 13VPLUS
           </BlogLegacyButton>
         </a>
       </div>

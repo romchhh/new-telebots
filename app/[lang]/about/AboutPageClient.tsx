@@ -138,7 +138,7 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
             <div className="relative h-[200px] w-full sm:h-[220px] md:h-[240px] lg:h-[260px]">
               <Image
                 src="/other/about-hero.png"
-                alt="TeleBots"
+                alt="Команда TeleBots: робочий процес розробки сайтів і Telegram-ботів"
                 fill
                 className="object-cover object-center"
                 sizes="(max-width: 768px) 100vw, 90vw"

@@ -15,7 +15,7 @@ function buildLang(lang: Lang) {
     const study = getCaseStudy(card.id);
     const studyCopy = getCaseStudyCopy(card.id, lang);
     out[card.id] = {
-      title: studyCopy?.heroTitle || c.title,
+      title: studyCopy?.seoTitle || studyCopy?.heroTitle || c.title,
       subtitle: c.subtitle,
       mainImage: study?.mainImage || card.image,
       description: studyCopy?.heroLead || c.highlights,

@@ -105,12 +105,12 @@ async def handle_ai_response(update: Update, context: CallbackContext):
   return (
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
-      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Інтеграція Telegram ботів з іншими сервісами: повний гайд</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Інтеграція Telegram-ботів з іншими сервісами</h1>
       <LegacyBlogHero legacyId={2} alt="Інтеграція Telegram ботів з іншими сервісами" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
+        <p className="text-2xl font-bold mb-4">Навігація по статті</p>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Вступ та важливість інтеграцій</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Інтеграція з CRM-системами</li>

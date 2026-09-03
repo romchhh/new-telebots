@@ -327,11 +327,11 @@ const limiter = rateLimit({
           </Button>
         </a>
         <a
-          href="/uk/portfolio/cats-fresh"
+          href="/uk/portfolio/13vplus"
         >
           <Button className="flex items-center justify-center text-white bg-green-600 hover:bg-green-700">
             <FaTelegram className="mr-2" />
-            Переглянути кейс: Cats Fresh
+            Переглянути кейс: 13VPLUS
           </Button>
         </a>
       </div>

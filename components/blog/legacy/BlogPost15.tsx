@@ -29,7 +29,7 @@ const IndustryCard = ({ icon: Icon, title, description }) => (
 const BlogPost15 = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Перспективи Telegram ботів в Україні: Аналіз та прогнози 2026-2025</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Перспективи Telegram-ботів в Україні на 2026–2027</h1>
 
       <LegacyBlogHero legacyId={15} alt="Перспективи Telegram ботів в Україні" />
 

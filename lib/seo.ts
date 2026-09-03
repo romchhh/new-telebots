@@ -19,22 +19,15 @@ export function buildPageUrl(lang: Language, pathSuffix = ''): string {
   return `${baseUrl}/${lang}${pathSuffix}`;
 }
 
-/** ISO 639-1 + BCP 47, щоб Google не плутав uk/en/pl/ru між собою. */
-const HREFLANG_BCP47: Record<SiteLanguage, string> = {
-  uk: 'uk-UA',
-  en: 'en-US',
-  pl: 'pl-PL',
-  ru: 'ru-RU',
-};
-
-/** hreflang для `<link rel="alternate" hreflang="…">` і sitemap xhtml:link */
+/** hreflang для `<link rel="alternate" hreflang="…">` і sitemap xhtml:link.
+ * Лише ISO 639-1 (+ x-default) — симетричний набір на всіх мовних URL. */
 export function buildHreflangLanguages(
   pathSuffix = '',
   options: { ukOnly?: boolean; langs?: readonly SiteLanguage[] } = {}
 ): Record<string, string> {
   if (options.ukOnly) {
     const ukUrl = buildPageUrl('uk', pathSuffix);
-    return { 'x-default': ukUrl, uk: ukUrl, 'uk-UA': ukUrl };
+    return { 'x-default': ukUrl, uk: ukUrl };
   }
 
   const langs = options.langs ?? SITE_LANGUAGES;
@@ -43,9 +36,7 @@ export function buildHreflangLanguages(
   };
 
   for (const lang of langs) {
-    const url = buildPageUrl(lang, pathSuffix);
-    result[lang] = url;
-    result[HREFLANG_BCP47[lang]] = url;
+    result[lang] = buildPageUrl(lang, pathSuffix);
   }
 
   return result;
@@ -72,12 +63,26 @@ export function buildOpenGraphAlternateLocales(currentLang: Language): string[] 
 }
 
 
-/** Обмежує description для meta (Google ~150–160 символів) */
-export function trimDescriptionForMeta(description: string, maxLength = 160): string {
-  if (!description || description.length <= maxLength) return description;
-  const trimmed = description.slice(0, maxLength - 3).trim();
-  const lastSpace = trimmed.lastIndexOf(' ');
-  return lastSpace > maxLength * 0.7 ? trimmed.slice(0, lastSpace) + '...' : trimmed + '...';
+/** Обмежує description для meta (цільово ~130–155 символів, без «...» у кінці) */
+export function trimDescriptionForMeta(description: string, maxLength = 155): string {
+  const text = (description || '').replace(/\s+/g, ' ').trim();
+  if (!text || text.length <= maxLength) return text;
+
+  const window = text.slice(0, maxLength).trim();
+  const sentenceEnd = Math.max(
+    window.lastIndexOf('. '),
+    window.lastIndexOf('! '),
+    window.lastIndexOf('? '),
+  );
+  if (sentenceEnd > maxLength * 0.55) {
+    return window.slice(0, sentenceEnd + 1).trim();
+  }
+
+  const lastSpace = window.lastIndexOf(' ');
+  const cut = (lastSpace > maxLength * 0.7 ? window.slice(0, lastSpace) : window)
+    .replace(/[,:;–—\-]\s*$/g, '')
+    .trim();
+  return cut;
 }
 
 /**
@@ -174,7 +179,7 @@ export function buildCaseSeoDescription(caseData: {
     .filter(Boolean)
     .join(' ');
 
-  return trimDescriptionForMeta(parts || subtitle || body, 160);
+  return trimDescriptionForMeta(parts || subtitle || body, 155);
 }
 
 export function buildCaseSeoKeywords(caseData: {

@@ -29,7 +29,7 @@ const StatCard = ({ number, label, description }) => (
 const BlogPost14 = () => {
   return (
     <div className="max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Парсинг даних через Telegram ботів: Повний посібник 2026</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Парсинг даних через Telegram-ботів</h1>
 
       <LegacyBlogHero legacyId={14} alt="Парсинг даних через Telegram ботів" />
 

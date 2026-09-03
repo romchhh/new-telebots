@@ -22,7 +22,7 @@ export function getFeaturedPosts(): BlogPost[] {
 }
 
 /** Схожі статті для внутрішнього лінкування (relatedSlugs → category → інші) */
-export function getRelatedPosts(currentSlug: string, limit = 3): BlogPost[] {
+export function getRelatedPosts(currentSlug: string, limit = 4): BlogPost[] {
   const current = getBlogPostBySlug(currentSlug);
   const others = allBlogPosts.filter((p) => p.slug !== currentSlug);
   const picked: BlogPost[] = [];

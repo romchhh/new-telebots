@@ -23,7 +23,7 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
           <div className="relative h-[200px] w-full sm:h-[220px] md:h-[240px] lg:h-[260px]">
             <Image
               src="/other/about-hero.png"
-              alt="TeleBots"
+              alt="Команда TeleBots: робочий процес розробки"
               fill
               className="object-cover object-center"
               sizes="(max-width: 768px) 100vw, 90vw"
@@ -95,10 +95,10 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
               {t.about.ourWorkDesc}
             </p>
             <Link 
-              href={`/${currentLang}#portfolio`} 
+              href={`/${currentLang}/about`} 
               className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors duration-200 w-fit"
             >
-              {t.about.portfolio}
+              {t.footer.about}
             </Link>
           </div>
 

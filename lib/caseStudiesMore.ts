@@ -27,6 +27,7 @@ const cosmy: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Cosmy',
+      seoTitle: 'Кейс Cosmy: Telegram-бот для магазину',
       heroTitle: 'Cosmy — Telegram-бот для інтернет-магазину',
       heroLead:
         'Cosmy Assistant допомагає клієнтам керувати замовленнями прямо в Telegram: історія покупок, підтримка, рейтинги й відгуки. Автоматизація через Google Sheets дала 400+ клієнтів і +40% до зацікавленості.',
@@ -39,7 +40,7 @@ const cosmy: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Cosmy',
         lead:
           'Інтернет-магазину потрібен був зручний канал після покупки: статус замовлення, підтримка й зворотний зв’язок без ручної рутини в месенджерах.',
         items: [
@@ -53,7 +54,7 @@ const cosmy: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Cosmy',
         lead:
           'Зібрали Cosmy Assistant як шар сервісу навколо замовлень: від статусу до відгуку — всередині Telegram.',
         items: [
@@ -74,6 +75,7 @@ const cosmy: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Cosmy',
+      seoTitle: 'Cosmy case: Telegram bot for online store',
       heroTitle: 'Cosmy — Telegram bot for an online store',
       heroLead:
         'Cosmy Assistant helps customers manage orders in Telegram: order history, support, ratings and reviews. Google Sheets automation delivered 400+ clients and +40% engagement.',
@@ -86,7 +88,7 @@ const cosmy: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Cosmy',
         lead:
           'The store needed a post-purchase channel: order status, support and feedback without manual messenger routine.',
         items: [
@@ -100,7 +102,7 @@ const cosmy: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Cosmy',
         lead:
           'We built Cosmy Assistant as a service layer around orders — from status to review — inside Telegram.',
         items: [
@@ -121,6 +123,7 @@ const cosmy: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Cosmy',
+      seoTitle: 'Case Cosmy: bot Telegram dla sklepu',
       heroTitle: 'Cosmy — bot Telegram dla sklepu internetowego',
       heroLead:
         'Cosmy Assistant pomaga klientom zarządzać zamówieniami w Telegram: historia, wsparcie, oceny i opinie. Automatyzacja Google Sheets — 400+ klientów i +40% zaangażowania.',
@@ -133,7 +136,7 @@ const cosmy: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Cosmy',
         lead:
           'Sklepowi potrzebny był kanał po zakupie: status, wsparcie i feedback bez ręcznej rutyny w komunikatorach.',
         items: [
@@ -147,7 +150,7 @@ const cosmy: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Cosmy',
         lead: 'Cosmy Assistant jako warstwa serwisu wokół zamówień — od statusu do opinii — w Telegram.',
         items: [
           'Historia zamówień: produkt, status, kwota',
@@ -167,6 +170,7 @@ const cosmy: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Cosmy',
+      seoTitle: 'Кейс Cosmy: Telegram-бот для магазина',
       heroTitle: 'Cosmy — Telegram-бот для интернет-магазина',
       heroLead:
         'Cosmy Assistant помогает клиентам управлять заказами в Telegram: история, поддержка, рейтинги и отзывы. Автоматизация через Google Sheets — 400+ клиентов и +40% вовлечённости.',
@@ -179,7 +183,7 @@ const cosmy: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Cosmy',
         lead:
           'Магазину нужен был канал после покупки: статус заказа, поддержка и обратная связь без ручной рутины.',
         items: [
@@ -193,7 +197,7 @@ const cosmy: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Cosmy',
         lead: 'Cosmy Assistant как сервисный слой вокруг заказов — от статуса до отзыва — в Telegram.',
         items: [
           'История заказов: товар, статус, сумма',
@@ -221,6 +225,7 @@ const dente: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Denté',
+      seoTitle: 'Кейс Denté: сайт стоматологічної клініки',
       heroTitle: 'Denté — сайт стоматологічної клініки під довіру й запис',
       heroLead:
         'Сучасний сайт для стоматологічної клініки з акцентом на довіру та конверсію: преміальний дизайн, логічна структура, зручний запис на консультацію, адаптивність і швидке завантаження.',
@@ -233,7 +238,7 @@ const dente: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Denté',
         lead:
           'Клініці потрібен був сайт, який одразу демонструє професіоналізм і веде пацієнта до запису — без хаосу в структурі й слабкого першого враження.',
         items: [
@@ -247,7 +252,7 @@ const dente: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Denté',
         lead:
           'Зібрали сайт клініки як інструмент залучення пацієнтів: імідж, послуги, лікарі й чіткий CTA на запис.',
         items: [
@@ -268,6 +273,7 @@ const dente: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Denté',
+      seoTitle: 'Denté case: dental clinic website',
       heroTitle: 'Denté — dental clinic site built for trust and bookings',
       heroLead:
         'A modern clinic website focused on trust and conversion: premium design, clear structure, easy consultation booking, full responsiveness and fast load times.',
@@ -280,7 +286,7 @@ const dente: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Denté',
         lead:
           'The clinic needed a site that signals professionalism immediately and guides patients to book — without a messy structure or a weak first impression.',
         items: [
@@ -294,7 +300,7 @@ const dente: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Denté',
         lead:
           'We built the clinic site as a patient-acquisition tool: brand image, services, doctors and a clear booking CTA.',
         items: [
@@ -315,6 +321,7 @@ const dente: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Denté',
+      seoTitle: 'Case Denté: strona kliniki stomatologicznej',
       heroTitle: 'Denté — strona kliniki stomatologicznej pod zaufanie i zapis',
       heroLead:
         'Nowoczesna strona kliniki z naciskiem na zaufanie i konwersję: premium design, jasna struktura, wygodny zapis, responsywność i szybkie ładowanie.',
@@ -327,7 +334,7 @@ const dente: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Denté',
         lead:
           'Klinice potrzebna była strona, która od razu pokazuje profesjonalizm i prowadzi do zapisu — bez chaosu w strukturze.',
         items: [
@@ -341,7 +348,7 @@ const dente: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Denté',
         lead: 'Strona kliniki jako narzędzie pozyskania pacjentów: wizerunek, usługi, lekarze i jasne CTA.',
         items: [
           'Czysty premium design',
@@ -361,6 +368,7 @@ const dente: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Denté',
+      seoTitle: 'Кейс Denté: сайт стоматологической клиники',
       heroTitle: 'Denté — сайт стоматологической клиники под доверие и запись',
       heroLead:
         'Современный сайт клиники с акцентом на доверие и конверсию: премиальный дизайн, логичная структура, удобная запись, адаптивность и быстрая загрузка.',
@@ -373,7 +381,7 @@ const dente: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Denté',
         lead:
           'Клинике нужен был сайт, который сразу показывает профессионализм и ведёт к записи — без хаоса в структуре.',
         items: [
@@ -387,7 +395,7 @@ const dente: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Denté',
         lead: 'Сайт клиники как инструмент привлечения пациентов: имидж, услуги, врачи и чёткий CTA.',
         items: [
           'Чистый премиальный дизайн',
@@ -416,6 +424,7 @@ const royalAcademy: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Royal Academy',
+      seoTitle: 'Кейс Royal Academy: сайт школи',
       heroTitle: 'Royal Academy School — сайт школи з сильним першим екраном',
       heroLead:
         'Сайт школи з акцентом на перше враження: яскравий дизайн, зрозуміла структура, продумані CTA, адаптивність і швидке завантаження. Кожен блок допомагає знайти інформацію й залишити заявку на навчання.',
@@ -428,7 +437,7 @@ const royalAcademy: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Royal Academy',
         lead:
           'Школі потрібен був цифровий фасад, який одразу викликає довіру й мотивує до реєстрації — без плутанини в програмах і слабких закликів до дії.',
         items: [
@@ -442,7 +451,7 @@ const royalAcademy: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Royal Academy',
         lead:
           'Зібрали сайт школи як воронку довіри: від першого враження до заявки на навчання.',
         items: [
@@ -463,6 +472,7 @@ const royalAcademy: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Royal Academy',
+      seoTitle: 'Royal Academy case: school website',
       heroTitle: 'Royal Academy School — school site with a strong hero',
       heroLead:
         'A school website built for first impression: vivid design, clear structure, thoughtful CTAs, responsiveness and fast pages. Every block helps visitors find answers and apply.',
@@ -475,7 +485,7 @@ const royalAcademy: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Royal Academy',
         lead:
           'The school needed a digital front that builds trust fast and motivates enrollment — without confusing programs or weak calls to action.',
         items: [
@@ -489,7 +499,7 @@ const royalAcademy: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Royal Academy',
         lead: 'We built the school site as a trust funnel: from first impression to application.',
         items: [
           'Vivid design and a strong first impression',
@@ -509,6 +519,7 @@ const royalAcademy: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Royal Academy',
+      seoTitle: 'Case Royal Academy: strona szkoły',
       heroTitle: 'Royal Academy School — strona szkoły z mocnym hero',
       heroLead:
         'Strona szkoły pod pierwsze wrażenie: wyrazisty design, jasna struktura, CTA, responsywność i szybkość. Każdy blok prowadzi do informacji i zgłoszenia.',
@@ -521,7 +532,7 @@ const royalAcademy: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Royal Academy',
         lead:
           'Szkole potrzebna była cyfrowa wizytówka, która buduje zaufanie i motywuje do rejestracji — bez chaosu w programach.',
         items: [
@@ -535,7 +546,7 @@ const royalAcademy: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Royal Academy',
         lead: 'Strona szkoły jako lejek zaufania: od pierwszego wrażenia do zgłoszenia.',
         items: [
           'Wyrazisty design',
@@ -555,6 +566,7 @@ const royalAcademy: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Royal Academy',
+      seoTitle: 'Кейс Royal Academy: сайт школы',
       heroTitle: 'Royal Academy School — сайт школы с сильным первым экраном',
       heroLead:
         'Сайт школы с акцентом на первое впечатление: яркий дизайн, понятная структура, CTA, адаптивность и быстрая загрузка.',
@@ -567,7 +579,7 @@ const royalAcademy: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Royal Academy',
         lead:
           'Школе нужен был цифровой фасад, который быстро вызывает доверие и мотивирует к регистрации.',
         items: [
@@ -581,7 +593,7 @@ const royalAcademy: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Royal Academy',
         lead: 'Сайт школы как воронка доверия: от первого впечатления до заявки.',
         items: [
           'Яркий дизайн',
@@ -610,6 +622,7 @@ const kreona: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'KREONA',
+      seoTitle: 'Кейс KREONA: підбір і доставка авто',
       heroTitle: 'KREONA — сайт підбору й доставки авто зі світу',
       heroLead:
         'Сучасний сайт для компанії, що підбирає й доставляє автомобілі зі США, Канади, Європи та Кореї. Зрозумілий шлях клієнта: від знайомства з компанією до заявки на підбір авто.',
@@ -622,7 +635,7 @@ const kreona: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту KREONA',
         lead:
           'Компанії з міжнародного автопідбору потрібен був сайт, який пояснює процес і знімає бар’єр до заявки — без перевантаженої структури.',
         items: [
@@ -636,7 +649,7 @@ const kreona: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для KREONA',
         lead:
           'Зібрали швидкий сайт із каталогом, детальними картками й продуманими точками захоплення лідів.',
         items: [
@@ -657,6 +670,7 @@ const kreona: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'KREONA',
+      seoTitle: 'KREONA case: car sourcing & delivery',
       heroTitle: 'KREONA — car sourcing & delivery website',
       heroLead:
         'A modern site for a company that sources and delivers cars from the US, Canada, Europe and Korea. A clear client path: from first visit to a sourcing request.',
@@ -669,7 +683,7 @@ const kreona: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: KREONA',
         lead:
           'An international car-sourcing company needed a site that explains the process and lowers the barrier to inquiry — without an overloaded structure.',
         items: [
@@ -683,7 +697,7 @@ const kreona: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for KREONA',
         lead: 'We built a fast site with a catalog, detailed cards and thoughtful lead-capture points.',
         items: [
           'Clear positioning for international car sourcing',
@@ -703,6 +717,7 @@ const kreona: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'KREONA',
+      seoTitle: 'Case KREONA: dobór i dostawa aut',
       heroTitle: 'KREONA — strona doboru i dostawy aut ze świata',
       heroLead:
         'Nowoczesna strona firmy, która dobiera i dostarcza auta z USA, Kanady, Europy i Korei. Jasna ścieżka: od poznania firmy do zgłoszenia na dobór.',
@@ -715,7 +730,7 @@ const kreona: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu KREONA',
         lead:
           'Firmie z międzynarodowego doboru aut potrzebna była strona, która tłumaczy proces i obniża barierę zgłoszenia.',
         items: [
@@ -729,7 +744,7 @@ const kreona: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla KREONA',
         lead: 'Szybka strona z katalogiem, szczegółowymi kartami i punktami przejmowania leadów.',
         items: [
           'Pozycjonowanie międzynarodowego doboru',
@@ -749,6 +764,7 @@ const kreona: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'KREONA',
+      seoTitle: 'Кейс KREONA: подбор и доставка авто',
       heroTitle: 'KREONA — сайт подбора и доставки авто из мира',
       heroLead:
         'Современный сайт компании, которая подбирает и доставляет автомобили из США, Канады, Европы и Кореи. Понятный путь: от знакомства до заявки на подбор.',
@@ -761,7 +777,7 @@ const kreona: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта KREONA',
         lead:
           'Компании международного автоподбора нужен был сайт, который объясняет процесс и снижает барьер до заявки.',
         items: [
@@ -775,7 +791,7 @@ const kreona: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для KREONA',
         lead: 'Быстрый сайт с каталогом, детальными карточками и точками захвата лидов.',
         items: [
           'Позиционирование международного подбора',
@@ -804,6 +820,7 @@ const zavadska: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Anastasiia Zavadska',
+      seoTitle: 'Кейс Zavadska: сайт психологині',
       heroTitle: 'Anastasiia Zavadska — сайт психологині під довіру й запис',
       heroLead:
         'Сучасний сайт для психологині, який вибудовує довіру ще до першої консультації: спокійний дизайн, зручна навігація, акцент на експертності, практикумі та онлайн-записі.',
@@ -816,7 +833,7 @@ const zavadska: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Anastasiia Zavadska',
         lead:
           'Практиці потрібен був цифровий простір, де клієнт бачить підхід і експертність до дзвінка — і спокійно записується на сесію.',
         items: [
@@ -830,7 +847,7 @@ const zavadska: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Anastasiia Zavadska',
         lead:
           'Зібрали сайт практики як інструмент довіри: експертність, формати роботи й чіткий шлях до першої сесії.',
         items: [
@@ -851,7 +868,8 @@ const zavadska: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Anastasiia Zavadska',
-      heroTitle: 'Anastasiia Zavadska — psychologist site for trust and booking',
+      seoTitle: 'Zavadska case: psychologist website',
+      heroTitle: 'Anastasiia Zavadska — psychologist site for trust & booking',
       heroLead:
         'A modern psychologist website that builds trust before the first session: calm design, clear navigation, expertise focus, practice presentation and online booking.',
       visitSite: 'Visit site',
@@ -863,7 +881,7 @@ const zavadska: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Anastasiia Zavadska',
         lead:
           'The practice needed a digital space where clients see the approach and expertise before any call — and book a session calmly.',
         items: [
@@ -877,7 +895,7 @@ const zavadska: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Anastasiia Zavadska',
         lead:
           'We built the practice site as a trust tool: expertise, formats and a clear path to the first session.',
         items: [
@@ -898,7 +916,8 @@ const zavadska: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Anastasiia Zavadska',
-      heroTitle: 'Anastasiia Zavadska — strona psycholożki pod zaufanie i zapis',
+      seoTitle: 'Case Zavadska: strona psycholożki',
+      heroTitle: 'Anastasiia Zavadska — strona psycholożki: zaufanie i zapis',
       heroLead:
         'Nowoczesna strona psycholożki, która buduje zaufanie przed pierwszą konsultacją: spokojny design, jasna nawigacja, eksperckość i online-zapis.',
       visitSite: 'Otwórz stronę',
@@ -910,7 +929,7 @@ const zavadska: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Anastasiia Zavadska',
         lead:
           'Praktyce potrzebna była przestrzeń, gdzie klient widzi podejście i eksperckość przed rozmową — i spokojnie zapisuje się na sesję.',
         items: [
@@ -924,7 +943,7 @@ const zavadska: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Anastasiia Zavadska',
         lead: 'Strona praktyki jako narzędzie zaufania: eksperckość, formaty i jasna ścieżka do sesji.',
         items: [
           'Spokojny minimalistyczny design',
@@ -944,6 +963,7 @@ const zavadska: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Anastasiia Zavadska',
+      seoTitle: 'Кейс Zavadska: сайт психологини',
       heroTitle: 'Anastasiia Zavadska — сайт психологини под доверие и запись',
       heroLead:
         'Современный сайт для психологини, который выстраивает доверие до первой консультации: спокойный дизайн, удобная навигация, акцент на экспертности и онлайн-записи.',
@@ -956,7 +976,7 @@ const zavadska: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Anastasiia Zavadska',
         lead:
           'Практике нужно было цифровое пространство, где клиент видит подход и экспертность до звонка — и спокойно записывается на сессию.',
         items: [
@@ -970,7 +990,7 @@ const zavadska: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Anastasiia Zavadska',
         lead: 'Сайт практики как инструмент доверия: экспертность, форматы и путь к первой сессии.',
         items: [
           'Спокойный минималистичный дизайн',
@@ -999,6 +1019,7 @@ const wesauto: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'West Auto',
+      seoTitle: 'Кейс West Auto: пригін авто зі США',
       heroTitle: 'West Auto Shipping — сайт пригону авто зі США',
       heroLead:
         'Сайт для компанії з пригону автомобілів зі США з головною перевагою: 70% оплати лише після прибуття авто в Україну. Структура веде через етапи співпраці, кейси, відеовідгуки та форми заявок.',
@@ -1011,7 +1032,7 @@ const wesauto: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту West Auto',
         lead:
           'У ніші пригону авто зі США довіра вирішує все. Компанії потрібен був сайт, який одразу пояснює головну перевагу й проводить клієнта через прозорий процес.',
         items: [
@@ -1025,7 +1046,7 @@ const wesauto: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для West Auto',
         lead:
           'Побудували сайт як інструмент довіри: перевага, процес, докази й чіткий шлях до заявки на підбір.',
         items: [
@@ -1046,6 +1067,7 @@ const wesauto: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'West Auto',
+      seoTitle: 'West Auto case: US car import site',
       heroTitle: 'West Auto Shipping — US car import website',
       heroLead:
         'A website for a US car import company with a core advantage: 70% payment only after the car arrives in Ukraine. The structure walks through the process, cases, video reviews and lead forms.',
@@ -1058,7 +1080,7 @@ const wesauto: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: West Auto',
         lead:
           'In US car import, trust decides everything. The company needed a site that explains the main advantage upfront and walks clients through a transparent process.',
         items: [
@@ -1072,7 +1094,7 @@ const wesauto: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for West Auto',
         lead:
           'We built the site as a trust tool: advantage, process, proof and a clear path to a sourcing request.',
         items: [
@@ -1093,6 +1115,7 @@ const wesauto: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'West Auto',
+      seoTitle: 'Case West Auto: import aut z USA',
       heroTitle: 'West Auto Shipping — strona sprowadzania aut z USA',
       heroLead:
         'Strona firmy sprowadzającej auta z USA z główną przewagą: 70% płatności dopiero po przyjeździe auta do Ukrainy. Proces, case’y, video-opinie i formularze.',
@@ -1105,7 +1128,7 @@ const wesauto: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu West Auto',
         lead:
           'W niszy sprowadzania aut z USA zaufanie decyduje o wszystkim. Potrzebna była strona, która od razu tłumaczy przewagę i prowadzi przez transparentny proces.',
         items: [
@@ -1119,7 +1142,7 @@ const wesauto: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla West Auto',
         lead: 'Strona jako narzędzie zaufania: przewaga, proces, dowody i ścieżka do zgłoszenia.',
         items: [
           'Akcent na 70% po przyjeździe do Ukrainy',
@@ -1139,6 +1162,7 @@ const wesauto: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'West Auto',
+      seoTitle: 'Кейс West Auto: пригон авто из США',
       heroTitle: 'West Auto Shipping — сайт пригона авто из США',
       heroLead:
         'Сайт компании по пригону авто из США с главным преимуществом: 70% оплаты только после прибытия авто в Украину. Структура ведёт через этапы, кейсы, видеоотзывы и формы заявок.',
@@ -1151,7 +1175,7 @@ const wesauto: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта West Auto',
         lead:
           'В нише пригона авто из США доверие решает всё. Нужен был сайт, который сразу объясняет главное преимущество и проводит через прозрачный процесс.',
         items: [
@@ -1165,7 +1189,7 @@ const wesauto: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для West Auto',
         lead: 'Сайт как инструмент доверия: преимущество, процесс, доказательства и путь к заявке.',
         items: [
           'Акцент на 70% оплаты после прибытия в Украину',
@@ -1194,7 +1218,8 @@ const normalnoauto: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Normalno Auto',
-      heroTitle: 'Normalno Auto — бот підбору авто на аукціонах США за 30 секунд',
+      seoTitle: 'Бот підбору авто Normalno Auto',
+      heroTitle: 'Normalno Auto — бот підбору авто на аукціонах США',
       heroLead:
         'AutoSearchBot знаходить ідеальне авто на аукціонах Copart і IAAI прямо в Telegram: параметри → миттєвий підбір → заявка менеджеру за два кліки. Замість годин пошуку — 30 секунд і готовий лід.',
       visitSite: 'Відкрити бота',
@@ -1206,7 +1231,7 @@ const normalnoauto: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Normalno Auto',
         lead:
           'Пошук авто на аукціонах США займає години: лоти, фільтри, історія. Бізнесу потрібен був канал, який дає релевантні варіанти за секунди й передає гарячі заявки менеджеру.',
         items: [
@@ -1220,7 +1245,7 @@ const normalnoauto: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Normalno Auto',
         lead:
           'Зібрали Telegram-бота підбору: від параметрів пошуку до автоматичної передачі заявки менеджеру.',
         items: [
@@ -1241,7 +1266,8 @@ const normalnoauto: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Normalno Auto',
-      heroTitle: 'Normalno Auto — US auction car search bot in 30 seconds',
+      seoTitle: 'Normalno Auto car search bot',
+      heroTitle: 'Normalno Auto — US auction car search bot',
       heroLead:
         'AutoSearchBot finds the right car on Copart and IAAI inside Telegram: set filters → instant matches → manager lead in two taps. Hours of searching become 30 seconds and a ready lead.',
       visitSite: 'Open bot',
@@ -1253,7 +1279,7 @@ const normalnoauto: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Normalno Auto',
         lead:
           'Searching US auctions takes hours: lots, filters, history. The business needed a channel that returns relevant options in seconds and passes hot leads to a manager.',
         items: [
@@ -1267,7 +1293,7 @@ const normalnoauto: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Normalno Auto',
         lead:
           'We built a Telegram sourcing bot: from search parameters to automatic manager handoff.',
         items: [
@@ -1288,7 +1314,8 @@ const normalnoauto: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Normalno Auto',
-      heroTitle: 'Normalno Auto — bot doboru aut z aukcji USA w 30 sekund',
+      seoTitle: 'Bot doboru aut Normalno Auto',
+      heroTitle: 'Normalno Auto — bot doboru aut z aukcji USA',
       heroLead:
         'AutoSearchBot znajduje auto na Copart i IAAI w Telegram: parametry → natychmiastowy dobór → lead do managera w dwa kliknięcia.',
       visitSite: 'Otwórz bota',
@@ -1300,7 +1327,7 @@ const normalnoauto: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Normalno Auto',
         lead:
           'Szukanie aut na aukcjach USA zajmuje godziny. Potrzebny był kanał, który daje trafne opcje w sekundy i przekazuje gorące leady managerowi.',
         items: [
@@ -1314,7 +1341,7 @@ const normalnoauto: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Normalno Auto',
         lead: 'Bot Telegram do doboru: od parametrów wyszukiwania po automatyczny handoff do managera.',
         items: [
           'Szybki start z parametrami auta',
@@ -1334,7 +1361,8 @@ const normalnoauto: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Normalno Auto',
-      heroTitle: 'Normalno Auto — бот подбора авто на аукционах США за 30 секунд',
+      seoTitle: 'Бот подбора авто Normalno Auto',
+      heroTitle: 'Normalno Auto — бот подбора авто на аукционах США',
       heroLead:
         'AutoSearchBot находит авто на Copart и IAAI в Telegram: параметры → мгновенный подбор → заявка менеджеру в два клика.',
       visitSite: 'Открыть бота',
@@ -1346,7 +1374,7 @@ const normalnoauto: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Normalno Auto',
         lead:
           'Поиск авто на аукционах США занимает часы. Нужен был канал, который за секунды выдаёт релевантные варианты и передаёт горячие заявки менеджеру.',
         items: [
@@ -1360,7 +1388,7 @@ const normalnoauto: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Normalno Auto',
         lead: 'Telegram-бот подбора: от параметров поиска до автоматической передачи менеджеру.',
         items: [
           'Быстрый старт с параметрами авто',
@@ -1389,6 +1417,7 @@ const litunEdu: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'TURBO EDUCATION',
+      seoTitle: 'Кейс TURBO EDUCATION: освітня екосистема',
       heroTitle: 'TURBO EDUCATION — сайт Іллі Літуна та освітньої екосистеми',
       heroLead:
         'Сайт особистого бренду Іллі Літуна та TURBO EDUCATION з акцентом на експертність, соціальний доказ і зручну презентацію форматів співпраці. Мінімалізм і швидкість тримають фокус на цінності продукту та записі на консультацію.',
@@ -1401,7 +1430,7 @@ const litunEdu: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту TURBO EDUCATION',
         lead:
           'Освітній бренд потребував сайту, який одразу показує масштаб і експертність — і веде до консультації або вибору формату співпраці.',
         items: [
@@ -1415,7 +1444,7 @@ const litunEdu: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для TURBO EDUCATION',
         lead:
           'Зібрали сайт як вітрину експертності й освітньої екосистеми з чітким шляхом до контакту.',
         items: [
@@ -1436,7 +1465,8 @@ const litunEdu: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'TURBO EDUCATION',
-      heroTitle: 'TURBO EDUCATION — Illia Litun personal brand & education site',
+      seoTitle: 'TURBO EDUCATION case: education ecosystem',
+      heroTitle: 'TURBO EDUCATION — Illia Litun brand & education site',
       heroLead:
         'A site for Illia Litun’s personal brand and TURBO EDUCATION focused on expertise, social proof and clear collaboration formats. Minimal design and speed keep attention on value and booking a consult.',
       visitSite: 'Visit site',
@@ -1448,7 +1478,7 @@ const litunEdu: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: TURBO EDUCATION',
         lead:
           'The education brand needed a site that shows scale and expertise immediately — and leads to a consult or a collaboration format.',
         items: [
@@ -1462,7 +1492,7 @@ const litunEdu: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for TURBO EDUCATION',
         lead:
           'We built the site as a showcase of expertise and the education ecosystem with a clear path to contact.',
         items: [
@@ -1483,7 +1513,8 @@ const litunEdu: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'TURBO EDUCATION',
-      heroTitle: 'TURBO EDUCATION — strona Illi Lituna i ekosystemu edukacyjnego',
+      seoTitle: 'Case TURBO EDUCATION: ekosystem edukacyjny',
+      heroTitle: 'TURBO EDUCATION — strona Illi Lituna i edukacji',
       heroLead:
         'Strona marki osobistej Illi Lituna i TURBO EDUCATION z naciskiem na eksperckość, social proof i jasne formaty współpracy.',
       visitSite: 'Otwórz stronę',
@@ -1495,7 +1526,7 @@ const litunEdu: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu TURBO EDUCATION',
         lead:
           'Marce edukacyjnej potrzebna była strona, która od razu pokazuje skalę i eksperckość — i prowadzi do konsultacji lub wyboru formatu.',
         items: [
@@ -1509,7 +1540,7 @@ const litunEdu: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla TURBO EDUCATION',
         lead: 'Strona jako witryna eksperckości i ekosystemu edukacyjnego z jasną ścieżką do kontaktu.',
         items: [
           'Silne pozycjonowanie Illi Lituna i TURBO EDUCATION',
@@ -1529,6 +1560,7 @@ const litunEdu: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'TURBO EDUCATION',
+      seoTitle: 'Кейс TURBO EDUCATION: образовательная экосистема',
       heroTitle: 'TURBO EDUCATION — сайт Ильи Литуна и его экосистемы',
       heroLead:
         'Сайт личного бренда Ильи Литуна и TURBO EDUCATION с акцентом на экспертность, социальное доказательство и удобную презентацию форматов сотрудничества.',
@@ -1541,7 +1573,7 @@ const litunEdu: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта TURBO EDUCATION',
         lead:
           'Образовательному бренду нужен был сайт, который сразу показывает масштаб и экспертность — и ведёт к консультации или выбору формата.',
         items: [
@@ -1555,7 +1587,7 @@ const litunEdu: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для TURBO EDUCATION',
         lead: 'Сайт как витрина экспертности и образовательной экосистемы с чётким путём к контакту.',
         items: [
           'Сильное позиционирование Ильи Литуна и TURBO EDUCATION',

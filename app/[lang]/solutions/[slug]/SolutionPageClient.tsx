@@ -391,7 +391,7 @@ export default function SeoSolutionPage({
                     {page.contactLabel}
                   </Link>
                 </li>
-                {lang === 'uk' && slug === 'telegram-bots' ? (
+                {lang === 'uk' && (slug === 'telegram-bots' || slug === 'chatbots-buy' || slug === 'ai-chatbots') ? (
                   <>
                     <li>
                       <Link
@@ -409,7 +409,63 @@ export default function SeoSolutionPage({
                         Скільки коштує Telegram-бот
                       </Link>
                     </li>
+                    <li>
+                      <Link
+                        href="/uk/blog/integratsiya-telegram-botiv"
+                        className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                      >
+                        Інтеграція Telegram-ботів
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/uk/blog/bezpeka-telegram-botiv"
+                        className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                      >
+                        Безпека Telegram-ботів
+                      </Link>
+                    </li>
                   </>
+                ) : null}
+                {lang === 'uk' && (slug === 'landing-pages' || slug === 'online-stores') ? (
+                  <li>
+                    <Link
+                      href="/uk/blog/suchasni-veb-sajty-rozrobka"
+                      className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                    >
+                      Розробка сучасних веб-сайтів
+                    </Link>
+                  </li>
+                ) : null}
+                {lang === 'uk' && slug === 'data-parsers' ? (
+                  <li>
+                    <Link
+                      href="/uk/blog/parsing-danyh-telegram-bot"
+                      className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                    >
+                      Парсинг даних через Telegram-ботів
+                    </Link>
+                  </li>
+                ) : null}
+                {slug !== 'telegram-bots' ? (
+                  <li>
+                    <Link
+                      href={`/${lang}/solutions/telegram-bots`}
+                      className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                    >
+                      {lang === 'en' ? 'Telegram bots' : lang === 'pl' ? 'Boty Telegram' : lang === 'ru' ? 'Telegram-боты' : 'Telegram-боти'}
+                    </Link>
+                  </li>
+                ) : null}
+                {slug !== 'chatbots-buy' ? (
+                  <li>
+                    <Link
+                      href={`/${lang}/solutions/chatbots-buy`}
+                      className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                    >
+                      {lang === 'en' ? 'Buy chatbots' : lang === 'pl' ? 'Kup chatboty' : lang === 'ru' ? 'Чат-боты купить' : 'Чат-боти купити'}
+                    </Link>
+                  </li>
                 ) : null}
               </ul>
             </div>

@@ -160,7 +160,7 @@ export const PORTFOLIO_CARDS: PortfolioCard[] = [
     id: 'chars-kyiv',
     image: '/portfolio/portfolio-chars-kyiv.jpg',
     category: 'websites',
-    liveUrl: 'https://charsua.com/',
+    liveUrl: 'https://charsua.com/uk',
     copy: t(
       'CHARS',
       'E-commerce платформа з фільтрами та Новою Поштою',
@@ -313,7 +313,7 @@ export const PORTFOLIO_CARDS: PortfolioCard[] = [
     id: 'wayofprocessing',
     image: '/portfolio/portfolio-wayofprocessing.jpg',
     category: 'websites',
-    liveUrl: 'https://wayofprocessing.com/',
+    liveUrl: 'https://wayofprocessing.com/ru',
     copy: t(
       'WAY OF PROCESSING',
       'Сайт міжнародного платіжного процесингу (Stripe)',

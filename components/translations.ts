@@ -259,7 +259,7 @@ export const translations = {
             'Готові інвестувати в рішення, яке можна масштабувати та розвивати після релізу',
           ],
         },
-        descriptionSectionTitle: 'Про послугу',
+        descriptionSectionTitle: 'Що входить у розробку сайтів від TeleBots',
         structure: {
           mainTitle: 'Розробка сайтів для бізнесу',
           leadGenTitle: 'Лендинги та посадкові сторінки',
@@ -300,7 +300,7 @@ export const translations = {
             'Розглядаєте співпрацю як для власного бізнесу, так і white-label для клієнтів',
           ],
         },
-        descriptionSectionTitle: 'Про послугу',
+        descriptionSectionTitle: 'Що входить у послугу розробки чат-ботів',
         structure: {
           mainTitle: 'Телеграм-боти для бізнесу',
           leadGenTitle: 'Боти для генерації лідів',
@@ -354,7 +354,7 @@ export const translations = {
             'Шукаєте дизайнера, який розуміє обмеження верстки та співпрацює з розробниками',
           ],
         },
-        descriptionSectionTitle: 'Про послугу',
+        descriptionSectionTitle: 'Особливості UI/UX дизайну від TeleBots',
         structure: {
           mainTitle: 'Брендинг та UI/UX дизайн для бізнесу',
           leadGenTitle: 'Розробка логотипу та айдентики',
@@ -579,6 +579,7 @@ export const translations = {
     footer: {
       description: 'Професійна розробка та дизайн для вашого бізнесу: боти, сайти, лого, айдентика, UI/UX.',
       quickLinks: 'Швидкі посилання',
+      about: 'Про нас',
       services: 'Що ми робимо?',
       contact: 'Контакти',
       email: 'Email',
@@ -928,7 +929,7 @@ export const translations = {
             'You are ready to invest in a solution you can scale and evolve after release',
           ],
         },
-        descriptionSectionTitle: 'About the service',
+        descriptionSectionTitle: 'What’s included in TeleBots website development',
         structure: {
           mainTitle: 'Conversion-Focused Websites for Business',
           leadGenTitle: 'Landing Pages & One-Page Websites',
@@ -969,7 +970,7 @@ export const translations = {
             'You may use it for your own business or as a white-label offer for clients',
           ],
         },
-        descriptionSectionTitle: 'About the service',
+        descriptionSectionTitle: 'What’s included in chatbot development',
         structure: {
           mainTitle: 'Telegram Bots for Business',
           leadGenTitle: 'Lead Generation Bots',
@@ -1023,7 +1024,7 @@ export const translations = {
             'You want a designer who understands layout constraints and works with engineers',
           ],
         },
-        descriptionSectionTitle: 'About the service',
+        descriptionSectionTitle: 'UI/UX design specifics from TeleBots',
         structure: {
           mainTitle: 'Branding and UI/UX Design for Business',
           leadGenTitle: 'Logo and Brand Identity Design',
@@ -1181,6 +1182,7 @@ export const translations = {
     footer: {
       description: 'Professional development and design for your business: bots, websites, logos, brand identity, UI/UX.',
       quickLinks: 'Quick Links',
+      about: 'About us',
       services: 'What we do?',
       contact: 'Contact',
       email: 'Email',
@@ -1530,7 +1532,7 @@ export const translations = {
             'Jesteś gotów zainwestować w rozwiązanie, które da się skalować i rozwijać po wdrożeniu',
           ],
         },
-        descriptionSectionTitle: 'O usłudze',
+        descriptionSectionTitle: 'Co obejmuje tworzenie stron w TeleBots',
         structure: {
           mainTitle: 'Tworzenie stron internetowych dla biznesu',
           leadGenTitle: 'Landingi i strony jednorazowe',
@@ -1571,7 +1573,7 @@ export const translations = {
             'Rozważasz własny biznes lub ofertę white-label dla klientów',
           ],
         },
-        descriptionSectionTitle: 'O usłudze',
+        descriptionSectionTitle: 'Co obejmuje rozwój chatbotów',
         structure: {
           mainTitle: 'Boty Telegram dla biznesu',
           leadGenTitle: 'Boty do generowania leadów',
@@ -1625,7 +1627,7 @@ export const translations = {
             'Szukasz designera, który rozumie ograniczenia kodu i współpracuje z programistami',
           ],
         },
-        descriptionSectionTitle: 'O usłudze',
+        descriptionSectionTitle: 'Specyfika UI/UX designu od TeleBots',
         structure: {
           mainTitle: 'Branding i projektowanie UI/UX dla biznesu',
           leadGenTitle: 'Projekt logo i identyfikacji wizualnej',
@@ -1783,6 +1785,7 @@ export const translations = {
     footer: {
       description: 'Profesjonalna realizacja i design dla Twojego biznesu: boty, strony, logo, identyfikacja wizualna, UI/UX.',
       quickLinks: 'Szybkie linki',
+      about: 'O nas',
       services: 'Co robimy?',
       contact: 'Kontakt',
       email: 'Email',
@@ -2132,7 +2135,7 @@ export const translations = {
             'Готовы инвестировать в решение, которое можно масштабировать и развивать после релиза',
           ],
         },
-        descriptionSectionTitle: 'Об услуге',
+        descriptionSectionTitle: 'Что входит в разработку сайтов от TeleBots',
         structure: {
           mainTitle: 'Разработка сайтов для бизнеса',
           leadGenTitle: 'Лендинги и одностраничные сайты',
@@ -2173,7 +2176,7 @@ export const translations = {
             'Рассматриваете сотрудничество для своего бизнеса или white-label для клиентов',
           ],
         },
-        descriptionSectionTitle: 'Об услуге',
+        descriptionSectionTitle: 'Что входит в услугу разработки чат-ботов',
         structure: {
           mainTitle: 'Телеграм-боты для бизнеса',
           leadGenTitle: 'Боты для генерации лидов',
@@ -2227,7 +2230,7 @@ export const translations = {
             'Ищете дизайнера, который понимает ограничения вёрстки и работает с разработчиками',
           ],
         },
-        descriptionSectionTitle: 'Об услуге',
+        descriptionSectionTitle: 'Особенности UI/UX дизайна от TeleBots',
         structure: {
           mainTitle: 'Брендинг и UI/UX дизайн для бизнеса',
           leadGenTitle: 'Разработка логотипа и фирменного стиля',
@@ -2385,6 +2388,7 @@ export const translations = {
     footer: {
       description: 'Профессиональная разработка и дизайн для вашего бизнеса: боты, сайты, логотипы, айдентика, UI/UX. В команде есть дизайнер.',
       quickLinks: 'Быстрые ссылки',
+      about: 'О нас',
       services: 'Что мы делаем?',
       contact: 'Контакты',
       email: 'Email',

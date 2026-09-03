@@ -172,7 +172,7 @@ class CrossPlatformBot:
   return (
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
-      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Безпека Telegram ботів: Комплексний посібник із захисту даних та користувачів у 2026 році</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Безпека Telegram-ботів: захист даних та користувачів</h1>
 
       <LegacyBlogHero legacyId={10} alt="Безпека Telegram ботів" />
 

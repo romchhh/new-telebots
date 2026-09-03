@@ -116,12 +116,12 @@ class LoyaltySystem:
   return (
     <div className="max-w-4xl mx-auto">
       {/* Заголовок та вступ */}
-      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Як збільшити продажі та лояльність клієнтів за допомогою Telegram ботів: повне керівництво</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center md:text-left">Як збільшити продажі та лояльність через Telegram-боти</h1>
       <LegacyBlogHero legacyId={7} alt="Telegram bots for increasing sales and customer loyalty" />
 
       {/* Зміст */}
       <div className="bg-gray-50 p-6 rounded-lg mb-8">
-        <h2 className="text-2xl font-bold mb-4">Зміст:</h2>
+        <p className="text-2xl font-bold mb-4">Навігація по статті</p>
         <ul className="space-y-2">
           <li className="hover:text-blue-600 cursor-pointer">1. Автоматизація взаємодії з клієнтами</li>
           <li className="hover:text-blue-600 cursor-pointer">2. Персоналізація та сегментація</li>

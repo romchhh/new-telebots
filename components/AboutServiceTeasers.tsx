@@ -20,7 +20,7 @@ export default function AboutServiceTeasers({ t, lang }: { t: T; lang: string })
           >
             <Image
               src={SERVICE_IMAGES[id]}
-              alt=""
+              alt={page.title}
               fill
               className="object-cover opacity-45 transition duration-300 group-hover:scale-[1.04] group-hover:opacity-[0.58]"
               sizes="(max-width: 768px) 100vw, 500px"

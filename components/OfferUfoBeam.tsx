@@ -28,7 +28,7 @@ function UfoUnit({
       <div style={{ width: ufoW }}>
         <OfferPng
           src="/offer/ufo.png"
-          alt=""
+          alt="НЛО TeleBots — ілюстрація оферу сайту за $200"
           width={507}
           height={169}
           className={`block h-auto w-full offer-float-sm ${floatDelayClass}`}
@@ -37,7 +37,7 @@ function UfoUnit({
       <div className="-mt-0.5 overflow-hidden" style={{ width: beamW, height: beamH }}>
         <OfferPng
           src="/offer/beam.png"
-          alt=""
+          alt="Промінь світла під НЛО — ілюстрація TeleBots"
           width={288}
           height={532}
           className={`block h-full w-full object-cover object-top offer-beam-blink ${beamDelayClass}`}

@@ -92,7 +92,7 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                 <div className="flex min-h-[300px] items-center justify-center p-2 sm:min-h-[360px] lg:min-h-0 lg:items-start lg:justify-center lg:-mt-6">
                   <OfferPng
                     src="/offer/carcloud.png"
-                    alt="TeleBots offer"
+                    alt="Спеціальна пропозиція: сайт за $200 від TeleBots"
                     width={683}
                     height={870}
                     priority
@@ -248,7 +248,7 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                 <div className="hidden min-h-[400px] items-end justify-start p-2 lg:flex">
                   <OfferPng
                     src="/offer/astronaut11.png"
-                    alt="Astronaut"
+                    alt="Ілюстрація астронавта TeleBots — хто робить сайт за $200"
                     width={328}
                     height={450}
                     className="h-auto w-[340px] offer-float"
@@ -265,7 +265,7 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                     <div className="relative h-10 w-8 shrink-0 sm:h-11 sm:w-9 lg:hidden">
                       <OfferPng
                         src="/offer/astronaut11.png"
-                        alt="Astronaut"
+                        alt="Ілюстрація астронавта TeleBots — хто робить сайт за $200"
                         width={328}
                         height={450}
                         className="h-full w-full object-contain object-bottom offer-float"

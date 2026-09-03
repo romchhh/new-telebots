@@ -27,6 +27,7 @@ const carbit: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Carbit',
+      seoTitle: 'Кейс Carbit: моніторинг автооголошень',
       heroTitle: 'Carbit — SaaS-моніторинг автооголошень AUTO.RIA та OLX',
       heroLead:
         'Вебсервіс для моніторингу автомобільних оголошень, який об’єднує AUTO.RIA, OLX та Telegram в одному пошуку. Швидкий старт, зручні фільтри, зрозумілі тарифи й миттєві сповіщення про нові лоти.',
@@ -39,7 +40,7 @@ const carbit: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Carbit',
         lead:
           'Підбірникам і перекупникам потрібен був один інструмент замість ручного моніторингу кількох майданчиків — із швидким запуском і чіткою цінністю підписки.',
         items: [
@@ -53,7 +54,7 @@ const carbit: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Carbit',
         lead:
           'Зібрали сучасний SaaS під моніторинг авторинку: єдиний пошук, фільтри, тарифи й конверсія в платну підписку.',
         items: [
@@ -74,6 +75,7 @@ const carbit: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Carbit',
+      seoTitle: 'Carbit case: auto listings monitoring',
       heroTitle: 'Carbit — SaaS monitoring for AUTO.RIA and OLX listings',
       heroLead:
         'A web service that monitors car listings across AUTO.RIA, OLX and Telegram in one search. Fast setup, clear filters, transparent pricing and instant alerts on new ads.',
@@ -86,7 +88,7 @@ const carbit: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Carbit',
         lead:
           'Sourcers and resellers needed one tool instead of manually watching several marketplaces — with a fast start and a clear subscription value.',
         items: [
@@ -100,7 +102,7 @@ const carbit: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Carbit',
         lead:
           'We built a modern car-market monitoring SaaS: unified search, filters, pricing and conversion into paid plans.',
         items: [
@@ -121,6 +123,7 @@ const carbit: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Carbit',
+      seoTitle: 'Case Carbit: monitoring ogłoszeń auto',
       heroTitle: 'Carbit — SaaS monitoringu ogłoszeń AUTO.RIA, OLX i Telegram',
       heroLead:
         'Webserwis monitorujący ogłoszenia aut: AUTO.RIA, OLX i Telegram w jednym wyszukiwaniu. Szybki start, filtry, taryfy i natychmiastowe alerty.',
@@ -133,7 +136,7 @@ const carbit: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Carbit',
         lead:
           'Pośrednikom i odsprzedawcom potrzebne było jedno narzędzie zamiast ręcznego monitoringu wielu platform.',
         items: [
@@ -147,7 +150,7 @@ const carbit: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Carbit',
         lead: 'Nowoczesny SaaS monitoringu rynku aut: jedno wyszukiwanie, filtry, taryfy i konwersja w subskrypcję.',
         items: [
           'Jedno wyszukiwanie po AUTO.RIA, OLX i Telegram',
@@ -167,6 +170,7 @@ const carbit: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Carbit',
+      seoTitle: 'Кейс Carbit: мониторинг автообъявлений',
       heroTitle: 'Carbit — SaaS-мониторинг автообъявлений AUTO.RIA и OLX',
       heroLead:
         'Веб-сервис мониторинга автомобильных объявлений: AUTO.RIA, OLX и Telegram в одном поиске. Быстрый старт, фильтры, тарифы и мгновенные уведомления.',
@@ -179,7 +183,7 @@ const carbit: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Carbit',
         lead:
           'Подборщикам и перекупам нужен был один инструмент вместо ручного мониторинга нескольких площадок.',
         items: [
@@ -193,7 +197,7 @@ const carbit: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Carbit',
         lead: 'Современный SaaS мониторинга авторынка: единый поиск, фильтры, тарифы и конверсия в подписку.',
         items: [
           'Единый поиск по AUTO.RIA, OLX и Telegram',
@@ -222,6 +226,7 @@ const thirteenPm: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: '13PM Tactic',
+      seoTitle: 'Кейс 13PM Tactic: e-commerce тактичного одягу',
       heroTitle: '13PM Tactic — e-commerce бренду тактичного одягу',
       heroLead:
         'Інтернет-магазин українського бренду тактичного одягу: швидкий вибір товарів, зручний каталог, презентація лінійок і просте оформлення замовлення з будь-якого пристрою.',
@@ -234,7 +239,7 @@ const thirteenPm: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту 13PM Tactic',
         lead:
           'Бренду тактичного одягу потрібен був магазин, який швидко веде від каталогу до покупки й підсилює довіру до власного виробництва.',
         items: [
@@ -248,7 +253,7 @@ const thirteenPm: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для 13PM Tactic',
         lead:
           'Зібрали e-commerce під тактичний бренд: каталог, лінійки, акції й короткий шлях до замовлення.',
         items: [
@@ -269,6 +274,7 @@ const thirteenPm: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: '13PM Tactic',
+      seoTitle: '13PM Tactic case: tactical apparel store',
       heroTitle: '13PM Tactic — e-commerce for a tactical apparel brand',
       heroLead:
         'An online store for a Ukrainian tactical clothing brand: fast product discovery, a clear catalog, product-line presentation and simple checkout on any device.',
@@ -281,7 +287,7 @@ const thirteenPm: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: 13PM Tactic',
         lead:
           'The tactical apparel brand needed a store that moves quickly from catalog to purchase and builds trust in in-house production.',
         items: [
@@ -295,7 +301,7 @@ const thirteenPm: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for 13PM Tactic',
         lead:
           'We built e-commerce for the tactical brand: catalog, lines, promos and a short path to order.',
         items: [
@@ -316,6 +322,7 @@ const thirteenPm: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: '13PM Tactic',
+      seoTitle: 'Case 13PM Tactic: sklep odzieży taktycznej',
       heroTitle: '13PM Tactic — e-commerce marki odzieży taktycznej',
       heroLead:
         'Sklep internetowy ukraińskiej marki odzieży taktycznej: szybki wybór, katalog, linie produktów i proste zamówienie na każdym urządzeniu.',
@@ -328,7 +335,7 @@ const thirteenPm: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu 13PM Tactic',
         lead:
           'Marce odzieży taktycznej potrzebny był sklep, który szybko prowadzi od katalogu do zakupu i buduje zaufanie do własnej produkcji.',
         items: [
@@ -342,7 +349,7 @@ const thirteenPm: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla 13PM Tactic',
         lead: 'E-commerce pod markę taktyczną: katalog, linie, promocje i krótka ścieżka do zamówienia.',
         items: [
           'Wygodny katalog',
@@ -362,6 +369,7 @@ const thirteenPm: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: '13PM Tactic',
+      seoTitle: 'Кейс 13PM Tactic: e-commerce тактической одежды',
       heroTitle: '13PM Tactic — e-commerce бренда тактической одежды',
       heroLead:
         'Интернет-магазин украинского бренда тактической одежды: быстрый выбор, удобный каталог, презентация линеек и простое оформление заказа с любого устройства.',
@@ -374,7 +382,7 @@ const thirteenPm: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта 13PM Tactic',
         lead:
           'Бренду тактической одежды нужен был магазин, который быстро ведёт от каталога к покупке и усиливает доверие к собственному производству.',
         items: [
@@ -388,7 +396,7 @@ const thirteenPm: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для 13PM Tactic',
         lead: 'E-commerce под тактический бренд: каталог, линейки, акции и короткий путь к заказу.',
         items: [
           'Удобный каталог',
@@ -417,6 +425,7 @@ const newStudyLine: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'New Study Line',
+      seoTitle: 'Кейс New Study Line: сайт школи англійської',
       heroTitle: 'New Study Line — сайт школи англійської під лідогенерацію',
       heroLead:
         'Повноцінний інструмент залучення лідів для школи англійської: форми на пробні уроки, онлайн-тест рівня, SEO-блог і чистий код без конструкторів — швидкість для користувача й Google.',
@@ -429,7 +438,7 @@ const newStudyLine: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту New Study Line',
         lead:
           'Школі потрібен був сайт як канал лідогенерації через Google Ads і органіку — з конверсійними формами, тестом рівня та SEO-структурою, а не шаблонним конструктором.',
         items: [
@@ -443,7 +452,7 @@ const newStudyLine: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для New Study Line',
         lead:
           'Зібрали сайт школи як конверсійний інструмент: реклама, органіка й чіткі точки входу в навчання.',
         items: [
@@ -464,6 +473,7 @@ const newStudyLine: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'New Study Line',
+      seoTitle: 'New Study Line case: English school site',
       heroTitle: 'New Study Line — English school site built for lead gen',
       heroLead:
         'A full lead-generation tool for an English school: trial-lesson forms, an online level test, an SEO blog and clean code without page builders — speed for users and Google.',
@@ -476,7 +486,7 @@ const newStudyLine: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: New Study Line',
         lead:
           'The school needed a site as a lead channel via Google Ads and organic search — with conversion forms, a level test and SEO structure, not a generic builder template.',
         items: [
@@ -490,7 +500,7 @@ const newStudyLine: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for New Study Line',
         lead:
           'We built the school site as a conversion tool: ads, organic and clear entry points into learning.',
         items: [
@@ -511,6 +521,7 @@ const newStudyLine: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'New Study Line',
+      seoTitle: 'Case New Study Line: szkoła angielskiego',
       heroTitle: 'New Study Line — strona szkoły angielskiego pod lead gen',
       heroLead:
         'Pełne narzędzie lead generation dla szkoły angielskiego: formularze lekcji próbnych, test poziomu, blog SEO i czysty kod bez kreatorów.',
@@ -523,7 +534,7 @@ const newStudyLine: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu New Study Line',
         lead:
           'Szkole potrzebna była strona jako kanał leadów z Google Ads i organiki — z formularzami, testem i SEO, nie szablonem z kreatora.',
         items: [
@@ -537,7 +548,7 @@ const newStudyLine: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla New Study Line',
         lead: 'Strona szkoły jako narzędzie konwersji: reklama, organika i jasne wejścia do nauki.',
         items: [
           'Formularze lekcji próbnych',
@@ -557,6 +568,7 @@ const newStudyLine: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'New Study Line',
+      seoTitle: 'Кейс New Study Line: сайт школы английского',
       heroTitle: 'New Study Line — сайт школы английского под лидогенерацию',
       heroLead:
         'Полноценный инструмент привлечения лидов для школы английского: формы на пробные уроки, онлайн-тест уровня, SEO-блог и чистый код без конструкторов.',
@@ -569,7 +581,7 @@ const newStudyLine: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта New Study Line',
         lead:
           'Школе нужен был сайт как канал лидогенерации через Google Ads и органику — с формами, тестом и SEO-структурой, а не шаблоном конструктора.',
         items: [
@@ -583,7 +595,7 @@ const newStudyLine: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для New Study Line',
         lead: 'Сайт школы как конверсионный инструмент: реклама, органика и точки входа в обучение.',
         items: [
           'Формы на пробные уроки',
@@ -612,6 +624,7 @@ const vevyne: CaseStudyDefinition = {
   copy: withRelated({
     uk: {
       breadcrumbLabel: 'Vevene',
+      seoTitle: 'Кейс Vevene: Telegram-бот для знайомств',
       heroTitle: 'Vevene — Telegram-бот для знайомств без зайвих додатків',
       heroLead:
         'Ідея клієнта: знайомитись прямо в Telegram. Ми зібрали Vevene — бот, який замінює класичні дейтинг-сервіси: KYC-перевірка профілів, підбір за інтересами, DateRadar по геолокації та щоденні персональні рекомендації.',
@@ -624,7 +637,7 @@ const vevyne: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Що було',
+        title: 'Завдання проєкту Vevene',
         lead:
           'Користувачі втомились від окремих дейтинг-додатків. Потрібен був сучасний сервіс знайомств усередині Telegram — швидкий, простий і безпечніший за випадкові чати.',
         items: [
@@ -638,7 +651,7 @@ const vevyne: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Що зробили',
+        title: 'Розробка рішення для Vevene',
         lead:
           'Перетворили ідею на повноцінний Telegram dating-продукт із безпекою, релевантним матчингом і гео-сценаріями.',
         items: [
@@ -659,6 +672,7 @@ const vevyne: CaseStudyDefinition = {
     },
     en: {
       breadcrumbLabel: 'Vevene',
+      seoTitle: 'Vevene case: Telegram dating bot',
       heroTitle: 'Vevene — Telegram dating bot without extra apps',
       heroLead:
         'The client’s idea: let people meet inside Telegram. We built Vevene — a bot that replaces classic dating apps: KYC profile checks, interest-based matching, DateRadar by geolocation and daily personal recommendations.',
@@ -671,7 +685,7 @@ const vevyne: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'What was',
+        title: 'Project challenge: Vevene',
         lead:
           'People were tired of separate dating apps. They needed a modern dating product inside Telegram — faster, simpler and safer than random chats.',
         items: [
@@ -685,7 +699,7 @@ const vevyne: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'What we did',
+        title: 'Solution built for Vevene',
         lead:
           'We turned the idea into a full Telegram dating product with safety, relevant matching and geo scenarios.',
         items: [
@@ -706,6 +720,7 @@ const vevyne: CaseStudyDefinition = {
     },
     pl: {
       breadcrumbLabel: 'Vevene',
+      seoTitle: 'Case Vevene: bot randkowy w Telegram',
       heroTitle: 'Vevene — bot randkowy w Telegram bez zbędnych aplikacji',
       heroLead:
         'Pomysł klienta: poznawać się w Telegram. Zbudowaliśmy Vevene — bota zamiast klasycznych aplikacji: KYC, dopasowanie po zainteresowaniach, DateRadar i codzienne rekomendacje.',
@@ -718,7 +733,7 @@ const vevyne: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Co było',
+        title: 'Wyzwanie projektu Vevene',
         lead:
           'Użytkownicy zmęczyli się osobnymi aplikacjami randkowymi. Potrzebny był nowoczesny serwis w Telegram — szybki, prosty i bezpieczniejszy.',
         items: [
@@ -732,7 +747,7 @@ const vevyne: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Co zrobiliśmy',
+        title: 'Rozwiązanie dla Vevene',
         lead: 'Pełny produkt dating w Telegram: bezpieczeństwo, trafny matching i scenariusze geo.',
         items: [
           'KYC profili przeciw botom i fake’om',
@@ -752,6 +767,7 @@ const vevyne: CaseStudyDefinition = {
     },
     ru: {
       breadcrumbLabel: 'Vevene',
+      seoTitle: 'Кейс Vevene: Telegram-бот для знакомств',
       heroTitle: 'Vevene — Telegram-бот для знакомств без лишних приложений',
       heroLead:
         'Идея клиента: знакомиться прямо в Telegram. Мы собрали Vevene — бот вместо классических дейтинг-сервисов: KYC, подбор по интересам, DateRadar и ежедневные рекомендации.',
@@ -764,7 +780,7 @@ const vevyne: CaseStudyDefinition = {
       ],
       challenge: {
         eyebrow: '/ CHALLENGE',
-        title: 'Что было',
+        title: 'Задача проекта Vevene',
         lead:
           'Пользователи устали от отдельных дейтинг-приложений. Нужен был современный сервис знакомств внутри Telegram — быстрый, простой и безопаснее случайных чатов.',
         items: [
@@ -778,7 +794,7 @@ const vevyne: CaseStudyDefinition = {
       },
       solution: {
         eyebrow: '/ SOLUTION',
-        title: 'Что сделали',
+        title: 'Решение для Vevene',
         lead: 'Превратили идею в полноценный Telegram dating-продукт с безопасностью, релевантным матчингом и geo-сценариями.',
         items: [
           'KYC-проверка профилей',
