@@ -104,13 +104,13 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
                 src="/other/roman-fedoniuk.webp"
                 alt={t.about.founder.imageAlt}
                 fill
-                className="object-cover object-[center_20%]"
+                className="object-cover object-[center_25%]"
                 sizes="(max-width: 768px) 90vw, 40vw"
-                quality={80}
+                quality={82}
               />
             </div>
             <div className="max-w-xl">
-              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-gray-500">
+              <p className="mb-3 text-sm font-semibold tracking-wide text-gray-500">
                 {t.about.founder.role}
               </p>
               <h2
