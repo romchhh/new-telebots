@@ -6,6 +6,7 @@ import { X, ExternalLink } from 'lucide-react';
 import type { Language } from '@/components/translations';
 import type { PortfolioCaseData } from '@/lib/portfolioCases';
 import { useHomeModal } from '@/components/HomeModalProvider';
+import StatPills from '@/components/StatPills';
 
 type CasePreviewModalProps = {
   caseId: string;
@@ -106,13 +107,8 @@ export default function CasePreviewModal({
           )}
 
           {results.length > 0 && (
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {results.map((r) => (
-                <div key={`${r.value}-${r.label}`} className="rounded-lg bg-zinc-50 px-3 py-3 text-center">
-                  <div className="text-lg font-black text-black sm:text-xl">{r.value}</div>
-                  <div className="mt-0.5 text-[11px] leading-snug text-zinc-500 sm:text-xs">{r.label}</div>
-                </div>
-              ))}
+            <div className="mt-6">
+              <StatPills stats={results} className="[&>div]:min-w-0 [&>div]:flex-[1_1_45%] sm:[&>div]:flex-[1_1_22%]" />
             </div>
           )}
 

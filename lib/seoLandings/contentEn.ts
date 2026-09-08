@@ -2,7 +2,12 @@ import type { SeoLandingCopy, SeoLandingSlug } from './types';
 
 type CoreSeoLandingSlug = Exclude<
   SeoLandingSlug,
-  'chatbots-buy' | 'chatbot-development-price' | 'telegram-bot-order-price'
+  | 'chatbots-buy'
+  | 'chatbot-development-price'
+  | 'telegram-bot-order-price'
+  | 'website-development-price'
+  | 'landing-page-price'
+  | 'online-store-price'
 >;
 
 type AllLandings = Record<CoreSeoLandingSlug, SeoLandingCopy>;

@@ -21,6 +21,51 @@ export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps
   const links = [
     { href: `/${lang}/pricing`, label: copy.pricing },
     {
+      href: `/${lang}/solutions/website-development-price`,
+      label:
+        lang === 'uk'
+          ? 'Розробка сайту ціна'
+          : lang === 'en'
+            ? 'Website development price'
+            : lang === 'pl'
+              ? 'Cena strony www'
+              : 'Разработка сайта цена',
+    },
+    {
+      href: `/${lang}/solutions/landing-page-price`,
+      label:
+        lang === 'uk'
+          ? 'Скільки коштує лендинг'
+          : lang === 'en'
+            ? 'Landing page cost'
+            : lang === 'pl'
+              ? 'Koszt landing page'
+              : 'Сколько стоит лендинг',
+    },
+    {
+      href: `/${lang}/solutions/online-store-price`,
+      label:
+        lang === 'uk'
+          ? 'Ціна інтернет-магазину'
+          : lang === 'en'
+            ? 'Online store price'
+            : lang === 'pl'
+              ? 'Cena sklepu online'
+              : 'Цена интернет-магазина',
+    },
+    {
+      href: `/${lang}/solutions/landing-pages`,
+      label:
+        copy.landingPages ||
+        (lang === 'en' ? 'Landing pages' : lang === 'pl' ? 'Landing pages' : lang === 'ru' ? 'Лендинги' : 'Лендінги під ключ'),
+    },
+    {
+      href: `/${lang}/solutions/online-stores`,
+      label:
+        copy.onlineStores ||
+        (lang === 'en' ? 'Online stores' : lang === 'pl' ? 'Sklepy online' : lang === 'ru' ? 'Интернет-магазины' : 'Інтернет-магазини'),
+    },
+    {
       href: `/${lang}/solutions/chatbots-buy`,
       label:
         lang === 'uk'
@@ -58,18 +103,6 @@ export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps
       label:
         copy.telegramBots ||
         (lang === 'en' ? 'Telegram bot development' : lang === 'pl' ? 'Boty Telegram' : lang === 'ru' ? 'Telegram-боты' : 'Розробка Telegram-ботів'),
-    },
-    {
-      href: `/${lang}/solutions/landing-pages`,
-      label:
-        copy.landingPages ||
-        (lang === 'en' ? 'Landing pages' : lang === 'pl' ? 'Landing pages' : lang === 'ru' ? 'Лендинги' : 'Лендінги під ключ'),
-    },
-    {
-      href: `/${lang}/solutions/online-stores`,
-      label:
-        copy.onlineStores ||
-        (lang === 'en' ? 'Online stores' : lang === 'pl' ? 'Sklepy online' : lang === 'ru' ? 'Интернет-магазины' : 'Інтернет-магазини'),
     },
     ...(lang === 'uk'
       ? [

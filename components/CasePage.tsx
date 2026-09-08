@@ -12,6 +12,7 @@ import OrderCtaPill from '@/components/OrderCtaPill';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import SuccessMessage from './SuccessMessage';
 import PortfolioCaseCard from '@/components/PortfolioCaseCard';
+import StatPills from '@/components/StatPills';
 import { sendToTelegram } from '@/lib/telegram';
 import { SITE_PX } from '@/lib/siteLayout';
 import { getCaseStudy, getCaseStudyCopy } from '@/lib/caseStudies';
@@ -199,18 +200,7 @@ export default function CasePage({ caseId }: CasePageProps) {
 
           {studyCopy?.stats?.length ? (
             <div className="pb-10 md:pb-14">
-              <div className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:grid-cols-4">
-                {studyCopy.stats.map((stat) => (
-                  <div key={stat.label} className="bg-[#0a0a0a]/90 px-4 py-6 sm:px-6 sm:py-8">
-                    <div className="mb-2 text-3xl font-black text-brand sm:text-4xl" style={display}>
-                      {stat.value}
-                    </div>
-                    <p className="text-xs font-medium uppercase tracking-[0.12em] text-brand/80 sm:text-sm">
-                      {stat.label}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <StatPills stats={studyCopy.stats} variant="dark" />
             </div>
           ) : null}
         </div>

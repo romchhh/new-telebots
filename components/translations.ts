@@ -13,7 +13,7 @@ export const translations = {
       consultationWidgetCta: 'Залишити заявку'
     },
     hero: {
-      title: 'Розробка Telegram-ботів і сайтів під ключ',
+      title: 'Розробка сайтів і Telegram-ботів під ключ',
       subtitle: 'Чат-боти, веб, парсери, дизайн — від ідеї до запуску',
       intro:
         'Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.',
@@ -683,7 +683,7 @@ export const translations = {
       consultationWidgetCta: 'Send a request'
     },
     hero: {
-      title: 'Telegram bot & website development end to end',
+      title: 'Website & Telegram bot development end to end',
       subtitle: 'Chatbots, web, parsers, design — from idea to launch',
       intro:
         'Full cycle: messengers, web, e-commerce, data, brand & UI/UX. One team — no extra middlemen.',
@@ -1286,7 +1286,7 @@ export const translations = {
       consultationWidgetCta: 'Wyślij zapytanie'
     },
     hero: {
-      title: 'Tworzenie botów Telegram i stron pod klucz',
+      title: 'Tworzenie stron i botów Telegram pod klucz',
       subtitle: 'Chatboty, web, parsery, design — od pomysłu do startu',
       intro:
         'Pełny cykl: komunikatory, web, e-commerce, dane, branding i UI/UX. Jeden zespół — bez pośredników.',
@@ -1889,7 +1889,7 @@ export const translations = {
       consultationWidgetCta: 'Оставить заявку'
     },
     hero: {
-      title: 'Разработка Telegram-ботов и сайтов под ключ',
+      title: 'Разработка сайтов и Telegram-ботов под ключ',
       subtitle: 'Чат-боты, веб, парсеры, дизайн — от идеи до запуска',
       intro:
         'Полный цикл: мессенджеры, веб, e-commerce, данные, бренд и UI/UX. Одна команда — без лишних подрядчиков.',

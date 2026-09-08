@@ -15,7 +15,9 @@ import SiteCtaBand from '@/components/SiteCtaBand';
 import FaqAccordion from '@/components/FaqAccordion';
 import PortfolioCaseCard from '@/components/PortfolioCaseCard';
 import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
+import StatPills from '@/components/StatPills';
 import { getPortfolioCards } from '@/lib/portfolioCards';
+import { getIncludedForService } from '@/lib/seoLandings/includedCopy';
 
 const display = { fontFamily: 'var(--font-display)' };
 
@@ -27,12 +29,16 @@ export default function SeoSolutionPage({
   slug: SeoLandingSlug;
 }) {
   const page = getSeoLanding(lang, slug);
-  const t = translations[lang];
-
   if (!page) return null;
 
-  const media = SEO_LANDING_MEDIA[slug];
   const relatedService = SEO_LANDING_RELATED_SERVICE[slug];
+  const included = getIncludedForService(lang, relatedService);
+  const deliverablesTitle = included?.title ?? page.deliverablesTitle;
+  const deliverablesLead = included?.lead;
+  const deliverables = included?.items ?? page.deliverables;
+  const t = translations[lang];
+
+  const media = SEO_LANDING_MEDIA[slug];
   const pageUrl = `${siteUrl}/${lang}/solutions/${slug}`;
   const relatedHref = relatedService
     ? `/${lang}/services/${relatedService}`
@@ -137,16 +143,7 @@ export default function SeoSolutionPage({
           {/* Stats */}
           <section className={`border-b border-gray-100 bg-zinc-50 ${SITE_PX}`}>
             <div className={`${SITE_INNER} py-10 md:py-12`}>
-              <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
-                {page.stats.map((stat) => (
-                  <div key={stat.label} className="text-center md:text-left">
-                    <p className="text-2xl font-black text-black md:text-3xl" style={display}>
-                      {stat.value}
-                    </p>
-                    <p className="mt-1 text-sm uppercase tracking-[0.12em] text-gray-500">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+              <StatPills stats={page.stats} />
             </div>
           </section>
 
@@ -230,11 +227,16 @@ export default function SeoSolutionPage({
           {/* Deliverables */}
           <section className={`border-y border-gray-100 bg-zinc-50 py-14 md:py-20 ${SITE_PX}`}>
             <div className={`${SITE_INNER}`}>
-              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
-                {page.deliverablesTitle}
+              <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+                {deliverablesTitle}
               </h2>
+              {deliverablesLead ? (
+                <p className="mb-10 max-w-3xl text-lg leading-relaxed text-gray-700">{deliverablesLead}</p>
+              ) : (
+                <div className="mb-10" />
+              )}
               <div className="grid gap-5 sm:grid-cols-2">
-                {page.deliverables.map((item, i) => (
+                {deliverables.map((item, i) => (
                   <div key={item.title} className="rounded-2xl border border-gray-200/80 bg-white p-6 md:p-7">
                     <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-gray-400">
                       {String(i + 1).padStart(2, '0')}
@@ -427,13 +429,91 @@ export default function SeoSolutionPage({
                     </li>
                   </>
                 ) : null}
-                {lang === 'uk' && (slug === 'landing-pages' || slug === 'online-stores') ? (
+                {lang === 'uk' &&
+                (slug === 'landing-pages' ||
+                  slug === 'online-stores' ||
+                  slug === 'website-development-price' ||
+                  slug === 'landing-page-price' ||
+                  slug === 'online-store-price') ? (
+                  <>
+                    <li>
+                      <Link
+                        href="/uk/blog/skilky-koshtuye-sayt"
+                        className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                      >
+                        Скільки коштує сайт
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/uk/blog/suchasni-veb-sajty-rozrobka"
+                        className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                      >
+                        Розробка сучасних веб-сайтів
+                      </Link>
+                    </li>
+                  </>
+                ) : null}
+                {(slug === 'landing-pages' ||
+                  slug === 'online-stores' ||
+                  slug === 'website-development-price' ||
+                  slug === 'landing-page-price' ||
+                  slug === 'online-store-price') &&
+                slug !== 'website-development-price' ? (
                   <li>
                     <Link
-                      href="/uk/blog/suchasni-veb-sajty-rozrobka"
+                      href={`/${lang}/solutions/website-development-price`}
                       className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
                     >
-                      Розробка сучасних веб-сайтів
+                      {lang === 'en'
+                        ? 'Website development price'
+                        : lang === 'pl'
+                          ? 'Cena strony www'
+                          : lang === 'ru'
+                            ? 'Разработка сайта цена'
+                            : 'Розробка сайту ціна'}
+                    </Link>
+                  </li>
+                ) : null}
+                {(slug === 'landing-pages' ||
+                  slug === 'online-stores' ||
+                  slug === 'website-development-price' ||
+                  slug === 'landing-page-price' ||
+                  slug === 'online-store-price') &&
+                slug !== 'landing-page-price' ? (
+                  <li>
+                    <Link
+                      href={`/${lang}/solutions/landing-page-price`}
+                      className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                    >
+                      {lang === 'en'
+                        ? 'Landing page cost'
+                        : lang === 'pl'
+                          ? 'Koszt landing page'
+                          : lang === 'ru'
+                            ? 'Сколько стоит лендинг'
+                            : 'Скільки коштує лендинг'}
+                    </Link>
+                  </li>
+                ) : null}
+                {(slug === 'landing-pages' ||
+                  slug === 'online-stores' ||
+                  slug === 'website-development-price' ||
+                  slug === 'landing-page-price' ||
+                  slug === 'online-store-price') &&
+                slug !== 'online-store-price' ? (
+                  <li>
+                    <Link
+                      href={`/${lang}/solutions/online-store-price`}
+                      className="text-gray-800 underline-offset-4 hover:text-brand hover:underline"
+                    >
+                      {lang === 'en'
+                        ? 'Online store price'
+                        : lang === 'pl'
+                          ? 'Cena sklepu online'
+                          : lang === 'ru'
+                            ? 'Цена интернет-магазина'
+                            : 'Ціна інтернет-магазину'}
                     </Link>
                   </li>
                 ) : null}

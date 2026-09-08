@@ -6,6 +6,7 @@ import OfferPng from '@/components/OfferPng';
 import OfferLeadForm from '@/components/OfferLeadForm';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import PortfolioCaseCard from '@/components/PortfolioCaseCard';
+import StatPills from '@/components/StatPills';
 import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
 import { translations, type Language } from '@/components/translations';
 import { offerPageCopy, OFFER_TELEGRAM_URL } from '@/lib/offerPageCopy';
@@ -106,16 +107,7 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
           {/* Stats */}
           <section className={`border-b border-gray-100 bg-zinc-50 ${SITE_PX}`}>
             <div className={`${SITE_INNER} py-10 md:py-12`}>
-              <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
-                {stats.map((stat) => (
-                  <div key={stat.label} className="text-center md:text-left">
-                    <p className="text-2xl font-black text-black md:text-3xl" style={display}>
-                      {stat.value}
-                    </p>
-                    <p className="mt-1 text-sm uppercase tracking-[0.12em] text-gray-500">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
+              <StatPills stats={stats} />
             </div>
           </section>
 

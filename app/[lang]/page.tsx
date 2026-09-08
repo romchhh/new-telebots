@@ -19,12 +19,12 @@ export async function generateMetadata({
   // Brand suffix comes from root layout title.template (`%s | TeleBots`) — do not add it here.
   const title =
     lang === 'uk'
-      ? 'Замовити розробку Telegram-ботів і сайтів | від $100'
+      ? 'Замовити розробку сайтів і Telegram-ботів | від $100'
       : lang === 'en'
-        ? 'Order Telegram Bots & Websites | from $100'
+        ? 'Order Websites & Telegram Bots | from $100'
         : lang === 'pl'
-          ? 'Zamów boty Telegram i strony | od $100'
-          : 'Заказать Telegram-ботов и сайты | от $100';
+          ? 'Zamów strony i boty Telegram | od $100'
+          : 'Заказать сайты и Telegram-ботов | от $100';
 
   const description =
     lang === 'uk'

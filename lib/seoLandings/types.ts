@@ -7,6 +7,9 @@ export const SEO_LANDING_SLUGS = [
   'chatbots-buy',
   'chatbot-development-price',
   'telegram-bot-order-price',
+  'website-development-price',
+  'landing-page-price',
+  'online-store-price',
 ] as const;
 
 export type SeoLandingSlug = (typeof SEO_LANDING_SLUGS)[number];
@@ -65,6 +68,9 @@ export const SEO_LANDING_RELATED_SERVICE: Record<SeoLandingSlug, SeoLandingRelat
   'chatbots-buy': 'chatbots',
   'chatbot-development-price': 'chatbots',
   'telegram-bot-order-price': 'chatbots',
+  'website-development-price': 'websites',
+  'landing-page-price': 'websites',
+  'online-store-price': 'websites',
 };
 
 export const SEO_LANDING_IMAGE: Record<SeoLandingSlug, string> = {
@@ -76,6 +82,9 @@ export const SEO_LANDING_IMAGE: Record<SeoLandingSlug, string> = {
   'chatbots-buy': '/services/services-chatbots.jpg',
   'chatbot-development-price': '/services/services-chatbots.jpg',
   'telegram-bot-order-price': '/services/services-chatbots.jpg',
+  'website-development-price': '/services/services-websites.jpg',
+  'landing-page-price': '/services/services-websites.jpg',
+  'online-store-price': '/services/services-websites.jpg',
 };
 
 export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
@@ -200,5 +209,35 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       'vevyne-dating-bot',
       'journey-zavadska',
     ],
+  },
+  'website-development-price': {
+    hero: '/services/services-websites.jpg',
+    secondary: '/other/workspace-laptop-rocks.jpg',
+    gallery: [
+      '/other/workspace-laptop-rocks.jpg',
+      '/other/about-hero.png',
+      '/services/services-hero_new.jpg',
+    ],
+    caseIds: ['butenko-fit', 'zavadska', 'royal-academy', 'emvi-digital', 'litun-edu', 'kls'],
+  },
+  'landing-page-price': {
+    hero: '/services/services-websites.jpg',
+    secondary: '/other/workspace-laptop-rocks.jpg',
+    gallery: [
+      '/other/workspace-laptop-rocks.jpg',
+      '/other/about-hero.png',
+      '/services/services-hero_new.jpg',
+    ],
+    caseIds: ['butenko-fit', 'zavadska', 'royal-academy', 'emvi-digital', 'litun-edu', 'kls'],
+  },
+  'online-store-price': {
+    hero: '/services/services-websites.jpg',
+    secondary: '/other/workspace-code-desk.jpg',
+    gallery: [
+      '/other/workspace-code-desk.jpg',
+      '/other/about-hero-macbook.jpg',
+      '/other/about-hero.png',
+    ],
+    caseIds: ['13vplus', 'chars-kyiv', '13pm', 'toptrendshop', 'nieznany-piekarz', 'kreona'],
   },
 };

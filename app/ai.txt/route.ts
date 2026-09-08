@@ -65,6 +65,9 @@ TeleBots — digital-студія з України. Одна команда з�
 - Прозорі тарифи та пакети: ${baseUrl}/uk/pricing
 
 ## SEO-сторінки послуг (uk / en / pl / ru)
+- Розробка сайту ціна: ${baseUrl}/uk/solutions/website-development-price
+- Скільки коштує лендинг: ${baseUrl}/uk/solutions/landing-page-price
+- Ціна інтернет-магазину: ${baseUrl}/uk/solutions/online-store-price
 - Розробка Telegram-ботів: ${baseUrl}/uk/solutions/telegram-bots
 - Лендінги під ключ: ${baseUrl}/uk/solutions/landing-pages
 - Інтернет-магазини: ${baseUrl}/uk/solutions/online-stores

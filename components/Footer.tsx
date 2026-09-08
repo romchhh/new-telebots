@@ -70,6 +70,39 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
+                  <Link href={`/${currentLanguage}/solutions/website-development-price`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'Website development price'
+                      : currentLanguage === 'pl'
+                        ? 'Cena strony www'
+                        : currentLanguage === 'ru'
+                          ? 'Разработка сайта цена'
+                          : 'Розробка сайту ціна'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/solutions/landing-page-price`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'Landing page cost'
+                      : currentLanguage === 'pl'
+                        ? 'Koszt landing page'
+                        : currentLanguage === 'ru'
+                          ? 'Сколько стоит лендинг'
+                          : 'Скільки коштує лендинг'}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/solutions/online-store-price`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {currentLanguage === 'en'
+                      ? 'Online store price'
+                      : currentLanguage === 'pl'
+                        ? 'Cena sklepu online'
+                        : currentLanguage === 'ru'
+                          ? 'Цена интернет-магазина'
+                          : 'Ціна інтернет-магазину'}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {t.services.chatbotsPage.title}
                   </Link>
