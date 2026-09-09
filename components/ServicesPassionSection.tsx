@@ -58,7 +58,7 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
         <div className="mx-auto max-w-4xl text-center md:max-w-5xl lg:max-w-7xl">
           <h1
             className="mb-3 font-semibold uppercase leading-[1.12] text-white sm:mb-4 sm:leading-[1.15] md:mb-5 text-[clamp(1.45rem,6.2vw,2.35rem)] sm:text-4xl md:text-5xl lg:text-6xl [letter-spacing:0.05em] sm:[letter-spacing:0.1em] md:[letter-spacing:0.12em]"
-            style={{ fontFamily: 'var(--font-display)' }}
+            style={{ fontFamily: 'var(--font-montserrat)' }}
           >
             {t.services.passion}
           </h1>
@@ -71,25 +71,29 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
           <p className="mx-auto mb-7 max-w-3xl text-lg leading-relaxed text-gray-300 sm:mb-8 sm:text-lg md:mb-10 md:text-xl md:leading-relaxed">
             {t.services.passionDesc}
           </p>
-          <div className="mx-auto flex w-full max-w-xl flex-col items-stretch justify-center gap-3 sm:max-w-2xl sm:flex-row sm:items-stretch sm:gap-4 md:max-w-3xl md:gap-5 lg:max-w-4xl">
+          <p className="mx-auto mb-5 max-w-2xl text-sm leading-relaxed text-white/70 sm:mb-6 sm:text-base">
+            {t.services.passionMoreQuestion}
+          </p>
+          <div className="mx-auto flex w-full max-w-xl flex-col flex-wrap items-stretch justify-center gap-3 sm:max-w-none sm:flex-row sm:items-center sm:justify-center">
             <OrderCtaPill
-              size="md"
-              variant="outline"
-              paired
-              label={t.services.toServices}
+              size="sm"
+              variant="brand"
+              label={t.about.getInTouch}
+              className="w-full sm:w-auto sm:min-w-[14rem]"
+            />
+            <Link
               href={`/${validLang}/services#services-list`}
               onClick={scrollToServicesList}
-              className="w-full sm:flex-1"
-            />
-            <OrderCtaPill
-              size="md"
-              variant="brand"
-              paired
-              eyebrow={t.services.passionMoreQuestion}
-              label={t.services.toPortfolio}
+              className="inline-flex items-center justify-center rounded-full border-2 border-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-black"
+            >
+              {t.services.toServices}
+            </Link>
+            <Link
               href={`/${validLang}/portfolio`}
-              className="w-full sm:flex-1"
-            />
+              className="inline-flex items-center justify-center rounded-full border-2 border-white px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-white hover:text-black"
+            >
+              {t.services.toPortfolio}
+            </Link>
           </div>
         </div>
       </div>

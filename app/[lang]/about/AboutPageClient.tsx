@@ -182,47 +182,56 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-14 lg:gap-24">
-            <div className="space-y-5 md:space-y-6">
-              <h2 className="text-[clamp(1.75rem,4.5vw,2.75rem)] sm:text-4xl lg:text-[2.75rem] font-black text-black uppercase tracking-[0.06em] leading-[1.1] mb-2 md:mb-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
+            <div className="flex flex-col rounded-2xl bg-black p-7 sm:p-8 md:p-9 lg:p-10">
+              <h2
+                className="mb-4 text-[clamp(1.65rem,3.8vw,2.35rem)] font-black uppercase leading-[1.05] tracking-[0.04em] text-white md:mb-5"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
                 {t.about.ourWork}
               </h2>
-              <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-8 md:mb-9">
+              <p className="mb-8 flex-1 text-base leading-[1.65] text-white/80 md:mb-10 md:text-[17px] lg:text-lg">
                 {t.about.ourWorkDesc}
               </p>
               <Link
                 href={`/${lang}#portfolio`}
-                className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors duration-200 w-fit"
+                className="inline-flex w-fit items-center justify-center rounded-full border-2 border-white px-7 py-3 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-white hover:text-black md:text-base"
               >
                 {t.about.portfolio}
               </Link>
             </div>
 
-            <div className="space-y-5 md:space-y-6">
-              <h2 className="text-[clamp(1.75rem,4.5vw,2.75rem)] sm:text-4xl lg:text-[2.75rem] font-black text-black uppercase tracking-[0.06em] leading-[1.1] mb-2 md:mb-3">
+            <div className="flex flex-col rounded-2xl border border-black/10 bg-white p-7 shadow-[0_8px_30px_rgba(0,0,0,0.04)] sm:p-8 md:p-9 lg:p-10">
+              <h2
+                className="mb-4 text-[clamp(1.65rem,3.8vw,2.35rem)] font-black uppercase leading-[1.05] tracking-[0.04em] text-black md:mb-5"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
                 {t.about.services}
               </h2>
-              <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-8 md:mb-9">
+              <p className="mb-8 flex-1 text-base leading-[1.65] text-black/75 md:mb-10 md:text-[17px] lg:text-lg">
                 {t.about.servicesDesc}
               </p>
               <Link
                 href={`/${lang}/services`}
-                className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors duration-200 w-fit"
+                className="inline-flex w-fit items-center justify-center rounded-full border-2 border-black bg-white px-7 py-3 text-[15px] font-medium text-black transition-colors duration-200 hover:bg-black hover:text-white md:text-base"
               >
                 {t.about.services}
               </Link>
             </div>
 
-            <div className="space-y-5 md:space-y-6">
-              <h2 className="text-[clamp(1.75rem,4.5vw,2.75rem)] sm:text-4xl lg:text-[2.75rem] font-black text-black uppercase tracking-[0.06em] leading-[1.1] mb-2 md:mb-3">
+            <div className="flex flex-col rounded-2xl bg-brand p-7 sm:p-8 md:p-9 lg:p-10">
+              <h2
+                className="mb-4 text-[clamp(1.65rem,3.8vw,2.35rem)] font-black uppercase leading-[1.05] tracking-[0.04em] text-black md:mb-5"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
                 {t.about.contact}
               </h2>
-              <p className="text-[20px] md:text-[19px] lg:text-[21px] text-black leading-[1.65] font-normal mb-8 md:mb-9">
+              <p className="mb-8 flex-1 text-base leading-[1.65] text-black/75 md:mb-10 md:text-[17px] lg:text-lg">
                 {t.about.contactDesc}
               </p>
               <Link
                 href={`/${lang}/contact`}
-                className="inline-flex items-center justify-center bg-white border-2 border-black text-black text-[17px] md:text-[16px] lg:text-[17px] font-medium px-8 py-3.5 rounded-full hover:bg-black hover:text-white transition-colors duration-200 w-fit"
+                className="inline-flex w-fit items-center justify-center rounded-full border-2 border-black bg-transparent px-7 py-3 text-[15px] font-medium text-black transition-colors duration-200 hover:bg-black hover:text-white md:text-base"
               >
                 {t.about.getInTouch}
               </Link>
