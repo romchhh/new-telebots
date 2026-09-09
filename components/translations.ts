@@ -231,8 +231,9 @@ export const translations = {
         title: 'Сайти',
         teaserOffer:
           'Next.js, SEO, адмінка та оплати під ключ. Безкоштовна консультація — від лендінгу до інтернет-магазину.',
-        subtitle: 'Мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce',
-        description: 'Розробляємо мінімалістичні преміум-сайти з безкоштовною консультацією: лендинги, сайти-візитки та преміальні e-commerce рішення. Швидкі, зручний адмін, SEO та інтеграції під ключ. За потреби підключаємо AI-функції — чат-боти, аналітику та автоматизацію бізнес-процесів. Маєте ідею? Будемо раді обговорити та підказати найкраще рішення. Багато запитів у клієнтів? Можемо співпрацювати як підрядники — разом реалізуємо більше проєктів і збільшимо прибуток.',
+        subtitle: 'Лендинги, корпоративні сайти та інтернет-магазини на Next.js: швидкість, SEO, адмінка',
+        description:
+          'Сайт, який збирає заявки й показує, звідки приходять клієнти: адаптив, зручна адмінка, SEO та інтеграції з CRM, оплатою й аналітикою. Від односторінкового лендингу до e-commerce — без шаблонів «як у всіх». За потреби підключаємо AI-чат і автоматизацію. Старт від 1 тижня.',
         button: 'Замовити розробку',
         serviceHero: {
           tagline: 'Швидкі сайти з адмінкою, SEO та інтеграціями — без зайвого коду з вашого боку.',
@@ -272,8 +273,9 @@ export const translations = {
         title: 'Чат-боти',
         teaserOffer:
           'Оплата, CRM і розсилки в Telegram, WhatsApp чи Viber. Простий сценарій — від 24 год; складніший — поетапно й прозоро.',
-        subtitle: 'Боти, які ведуть клієнта до покупки: оплата, CRM, підтвердження. Telegram, WhatsApp, Viber, Messenger',
-        description: 'Бот, який не просто відповідає — а веде клієнта до покупки: приймає оплату (Mono, WayForPay, LiqPay), записує в CRM або Google Sheets, надсилає підтвердження. Автоматизація продажів у месенджері без втрати особистого підходу; за бажанням — AI-відповіді та аналітика. Швидкий старт за 24 години, перевірено на 200+ проєктах. Маєте ідею? Обговоримо та підкажемо найкраще рішення. Працюємо і як підрядники: багато заявок — разом реалізуємо більше і збільшимо прибуток.',
+        subtitle: 'Боти в Telegram, WhatsApp і Viber: оплата, CRM, розсилки',
+        description:
+          'Бот веде клієнта до покупки: приймає оплату (Mono, WayForPay, LiqPay), пише в CRM або Google Sheets, надсилає підтвердження. Автоматизація в месенджері без втрати особистого підходу; за потреби — AI-відповіді. Простий сценарій — від 24 год, складніший — поетапно.',
         button: 'Замовити розробку',
         serviceHero: {
           tagline: 'Бот у месенджері закриває перші запити та заявки 24/7 — поки ви займаєтесь бізнесом.',
@@ -326,8 +328,9 @@ export const translations = {
         title: 'Дизайн',
         teaserOffer:
           'Лого, айдентика та UI/UX у Figma — макети під верстку й конверсію. 2–3 раунди правок у межах ТЗ.',
-        subtitle: 'Лого, айдентика, UI/UX для сайтів та додатків. Зручні інтерфейси, що працюють на конверсію',
-        description: 'Логотип і фірмовий стиль, які запам\'ятовуються. UI/UX для сайтів та додатків: прототипи в Figma, айдентика, брендбуки, візитки та соцмережі. Інтерфейс не лише виглядає — а й працює на конверсію та впізнаваність. В команді досвідчений UI/UX дизайнер — від ідеї до макетів під передачу в розробку. Маєте ідею? Раді обговорити та підказати найкраще рішення. Готові співпрацювати як підрядники для агенцій з великим потоком проєктів.',
+        subtitle: 'Лого, айдентика та UI/UX у Figma для сайтів і додатків',
+        description:
+          'Фірмовий стиль і інтерфейси під конверсію: прототипи в Figma, брендбук, макети під верстку. Дизайн і розробка в одній команді — від ідеї до передачі в код. 2–3 раунди правок у межах ТЗ.',
         button: 'Замовити дизайн',
         serviceHero: {
           tagline: 'Лого та інтерфейси, які працюють на впізнаваність і конверсію — не лише «красиву картинку».',
@@ -901,8 +904,9 @@ export const translations = {
         title: 'Websites',
         teaserOffer:
           'Next.js, SEO, admin, and payments end to end. Free consult — from a sharp landing to e-commerce.',
-        subtitle: 'Minimalist premium sites with free consultation: landings, business card sites and premium e-commerce',
-        description: 'We build minimalist premium sites with free consultation: landings, business card sites and premium e-commerce solutions. Fast, easy admin, SEO and integrations turnkey. When needed we add AI — chatbots, analytics and business process automation. Got an idea? We\'re happy to discuss and suggest the best approach. Lots of client requests? We can work as subcontractors to deliver more projects and grow revenue together.',
+        subtitle: 'Landings, corporate sites and online stores on Next.js: speed, SEO, admin',
+        description:
+          'A site that captures leads and shows where clients come from: responsive layout, practical admin, SEO, and CRM, payments and analytics integrations. From a one-page landing to e-commerce — no same-as-everyone templates. AI chat and automation when you need them. Kickoff from 1 week.',
         button: 'Order Development',
         serviceHero: {
           tagline: 'Fast sites with admin, SEO, and integrations — without you touching code.',
@@ -942,8 +946,9 @@ export const translations = {
         title: 'Chatbots',
         teaserOffer:
           'Payments, CRM, and broadcasts in Telegram, WhatsApp, or Viber. Simple flows from 24h; bigger builds in clear stages.',
-        subtitle: 'Bots that lead the customer to purchase: payments, CRM, confirmations. Telegram, WhatsApp, Viber, Messenger',
-        description: 'A bot that doesn\'t just reply — it leads the customer to purchase: accepts payments (Mono, WayForPay, LiqPay), logs to CRM or Google Sheets, sends confirmations. Sales automation in the messenger without losing a personal touch; optionally AI replies and analytics. Quick start in 24 hours, proven on 200+ projects. Got an idea? Let\'s discuss and we\'ll suggest the best solution. We also work as subcontractors: more leads — we deliver more together and grow profit.',
+        subtitle: 'Bots in Telegram, WhatsApp and Viber: payments, CRM, broadcasts',
+        description:
+          'A bot that leads the client to purchase: takes payment (Mono, WayForPay, LiqPay), writes to CRM or Google Sheets, sends confirmations. Sales automation in the messenger without losing a personal touch; AI replies when you need them. Simple flow — from 24h, larger builds — in clear stages.',
         button: 'Order Development',
         serviceHero: {
           tagline: 'A messenger bot handles first-line requests and leads 24/7 while you run the business.',
@@ -996,8 +1001,9 @@ export const translations = {
         title: 'Design',
         teaserOffer:
           'Logo, brand, and UI/UX in Figma — dev-ready layouts. A few focused revision rounds within the agreed scope.',
-        subtitle: 'Logo, identity, UI/UX for websites and apps. Interfaces that work for conversion',
-        description: 'A logo and brand identity that stick in people\'s minds. UI/UX for websites and apps: Figma prototypes, identity, brand books, business cards and socials. The interface doesn\'t just look good — it works for conversion and recognition. Experienced UI/UX designer on the team — from idea to handoff-ready mockups. Got an idea? We\'re happy to discuss and suggest the best solution. We also partner as subcontractors for agencies with a strong project flow.',
+        subtitle: 'Logo, brand identity and UI/UX in Figma for websites and apps',
+        description:
+          'Brand identity and interfaces built for conversion: Figma prototypes, brand book, layouts ready for development. Design and build in one team — from idea to handoff. A few focused revision rounds within the agreed scope.',
         button: 'Order Design',
         serviceHero: {
           tagline: 'Logos and interfaces built for recognition and conversion — not just pretty screens.',
@@ -1504,8 +1510,9 @@ export const translations = {
         title: 'Strony internetowe',
         teaserOffer:
           'Next.js, SEO, panel i płatności pod klucz. Darmowa konsultacja — od landing page do sklepu online.',
-        subtitle: 'Minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i premium e-commerce',
-        description: 'Tworzymy minimalistyczne strony premium z darmową konsultacją: landingi, strony wizytówkowe i rozwiązania e-commerce. Szybko, wygodny panel, SEO i integracje pod klucz. W razie potrzeby dołączamy AI — chatboty, analitykę i automatyzację procesów. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Dużo zapytań od klientów? Możemy współpracować jako podwykonawcy — razem zrealizujemy więcej projektów i zwiększymy zyski.',
+        subtitle: 'Landingi, strony firmowe i sklepy na Next.js: szybkość, SEO, panel',
+        description:
+          'Strona, która zbiera leady i pokazuje, skąd przychodzą klienci: responsywność, wygodny panel, SEO oraz integracje z CRM, płatnościami i analityką. Od one-page landingu do e-commerce — bez szablonów „jak u wszystkich”. W razie potrzeby AI-chat i automatyzacja. Start od 1 tygodnia.',
         button: 'Zamów rozwój',
         serviceHero: {
           tagline: 'Szybkie strony z panelem, SEO i integracjami — bez pisania kodu po Twojej stronie.',
@@ -1545,8 +1552,9 @@ export const translations = {
         title: 'Chatboty',
         teaserOffer:
           'Płatności, CRM i mailingi w Telegram, WhatsApp lub Viber. Prosty scenariusz od 24 h; większy — etapami i jasno.',
-        subtitle: 'Boty, które prowadzą klienta do zakupu: płatności, CRM, potwierdzenia. Telegram, WhatsApp, Viber, Messenger',
-        description: 'Bot, który nie tylko odpowiada — lecz prowadzi klienta do zakupu: przyjmuje płatności (Mono, WayForPay, LiqPay), zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja sprzedaży w messangerze bez utraty osobistego podejścia; opcjonalnie odpowiedzi AI i analityka. Szybki start w 24 godziny, sprawdzone na 200+ projektach. Macie pomysł? Omówimy i podpowiemy najlepsze rozwiązanie. Pracujemy też jako podwykonawcy: dużo zleceń — razem zrealizujemy więcej i zwiększymy zysk.',
+        subtitle: 'Boty w Telegram, WhatsApp i Viber: płatności, CRM, mailingi',
+        description:
+          'Bot prowadzi klienta do zakupu: przyjmuje płatność (Mono, WayForPay, LiqPay), zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja w komunikatorze bez utraty osobistego podejścia; w razie potrzeby — odpowiedzi AI. Prosty scenariusz — od 24 h, większy — etapami.',
         button: 'Zamów rozwój',
         serviceHero: {
           tagline: 'Bot w komunikatorze obsługuje pierwszą linię i leady 24/7, Ty prowadzisz biznes.',
@@ -1599,8 +1607,9 @@ export const translations = {
         title: 'Design',
         teaserOffer:
           'Logo, identyfikacja i UI/UX w Figma — makiety pod wdrożenie i konwersję. 2–3 rundy poprawek w uzgodnionym zakresie.',
-        subtitle: 'Logo, identyfikacja, UI/UX dla stron i aplikacji. Interfejsy, które działają na konwersję',
-        description: 'Logo i identyfikacja wizualna, które zapadają w pamięć. UI/UX dla stron i aplikacji: prototypy w Figma, identyfikacja, księgi znaku, wizytówki i social media. Interfejs nie tylko wygląda — lecz działa na konwersję i rozpoznawalność. W zespole doświadczony projektant UI/UX — od pomysłu do makiet pod przekazanie w rozwój. Macie pomysł? Chętnie omówimy i podpowiemy najlepsze rozwiązanie. Gotowi współpracować jako podwykonawcy dla agencji z dużym przepływem projektów.',
+        subtitle: 'Logo, identyfikacja i UI/UX w Figma dla stron i aplikacji',
+        description:
+          'Identyfikacja i interfejsy pod konwersję: prototypy w Figma, brand book, makiety pod wdrożenie. Design i development w jednym zespole — od pomysłu do przekazania w kod. 2–3 rundy poprawek w uzgodnionym zakresie.',
         button: 'Zamów projekt',
         serviceHero: {
           tagline: 'Logo i interfejsy pod rozpoznawalność i konwersję — nie tylko ładny obrazek.',
@@ -2107,8 +2116,9 @@ export const translations = {
         title: 'Сайты',
         teaserOffer:
           'Next.js, SEO, админка и оплаты под ключ. Бесплатная консультация — от лендинга до интернет-магазина.',
-        subtitle: 'Минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальный e-commerce',
-        description: 'Делаем минималистичные премиум-сайты с бесплатной консультацией: лендинги, сайты-визитки и премиальные e-commerce решения. Быстро, удобная админка, SEO и интеграции под ключ. При необходимости подключаем AI — чат-боты, аналитику и автоматизацию бизнес-процессов. Есть идея? Будем рады обсудить и подсказать лучшее решение. Много запросов от клиентов? Можем сотрудничать как подрядчики — вместе реализуем больше проектов и увеличим прибыль.',
+        subtitle: 'Лендинги, корпоративные сайты и интернет-магазины на Next.js: скорость, SEO, админка',
+        description:
+          'Сайт, который собирает заявки и показывает, откуда приходят клиенты: адаптив, удобная админка, SEO и интеграции с CRM, оплатой и аналитикой. От одностраничного лендинга до e-commerce — без шаблонов «как у всех». При необходимости — AI-чат и автоматизация. Старт от 1 недели.',
         button: 'Заказать разработку',
         serviceHero: {
           tagline: 'Быстрые сайты с админкой, SEO и интеграциями — без лишнего кода с вашей стороны.',
@@ -2148,8 +2158,9 @@ export const translations = {
         title: 'Чат-боты',
         teaserOffer:
           'Оплата, CRM и рассылки в Telegram, WhatsApp или Viber. Простой сценарий — от 24 ч; сложнее — поэтапно и прозрачно.',
-        subtitle: 'Боты, которые ведут клиента к покупке: оплата, CRM, подтверждения. Telegram, WhatsApp, Viber, Messenger',
-        description: 'Бот, который не просто отвечает — а ведёт клиента к покупке: принимает оплату (Mono, WayForPay, LiqPay), записывает в CRM или Google Sheets, отправляет подтверждения. Автоматизация продаж в мессенджере без потери личного подхода; по желанию — AI-ответы и аналитика. Быстрый старт за 24 часа, проверено на 200+ проектах. Есть идея? Обсудим и подскажем лучшее решение. Работаем и как подрядчики: много заявок — вместе реализуем больше и увеличим прибыль.',
+        subtitle: 'Боты в Telegram, WhatsApp и Viber: оплата, CRM, рассылки',
+        description:
+          'Бот ведёт клиента к покупке: принимает оплату (Mono, WayForPay, LiqPay), пишет в CRM или Google Sheets, отправляет подтверждения. Автоматизация в мессенджере без потери личного подхода; при необходимости — AI-ответы. Простой сценарий — от 24 ч, сложнее — поэтапно.',
         button: 'Заказать разработку',
         serviceHero: {
           tagline: 'Бот в мессенджере закрывает первые запросы и заявки 24/7 — пока вы ведёте бизнес.',
@@ -2202,8 +2213,9 @@ export const translations = {
         title: 'Дизайн',
         teaserOffer:
           'Лого, айдентика и UI/UX в Figma — макеты под вёрстку и конверсию. 2–3 раунда правок в рамках ТЗ.',
-        subtitle: 'Лого, айдентика, UI/UX для сайтов и приложений. Интерфейсы, которые работают на конверсию',
-        description: 'Логотип и фирменный стиль, которые запоминаются. UI/UX для сайтов и приложений: прототипы в Figma, айдентика, брендбуки, визитки и соцсети. Интерфейс не только выглядит — а работает на конверсию и узнаваемость. В команде опытный UI/UX дизайнер — от идеи до макетов под передачу в разработку. Есть идея? Рады обсудить и подсказать лучшее решение. Готовы сотрудничать как подрядчики для агентств с большим потоком проектов.',
+        subtitle: 'Лого, айдентика и UI/UX в Figma для сайтов и приложений',
+        description:
+          'Фирменный стиль и интерфейсы под конверсию: прототипы в Figma, брендбук, макеты под вёрстку. Дизайн и разработка в одной команде — от идеи до передачи в код. 2–3 раунда правок в рамках ТЗ.',
         button: 'Заказать дизайн',
         serviceHero: {
           tagline: 'Лого и интерфейсы под узнаваемость и конверсию — не только «красивую картинку».',

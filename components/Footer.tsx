@@ -232,26 +232,26 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                 </a>
               </li>
             </ul>
-            <div className="flex gap-3 pt-2 md:pt-4">
+            <div className="flex gap-4 pt-2 md:pt-4">
               <a
                 href="https://www.instagram.com/telebotsnowayrm/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-brand transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 hover:border-black hover:bg-black/5"
+                className="text-gray-600 transition-colors duration-300 hover:text-brand"
                 aria-label="Instagram - TeleBots"
                 title="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="h-5 w-5" />
               </a>
               <a
                 href="https://t.me/TeleBotsNowayrmChannel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-600 hover:text-brand transition-colors duration-300 flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 hover:border-black hover:bg-black/5"
+                className="text-gray-600 transition-colors duration-300 hover:text-brand"
                 aria-label="Telegram - TeleBots"
                 title="Telegram"
               >
-                <Send className="w-5 h-5" />
+                <Send className="h-5 w-5" />
               </a>
             </div>
             {onConsultClick && (

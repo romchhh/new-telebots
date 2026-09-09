@@ -31,7 +31,7 @@ export default function StatPills({ stats, variant = 'light', className = '' }: 
           >
             {stat.value}
           </p>
-          <p className={`mt-2 text-sm leading-snug ${isLight ? 'text-gray-600' : 'text-white/75'}`}>
+          <p className={`mt-2 text-sm leading-snug sm:text-base ${isLight ? 'text-gray-600' : 'text-white/75'}`}>
             {stat.label}
           </p>
         </div>

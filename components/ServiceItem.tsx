@@ -41,12 +41,10 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
           <h2 className="mb-6 text-3xl font-semibold leading-tight text-black md:text-5xl lg:text-6xl">
             {service.title}
           </h2>
-          <p className="mb-6 text-lg font-normal leading-relaxed text-gray-600 md:mb-8 md:text-2xl">
-            {service.subtitle}
-          </p>
-          <p className="mb-10 text-base font-normal leading-relaxed text-gray-500 md:text-xl">
-            {service.description}
-          </p>
+          <div className="mb-10 space-y-4 text-lg font-normal leading-relaxed text-gray-600 md:space-y-5 md:text-xl">
+            <p>{service.subtitle}</p>
+            <p>{service.description}</p>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full max-w-xl">
             <OrderCtaPill

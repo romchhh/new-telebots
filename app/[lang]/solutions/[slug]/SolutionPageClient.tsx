@@ -101,13 +101,13 @@ export default function SeoSolutionPage({
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
                 <div>
                   <h1
-                    className="mb-5 text-4xl font-black leading-tight tracking-tight text-black lg:text-5xl"
+                    className="mb-5 text-4xl font-black leading-tight tracking-tight text-black md:text-5xl lg:text-6xl"
                     style={display}
                   >
                     {page.h1}
                   </h1>
-                  <p className="mb-3 text-sm leading-relaxed text-gray-700 md:text-base">{page.intro}</p>
-                  <p className="mb-8 text-sm leading-relaxed text-gray-600 md:text-base">{page.lead}</p>
+                  <p className="mb-4 text-base leading-relaxed text-gray-700 md:text-lg lg:text-xl">{page.intro}</p>
+                  <p className="mb-8 text-base leading-relaxed text-gray-600 md:text-lg lg:text-xl">{page.lead}</p>
                   <div className="flex flex-col flex-wrap gap-3 sm:flex-row">
                     <OrderCtaPill
                       size="sm"
@@ -124,7 +124,7 @@ export default function SeoSolutionPage({
                   </div>
                 </div>
 
-                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-zinc-100">
+                <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-white">
                   <Image
                     src={media.hero}
                     alt={page.h1}
@@ -141,30 +141,30 @@ export default function SeoSolutionPage({
           </section>
 
           {/* Stats */}
-          <section className={`border-b border-gray-100 bg-zinc-50 ${SITE_PX}`}>
+          <section className={`border-b border-gray-100 bg-white ${SITE_PX}`}>
             <div className={`${SITE_INNER} py-10 md:py-12`}>
               <StatPills stats={page.stats} />
             </div>
           </section>
 
           {/* Benefits */}
-          <section className={`py-14 md:py-20 ${SITE_PX}`}>
+          <section className={`bg-white py-14 md:py-20 ${SITE_PX}`}>
             <div className={`${SITE_INNER}`}>
-              <h2 className="mb-8 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+              <h2 className="mb-8 text-3xl font-black tracking-tight text-black md:text-4xl" style={display}>
                 {page.benefitsTitle}
               </h2>
               <ul className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
                 {page.benefits.map((item, i) => (
                   <li
                     key={item}
-                    className="flex min-w-0 flex-col rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:rounded-3xl sm:p-6"
+                    className="flex min-w-0 flex-col rounded-2xl border border-gray-200 bg-white p-4 sm:rounded-3xl sm:p-6"
                   >
                     <KeyboardKeyBadge
                       symbol={KEYBOARD_BENEFIT_SYMBOLS[i % KEYBOARD_BENEFIT_SYMBOLS.length]}
                       size="sm"
                       className="mb-3 sm:mb-4"
                     />
-                    <p className="text-lg font-semibold leading-snug tracking-tight text-black sm:text-xl sm:leading-snug">
+                    <p className="text-lg font-semibold leading-snug tracking-tight text-black sm:text-xl md:text-[1.35rem] md:leading-snug">
                       {item}
                     </p>
                   </li>
@@ -176,16 +176,16 @@ export default function SeoSolutionPage({
           {/* Audience */}
           <section className={`bg-black py-14 text-white md:py-20 ${SITE_PX}`}>
             <div className={`${SITE_INNER}`}>
-              <h2 className="mb-10 text-2xl font-black tracking-tight md:text-3xl" style={display}>
+              <h2 className="mb-10 text-3xl font-black tracking-tight md:text-4xl" style={display}>
                 {page.audienceTitle}
               </h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {page.audience.map((item, i) => (
-                  <div key={item} className="rounded-2xl border border-white/15 bg-white/10 p-5">
-                    <span className="mb-3 block text-sm font-light italic text-white/40" style={display}>
+                  <div key={item} className="rounded-2xl border border-white/15 bg-white/10 p-5 md:p-6">
+                    <span className="mb-3 block text-sm font-light italic text-white/40 md:text-base" style={display}>
                       [{String(i + 1).padStart(2, '0')}]
                     </span>
-                    <p className="leading-relaxed text-white/90">{item}</p>
+                    <p className="text-base leading-relaxed text-white/90 md:text-lg">{item}</p>
                   </div>
                 ))}
               </div>
@@ -193,10 +193,10 @@ export default function SeoSolutionPage({
           </section>
 
           {/* Image + text */}
-          <section className={`py-14 md:py-20 ${SITE_PX}`}>
+          <section className={`bg-white py-14 md:py-20 ${SITE_PX}`}>
             <div className={`${SITE_INNER}`}>
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-                <div className="relative order-2 aspect-[5/4] overflow-hidden rounded-2xl bg-zinc-100 lg:order-1">
+                <div className="relative order-2 aspect-[5/4] overflow-hidden rounded-2xl bg-white lg:order-1">
                   <Image
                     src={media.secondary}
                     alt={page.sections[0]?.title || page.h1}
@@ -209,11 +209,11 @@ export default function SeoSolutionPage({
                 <div className="order-1 space-y-10 lg:order-2">
                   {page.sections.slice(0, 2).map((section) => (
                     <div key={section.title}>
-                      <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+                      <h2 className="mb-4 text-3xl font-black tracking-tight text-black md:text-4xl" style={display}>
                         {section.title}
                       </h2>
                       {section.paragraphs.map((paragraph) => (
-                        <p key={paragraph.slice(0, 48)} className="mb-3 text-lg leading-relaxed text-gray-700 last:mb-0">
+                        <p key={paragraph.slice(0, 48)} className="mb-3 text-lg leading-relaxed text-gray-700 last:mb-0 md:text-xl">
                           {paragraph}
                         </p>
                       ))}
@@ -225,24 +225,24 @@ export default function SeoSolutionPage({
           </section>
 
           {/* Deliverables */}
-          <section className={`border-y border-gray-100 bg-zinc-50 py-14 md:py-20 ${SITE_PX}`}>
+          <section className={`border-y border-gray-100 bg-white py-14 md:py-20 ${SITE_PX}`}>
             <div className={`${SITE_INNER}`}>
-              <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+              <h2 className="mb-4 text-3xl font-black tracking-tight text-black md:text-4xl" style={display}>
                 {deliverablesTitle}
               </h2>
               {deliverablesLead ? (
-                <p className="mb-10 max-w-3xl text-lg leading-relaxed text-gray-700">{deliverablesLead}</p>
+                <p className="mb-10 max-w-3xl text-lg leading-relaxed text-gray-700 md:text-xl">{deliverablesLead}</p>
               ) : (
                 <div className="mb-10" />
               )}
               <div className="grid gap-5 sm:grid-cols-2">
                 {deliverables.map((item, i) => (
-                  <div key={item.title} className="rounded-2xl border border-gray-200/80 bg-white p-6 md:p-7">
-                    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-gray-400">
+                  <div key={item.title} className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8">
+                    <p className="mb-3 text-sm font-semibold uppercase tracking-[0.14em] text-gray-400 md:text-base">
                       {String(i + 1).padStart(2, '0')}
                     </p>
-                    <h3 className="mb-2 text-xl font-bold text-black">{item.title}</h3>
-                    <p className="leading-relaxed text-gray-600">{item.text}</p>
+                    <h3 className="mb-2 text-xl font-bold text-black md:text-2xl">{item.title}</h3>
+                    <p className="text-base leading-relaxed text-gray-600 md:text-lg">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -250,16 +250,16 @@ export default function SeoSolutionPage({
           </section>
 
           {/* Use cases */}
-          <section className={`py-14 md:py-20 ${SITE_PX}`}>
+          <section className={`bg-white py-14 md:py-20 ${SITE_PX}`}>
             <div className={`${SITE_INNER}`}>
-              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+              <h2 className="mb-10 text-3xl font-black tracking-tight text-black md:text-4xl" style={display}>
                 {page.useCasesTitle}
               </h2>
               <div className="grid gap-5 md:grid-cols-2">
                 {page.useCases.map((item) => (
-                  <div key={item.title} className="rounded-2xl border border-gray-100 p-6 transition-shadow hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)]">
-                    <h3 className="mb-2 text-xl font-bold text-black">{item.title}</h3>
-                    <p className="leading-relaxed text-gray-600">{item.text}</p>
+                  <div key={item.title} className="rounded-2xl border border-gray-200 bg-white p-6 transition-shadow hover:shadow-[0_16px_40px_rgba(0,0,0,0.06)] md:p-8">
+                    <h3 className="mb-2 text-xl font-bold text-black md:text-2xl">{item.title}</h3>
+                    <p className="text-base leading-relaxed text-gray-600 md:text-lg">{item.text}</p>
                   </div>
                 ))}
               </div>
@@ -274,10 +274,10 @@ export default function SeoSolutionPage({
                 <div className="absolute inset-0 bg-black/75" />
               </div>
               <div className="relative text-white">
-                <h2 className="mb-4 text-2xl font-black tracking-tight md:text-4xl" style={display}>
+                <h2 className="mb-4 text-3xl font-black tracking-tight md:text-4xl lg:text-5xl" style={display}>
                   {page.midCtaTitle}
                 </h2>
-                <p className="mb-8 max-w-3xl text-lg leading-relaxed text-white/80">{page.midCtaText}</p>
+                <p className="mb-8 max-w-3xl text-lg leading-relaxed text-white/80 md:text-xl">{page.midCtaText}</p>
                 <OrderCtaPill
                   size="sm"
                   variant="brand"
@@ -293,14 +293,14 @@ export default function SeoSolutionPage({
             <section className={`bg-white py-14 md:py-20 ${SITE_PX}`}>
               <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
                 <div className="max-w-3xl">
-                  <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+                  <h2 className="mb-4 text-3xl font-black tracking-tight text-black md:text-4xl" style={display}>
                     {page.showcaseTitle}
                   </h2>
-                  <p className="text-lg leading-relaxed text-gray-600">{page.showcaseIntro}</p>
+                  <p className="text-lg leading-relaxed text-gray-600 md:text-xl">{page.showcaseIntro}</p>
                 </div>
                 <Link
                   href={`/${lang}/portfolio`}
-                  className="text-sm font-semibold text-gray-700 underline-offset-4 transition-colors hover:text-brand hover:underline"
+                  className="text-base font-semibold text-gray-700 underline-offset-4 transition-colors hover:text-brand hover:underline"
                 >
                   {page.portfolioLabel} →
                 </Link>
@@ -323,15 +323,15 @@ export default function SeoSolutionPage({
 
           {/* Extra sections */}
           {page.sections.length > 2 && (
-            <section className={`border-t border-gray-100 bg-zinc-50 py-14 md:py-20 ${SITE_PX}`}>
+            <section className={`border-t border-gray-100 bg-white py-14 md:py-20 ${SITE_PX}`}>
               <div className={`${SITE_INNER} max-w-4xl space-y-12`}>
                 {page.sections.slice(2).map((section) => (
                   <div key={section.title}>
-                    <h2 className="mb-4 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+                    <h2 className="mb-4 text-3xl font-black tracking-tight text-black md:text-4xl" style={display}>
                       {section.title}
                     </h2>
                     {section.paragraphs.map((paragraph) => (
-                      <p key={paragraph.slice(0, 48)} className="mb-3 text-lg leading-relaxed text-gray-700 last:mb-0">
+                      <p key={paragraph.slice(0, 48)} className="mb-3 text-lg leading-relaxed text-gray-700 last:mb-0 md:text-xl">
                         {paragraph}
                       </p>
                     ))}
@@ -342,19 +342,19 @@ export default function SeoSolutionPage({
           )}
 
           {/* Process */}
-          <section className={`py-14 md:py-20 ${SITE_PX}`}>
+          <section className={`bg-white py-14 md:py-20 ${SITE_PX}`}>
             <div className={`${SITE_INNER}`}>
-              <h2 className="mb-10 text-2xl font-black tracking-tight text-black md:text-3xl" style={display}>
+              <h2 className="mb-10 text-3xl font-black tracking-tight text-black md:text-4xl" style={display}>
                 {page.processTitle}
               </h2>
               <ol className="grid gap-6 md:grid-cols-3">
                 {page.processSteps.map((step, index) => (
-                  <li key={step.title} className="rounded-2xl border border-gray-100 p-6">
-                    <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-bold text-white">
+                  <li key={step.title} className="rounded-2xl border border-gray-200 bg-white p-6 md:p-7">
+                    <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-black text-sm font-bold text-white md:h-12 md:w-12 md:text-base">
                       {index + 1}
                     </span>
-                    <h3 className="mb-2 text-lg font-bold text-black">{step.title}</h3>
-                    <p className="leading-relaxed text-gray-700">{step.text}</p>
+                    <h3 className="mb-2 text-xl font-bold text-black md:text-2xl">{step.title}</h3>
+                    <p className="text-base leading-relaxed text-gray-700 md:text-lg">{step.text}</p>
                   </li>
                 ))}
               </ol>
@@ -377,7 +377,7 @@ export default function SeoSolutionPage({
 
           <section className={`border-t border-gray-100 pb-16 ${SITE_PX}`}>
             <div className={`${SITE_INNER} max-w-4xl pt-10`}>
-              <ul className="flex flex-col gap-3 text-sm font-medium sm:flex-row sm:flex-wrap sm:gap-x-6">
+              <ul className="flex flex-col gap-3 text-base font-medium sm:flex-row sm:flex-wrap sm:gap-x-6">
                 <li>
                   <Link href={relatedHref} className="text-gray-800 underline-offset-4 hover:text-brand hover:underline">
                     {page.relatedServiceLabel}
