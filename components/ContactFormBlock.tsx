@@ -2,6 +2,8 @@
 
 import { useState, FormEvent } from 'react';
 import { sendToTelegram } from '@/lib/telegram';
+import { antiSpamFromFormData } from '@/lib/antiSpam';
+import FormHoneypot from '@/components/FormHoneypot';
 import { translations, Language } from '@/components/translations';
 import { SUBMIT_ERROR, SUBMITTING } from '@/lib/formMessages';
 import { WEBMCP_CONSULTATION } from '@/lib/webmcp';
@@ -51,6 +53,7 @@ export default function ContactFormBlock({
       phone: formData.phone,
       project: formData.project,
       ...(serviceName ? { service: serviceName } : {}),
+      ...antiSpamFromFormData(new FormData(e.currentTarget)),
     });
 
     setSending(false);
@@ -73,10 +76,11 @@ export default function ContactFormBlock({
 
       <form
         onSubmit={handleSubmit}
-        className="space-y-10"
+        className="relative space-y-10"
         toolname={WEBMCP_CONSULTATION.toolname}
         tooldescription={WEBMCP_CONSULTATION.tooldescription}
       >
+        <FormHoneypot />
         <div>
           <label htmlFor="contact-name" className="mb-2 block text-sm font-normal text-brand">
             {t.contact.name} *

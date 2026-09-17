@@ -18,6 +18,8 @@ import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/Keyboar
 import { translations, Language } from '@/components/translations';
 import { offerPageCopy, OFFER_TELEGRAM_URL } from '@/lib/offerPageCopy';
 import { sendToTelegram } from '@/lib/telegram';
+import { antiSpamFromFormData } from '@/lib/antiSpam';
+import FormHoneypot from '@/components/FormHoneypot';
 import { WEBMCP_OFFER } from '@/lib/webmcp';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 import { getPortfolioCards } from '@/lib/portfolioCards';
@@ -67,12 +69,20 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const handleModalSubmit = async (data: { name: string; phone: string; request: string }) => {
+  const handleModalSubmit = async (data: {
+    name: string;
+    phone: string;
+    request: string;
+    company_url?: string;
+    formStartedAt?: number;
+  }) => {
     const success = await sendToTelegram({
       name: data.name,
       phone: data.phone,
       request: data.request,
       service: p.metaTitle,
+      company_url: data.company_url,
+      formStartedAt: data.formStartedAt,
     });
     if (success) {
       closeModal();
@@ -95,7 +105,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
     document.getElementById('offer-cta')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  const handleFormSubmit = async (e: FormEvent) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (formSending) return;
     setFormSending(true);
@@ -103,6 +113,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
       name: formData.name,
       phone: formData.phone,
       service: `Offer $200 · ${p.breadcrumb}`,
+      ...antiSpamFromFormData(new FormData(e.currentTarget)),
     });
     setFormSending(false);
     if (success) {
@@ -452,10 +463,11 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
 
               <form
                 onSubmit={handleFormSubmit}
-                className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
+                className="relative rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
                 toolname={WEBMCP_OFFER.toolname}
                 tooldescription={WEBMCP_OFFER.tooldescription}
               >
+                <FormHoneypot />
                 <div className="mb-8">
                   <label htmlFor="offer-name" className="mb-2 block text-sm font-normal text-brand">{p.formName} *</label>
                   <input

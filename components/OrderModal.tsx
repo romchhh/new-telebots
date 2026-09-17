@@ -7,14 +7,22 @@ import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { legal } from '@/lib/legal';
 import { WEBMCP_ORDER } from '@/lib/webmcp';
 import { SUBMIT_ERROR, SUBMITTING } from '@/lib/formMessages';
+import { antiSpamFromFormData, type AntiSpamFields } from '@/lib/antiSpam';
+import FormHoneypot from '@/components/FormHoneypot';
 import type { Language } from '@/components/translations';
+
+export type OrderModalSubmitData = {
+  name: string;
+  phone: string;
+  request: string;
+} & AntiSpamFields;
 
 interface OrderModalProps {
   isOpen: boolean;
   onClose: () => void;
   serviceName: string;
   t: typeof import('./translations').translations.uk;
-  onSubmit: (data: { name: string; phone: string; request: string }) => void | Promise<void>;
+  onSubmit: (data: OrderModalSubmitData) => void | Promise<void>;
 }
 
 export default function OrderModal({ isOpen, onClose, serviceName: _serviceName, t, onSubmit }: OrderModalProps) {
@@ -67,6 +75,7 @@ export default function OrderModal({ isOpen, onClose, serviceName: _serviceName,
         name: formData.get('name') as string,
         phone: formData.get('phone') as string,
         request: formData.get('request') as string,
+        ...antiSpamFromFormData(formData),
       });
     } catch {
       setError(SUBMIT_ERROR[lang]);
@@ -105,10 +114,11 @@ export default function OrderModal({ isOpen, onClose, serviceName: _serviceName,
 
         <form
           onSubmit={handleSubmit}
-          className="flex min-h-0 flex-1 flex-col"
+          className="relative flex min-h-0 flex-1 flex-col"
           toolname={WEBMCP_ORDER.toolname}
           tooldescription={WEBMCP_ORDER.tooldescription}
         >
+          <FormHoneypot />
           <div className="flex min-h-0 flex-1 flex-col space-y-4 overflow-y-auto pr-1">
             <div>
               <label htmlFor="order-name" className="mb-2 block text-sm font-normal text-brand">

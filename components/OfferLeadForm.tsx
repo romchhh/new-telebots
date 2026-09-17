@@ -3,7 +3,9 @@
 import { FormEvent, useState } from 'react';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import SuccessMessage from '@/components/SuccessMessage';
+import FormHoneypot from '@/components/FormHoneypot';
 import { sendToTelegram } from '@/lib/telegram';
+import { antiSpamFromFormData } from '@/lib/antiSpam';
 import { WEBMCP_OFFER } from '@/lib/webmcp';
 import { OFFER_TELEGRAM_URL, type OfferPageCopy } from '@/lib/offerPageCopy';
 import type { Language } from '@/components/translations';
@@ -19,7 +21,7 @@ export default function OfferLeadForm({
   const [formSending, setFormSending] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
-  const handleFormSubmit = async (e: FormEvent) => {
+  const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (formSending) return;
     setFormSending(true);
@@ -27,6 +29,7 @@ export default function OfferLeadForm({
       name: formData.name,
       phone: formData.phone,
       service: `Offer $200 · ${p.breadcrumb}`,
+      ...antiSpamFromFormData(new FormData(e.currentTarget)),
     });
     setFormSending(false);
     if (success) {
@@ -49,10 +52,11 @@ export default function OfferLeadForm({
     <>
       <form
         onSubmit={handleFormSubmit}
-        className="rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
+        className="relative rounded-2xl border border-gray-200 bg-white p-6 md:p-8"
         toolname={WEBMCP_OFFER.toolname}
         tooldescription={WEBMCP_OFFER.tooldescription}
       >
+        <FormHoneypot />
         <div className="mb-8">
           <label htmlFor="offer-name" className="mb-2 block text-sm font-normal text-brand">
             {p.formName} *

@@ -1,4 +1,6 @@
-export interface TelegramFormData {
+import type { AntiSpamFields } from '@/lib/antiSpam';
+
+export interface TelegramFormData extends AntiSpamFields {
   name: string;
   phone: string;
   request?: string;
@@ -38,8 +40,9 @@ export async function sendToTelegram(data: TelegramFormData): Promise<boolean> {
 
     const result = await response.json();
     const success = result.success === true;
+    const delivered = result.delivered !== false;
 
-    if (success) {
+    if (success && delivered) {
       reportLeadConversion();
     }
 
@@ -49,4 +52,3 @@ export async function sendToTelegram(data: TelegramFormData): Promise<boolean> {
     return false;
   }
 }
-

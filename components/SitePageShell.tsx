@@ -89,12 +89,20 @@ export default function SitePageShell({
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const handleSubmit = async (data: { name: string; phone: string; request: string }) => {
+  const handleSubmit = async (data: {
+    name: string;
+    phone: string;
+    request: string;
+    company_url?: string;
+    formStartedAt?: number;
+  }) => {
     const success = await sendToTelegram({
       name: data.name,
       phone: data.phone,
       request: data.request,
       service: modalServiceName || t.modal.title,
+      company_url: data.company_url,
+      formStartedAt: data.formStartedAt,
     });
     if (success) {
       closeModal();
