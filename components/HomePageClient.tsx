@@ -76,16 +76,16 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
     name: string;
     phone: string;
     request: string;
-    company_url?: string;
     formStartedAt?: number;
+    hp_field_xb7?: string;
   }) => {
     const success = await sendToTelegram({
       name: data.name,
       phone: data.phone,
       request: data.request,
       service: selectedService,
-      company_url: data.company_url,
       formStartedAt: data.formStartedAt,
+      hp_field_xb7: data.hp_field_xb7,
     });
     if (success) {
       closeModal();

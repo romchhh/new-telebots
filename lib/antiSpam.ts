@@ -1,12 +1,13 @@
 import type { NextRequest } from 'next/server';
 
-/** Honeypot field name — bots fill it, humans never see it */
-export const HONEYPOT_FIELD = 'company_url';
+/** Obscure honeypot name — avoid "company/url/website" so browsers don't autofill it */
+export const HONEYPOT_FIELD = 'hp_field_xb7';
 
-export const MIN_FORM_FILL_MS = 2800;
-export const MAX_FORM_AGE_MS = 24 * 60 * 60 * 1000;
+/** Soft floor only — real users often submit in 1–2s */
+export const MIN_FORM_FILL_MS = 600;
+export const MAX_FORM_AGE_MS = 48 * 60 * 60 * 1000;
 export const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
-export const RATE_LIMIT_MAX = 4;
+export const RATE_LIMIT_MAX = 8;
 
 export type AntiSpamFields = {
   [HONEYPOT_FIELD]?: string;
@@ -43,10 +44,20 @@ export function getClientIp(request: NextRequest): string {
   return request.headers.get('x-real-ip')?.trim() || 'unknown';
 }
 
+/**
+ * Block only when Origin/Referer is present AND untrusted.
+ * Missing headers are allowed (privacy tools / some mobile browsers).
+ */
 export function isAllowedFormOrigin(request: NextRequest): boolean {
   const origin = request.headers.get('origin') || '';
   const referer = request.headers.get('referer') || '';
-  return isTrustedUrl(origin) || isTrustedUrl(referer);
+  if (!origin && !referer) return true;
+  if (origin && isTrustedUrl(origin)) return true;
+  if (referer && isTrustedUrl(referer)) return true;
+  // Origin present but untrusted
+  if (origin && !isTrustedUrl(origin)) return false;
+  if (referer && !isTrustedUrl(referer)) return false;
+  return true;
 }
 
 function isTrustedUrl(value: string): boolean {
@@ -79,6 +90,7 @@ function allowIp(ip: string): boolean {
 
 export function isPlausiblePhone(phone: string): boolean {
   const digits = phone.replace(/\D/g, '');
+  // UA: 0XX… (10) or 380… (12); also allow intl 10–15
   if (digits.length < 10 || digits.length > 15) return false;
   if (/^(\d)\1+$/.test(digits)) return false;
   const blocked = new Set([
@@ -98,7 +110,6 @@ export function isPlausibleName(name: string): boolean {
   const trimmed = name.trim();
   if (trimmed.length < 2 || trimmed.length > 80) return false;
   if (/https?:\/\//i.test(trimmed)) return false;
-  if ((trimmed.match(/@/g) || []).length > 0) return false;
   return true;
 }
 
@@ -124,13 +135,17 @@ export function checkAntiSpam(input: CheckInput): AntiSpamCheckResult {
     return { ok: false, reason: 'honeypot' };
   }
 
-  if (typeof input.formStartedAt !== 'number' || !Number.isFinite(input.formStartedAt)) {
-    return { ok: false, reason: 'timing_missing' };
-  }
-
-  const elapsed = Date.now() - input.formStartedAt;
-  if (elapsed < MIN_FORM_FILL_MS || elapsed > MAX_FORM_AGE_MS) {
-    return { ok: false, reason: 'timing' };
+  // Timing is soft: if missing/invalid, still allow (older clients / edge cases)
+  if (typeof input.formStartedAt === 'number' && Number.isFinite(input.formStartedAt)) {
+    const elapsed = Date.now() - input.formStartedAt;
+    // Only block absurdly instant submits (< 600ms) — classic bots
+    if (elapsed >= 0 && elapsed < MIN_FORM_FILL_MS) {
+      return { ok: false, reason: 'timing' };
+    }
+    // Ignore absurdly old timestamps instead of blocking (clock skew / stale tab)
+    if (elapsed > MAX_FORM_AGE_MS) {
+      // allow through
+    }
   }
 
   if (!isPlausibleName(input.name || '')) {
