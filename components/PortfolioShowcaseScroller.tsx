@@ -66,7 +66,7 @@ export default function PortfolioShowcaseScroller({
   return (
     <section
       id={sectionId}
-      className={`overflow-x-clip bg-white py-16 sm:py-20 md:py-24 lg:py-28 ${SITE_PX} ${className}`}
+      className={`bg-white py-16 sm:py-20 md:py-24 lg:py-28 ${SITE_PX} ${className}`}
       aria-labelledby={headingId}
     >
       <div className={`${SITE_INNER_WIDE} min-w-0`}>
@@ -113,28 +113,30 @@ export default function PortfolioShowcaseScroller({
       <div className="mt-0 w-full min-w-0 overflow-hidden">
         <div
           ref={scrollerRef}
-          className={`flex w-full min-w-0 max-w-[100vw] snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-1 pl-0 pr-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:gap-5 lg:gap-6 lg:[scrollbar-width:thin] lg:[scrollbar-color:rgba(0,0,0,0.2)_transparent] lg:[&::-webkit-scrollbar]:h-1.5 lg:[&::-webkit-scrollbar-thumb]:rounded-full lg:[&::-webkit-scrollbar-thumb]:bg-neutral-300`}
+          className={`flex w-full min-w-0 snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-1 sm:gap-5 lg:gap-6 ${SITE_PX} [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden lg:[scrollbar-width:thin] lg:[scrollbar-color:rgba(0,0,0,0.2)_transparent] lg:[&::-webkit-scrollbar]:h-1.5 lg:[&::-webkit-scrollbar-thumb]:rounded-full lg:[&::-webkit-scrollbar-thumb]:bg-neutral-300`}
           style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
         >
           {cards.map((card, index) => {
-            const wide = index % 3 === 1;
+            const wideOnLg = index % 3 === 1;
+            const mobileCardWidth =
+              'w-[min(86vw,21rem)] shrink-0 snap-start sm:w-[23rem] md:w-[24.5rem]';
             return (
               <PortfolioHomeShowcaseCard
                 key={card.id}
                 card={card}
                 lang={lang}
                 categoryLabel={resolveShowcaseCategoryLabel(card, categoryCopy)}
-                wide={wide}
+                wide={wideOnLg}
                 compactTitle
                 className={
-                  wide
-                    ? 'w-[min(calc(100vw-2.5rem),30rem)] shrink-0 snap-center md:w-[min(calc(100vw-4rem),32rem)] lg:w-[min(36rem,calc((100vw-8rem)*0.52))] xl:w-[min(40rem,calc((100vw-8rem)*0.5))]'
-                    : 'w-[min(calc(100vw-3rem),18.5rem)] shrink-0 snap-start md:w-[min(calc(100vw-5rem),19.5rem)] lg:w-[min(20rem,calc((100vw-8rem)*0.3))] xl:w-[min(21rem,calc((100vw-8rem)*0.28))]'
+                  wideOnLg
+                    ? `${mobileCardWidth} lg:w-[min(36rem,calc((100vw-8rem)*0.52))] lg:snap-center xl:w-[min(40rem,calc((100vw-8rem)*0.5))]`
+                    : `${mobileCardWidth} lg:w-[min(20rem,calc((100vw-8rem)*0.3))] xl:w-[min(21rem,calc((100vw-8rem)*0.28))]`
                 }
                 sizes={
-                  wide
-                    ? '(max-width: 1024px) min(100vw, 32rem), 40rem'
-                    : '(max-width: 1024px) min(100vw, 20rem), 21rem'
+                  wideOnLg
+                    ? '(max-width: 1024px) 86vw, 40rem'
+                    : '(max-width: 1024px) 86vw, 21rem'
                 }
               />
             );

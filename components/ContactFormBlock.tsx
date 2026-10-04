@@ -50,8 +50,6 @@ export default function ContactFormBlock({
     name: '',
     email: '',
     phone: '',
-    company: '',
-    source: '',
     project: '',
   });
   const [sending, setSending] = useState(false);
@@ -70,11 +68,7 @@ export default function ContactFormBlock({
 
     const attachment = fileRef.current?.files?.[0] ?? null;
 
-    const projectLines = [
-      formData.company ? `${c.company}: ${formData.company}` : '',
-      formData.source ? `${c.sourceField}: ${formData.source}` : '',
-      formData.project ? formData.project : '',
-    ].filter(Boolean);
+    const projectLines = [formData.project].filter(Boolean);
 
     const success = await sendToTelegram(
       {
@@ -91,7 +85,7 @@ export default function ContactFormBlock({
     setSending(false);
 
     if (success) {
-      setFormData({ name: '', email: '', phone: '', company: '', source: '', project: '' });
+      setFormData({ name: '', email: '', phone: '', project: '' });
       setFileLabel('');
       if (fileRef.current) fileRef.current.value = '';
       onSuccess?.();
@@ -157,30 +151,9 @@ export default function ContactFormBlock({
             placeholder={c.phonePlaceholderDark}
             ariaLabel={c.phone}
             toolparamdescription={WEBMCP_CONSULTATION.params.phone}
-          />
-          <input
-            id="contact-company"
-            type="text"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            autoComplete="organization"
-            placeholder={c.companyPlaceholder}
-            className={inputClass}
-            aria-label={c.company}
+            className={`${inputClass} sm:col-span-2`}
           />
         </div>
-
-        <input
-          id="contact-source"
-          type="text"
-          name="source"
-          value={formData.source}
-          onChange={handleChange}
-          placeholder={c.sourcePlaceholder}
-          className={inputClass}
-          aria-label={c.sourceField}
-        />
 
         <textarea
           id="contact-project"

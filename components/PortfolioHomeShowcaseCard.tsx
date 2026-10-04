@@ -46,7 +46,9 @@ export default function PortfolioHomeShowcaseCard({
     >
       <div
         className={`relative w-full overflow-hidden ${RADIUS_CARD} bg-neutral-200 ${
-          wide ? 'aspect-[4/3] sm:aspect-[5/4] lg:aspect-[3/2]' : 'aspect-[4/3]'
+          wide
+            ? 'aspect-[4/3] lg:aspect-[5/4] xl:aspect-[3/2]'
+            : 'aspect-[4/3]'
         }`}
       >
         <Image
