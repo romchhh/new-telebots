@@ -815,7 +815,410 @@ const vevyne: CaseStudyDefinition = {
   }),
 };
 
+const twelveFeet: CaseStudyDefinition = {
+  id: '12-feet',
+  mainImage: '/portfolio/portfolio-12-feet.jpg',
+  portfolioCategory: 'websites',
+  copy: withRelated({
+    uk: {
+      breadcrumbLabel: '12 FEET',
+      seoTitle: 'Кейс 12 FEET: сайт більярдного клубу в Братиславі',
+      heroTitle: '12 FEET — сайт преміального більярдного клубу в Братиславі',
+      heroLead:
+        'Зробили сайт для більярдного клубу та джентльменського простору, який поєднує затишок, якісний відпочинок і стиль. Задача — передати стриману естетику закладу, відчуття елітного закритого клубу і зробити бронювання столів та перегляд меню максимально простими.',
+      visitSite: 'Відкрити сайт',
+      stats: [
+        { value: '1', label: 'онлайн-бронювання столів' },
+        { value: '12 ft', label: 'столи для піраміди' },
+        { value: '↑', label: 'темна преміум-естетика' },
+        { value: '100%', label: 'адаптив під мобільні' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Завдання проєкту 12 FEET',
+        lead:
+          'Заклад мав звучати як закритий джентльменський клуб, а не як звичайна більярдна. Сайт повинен був одразу передавати атмосферу й вести до бронювання без зайвих кроків.',
+        items: [
+          'Візуал мав бути темним, стриманим і преміальним',
+          'Бронювання столів — просте й помітне',
+          'Послуги, ціни та меню — структуровані й зрозумілі',
+          'Потрібно підкреслити 12-футові столи для піраміди',
+          'Мобільна версія критична для швидкого запису',
+          'Тон і дизайн мали відповідати атмосфері клубу',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Розробка рішення для 12 FEET',
+        lead:
+          'Зібрали елегантний сайт під клубний досвід: атмосфера, бронювання й чітка інформація про заклад.',
+        items: [
+          'Елегантний дизайн із темною гамою та класичною естетикою',
+          'Зручний блок онлайн-бронювання (Book a Table)',
+          'Структура послуг, цін і меню',
+          'Акцент на особливості клубу — 12-футові столи',
+          'Повна адаптація під мобільні',
+          'Інтерфейс, що веде від атмосфери до гостя закладу',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Стильний сайт преміум-рівня, який занурює в атмосферу джентльменського клубу і допомагає перетворювати відвідувачів сайту на гостей закладу.',
+      },
+    },
+    en: {
+      breadcrumbLabel: '12 FEET',
+      seoTitle: '12 FEET case: billiard club website in Bratislava',
+      heroTitle: '12 FEET — premium billiard club website in Bratislava',
+      heroLead:
+        'We built a site for a billiard club and gentlemen’s lounge that mixes comfort, quality leisure and style. The goal was to carry the venue’s restrained aesthetic on screen, feel like an elite private club, and make table booking and menu browsing simple.',
+      visitSite: 'Visit site',
+      stats: [
+        { value: '1', label: 'online table booking' },
+        { value: '12 ft', label: 'pyramid tables' },
+        { value: '↑', label: 'dark premium aesthetic' },
+        { value: '100%', label: 'mobile-ready' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Project challenge: 12 FEET',
+        lead:
+          'The venue needed to read as a private gentlemen’s club — not a generic billiard hall. The site had to set the mood instantly and lead to booking without friction.',
+        items: [
+          'Visuals had to stay dark, restrained and premium',
+          'Table booking had to be clear and easy',
+          'Services, prices and menu needed clean structure',
+          'Highlight the 12-foot pyramid tables',
+          'Mobile experience critical for quick booking',
+          'Tone and design had to match the club atmosphere',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Solution built for 12 FEET',
+        lead:
+          'We shipped an elegant club site: atmosphere first, then booking and clear venue information.',
+        items: [
+          'Elegant dark palette with classic aesthetics',
+          'Convenient online booking block (Book a Table)',
+          'Structured services, pricing and menu',
+          'Emphasis on 12-foot pyramid tables',
+          'Full mobile adaptation',
+          'Interface that turns browsers into guests',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Result',
+        text:
+          'A stylish premium site that immerses visitors in a gentlemen’s club atmosphere and helps turn website traffic into real guests.',
+      },
+    },
+    pl: {
+      breadcrumbLabel: '12 FEET',
+      seoTitle: 'Case 12 FEET: strona klubu bilardowego w Bratysławie',
+      heroTitle: '12 FEET — strona premium klubu bilardowego w Bratysławie',
+      heroLead:
+        'Zrobiliśmy stronę dla klubu bilardowego i gentlemen’s lounge, który łączy przytulność, jakość wypoczynku i styl. Celem było przenieść stonowaną estetykę lokalu na ekran, dać poczucie elitarnego klubu i uprościć rezerwację stołów oraz przegląd menu.',
+      visitSite: 'Otwórz stronę',
+      stats: [
+        { value: '1', label: 'rezerwacja stołów online' },
+        { value: '12 ft', label: 'stoły do piramidy' },
+        { value: '↑', label: 'ciemna premium estetyka' },
+        { value: '100%', label: 'wersja mobilna' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Wyzwanie projektu 12 FEET',
+        lead:
+          'Lokal miał brzmieć jak zamknięty gentlemen’s club, a nie zwykła biliardówka. Strona miała od razu budować atmosferę i prowadzić do rezerwacji bez zbędnych kroków.',
+        items: [
+          'Wizual miał być ciemny, stonowany i premium',
+          'Rezerwacja stołów — prosta i widoczna',
+          'Usługi, ceny i menu — uporządkowane',
+          'Trzeba było podkreślić stoły 12-stopowe',
+          'Mobile kluczowy przy szybkiej rezerwacji',
+          'Ton i design miały pasować do klimatu klubu',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Rozwiązanie dla 12 FEET',
+        lead:
+          'Zebraliśmy elegancką stronę pod doświadczenie klubowe: atmosfera, rezerwacje i czytelne informacje o lokalu.',
+        items: [
+          'Elegancki design w ciemnej gamie i klasycznej estetyce',
+          'Wygodny blok rezerwacji online (Book a Table)',
+          'Struktura usług, cen i menu',
+          'Akcent na stoły 12-stopowe do piramidy',
+          'Pełna adaptacja mobilna',
+          'Interfejs, który prowadzi od atmosfery do gościa lokalu',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Efekt',
+        text:
+          'Stylowa strona premium, która zanurza w atmosferę gentlemen’s club i pomaga zamieniać odwiedzających stronę w gości lokalu.',
+      },
+    },
+    ru: {
+      breadcrumbLabel: '12 FEET',
+      seoTitle: 'Кейс 12 FEET: сайт бильярдного клуба в Братиславе',
+      heroTitle: '12 FEET — сайт премиального бильярдного клуба в Братиславе',
+      heroLead:
+        'Сделали сайт для бильярдного клуба и джентльменского пространства, где сочетаются уют, качественный отдых и стиль. Задача — передать сдержанную эстетику заведения, ощущение элитного закрытого клуба и сделать бронирование столов и просмотр меню максимально простыми.',
+      visitSite: 'Открыть сайт',
+      stats: [
+        { value: '1', label: 'онлайн-бронирование столов' },
+        { value: '12 ft', label: 'столы для пирамиды' },
+        { value: '↑', label: 'тёмная премиум-эстетика' },
+        { value: '100%', label: 'адаптив под мобильные' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Задача проекта 12 FEET',
+        lead:
+          'Заведение должно было звучать как закрытый джентльменский клуб, а не обычная бильярдная. Сайт обязан сразу передавать атмосферу и вести к бронированию без лишних шагов.',
+        items: [
+          'Визуал — тёмный, сдержанный, премиальный',
+          'Бронирование столов — простое и заметное',
+          'Услуги, цены и меню — структурированы',
+          'Нужно подчеркнуть 12-футовые столы для пирамиды',
+          'Мобильная версия критична для быстрой записи',
+          'Тон и дизайн — под атмосферу клуба',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Решение для 12 FEET',
+        lead:
+          'Собрали элегантный сайт под клубный опыт: атмосфера, бронирование и понятная информация о заведении.',
+        items: [
+          'Элегантный дизайн в тёмной гамме и классической эстетике',
+          'Удобный блок онлайн-бронирования (Book a Table)',
+          'Структура услуг, цен и меню',
+          'Акцент на 12-футовых столах',
+          'Полная адаптация под мобильные',
+          'Интерфейс, который ведёт от атмосферы к гостю заведения',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Стильный сайт премиум-уровня, который погружает в атмосферу джентльменского клуба и помогает превращать посетителей сайта в гостей заведения.',
+      },
+    },
+  }),
+};
+
+const filoEstate: CaseStudyDefinition = {
+  id: 'filo-estate',
+  liveUrl: 'https://filo.estate/en',
+  mainImage: '/portfolio/portfolio-filo-estate.jpg',
+  portfolioCategory: 'websites',
+  copy: withRelated({
+    uk: {
+      breadcrumbLabel: 'Filo Estate',
+      seoTitle: 'Кейс Filo Estate: сайт нерухомості в Анталії',
+      heroTitle: 'Filo Estate — сайт агентства нерухомості в Анталії',
+      heroLead:
+        'Зробили сайт для агентства, яке працює з новобудовами та інвестиційними об’єктами. Задача була не зібрати черговий каталог квартир, а передати рівень бренду і допомогти клієнту швидко зорієнтуватися в пропозиціях.',
+      visitSite: 'Відкрити сайт',
+      stats: [
+        { value: '1', label: 'каталог з фільтрами' },
+        { value: '↑', label: 'шлях до заявки' },
+        { value: '↑', label: 'блоки про райони' },
+        { value: '100%', label: 'адаптив під мобільні' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Завдання проєкту Filo Estate',
+        lead:
+          'Ринок нерухомості Анталії перенасичений шаблонними каталогами. Потрібен був сайт, який виглядає як преміум-бренд і веде міжнародного покупця від перегляду до заявки без плутанини.',
+        items: [
+          'Каталог мав бути зрозумілим, а не «стіною» з оголошень',
+          'Фільтри й картки об’єктів — щоб швидко знайти релевантне',
+          'Шлях від перегляду до заявки мав бути коротким',
+          'Потрібні блоки про райони та ринок для орієнтації',
+          'Мобільна версія критична для трафіку з телефону',
+          'Візуал і тон мали відповідати рівню агентства',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Розробка рішення для Filo Estate',
+        lead:
+          'Зібрали сучасний сайт під продаж новобудов і інвестиційних об’єктів: структура, каталог і конверсія в заявку.',
+        items: [
+          'Зрозумілий каталог нерухомості',
+          'Фільтри та детальні сторінки об’єктів',
+          'Сценарій від перегляду до заявки',
+          'Блоки про райони та ринок',
+          'Повна адаптація під мобільні',
+          'Дизайн і UX під преміум-сприйняття бренду',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Сучасний сайт, який виглядає як бренд нерухомості преміум-рівня і реально допомагає продавати об’єкти: клієнт швидше орієнтується в пропозиціях і легше залишає заявку.',
+      },
+    },
+    en: {
+      breadcrumbLabel: 'Filo Estate',
+      seoTitle: 'Filo Estate case: Antalya real estate website',
+      heroTitle: 'Filo Estate — real estate agency website in Antalya',
+      heroLead:
+        'We built a site for an agency focused on new builds and investment properties. The goal was not another apartment catalog — it was to convey brand level and help buyers navigate offers quickly.',
+      visitSite: 'Visit site',
+      stats: [
+        { value: '1', label: 'catalog with filters' },
+        { value: '↑', label: 'path to inquiry' },
+        { value: '↑', label: 'area & market blocks' },
+        { value: '100%', label: 'mobile-ready' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Project challenge: Filo Estate',
+        lead:
+          'Antalya’s market is full of template catalogs. The agency needed a premium-feeling site that guides international buyers from browsing to an inquiry without friction.',
+        items: [
+          'The catalog had to stay clear, not a wall of listings',
+          'Filters and property pages for fast shortlisting',
+          'A short path from viewing to contact',
+          'Areas and market context for orientation',
+          'Mobile experience critical for phone traffic',
+          'Visual tone had to match a premium agency',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Solution built for Filo Estate',
+        lead:
+          'We shipped a modern site for new builds and investment stock: structure, catalog and conversion into leads.',
+        items: [
+          'Clear real-estate catalog',
+          'Filters and detailed property pages',
+          'Browse-to-inquiry flow',
+          'Blocks about areas and the market',
+          'Full mobile adaptation',
+          'Design and UX tuned for premium brand perception',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Result',
+        text:
+          'A modern site that reads as a premium real-estate brand and actually helps sell properties: buyers orient faster and leave inquiries more easily.',
+      },
+    },
+    pl: {
+      breadcrumbLabel: 'Filo Estate',
+      seoTitle: 'Case Filo Estate: strona nieruchomości w Antalyi',
+      heroTitle: 'Filo Estate — strona agencji nieruchomości w Antalyi',
+      heroLead:
+        'Zrobiliśmy stronę dla agencji pracującej z nowymi inwestycjami i obiektami inwestycyjnymi. Celem nie był kolejny katalog mieszkań, lecz poziom marki i szybka orientacja w ofercie.',
+      visitSite: 'Otwórz stronę',
+      stats: [
+        { value: '1', label: 'katalog z filtrami' },
+        { value: '↑', label: 'ścieżka do zapytania' },
+        { value: '↑', label: 'bloki o dzielnicach' },
+        { value: '100%', label: 'wersja mobilna' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Wyzwanie projektu Filo Estate',
+        lead:
+          'Rynek Antalyi jest pełen szablonowych katalogów. Potrzebna była strona premium, która prowadzi międzynarodowego kupującego od przeglądania do zapytania bez chaosu.',
+        items: [
+          'Katalog miał być czytelny, nie ścianą ogłoszeń',
+          'Filtry i karty obiektów do szybkiego wyboru',
+          'Krótka ścieżka od podglądu do kontaktu',
+          'Bloki o dzielnicach i rynku dla orientacji',
+          'Mobile kluczowy dla ruchu z telefonu',
+          'Wizual i ton miały pasować do poziomu agencji',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Rozwiązanie dla Filo Estate',
+        lead:
+          'Zebraliśmy nowoczesną stronę pod sprzedaż nowych inwestycji: struktura, katalog i konwersja w zapytania.',
+        items: [
+          'Czytelny katalog nieruchomości',
+          'Filtry i szczegółowe strony obiektów',
+          'Scenariusz od przeglądania do zapytania',
+          'Bloki o dzielnicach i rynku',
+          'Pełna adaptacja mobilna',
+          'Design i UX pod premium odbiór marki',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Efekt',
+        text:
+          'Nowoczesna strona, która wygląda jak marka nieruchomości premium i realnie pomaga sprzedawać obiekty: klient szybciej się orientuje i łatwiej zostawia zapytanie.',
+      },
+    },
+    ru: {
+      breadcrumbLabel: 'Filo Estate',
+      seoTitle: 'Кейс Filo Estate: сайт недвижимости в Анталье',
+      heroTitle: 'Filo Estate — сайт агентства недвижимости в Анталье',
+      heroLead:
+        'Сделали сайт для агентства, которое работает с новостройками и инвестиционными объектами. Задача — не очередной каталог квартир, а уровень бренда и быстрая ориентация клиента в предложениях.',
+      visitSite: 'Открыть сайт',
+      stats: [
+        { value: '1', label: 'каталог с фильтрами' },
+        { value: '↑', label: 'путь к заявке' },
+        { value: '↑', label: 'блоки о районах' },
+        { value: '100%', label: 'адаптив под мобильные' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Задача проекта Filo Estate',
+        lead:
+          'Рынок недвижимости Антальи перенасыщен шаблонными каталогами. Нужен был сайт премиум-уровня, который ведёт международного покупателя от просмотра к заявке без путаницы.',
+        items: [
+          'Каталог должен быть понятным, а не «стеной» объявлений',
+          'Фильтры и карточки объектов — для быстрого выбора',
+          'Путь от просмотра к заявке — коротким',
+          'Нужны блоки о районах и рынке',
+          'Мобильная версия критична для трафика с телефона',
+          'Визуал и тон — под уровень агентства',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Решение для Filo Estate',
+        lead:
+          'Собрали современный сайт под продажу новостроек и инвестиционных объектов: структура, каталог и конверсия в заявку.',
+        items: [
+          'Понятный каталог недвижимости',
+          'Фильтры и детальные страницы объектов',
+          'Сценарий от просмотра до заявки',
+          'Блоки о районах и рынке',
+          'Полная адаптация под мобильные',
+          'Дизайн и UX под премиум-восприятие бренда',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Современный сайт, который выглядит как бренд недвижимости премиум-уровня и реально помогает продавать объекты: клиент быстрее ориентируется и проще оставляет заявку.',
+      },
+    },
+  }),
+};
+
 export const BATCH4_CASE_STUDIES: Record<string, CaseStudyDefinition> = {
+  [twelveFeet.id]: twelveFeet,
+  [filoEstate.id]: filoEstate,
   [carbit.id]: carbit,
   [thirteenPm.id]: thirteenPm,
   [newStudyLine.id]: newStudyLine,

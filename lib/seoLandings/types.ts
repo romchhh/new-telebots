@@ -114,12 +114,12 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/services/services-hero_new.jpg',
     ],
     caseIds: [
+      '12-feet',
+      'filo-estate',
       'butenko-fit',
       'zavadska',
       'royal-academy',
       'emvi-digital',
-      'litun-edu',
-      'kls',
     ],
   },
   'online-stores': {
@@ -218,7 +218,7 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero.png',
       '/services/services-hero_new.jpg',
     ],
-    caseIds: ['butenko-fit', 'zavadska', 'royal-academy', 'emvi-digital', 'litun-edu', 'kls'],
+    caseIds: ['12-feet', 'filo-estate', 'butenko-fit', 'zavadska', 'royal-academy', 'emvi-digital'],
   },
   'landing-page-price': {
     hero: '/services/services-websites.jpg',
@@ -228,7 +228,7 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero.png',
       '/services/services-hero_new.jpg',
     ],
-    caseIds: ['butenko-fit', 'zavadska', 'royal-academy', 'emvi-digital', 'litun-edu', 'kls'],
+    caseIds: ['12-feet', 'filo-estate', 'butenko-fit', 'zavadska', 'royal-academy', 'emvi-digital'],
   },
   'online-store-price': {
     hero: '/services/services-websites.jpg',

@@ -51,6 +51,47 @@ const t = (
 /** Активні картки хабу /portfolio — порядок відображення. */
 export const PORTFOLIO_CARDS: PortfolioCard[] = [
   {
+    id: '12-feet',
+    image: '/portfolio/portfolio-12-feet.jpg',
+    category: 'websites',
+    copy: t(
+      '12 FEET',
+      'Сайт більярдного клубу в Братиславі: бронювання, меню, атмосфера',
+      'Billiard club site in Bratislava: booking, menu, atmosphere',
+      ['Billiard Club', 'Booking', 'Premium'],
+      ['Billiard Club', 'Booking', 'Premium'],
+      'Book a Table • Меню • 12-футові столи • Mobile',
+      'Book a Table • Menu • 12-foot tables • Mobile',
+      'Strona klubu bilardowego w Bratysławie: rezerwacje, menu',
+      'Сайт бильярдного клуба в Братиславе: бронирование, меню',
+      ['Klub bilardowy', 'Rezerwacje', 'Premium'],
+      ['Бильярдный клуб', 'Бронирование', 'Premium'],
+      'Book a Table • Menu • Stoły 12 ft • Mobile',
+      'Book a Table • Меню • 12-футовые столы • Mobile'
+    ),
+  },
+  {
+    id: 'filo-estate',
+    image: '/portfolio/portfolio-filo-estate.jpg',
+    category: 'websites',
+    liveUrl: 'https://filo.estate/en',
+    copy: t(
+      'FILO ESTATE',
+      'Сайт агентства нерухомості в Анталії: каталог, фільтри, заявки',
+      'Real estate agency site in Antalya: catalog, filters, leads',
+      ['Real Estate', 'Catalog', 'Next.js'],
+      ['Real Estate', 'Catalog', 'Next.js'],
+      'Новобудови • Інвестиції • Райони • Мобільна версія',
+      'New builds • Investments • Areas • Mobile-first',
+      'Strona agencji nieruchomości w Antalyi: katalog, filtry, leady',
+      'Сайт агентства недвижимости в Анталье: каталог, фильтры, заявки',
+      ['Nieruchomości', 'Katalog', 'Next.js'],
+      ['Недвижимость', 'Каталог', 'Next.js'],
+      'Nowe inwestycje • Filtry • Dzielnice • Mobile',
+      'Новостройки • Инвестиции • Районы • Мобильная версия'
+    ),
+  },
+  {
     id: 'tradeground-bot',
     image: '/portfolio/portfolio-tradeground-bot.jpg',
     category: 'chatbots',
