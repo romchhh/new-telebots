@@ -48,7 +48,6 @@ export default function ContactFormBlock({
   const [fileLabel, setFileLabel] = useState('');
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     phone: '',
     project: '',
   });
@@ -73,7 +72,6 @@ export default function ContactFormBlock({
     const success = await sendToTelegram(
       {
         name: formData.name,
-        email: formData.email,
         phone: formData.phone,
         project: projectLines.join('\n'),
         ...(serviceName ? { service: serviceName } : {}),
@@ -85,7 +83,7 @@ export default function ContactFormBlock({
     setSending(false);
 
     if (success) {
-      setFormData({ name: '', email: '', phone: '', project: '' });
+      setFormData({ name: '', phone: '', project: '' });
       setFileLabel('');
       if (fileRef.current) fileRef.current.value = '';
       onSuccess?.();
@@ -96,12 +94,14 @@ export default function ContactFormBlock({
 
   const inputClass = isDark ? INPUT_DARK : INPUT_LIGHT;
   const textareaClass = isDark ? TEXTAREA_DARK : TEXTAREA_LIGHT;
+  const fieldClass = `${inputClass} max-sm:px-5 max-sm:py-3.5 max-sm:text-base`;
+  const textareaClassMobile = `${textareaClass} max-sm:min-h-[9.5rem] max-sm:px-5 max-sm:py-4 max-sm:text-base md:min-h-[12rem]`;
 
   return (
     <div className={className}>
       {!hideTitle ? (
         <h2
-          className={`mb-10 sm:mb-12 ${FORM_HEADLINE} ${isDark ? 'text-white' : 'text-neutral-900'}`}
+          className={`mb-8 sm:mb-10 md:mb-12 ${FORM_HEADLINE} ${isDark ? 'text-white' : 'text-neutral-900'}`}
         >
           {c.formHeadline}{' '}
           <span className="text-brand">{c.formHeadlineAccent}</span>
@@ -110,13 +110,13 @@ export default function ContactFormBlock({
 
       <form
         onSubmit={handleSubmit}
-        className="relative space-y-6 sm:space-y-7"
+        className="relative space-y-5 sm:space-y-6 md:space-y-7"
         toolname={WEBMCP_CONSULTATION.toolname}
         tooldescription={WEBMCP_CONSULTATION.tooldescription}
       >
         <FormHoneypot />
 
-        <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
+        <div className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-6">
           <input
             id="contact-name"
             type="text"
@@ -127,20 +127,8 @@ export default function ContactFormBlock({
             autoComplete="name"
             placeholder={`${c.namePlaceholderDark} *`}
             toolparamdescription={WEBMCP_CONSULTATION.params.name}
-            className={inputClass}
+            className={fieldClass}
             aria-label={c.name}
-          />
-          <input
-            id="contact-email"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            autoComplete="email"
-            placeholder={`${c.emailPlaceholder} *`}
-            className={inputClass}
-            aria-label={c.email}
           />
           <PhoneNumberField
             id="contact-phone"
@@ -151,7 +139,7 @@ export default function ContactFormBlock({
             placeholder={c.phonePlaceholderDark}
             ariaLabel={c.phone}
             toolparamdescription={WEBMCP_CONSULTATION.params.phone}
-            className={`${inputClass} sm:col-span-2`}
+            className={fieldClass}
           />
         </div>
 
@@ -160,14 +148,14 @@ export default function ContactFormBlock({
           name="project"
           value={formData.project}
           onChange={handleChange}
-          rows={5}
+          rows={4}
           placeholder={c.projectPlaceholderDark}
           toolparamdescription={WEBMCP_CONSULTATION.params.project}
-          className={textareaClass}
+          className={textareaClassMobile}
           aria-label={c.project}
         />
 
-        <div className="flex flex-wrap items-center gap-3 pt-1">
+        <div className="flex flex-col gap-3 pt-0.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
           <input
             ref={fileRef}
             type="file"
@@ -181,25 +169,46 @@ export default function ContactFormBlock({
           <button
             type="button"
             onClick={() => fileRef.current?.click()}
-            className={`inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.1em] transition sm:text-base ${
+            className={`inline-flex max-w-full items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.08em] transition sm:gap-3 sm:text-sm md:text-base ${
               isDark ? 'text-white/55 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
             }`}
           >
             <span
-              className={`inline-flex h-11 w-11 items-center justify-center sm:h-12 sm:w-12 ${RADIUS_PILL} border-2 ${
+              className={`inline-flex h-10 w-10 shrink-0 items-center justify-center sm:h-12 sm:w-12 ${RADIUS_PILL} border-2 ${
                 isDark ? 'border-white/15 bg-white/5' : 'border-neutral-300 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)]'
               }`}
             >
               <Paperclip className="h-5 w-5" strokeWidth={2} aria-hidden />
             </span>
-            {c.attachFile}
-            {fileLabel ? `: ${fileLabel}` : ''}
+            <span className="min-w-0 truncate">{c.attachFile}</span>
+            {fileLabel ? (
+              <span className="min-w-0 truncate font-normal normal-case tracking-normal text-neutral-500">
+                {fileLabel}
+              </span>
+            ) : null}
           </button>
         </div>
 
-        <div className="flex flex-col gap-5 pt-2 sm:flex-row sm:items-end sm:justify-between sm:gap-8">
+        <div className="flex flex-col gap-4 border-t border-neutral-100 pt-5 sm:gap-5 sm:border-0 sm:pt-2 md:flex-row md:items-end md:justify-between md:gap-8">
+          {error ? (
+            <p
+              role="alert"
+              className={`text-sm font-medium md:order-first md:w-full ${isDark ? 'text-red-400' : 'text-red-600'}`}
+            >
+              {error}
+            </p>
+          ) : null}
+          <button
+            type="submit"
+            disabled={sending}
+            className={`order-1 inline-flex w-full shrink-0 items-center justify-center md:order-none md:w-auto md:min-w-[280px] ${
+              isDark ? BTN_BRAND : BTN_BRAND_LG
+            }`}
+          >
+            {sending ? SUBMITTING[lang] : c.submitDiscuss}
+          </button>
           <p
-            className={`max-w-lg text-xs leading-relaxed ${isDark ? 'text-white/35' : 'text-neutral-500'}`}
+            className={`order-2 max-w-lg text-[11px] leading-relaxed sm:text-xs md:order-none ${isDark ? 'text-white/35' : 'text-neutral-500'}`}
           >
             {c.consentBefore}{' '}
             <Link
@@ -209,20 +218,6 @@ export default function ContactFormBlock({
               {c.consentLink}
             </Link>
           </p>
-          {error ? (
-            <p role="alert" className={`text-base font-medium sm:order-first sm:w-full ${isDark ? 'text-red-400' : 'text-red-600'}`}>
-              {error}
-            </p>
-          ) : null}
-          <button
-            type="submit"
-            disabled={sending}
-            className={`inline-flex w-full shrink-0 items-center justify-center sm:w-auto sm:min-w-[280px] ${
-              isDark ? BTN_BRAND : BTN_BRAND_LG
-            }`}
-          >
-            {sending ? SUBMITTING[lang] : c.submitDiscuss}
-          </button>
         </div>
       </form>
     </div>

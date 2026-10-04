@@ -59,7 +59,7 @@ export default function ContactDetailsColumn({
           rel="noopener noreferrer"
           className="group mt-10 block"
         >
-          <span className="text-[clamp(1.65rem,4vw,2.25rem)] font-black text-brand transition group-hover:text-brand-dark">
+          <span className="text-[clamp(1.35rem,5vw,2.25rem)] font-black text-brand transition group-hover:text-brand-dark sm:text-[clamp(1.65rem,4vw,2.25rem)]">
             {c.writeUs}
           </span>
           <span className={`mt-2 block text-base ${sub}`}>{c.writeUsSub}</span>

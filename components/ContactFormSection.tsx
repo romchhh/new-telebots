@@ -27,8 +27,8 @@ export default function ContactFormSection({
   const c = t.contact;
 
   return (
-    <section id={id} className={`py-16 md:py-20 lg:py-24 ${SITE_PX} ${className}`}>
-      <div className={`${SITE_INNER_WIDE} overflow-hidden ${SHELL_LIGHT}`}>
+    <section id={id} className={`py-12 sm:py-16 md:py-20 lg:py-24 ${SITE_PX} ${className}`}>
+      <div className={`${SITE_INNER_WIDE} overflow-hidden ${SHELL_LIGHT} max-sm:rounded-[1.25rem]`}>
         <div className="grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.35fr)_minmax(0,1fr)] lg:items-stretch">
           <div className="relative hidden min-h-[280px] overflow-hidden border-b border-neutral-100 bg-white lg:block lg:min-h-0 lg:border-b-0 lg:border-r lg:border-neutral-100 lg:py-10 lg:pl-0 lg:pr-10 xl:py-12 xl:pr-12">
             <Image
@@ -46,12 +46,12 @@ export default function ContactFormSection({
             </p>
           </div>
 
-          <div className="border-b border-neutral-100 p-6 sm:p-8 md:p-10 lg:border-b-0 lg:border-r lg:border-neutral-100 lg:p-10 xl:p-12">
-            <p className={`mb-4 ${FORM_EYEBROW} text-brand lg:hidden`}>{c.formEyebrow}</p>
+          <div className="border-b border-neutral-100 p-5 sm:p-8 md:p-10 lg:border-b-0 lg:border-r lg:border-neutral-100 lg:p-10 xl:p-12">
+            <p className={`mb-3 sm:mb-4 ${FORM_EYEBROW} text-brand lg:hidden`}>{c.formEyebrow}</p>
             <ContactFormWithSuccess t={t} lang={lang} serviceName={serviceName} variant="light" />
           </div>
 
-          <div className="bg-neutral-50/50 p-6 sm:p-8 md:p-10 lg:p-10 xl:p-12">
+          <div className="bg-neutral-50/50 p-5 sm:p-8 md:p-10 lg:p-10 xl:p-12">
             <ContactDetailsColumn t={t} lang={lang} variant="light" layout="sidebar" />
           </div>
         </div>
