@@ -4,6 +4,7 @@ import Link from 'next/link';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { useHomeModal } from '@/components/HomeModalProvider';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
+import { RADIUS_PILL, RADIUS_SHELL } from '@/lib/siteUi';
 
 export type SiteCtaBandProps = {
   title: string;
@@ -34,7 +35,7 @@ export default function SiteCtaBand({
   return (
     <section className={`w-full pb-16 md:pb-24 ${SITE_PX} ${className}`}>
       <div
-        className={`${SITE_INNER} relative overflow-hidden rounded-2xl bg-black px-6 py-10 text-white md:px-10 md:py-12`}
+        className={`${SITE_INNER} relative overflow-hidden ${RADIUS_SHELL} bg-black px-6 py-10 text-white md:px-10 md:py-12`}
       >
         <div
           className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand/25 blur-3xl"
@@ -59,13 +60,13 @@ export default function SiteCtaBand({
           />
           <Link
             href={pricingHref}
-            className="inline-flex w-full items-center justify-center rounded-full border-2 border-brand bg-transparent px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-brand transition-colors hover:bg-brand hover:text-neutral-900 sm:w-auto"
+            className={`inline-flex w-full items-center justify-center ${RADIUS_PILL} border-2 border-brand bg-transparent px-6 py-3.5 text-center text-sm font-bold uppercase tracking-[0.06em] text-brand transition-colors hover:bg-brand hover:text-neutral-900 sm:w-auto`}
           >
             {pricingLabel}
           </Link>
           <Link
             href={portfolioHref}
-            className="inline-flex w-full items-center justify-center rounded-full border-2 border-white/40 px-6 py-3.5 text-center text-sm font-bold uppercase tracking-wide text-white transition-colors hover:border-brand hover:bg-brand/10 sm:w-auto"
+            className={`inline-flex w-full items-center justify-center ${RADIUS_PILL} border-2 border-white/40 px-6 py-3.5 text-center text-sm font-bold uppercase tracking-[0.06em] text-white transition-colors hover:border-brand hover:bg-brand/10 sm:w-auto`}
           >
             {portfolioLabel}
           </Link>

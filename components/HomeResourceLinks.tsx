@@ -14,9 +14,11 @@ interface HomeResourceLinksProps {
     landingPages?: string;
     onlineStores?: string;
   };
+  /** Усередині широкої колонки — без дублювання SITE_PX на секції */
+  embedded?: boolean;
 }
 
-export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps) {
+export default function HomeResourceLinks({ lang, copy, embedded = false }: HomeResourceLinksProps) {
   // Blog posts exist only in Ukrainian — do not send en/pl/ru visitors to /uk/blog.
   const links = [
     { href: `/${lang}/pricing`, label: copy.pricing },
@@ -119,7 +121,11 @@ export default function HomeResourceLinks({ lang, copy }: HomeResourceLinksProps
   return (
     <section
       aria-label={copy.title}
-      className={`border-t border-gray-100 bg-white py-10 ${SITE_PX}`}
+      className={
+        embedded
+          ? 'mt-12 border-t border-neutral-100 pt-10 sm:mt-14 sm:pt-12 lg:mt-16 lg:pt-14'
+          : `border-t border-neutral-100 bg-white pb-12 pt-10 sm:pb-14 sm:pt-12 ${SITE_PX}`
+      }
     >
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-gray-500">{copy.title}</h2>

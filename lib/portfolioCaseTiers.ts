@@ -6,6 +6,7 @@
 /** Активні кейси з картками на хабі — окремі URL /portfolio/[slug]. */
 export const LIVE_CASE_IDS = [
   'flix-market',
+  'emaro-autocare',
   'royal-glow',
   '12-feet',
   'filo-estate',

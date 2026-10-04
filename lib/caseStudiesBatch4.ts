@@ -1618,8 +1618,210 @@ const filoEstate: CaseStudyDefinition = {
   }),
 };
 
+const emaroAutocare: CaseStudyDefinition = {
+  id: 'emaro-autocare',
+  liveUrl: 'https://emaroautocare.pl/uk',
+  mainImage: '/portfolio/portfolio-emaro-autocare.jpg',
+  portfolioCategory: 'websites',
+  copy: withRelated({
+    uk: {
+      breadcrumbLabel: 'Emaro Auto Care',
+      seoTitle: 'Кейс Emaro Premium Auto Care: мобільний детейлінг у Варшаві',
+      heroTitle: 'Emaro Premium Auto Care — сайт мобільного преміум-детейлінгу',
+      heroLead:
+        'Зробили багатомовний сайт для мобільного детейлінгу у Варшаві та околицях: легкові авто, буси й вантажівки, послуги з цінами, галерея «до/після», відгуки та форма заявки з вибором послуги.',
+      visitSite: 'Відкрити сайт',
+      stats: [
+        { value: '3', label: 'категорії авто' },
+        { value: '↑', label: 'мобільний сервіс «до вас»' },
+        { value: '1', label: 'форма заявки з послугою' },
+        { value: '↑', label: 'галерея та до/після' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Завдання проєкту Emaro',
+        lead:
+          'Молодий бренд детейлінгу мав виглядати преміально й одразу пояснювати, що сервіс приїжджає до клієнта — з різними прайсами для авто, бусів і кабін тягачів.',
+        items: [
+          'Преміальний тон без «гаражного» клінінгу',
+          'Чіткі блоки послуг: салон, сидіння, зовнішнє миття',
+          'Окремі ціни для легкових, бусів і вантажівок',
+          'Галерея та порівняння до/після для довіри',
+          'Швидка заявка: імʼя, телефон, послуга',
+          'UA / PL / EN для клієнтів у Варшаві',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Розробка рішення для Emaro',
+        lead:
+          'Зібрали продаючий сайт локального мобільного сервісу: hero з виїздом, послуги, ціни, галерея, відгуки та контакти.',
+        items: [
+          'Hero з оффером «преміум-детейлінг з виїздом» і CTA',
+          'Картки послуг за типами авто з цінами «від»',
+          'Блок до/після з інтерактивним порівнянням',
+          'Галерея результатів робіт',
+          'Відгуки клієнтів і блок «про нас»',
+          'Форма заявки з вибором послуги та мультимовність',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Сайт, який продає мобільний детейлінг як преміум-сервіс: клієнт бачить послуги, ціни й приклади робіт — і залишає заявку або телефонує без зайвих кроків.',
+      },
+    },
+    en: {
+      breadcrumbLabel: 'Emaro Auto Care',
+      seoTitle: 'Emaro Premium Auto Care case: mobile detailing in Warsaw',
+      heroTitle: 'Emaro Premium Auto Care — premium mobile detailing website',
+      heroLead:
+        'We built a multilingual site for mobile detailing in Warsaw and nearby areas: cars, vans and trucks, services with pricing, before/after gallery, reviews and a lead form with service selection.',
+      visitSite: 'Visit site',
+      stats: [
+        { value: '3', label: 'vehicle categories' },
+        { value: '↑', label: 'we come to you' },
+        { value: '1', label: 'lead form with service pick' },
+        { value: '↑', label: 'gallery & before/after' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Project challenge: Emaro',
+        lead:
+          'A new detailing brand had to feel premium and instantly explain that the team travels to the client — with different pricing for cars, vans and truck cabs.',
+        items: [
+          'Premium tone without “garage wash” vibes',
+          'Clear service blocks: interior, seats, exterior wash',
+          'Separate pricing for cars, vans and trucks',
+          'Gallery and before/after for trust',
+          'Fast lead flow: name, phone, service',
+          'UA / PL / EN for Warsaw-area clients',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Solution built for Emaro',
+        lead:
+          'We shipped a conversion-focused local mobile service site: travel-to-you hero, services, pricing, gallery, reviews and contacts.',
+        items: [
+          'Hero with mobile premium detailing offer and CTA',
+          'Service cards by vehicle type with “from” pricing',
+          'Before/after comparison block',
+          'Results gallery',
+          'Client reviews and about section',
+          'Lead form with service select and multilingual UI',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Result',
+        text:
+          'A site that sells mobile detailing as a premium service: clients see services, prices and real work — then submit a request or call without friction.',
+      },
+    },
+    pl: {
+      breadcrumbLabel: 'Emaro Auto Care',
+      seoTitle: 'Case Emaro Premium Auto Care: mobilny detailing w Warszawie',
+      heroTitle: 'Emaro Premium Auto Care — strona mobilnego detailingu premium',
+      heroLead:
+        'Zrobiliśmy wielojęzyczną stronę mobilnego detailingu w Warszawie i okolicach: auta osobowe, busy i ciężarówki, usługi z cenami, galeria przed/po, opinie i formularz z wyborem usługi.',
+      visitSite: 'Otwórz stronę',
+      stats: [
+        { value: '3', label: 'kategorie pojazdów' },
+        { value: '↑', label: 'serwis mobilny „do Ciebie”' },
+        { value: '1', label: 'formularz z wyborem usługi' },
+        { value: '↑', label: 'galeria i przed/po' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Wyzwanie projektu Emaro',
+        lead:
+          'Młoda marka detailingu musiała wyglądać premium i od razu tłumaczyć, że ekipa przyjeżdża do klienta — z osobnym cennikiem dla aut, busów i kabin ciężarówek.',
+        items: [
+          'Premium ton bez wrażenia „myjni garażowej”',
+          'Czytelne usługi: salon, fotele, mycie zewnętrzne',
+          'Osobne ceny dla aut, busów i ciężarówek',
+          'Galeria i przed/po dla zaufania',
+          'Szybki lead: imię, telefon, usługa',
+          'UA / PL / EN dla klientów z Warszawy',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Rozwiązanie dla Emaro',
+        lead:
+          'Zebraliśmy stronę sprzedażową mobilnego serwisu: hero z dojazdem, usługi, ceny, galeria, opinie i kontakt.',
+        items: [
+          'Hero z ofertą detailingu premium i CTA',
+          'Karty usług wg typu auta z cenami „od”',
+          'Blok przed/po z porównaniem',
+          'Galeria efektów pracy',
+          'Opinie klientów i sekcja o nas',
+          'Formularz z wyborem usługi i wielojęzyczność',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Efekt',
+        text:
+          'Strona, która sprzedaje mobilny detailing jako usługę premium: klient widzi usługi, ceny i realne efekty — i zostawia zapytanie lub dzwoni bez tarcia.',
+      },
+    },
+    ru: {
+      breadcrumbLabel: 'Emaro Auto Care',
+      seoTitle: 'Кейс Emaro Premium Auto Care: мобильный детейлинг в Варшаве',
+      heroTitle: 'Emaro Premium Auto Care — сайт мобильного премиум-детейлинга',
+      heroLead:
+        'Сделали мультиязычный сайт мобильного детейлинга в Варшаве и окрестностях: легковые авто, буси и грузовики, услуги с ценами, галерея «до/после», отзывы и форма заявки с выбором услуги.',
+      visitSite: 'Открыть сайт',
+      stats: [
+        { value: '3', label: 'категории авто' },
+        { value: '↑', label: 'выезд к клиенту' },
+        { value: '1', label: 'форма с выбором услуги' },
+        { value: '↑', label: 'галерея и до/после' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Задача проекта Emaro',
+        lead:
+          'Молодому бренду детейлинга нужно было выглядеть премиально и сразу объяснять, что команда приезжает к клиенту — с разными ценами для авто, бусов и кабин тягачей.',
+        items: [
+          'Премиальный тон без «гаражной мойки»',
+          'Понятные блоки услуг: салон, сиденья, внешняя мойка',
+          'Отдельные цены для легковых, бусов и грузовиков',
+          'Галерея и сравнение до/после для доверия',
+          'Быстрая заявка: имя, телефон, услуга',
+          'UA / PL / EN для клиентов в Варшаве',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Решение для Emaro',
+        lead:
+          'Собрали продающий сайт локального мобильного сервиса: hero с выездом, услуги, цены, галерея, отзывы и контакты.',
+        items: [
+          'Hero с оффером премиум-детейлинга и CTA',
+          'Карточки услуг по типам авто с ценами «от»',
+          'Блок до/после с интерактивным сравнением',
+          'Галерея результатов работ',
+          'Отзывы клиентов и блок «о нас»',
+          'Форма заявки с выбором услуги и мультиязычность',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Сайт, который продаёт мобильный детейлинг как премиум-сервис: клиент видит услуги, цены и примеры работ — и оставляет заявку или звонит без лишних шагов.',
+      },
+    },
+  }),
+};
+
 export const BATCH4_CASE_STUDIES: Record<string, CaseStudyDefinition> = {
   [flixMarketWeb.id]: flixMarketWeb,
+  [emaroAutocare.id]: emaroAutocare,
   [royalGlow.id]: royalGlow,
   [twelveFeet.id]: twelveFeet,
   [filoEstate.id]: filoEstate,

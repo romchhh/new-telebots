@@ -1,13 +1,12 @@
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import OrderCtaPill from '@/components/OrderCtaPill';
 import type { Language } from '@/components/translations';
 import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
+import { RADIUS_CARD, RADIUS_SHELL } from '@/lib/siteUi';
 
 type PrincipleCardCopy = {
   title: string;
   body: string;
-  serviceId: string;
-  linkLabel: string;
 };
 
 type PrinciplesCopy = {
@@ -38,7 +37,7 @@ function PrincipleKey({
 
   return (
     <span
-      className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-xl font-bold sm:h-14 sm:w-14 sm:rounded-2xl sm:text-2xl ${styles[variant]}`}
+      className={`inline-flex h-12 w-12 shrink-0 items-center justify-center ${RADIUS_CARD} text-xl font-bold sm:h-14 sm:w-14 sm:text-2xl ${styles[variant]}`}
       aria-hidden
     >
       {number}
@@ -51,27 +50,17 @@ function PrincipleCard({
   variant,
   title,
   body,
-  href,
-  linkLabel,
   className = '',
 }: {
   number: number;
   variant: (typeof KEY_VARIANTS)[number];
   title: string;
   body: string;
-  href: string;
-  linkLabel: string;
   className?: string;
 }) {
-  const buttonStyles = {
-    pink: 'bg-brand text-black hover:bg-brand-dark hover:text-white',
-    dark: 'bg-neutral-900 text-white hover:bg-brand hover:text-black',
-    light: 'bg-black text-white hover:bg-brand hover:text-black',
-  };
-
   return (
     <article
-      className={`group/card flex h-full flex-col rounded-[1.75rem] border border-black/5 bg-neutral-100 p-6 transition-shadow hover:shadow-lg sm:rounded-[2rem] sm:p-7 md:p-8 lg:p-10 xl:p-11 ${className}`}
+      className={`flex h-full flex-col ${RADIUS_SHELL} border border-neutral-200/80 bg-neutral-50 p-6 sm:p-7 md:p-8 lg:p-10 xl:p-11 ${className}`}
     >
       <div className="mb-5 sm:mb-6">
         <PrincipleKey number={number} variant={variant} />
@@ -81,25 +70,12 @@ function PrincipleCard({
         className="text-[clamp(1.5rem,3.2vw,2.15rem)] font-black uppercase leading-[1.05] tracking-[0.02em] text-neutral-900"
         style={display}
       >
-        {linkLabel}
-      </h3>
-
-      <p className="mt-3 text-base font-semibold leading-snug text-neutral-800 sm:mt-4 sm:text-lg md:text-[1.15rem]">
         {title}
-      </p>
+      </h3>
 
       <p className="mt-3 flex-1 text-sm leading-relaxed text-neutral-500 sm:text-base md:mt-4 md:text-[1.05rem]">
         {body}
       </p>
-
-      <Link
-        href={href}
-        className={`mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 text-sm font-bold uppercase tracking-wide transition-colors sm:mt-8 sm:w-fit sm:px-7 sm:py-4 sm:text-base ${buttonStyles[variant]}`}
-        style={sans}
-      >
-        {linkLabel}
-        <ArrowUpRight className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" strokeWidth={2.25} aria-hidden />
-      </Link>
     </article>
   );
 }
@@ -136,38 +112,35 @@ export default function HomePrinciplesSection({
             style={display}
           >
             <span className="block">{principles.titleLine1}</span>
-            <span className="mt-1 block text-brand">{principles.titleLine2}</span>
+            <span className="mt-1 block text-neutral-900">{principles.titleLine2}</span>
           </h2>
           <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap">
-            <Link
+            <OrderCtaPill
+              size="sm"
+              variant="dark"
               href={`/${lang}/services`}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-black px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-brand hover:text-black sm:text-base"
-              style={sans}
-            >
-              {allServicesLabel}
-              <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </Link>
-            <Link
+              label={allServicesLabel}
+              className="w-full sm:w-auto"
+            />
+            <OrderCtaPill
+              size="sm"
+              variant="solid"
               href={`/${lang}/pricing`}
-              className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-black px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-black transition-colors hover:bg-black hover:text-white sm:text-base"
-              style={sans}
-            >
-              {pricingLabel}
-              <ArrowUpRight className="h-4 w-4" aria-hidden />
-            </Link>
+              label={pricingLabel}
+              elevated
+              className="w-full sm:w-auto"
+            />
           </div>
         </div>
 
         <div className="grid w-full min-w-0 grid-cols-1 gap-4 sm:gap-5 md:grid-cols-2 md:gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.08fr)] lg:gap-6 xl:gap-8">
           {principles.cards.map((card, index) => (
             <PrincipleCard
-              key={card.serviceId}
+              key={card.title}
               number={index + 1}
               variant={KEY_VARIANTS[index]}
               title={card.title}
               body={card.body}
-              href={`/${lang}/services/${card.serviceId}`}
-              linkLabel={card.linkLabel}
               className={
                 index === 0
                   ? 'md:col-span-2 md:col-start-1 md:row-start-1 lg:col-span-2'

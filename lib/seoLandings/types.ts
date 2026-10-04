@@ -218,7 +218,7 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero.png',
       '/services/services-hero_new.jpg',
     ],
-    caseIds: ['flix-market', 'royal-glow', '12-feet', 'filo-estate', 'butenko-fit', 'zavadska'],
+    caseIds: ['flix-market', 'emaro-autocare', 'royal-glow', '12-feet', 'filo-estate', 'butenko-fit'],
   },
   'landing-page-price': {
     hero: '/services/services-websites.jpg',
@@ -228,7 +228,7 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero.png',
       '/services/services-hero_new.jpg',
     ],
-    caseIds: ['flix-market', 'royal-glow', '12-feet', 'filo-estate', 'butenko-fit', 'zavadska'],
+    caseIds: ['flix-market', 'emaro-autocare', 'royal-glow', '12-feet', 'filo-estate', 'butenko-fit'],
   },
   'online-store-price': {
     hero: '/services/services-websites.jpg',

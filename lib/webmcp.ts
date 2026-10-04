@@ -6,7 +6,7 @@ export const WEBMCP_CONSULTATION = {
     'Submit a consultation request to TeleBots. Requires name and phone; project details are optional.',
   params: {
     name: 'Full name of the person requesting a consultation.',
-    phone: 'Phone number with country code, for example +380XXXXXXXXX.',
+    phone: 'Phone number with country code, for example +48, +380, or +1.',
     project: 'Optional short description of the website, chatbot, or automation project.',
   },
 } as const;
@@ -17,7 +17,7 @@ export const WEBMCP_ORDER = {
     'Submit an order or consultation request to TeleBots. Requires name and phone; a short message is optional.',
   params: {
     name: 'Full name of the person placing the request.',
-    phone: 'Phone number with country code, for example +380XXXXXXXXX.',
+    phone: 'Phone number with country code, for example +48, +380, or +1.',
     request: 'Optional message describing what to build or discuss.',
   },
 } as const;
@@ -28,6 +28,6 @@ export const WEBMCP_OFFER = {
     'Submit a request for the TeleBots $200 website offer (free consult + prototype). Requires name and phone.',
   params: {
     name: 'Full name of the person requesting a callback.',
-    phone: 'Phone number with country code, for example +380XXXXXXXXX.',
+    phone: 'Phone number with country code, for example +48, +380, or +1.',
   },
 } as const;

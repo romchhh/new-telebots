@@ -13,7 +13,7 @@ import {
 } from '@/lib/seoLandings';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import FaqAccordion from '@/components/FaqAccordion';
-import PortfolioCaseCard from '@/components/PortfolioCaseCard';
+import PortfolioShowcaseScroller from '@/components/PortfolioShowcaseScroller';
 import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
 import StatPills from '@/components/StatPills';
 import { getPortfolioCards } from '@/lib/portfolioCards';
@@ -290,35 +290,30 @@ export default function SeoSolutionPage({
 
           {/* Showcase / portfolio */}
           {showcaseCards.length > 0 ? (
-            <section className={`bg-white py-14 md:py-20 ${SITE_PX}`}>
-              <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-                <div className="max-w-3xl">
-                  <h2 className="mb-4 text-3xl font-black tracking-tight text-black md:text-4xl" style={display}>
-                    {page.showcaseTitle}
-                  </h2>
-                  <p className="text-lg leading-relaxed text-gray-600 md:text-xl">{page.showcaseIntro}</p>
-                </div>
-                <Link
-                  href={`/${lang}/portfolio`}
-                  className="text-base font-semibold text-gray-700 underline-offset-4 transition-colors hover:text-brand hover:underline"
+            <PortfolioShowcaseScroller
+              lang={lang}
+              cards={showcaseCards}
+              headingId="solution-showcase-heading"
+              heading={
+                <h2
+                  id="solution-showcase-heading"
+                  className="text-[clamp(1.65rem,4vw,2.75rem)] font-black uppercase leading-[1.05] tracking-tight text-neutral-900"
+                  style={display}
                 >
-                  {page.portfolioLabel} →
-                </Link>
-              </div>
-              <div className="-mx-4 overflow-x-auto px-4 pb-2 [scrollbar-width:thin] sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
-                <div className="flex w-max gap-5">
-                  {showcaseCards.map((card) => (
-                    <PortfolioCaseCard
-                      key={card.id}
-                      card={card}
-                      lang={lang}
-                      className="w-[min(82vw,20rem)] shrink-0 sm:w-[22rem]"
-                      sizes="352px"
-                    />
-                  ))}
-                </div>
-              </div>
-            </section>
+                  {page.showcaseTitle}
+                </h2>
+              }
+              lead={
+                <p className="max-w-2xl text-base leading-relaxed text-neutral-600 sm:text-lg">
+                  {page.showcaseIntro}
+                </p>
+              }
+              viewAllHref={`/${lang}/portfolio`}
+              viewAllLabel={page.portfolioLabel}
+              scrollPrevLabel={t.portfolio.homeScrollPrev ?? 'Previous'}
+              scrollNextLabel={t.portfolio.homeScrollNext ?? 'Next'}
+              className="py-14 md:py-20"
+            />
           ) : null}
 
           {/* Extra sections */}

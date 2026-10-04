@@ -10,11 +10,13 @@ export default function ContactFormWithSuccess({
   lang,
   serviceName,
   hideTitle = false,
+  variant = 'light',
 }: {
   t: SiteCopy;
   lang: Language;
   serviceName?: string;
   hideTitle?: boolean;
+  variant?: 'light' | 'dark';
 }) {
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
@@ -25,6 +27,7 @@ export default function ContactFormWithSuccess({
         lang={lang}
         serviceName={serviceName}
         hideTitle={hideTitle}
+        variant={variant}
         onSuccess={() => setIsSuccessOpen(true)}
       />
       {isSuccessOpen ? (

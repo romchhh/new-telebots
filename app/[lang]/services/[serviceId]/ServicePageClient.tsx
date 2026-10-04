@@ -1,17 +1,26 @@
 import type { ReactNode } from 'react';
-import Link from 'next/link';
-import PortfolioCaseCard, { type PortfolioCaseCardData } from '@/components/PortfolioCaseCard';
+import PortfolioShowcaseScroller, {
+  PortfolioShowcaseHeading,
+} from '@/components/PortfolioShowcaseScroller';
+import type { ServicePageCaseCard } from '@/lib/servicePageCases';
 import ServiceHeroSection from '@/components/ServiceHeroSection';
 import ServiceAudienceSection from '@/components/ServiceAudienceSection';
-import ContactDetailsColumn from '@/components/ContactDetailsColumn';
-import ContactFormWithSuccess from '@/components/ContactFormWithSuccess';
-import PricingTable from '@/components/PricingTable';
+import ServiceOutcomesSection from '@/components/ServiceOutcomesSection';
 import SiteCtaBand from '@/components/SiteCtaBand';
+import ContactFormSection from '@/components/ContactFormSection';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import ServiceSeoLongForm from '@/components/ServiceSeoLongForm';
+import PricingTable from '@/components/PricingTable';
 import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
 import { translations, type Language } from '@/components/translations';
 import { SITE_PX } from '@/lib/siteLayout';
+import {
+  SERVICE_CARD,
+  SERVICE_CARD_GRID,
+  SERVICE_CARD_SIZE,
+  SERVICE_CARD_TITLE,
+  SERVICE_SECTION_Y,
+} from '@/lib/siteUi';
 import { BREADCRUMB_HOME, BREADCRUMB_SERVICES } from '@/lib/breadcrumbLabels';
 import type { ServiceLongFormBundle } from '@/lib/servicePagesSeoContent';
 import {
@@ -20,12 +29,13 @@ import {
   getPricingKey,
   type ServiceId,
 } from './metadata';
+import { getServiceOutcomesCopy } from '@/lib/serviceOutcomesCopy';
 
 type ServicePageViewProps = {
   lang: Language;
   serviceId: ServiceId;
   heroBackground: ReactNode;
-  cases: PortfolioCaseCardData[];
+  cases: ServicePageCaseCard[];
   longForm: ServiceLongFormBundle | null;
 };
 
@@ -62,10 +72,12 @@ export default function ServicePageClient({
   const serviceExtended = service as typeof service & {
     serviceHero?: import('@/components/ServiceHeroSection').ServiceHeroCopy;
     audienceSection?: import('@/components/ServiceAudienceSection').ServiceAudienceCopy;
+    outcomesSection?: import('@/components/ServiceOutcomesSection').ServiceOutcomesCopy;
     descriptionSectionTitle?: string;
   };
   const heroCopy = serviceExtended.serviceHero;
   const audienceCopy = longForm?.audienceSection ?? serviceExtended.audienceSection;
+  const outcomesCopy = serviceExtended.outcomesSection ?? getServiceOutcomesCopy(lang, serviceId);
 
   const breadcrumbs = [
     { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
@@ -111,34 +123,59 @@ export default function ServicePageClient({
         </section>
       ) : null}
 
+      {outcomesCopy ? <ServiceOutcomesSection copy={outcomesCopy} /> : null}
+
+      {cases.length > 0 ? (
+        <PortfolioShowcaseScroller
+          lang={lang}
+          cards={cases}
+          sectionId="service-portfolio"
+          headingId="service-portfolio-heading"
+          heading={
+            <PortfolioShowcaseHeading
+              line1={t.services.servicePagePortfolioLine1 ?? t.services.servicePageBentoTitle}
+              line2={t.services.servicePagePortfolioLine2}
+            />
+          }
+          viewAllHref={`/${lang}/portfolio`}
+          viewAllLabel={t.portfolio.viewPortfolio}
+          scrollPrevLabel={t.portfolio.homeScrollPrev ?? 'Previous'}
+          scrollNextLabel={t.portfolio.homeScrollNext ?? 'Next'}
+          categoryCopy={{
+            filterWebsites: t.portfolio.filterWebsites,
+            filterChatbots: t.portfolio.filterChatbots,
+          }}
+          className="border-t border-neutral-100"
+        />
+      ) : null}
+
       <section
         id={!audienceCopy?.items?.length ? 'service-main' : undefined}
-        className={`border-t border-gray-100 bg-white py-20 md:py-28 ${SITE_PX}`}
+        className={`border-t border-gray-100 bg-white ${SERVICE_SECTION_Y} ${SITE_PX}`}
       >
-        <div className="w-full">
+        <div className="mx-auto w-full max-w-[90rem]">
           {serviceExtended.descriptionSectionTitle ? (
-            <div className="mb-10 text-center md:mb-14">
-              <p
-                className="pointer-events-none select-none text-[clamp(2.75rem,12vw,8.5rem)] font-light leading-[0.88] text-gray-100"
-                style={{ fontFamily: 'var(--font-display)' }}
-                aria-hidden
-              >
-                TeleBots
-              </p>
+            <div className="mb-12 md:mb-16 lg:mb-20">
               <h2
-                className="relative z-10 -mt-5 text-2xl font-semibold leading-tight tracking-tight text-black sm:-mt-7 sm:text-4xl md:-mt-9 lg:text-5xl"
+                className="max-w-4xl text-[clamp(1.75rem,4vw,3rem)] font-black uppercase leading-[1.05] tracking-tight text-neutral-900"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
                 {serviceExtended.descriptionSectionTitle}
               </h2>
+              <p
+                className="mt-5 max-w-3xl text-lg leading-relaxed text-neutral-600 md:text-xl"
+                style={{ fontFamily: 'var(--font-sans)' }}
+              >
+                {service.subtitle}
+              </p>
             </div>
           ) : null}
           {longForm ? (
-            <div className="mx-auto max-w-3xl space-y-6 md:space-y-7">
+            <div className="mx-auto max-w-4xl space-y-7 md:space-y-8">
               {longForm.aboutParagraphs.map((paragraph) => (
                 <p
                   key={paragraph.slice(0, 40)}
-                  className="text-base font-normal leading-relaxed text-gray-700 md:text-lg"
+                  className="text-lg font-normal leading-relaxed text-gray-700 md:text-xl"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   {paragraph}
@@ -147,7 +184,7 @@ export default function ServicePageClient({
             </div>
           ) : (
             <p
-              className="mx-auto max-w-3xl text-center text-base font-normal leading-relaxed text-gray-700 md:text-lg"
+              className="mx-auto max-w-4xl text-center text-lg font-normal leading-relaxed text-gray-700 md:text-xl"
               style={{ fontFamily: 'var(--font-sans)' }}
             >
               {service.description}
@@ -178,65 +215,18 @@ export default function ServicePageClient({
         </div>
       </section>
 
-      {cases.length > 0 ? (
-        <section className={`bg-black py-20 text-white md:py-28 ${SITE_PX}`}>
-          <div className="mb-10 flex flex-col gap-6 md:mb-14 md:flex-row md:items-end md:justify-between">
-            <div className="max-w-2xl">
-              <span
-                className="-mb-6 block select-none text-[6rem] font-light leading-none text-white/[0.08] md:-mb-8 md:text-[8rem]"
-                style={{ fontFamily: 'var(--font-display)' }}
-                aria-hidden
-              >
-                03
-              </span>
-              <h2 className="relative z-10 text-2xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
-                {t.services.servicePagePortfolioTitle}
-              </h2>
-              <p className="mt-4 max-w-lg text-base leading-relaxed text-gray-400">
-                {t.services.servicePagePortfolioSubtitle}
-              </p>
-            </div>
-            <Link
-              href={`/${lang}/portfolio`}
-              className="group inline-flex h-28 w-28 shrink-0 items-center justify-center rounded-full border border-white/40 px-3 text-center transition-all duration-300 hover:bg-white hover:text-black sm:h-36 sm:w-36"
-            >
-              <span className="text-xs font-semibold uppercase leading-snug tracking-[0.15em]">
-                {t.portfolio.viewPortfolio}
-              </span>
-            </Link>
-          </div>
-
-          <div
-            className="w-full overflow-x-auto overscroll-x-contain pb-2 [scrollbar-color:rgba(255,255,255,0.25)_transparent] [scrollbar-width:thin]"
-            style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
-          >
-            <div className="flex w-max gap-4 sm:gap-5">
-              {cases.map((card) => (
-                <PortfolioCaseCard
-                  key={card.id}
-                  card={card}
-                  lang={lang}
-                  className="w-[min(82vw,18rem)] shrink-0 sm:w-[20rem] lg:w-[22rem]"
-                  sizes="352px"
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
       {longForm ? <ServiceSeoLongForm copy={longForm} /> : null}
 
       {blockTitles && blockContent?.whatWeDo?.length ? (
-        <section className={`border-t border-gray-100 bg-white py-16 md:py-28 ${SITE_PX}`}>
-          <div className="w-full space-y-10 md:space-y-16">
+        <section className={`border-t border-gray-100 bg-white ${SERVICE_SECTION_Y} ${SITE_PX}`}>
+          <div className="mx-auto w-full max-w-[90rem] space-y-12 md:space-y-20">
             {[
               { title: blockTitles.whatWeDo, items: blockContent.whatWeDo, index: 5 },
               { title: blockTitles.terms, items: blockContent.terms || [], index: 6 },
               { title: blockTitles.integrations, items: blockContent.integrations || [], index: 7 },
             ].map(({ title: groupTitle, items: groupItems, index }) => (
               <div key={groupTitle}>
-                <div className="mb-8 text-center md:mb-12">
+                <div className="mb-10 text-center md:mb-14">
                   <span
                     className="mb-[-1.25rem] block select-none text-[5rem] font-light leading-none text-gray-100 md:mb-[-2rem] md:text-[8rem]"
                     style={{ fontFamily: 'var(--font-display)' }}
@@ -245,27 +235,21 @@ export default function ServicePageClient({
                     {String(index).padStart(2, '0')}
                   </span>
                   <h2
-                    className="relative z-10 text-2xl font-semibold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl"
+                    className="relative z-10 text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-black"
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {groupTitle}
                   </h2>
                 </div>
-                <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+                <div className={SERVICE_CARD_GRID}>
                   {groupItems.map((item, i) => (
-                    <div
-                      key={item}
-                      className="w-[calc(50%-6px)] min-w-0 max-w-[420px] rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:rounded-3xl sm:p-6 md:w-[calc(33.333%-16px)] md:p-8"
-                    >
+                    <div key={item} className={`${SERVICE_CARD_SIZE} ${SERVICE_CARD}`}>
                       <KeyboardKeyBadge
                         symbol={KEYBOARD_BENEFIT_SYMBOLS[i % KEYBOARD_BENEFIT_SYMBOLS.length]}
-                        size="sm"
-                        className="mb-3 sm:mb-4"
+                        size="md"
+                        className="mb-4 sm:mb-5"
                       />
-                      <p
-                        className="text-lg font-semibold leading-snug tracking-tight text-black sm:text-xl sm:leading-snug"
-                        style={{ fontFamily: 'var(--font-display)' }}
-                      >
+                      <p className={SERVICE_CARD_TITLE} style={{ fontFamily: 'var(--font-display)' }}>
                         {item}
                       </p>
                     </div>
@@ -298,16 +282,7 @@ export default function ServicePageClient({
         className="pt-16 md:pt-20"
       />
 
-      <section className={`border-t border-gray-100 bg-white py-20 md:py-28 ${SITE_PX}`}>
-        <div className="grid w-full lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
-          <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
-            <ContactFormWithSuccess t={t} lang={lang} serviceName={serviceTitle} />
-          </div>
-          <div className="mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20">
-            <ContactDetailsColumn t={t} />
-          </div>
-        </div>
-      </section>
+      <ContactFormSection t={t} lang={lang} serviceName={serviceTitle} className="bg-white" />
     </main>
   );
 }

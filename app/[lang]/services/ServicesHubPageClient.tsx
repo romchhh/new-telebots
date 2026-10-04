@@ -1,11 +1,9 @@
-import ServicesPassionSection from '@/components/ServicesPassionSection';
+import ServicesHubHero from '@/components/ServicesHubHero';
 import ServiceItem from '@/components/ServiceItem';
-import StatsSection from '@/components/StatsSection';
-import ContactDetailsColumn from '@/components/ContactDetailsColumn';
-import ContactFormWithSuccess from '@/components/ContactFormWithSuccess';
+import SiteCtaBand from '@/components/SiteCtaBand';
+import ContactFormSection from '@/components/ContactFormSection';
 import StructuredData from '@/components/StructuredData';
 import { translations, type Language } from '@/components/translations';
-import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
 import { BREADCRUMB_HOME, BREADCRUMB_SERVICES } from '@/lib/breadcrumbLabels';
 
 export default function ServicesHubPageClient({ lang }: { lang: Language }) {
@@ -51,7 +49,7 @@ export default function ServicesHubPageClient({ lang }: { lang: Language }) {
         />
       ))}
       <main id="main-content">
-        <ServicesPassionSection t={t} />
+        <ServicesHubHero t={t} />
         <div id="services-list" className="scroll-mt-20 pt-12 md:scroll-mt-24 md:pt-16 lg:pt-24">
           {services.map((service) => (
             <ServiceItem
@@ -64,17 +62,16 @@ export default function ServicesHubPageClient({ lang }: { lang: Language }) {
             />
           ))}
         </div>
-        <StatsSection t={t} />
-        <section className={`border-t border-gray-100 bg-white py-16 md:py-24 ${SITE_PX}`}>
-          <div className={`${SITE_INNER} grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200`}>
-            <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
-              <ContactFormWithSuccess t={t} lang={lang} />
-            </div>
-            <div className="mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20">
-              <ContactDetailsColumn t={t} />
-            </div>
-          </div>
-        </section>
+        <SiteCtaBand
+          title={t.about.homeCta.title}
+          text={t.about.homeCta.text}
+          contactLabel={t.about.homeCta.contactLabel}
+          pricingLabel={t.about.homeCta.pricingLabel}
+          portfolioLabel={t.about.homeCta.portfolioLabel}
+          pricingHref={`/${lang}/pricing`}
+          portfolioHref={`/${lang}/portfolio`}
+        />
+        <ContactFormSection t={t} lang={lang} className="border-t border-neutral-100 bg-white" />
       </main>
     </>
   );

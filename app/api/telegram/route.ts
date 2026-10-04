@@ -1,10 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { checkAntiSpam, getClientIp, isAllowedFormOrigin } from '@/lib/antiSpam';
 import {
-  HONEYPOT_FIELD,
-  checkAntiSpam,
-  getClientIp,
-  isAllowedFormOrigin,
-} from '@/lib/antiSpam';
+  MAX_TELEGRAM_ATTACHMENT_BYTES,
+  buildLeadMessage,
+  parseLeadRequest,
+  telegramSendAttachment,
+  telegramSendMessage,
+} from '@/lib/telegramLead';
 
 export async function POST(request: NextRequest) {
   const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN?.trim();
@@ -19,24 +21,33 @@ export async function POST(request: NextRequest) {
   }
 
   try {
-    const body = await request.json();
+    const parsed = await parseLeadRequest(request);
     const {
       name,
       phone,
+      email,
       request: requestText,
       service,
       caseId,
       project,
       formStartedAt,
-      [HONEYPOT_FIELD]: honeypot,
-    } = body;
+      honeypot,
+      attachment,
+    } = parsed;
+
+    if (attachment && attachment.size > MAX_TELEGRAM_ATTACHMENT_BYTES) {
+      return NextResponse.json(
+        { success: false, error: 'attachment_too_large' },
+        { status: 400 }
+      );
+    }
 
     const spamCheck = checkAntiSpam({
-      honeypot: typeof honeypot === 'string' ? honeypot : '',
-      formStartedAt: typeof formStartedAt === 'number' ? formStartedAt : Number(formStartedAt),
-      name: typeof name === 'string' ? name : '',
-      phone: typeof phone === 'string' ? phone : '',
-      message: [requestText, project].filter((v) => typeof v === 'string').join('\n'),
+      honeypot,
+      formStartedAt,
+      name,
+      phone,
+      message: [requestText, project].filter(Boolean).join('\n'),
       ip: getClientIp(request),
       originOk: isAllowedFormOrigin(request),
     });
@@ -44,10 +55,9 @@ export async function POST(request: NextRequest) {
     if (!spamCheck.ok) {
       console.warn('Lead blocked by anti-spam:', spamCheck.reason, {
         ip: getClientIp(request),
-        phone: typeof phone === 'string' ? phone.slice(0, 6) : undefined,
+        phone: phone.slice(0, 6),
       });
 
-      // Soft validation — show error so a real user can fix the phone/name
       if (spamCheck.reason === 'phone' || spamCheck.reason === 'name') {
         return NextResponse.json(
           { success: false, error: 'validation', reason: spamCheck.reason },
@@ -55,58 +65,48 @@ export async function POST(request: NextRequest) {
         );
       }
 
-      // Bots / abuse — pretend success so they stop retrying
       return NextResponse.json({ success: true, delivered: false });
     }
 
-    let message = '📋 <b>Нова заявка з сайту</b>\n\n';
-
-    if (name) {
-      message += `👤 <b>Ім\'я:</b> ${escapeHtml(String(name))}\n`;
-    }
-
-    if (phone) {
-      message += `📞 <b>Телефон:</b> ${escapeHtml(String(phone))}\n`;
-    }
-
-    if (service) {
-      message += `🛠 <b>Сервіс:</b> ${escapeHtml(String(service))}\n`;
-    }
-
-    if (caseId) {
-      message += `📁 <b>Кейс:</b> ${escapeHtml(String(caseId))}\n`;
-    }
-
-    if (requestText) {
-      message += `💬 <b>Повідомлення:</b>\n${escapeHtml(String(requestText))}\n`;
-    }
-
-    if (project) {
-      message += `💼 <b>Проєкт:</b>\n${escapeHtml(String(project))}\n`;
-    }
-
-    const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-
-    const response = await fetch(telegramUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const message = buildLeadMessage(
+      {
+        name,
+        phone,
+        email,
+        request: requestText,
+        service,
+        caseId,
+        project,
       },
-      body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
-        text: message,
-        parse_mode: 'HTML',
-      }),
-    });
+      attachment?.name
+    );
 
-    const data = await response.json();
+    const msgResult = await telegramSendMessage(TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, message);
 
-    if (!response.ok || !data.ok) {
-      console.error('Telegram API error:', data);
+    if (!msgResult.ok) {
+      console.error('Telegram API error (sendMessage):', msgResult.data);
       return NextResponse.json(
         { success: false, error: 'Failed to send message' },
         { status: 500 }
       );
+    }
+
+    if (attachment) {
+      const caption = `📎 Файл до заявки від ${name || 'клієнта'}`.slice(0, 1024);
+      const fileResult = await telegramSendAttachment(
+        TELEGRAM_BOT_TOKEN,
+        TELEGRAM_CHAT_ID,
+        attachment,
+        caption
+      );
+
+      if (!fileResult.ok) {
+        console.error('Telegram API error (attachment):', fileResult.data);
+        return NextResponse.json(
+          { success: false, error: 'Failed to send attachment' },
+          { status: 500 }
+        );
+      }
     }
 
     return NextResponse.json({ success: true, delivered: true });
@@ -117,13 +117,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
-
-function escapeHtml(text: string): string {
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
 }

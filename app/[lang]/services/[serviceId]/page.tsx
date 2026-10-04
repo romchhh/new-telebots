@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import FullBleedHeroImage from '@/components/FullBleedHeroImage';
 import StructuredData from '@/components/StructuredData';
 import { translations, type Language } from '@/components/translations';
-import { getPortfolioCards } from '@/lib/portfolioCards';
+import { getServicePageCases } from '@/lib/servicePageCases';
 import { getServiceSeoLongForm } from '@/lib/servicePagesSeoContent';
 import { BREADCRUMB_HOME, BREADCRUMB_SERVICES } from '@/lib/breadcrumbLabels';
 import { siteUrl as baseUrl } from '@/lib/site';
@@ -34,17 +34,7 @@ export default async function ServicePage({
   if (!service) notFound();
 
   const longForm = getServiceSeoLongForm(lang, serviceId);
-  const desiredCategory = serviceId === 'chatbots' ? 'chatbots' : 'websites';
-  const cases = getPortfolioCards(lang)
-    .filter((card) => card.category === desiredCategory)
-    .map(({ id, image, title, subtitle, tags, highlights }) => ({
-      id,
-      image,
-      title,
-      subtitle,
-      tags,
-      highlights,
-    }));
+  const cases = getServicePageCases(lang, serviceId);
 
   const breadcrumbs = [
     { name: BREADCRUMB_HOME[lang], url: `/${lang}` },

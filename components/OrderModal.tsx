@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useEffect, useId, useRef, useState } from 'react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { X } from 'lucide-react';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
@@ -10,6 +11,17 @@ import { SUBMIT_ERROR, SUBMITTING } from '@/lib/formMessages';
 import { antiSpamFromFormData, type AntiSpamFields } from '@/lib/antiSpam';
 import FormHoneypot from '@/components/FormHoneypot';
 import type { Language } from '@/components/translations';
+import PhoneNumberField from '@/components/PhoneNumberField';
+import {
+  BTN_BRAND,
+  BTN_GHOST_LIGHT,
+  INPUT_LIGHT,
+  RADIUS_PILL,
+  SHELL_LIGHT,
+  TEXTAREA_LIGHT,
+  TYPE_EYEBROW,
+  TYPE_SECTION_TITLE,
+} from '@/lib/siteUi';
 
 export type OrderModalSubmitData = {
   name: string;
@@ -25,7 +37,10 @@ interface OrderModalProps {
   onSubmit: (data: OrderModalSubmitData) => void | Promise<void>;
 }
 
-export default function OrderModal({ isOpen, onClose, serviceName: _serviceName, t, onSubmit }: OrderModalProps) {
+const fieldClass = INPUT_LIGHT;
+const textareaClass = `${TEXTAREA_LIGHT} min-h-[96px]`;
+
+export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }: OrderModalProps) {
   const titleId = useId();
   const firstFieldRef = useRef<HTMLInputElement>(null);
   const [sending, setSending] = useState(false);
@@ -87,43 +102,43 @@ export default function OrderModal({ isOpen, onClose, serviceName: _serviceName,
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-4">
-      <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-md"
-        onClick={onClose}
-        aria-hidden
-      />
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} aria-hidden />
 
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative flex max-h-[92svh] w-full max-w-xl flex-col rounded-t-2xl bg-white p-6 shadow-2xl sm:rounded-2xl md:p-8"
+        className={`relative flex max-h-[92svh] w-full max-w-lg flex-col overflow-hidden rounded-t-[1.75rem] sm:rounded-[1.75rem] ${SHELL_LIGHT}`}
       >
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute right-4 top-4 flex items-center justify-center p-1 text-black transition-opacity hover:opacity-55"
-          aria-label={t.modal.close}
-        >
-          <X className="h-5 w-5" strokeWidth={2.25} />
-        </button>
+        <div
+          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.15)_0%,transparent_70%)] blur-3xl"
+          aria-hidden
+        />
 
-        <h2 id={titleId} className="mb-4 pr-10 text-3xl font-black text-black md:text-4xl">
-          {t.modal.title}
-        </h2>
+        <div className="relative flex min-h-0 flex-1 flex-col p-6 md:p-8">
+          <button
+            type="button"
+            onClick={onClose}
+            className={`absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center ${RADIUS_PILL} border border-neutral-200 bg-white text-neutral-600 transition hover:border-brand/40 hover:text-neutral-900`}
+            aria-label={t.modal.close}
+          >
+            <X className="h-4 w-4" strokeWidth={2.25} />
+          </button>
 
-        <form
-          onSubmit={handleSubmit}
-          className="relative flex min-h-0 flex-1 flex-col"
-          toolname={WEBMCP_ORDER.toolname}
-          tooldescription={WEBMCP_ORDER.tooldescription}
-        >
-          <FormHoneypot />
-          <div className="flex min-h-0 flex-1 flex-col space-y-4 overflow-y-auto pr-1">
-            <div>
-              <label htmlFor="order-name" className="mb-2 block text-sm font-normal text-brand">
-                {t.modal.name} *
-              </label>
+          <p className={`mb-2 pr-12 ${TYPE_EYEBROW} text-brand`}>{t.contact.formEyebrow}</p>
+          <h2 id={titleId} className={`mb-1 pr-10 ${TYPE_SECTION_TITLE} text-neutral-900 md:text-3xl`}>
+            {t.modal.title}
+          </h2>
+          {serviceName ? <p className="mb-6 text-sm text-neutral-500">{serviceName}</p> : <div className="mb-6" />}
+
+          <form
+            onSubmit={handleSubmit}
+            className="relative flex min-h-0 flex-1 flex-col"
+            toolname={WEBMCP_ORDER.toolname}
+            tooldescription={WEBMCP_ORDER.tooldescription}
+          >
+            <FormHoneypot />
+            <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-0.5">
               <input
                 ref={firstFieldRef}
                 id="order-name"
@@ -131,79 +146,73 @@ export default function OrderModal({ isOpen, onClose, serviceName: _serviceName,
                 name="name"
                 required
                 autoComplete="name"
-                placeholder={t.modal.namePlaceholder}
+                placeholder={`${t.modal.namePlaceholder} *`}
                 toolparamdescription={WEBMCP_ORDER.params.name}
-                className="w-full border-0 border-b-2 border-black bg-transparent py-2 text-base font-normal text-black focus:border-brand focus:outline-none"
+                className={fieldClass}
+                aria-label={t.modal.name}
               />
-            </div>
 
-            <div>
-              <label htmlFor="order-phone" className="mb-2 block text-sm font-normal text-brand">
-                {t.modal.phone} *
-              </label>
-              <input
+              <PhoneNumberField
                 id="order-phone"
-                type="tel"
-                name="phone"
                 required
-                autoComplete="tel"
                 placeholder={t.modal.phonePlaceholder}
+                ariaLabel={t.modal.phone}
                 toolparamdescription={WEBMCP_ORDER.params.phone}
-                className="w-full border-0 border-b-2 border-black bg-transparent py-2 text-base font-normal text-black focus:border-brand focus:outline-none"
               />
-            </div>
 
-            <div>
-              <label htmlFor="order-request" className="mb-2 block text-sm font-normal text-brand">
-                {t.modal.request}
-              </label>
               <textarea
                 id="order-request"
                 name="request"
                 rows={3}
                 placeholder={t.modal.requestPlaceholder}
                 toolparamdescription={WEBMCP_ORDER.params.request}
-                className="w-full resize-none border-0 border-b-2 border-black bg-transparent py-2 text-base font-normal text-black focus:border-brand focus:outline-none"
+                className={textareaClass}
+                aria-label={t.modal.request}
               />
             </div>
-          </div>
 
-          <div className="mt-4 space-y-4">
-            {error ? (
-              <p role="alert" className="text-sm font-medium text-red-600">
-                {error}
+            <div className="mt-5 space-y-4 border-t border-neutral-100 pt-5">
+              <p className="text-xs leading-relaxed text-neutral-500">
+                {t.contact.consentBefore}{' '}
+                <Link href={`/${lang}/privacy`} className="text-brand underline underline-offset-2 hover:text-brand-dark">
+                  {t.contact.consentLink}
+                </Link>
               </p>
-            ) : null}
-            <button
-              type="submit"
-              disabled={sending}
-              className="w-full rounded-full bg-brand py-3.5 text-base font-semibold text-neutral-900 shadow-md shadow-brand/25 transition hover:bg-brand-light disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              {sending ? SUBMITTING[lang] : t.modal.submit}
-            </button>
+              {error ? (
+                <p role="alert" className="text-sm font-medium text-red-600">
+                  {error}
+                </p>
+              ) : null}
+              <button type="submit" disabled={sending} className={`w-full ${BTN_BRAND}`}>
+                {sending ? SUBMITTING[lang] : t.contact.submitDiscuss}
+              </button>
 
-            <div className="flex w-full gap-2 pb-1">
-              <a
-                href="https://t.me/telebotsnowayrm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-black px-2 py-2 text-xs font-semibold text-black transition-colors hover:bg-black hover:text-white sm:gap-2 sm:px-3 sm:text-sm"
-              >
-                <FaTelegramPlane className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="truncate">{t.contact.telegram}</span>
-              </a>
-              <a
-                href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 rounded-full border-2 border-black px-2 py-2 text-xs font-semibold text-black transition-colors hover:bg-black hover:text-white sm:gap-2 sm:px-3 sm:text-sm"
-              >
-                <FaWhatsapp className="h-4 w-4 shrink-0" aria-hidden />
-                <span className="truncate">{t.contact.whatsapp}</span>
-              </a>
+              <p className="text-center text-xs font-medium uppercase tracking-[0.12em] text-neutral-400">
+                {t.modal.orWriteDirectly}
+              </p>
+              <div className="flex w-full gap-2 pb-1">
+                <a
+                  href="https://t.me/telebotsnowayrm"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 ${BTN_GHOST_LIGHT}`}
+                >
+                  <FaTelegramPlane className="h-4 w-4 shrink-0 text-brand" aria-hidden />
+                  <span className="truncate">Telegram</span>
+                </a>
+                <a
+                  href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 ${BTN_GHOST_LIGHT}`}
+                >
+                  <FaWhatsapp className="h-4 w-4 shrink-0 text-brand" aria-hidden />
+                  <span className="truncate">WhatsApp</span>
+                </a>
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,12 @@
 import KeyboardKeyBadge from '@/components/KeyboardKeyBadge';
-import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
+import { SITE_PX } from '@/lib/siteLayout';
+import {
+  SERVICE_CARD,
+  SERVICE_CARD_GRID,
+  SERVICE_CARD_SIZE,
+  SERVICE_CARD_TITLE,
+  SERVICE_SECTION_Y,
+} from '@/lib/siteUi';
 
 export type ServiceAudienceCopy = {
   title: string;
@@ -11,34 +18,29 @@ interface ServiceAudienceSectionProps {
   copy: ServiceAudienceCopy;
 }
 
-const montserrat = { fontFamily: 'var(--font-sans)' } as const;
+const sans = { fontFamily: 'var(--font-sans)' } as const;
 
 export default function ServiceAudienceSection({ copy }: ServiceAudienceSectionProps) {
   const { title, titleAccent, items } = copy;
 
   return (
-    <div className={`relative overflow-hidden bg-white pb-16 pt-16 md:pb-24 md:pt-24 lg:pb-28 lg:pt-28 ${SITE_PX}`}>
-      <div className={`relative ${SITE_INNER}`}>
+    <div className={`relative overflow-hidden bg-white ${SERVICE_SECTION_Y} ${SITE_PX}`}>
+      <div className="relative mx-auto w-full max-w-[90rem]">
         <h2
-          className="mb-8 text-center text-2xl font-semibold leading-tight tracking-tight text-black sm:mb-14 sm:text-4xl lg:mb-16 lg:text-5xl"
-          style={montserrat}
+          className="mb-10 text-center text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-black sm:mb-16 lg:mb-20"
+          style={sans}
         >
           {title}{' '}
-          <span className="font-semibold italic text-black">{titleAccent}</span>
+          <span className="font-semibold italic text-brand">{titleAccent}</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-6">
+        <div className={SERVICE_CARD_GRID}>
           {items.map((text, i) => {
             const num = String(i + 1).padStart(2, '0');
             return (
-              <div
-                key={num}
-                className="w-[calc(50%-6px)] min-w-0 max-w-[420px] rounded-2xl border border-gray-200 bg-zinc-50 p-3.5 sm:w-[calc(50%-12px)] sm:rounded-3xl sm:p-6 md:w-[calc(33.333%-16px)] md:p-8"
-              >
-                <KeyboardKeyBadge n={i + 1} size="sm" className="mb-3 sm:mb-4" />
-                <p className="text-lg font-semibold leading-snug tracking-tight text-black sm:text-xl sm:leading-snug">
-                  {text}
-                </p>
+              <div key={num} className={`${SERVICE_CARD_SIZE} ${SERVICE_CARD}`}>
+                <KeyboardKeyBadge n={i + 1} size="md" className="mb-4 sm:mb-5" />
+                <p className={SERVICE_CARD_TITLE}>{text}</p>
               </div>
             );
           })}

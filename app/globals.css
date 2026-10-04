@@ -34,6 +34,9 @@
   --brand-light: #f9a8d4;
   --brand-dark: #db2777;
   --brand-soft: #fdf2f8;
+  /* UI radius scale */
+  --radius-card: 1.25rem;
+  --radius-shell: 1.75rem;
 }
 
 @theme inline {

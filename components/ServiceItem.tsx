@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 import { useScrollAnimation } from './useScrollAnimation';
 import { Language } from './translations';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { SITE_PX } from '@/lib/siteLayout';
+import { CARD_MEDIA } from '@/lib/siteUi';
 
 const SERVICE_SLUG: Record<'websitesPage' | 'chatbotsPage' | 'designPage', string> = {
   websitesPage: 'websites',
@@ -38,7 +38,10 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
           className={`pt-12 pb-12 lg:pb-24 lg:pt-0 flex flex-col justify-start ${SITE_PX} ${imagePosition === 'left' ? 'lg:col-start-2' : ''} ${animationClass} ${isContentVisible ? 'animate' : ''}`}
           ref={contentRef}
         >
-          <h2 className="mb-6 text-3xl font-semibold leading-tight text-black md:text-5xl lg:text-6xl">
+          <h2
+            className="mb-6 text-[clamp(1.65rem,3.5vw,2.75rem)] font-black uppercase leading-[1.05] tracking-tight text-neutral-900 md:mb-8"
+            style={{ fontFamily: 'var(--font-display)' }}
+          >
             {service.title}
           </h2>
           <div className="mb-10 space-y-4 text-lg font-normal leading-relaxed text-gray-600 md:space-y-5 md:text-xl">
@@ -54,26 +57,32 @@ export default function ServiceItem({ serviceKey, image, imagePosition, lang, t,
               onClick={onOrderClick ? () => onOrderClick(service.title) : undefined}
               className="w-full sm:flex-1 sm:min-w-0"
             />
-            <Link
+            <OrderCtaPill
+              size="md"
+              variant="solid"
+              elevated
               href={`/${lang}/services/${slug}`}
-              className="flex w-full sm:flex-1 sm:min-w-0 items-center justify-center border-2 border-black text-black px-6 py-4 hover:bg-black hover:text-white transition-all duration-300 rounded-full font-semibold tracking-wider text-center min-h-[52px]"
-            >
-              {t.services.serviceLearnMore}
-            </Link>
+              label={t.services.serviceLearnMore}
+              className="w-full sm:flex-1 sm:min-w-0"
+            />
           </div>
         </div>
 
-        <div className={`relative h-[400px] lg:h-[600px] ${imagePosition === 'left' ? 'lg:col-start-1 lg:row-start-1' : ''} ${imagePosition === 'left' ? 'scroll-animate-left' : 'scroll-animate-right'} ${isImageVisible ? 'animate' : ''}`} ref={imageRef}>
-          <Image
-            src={image}
-            alt={`${service.title} - ${service.subtitle} | TeleBots`}
-            width={1200}
-            height={800}
-            className="w-full h-full object-cover"
-            loading="lazy"
-            quality={85}
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+        <div
+          className={`${SITE_PX} pb-12 lg:pb-16 lg:pt-8 ${imagePosition === 'left' ? 'lg:col-start-1 lg:row-start-1 lg:pr-8 xl:pr-12' : 'lg:pl-8 xl:pl-12'} ${imagePosition === 'left' ? 'scroll-animate-left' : 'scroll-animate-right'} ${isImageVisible ? 'animate' : ''}`}
+          ref={imageRef}
+        >
+          <div className={`relative aspect-[4/3] ${CARD_MEDIA} lg:aspect-auto lg:h-[min(560px,72vh)]`}>
+            <Image
+              src={image}
+              alt={`${service.title} - ${service.subtitle} | TeleBots`}
+              fill
+              className="object-cover"
+              loading="lazy"
+              quality={85}
+              sizes="(max-width: 1024px) 100vw, 46vw"
+            />
+          </div>
         </div>
       </div>
     </section>

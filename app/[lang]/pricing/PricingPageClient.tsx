@@ -1,8 +1,7 @@
 import type { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import ContactDetailsColumn from '@/components/ContactDetailsColumn';
-import ContactFormWithSuccess from '@/components/ContactFormWithSuccess';
+import ContactFormSection from '@/components/ContactFormSection';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import StructuredData from '@/components/StructuredData';
 import { translations, type Language } from '@/components/translations';
@@ -335,21 +334,13 @@ export default function PricingPageClient({ lang }: { lang: Language }) {
             className="pt-16 md:pt-20"
           />
 
-          <section
+          <ContactFormSection
+            t={t}
+            lang={lang}
+            serviceName={p.metaTitle}
             id="pricing-contact"
-            className={`py-16 md:py-24 bg-white border-t border-gray-100 ${SITE_PX}`}
-          >
-            <div className={SITE_INNER}>
-              <div className="grid lg:grid-cols-2 lg:items-start lg:gap-0 lg:divide-x lg:divide-gray-200">
-                <div className="lg:pr-10 xl:pr-14 2xl:pr-20">
-                  <ContactFormWithSuccess t={t} lang={lang} serviceName={p.metaTitle} />
-                </div>
-                <div className="mt-14 lg:mt-0 lg:pl-10 xl:pl-14 2xl:pl-20">
-                  <ContactDetailsColumn t={t} />
-                </div>
-              </div>
-            </div>
-          </section>
+            className="border-t border-gray-100 bg-white"
+          />
         </main>
     </>
   );

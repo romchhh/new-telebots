@@ -72,6 +72,27 @@ export const PORTFOLIO_CARDS: PortfolioCard[] = [
     ),
   },
   {
+    id: 'emaro-autocare',
+    image: '/portfolio/portfolio-emaro-autocare.jpg',
+    category: 'websites',
+    liveUrl: 'https://emaroautocare.pl/uk',
+    copy: t(
+      'EMARO AUTO CARE',
+      'Мобільний преміум-детейлінг у Варшаві — послуги, ціни, галерея',
+      'Premium mobile detailing in Warsaw — services, pricing, gallery',
+      ['Detailing', 'Booking', 'Next.js'],
+      ['Detailing', 'Booking', 'Next.js'],
+      'Мобільний сервіс • До/після • Форма заявки',
+      'Mobile service • Before/after • Lead form',
+      'Mobilny detailing premium w Warszawie — usługi, ceny, galeria',
+      'Мобильный премиум-детейлинг в Варшаве — услуги, цены, галерея',
+      ['Detailing', 'Rezerwacja', 'Next.js'],
+      ['Детейлинг', 'Заявка', 'Next.js'],
+      'Mobilny serwis • Przed/po • Formularz',
+      'Мобильный сервис • До/после • Форма'
+    ),
+  },
+  {
     id: 'royal-glow',
     image: '/portfolio/portfolio-royal-glow.jpg',
     category: 'websites',

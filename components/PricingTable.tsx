@@ -4,6 +4,7 @@ import Link from 'next/link';
 import PricingPlansGrid from '@/components/PricingPlansGrid';
 import { useHomeModal } from '@/components/HomeModalProvider';
 import { SITE_PX } from '@/lib/siteLayout';
+import { SERVICE_SECTION_Y } from '@/lib/siteUi';
 
 type Plan = {
   name: string;
@@ -48,12 +49,16 @@ export default function PricingTable({
 }: PricingTableProps) {
   const openFromShell = useHomeModal();
   const openModal = onContactClick ?? openFromShell;
-  const sectionPad = embedded ? 'py-8 sm:py-10 px-0' : `py-16 sm:py-20 ${SITE_PX}`;
+  const sectionPad = embedded
+    ? 'py-8 sm:py-10 px-0'
+    : centerHeader
+      ? `${SERVICE_SECTION_Y} ${SITE_PX}`
+      : `py-16 sm:py-20 ${SITE_PX}`;
 
   return (
     <section className={`${sectionPad} bg-white`}>
       <div className="mx-auto w-full">
-        <div className={`mb-10 sm:mb-12 ${centerHeader ? 'text-center' : ''}`}>
+        <div className={`mb-12 sm:mb-16 ${centerHeader ? 'text-center' : ''}`}>
           {!hideCategoryLabel && (
             <div className="mb-4 flex items-center gap-4">
               <span className="text-xs font-black uppercase tracking-[0.3em] text-black">

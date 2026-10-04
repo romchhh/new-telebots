@@ -4,6 +4,7 @@ import type { MouseEvent } from 'react';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { useHomeModal } from '@/components/HomeModalProvider';
+import { CTA_ARROW_CIRCLE, CTA_ARROW_ICON, RADIUS_PILL } from '@/lib/siteUi';
 
 export type OrderCtaPillSize = 'hero' | 'md' | 'sm';
 export type OrderCtaPillVariant = 'solid' | 'outline' | 'dark' | 'brand';
@@ -30,25 +31,25 @@ const SIZE_STYLES: Record<
   { root: string; eyebrow: string; label: string; circle: string; icon: string }
 > = {
   hero: {
-    root: 'rounded-[2rem] pl-5 pr-1.5 py-3 sm:rounded-[2rem] sm:pl-6 sm:pr-2 sm:py-2.5 md:min-w-[min(100%,22rem)] md:max-w-[26rem] md:rounded-[2.25rem] md:pl-8 md:pr-3 md:py-3.5 lg:min-w-[24rem] lg:max-w-[28rem] lg:pl-9 lg:py-4',
+    root: 'min-w-0 max-w-full rounded-[2rem] pl-5 pr-1.5 py-3 sm:rounded-[2rem] sm:pl-6 sm:pr-2 sm:py-2.5 md:min-w-[min(100%,22rem)] md:max-w-[26rem] md:rounded-[2.25rem] md:pl-8 md:pr-3 md:py-3.5 lg:min-w-[24rem] lg:max-w-[28rem] lg:pl-9 lg:py-4',
     eyebrow: 'text-sm leading-tight text-black sm:text-sm md:text-base lg:text-lg',
     label: 'text-[17px] font-bold leading-tight sm:text-xl md:text-2xl lg:text-3xl xl:text-[2rem]',
-    circle: 'h-12 w-12 shrink-0 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 xl:h-[4.25rem] xl:w-[4.25rem]',
-    icon: 'h-[1.125rem] w-[1.125rem] sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7',
+    circle: CTA_ARROW_CIRCLE.hero,
+    icon: CTA_ARROW_ICON.hero,
   },
   md: {
-    root: 'rounded-[1.75rem] pl-4 pr-1.5 py-2 sm:rounded-[2rem] sm:pl-6 sm:pr-2 sm:py-2.5 md:pl-7 md:pr-2.5 md:py-3',
+    root: `${RADIUS_PILL} pl-4 pr-1.5 py-2 sm:pl-6 sm:pr-2 sm:py-2.5 md:pl-7 md:pr-2.5 md:py-3`,
     eyebrow: 'text-xs text-black sm:text-sm',
     label: 'text-base font-bold sm:text-lg md:text-xl',
-    circle: 'h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14',
-    icon: 'h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6',
+    circle: CTA_ARROW_CIRCLE.md,
+    icon: CTA_ARROW_ICON.md,
   },
   sm: {
-    root: 'rounded-[1.5rem] pl-4 pr-1.5 py-2 sm:pl-5 sm:pr-1.5 sm:py-2',
+    root: `${RADIUS_PILL} pl-4 pr-1.5 py-2 sm:pl-5 sm:pr-1.5 sm:py-2`,
     eyebrow: 'text-xs text-black',
     label: 'text-sm font-bold sm:text-base',
-    circle: 'h-10 w-10 sm:h-11 sm:w-11',
-    icon: 'h-4 w-4 sm:h-5 sm:w-5',
+    circle: CTA_ARROW_CIRCLE.sm,
+    icon: CTA_ARROW_ICON.sm,
   },
 };
 
@@ -122,8 +123,8 @@ export default function OrderCtaPill({
           : 'bg-black text-white';
   const singleLinePaired = paired && !eyebrow;
   const textColClass = singleLinePaired
-    ? 'flex min-w-0 flex-1 flex-col items-center justify-center pr-2 text-center'
-    : 'min-w-0 flex-1 pr-2';
+    ? 'flex min-w-0 flex-1 flex-col items-center justify-center pr-1.5 text-center sm:pr-2'
+    : 'min-w-0 flex-1 pr-1.5 sm:pr-2';
 
   const mobileEyebrow = eyebrowMobile ?? eyebrow;
 
@@ -133,15 +134,15 @@ export default function OrderCtaPill({
         {eyebrow ? (
           <>
             {mobileEyebrow && (
-              <span className={`mb-1 block sm:hidden ${eyebrowClass}`}>{mobileEyebrow}</span>
+              <span className={`mb-0.5 block break-words sm:hidden ${eyebrowClass}`}>{mobileEyebrow}</span>
             )}
-            <span className={`mb-0.5 hidden sm:mb-1 sm:block ${eyebrowClass}`}>{eyebrow}</span>
+            <span className={`mb-0.5 hidden break-words sm:mb-1 sm:block ${eyebrowClass}`}>{eyebrow}</span>
           </>
         ) : null}
-        <span className={`block ${labelClass} ${s.label}`}>{label}</span>
+        <span className={`block break-words ${labelClass} ${s.label}`}>{label}</span>
       </span>
       <span
-        className={`flex shrink-0 items-center justify-center rounded-full transition-transform group-hover:scale-105 ${circleClass} ${s.circle}`}
+        className={`flex shrink-0 items-center justify-center ${RADIUS_PILL} transition-transform group-hover:scale-105 ${circleClass} ${s.circle}`}
       >
         <ArrowUpRight className={s.icon} strokeWidth={2.25} aria-hidden />
       </span>

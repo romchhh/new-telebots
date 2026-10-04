@@ -6,6 +6,8 @@ import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import { HomeModalProvider } from '@/components/HomeModalProvider';
 import ViewportLazy from '@/components/ViewportLazy';
+import HomeResourceLinks from '@/components/HomeResourceLinks';
+import ContactFormSection from '@/components/ContactFormSection';
 import type { Language, SiteCopy } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
@@ -13,9 +15,8 @@ import { SUBMIT_ERROR } from '@/lib/formMessages';
 // Нижче hero — після LCP, щоб не конкурували з героєм за мережу та main thread
 const AboutSection = dynamic(() => import('@/components/AboutSection'), { ssr: false });
 const PortfolioSection = dynamic(() => import('@/components/PortfolioSection'), { ssr: false });
+const HomeServicesCarousel = dynamic(() => import('@/components/HomeServicesCarousel'), { ssr: false });
 const HomePrinciplesSection = dynamic(() => import('@/components/HomePrinciplesSection'), { ssr: false });
-const AboutStatsBanner = dynamic(() => import('@/components/AboutStatsBanner'), { ssr: false });
-const HomeResourceLinks = dynamic(() => import('@/components/HomeResourceLinks'), { ssr: false });
 const SiteCtaBand = dynamic(() => import('@/components/SiteCtaBand'), { ssr: false });
 const Footer = dynamic(() => import('@/components/Footer'), { ssr: false });
 const OrderModal = lazy(() => import('@/components/OrderModal'));
@@ -117,6 +118,12 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
 
         <main id="main-content">
           {hero}
+          <ViewportLazy minHeight="420px">
+            <HomeServicesCarousel copy={t.about.homeServices} lang={lang} linkLabel={t.services.learnMore} />
+          </ViewportLazy>
+          <ViewportLazy minHeight="520px">
+            <PortfolioSection t={t} />
+          </ViewportLazy>
           <ViewportLazy minHeight="360px">
             <HomePrinciplesSection
               principles={t.about.principles}
@@ -127,15 +134,6 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
           </ViewportLazy>
           <ViewportLazy minHeight="480px">
             <AboutSection t={t} onOrderClick={openModal} />
-          </ViewportLazy>
-          <ViewportLazy minHeight="520px">
-            <PortfolioSection t={t} />
-          </ViewportLazy>
-          <ViewportLazy minHeight="280px">
-            <AboutStatsBanner t={t} />
-          </ViewportLazy>
-          <ViewportLazy minHeight="320px">
-            <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
           </ViewportLazy>
           <ViewportLazy minHeight="240px">
             <SiteCtaBand
@@ -149,6 +147,8 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
               onContactClick={openModal}
             />
           </ViewportLazy>
+          <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
+          <ContactFormSection t={t} lang={lang} id="home-contact" className="bg-white" />
         </main>
 
         <ViewportLazy minHeight="320px" rootMargin="800px">

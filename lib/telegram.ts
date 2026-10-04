@@ -1,8 +1,10 @@
-import type { AntiSpamFields } from '@/lib/antiSpam';
+import { HONEYPOT_FIELD, type AntiSpamFields } from '@/lib/antiSpam';
+import { MAX_TELEGRAM_ATTACHMENT_BYTES } from '@/lib/telegramLead';
 
 export interface TelegramFormData extends AntiSpamFields {
   name: string;
   phone: string;
+  email?: string;
   request?: string;
   project?: string;
   service?: string;
@@ -28,15 +30,50 @@ function reportLeadConversion() {
   }
 }
 
-export async function sendToTelegram(data: TelegramFormData): Promise<boolean> {
+function appendLeadFields(formData: FormData, data: TelegramFormData) {
+  formData.append('name', data.name);
+  formData.append('phone', data.phone);
+  if (data.email) formData.append('email', data.email);
+  if (data.request) formData.append('request', data.request);
+  if (data.project) formData.append('project', data.project);
+  if (data.service) formData.append('service', data.service);
+  if (data.caseId) formData.append('caseId', data.caseId);
+  if (data.formStartedAt !== undefined) {
+    formData.append('formStartedAt', String(data.formStartedAt));
+  }
+  const hp = data[HONEYPOT_FIELD];
+  if (hp !== undefined) formData.append(HONEYPOT_FIELD, String(hp));
+}
+
+export async function sendToTelegram(
+  data: TelegramFormData,
+  attachment?: File | null
+): Promise<boolean> {
   try {
-    const response = await fetch('/api/telegram', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
+    if (attachment && attachment.size > MAX_TELEGRAM_ATTACHMENT_BYTES) {
+      console.error('Attachment exceeds size limit');
+      return false;
+    }
+
+    let response: Response;
+
+    if (attachment && attachment.size > 0) {
+      const formData = new FormData();
+      appendLeadFields(formData, data);
+      formData.append('attachment', attachment, attachment.name);
+      response = await fetch('/api/telegram', {
+        method: 'POST',
+        body: formData,
+      });
+    } else {
+      response = await fetch('/api/telegram', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+    }
 
     const result = await response.json();
     const success = result.success === true;

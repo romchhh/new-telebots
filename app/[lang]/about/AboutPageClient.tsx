@@ -7,6 +7,8 @@ import { legal } from '@/lib/legal';
 import { SITE_PX, SITE_CONTAINER, SITE_INNER_WIDE } from '@/lib/siteLayout';
 import AboutHeadline from '@/components/AboutHeadline';
 import AboutServiceTeasers from '@/components/AboutServiceTeasers';
+import AboutInfoCards from '@/components/AboutInfoCards';
+import SiteCtaBand from '@/components/SiteCtaBand';
 import FaqAccordion from '@/components/FaqAccordion';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
@@ -182,61 +184,7 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
             />
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5 lg:gap-6">
-            <div className="flex flex-col rounded-2xl bg-black p-7 sm:p-8 md:p-9 lg:p-10">
-              <h2
-                className="mb-4 text-[clamp(1.65rem,3.8vw,2.35rem)] font-black uppercase leading-[1.05] tracking-[0.04em] text-white md:mb-5"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {t.about.ourWork}
-              </h2>
-              <p className="mb-8 flex-1 text-base leading-[1.65] text-white/80 md:mb-10 md:text-[17px] lg:text-lg">
-                {t.about.ourWorkDesc}
-              </p>
-              <Link
-                href={`/${lang}#portfolio`}
-                className="inline-flex w-fit items-center justify-center rounded-full border-2 border-white px-7 py-3 text-[15px] font-medium text-white transition-colors duration-200 hover:bg-white hover:text-black md:text-base"
-              >
-                {t.about.portfolio}
-              </Link>
-            </div>
-
-            <div className="flex flex-col rounded-2xl border border-black/10 bg-white p-7 shadow-[0_8px_30px_rgba(0,0,0,0.04)] sm:p-8 md:p-9 lg:p-10">
-              <h2
-                className="mb-4 text-[clamp(1.65rem,3.8vw,2.35rem)] font-black uppercase leading-[1.05] tracking-[0.04em] text-black md:mb-5"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {t.about.services}
-              </h2>
-              <p className="mb-8 flex-1 text-base leading-[1.65] text-black/75 md:mb-10 md:text-[17px] lg:text-lg">
-                {t.about.servicesDesc}
-              </p>
-              <Link
-                href={`/${lang}/services`}
-                className="inline-flex w-fit items-center justify-center rounded-full border-2 border-black bg-white px-7 py-3 text-[15px] font-medium text-black transition-colors duration-200 hover:bg-black hover:text-white md:text-base"
-              >
-                {t.about.services}
-              </Link>
-            </div>
-
-            <div className="flex flex-col rounded-2xl bg-brand p-7 sm:p-8 md:p-9 lg:p-10">
-              <h2
-                className="mb-4 text-[clamp(1.65rem,3.8vw,2.35rem)] font-black uppercase leading-[1.05] tracking-[0.04em] text-black md:mb-5"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {t.about.contact}
-              </h2>
-              <p className="mb-8 flex-1 text-base leading-[1.65] text-black/75 md:mb-10 md:text-[17px] lg:text-lg">
-                {t.about.contactDesc}
-              </p>
-              <Link
-                href={`/${lang}/contact`}
-                className="inline-flex w-fit items-center justify-center rounded-full border-2 border-black bg-transparent px-7 py-3 text-[15px] font-medium text-black transition-colors duration-200 hover:bg-black hover:text-white md:text-base"
-              >
-                {t.about.getInTouch}
-              </Link>
-            </div>
-          </div>
+          <AboutInfoCards copy={t.about.whyUs} lang={lang} contactHref={`/${lang}/contact`} />
         </div>
       </section>
       
@@ -294,42 +242,6 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
                 ))}
               </ul>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Статистика — білий фон, як на головній */}
-      <section className={`w-full border-y border-black/5 bg-white py-20 text-black md:py-24 lg:py-28 ${SITE_PX}`}>
-        <div className="w-full">
-          <h2 className="mb-6 text-sm font-bold uppercase tracking-[0.3em] text-gray-500">
-            {t.about.whyChoose}
-          </h2>
-          <p className="mb-16 max-w-4xl text-xl font-normal leading-[1.75] text-gray-700 md:text-2xl lg:text-3xl">
-            {t.about.pageIntro}
-          </p>
-          <div className="mb-16 grid gap-10 md:grid-cols-3 md:gap-12">
-            <div>
-              <div className="mb-2 text-4xl font-black leading-none text-brand md:text-5xl lg:text-6xl">
-                200+
-              </div>
-              <p className="text-lg font-normal text-gray-600 md:text-xl">{t.about.stats.projects}</p>
-            </div>
-            <div>
-              <div className="mb-2 text-4xl font-black leading-none text-brand md:text-5xl lg:text-6xl">
-                4
-              </div>
-              <p className="text-lg font-normal text-gray-600 md:text-xl">{t.about.stats.years}</p>
-            </div>
-            <div>
-              <p className="text-xl font-normal leading-[1.75] text-gray-700 md:text-2xl">
-                {t.about.stats.support}
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto max-w-4xl pt-4 text-center">
-            <p className="text-lg font-bold leading-relaxed text-black sm:text-xl md:text-2xl lg:text-3xl">
-              {t.about.stats.cta}
-            </p>
           </div>
         </div>
       </section>
@@ -454,6 +366,16 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
           </div>
         </div>
       </section>
+
+      <SiteCtaBand
+        title={t.about.homeCta.title}
+        text={t.about.homeCta.text}
+        contactLabel={t.about.homeCta.contactLabel}
+        pricingLabel={t.about.homeCta.pricingLabel}
+        portfolioLabel={t.about.homeCta.portfolioLabel}
+        pricingHref={`/${lang}/pricing`}
+        portfolioHref={`/${lang}/portfolio`}
+      />
 
       {(t.about.faq?.items?.length ?? 0) > 0 ? (
         <FaqAccordion
