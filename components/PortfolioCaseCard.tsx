@@ -34,7 +34,7 @@ export default function PortfolioCaseCard({
       href={getCaseHref(lang, card.id)}
       className={`group flex flex-col overflow-hidden rounded-2xl border border-black/10 bg-[#141414] transition-colors hover:border-black/25 ${className}`}
     >
-      <div className="relative aspect-[16/11] overflow-hidden bg-zinc-900">
+      <div className="relative aspect-[16/11] overflow-hidden rounded-b-xl bg-zinc-900 sm:rounded-b-2xl">
         <Image
           src={card.image}
           alt={card.title}
