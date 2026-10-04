@@ -33,6 +33,7 @@ export default function SiteHtmlShell({
         )}
 
         <link rel="author" href={`${siteUrl}/uk/about`} />
+        <link rel="stylesheet" href="/webmcp-agent.css" />
 
         <meta property="instagram:account" content="@telebotsnowayrm" />
         <meta name="pinterest-rich-pin" content="true" />

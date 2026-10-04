@@ -296,7 +296,7 @@ export const UK_CHATBOT_INTENT: Record<ChatbotIntentSlug, SeoLandingCopy> = {
   'chatbot-development-price': buildChatbotIntentLanding(
     { ...LABELS, ...PRICE_BODY },
     {
-      metaTitle: 'Розробка чат-ботів ціна | від $100 — TeleBots',
+      metaTitle: 'Розробка чат-ботів ціна | від $100',
       metaDescription:
         'Розробка чат-ботів: ціна від $100, пакети LITE/PRO/CUSTOM. Telegram-бот з оплатою, CRM, AI. Прозорі тарифи, 200+ проєктів. Безкоштовна консультація.',
       keywords:

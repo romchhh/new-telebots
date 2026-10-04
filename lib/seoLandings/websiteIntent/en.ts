@@ -212,7 +212,7 @@ export const EN_WEBSITE_INTENT: Record<WebsiteIntentSlug, SeoLandingCopy> = {
   'website-development-price': buildWebsiteIntentLanding(
     { ...LABELS, ...SITE_PRICE_BODY },
     {
-      metaTitle: 'Website Development Price | From $150 — TeleBots',
+      metaTitle: 'Website Development Price | From $150',
       metaDescription:
         'Website development price from $150: landing page, corporate site from $500, online store from $400. Next.js, SEO, admin. 200+ projects. Free consultation.',
       keywords:

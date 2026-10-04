@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { translations, Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
-import { getServiceKeyForTranslations, SERVICE_IDS, type ServiceId } from './metadata';
+import { getServiceKeyForTranslations, SERVICE_IDS, SERVICE_IMAGES, type ServiceId } from './metadata';
 import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
 
 export function generateStaticParams() {
@@ -145,6 +145,7 @@ export async function generateMetadata({
       title: seo.title,
       description: seo.description,
       keywords: seo.keywords,
+      image: SERVICE_IMAGES[id],
       url: `${baseUrl}/${lang}/services/${serviceId}`,
       lang,
       openGraphTitle: seo.openGraphTitle,

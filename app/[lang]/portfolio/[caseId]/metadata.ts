@@ -2,10 +2,10 @@ import { Metadata } from 'next';
 import { cases } from '@/components/cases';
 import { Language } from '@/components/translations';
 import { isFlagshipCase, isLightCase } from '@/lib/portfolioCases';
+import { getCaseStudyLastmod } from '@/lib/sitemapDates';
 import {
   buildCaseSeoDescription,
   buildCaseSeoKeywords,
-  CASE_ARTICLE_MODIFIED,
   CASE_ARTICLE_PUBLISHED,
   generateMetadata as generateSEOMetadata,
 } from '@/lib/seo';
@@ -67,7 +67,7 @@ export async function generateMetadata(params: {
       caseId: params.caseId,
       openGraphDescription: ogDescription,
       publishedTime: CASE_ARTICLE_PUBLISHED,
-      modifiedTime: CASE_ARTICLE_MODIFIED,
+      modifiedTime: getCaseStudyLastmod(params.caseId),
       hreflangLangs: hreflangLangs.length > 0 ? hreflangLangs : ['uk'],
     }),
     keywords,

@@ -227,7 +227,7 @@ export const translations = {
     },
     portfolio: {
       recent: 'КЕЙСИ',
-      title: 'Кейси розробки Telegram-ботів і сайтів',
+      title: 'Портфоліо: кейси Telegram-ботів і сайтів',
       homeTitleLine1: 'Кейси розробки',
       homeTitleLine2: 'Telegram-ботів і сайтів',
       heroIntroLine1: 'Кейси, якими ми пишаємося',
@@ -978,7 +978,7 @@ export const translations = {
     },
     portfolio: {
       recent: 'CASES',
-      title: 'Telegram Bot & Website Development Cases',
+      title: 'Website & Telegram Bot Development Cases',
       homeTitleLine1: 'Telegram bot & website',
       homeTitleLine2: 'development cases',
       heroIntroLine1: "Cases we're proud to ship",
@@ -1662,7 +1662,7 @@ export const translations = {
     },
     portfolio: {
       recent: 'REALIZACJE',
-      title: 'Przypadki rozwoju botów Telegram i stron',
+      title: 'Przypadki: strony www i boty Telegram',
       homeTitleLine1: 'Przypadki rozwoju',
       homeTitleLine2: 'botów Telegram i stron',
       heroIntroLine1: 'Realizacje, które robimy z dumą',
@@ -2346,7 +2346,7 @@ export const translations = {
     },
     portfolio: {
       recent: 'КЕЙСЫ',
-      title: 'Кейсы разработки телеграм ботов и сайтов',
+      title: 'Кейсы разработки сайтов и телеграм ботов',
       homeTitleLine1: 'Кейсы разработки',
       homeTitleLine2: 'телеграм ботов и сайтов',
       heroIntroLine1: 'Кейсы, которыми мы гордимся',

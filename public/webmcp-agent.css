@@ -1,0 +1,15 @@
+/**
+ * WebMCP agent form highlights (Chrome declarative API).
+ * Окремий файл — Lightning CSS у Tailwind не знає :tool-form-active ще.
+ * @see https://developer.chrome.com/docs/ai/webmcp/declarative-api
+ */
+form:tool-form-active {
+  outline: 1px dashed #e879a9;
+  outline-offset: 4px;
+}
+
+button:tool-submit-active,
+input[type='submit']:tool-submit-active {
+  outline: 1px dashed #be185d;
+  outline-offset: 2px;
+}

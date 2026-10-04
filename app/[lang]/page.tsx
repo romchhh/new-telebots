@@ -5,6 +5,7 @@ import HeroSectionOverlay from '@/components/HeroSectionOverlay';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { getHubPageSeo } from '@/lib/seoPagesRegistry';
 import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 import { siteUrl as baseUrl } from '@/lib/site';
 
@@ -15,34 +16,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang: langParam } = await params;
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
-
-  // Brand suffix comes from root layout title.template (`%s | TeleBots`) — do not add it here.
-  const title =
-    lang === 'uk'
-      ? 'Замовити розробку сайтів і Telegram-ботів | від $100'
-      : lang === 'en'
-        ? 'Order Websites & Telegram Bots | from $100'
-        : lang === 'pl'
-          ? 'Zamów strony i boty Telegram | od $100'
-          : 'Заказать сайты и Telegram-ботов | от $100';
-
-  const description =
-    lang === 'uk'
-      ? 'Розробка Telegram-ботів від $100, лендінгів від $150, інтернет-магазинів від $400. Чат-бот для бізнесу, CRM, e-commerce. 200+ проєктів, безкоштовна консультація, старт за 24 год.'
-      : lang === 'en'
-        ? 'Telegram bots from $100, landings from $150, online stores from $400. Business chatbots, CRM, e-commerce. 200+ projects, free consultation, start in 24h.'
-        : lang === 'pl'
-          ? 'Boty Telegram od $100, landingi od $150, sklepy od $400. Chatboty biznesowe, CRM, e-commerce. 200+ projektów, darmowa konsultacja, start w 24h.'
-          : 'Telegram-боты от $100, лендинги от $150, интернет-магазины от $400. Чат-бот для бизнеса, CRM, e-commerce. 200+ проектов, бесплатная консультация, старт за 24 часа.';
-
-  const keywords =
-    lang === 'uk'
-      ? 'розробка сайтів, створення сайту під ключ, веб-розробка, лендинг замовити, інтернет-магазин під ключ, телеграм бот розробка, розробка чат-ботів, чат-бот для бізнесу, чат бот ціна, замовити телеграм бота, автоматизація бізнесу, AI чат-бот, TeleBots, TeleBots.site, TeleBots Україна, 200+ проєктів'
-      : lang === 'en'
-        ? 'website development, landing page design, e-commerce development, corporate website, SEO web development, telegram bot development, chatbot for business, business automation, TeleBots, TeleBots.site, TeleBots Ukraine, web development Ukraine, AI chatbot, 200+ projects'
-        : lang === 'pl'
-          ? 'rozwój stron internetowych, strona firmowa, sklep online, landing page, SEO strony, rozwój botów Telegram, chatboty, automatyzacja biznesu, TeleBots, TeleBots.site, TeleBots Ukraina, tworzenie stron www, chatbot AI, 200+ projektów'
-          : 'разработка сайтов, создание сайта под ключ, веб-разработка, лендинг заказать, интернет-магазин под ключ, SEO продвижение сайта, разработка телеграм ботов, чат-боты для бизнеса, автоматизация бизнеса, TeleBots, TeleBots.site, TeleBots Украина, AI чат-бот, 200+ проектов';
+  const { title, description, keywords } = getHubPageSeo('home', lang);
 
   return generateSEOMetadata({
     title,

@@ -133,6 +133,14 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  // Portfolio hub with ?case= (light cases) — noindex; canonical is /portfolio without query
+  const portfolioHubMatch = pathname.match(/^\/(uk|en|pl|ru)\/portfolio\/?$/);
+  if (portfolioHubMatch && request.nextUrl.searchParams.has('case')) {
+    const response = withLangHeader(NextResponse.next(), portfolioHubMatch[1]);
+    response.headers.set('X-Robots-Tag', 'noindex, follow');
+    return response;
+  }
+
   if (firstSegment && !VALID_LANGS.includes(firstSegment as (typeof VALID_LANGS)[number])) {
     if (
       pathname.startsWith('/_next') ||

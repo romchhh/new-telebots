@@ -58,7 +58,7 @@ export type OfferPageCopy = {
 };
 
 const uk: OfferPageCopy = {
-  metaTitle: 'Сайт за $200 — прототип сайту | TeleBots agency Ukraine',
+  metaTitle: 'Сайт за $200 — прототип сайту',
   metaDescription:
     'TeleBots agency Ukraine: безкоштовна консультація + прототип сайту. Якщо подобається — доробимо за $200 за 5 робочих днів. Без передоплати.',
   metaKeywords:
@@ -189,7 +189,7 @@ const uk: OfferPageCopy = {
 };
 
 const en: OfferPageCopy = {
-  metaTitle: 'Website for $200 — free consult + site prototype | TeleBots',
+  metaTitle: 'Website for $200 — free consult + site prototype',
   metaDescription:
     'See how your site will look before you pay. Free consultation + live site prototype. If you like it — we finish it for $200 in 5 business days.',
   metaKeywords: 'website for 200 dollars, free site prototype, SMB website, Next.js landing, TeleBots',
@@ -319,7 +319,7 @@ const en: OfferPageCopy = {
 };
 
 const pl: OfferPageCopy = {
-  metaTitle: 'Strona za $200 — darmowa konsultacja i prototyp strony | TeleBots',
+  metaTitle: 'Strona za $200 — darmowa konsultacja i prototyp strony',
   metaDescription:
     'Zobacz, jak będzie wyglądać Twoja strona jeszcze przed płatnością. Darmowa konsultacja + prototyp strony. Jeśli pasuje — dokończymy za $200 w 5 dni roboczych.',
   metaKeywords: 'strona za 200 dolarów, darmowy prototyp strony, strona dla MŚP, landing Next.js, TeleBots',
@@ -449,7 +449,7 @@ const pl: OfferPageCopy = {
 };
 
 const ru: OfferPageCopy = {
-  metaTitle: 'Сайт за $200 — бесплатная консультация и прототип сайта | TeleBots',
+  metaTitle: 'Сайт за $200 — бесплатная консультация и прототип сайта',
   metaDescription:
     'Покажем, как будет выглядеть ваш сайт ещё до оплаты. Бесплатная консультация + прототип сайта. Если нравится — доработаем за $200 за 5 рабочих дней.',
   metaKeywords: 'сайт за 200 долларов, бесплатный прототип сайта, сайт для МСБ, лендинг Next.js, TeleBots',

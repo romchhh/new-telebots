@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
-import { translations, Language } from '@/components/translations';
+import { Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
+import { getHubPageSeo } from '@/lib/seoPagesRegistry';
 import { siteUrl as baseUrl } from '@/lib/site';
 
 export async function generateMetadata({
@@ -10,37 +11,14 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { lang: langParam } = await params;
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
-  const t = translations[lang];
-
-  const title = lang === 'uk'
-    ? 'Послуги: Telegram-боти, чат-боти та сайти під ключ'
-    : lang === 'en'
-    ? 'Services: Telegram Bots, Chatbots & Websites'
-    : lang === 'pl'
-    ? 'Usługi: boty Telegram, chatboty i strony'
-    : 'Услуги: Telegram-боты, чат-боты и сайты под ключ';
-
-  const description = lang === 'uk'
-    ? 'Замовити розробку Telegram-бота від $100, лендінгу від $150, інтернет-магазину від $400, UI/UX від $150. Чат-боти з оплатою, CRM, e-commerce на Next.js. Безкоштовна консультація, 200+ проєктів.'
-    : lang === 'en'
-    ? 'Telegram bots from $100, landings from $150, online stores from $400, UI/UX from $150. Chatbots with payments, CRM, Next.js e-commerce. Free consultation, 200+ projects.'
-    : lang === 'pl'
-    ? 'Boty Telegram od $100, landingi od $150, sklepy od $400, UI/UX od $150. Chatboty z płatnościami, CRM, e-commerce Next.js. Darmowa konsultacja, 200+ projektów.'
-    : 'Telegram-боты от $100, лендинги от $150, интернет-магазины от $400, UI/UX от $150. Чат-боты с оплатой, CRM, e-commerce на Next.js. Бесплатная консультация, 200+ проектов.';
-
-  const keywords = lang === 'uk'
-    ? 'послуги TeleBots, розробка Telegram-ботів, замовити телеграм бота, чат-бот для бізнесу, чат бот ціна, розробка чат ботів ціна, розробка сайту під ключ, інтернет-магазин під ключ, UI/UX, автоматизація бізнесу'
-    : lang === 'en'
-    ? 'services, order telegram bot, telegram bot development price, create Telegram bot, chatbot for business, website development turnkey, create online store, parser development, logo design, UI/UX design, business automation'
-    : lang === 'pl'
-    ? 'usługi, zamówienie bota Telegram, cena rozwoju bota, stworzyć bota Telegram, chatbot dla biznesu, strona pod klucz, sklep internetowy, rozwój parsera, projekt logo, UI/UX, automatyzacja biznesu'
-    : 'услуги, заказать телеграм бота, разработка телеграм бота цена, создать бота Telegram, чат-бот для бизнеса, разработка сайта под ключ, создать интернет-магазин, разработка парсера, дизайн логотипа, UI/UX, автоматизация бизнеса';
+  const { title, description, keywords } = getHubPageSeo('services', lang);
 
   return {
     ...generateSEOMetadata({
       title,
       description,
       keywords,
+      image: '/services/services-hero_new.jpg',
       url: `${baseUrl}/${lang}/services`,
       lang,
     }),

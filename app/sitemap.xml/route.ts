@@ -3,7 +3,7 @@ import { cases } from '@/components/cases';
 import { getFlagshipCaseIds } from '@/lib/portfolioCases';
 import { buildHreflangXmlLinks } from '@/lib/seo';
 import { SEO_LANDING_SLUGS } from '@/lib/seoLandings';
-import { SITE_PAGE_LASTMOD } from '@/lib/sitemapDates';
+import { SITE_PAGE_LASTMOD, getCaseStudyLastmod } from '@/lib/sitemapDates';
 import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
 
 function escapeXml(str: string): string {
@@ -33,6 +33,9 @@ export async function GET() {
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_PAGE_LASTMOD.contact },
     { path: '/pricing', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_PAGE_LASTMOD.pricing },
     { path: '/offer', priority: 0.85, changeFrequency: 'weekly', lastmod: SITE_PAGE_LASTMOD.offer },
+    { path: '/privacy', priority: 0.3, changeFrequency: 'yearly', lastmod: SITE_PAGE_LASTMOD.legal },
+    { path: '/terms', priority: 0.3, changeFrequency: 'yearly', lastmod: SITE_PAGE_LASTMOD.legal },
+    { path: '/refund', priority: 0.3, changeFrequency: 'yearly', lastmod: SITE_PAGE_LASTMOD.legal },
   ];
 
   const lines: string[] = [
@@ -110,7 +113,7 @@ export async function GET() {
         lines.push(`      <image:loc>${escapeXml(`${baseUrl}${caseData.mainImage}`)}</image:loc>`);
         lines.push('    </image:image>');
       }
-      lines.push(`    <lastmod>${SITE_PAGE_LASTMOD.caseStudy}</lastmod>`);
+      lines.push(`    <lastmod>${getCaseStudyLastmod(caseId)}</lastmod>`);
       lines.push('    <changefreq>monthly</changefreq>');
       lines.push('    <priority>0.7</priority>');
       lines.push('  </url>');

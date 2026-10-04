@@ -212,7 +212,7 @@ export const RU_WEBSITE_INTENT: Record<WebsiteIntentSlug, SeoLandingCopy> = {
   'website-development-price': buildWebsiteIntentLanding(
     { ...LABELS, ...SITE_PRICE_BODY },
     {
-      metaTitle: 'Разработка сайта цена | от $150 — TeleBots',
+      metaTitle: 'Разработка сайта цена | от $150',
       metaDescription:
         'Разработка сайта: цена от $150 (лендинг), корпоративный от $500, интернет-магазин от $400. Next.js, SEO, админка. 200+ проектов. Бесплатная консультация.',
       keywords:

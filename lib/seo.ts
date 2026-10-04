@@ -1,6 +1,7 @@
 import { Language } from '@/components/translations';
 import { cases } from '@/components/cases';
 import { legal } from '@/lib/legal';
+import { getCaseStudyLastmod } from '@/lib/sitemapDates';
 import { isFlagshipCase } from '@/lib/portfolioCaseTiers';
 import { siteUrl, SITE_LANGUAGES, DEFAULT_SITE_LANGUAGE, type SiteLanguage } from '@/lib/site';
 
@@ -462,7 +463,7 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
 
 /** Stable case-study dates for Article JSON-LD + Open Graph (no per-case chronology yet). */
 export const CASE_ARTICLE_PUBLISHED = '2025-01-15';
-export const CASE_ARTICLE_MODIFIED = '2026-08-01';
+export const CASE_ARTICLE_MODIFIED = '2026-10-04';
 
 export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
   if (!isFlagshipCase(caseId)) return null;
@@ -487,7 +488,7 @@ export function generateArticleSchema(caseId: string, lang: Language = 'uk') {
     description: buildCaseSeoDescription(caseData, lang),
     image: `${baseUrl}${caseData.mainImage}`,
     datePublished: CASE_ARTICLE_PUBLISHED,
-    dateModified: CASE_ARTICLE_MODIFIED,
+    dateModified: getCaseStudyLastmod(caseId),
     articleSection: caseData.category || 'Case Study',
     keywords: buildCaseSeoKeywords({
       title: caseData.title,

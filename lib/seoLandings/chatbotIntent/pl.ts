@@ -256,7 +256,7 @@ export const PL_CHATBOT_INTENT: Record<ChatbotIntentSlug, SeoLandingCopy> = {
   'chatbot-development-price': buildChatbotIntentLanding(
     { ...LABELS, ...PRICE_BODY },
     {
-      metaTitle: 'Rozwój chatbotów cena | od $100 — TeleBots',
+      metaTitle: 'Rozwój chatbotów cena | od $100',
       metaDescription:
         'Cena rozwoju chatbotów od $100. Pakiety LITE/PRO/CUSTOM. Telegram z płatnościami, CRM, AI. 200+ projektów.',
       keywords: 'rozwój chatbotów cena, cena chatbota, koszt bota telegram, TeleBots',
