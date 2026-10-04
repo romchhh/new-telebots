@@ -11,6 +11,7 @@ import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/Keyboar
 import { translations, type Language } from '@/components/translations';
 import { offerPageCopy, OFFER_TELEGRAM_URL } from '@/lib/offerPageCopy';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
+import { HORIZONTAL_SCROLL_OVERFLOW } from '@/lib/siteUi';
 import { getPortfolioCards } from '@/lib/portfolioCards';
 
 const display = { fontFamily: 'var(--font-display)' } as const;
@@ -299,7 +300,7 @@ export default function OfferPageClient({ lang }: { lang: Language }) {
                 {p.whoLink} →
               </Link>
             </div>
-            <div className="-mx-4 overflow-x-auto px-4 pb-2 [scrollbar-width:thin] sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+            <div className={`-mx-4 px-4 pb-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 ${HORIZONTAL_SCROLL_OVERFLOW}`}>
               <div className="flex w-max gap-5">
                 {showcaseCards.map((card) => (
                   <PortfolioCaseCard

@@ -14,6 +14,8 @@ import {
 import {
   BTN_ARROW_CIRCLE_OUTLINE,
   BTN_NAV_CIRCLE,
+  HORIZONTAL_SCROLL_RAIL,
+  HORIZONTAL_SCROLL_WRAP,
   ICON_ARROW_IN_CIRCLE,
   ICON_ARROW_NAV,
 } from '@/lib/siteUi';
@@ -110,11 +112,10 @@ export default function PortfolioShowcaseScroller({
         </div>
       </div>
 
-      <div className="mt-0 w-full min-w-0 overflow-hidden">
+      <div className={HORIZONTAL_SCROLL_WRAP}>
         <div
           ref={scrollerRef}
-          className={`flex w-full min-w-0 snap-x snap-mandatory gap-4 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-1 sm:gap-5 lg:gap-6 ${SITE_PX} [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden lg:[scrollbar-width:thin] lg:[scrollbar-color:rgba(0,0,0,0.2)_transparent] lg:[&::-webkit-scrollbar]:h-1.5 lg:[&::-webkit-scrollbar-thumb]:rounded-full lg:[&::-webkit-scrollbar-thumb]:bg-neutral-300`}
-          style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
+          className={`${HORIZONTAL_SCROLL_RAIL} gap-4 pb-1 sm:gap-5 lg:gap-6 ${SITE_PX}`}
         >
           {cards.map((card, index) => {
             const wideOnLg = index % 3 === 1;

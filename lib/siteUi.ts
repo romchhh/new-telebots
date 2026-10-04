@@ -120,3 +120,16 @@ export const SERVICE_CARD_TITLE =
   'text-xl font-semibold leading-snug tracking-tight text-black sm:text-2xl';
 
 export const SERVICE_CARD_BODY = 'text-base leading-relaxed text-neutral-600 sm:text-lg';
+
+/** Обгортка горизонтального скролу — без overflow:hidden (ламає вертикальний скрол сторінки на touch) */
+export const HORIZONTAL_SCROLL_WRAP = 'w-full min-w-0';
+
+/**
+ * Карусель з snap. Не використовувати touch-action: pan-x — блокує вертикальний скрол на мобільному.
+ * Додайте gap/padding через className (наприклад `${SITE_PX}`).
+ */
+export const HORIZONTAL_SCROLL_RAIL =
+  'scroll-rail-x flex w-full min-w-0 snap-x snap-mandatory overflow-x-auto overscroll-x-contain scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden lg:[scrollbar-width:thin] lg:[scrollbar-color:rgba(0,0,0,0.2)_transparent] lg:[&::-webkit-scrollbar]:h-1.5 lg:[&::-webkit-scrollbar-thumb]:rounded-full lg:[&::-webkit-scrollbar-thumb]:bg-neutral-300';
+
+/** Простий горизонтальний overflow (пов’язані кейси, offer) */
+export const HORIZONTAL_SCROLL_OVERFLOW = 'scroll-rail-x overflow-x-auto overscroll-x-contain [scrollbar-width:thin]';

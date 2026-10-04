@@ -19,7 +19,6 @@ import {
   RADIUS_PILL,
   SHELL_LIGHT,
   TEXTAREA_LIGHT,
-  TYPE_EYEBROW,
   TYPE_SECTION_TITLE,
 } from '@/lib/siteUi';
 
@@ -39,6 +38,7 @@ interface OrderModalProps {
 
 const fieldClass = INPUT_LIGHT;
 const textareaClass = `${TEXTAREA_LIGHT} min-h-[96px]`;
+const sans = { fontFamily: 'var(--font-sans)' };
 
 export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }: OrderModalProps) {
   const titleId = useId();
@@ -125,11 +125,15 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
             <X className="h-4 w-4" strokeWidth={2.25} />
           </button>
 
-          <p className={`mb-2 pr-12 ${TYPE_EYEBROW} text-brand`}>{t.contact.formEyebrow}</p>
-          <h2 id={titleId} className={`mb-1 pr-10 ${TYPE_SECTION_TITLE} text-neutral-900 md:text-3xl`}>
+          <h2 id={titleId} className={`mb-3 pr-10 ${TYPE_SECTION_TITLE} text-neutral-900 md:text-3xl`}>
             {t.modal.title}
           </h2>
-          {serviceName ? <p className="mb-6 text-sm text-neutral-500">{serviceName}</p> : <div className="mb-6" />}
+          <p className="mb-6 max-w-md text-base leading-relaxed text-neutral-600" style={sans}>
+            {t.modal.lead}
+            {serviceName ? (
+              <span className="mt-2 block text-sm text-neutral-500">{serviceName}</span>
+            ) : null}
+          </p>
 
           <form
             onSubmit={handleSubmit}
@@ -155,7 +159,7 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
               <PhoneNumberField
                 id="order-phone"
                 required
-                placeholder={t.modal.phonePlaceholder}
+                placeholder={`${t.modal.phonePlaceholder} *`}
                 ariaLabel={t.modal.phone}
                 toolparamdescription={WEBMCP_ORDER.params.phone}
               />
@@ -172,23 +176,19 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
             </div>
 
             <div className="mt-5 space-y-4 border-t border-neutral-100 pt-5">
-              <p className="text-xs leading-relaxed text-neutral-500">
-                {t.contact.consentBefore}{' '}
-                <Link href={`/${lang}/privacy`} className="text-brand underline underline-offset-2 hover:text-brand-dark">
-                  {t.contact.consentLink}
-                </Link>
-              </p>
               {error ? (
                 <p role="alert" className="text-sm font-medium text-red-600">
                   {error}
                 </p>
               ) : null}
               <button type="submit" disabled={sending} className={`w-full ${BTN_BRAND}`}>
-                {sending ? SUBMITTING[lang] : t.contact.submitDiscuss}
+                {sending ? SUBMITTING[lang] : t.modal.submit}
               </button>
-
-              <p className="text-center text-xs font-medium uppercase tracking-[0.12em] text-neutral-400">
-                {t.modal.orWriteDirectly}
+              <p className="text-[11px] leading-relaxed text-neutral-500 sm:text-xs">
+                {t.contact.consentBefore}{' '}
+                <Link href={`/${lang}/privacy`} className="text-neutral-700 underline underline-offset-2 hover:text-neutral-900">
+                  {t.contact.consentLink}
+                </Link>
               </p>
               <div className="flex w-full gap-2 pb-1">
                 <a

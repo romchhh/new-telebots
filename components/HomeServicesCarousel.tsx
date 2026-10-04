@@ -11,6 +11,8 @@ import {
   BTN_NAV_CIRCLE,
   CTA_ARROW_CIRCLE,
   CTA_ARROW_ICON,
+  HORIZONTAL_SCROLL_RAIL,
+  HORIZONTAL_SCROLL_WRAP,
   ICON_ARROW_NAV,
   RADIUS_PILL,
   RADIUS_SHELL,
@@ -71,7 +73,7 @@ export default function HomeServicesCarousel({ copy, lang, linkLabel }: HomeServ
             >
               {copy.lead}
             </p>
-            <div className="flex gap-2.5 self-start lg:self-end">
+            <div className="hidden gap-2.5 lg:flex">
               <button
                 type="button"
                 onClick={() => scrollByCard(-1)}
@@ -93,11 +95,10 @@ export default function HomeServicesCarousel({ copy, lang, linkLabel }: HomeServ
         </div>
       </div>
 
-      <div className="w-full min-w-0 overflow-hidden">
+      <div className={HORIZONTAL_SCROLL_WRAP}>
         <div
           ref={scrollerRef}
-          className={`flex w-full min-w-0 snap-x snap-mandatory gap-5 overflow-x-auto overflow-y-hidden overscroll-x-contain scroll-smooth pb-2 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden sm:gap-6 ${SITE_PX}`}
-          style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-x' }}
+          className={`${HORIZONTAL_SCROLL_RAIL} gap-5 pb-2 sm:gap-6 ${SITE_PX}`}
         >
           {copy.cards.map((card, index) => {
             const num = String(index + 1).padStart(2, '0');

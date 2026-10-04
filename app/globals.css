@@ -76,6 +76,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/**
+ * Horizontal scroll rails — native overflow-x, vertical page scroll stays enabled.
+ * Never combine with touch-action: pan-x on the same element.
+ */
+.scroll-rail-x {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+}
+
 /* Заголовки поза hero — Manrope; hero перевизначає через --font-montserrat */
 h1,
 h2,

@@ -623,17 +623,17 @@ export const translations = {
       }
     },
     modal: {
-      title: 'Замовити розробку',
+      title: 'Обговоримо ваш проєкт',
+      lead: 'Залиште імʼя та телефон — передзвонимо й уточнимо задачу. Короткий опис необовʼязковий.',
       name: 'Ім\'я',
-      namePlaceholder: 'Введіть ваше ім\'я',
+      namePlaceholder: 'Як вас звати?',
       phone: 'Номер телефону',
       phonePlaceholder: '+380…, +48…, +1…',
-      request: 'Запит (необов\'язково)',
-      requestPlaceholder: 'Опишіть ваш проєкт...',
-      submit: 'Відправити заявку',
+      request: 'Про проєкт (необов\'язково)',
+      requestPlaceholder: 'Наприклад: сайт, Telegram-бот, дизайн…',
+      submit: 'Надіслати заявку',
       close: 'Закрити',
       success: 'Дякуємо! Ми зв\'яжемося з вами найближчим часом.',
-      orWriteDirectly: 'Або напишіть нам напряму:'
     },
     footer: {
       description: 'Професійна розробка та дизайн для вашого бізнесу: боти, сайти, лого, айдентика, UI/UX.',
@@ -1307,17 +1307,17 @@ export const translations = {
       }
     },
     modal: {
-      title: 'Order Development',
+      title: "Let's discuss your project",
+      lead: 'Leave your name and phone — we will call back to clarify. A short note is optional.',
       name: 'Name',
-      namePlaceholder: 'Enter your name',
-      phone: 'Phone Number',
+      namePlaceholder: 'Your name',
+      phone: 'Phone number',
       phonePlaceholder: '+1, +44, +48…',
-      request: 'Request (optional)',
-      requestPlaceholder: 'Describe your project...',
-      submit: 'Submit Request',
+      request: 'About the project (optional)',
+      requestPlaceholder: 'e.g. website, Telegram bot, design…',
+      submit: 'Send request',
       close: 'Close',
       success: 'Thank you! We will contact you soon.',
-      orWriteDirectly: 'Or write to us directly:'
     },
     footer: {
       description: 'Professional development and design for your business: bots, websites, logos, brand identity, UI/UX.',
@@ -1991,17 +1991,17 @@ export const translations = {
       }
     },
     modal: {
-      title: 'Zamów rozwój',
+      title: 'Omówmy Twój projekt',
+      lead: 'Zostaw imię i telefon — oddzwonimy i doprecyzujemy. Krótki opis jest opcjonalny.',
       name: 'Imię',
-      namePlaceholder: 'Wpisz swoje imię',
+      namePlaceholder: 'Jak masz na imię?',
       phone: 'Numer telefonu',
       phonePlaceholder: '+48…, +380…, +49…',
-      request: 'Zapytanie (opcjonalne)',
-      requestPlaceholder: 'Opisz swój projekt...',
-      submit: 'Wyślij zapytanie',
+      request: 'O projekcie (opcjonalnie)',
+      requestPlaceholder: 'Np. strona, bot Telegram, design…',
+      submit: 'Wyślij zgłoszenie',
       close: 'Zamknij',
       success: 'Dziękujemy! Skontaktujemy się z Tobą wkrótce.',
-      orWriteDirectly: 'Lub napisz do nas bezpośrednio:'
     },
     footer: {
       description: 'Profesjonalna realizacja i design dla Twojego biznesu: boty, strony, logo, identyfikacja wizualna, UI/UX.',
@@ -2675,17 +2675,17 @@ export const translations = {
       }
     },
     modal: {
-      title: 'Заказать разработку',
+      title: 'Обсудим ваш проект',
+      lead: 'Оставьте имя и телефон — перезвоним и уточним задачу. Краткое описание необязательно.',
       name: 'Имя',
-      namePlaceholder: 'Введите ваше имя',
+      namePlaceholder: 'Как вас зовут?',
       phone: 'Номер телефона',
       phonePlaceholder: '+380…, +48…, +1…',
-      request: 'Запрос (необязательно)',
-      requestPlaceholder: 'Опишите ваш проект...',
+      request: 'О проекте (необязательно)',
+      requestPlaceholder: 'Например: сайт, Telegram-бот, дизайн…',
       submit: 'Отправить заявку',
       close: 'Закрыть',
       success: 'Спасибо! Мы свяжемся с вами в ближайшее время.',
-      orWriteDirectly: 'Или напишите нам напрямую:'
     },
     footer: {
       description: 'Профессиональная разработка и дизайн для вашего бизнеса: боты, сайты, логотипы, айдентика, UI/UX. В команде есть дизайнер.',
