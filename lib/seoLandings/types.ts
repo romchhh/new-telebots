@@ -114,12 +114,12 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/services/services-hero_new.jpg',
     ],
     caseIds: [
+      'flix-market',
+      'royal-glow',
       '12-feet',
       'filo-estate',
       'butenko-fit',
       'zavadska',
-      'royal-academy',
-      'emvi-digital',
     ],
   },
   'online-stores': {
@@ -130,7 +130,7 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero-macbook.jpg',
       '/other/about-hero.png',
     ],
-    caseIds: ['13vplus', 'chars-kyiv', '13pm', 'toptrendshop', 'nieznany-piekarz', 'kreona'],
+    caseIds: ['flix-market', '13vplus', 'chars-kyiv', '13pm', 'toptrendshop', 'nieznany-piekarz'],
   },
   'ai-chatbots': {
     hero: '/services/services-chatbots.jpg',
@@ -218,7 +218,7 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero.png',
       '/services/services-hero_new.jpg',
     ],
-    caseIds: ['12-feet', 'filo-estate', 'butenko-fit', 'zavadska', 'royal-academy', 'emvi-digital'],
+    caseIds: ['flix-market', 'royal-glow', '12-feet', 'filo-estate', 'butenko-fit', 'zavadska'],
   },
   'landing-page-price': {
     hero: '/services/services-websites.jpg',
@@ -228,7 +228,7 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero.png',
       '/services/services-hero_new.jpg',
     ],
-    caseIds: ['12-feet', 'filo-estate', 'butenko-fit', 'zavadska', 'royal-academy', 'emvi-digital'],
+    caseIds: ['flix-market', 'royal-glow', '12-feet', 'filo-estate', 'butenko-fit', 'zavadska'],
   },
   'online-store-price': {
     hero: '/services/services-websites.jpg',
@@ -238,6 +238,6 @@ export const SEO_LANDING_MEDIA: Record<SeoLandingSlug, SeoLandingMedia> = {
       '/other/about-hero-macbook.jpg',
       '/other/about-hero.png',
     ],
-    caseIds: ['13vplus', 'chars-kyiv', '13pm', 'toptrendshop', 'nieznany-piekarz', 'kreona'],
+    caseIds: ['flix-market', '13vplus', 'chars-kyiv', '13pm', 'toptrendshop', 'nieznany-piekarz'],
   },
 };

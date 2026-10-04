@@ -51,6 +51,48 @@ const t = (
 /** Активні картки хабу /portfolio — порядок відображення. */
 export const PORTFOLIO_CARDS: PortfolioCard[] = [
   {
+    id: 'flix-market',
+    image: '/portfolio/portfolio-flix-market.jpg',
+    category: 'websites',
+    liveUrl: 'https://flix-market.com/',
+    copy: t(
+      'FLIX MARKET',
+      'Сайт-каталог підписок: Netflix, TV, AI — оплата й кабінет',
+      'Subscription catalog site: Netflix, TV, AI — pay & cabinet',
+      ['E-commerce', 'Subscriptions', 'Monobank'],
+      ['E-commerce', 'Subscriptions', 'Monobank'],
+      'Каталог • Кабінет • Автовидача • Mobile',
+      'Catalog • Cabinet • Auto-delivery • Mobile',
+      'Katalog subskrypcji: Netflix, TV, AI — płatność i panel',
+      'Сайт-каталог подписок: Netflix, TV, AI — оплата и кабинет',
+      ['E-commerce', 'Subskrypcje', 'Monobank'],
+      ['E-commerce', 'Подписки', 'Monobank'],
+      'Katalog • Panel • Autowydanie • Mobile',
+      'Каталог • Кабинет • Автовыдача • Mobile'
+    ),
+  },
+  {
+    id: 'royal-glow',
+    image: '/portfolio/portfolio-royal-glow.jpg',
+    category: 'websites',
+    liveUrl: 'https://www.royalglow.services/',
+    copy: t(
+      'ROYAL GLOW',
+      'Сайт клінінгу в New Jersey: послуги, ціни, онлайн-заявка',
+      'NJ cleaning site: services, pricing, online booking',
+      ['Cleaning', 'Booking', 'Local SEO'],
+      ['Cleaning', 'Booking', 'Local SEO'],
+      'Standard • Deep Clean • ZIP quote • Mobile',
+      'Standard • Deep Clean • ZIP quote • Mobile',
+      'Strona sprzątania w New Jersey: usługi, ceny, booking',
+      'Сайт клининга в New Jersey: услуги, цены, онлайн-заявка',
+      ['Sprzątanie', 'Booking', 'Local SEO'],
+      ['Клининг', 'Booking', 'Local SEO'],
+      'Standard • Deep Clean • Wycena ZIP • Mobile',
+      'Standard • Deep Clean • ZIP-оценка • Mobile'
+    ),
+  },
+  {
     id: '12-feet',
     image: '/portfolio/portfolio-12-feet.jpg',
     category: 'websites',

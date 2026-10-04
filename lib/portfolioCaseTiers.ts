@@ -5,6 +5,8 @@
 
 /** Активні кейси з картками на хабі — окремі URL /portfolio/[slug]. */
 export const LIVE_CASE_IDS = [
+  'flix-market',
+  'royal-glow',
   '12-feet',
   'filo-estate',
   'tradeground-bot',

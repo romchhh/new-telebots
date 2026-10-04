@@ -815,6 +815,408 @@ const vevyne: CaseStudyDefinition = {
   }),
 };
 
+const flixMarketWeb: CaseStudyDefinition = {
+  id: 'flix-market',
+  liveUrl: 'https://flix-market.com/',
+  mainImage: '/portfolio/portfolio-flix-market.jpg',
+  portfolioCategory: 'websites',
+  copy: withRelated({
+    uk: {
+      breadcrumbLabel: 'Flix Market',
+      seoTitle: 'Кейс Flix Market: сайт-каталог цифрових підписок',
+      heroTitle: 'Flix Market — сайт для оформлення підписок без зайвих рухів',
+      heroLead:
+        'Зробили веб-каталог для сервісу цифрових підписок: Netflix, TV, AI та інші. Задача — дати зручний шлях поруч із Telegram-ботом: обрати тариф, оплатити через Monobank і забрати доступ у кабінеті за пару хвилин.',
+      visitSite: 'Відкрити сайт',
+      stats: [
+        { value: '2 хв', label: 'від оплати до доступу' },
+        { value: '1', label: 'каталог + особистий кабінет' },
+        { value: '↑', label: 'оплата Monobank' },
+        { value: '↑', label: 'автовидача замовлень' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Завдання проєкту Flix Market',
+        lead:
+          'Частина клієнтів хоче купувати не лише в боті, а на звичному сайті: з каталогом, цінами й кабінетом. Потрібно було зберегти швидкість сценарію «оплатив — отримав» і не розгубити довіру.',
+        items: [
+          'Каталог мав показувати наявність і ціну «на сьогодні»',
+          'Фільтри за категоріями: акції, кіно, TV, AI',
+          'Оплата карткою через Monobank у пару кліків',
+          'Кабінет із підписками, строками й кодами 2FA',
+          'Звʼязка з ботом — щоб звичні клієнти не губились',
+          'Мобільна версія під швидке оформлення з телефону',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Розробка рішення для Flix Market',
+        lead:
+          'Зібрали легкий e-commerce під цифровий товар: каталог, checkout, кабінет і підтримка поруч із ботом.',
+        items: [
+          'Каталог підписок із картками оферів і CTA «Оформити»',
+          'Категорії: акційні, кіносервіси, телебачення, AI',
+          'Сценарій у 3 кроки: обрав → оплатив → зайшов у кабінет',
+          'Особистий кабінет: статуси, дати, коди підтвердження',
+          'Блок довіри: відгуки, заміна при збої, живий чат',
+          'Адаптив і звʼязка з Telegram-ботом / VPN-офером',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Сайт, на якому підписку оформлюють без зайвих рухів: видно ціну, є оплата й кабінет із доступами. Канал продажів розширився за межі бота — без втрати швидкості видачі.',
+      },
+    },
+    en: {
+      breadcrumbLabel: 'Flix Market',
+      seoTitle: 'Flix Market case: digital subscriptions catalog site',
+      heroTitle: 'Flix Market — subscription catalog site with pay & cabinet',
+      heroLead:
+        'We built a web catalog for a digital subscriptions service: Netflix, TV, AI and more. The goal was a smooth path alongside the Telegram bot: pick a plan, pay via Monobank, get access in the cabinet within minutes.',
+      visitSite: 'Visit site',
+      stats: [
+        { value: '2 min', label: 'from payment to access' },
+        { value: '1', label: 'catalog + personal cabinet' },
+        { value: '↑', label: 'Monobank payments' },
+        { value: '↑', label: 'auto order delivery' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Project challenge: Flix Market',
+        lead:
+          'Some clients prefer buying on a normal website — not only in a bot. We needed to keep the “pay → get access” speed and not lose trust.',
+        items: [
+          'Catalog had to show availability and today’s price',
+          'Filters by category: promos, cinema, TV, AI',
+          'Card payment via Monobank in a few clicks',
+          'Cabinet with subscriptions, dates and 2FA codes',
+          'Bot connection so existing clients are not lost',
+          'Mobile UX for fast checkout on the phone',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Solution built for Flix Market',
+        lead:
+          'We shipped a light e-commerce for digital goods: catalog, checkout, cabinet and support next to the bot.',
+        items: [
+          'Subscription catalog with offer cards and Order CTAs',
+          'Categories: promos, cinema, TV, AI',
+          'Three-step flow: choose → pay → open cabinet',
+          'Personal cabinet: statuses, dates, confirmation codes',
+          'Trust blocks: reviews, replacement on failure, live chat',
+          'Responsive design and link to the Telegram bot / VPN offer',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Result',
+        text:
+          'A site where subscriptions are ordered without friction: clear prices, payment and a cabinet with access. Sales moved beyond the bot without losing delivery speed.',
+      },
+    },
+    pl: {
+      breadcrumbLabel: 'Flix Market',
+      seoTitle: 'Case Flix Market: katalog subskrypcji cyfrowych',
+      heroTitle: 'Flix Market — strona katalogu subskrypcji z płatnością i panelem',
+      heroLead:
+        'Zrobiliśmy katalog webowy dla serwisu subskrypcji cyfrowych: Netflix, TV, AI i więcej. Cel — wygodna ścieżka obok bota Telegram: wybór planu, płatność Monobank i dostęp w panelu w kilka minut.',
+      visitSite: 'Otwórz stronę',
+      stats: [
+        { value: '2 min', label: 'od płatności do dostępu' },
+        { value: '1', label: 'katalog + panel klienta' },
+        { value: '↑', label: 'płatności Monobank' },
+        { value: '↑', label: 'autowydanie zamówień' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Wyzwanie projektu Flix Market',
+        lead:
+          'Część klientów chce kupować na zwykłej stronie, nie tylko w bocie. Trzeba było zachować szybkość „zapłać → otrzymaj” i nie stracić zaufania.',
+        items: [
+          'Katalog miał pokazywać dostępność i cenę na dziś',
+          'Filtry: promocje, kino, TV, AI',
+          'Płatność kartą przez Monobank w kilka kliknięć',
+          'Panel z subskrypcjami, terminami i kodami 2FA',
+          'Powiązanie z botem dla stałych klientów',
+          'Mobile pod szybkie zamówienie z telefonu',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Rozwiązanie dla Flix Market',
+        lead:
+          'Zebraliśmy lekki e-commerce pod towar cyfrowy: katalog, checkout, panel i wsparcie obok bota.',
+        items: [
+          'Katalog subskrypcji z kartami ofert i CTA „Zamów”',
+          'Kategorie: promocje, kino, TV, AI',
+          '3 kroki: wybierz → zapłać → wejdź do panelu',
+          'Panel klienta: statusy, daty, kody potwierdzenia',
+          'Blok zaufania: opinie, wymiana przy awarii, żywy chat',
+          'Responsywność i link do bota Telegram / oferty VPN',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Efekt',
+        text:
+          'Strona, na której subskrypcję bierzesz bez zbędnych ruchów: widać cenę, jest płatność i panel z dostępami. Kanał sprzedaży wyszedł poza bota — bez utraty szybkości wydania.',
+      },
+    },
+    ru: {
+      breadcrumbLabel: 'Flix Market',
+      seoTitle: 'Кейс Flix Market: сайт-каталог цифровых подписок',
+      heroTitle: 'Flix Market — сайт для оформления подписок без лишних движений',
+      heroLead:
+        'Сделали веб-каталог для сервиса цифровых подписок: Netflix, TV, AI и другие. Задача — удобный путь рядом с Telegram-ботом: выбрать тариф, оплатить через Monobank и забрать доступ в кабинете за пару минут.',
+      visitSite: 'Открыть сайт',
+      stats: [
+        { value: '2 мин', label: 'от оплаты до доступа' },
+        { value: '1', label: 'каталог + личный кабинет' },
+        { value: '↑', label: 'оплата Monobank' },
+        { value: '↑', label: 'автовыдача заказов' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Задача проекта Flix Market',
+        lead:
+          'Часть клиентов хочет покупать не только в боте, а на привычном сайте: с каталогом, ценами и кабинетом. Нужно было сохранить скорость сценария «оплатил — получил» и не потерять доверие.',
+        items: [
+          'Каталог должен показывать наличие и цену «на сегодня»',
+          'Фильтры по категориям: акции, кино, TV, AI',
+          'Оплата картой через Monobank в пару кликов',
+          'Кабинет с подписками, сроками и кодами 2FA',
+          'Связка с ботом — чтобы привычные клиенты не терялись',
+          'Мобильная версия под быстрое оформление с телефона',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Решение для Flix Market',
+        lead:
+          'Собрали лёгкий e-commerce под цифровой товар: каталог, checkout, кабинет и поддержка рядом с ботом.',
+        items: [
+          'Каталог подписок с карточками офферов и CTA «Оформить»',
+          'Категории: акции, киносервисы, телевидение, AI',
+          'Сценарий в 3 шага: выбрал → оплатил → зашёл в кабинет',
+          'Личный кабинет: статусы, даты, коды подтверждения',
+          'Блок доверия: отзывы, замена при сбое, живой чат',
+          'Адаптив и связка с Telegram-ботом / VPN-оффером',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Сайт, на котором подписку оформляют без лишних движений: видна цена, есть оплата и кабинет с доступами. Канал продаж расширился за пределы бота — без потери скорости выдачи.',
+      },
+    },
+  }),
+};
+
+const royalGlow: CaseStudyDefinition = {
+  id: 'royal-glow',
+  liveUrl: 'https://www.royalglow.services/',
+  mainImage: '/portfolio/portfolio-royal-glow.jpg',
+  portfolioCategory: 'websites',
+  copy: withRelated({
+    uk: {
+      breadcrumbLabel: 'Royal Glow',
+      seoTitle: 'Кейс Royal Glow: сайт клінінгу в New Jersey',
+      heroTitle: 'Royal Glow — сайт преміального клінінгу в New Jersey',
+      heroLead:
+        'Зробили сайт для сервісу домашнього клінінгу в Monmouth, Ocean, Mercer і Burlington Counties. Задача — виглядати як преміум-бренд, чітко показати типи прибирань і ціни та зібрати заявку за кілька хвилин: ZIP, послуга, контакти.',
+      visitSite: 'Відкрити сайт',
+      stats: [
+        { value: '4', label: 'типи прибирань' },
+        { value: '118+', label: 'міст у зоні сервісу' },
+        { value: '1', label: 'онлайн-заявка з ZIP' },
+        { value: '↑', label: 'прозорі стартові ціни' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Завдання проєкту Royal Glow',
+        lead:
+          'Локальний клінінг у NJ конкурує з десятками «швидких» сайтів. Потрібен був лендінг, який продає довіру: хто приїде, скільки коштує, які райони покриваємо — і куди натиснути, щоб забронювати.',
+        items: [
+          'Преміальний тон без «дешевого клінінгу»',
+          'Чітка різниця між Standard, Deep, Move-In/Out і Laundry',
+          'Прозорі стартові ціни за розміром будинку',
+          'Зона покриття по counties і містах — без плутанини',
+          'Швидкий сценарій заявки: ZIP + послуга + контакт',
+          'Мобільна версія під дзвінок і бронювання з телефону',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Розробка рішення для Royal Glow',
+        lead:
+          'Зібрали продаючий сайт під локальний сервіс: оффер, послуги, прайс, зона роботи, FAQ і форма бронювання.',
+        items: [
+          'Hero з чітким оффером і CTA Book / Free quote',
+          'Картки послуг із деталями та стартовими цінами',
+          'Блок How it works — 3 кроки до чистого дому',
+          'Прайс за розміром будинку + add-ons',
+          'Service area по counties із перевіркою ZIP',
+          'Форма заявки, відгуки, FAQ і контакти під конверсію',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Сайт, який виглядає як преміальний локальний бренд і реально збирає заявки: клієнт розуміє послугу, ціну й зону покриття — і залишає запит або дзвонить без зайвих кроків.',
+      },
+    },
+    en: {
+      breadcrumbLabel: 'Royal Glow',
+      seoTitle: 'Royal Glow case: New Jersey cleaning website',
+      heroTitle: 'Royal Glow — premium home cleaning website in New Jersey',
+      heroLead:
+        'We built a site for a residential cleaning service across Monmouth, Ocean, Mercer and Burlington Counties. The goal: premium brand feel, clear service types and pricing, and a booking flow that takes minutes — ZIP, service, contact.',
+      visitSite: 'Visit site',
+      stats: [
+        { value: '4', label: 'cleaning service types' },
+        { value: '118+', label: 'cities in service area' },
+        { value: '1', label: 'online quote with ZIP' },
+        { value: '↑', label: 'transparent starting rates' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Project challenge: Royal Glow',
+        lead:
+          'Local NJ cleaning competes with dozens of generic sites. The brand needed a page that sells trust: who shows up, what it costs, which areas are covered — and where to book.',
+        items: [
+          'Premium tone without looking like cheap cleaning ads',
+          'Clear difference between Standard, Deep, Move-In/Out and Laundry',
+          'Transparent starting prices by home size',
+          'Coverage by counties and towns without confusion',
+          'Fast lead flow: ZIP + service + contact',
+          'Mobile UX for call and book on the phone',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Solution built for Royal Glow',
+        lead:
+          'We shipped a conversion-focused local service site: offer, services, pricing, coverage, FAQ and booking form.',
+        items: [
+          'Hero with a clear offer and Book / Free quote CTAs',
+          'Service cards with details and starting prices',
+          'How it works — three steps to a clean home',
+          'Pricing by home size plus add-ons',
+          'Service area by county with ZIP check',
+          'Lead form, reviews, FAQ and contacts tuned for conversion',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Result',
+        text:
+          'A site that reads as a premium local brand and actually collects leads: clients understand the service, price and coverage — then request a quote or call without friction.',
+      },
+    },
+    pl: {
+      breadcrumbLabel: 'Royal Glow',
+      seoTitle: 'Case Royal Glow: strona sprzątania w New Jersey',
+      heroTitle: 'Royal Glow — strona premium sprzątania domów w New Jersey',
+      heroLead:
+        'Zrobiliśmy stronę dla serwisu sprzątania domów w Monmouth, Ocean, Mercer i Burlington Counties. Cel: premium odbiór marki, czytelne typy usług i ceny oraz booking w kilka minut — ZIP, usługa, kontakt.',
+      visitSite: 'Otwórz stronę',
+      stats: [
+        { value: '4', label: 'typy sprzątania' },
+        { value: '118+', label: 'miast w obszarze usług' },
+        { value: '1', label: 'wycena online z ZIP' },
+        { value: '↑', label: 'przejrzyste ceny startowe' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Wyzwanie projektu Royal Glow',
+        lead:
+          'Lokalne sprzątanie w NJ konkuruje z dziesiątkami generycznych stron. Potrzebna była strona, która sprzedaje zaufanie: kto przyjedzie, ile kosztuje, jakie tereny obsługujemy — i gdzie kliknąć, by zarezerwować.',
+        items: [
+          'Premium ton bez wrażenia „taniego sprzątania”',
+          'Jasna różnica między Standard, Deep, Move-In/Out i Laundry',
+          'Przejrzyste ceny startowe wg wielkości domu',
+          'Obszar usług po counties i miastach bez chaosu',
+          'Szybki lead: ZIP + usługa + kontakt',
+          'Mobile pod telefon i rezerwację',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Rozwiązanie dla Royal Glow',
+        lead:
+          'Zebraliśmy stronę sprzedażową pod lokalny serwis: oferta, usługi, cennik, obszar, FAQ i formularz bookingu.',
+        items: [
+          'Hero z jasną ofertą i CTA Book / Free quote',
+          'Karty usług ze szczegółami i cenami startowymi',
+          'How it works — 3 kroki do czystego domu',
+          'Cennik wg wielkości domu + add-ony',
+          'Service area po counties z sprawdzeniem ZIP',
+          'Formularz, opinie, FAQ i kontakty pod konwersję',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Efekt',
+        text:
+          'Strona, która wygląda jak premium lokalna marka i realnie zbiera leady: klient rozumie usługę, cenę i obszar — i zostawia zapytanie albo dzwoni bez zbędnych kroków.',
+      },
+    },
+    ru: {
+      breadcrumbLabel: 'Royal Glow',
+      seoTitle: 'Кейс Royal Glow: сайт клининга в New Jersey',
+      heroTitle: 'Royal Glow — сайт премиального клининга в New Jersey',
+      heroLead:
+        'Сделали сайт для сервиса домашней уборки в Monmouth, Ocean, Mercer и Burlington Counties. Задача — премиум-восприятие бренда, понятные типы уборок и цены и заявка за несколько минут: ZIP, услуга, контакты.',
+      visitSite: 'Открыть сайт',
+      stats: [
+        { value: '4', label: 'типа уборки' },
+        { value: '118+', label: 'городов в зоне сервиса' },
+        { value: '1', label: 'онлайн-заявка с ZIP' },
+        { value: '↑', label: 'прозрачные стартовые цены' },
+      ],
+      challenge: {
+        eyebrow: '/ CHALLENGE',
+        title: 'Задача проекта Royal Glow',
+        lead:
+          'Локальный клининг в NJ конкурирует с десятками шаблонных сайтов. Нужна была страница, которая продаёт доверие: кто приедет, сколько стоит, какие районы покрываем — и куда нажать, чтобы забронировать.',
+        items: [
+          'Премиальный тон без ощущения «дешёвого клининга»',
+          'Чёткая разница между Standard, Deep, Move-In/Out и Laundry',
+          'Прозрачные стартовые цены по размеру дома',
+          'Зона покрытия по counties и городам без путаницы',
+          'Быстрый сценарий заявки: ZIP + услуга + контакт',
+          'Мобильная версия под звонок и бронирование',
+        ],
+      },
+      solution: {
+        eyebrow: '/ SOLUTION',
+        title: 'Решение для Royal Glow',
+        lead:
+          'Собрали продающий сайт под локальный сервис: оффер, услуги, прайс, зона работы, FAQ и форма бронирования.',
+        items: [
+          'Hero с чётким оффером и CTA Book / Free quote',
+          'Карточки услуг с деталями и стартовыми ценами',
+          'How it works — 3 шага до чистого дома',
+          'Прайс по размеру дома + add-ons',
+          'Service area по counties с проверкой ZIP',
+          'Форма заявки, отзывы, FAQ и контакты под конверсию',
+        ],
+      },
+      outcome: {
+        eyebrow: '/ OUTCOME',
+        title: 'Результат',
+        text:
+          'Сайт, который выглядит как премиальный локальный бренд и реально собирает заявки: клиент понимает услугу, цену и зону покрытия — и оставляет запрос или звонит без лишних шагов.',
+      },
+    },
+  }),
+};
+
 const twelveFeet: CaseStudyDefinition = {
   id: '12-feet',
   mainImage: '/portfolio/portfolio-12-feet.jpg',
@@ -1217,6 +1619,8 @@ const filoEstate: CaseStudyDefinition = {
 };
 
 export const BATCH4_CASE_STUDIES: Record<string, CaseStudyDefinition> = {
+  [flixMarketWeb.id]: flixMarketWeb,
+  [royalGlow.id]: royalGlow,
   [twelveFeet.id]: twelveFeet,
   [filoEstate.id]: filoEstate,
   [carbit.id]: carbit,
