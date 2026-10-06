@@ -18,6 +18,9 @@ export type ParsedLeadBody = {
   attachment: File | null;
 };
 
+/** Поля заявки без антиспаму та файлу (файл — окремим аргументом у Sheets/Telegram). */
+export type LeadRecord = Omit<ParsedLeadBody, 'attachment' | 'honeypot' | 'formStartedAt'>;
+
 export async function parseLeadRequest(request: NextRequest): Promise<ParsedLeadBody> {
   const contentType = request.headers.get('content-type') || '';
 
@@ -78,7 +81,7 @@ export function escapeHtml(text: string): string {
     .replace(/'/g, '&#039;');
 }
 
-export function buildLeadMessage(lead: Omit<ParsedLeadBody, 'attachment' | 'honeypot' | 'formStartedAt'>, fileName?: string): string {
+export function buildLeadMessage(lead: LeadRecord, fileName?: string): string {
   let message = '📋 <b>Нова заявка з сайту</b>\n\n';
 
   if (lead.name) {

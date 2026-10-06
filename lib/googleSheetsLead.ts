@@ -1,5 +1,5 @@
 import { createSign } from 'crypto';
-import type { ParsedLeadBody } from '@/lib/telegramLead';
+import type { LeadRecord } from '@/lib/telegramLead';
 
 const SHEETS_SCOPE = 'https://www.googleapis.com/auth/spreadsheets';
 const TOKEN_URL = 'https://oauth2.googleapis.com/token';
@@ -296,7 +296,7 @@ async function styleSheet(token: string, sheet: SheetRef) {
   layoutReady = true;
 }
 
-function leadRow(lead: Omit<ParsedLeadBody, 'honeypot' | 'formStartedAt'>, fileName?: string) {
+function leadRow(lead: LeadRecord, fileName?: string) {
   const date = kyivStamp();
 
   return [
@@ -315,7 +315,7 @@ function leadRow(lead: Omit<ParsedLeadBody, 'honeypot' | 'formStartedAt'>, fileN
 
 /** Дописує заявку в Google Таблицю. Не кидає помилку назовні: форма лишається успішною, якщо Telegram дійшов. */
 export async function appendLeadToSheet(
-  lead: Omit<ParsedLeadBody, 'honeypot' | 'formStartedAt'>,
+  lead: LeadRecord,
   fileName?: string
 ): Promise<{ ok: boolean; skipped?: boolean; error?: string }> {
   const account = loadServiceAccount();
