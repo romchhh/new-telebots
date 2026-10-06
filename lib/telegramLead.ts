@@ -12,6 +12,7 @@ export type ParsedLeadBody = {
   project?: string;
   service?: string;
   caseId?: string;
+  source?: string;
   formStartedAt?: number;
   honeypot: string;
   attachment: File | null;
@@ -40,6 +41,7 @@ export async function parseLeadRequest(request: NextRequest): Promise<ParsedLead
       project: getStr('project') || undefined,
       service: getStr('service') || undefined,
       caseId: getStr('caseId') || undefined,
+      source: getStr('source') || undefined,
       formStartedAt: Number.isFinite(startedNum) ? startedNum : undefined,
       honeypot: getStr(HONEYPOT_FIELD),
       attachment,
@@ -60,6 +62,7 @@ export async function parseLeadRequest(request: NextRequest): Promise<ParsedLead
     project: typeof body.project === 'string' ? body.project : undefined,
     service: typeof body.service === 'string' ? body.service : undefined,
     caseId: typeof body.caseId === 'string' ? body.caseId : undefined,
+    source: typeof body.source === 'string' ? body.source : undefined,
     formStartedAt: Number.isFinite(startedAt) ? startedAt : undefined,
     honeypot: typeof body[HONEYPOT_FIELD] === 'string' ? body[HONEYPOT_FIELD] : '',
     attachment: null,
@@ -89,6 +92,9 @@ export function buildLeadMessage(lead: Omit<ParsedLeadBody, 'attachment' | 'hone
   }
   if (lead.service) {
     message += `🛠 <b>Сервіс:</b> ${escapeHtml(lead.service)}\n`;
+  }
+  if (lead.source) {
+    message += `📍 <b>Звідки:</b>\n${escapeHtml(lead.source)}\n`;
   }
   if (lead.caseId) {
     message += `📁 <b>Кейс:</b> ${escapeHtml(lead.caseId)}\n`;

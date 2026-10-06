@@ -1,4 +1,5 @@
 import { HONEYPOT_FIELD, type AntiSpamFields } from '@/lib/antiSpam';
+import { formatLeadSource } from '@/lib/leadSource';
 import { MAX_TELEGRAM_ATTACHMENT_BYTES } from '@/lib/telegramLead';
 
 export interface TelegramFormData extends AntiSpamFields {
@@ -9,6 +10,8 @@ export interface TelegramFormData extends AntiSpamFields {
   project?: string;
   service?: string;
   caseId?: string;
+  /** Сторінка, UTM і рекламні кліки. Якщо порожньо — знімається з поточного URL. */
+  source?: string;
 }
 
 function reportLeadConversion() {
@@ -38,6 +41,7 @@ function appendLeadFields(formData: FormData, data: TelegramFormData) {
   if (data.project) formData.append('project', data.project);
   if (data.service) formData.append('service', data.service);
   if (data.caseId) formData.append('caseId', data.caseId);
+  if (data.source) formData.append('source', data.source);
   if (data.formStartedAt !== undefined) {
     formData.append('formStartedAt', String(data.formStartedAt));
   }
@@ -55,11 +59,16 @@ export async function sendToTelegram(
       return false;
     }
 
+    const payload: TelegramFormData = {
+      ...data,
+      source: data.source?.trim() || formatLeadSource(),
+    };
+
     let response: Response;
 
     if (attachment && attachment.size > 0) {
       const formData = new FormData();
-      appendLeadFields(formData, data);
+      appendLeadFields(formData, payload);
       formData.append('attachment', attachment, attachment.name);
       response = await fetch('/api/telegram', {
         method: 'POST',
@@ -71,7 +80,7 @@ export async function sendToTelegram(
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       });
     }
 

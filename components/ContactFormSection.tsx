@@ -15,6 +15,7 @@ type ContactFormSectionProps = {
   serviceName?: string;
   id?: string;
   className?: string;
+  onSuccess?: () => void;
 };
 
 export default function ContactFormSection({
@@ -23,6 +24,7 @@ export default function ContactFormSection({
   serviceName,
   id = 'contact-form',
   className = '',
+  onSuccess,
 }: ContactFormSectionProps) {
   const c = t.contact;
 
@@ -48,7 +50,13 @@ export default function ContactFormSection({
 
           <div className="border-b border-neutral-100 p-5 sm:p-8 md:p-10 lg:border-b-0 lg:border-r lg:border-neutral-100 lg:p-10 xl:p-12">
             <p className={`mb-3 sm:mb-4 ${FORM_EYEBROW} text-brand lg:hidden`}>{c.formEyebrow}</p>
-            <ContactFormWithSuccess t={t} lang={lang} serviceName={serviceName} variant="light" />
+            <ContactFormWithSuccess
+              t={t}
+              lang={lang}
+              serviceName={serviceName}
+              variant="light"
+              onSuccess={onSuccess}
+            />
           </div>
 
           <div className="bg-neutral-50/50 p-5 sm:p-8 md:p-10 lg:p-10 xl:p-12">

@@ -24,6 +24,8 @@ type PortfolioHomeShowcaseCardProps = {
   compactTitle?: boolean;
   className?: string;
   sizes?: string;
+  /** Рекламний лендинг: картка лишається на сторінці і відкриває заявку. */
+  onClick?: () => void;
 };
 
 const display = { fontFamily: 'var(--font-display)' };
@@ -37,13 +39,11 @@ export default function PortfolioHomeShowcaseCard({
   compactTitle = false,
   className = '',
   sizes = '(max-width: 1024px) 100vw, 33vw',
+  onClick,
 }: PortfolioHomeShowcaseCardProps) {
-  return (
-    <Link
-      href={getCaseHref(lang, card.id)}
-      data-portfolio-card
-      className={`group flex min-w-0 flex-col ${className}`}
-    >
+  const shell = `group flex min-w-0 flex-col text-left ${className}`;
+  const body = (
+    <>
       <div
         className={`relative w-full overflow-hidden ${RADIUS_CARD} bg-neutral-200 ${
           wide
@@ -88,6 +88,20 @@ export default function PortfolioHomeShowcaseCard({
       <p className="mt-3 text-sm leading-[1.65] text-neutral-600 sm:mt-4 sm:text-[15px]" style={sans}>
         {card.highlights}
       </p>
+    </>
+  );
+
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} data-portfolio-card className={shell}>
+        {body}
+      </button>
+    );
+  }
+
+  return (
+    <Link href={getCaseHref(lang, card.id)} data-portfolio-card className={shell}>
+      {body}
     </Link>
   );
 }

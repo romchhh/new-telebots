@@ -35,7 +35,7 @@ export const SEO_UK_PAGE_AUDIT: Record<SeoRegistryPageId, SeoPageAuditUk> = {
   services: {
     path: '/uk/services',
     primaryKeyword: 'послуги telegram-боти та сайти',
-    h1Source: 'ServicesHubHero / translations.services',
+    h1Source: 'Services hub — translations; деталі: lib/servicePageSeoMeta.ts',
   },
   portfolio: {
     path: '/uk/portfolio',
@@ -71,10 +71,10 @@ const HUB_SEO: Record<'home' | 'about' | 'contact' | 'services' | 'portfolio', H
       ru: 'Заказать сайты и Telegram-ботов | от $100',
     },
     descriptions: {
-      uk: 'Розробка Telegram-ботів від $100, лендінгів від $150, інтернет-магазинів від $400. Чат-бот для бізнесу, CRM, e-commerce. 200+ проєктів, безкоштовна консультація, старт за 24 год.',
-      en: 'Telegram bots from $100, landings from $150, online stores from $400. Business chatbots, CRM, e-commerce. 200+ projects, free consultation, start in 24h.',
-      pl: 'Boty Telegram od $100, landingi od $150, sklepy od $400. Chatboty biznesowe, CRM, e-commerce. 200+ projektów, darmowa konsultacja, start w 24h.',
-      ru: 'Telegram-боты от $100, лендинги от $150, интернет-магазины от $400. Чат-бот для бизнеса, CRM, e-commerce. 200+ проектов, бесплатная консультация, старт за 24 часа.',
+      uk: 'Робимо Telegram-боти від $100, лендінги від $150 і магазини від $400. Напишіть, що треба зібрати — на консультації скажемо строк і що входить у роботу.',
+      en: 'We build Telegram bots from $100, landings from $150, and stores from $400. Tell us the job — on a call we say what is included and how long it takes.',
+      pl: 'Robimy boty Telegram od $100, landingi od $150 i sklepy od $400. Napisz, co trzeba złożyć — na rozmowie podamy termin i zakres.',
+      ru: 'Делаем Telegram-ботов от $100, лендинги от $150 и магазины от $400. Напишите задачу — на консультации скажем срок и что входит в работу.',
     },
     keywords: {
       uk: 'розробка сайтів, створення сайту під ключ, веб-розробка, лендинг замовити, інтернет-магазин під ключ, телеграм бот розробка, розробка чат-ботів, чат-бот для бізнесу, чат бот ціна, замовити телеграм бота, автоматизація бізнесу, AI чат-бот, TeleBots, TeleBots.site, TeleBots Україна, 200+ проєктів',
@@ -91,10 +91,10 @@ const HUB_SEO: Record<'home' | 'about' | 'contact' | 'services' | 'portfolio', H
       ru: 'О нас | Разработка ботов и сайтов для бизнеса',
     },
     descriptions: {
-      uk: 'Досвід та автоматизація бізнесу. Команда TeleBots: розробка телеграм ботів, чат-ботів, сайтів. 200+ проєктів. Безкоштовна консультація.',
-      en: 'Experience and business automation. TeleBots team: Telegram bots, chatbots, websites development. 200+ projects. Free consultation.',
-      pl: 'Doświadczenie i automatyzacja biznesu. Zespół TeleBots: boty Telegram, chatboty, strony. 200+ projektów. Bezpłatna konsultacja.',
-      ru: 'Опыт и автоматизация бизнеса. Команда TeleBots: разработка телеграм ботов, чат-ботов, сайтов. 200+ проектов. Бесплатная консультация.',
+      uk: 'TeleBots — студія, яка збирає сайти й Telegram-боти. За плечима 200+ запусків: від запису клієнтів до магазину з оплатою. Можна почати з короткого дзвінка.',
+      en: 'TeleBots builds websites and Telegram bots. 200+ launches, from booking flows to stores with checkout. Start with a short call if you want a straight answer.',
+      pl: 'TeleBots składa strony i boty Telegram. Za nami 200+ wdrożeń: od zapisu klientów po sklep z płatnością. Można zacząć od krótkiej rozmowy.',
+      ru: 'TeleBots собирает сайты и Telegram-ботов. За плечами 200+ запусков: от записи клиентов до магазина с оплатой. Можно начать с короткого звонка.',
     },
     keywords: {
       uk: 'про нас, TeleBots, розробка ботів для бізнесу, команда розробників, автоматизація бізнесу, досвід, консультація, телеграм бот розробка, веб-розробка, цифрові рішення',
@@ -111,10 +111,10 @@ const HUB_SEO: Record<'home' | 'about' | 'contact' | 'services' | 'portfolio', H
       ru: 'Контакты | Заказать разработку и консультацию',
     },
     descriptions: {
-      uk: 'Замовити розробку телеграм бота або сайту. Безкоштовна консультація, швидкий відгук. Telegram, WhatsApp, Email. Київ, Україна.',
-      en: 'Order Telegram bot or website development. Free consultation, quick response. Telegram, WhatsApp, Email.',
-      pl: 'Zamów rozwój bota Telegram lub strony. Bezpłatna konsultacja, szybka odpowiedź. Telegram, WhatsApp.',
-      ru: 'Заказать разработку телеграм бота или сайта. Бесплатная консультация, быстрый ответ. Telegram, WhatsApp, Email.',
+      uk: 'Напишіть у Telegram або WhatsApp, що хочете запустити: бот, сайт чи дизайн. Відповідаємо з Києва, на дзвінку можна безкоштовно прикинути обсяг.',
+      en: 'Message us on Telegram or WhatsApp with what you want to launch: a bot, a site, or design. We reply from Kyiv and can sketch the scope on a free call.',
+      pl: 'Napisz na Telegram lub WhatsApp, co chcesz uruchomić: bota, stronę albo design. Odpowiadamy i na rozmowie można bezpłatnie oszacować zakres.',
+      ru: 'Напишите в Telegram или WhatsApp, что хотите запустить: бота, сайт или дизайн. Отвечаем из Киева, на звонке можно бесплатно прикинуть объём.',
     },
     keywords: {
       uk: 'контакти, замовити розробку, консультація, залишити заявку, телеграм, whatsapp, TeleBots, Київ, Україна',
@@ -125,16 +125,16 @@ const HUB_SEO: Record<'home' | 'about' | 'contact' | 'services' | 'portfolio', H
   },
   services: {
     titles: {
-      uk: 'Послуги: Telegram-боти, чат-боти та сайти під ключ',
-      en: 'Services: Telegram Bots, Chatbots & Websites',
-      pl: 'Usługi: boty Telegram, chatboty i strony',
-      ru: 'Услуги: Telegram-боты, чат-боты и сайты под ключ',
+      uk: 'Послуги: боти, сайти та дизайн',
+      en: 'Services: bots, websites, and design',
+      pl: 'Usługi: boty, strony i design',
+      ru: 'Услуги: боты, сайты и дизайн',
     },
     descriptions: {
-      uk: 'Замовити розробку Telegram-бота від $100, лендінгу від $150, інтернет-магазину від $400, UI/UX від $150. Чат-боти з оплатою, CRM, e-commerce на Next.js. Безкоштовна консультація, 200+ проєктів.',
-      en: 'Telegram bots from $100, landings from $150, online stores from $400, UI/UX from $150. Chatbots with payments, CRM, Next.js e-commerce. Free consultation, 200+ projects.',
-      pl: 'Boty Telegram od $100, landingi od $150, sklepy od $400, UI/UX od $150. Chatboty z płatnościami, CRM, e-commerce Next.js. Darmowa konsultacja, 200+ projektów.',
-      ru: 'Telegram-боты от $100, лендинги от $150, интернет-магазины от $400, UI/UX от $150. Чат-боты с оплатой, CRM, e-commerce на Next.js. Бесплатная консультация, 200+ проектов.',
+      uk: 'Три напрями: Telegram-бот від $100, сайт від $150, логотип і макети в Figma. Оберіть сторінку або напишіть, що саме треба зібрати.',
+      en: 'Three lines of work: a Telegram bot from $100, a site from $150, a logo and layouts in Figma. Open a page or tell us what you need built.',
+      pl: 'Trzy kierunki: bot Telegram od $100, strona od $150, logo i makiety w Figma. Wybierz stronę albo napisz, co trzeba złożyć.',
+      ru: 'Три направления: Telegram-бот от $100, сайт от $150, логотип и макеты в Figma. Откройте страницу или напишите, что нужно собрать.',
     },
     keywords: {
       uk: 'послуги TeleBots, розробка Telegram-ботів, замовити телеграм бота, чат-бот для бізнесу, чат бот ціна, розробка чат ботів ціна, розробка сайту під ключ, інтернет-магазин під ключ, UI/UX, автоматизація бізнесу',
@@ -151,10 +151,10 @@ const HUB_SEO: Record<'home' | 'about' | 'contact' | 'services' | 'portfolio', H
       ru: 'Кейсы разработки сайтов и телеграм ботов',
     },
     descriptions: {
-      uk: 'Реальні проєкти: Telegram-боти, сайти та інтернет-магазини з оплатою та інтеграціями. E-commerce, автоматизація. 200+ кейсів TeleBots.',
-      en: 'Cases: websites, online stores, landing pages; Telegram bots and chatbots. E-commerce, payment bots. 200+ projects.',
-      pl: 'Realizacje: strony, sklepy, landingi; boty Telegram i chatboty. E-commerce. 200+ projektów.',
-      ru: 'Кейсы: сайты, интернет-магазины, лендинги; Telegram-боты и чат-боты. 200+ проектов.',
+      uk: 'Кейси, які вже в проді: магазини, лендінги й боти з оплатою. Можна відкрити живий сайт або розібрати, як зібраний сценарій.',
+      en: 'Work that is already live: stores, landings, and bots that take payment. Open the site or see how the flow was built.',
+      pl: 'Realizacje, które już działają: sklepy, landingi i boty z płatnością. Można otworzyć stronę albo zobaczyć, jak złożono scenariusz.',
+      ru: 'Кейсы, которые уже в проде: магазины, лендинги и боты с оплатой. Можно открыть живой сайт или разобрать, как собран сценарий.',
     },
     keywords: {
       uk: 'портфоліо веб студії, кейси розробки сайтів, приклади Telegram-ботів, інтернет-магазин під ключ, лендинг кейс, чат-бот для бізнесу, веб-розробка Україна, TeleBots',

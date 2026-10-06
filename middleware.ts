@@ -58,6 +58,16 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Рекламний лендинг: короткий URL /landing, без мовного префікса
+  const legacyLanding = pathname.match(/^\/(?:(?:uk|en|pl|ru)\/)?lp\/site(?:\/([^/]+))?\/?$/);
+  if (legacyLanding) {
+    const niche = legacyLanding[1];
+    return permanentRedirect(new URL(niche ? `/landing/${niche}` : '/landing', request.url));
+  }
+  if (pathname === '/landing' || pathname.startsWith('/landing/')) {
+    return withLangHeader(NextResponse.next(), 'uk');
+  }
+
   // www / new (staging alias) → telebots.site (один канонічний хост у GSC)
   const hostname = request.nextUrl.hostname;
   if (

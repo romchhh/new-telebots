@@ -36,6 +36,12 @@ export type PortfolioShowcaseScrollerProps = {
   sectionId?: string;
   className?: string;
   lead?: ReactNode;
+  /** Рекламний лендинг не веде в загальне портфоліо. */
+  showViewAll?: boolean;
+  /** Замість посилання «усі кейси» — своя дія, наприклад кнопка заявки. */
+  headerAction?: ReactNode;
+  /** Якщо задано, картка не веде на кейс, а лишає людину на сторінці. */
+  onCardClick?: (card: PortfolioShowcaseCard) => void;
 };
 
 export default function PortfolioShowcaseScroller({
@@ -51,6 +57,9 @@ export default function PortfolioShowcaseScroller({
   sectionId,
   className = '',
   lead,
+  showViewAll = true,
+  headerAction,
+  onCardClick,
 }: PortfolioShowcaseScrollerProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
 
@@ -96,18 +105,20 @@ export default function PortfolioShowcaseScroller({
                 <ArrowRight className={ICON_ARROW_NAV} strokeWidth={2.25} aria-hidden />
               </button>
             </div>
-            <Link href={viewAllHref} className="group inline-flex items-center gap-3" style={sans}>
-              <span className="text-xs font-semibold uppercase tracking-[0.12em] text-neutral-900 sm:text-sm">
-                {viewAllLabel}
-              </span>
-              <span className={BTN_ARROW_CIRCLE_OUTLINE}>
-                <ArrowUpRight
-                  className={`${ICON_ARROW_IN_CIRCLE} text-neutral-900`}
-                  strokeWidth={2.25}
-                  aria-hidden
-                />
-              </span>
-            </Link>
+            {headerAction ?? (showViewAll ? (
+              <Link href={viewAllHref} className="group inline-flex items-center gap-3" style={sans}>
+                <span className="text-xs font-semibold uppercase tracking-[0.12em] text-neutral-900 sm:text-sm">
+                  {viewAllLabel}
+                </span>
+                <span className={BTN_ARROW_CIRCLE_OUTLINE}>
+                  <ArrowUpRight
+                    className={`${ICON_ARROW_IN_CIRCLE} text-neutral-900`}
+                    strokeWidth={2.25}
+                    aria-hidden
+                  />
+                </span>
+              </Link>
+            ) : null)}
           </div>
         </div>
       </div>
@@ -129,6 +140,7 @@ export default function PortfolioShowcaseScroller({
                 categoryLabel={resolveShowcaseCategoryLabel(card, categoryCopy)}
                 wide={wideOnLg}
                 compactTitle
+                onClick={onCardClick ? () => onCardClick(card) : undefined}
                 className={
                   wideOnLg
                     ? `${mobileCardWidth} lg:w-[min(36rem,calc((100vw-8rem)*0.52))] lg:snap-center xl:w-[min(40rem,calc((100vw-8rem)*0.5))]`

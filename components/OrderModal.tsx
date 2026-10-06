@@ -40,7 +40,7 @@ const fieldClass = INPUT_LIGHT;
 const textareaClass = `${TEXTAREA_LIGHT} min-h-[96px]`;
 const sans = { fontFamily: 'var(--font-sans)' };
 
-export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }: OrderModalProps) {
+export default function OrderModal({ isOpen, onClose, t, onSubmit }: OrderModalProps) {
   const titleId = useId();
   const firstFieldRef = useRef<HTMLInputElement>(null);
   const [sending, setSending] = useState(false);
@@ -130,9 +130,6 @@ export default function OrderModal({ isOpen, onClose, serviceName, t, onSubmit }
           </h2>
           <p className="mb-6 max-w-md text-base leading-relaxed text-neutral-600" style={sans}>
             {t.modal.lead}
-            {serviceName ? (
-              <span className="mt-2 block text-sm text-neutral-500">{serviceName}</span>
-            ) : null}
           </p>
 
           <form

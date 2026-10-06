@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { after, NextRequest, NextResponse } from 'next/server';
 import { checkAntiSpam, getClientIp, isAllowedFormOrigin } from '@/lib/antiSpam';
+import { appendLeadToSheet } from '@/lib/googleSheetsLead';
 import {
   MAX_TELEGRAM_ATTACHMENT_BYTES,
   buildLeadMessage,
@@ -30,6 +31,7 @@ export async function POST(request: NextRequest) {
       service,
       caseId,
       project,
+      source,
       formStartedAt,
       honeypot,
       attachment,
@@ -68,18 +70,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true, delivered: false });
     }
 
-    const message = buildLeadMessage(
-      {
-        name,
-        phone,
-        email,
-        request: requestText,
-        service,
-        caseId,
-        project,
-      },
-      attachment?.name
-    );
+    const lead = {
+      name,
+      phone,
+      email,
+      request: requestText,
+      service,
+      caseId,
+      project,
+      source,
+    };
+    const message = buildLeadMessage(lead, attachment?.name);
+    const fileName = attachment?.name;
+
+    after(() => appendLeadToSheet(lead, fileName));
 
     const msgResult = await telegramSendMessage(TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, message);
 

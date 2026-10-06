@@ -281,17 +281,17 @@ export const translations = {
       websitesPage: {
         title: 'Сайти',
         teaserOffer:
-          'Next.js, SEO, адмінка та оплати під ключ. Безкоштовна консультація — від лендінгу до інтернет-магазину.',
-        subtitle: 'Лендинги, корпоративні сайти та інтернет-магазини на Next.js: швидкість, SEO, адмінка',
+          'Лендінг від $150, магазин від $400. Next.js, адмінка й оплата — після брифу називаємо строк.',
+        subtitle: 'Лендінг, сайт компанії або магазин. Адмінка і оплата в тому ж проєкті.',
         description:
-          'Сайт, який збирає заявки й показує, звідки приходять клієнти: адаптив, зручна адмінка, SEO та інтеграції з CRM, оплатою й аналітикою. Від односторінкового лендингу до e-commerce — без шаблонів «як у всіх». За потреби підключаємо AI-чат і автоматизацію. Старт від 1 тижня.',
+          'Збираємо сайт на Next.js: одну сторінку під заявку, сайт компанії або магазин з кошиком. Контент правите самі в адмінці, оплата й форми підключаємо одразу. Типовий лендінг — один-два тижні.',
         button: 'Замовити розробку',
         serviceHero: {
-          tagline: 'Швидкі сайти з адмінкою, SEO та інтеграціями — без зайвого коду з вашого боку.',
+          tagline: 'Лендінг, сайт компанії або магазин. Ви кажете, що продаєте — ми називаємо строк і бюджет.',
           title: 'Розробка сайтів під ключ',
           subtitle: '',
           intro:
-            'Від лендінгу до e-commerce. Безкоштовна консультація, прозорі терміни й підтримка після релізу.',
+            'Від $150 за лендінг. Адмінка, оплата й сторінки, які відкриваються з телефону без окремого «мобільного сайту».',
           ctaQuestion: 'Обговоримо вашу задачу без зобовʼязань?',
           ctaQuestionShort: 'Безкоштовно',
           startDate: { label: 'швидкий старт', value: 'від 1 тижня' },
@@ -323,17 +323,17 @@ export const translations = {
       chatbotsPage: {
         title: 'Чат-боти',
         teaserOffer:
-          'Оплата, CRM і розсилки в Telegram, WhatsApp чи Viber. Простий сценарій — від 24 год; складніший — поетапно й прозоро.',
-        subtitle: 'Боти в Telegram, WhatsApp і Viber: оплата, CRM, розсилки',
+          'Telegram-бот від $100: заявки, оплата, запис у CRM. Простий сценарій — за добу.',
+        subtitle: 'Бот у Telegram приймає заявку, оплату й передає замовлення менеджеру.',
         description:
-          'Бот веде клієнта до покупки: приймає оплату (Mono, WayForPay, LiqPay), пише в CRM або Google Sheets, надсилає підтвердження. Автоматизація в месенджері без втрати особистого підходу; за потреби — AI-відповіді. Простий сценарій — від 24 год, складніший — поетапно.',
+          'Клієнт пише боту, обирає послугу чи товар, платить через Mono, WayForPay або LiqPay. Замовлення падає в CRM або таблицю, вам не треба переписувати чат руками. Якщо сценарій короткий — прототип за добу.',
         button: 'Замовити розробку',
         serviceHero: {
-          tagline: 'Бот у месенджері закриває перші запити та заявки 24/7 — поки ви займаєтесь бізнесом.',
-          title: 'Розробка Telegram-ботів під ключ',
+          tagline: 'Бот відповідає на типові питання й приймає замовлення, поки ви не в чаті.',
+          title: 'Чат-боти в Telegram від $100',
           subtitle: '',
           intro:
-            'Оплата, CRM і розсилки. Прості сценарії — від 24 год; складніші — поетапно й прозоро.',
+            'Заявка, оплата, запис у CRM. Короткий сценарій збираємо за добу, довший — після того, як розпишемо кроки.',
           ctaQuestion: 'Підберемо архітектуру під ваші продажі?',
           ctaQuestionShort: 'Безкоштовно',
           startDate: { label: 'перший прототип', value: 'за 24 год' },
@@ -378,17 +378,17 @@ export const translations = {
       designPage: {
         title: 'Дизайн',
         teaserOffer:
-          'Лого, айдентика та UI/UX у Figma — макети під верстку й конверсію. 2–3 раунди правок у межах ТЗ.',
-        subtitle: 'Лого, айдентика та UI/UX у Figma для сайтів і додатків',
+          'Логотип і макети сайту в Figma. Файли, з яких можна верстати, плюс два-три кола правок.',
+        subtitle: 'Логотип, кольори, шрифти й екрани сторінок — в одному файлі Figma.',
         description:
-          'Фірмовий стиль і інтерфейси під конверсію: прототипи в Figma, брендбук, макети під верстку. Дизайн і розробка в одній команді — від ідеї до передачі в код. 2–3 раунди правок у межах ТЗ.',
+          'Спочатку логотип і правила: де який колір, який шрифт, як виглядає знак на темному фоні. Потім екрани сайту або застосунку, які розробник відкриває і верстає, а не збирає на око.',
         button: 'Замовити дизайн',
         serviceHero: {
-          tagline: 'Лого та інтерфейси, які працюють на впізнаваність і конверсію — не лише «красиву картинку».',
-          title: 'Дизайн логотипів і UI/UX під ключ',
+          tagline: 'Логотип і екрани, які можна віддати в верстку, а не лише поставити в презентацію.',
+          title: 'Дизайн логотипу та інтерфейсу',
           subtitle: '',
           intro:
-            'Figma, айдентика, макети під верстку. 2–3 раунди правок у межах ТЗ — від ідеї до передачі в код.',
+            'Figma, фірмовий стиль, макети сторінок. Два-три кола правок у межах того, що зафіксували на старті.',
           ctaQuestion: 'Розкажіть про бренд — запропонуємо формат і обсяг?',
           ctaQuestionShort: 'Безкоштовно',
           startDate: { label: 'концепт лого', value: '3–7 днів' },
@@ -624,7 +624,7 @@ export const translations = {
     },
     modal: {
       title: 'Обговоримо ваш проєкт',
-      lead: 'Залиште імʼя та телефон — передзвонимо й уточнимо задачу. Короткий опис необовʼязковий.',
+      lead: 'Залиште імʼя та телефон — передзвонимо й уточнимо задачу.',
       name: 'Ім\'я',
       namePlaceholder: 'Як вас звати?',
       phone: 'Номер телефону',
@@ -1038,11 +1038,11 @@ export const translations = {
           'A site that captures leads and shows where clients come from: responsive layout, practical admin, SEO, and CRM, payments and analytics integrations. From a one-page landing to e-commerce — no same-as-everyone templates. AI chat and automation when you need them. Kickoff from 1 week.',
         button: 'Order Development',
         serviceHero: {
-          tagline: 'Fast sites with admin, SEO, and integrations — without you touching code.',
-          title: 'Website development end-to-end',
+          tagline: 'A landing, a company site, or a store. You say what you sell — we name the date and the budget.',
+          title: 'Turnkey website development',
           subtitle: '',
           intro:
-            'From landings to e-commerce. Free consultation, clear timelines, and post-launch support.',
+            'Landings from $150. Admin, checkout, and pages that open properly on a phone.',
           ctaQuestion: 'Want to talk through your goals with no commitment?',
           ctaQuestionShort: 'Free consultation',
           startDate: { label: 'quick kickoff', value: 'from 1 week' },
@@ -1080,11 +1080,11 @@ export const translations = {
           'A bot that leads the client to purchase: takes payment (Mono, WayForPay, LiqPay), writes to CRM or Google Sheets, sends confirmations. Sales automation in the messenger without losing a personal touch; AI replies when you need them. Simple flow — from 24h, larger builds — in clear stages.',
         button: 'Order Development',
         serviceHero: {
-          tagline: 'A messenger bot handles first-line requests and leads 24/7 while you run the business.',
-          title: 'Telegram bot development end-to-end',
+          tagline: 'The bot answers the repeat questions and takes the order while you are not in the chat.',
+          title: 'Telegram chatbots from $100',
           subtitle: '',
           intro:
-            'Payments, CRM, and broadcasts. Simple flows from 24h; larger builds in clear stages.',
+            'A lead, a payment, a line in the CRM. A short flow in a day; a longer one after we write the steps down.',
           ctaQuestion: 'Want us to propose an architecture for your sales flow?',
           ctaQuestionShort: 'Free consultation',
           startDate: { label: 'first prototype', value: 'in 24h' },
@@ -1135,11 +1135,11 @@ export const translations = {
           'Brand identity and interfaces built for conversion: Figma prototypes, brand book, layouts ready for development. Design and build in one team — from idea to handoff. A few focused revision rounds within the agreed scope.',
         button: 'Order Design',
         serviceHero: {
-          tagline: 'Logos and interfaces built for recognition and conversion — not just pretty screens.',
-          title: 'Logo & UI/UX design end-to-end',
+          tagline: 'A logo and screens you can hand to a developer, not only drop into a deck.',
+          title: 'Logo and interface design',
           subtitle: '',
           intro:
-            'Figma, brand identity, and layouts ready for build. Focused revision rounds within the agreed scope.',
+            'Figma, brand rules, page layouts. Two or three revision rounds inside the scope we agreed at the start.',
           ctaQuestion: 'Tell us about the brand — we will suggest scope and format.',
           ctaQuestionShort: 'Free consultation',
           startDate: { label: 'logo concept', value: '3–7 days' },
@@ -1308,7 +1308,7 @@ export const translations = {
     },
     modal: {
       title: "Let's discuss your project",
-      lead: 'Leave your name and phone — we will call back to clarify. A short note is optional.',
+      lead: 'Leave your name and phone — we will call back to clarify.',
       name: 'Name',
       namePlaceholder: 'Your name',
       phone: 'Phone number',
@@ -1722,11 +1722,11 @@ export const translations = {
           'Strona, która zbiera leady i pokazuje, skąd przychodzą klienci: responsywność, wygodny panel, SEO oraz integracje z CRM, płatnościami i analityką. Od one-page landingu do e-commerce — bez szablonów „jak u wszystkich”. W razie potrzeby AI-chat i automatyzacja. Start od 1 tygodnia.',
         button: 'Zamów rozwój',
         serviceHero: {
-          tagline: 'Szybkie strony z panelem, SEO i integracjami — bez pisania kodu po Twojej stronie.',
+          tagline: 'Landing, strona firmy albo sklep. Mówisz, co sprzedajesz — my podajemy termin i budżet.',
           title: 'Strony internetowe pod klucz',
           subtitle: '',
           intro:
-            'Od landingów po e-commerce. Darmowa konsultacja, jasne terminy i wsparcie po wdrożeniu.',
+            'Landing od $150. Panel, płatność i strony, które normalnie otwierają się w telefonie.',
           ctaQuestion: 'Omówimy Twój cel bez zobowiązań?',
           ctaQuestionShort: 'Konsultacja gratis',
           startDate: { label: 'szybki start', value: 'od 1 tygodnia' },
@@ -1764,11 +1764,11 @@ export const translations = {
           'Bot prowadzi klienta do zakupu: przyjmuje płatność (Mono, WayForPay, LiqPay), zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja w komunikatorze bez utraty osobistego podejścia; w razie potrzeby — odpowiedzi AI. Prosty scenariusz — od 24 h, większy — etapami.',
         button: 'Zamów rozwój',
         serviceHero: {
-          tagline: 'Bot w komunikatorze obsługuje pierwszą linię i leady 24/7, Ty prowadzisz biznes.',
-          title: 'Boty Telegram pod klucz',
+          tagline: 'Bot odpowiada na powtarzalne pytania i przyjmuje zamówienie, kiedy Cię nie ma na czacie.',
+          title: 'Chatboty Telegram od $100',
           subtitle: '',
           intro:
-            'Płatności, CRM i mailingi. Proste scenariusze od 24 h; większe — etapami i jasno.',
+            'Lead, płatność, wpis w CRM. Krótki scenariusz w dobę, dłuższy — gdy rozpiszemy kroki.',
           ctaQuestion: 'Zaproponujemy architekturę pod Twój lejek?',
           ctaQuestionShort: 'Konsultacja gratis',
           startDate: { label: 'pierwszy prototyp', value: 'w 24 h' },
@@ -1819,11 +1819,11 @@ export const translations = {
           'Identyfikacja i interfejsy pod konwersję: prototypy w Figma, brand book, makiety pod wdrożenie. Design i development w jednym zespole — od pomysłu do przekazania w kod. 2–3 rundy poprawek w uzgodnionym zakresie.',
         button: 'Zamów projekt',
         serviceHero: {
-          tagline: 'Logo i interfejsy pod rozpoznawalność i konwersję — nie tylko ładny obrazek.',
-          title: 'Logo i UI/UX pod klucz',
+          tagline: 'Logo i ekrany, które da się oddać do wdrożenia, a nie tylko wstawić do prezentacji.',
+          title: 'Projekt logo i interfejsu',
           subtitle: '',
           intro:
-            'Figma, identyfikacja, makiety pod wdrożenie. 2–3 rundy poprawek w uzgodnionym zakresie.',
+            'Figma, identyfikacja, makiety stron. Dwie–trzy rundy poprawek w zakresie, który ustaliliśmy na starcie.',
           ctaQuestion: 'Opowiedz o marce — zaproponujemy format i zakres?',
           ctaQuestionShort: 'Konsultacja gratis',
           startDate: { label: 'koncepcja logo', value: '3–7 dni' },
@@ -1992,7 +1992,7 @@ export const translations = {
     },
     modal: {
       title: 'Omówmy Twój projekt',
-      lead: 'Zostaw imię i telefon — oddzwonimy i doprecyzujemy. Krótki opis jest opcjonalny.',
+      lead: 'Zostaw imię i telefon — oddzwonimy i doprecyzujemy.',
       name: 'Imię',
       namePlaceholder: 'Jak masz na imię?',
       phone: 'Numer telefonu',
@@ -2406,11 +2406,11 @@ export const translations = {
           'Сайт, который собирает заявки и показывает, откуда приходят клиенты: адаптив, удобная админка, SEO и интеграции с CRM, оплатой и аналитикой. От одностраничного лендинга до e-commerce — без шаблонов «как у всех». При необходимости — AI-чат и автоматизация. Старт от 1 недели.',
         button: 'Заказать разработку',
         serviceHero: {
-          tagline: 'Быстрые сайты с админкой, SEO и интеграциями — без лишнего кода с вашей стороны.',
+          tagline: 'Лендинг, сайт компании или магазин. Вы говорите, что продаёте — мы называем срок и бюджет.',
           title: 'Разработка сайтов под ключ',
           subtitle: '',
           intro:
-            'От лендинга до e-commerce. Бесплатная консультация, прозрачные сроки и поддержка после релиза.',
+            'Лендинг от $150. Админка, оплата и страницы, которые нормально открываются с телефона.',
           ctaQuestion: 'Обсудим задачу без обязательств?',
           ctaQuestionShort: 'Бесплатно',
           startDate: { label: 'быстрый старт', value: 'от 1 недели' },
@@ -2448,11 +2448,11 @@ export const translations = {
           'Бот ведёт клиента к покупке: принимает оплату (Mono, WayForPay, LiqPay), пишет в CRM или Google Sheets, отправляет подтверждения. Автоматизация в мессенджере без потери личного подхода; при необходимости — AI-ответы. Простой сценарий — от 24 ч, сложнее — поэтапно.',
         button: 'Заказать разработку',
         serviceHero: {
-          tagline: 'Бот в мессенджере закрывает первые запросы и заявки 24/7 — пока вы ведёте бизнес.',
-          title: 'Разработка Telegram-ботов под ключ',
+          tagline: 'Бот отвечает на типовые вопросы и принимает заказ, пока вас нет в чате.',
+          title: 'Чат-боты в Telegram от $100',
           subtitle: '',
           intro:
-            'Оплата, CRM и рассылки. Простые сценарии — от 24 ч; сложнее — поэтапно и прозрачно.',
+            'Заявка, оплата, запись в CRM. Короткий сценарий за сутки, длиннее — после того как распишем шаги.',
           ctaQuestion: 'Подберём архитектуру под ваши продажи?',
           ctaQuestionShort: 'Бесплатно',
           startDate: { label: 'первый прототип', value: 'за 24 ч' },
@@ -2503,11 +2503,11 @@ export const translations = {
           'Фирменный стиль и интерфейсы под конверсию: прототипы в Figma, брендбук, макеты под вёрстку. Дизайн и разработка в одной команде — от идеи до передачи в код. 2–3 раунда правок в рамках ТЗ.',
         button: 'Заказать дизайн',
         serviceHero: {
-          tagline: 'Лого и интерфейсы под узнаваемость и конверсию — не только «красивую картинку».',
-          title: 'Дизайн логотипов и UI/UX под ключ',
+          tagline: 'Логотип и экраны, которые можно отдать в вёрстку, а не только вставить в презентацию.',
+          title: 'Дизайн логотипа и интерфейса',
           subtitle: '',
           intro:
-            'Figma, айдентика, макеты под вёрстку. 2–3 раунда правок в рамках ТЗ — от идеи до передачи в код.',
+            'Figma, фирменный стиль, макеты страниц. Два-три круга правок в рамках того, что зафиксировали на старте.',
           ctaQuestion: 'Расскажите о бренде — предложим формат и объём?',
           ctaQuestionShort: 'Бесплатно',
           startDate: { label: 'концепт лого', value: '3–7 дней' },
@@ -2676,7 +2676,7 @@ export const translations = {
     },
     modal: {
       title: 'Обсудим ваш проект',
-      lead: 'Оставьте имя и телефон — перезвоним и уточним задачу. Краткое описание необязательно.',
+      lead: 'Оставьте имя и телефон — перезвоним и уточним задачу.',
       name: 'Имя',
       namePlaceholder: 'Как вас зовут?',
       phone: 'Номер телефона',

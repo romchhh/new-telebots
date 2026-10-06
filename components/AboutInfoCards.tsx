@@ -23,6 +23,8 @@ type AboutInfoCardsProps = {
   lang: Language;
   contactHref?: string;
   onContactClick?: () => void;
+  /** Замість переходу на інші сторінки сайту — та сама дія, що й контакт. */
+  onExploreClick?: () => void;
 };
 
 const display = { fontFamily: 'var(--font-display)' };
@@ -96,6 +98,7 @@ export default function AboutInfoCards({
   lang,
   contactHref,
   onContactClick,
+  onExploreClick,
 }: AboutInfoCardsProps) {
   const resolvedContactHref = contactHref ?? `/${lang}/contact`;
 
@@ -166,30 +169,61 @@ export default function AboutInfoCards({
           </div>
         </article>
 
-        <Link
-          href={`/${lang}/solutions/ai-chatbots`}
-          className={`${lightCard} col-span-1 min-h-[152px] transition-colors hover:border-brand/30 hover:bg-brand-light/35 sm:min-h-[172px] lg:col-span-4 lg:col-start-5 lg:row-start-2 lg:min-h-[260px]`}
-        >
-          <span className="flex flex-1" aria-hidden />
-          <p className={labelLight} style={sans}>
-            {copy.ai}
-          </p>
-        </Link>
+        {onExploreClick ? (
+          <button
+            type="button"
+            onClick={onExploreClick}
+            className={`${lightCard} col-span-1 min-h-[152px] text-left transition-colors hover:border-brand/30 hover:bg-brand-light/35 sm:min-h-[172px] lg:col-span-4 lg:col-start-5 lg:row-start-2 lg:min-h-[260px]`}
+          >
+            <span className="flex flex-1" aria-hidden />
+            <p className={labelLight} style={sans}>
+              {copy.ai}
+            </p>
+          </button>
+        ) : (
+          <Link
+            href={`/${lang}/solutions/ai-chatbots`}
+            className={`${lightCard} col-span-1 min-h-[152px] transition-colors hover:border-brand/30 hover:bg-brand-light/35 sm:min-h-[172px] lg:col-span-4 lg:col-start-5 lg:row-start-2 lg:min-h-[260px]`}
+          >
+            <span className="flex flex-1" aria-hidden />
+            <p className={labelLight} style={sans}>
+              {copy.ai}
+            </p>
+          </Link>
+        )}
 
-        <Link
-          href={`/${lang}/services`}
-          className={`${lightCard} col-span-1 min-h-[152px] transition-colors hover:border-brand/30 hover:bg-brand-light/35 sm:min-h-[172px] lg:col-span-4 lg:col-start-9 lg:row-start-2 lg:min-h-[260px]`}
-        >
-          <Asterisk
-            className="absolute right-5 top-5 h-8 w-8 text-neutral-900 sm:right-6 sm:top-6 sm:h-9 sm:w-9"
-            strokeWidth={1.75}
-            aria-hidden
-          />
-          <span className="flex flex-1" aria-hidden />
-          <p className={`pr-8 ${labelLight}`} style={sans}>
-            {copy.solutions}
-          </p>
-        </Link>
+        {onExploreClick ? (
+          <button
+            type="button"
+            onClick={onExploreClick}
+            className={`${lightCard} col-span-1 min-h-[152px] text-left transition-colors hover:border-brand/30 hover:bg-brand-light/35 sm:min-h-[172px] lg:col-span-4 lg:col-start-9 lg:row-start-2 lg:min-h-[260px]`}
+          >
+            <Asterisk
+              className="absolute right-5 top-5 h-8 w-8 text-neutral-900 sm:right-6 sm:top-6 sm:h-9 sm:w-9"
+              strokeWidth={1.75}
+              aria-hidden
+            />
+            <span className="flex flex-1" aria-hidden />
+            <p className={`pr-8 ${labelLight}`} style={sans}>
+              {copy.solutions}
+            </p>
+          </button>
+        ) : (
+          <Link
+            href={`/${lang}/services`}
+            className={`${lightCard} col-span-1 min-h-[152px] transition-colors hover:border-brand/30 hover:bg-brand-light/35 sm:min-h-[172px] lg:col-span-4 lg:col-start-9 lg:row-start-2 lg:min-h-[260px]`}
+          >
+            <Asterisk
+              className="absolute right-5 top-5 h-8 w-8 text-neutral-900 sm:right-6 sm:top-6 sm:h-9 sm:w-9"
+              strokeWidth={1.75}
+              aria-hidden
+            />
+            <span className="flex flex-1" aria-hidden />
+            <p className={`pr-8 ${labelLight}`} style={sans}>
+              {copy.solutions}
+            </p>
+          </Link>
+        )}
       </div>
     </div>
   );
