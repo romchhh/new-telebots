@@ -7,10 +7,17 @@ type HeroOrderCtaProps = {
   eyebrow: string;
   eyebrowMobile: string;
   label: string;
+  labelMobile: string;
   className?: string;
 };
 
-export default function HeroOrderCta({ eyebrow, eyebrowMobile, label, className }: HeroOrderCtaProps) {
+export default function HeroOrderCta({
+  eyebrow,
+  eyebrowMobile,
+  label,
+  labelMobile,
+  className,
+}: HeroOrderCtaProps) {
   const openModal = useHomeModal();
 
   return (
@@ -19,6 +26,7 @@ export default function HeroOrderCta({ eyebrow, eyebrowMobile, label, className 
       eyebrow={eyebrow}
       eyebrowMobile={eyebrowMobile}
       label={label}
+      labelMobile={labelMobile}
       onClick={openModal}
       className={className}
     />

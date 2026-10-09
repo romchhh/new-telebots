@@ -11,6 +11,8 @@ export type OrderCtaPillVariant = 'solid' | 'outline' | 'dark' | 'brand';
 
 export type OrderCtaPillProps = {
   label: string;
+  /** Коротший основний текст на вузьких екранах */
+  labelMobile?: string;
   eyebrow?: string;
   /** Коротший підпис на вузьких екранах (як на референсі) */
   eyebrowMobile?: string;
@@ -33,7 +35,8 @@ const SIZE_STYLES: Record<
   hero: {
     root: 'min-w-0 max-w-full rounded-[2rem] pl-5 pr-1.5 py-3 sm:rounded-[2rem] sm:pl-6 sm:pr-2 sm:py-2.5 md:min-w-[min(100%,22rem)] md:max-w-[26rem] md:rounded-[2.25rem] md:pl-8 md:pr-3 md:py-3.5 lg:min-w-[24rem] lg:max-w-[28rem] lg:pl-9 lg:py-4',
     eyebrow: 'text-sm leading-tight text-black sm:text-sm md:text-base lg:text-lg',
-    label: 'text-[17px] font-bold leading-tight sm:text-xl md:text-2xl lg:text-3xl xl:text-[2rem]',
+    label:
+      'text-[clamp(0.875rem,3.6vw,1.0625rem)] font-bold leading-[1.15] sm:text-xl sm:leading-tight md:text-2xl lg:text-3xl xl:text-[2rem]',
     circle: CTA_ARROW_CIRCLE.hero,
     icon: CTA_ARROW_ICON.hero,
   },
@@ -58,6 +61,7 @@ const OUTLINE_EYEBROW = 'text-white/85';
 
 export default function OrderCtaPill({
   label,
+  labelMobile,
   eyebrow,
   eyebrowMobile,
   onClick,
@@ -127,6 +131,7 @@ export default function OrderCtaPill({
     : 'min-w-0 flex-1 pr-1.5 sm:pr-2';
 
   const mobileEyebrow = eyebrowMobile ?? eyebrow;
+  const mobileLabel = labelMobile ?? label;
 
   const content = (
     <>
@@ -134,12 +139,13 @@ export default function OrderCtaPill({
         {eyebrow ? (
           <>
             {mobileEyebrow && (
-              <span className={`mb-0.5 block break-words sm:hidden ${eyebrowClass}`}>{mobileEyebrow}</span>
+              <span className={`mb-0.5 block break-words md:hidden ${eyebrowClass}`}>{mobileEyebrow}</span>
             )}
-            <span className={`mb-0.5 hidden break-words sm:mb-1 sm:block ${eyebrowClass}`}>{eyebrow}</span>
+            <span className={`mb-0.5 hidden break-words md:mb-1 md:block ${eyebrowClass}`}>{eyebrow}</span>
           </>
         ) : null}
-        <span className={`block break-words ${labelClass} ${s.label}`}>{label}</span>
+        <span className={`block break-words md:hidden ${labelClass} ${s.label}`}>{mobileLabel}</span>
+        <span className={`hidden break-words md:block ${labelClass} ${s.label}`}>{label}</span>
       </span>
       <span
         className={`flex shrink-0 items-center justify-center ${RADIUS_PILL} transition-transform group-hover:scale-105 ${circleClass} ${s.circle}`}

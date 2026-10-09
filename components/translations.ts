@@ -21,6 +21,7 @@ export const translations = {
         'Фон головної сторінки TeleBots: панорама міста та узбережжя на заході сонця',
       ctaQuestion: 'Хочете дізнатися більше?',
       ctaQuestionShort: 'Безкоштовно',
+      ctaLabelShort: 'Обговоримо проєкт',
       tagline: 'Зручні сайти та боти, які ведуть клієнта до заявки й покупки.',
       viewButton: 'Переглянути',
       startDate: {
@@ -772,6 +773,7 @@ export const translations = {
         'TeleBots homepage hero image: coastal city skyline at sunset',
       ctaQuestion: 'Want to know more?',
       ctaQuestionShort: 'Free consultation',
+      ctaLabelShort: 'Discuss your project',
       tagline: 'Websites and bots that turn visitors into leads and sales.',
       viewButton: 'View',
       startDate: {
@@ -1456,6 +1458,7 @@ export const translations = {
         'Tło strony głównej TeleBots: panorama miasta i wybrzeża o zachodzie słońca',
       ctaQuestion: 'Chcesz wiedzieć więcej?',
       ctaQuestionShort: 'Konsultacja gratis',
+      ctaLabelShort: 'Omówmy projekt',
       tagline: 'Strony i boty, które prowadzą klienta od wizyty do zakupu.',
       viewButton: 'Zobacz',
       startDate: {
@@ -2140,6 +2143,7 @@ export const translations = {
         'Фон главной страницы TeleBots: панорама города и побережья на закате',
       ctaQuestion: 'Хотите узнать больше?',
       ctaQuestionShort: 'Бесплатно',
+      ctaLabelShort: 'Обсудим проект',
       tagline: 'Удобные сайты и боты, которые ведут клиента к заявке и к покупке.',
       viewButton: 'Смотреть',
       startDate: {
