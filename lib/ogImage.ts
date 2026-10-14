@@ -1,11 +1,12 @@
 import type { Language } from '@/components/translations';
+import { toOgDarkBackground } from '@/lib/ogDarkBackgrounds';
 import { siteUrl } from '@/lib/site';
 
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
 
-/** Hero головної (webp → jpg для Satori). */
-export const OG_HOME_BACKGROUND = '/other/og-hero.jpg';
+/** Hero головної — уже затемнений файл під текст OG. */
+export const OG_HOME_BACKGROUND = '/other/og-dark/og-hero.jpg';
 
 /** Fallback = текст hero головної (якщо сторінка не передала свої). */
 export const OG_DEFAULT_TITLE_BY_LANG: Record<Language, string> = {
@@ -33,8 +34,9 @@ const ALLOWED_BG_PREFIXES = [
 
 /** WebP / інші формати, які Satori не їсть — підміняємо на jpg-еквівалент. */
 const BG_ALIASES: Record<string, string> = {
-  '/other/hero-background.webp': OG_HOME_BACKGROUND,
-  '/other/hero-background.jpg': OG_HOME_BACKGROUND,
+  '/other/hero-background.webp': '/other/og-hero.jpg',
+  '/other/hero-background.jpg': '/other/og-hero.jpg',
+  '/other/og-hero.jpg': '/other/og-dark/og-hero.jpg',
 };
 
 function cleanTitle(title: string): string {
@@ -79,7 +81,8 @@ export function resolveOgBackgroundPath(input?: string | null): string {
     return OG_HOME_BACKGROUND;
   }
 
-  return aliased;
+  // Завжди віддаємо затемнений варіант, якщо він є (текст OG без CSS-scrim).
+  return toOgDarkBackground(aliased);
 }
 
 export type BuildOgImageUrlOptions = {

@@ -2,6 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
+import sharp from 'sharp';
 import type { Language } from '@/components/translations';
 import {
   OG_DEFAULT_DESCRIPTION_BY_LANG,
@@ -22,11 +23,8 @@ const fontsPromise = Promise.all([
 
 const backgroundCache = new Map<string, Promise<string>>();
 
-function mimeForPath(path: string) {
-  const ext = path.split('.').pop()?.toLowerCase();
-  if (ext === 'png') return 'image/png';
-  if (ext === 'webp') return 'image/webp';
-  return 'image/jpeg';
+function isAlreadyDarkPath(path: string) {
+  return path.startsWith('/other/og-dark/');
 }
 
 async function loadBackgroundDataUrl(publicPath: string): Promise<string> {
@@ -37,8 +35,45 @@ async function loadBackgroundDataUrl(publicPath: string): Promise<string> {
   const promise = (async () => {
     try {
       const absolute = join(process.cwd(), 'public', resolved.replace(/^\//, ''));
-      const data = await readFile(absolute, 'base64');
-      return `data:${mimeForPath(resolved)};base64,${data}`;
+      const file = await readFile(absolute);
+
+      // Готові og-dark файли вже затемнені; решту (кейси, блог) затемнюємо тут.
+      if (isAlreadyDarkPath(resolved)) {
+        return `data:image/jpeg;base64,${file.toString('base64')}`;
+      }
+
+      const darkened = await sharp(file)
+        .rotate()
+        .resize(OG_IMAGE_WIDTH, OG_IMAGE_HEIGHT, { fit: 'cover', position: 'centre' })
+        .modulate({ brightness: 0.48 })
+        .composite([
+          {
+            input: Buffer.from(
+              `<svg width="${OG_IMAGE_WIDTH}" height="${OG_IMAGE_HEIGHT}">
+                <defs>
+                  <linearGradient id="b" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#000" stop-opacity="0.28"/>
+                    <stop offset="45%" stop-color="#000" stop-opacity="0.45"/>
+                    <stop offset="100%" stop-color="#000" stop-opacity="0.78"/>
+                  </linearGradient>
+                  <linearGradient id="l" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#000" stop-opacity="0.55"/>
+                    <stop offset="55%" stop-color="#000" stop-opacity="0.15"/>
+                    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#b)"/>
+                <rect width="100%" height="100%" fill="url(#l)"/>
+              </svg>`
+            ),
+            top: 0,
+            left: 0,
+          },
+        ])
+        .jpeg({ quality: 86 })
+        .toBuffer();
+
+      return `data:image/jpeg;base64,${darkened.toString('base64')}`;
     } catch {
       if (resolved === OG_HOME_BACKGROUND) throw new Error('OG home background missing');
       return loadBackgroundDataUrl(OG_HOME_BACKGROUND);
@@ -103,37 +138,11 @@ export async function GET(request: NextRequest) {
           height={OG_IMAGE_HEIGHT}
           style={{
             position: 'absolute',
-            inset: 0,
+            top: 0,
+            left: 0,
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-          }}
-        />
-
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            backgroundColor: 'rgba(0,0,0,0.42)',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            background:
-              'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 42%, rgba(0,0,0,0.28) 100%)',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            display: 'flex',
-            background:
-              'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 48%, rgba(0,0,0,0.15) 100%)',
           }}
         />
 
