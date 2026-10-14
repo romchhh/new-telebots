@@ -23,6 +23,7 @@ export function buildPortfolioHubMetadata(lang: Language, caseQuery?: string | n
     lang,
     openGraphTitle: heroOg.title,
     openGraphDescription: heroOg.description,
+    ogBackground: '/other/portfolio-hero.jpg',
   });
 
   if (caseQuery?.trim()) {

@@ -127,7 +127,10 @@ export interface SEOConfig {
   title: string;
   description: string;
   keywords?: string;
+  /** @deprecated OG бере `ogBackground` (hero сторінки); поле лишається для сумісності викликів */
   image?: string;
+  /** Шлях до hero-фото сторінки для OG-прев’ю (наприклад `/services/services-websites.jpg`) */
+  ogBackground?: string;
   type?: 'website' | 'article';
   url?: string;
   caseId?: string;
@@ -230,6 +233,8 @@ export function generateMetadata(config: SEOConfig) {
     modifiedTime,
     openGraphTitle,
     openGraphDescription,
+    ogBackground,
+    image,
   } = config;
 
   const currentUrl = url || buildPageUrl(lang);
@@ -246,6 +251,7 @@ export function generateMetadata(config: SEOConfig) {
     title: openGraphTitle || title,
     description: openGraphDescription || description,
     lang,
+    background: ogBackground || image,
   });
 
   const hreflangLanguages = buildHreflangLanguages(pathSuffix, {

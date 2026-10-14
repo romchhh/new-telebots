@@ -1,8 +1,10 @@
 import { Metadata } from 'next';
 import { Language } from '@/components/translations';
+import { getSolutionOgHero } from '@/lib/ogHeroCopy';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
 import {
+  SEO_LANDING_MEDIA,
   SEO_LANDING_SLUGS,
   getSeoLanding,
   isSeoLandingSlug,
@@ -30,6 +32,7 @@ export async function generateMetadata({
 
   const page = getSeoLanding(lang, slug);
   if (!page) return { title: { absolute: 'TeleBots' } };
+  const heroOg = getSolutionOgHero(lang, slug);
 
   return generateSEOMetadata({
     title: page.metaTitle,
@@ -37,8 +40,9 @@ export async function generateMetadata({
     keywords: page.keywords,
     url: `${baseUrl}/${lang}/solutions/${slug}`,
     lang,
-    openGraphTitle: page.h1 || page.metaTitle,
-    openGraphDescription: page.metaDescription,
+    openGraphTitle: heroOg?.title || page.h1 || page.metaTitle,
+    openGraphDescription: heroOg?.description || page.metaDescription,
+    ogBackground: SEO_LANDING_MEDIA[slug]?.hero,
   });
 }
 

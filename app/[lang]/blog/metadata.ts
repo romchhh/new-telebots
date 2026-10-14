@@ -15,6 +15,9 @@ export async function generateMetadata(): Promise<Metadata> {
       url: `${baseUrl}/uk/blog`,
       lang: 'uk',
       ukOnly: true,
+      openGraphTitle: 'Блог: ціни, Telegram-боти, сайти та SEO',
+      openGraphDescription: `${postCount} статей українською про розробку сайтів, Telegram-ботів, ціни TeleBots, SEO та автоматизацію бізнесу.`,
+      ogBackground: '/other/og-hero.jpg',
     }),
   };
 }

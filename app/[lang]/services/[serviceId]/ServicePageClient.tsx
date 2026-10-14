@@ -6,6 +6,11 @@ import type { ServicePageCaseCard } from '@/lib/servicePageCases';
 import ServiceHeroSection from '@/components/ServiceHeroSection';
 import ServiceAudienceSection from '@/components/ServiceAudienceSection';
 import ServiceOutcomesSection from '@/components/ServiceOutcomesSection';
+import {
+  ServicePageFeaturePhoto,
+  ServicePagePhotoStrip,
+  ServicePageWidePhoto,
+} from '@/components/ServicePagePhotos';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import ContactFormSection from '@/components/ContactFormSection';
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -23,6 +28,8 @@ import {
 } from '@/lib/siteUi';
 import { BREADCRUMB_HOME, BREADCRUMB_SERVICES } from '@/lib/breadcrumbLabels';
 import type { ServiceLongFormBundle } from '@/lib/servicePagesSeoContent';
+import { getServicePageMedia } from '@/lib/servicePageMedia';
+import { getServicePagePhotoCopy } from '@/lib/servicePagePhotoCopy';
 import {
   getServiceKeyForTranslations,
   hasPricing,
@@ -78,6 +85,8 @@ export default function ServicePageClient({
   const heroCopy = serviceExtended.serviceHero;
   const audienceCopy = longForm?.audienceSection ?? serviceExtended.audienceSection;
   const outcomesCopy = serviceExtended.outcomesSection ?? getServiceOutcomesCopy(lang, serviceId);
+  const pageMedia = getServicePageMedia(serviceId);
+  const photoCopy = getServicePagePhotoCopy(lang, serviceId);
 
   const breadcrumbs = [
     { name: BREADCRUMB_HOME[lang], url: `/${lang}` },
@@ -125,6 +134,13 @@ export default function ServicePageClient({
 
       {outcomesCopy ? <ServiceOutcomesSection copy={outcomesCopy} /> : null}
 
+      <ServicePagePhotoStrip
+        media={pageMedia}
+        title={photoCopy.title}
+        lead={photoCopy.lead}
+        alts={photoCopy.alts}
+      />
+
       {cases.length > 0 ? (
         <PortfolioShowcaseScroller
           lang={lang}
@@ -154,64 +170,66 @@ export default function ServicePageClient({
         className={`border-t border-gray-100 bg-white ${SERVICE_SECTION_Y} ${SITE_PX}`}
       >
         <div className="mx-auto w-full max-w-[90rem]">
-          {serviceExtended.descriptionSectionTitle ? (
-            <div className="mb-12 md:mb-16 lg:mb-20">
-              <h2
-                className="max-w-4xl text-[clamp(1.75rem,4vw,3rem)] font-black uppercase leading-[1.05] tracking-tight text-neutral-900"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {serviceExtended.descriptionSectionTitle}
-              </h2>
-              <p
-                className="mt-5 max-w-3xl text-lg leading-relaxed text-neutral-600 md:text-xl"
-                style={{ fontFamily: 'var(--font-sans)' }}
-              >
-                {service.subtitle}
-              </p>
-            </div>
-          ) : null}
-          {longForm ? (
-            <div className="mx-auto max-w-4xl space-y-7 md:space-y-8">
-              {longForm.aboutParagraphs.map((paragraph) => (
+          <ServicePageFeaturePhoto src={pageMedia.feature} alt={photoCopy.featureAlt}>
+            {serviceExtended.descriptionSectionTitle ? (
+              <div className="mb-8 md:mb-10">
+                <h2
+                  className="max-w-4xl text-[clamp(1.75rem,4vw,3rem)] font-black uppercase leading-[1.05] tracking-tight text-neutral-900"
+                  style={{ fontFamily: 'var(--font-display)' }}
+                >
+                  {serviceExtended.descriptionSectionTitle}
+                </h2>
                 <p
-                  key={paragraph.slice(0, 40)}
-                  className="text-lg font-normal leading-relaxed text-gray-700 md:text-xl"
+                  className="mt-5 max-w-3xl text-lg leading-relaxed text-neutral-600 md:text-xl"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
-                  {paragraph}
+                  {service.subtitle}
                 </p>
-              ))}
-            </div>
-          ) : (
-            <p
-              className="mx-auto max-w-4xl text-center text-lg font-normal leading-relaxed text-gray-700 md:text-xl"
-              style={{ fontFamily: 'var(--font-sans)' }}
-            >
-              {service.description}
-            </p>
-          )}
-
-          {!longForm && serviceStructure ? (
-            <div className="space-y-6">
-              <h2 className="text-2xl font-semibold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl">
-                {serviceStructure.mainTitle}
-              </h2>
-              <div className="space-y-3">
-                <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
-                  {serviceStructure.leadGenTitle}
-                </h2>
-                <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
-                  {serviceStructure.supportTitle}
-                </h2>
-                <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
-                  {serviceStructure.salesTitle}
-                </h2>
-                <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
-                  {serviceStructure.crmTitle}
-                </h2>
               </div>
-            </div>
-          ) : null}
+            ) : null}
+            {longForm ? (
+              <div className="space-y-6 md:space-y-7">
+                {longForm.aboutParagraphs.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 40)}
+                    className="text-lg font-normal leading-relaxed text-gray-700 md:text-xl"
+                    style={{ fontFamily: 'var(--font-sans)' }}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <p
+                className="text-lg font-normal leading-relaxed text-gray-700 md:text-xl"
+                style={{ fontFamily: 'var(--font-sans)' }}
+              >
+                {service.description}
+              </p>
+            )}
+
+            {!longForm && serviceStructure ? (
+              <div className="mt-10 space-y-6">
+                <h2 className="text-2xl font-semibold leading-tight tracking-tight text-black sm:text-4xl lg:text-5xl">
+                  {serviceStructure.mainTitle}
+                </h2>
+                <div className="space-y-3">
+                  <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
+                    {serviceStructure.leadGenTitle}
+                  </h2>
+                  <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
+                    {serviceStructure.supportTitle}
+                  </h2>
+                  <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
+                    {serviceStructure.salesTitle}
+                  </h2>
+                  <h2 className="text-lg font-semibold leading-tight tracking-tight text-black sm:text-2xl">
+                    {serviceStructure.crmTitle}
+                  </h2>
+                </div>
+              </div>
+            ) : null}
+          </ServicePageFeaturePhoto>
         </div>
       </section>
 
@@ -260,6 +278,8 @@ export default function ServicePageClient({
           </div>
         </section>
       ) : null}
+
+      <ServicePageWidePhoto src={pageMedia.wide} alt={photoCopy.wideAlt} />
 
       {hasPricing(serviceId) ? (
         <PricingTable

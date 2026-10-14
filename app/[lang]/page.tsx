@@ -4,6 +4,8 @@ import HeroImage from '@/components/HeroImage';
 import HeroSectionOverlay from '@/components/HeroSectionOverlay';
 import StructuredData from '@/components/StructuredData';
 import { translations, Language } from '@/components/translations';
+import { getHomeOgHero } from '@/lib/ogHeroCopy';
+import { OG_HOME_BACKGROUND } from '@/lib/ogImage';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { getHubPageSeo } from '@/lib/seoPagesRegistry';
 import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
@@ -17,6 +19,7 @@ export async function generateMetadata({
   const { lang: langParam } = await params;
   const lang = (['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk') as Language;
   const { title, description, keywords } = getHubPageSeo('home', lang);
+  const heroOg = getHomeOgHero(lang);
 
   return generateSEOMetadata({
     title,
@@ -24,6 +27,9 @@ export async function generateMetadata({
     keywords,
     url: `${baseUrl}/${lang}`,
     lang,
+    openGraphTitle: heroOg.title,
+    openGraphDescription: heroOg.description,
+    ogBackground: OG_HOME_BACKGROUND,
   });
 }
 

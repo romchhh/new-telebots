@@ -4,11 +4,12 @@ import { ImageResponse } from 'next/og';
 import type { NextRequest } from 'next/server';
 import type { Language } from '@/components/translations';
 import {
-  OG_BADGE_BY_LANG,
   OG_DEFAULT_DESCRIPTION_BY_LANG,
   OG_DEFAULT_TITLE_BY_LANG,
+  OG_HOME_BACKGROUND,
   OG_IMAGE_HEIGHT,
   OG_IMAGE_WIDTH,
+  resolveOgBackgroundPath,
 } from '@/lib/ogImage';
 import { asSiteLang } from '@/lib/site';
 
@@ -19,9 +20,34 @@ const fontsPromise = Promise.all([
   readFile(join(process.cwd(), 'assets/og/Montserrat-SemiBold.ttf')),
 ]);
 
-const heroPromise = readFile(join(process.cwd(), 'public/other/og-hero.jpg'), 'base64').then(
-  (data) => `data:image/jpeg;base64,${data}`
-);
+const backgroundCache = new Map<string, Promise<string>>();
+
+function mimeForPath(path: string) {
+  const ext = path.split('.').pop()?.toLowerCase();
+  if (ext === 'png') return 'image/png';
+  if (ext === 'webp') return 'image/webp';
+  return 'image/jpeg';
+}
+
+async function loadBackgroundDataUrl(publicPath: string): Promise<string> {
+  const resolved = resolveOgBackgroundPath(publicPath);
+  const cached = backgroundCache.get(resolved);
+  if (cached) return cached;
+
+  const promise = (async () => {
+    try {
+      const absolute = join(process.cwd(), 'public', resolved.replace(/^\//, ''));
+      const data = await readFile(absolute, 'base64');
+      return `data:${mimeForPath(resolved)};base64,${data}`;
+    } catch {
+      if (resolved === OG_HOME_BACKGROUND) throw new Error('OG home background missing');
+      return loadBackgroundDataUrl(OG_HOME_BACKGROUND);
+    }
+  })();
+
+  backgroundCache.set(resolved, promise);
+  return promise;
+}
 
 function clampText(value: string, max: number) {
   const text = value.replace(/\s+/g, ' ').trim();
@@ -32,10 +58,11 @@ function clampText(value: string, max: number) {
 }
 
 function titleFontSize(title: string) {
-  if (title.length > 90) return 42;
-  if (title.length > 70) return 48;
-  if (title.length > 48) return 54;
-  return 62;
+  if (title.length > 110) return 36;
+  if (title.length > 90) return 40;
+  if (title.length > 70) return 46;
+  if (title.length > 48) return 52;
+  return 60;
 }
 
 export async function GET(request: NextRequest) {
@@ -47,11 +74,14 @@ export async function GET(request: NextRequest) {
   );
   const description = clampText(
     searchParams.get('description') || OG_DEFAULT_DESCRIPTION_BY_LANG[lang],
-    150
+    160
   );
-  const badge = OG_BADGE_BY_LANG[lang];
+  const backgroundPath = resolveOgBackgroundPath(searchParams.get('bg'));
 
-  const [[fontBold, fontSemi], heroSrc] = await Promise.all([fontsPromise, heroPromise]);
+  const [[fontBold, fontSemi], heroSrc] = await Promise.all([
+    fontsPromise,
+    loadBackgroundDataUrl(backgroundPath),
+  ]);
 
   return new ImageResponse(
     (
@@ -62,7 +92,7 @@ export async function GET(request: NextRequest) {
           display: 'flex',
           position: 'relative',
           overflow: 'hidden',
-          backgroundColor: '#0a0a0a',
+          backgroundColor: '#000000',
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -85,8 +115,7 @@ export async function GET(request: NextRequest) {
             position: 'absolute',
             inset: 0,
             display: 'flex',
-            background:
-              'linear-gradient(115deg, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.62) 48%, rgba(0,0,0,0.45) 100%)',
+            backgroundColor: 'rgba(0,0,0,0.42)',
           }}
         />
         <div
@@ -95,7 +124,16 @@ export async function GET(request: NextRequest) {
             inset: 0,
             display: 'flex',
             background:
-              'linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 45%, rgba(0,0,0,0.35) 100%)',
+              'linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.55) 42%, rgba(0,0,0,0.28) 100%)',
+          }}
+        />
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            background:
+              'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.35) 48%, rgba(0,0,0,0.15) 100%)',
           }}
         />
 
@@ -110,52 +148,32 @@ export async function GET(request: NextRequest) {
             padding: '52px 64px',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 14,
+            }}
+          >
             <div
               style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 14,
-              }}
-            >
-              <div
-                style={{
-                  width: 14,
-                  height: 14,
-                  borderRadius: 999,
-                  backgroundColor: '#f472b6',
-                }}
-              />
-              <div
-                style={{
-                  display: 'flex',
-                  fontSize: 36,
-                  fontFamily: 'Montserrat',
-                  fontWeight: 800,
-                  color: '#ffffff',
-                  letterSpacing: '-0.04em',
-                }}
-              >
-                telebots.
-              </div>
-            </div>
-
-            <div
-              style={{
-                display: 'flex',
-                alignSelf: 'flex-start',
-                padding: '10px 18px',
+                width: 14,
+                height: 14,
                 borderRadius: 999,
-                border: '1px solid rgba(244,114,182,0.45)',
-                backgroundColor: 'rgba(244,114,182,0.16)',
-                color: '#fce7f3',
-                fontSize: 22,
+                backgroundColor: '#f472b6',
+              }}
+            />
+            <div
+              style={{
+                display: 'flex',
+                fontSize: 36,
                 fontFamily: 'Montserrat',
-                fontWeight: 600,
-                letterSpacing: '0.02em',
+                fontWeight: 800,
+                color: '#ffffff',
+                letterSpacing: '-0.04em',
               }}
             >
-              {badge}
+              telebots.
             </div>
           </div>
 
@@ -186,12 +204,12 @@ export async function GET(request: NextRequest) {
             <div
               style={{
                 display: 'flex',
-                fontSize: 28,
+                fontSize: 26,
                 lineHeight: 1.35,
                 fontFamily: 'Montserrat',
                 fontWeight: 600,
-                color: 'rgba(255,255,255,0.84)',
-                maxWidth: 900,
+                color: 'rgba(255,255,255,0.88)',
+                maxWidth: 920,
               }}
             >
               {description}

@@ -18,5 +18,6 @@ export function buildServicesHubMetadata(lang: Language): Metadata {
     lang,
     openGraphTitle: heroOg.title,
     openGraphDescription: heroOg.description,
+    ogBackground: '/services/services-hero_new.jpg',
   });
 }

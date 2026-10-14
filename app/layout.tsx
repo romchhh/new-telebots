@@ -1,9 +1,15 @@
 import type { Metadata, Viewport } from "next";
-import { buildOgImageUrl, OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from "@/lib/ogImage";
+import { buildOgImageUrl, OG_HOME_BACKGROUND, OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from "@/lib/ogImage";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
-const rootOgImage = buildOgImageUrl({ lang: "uk" });
+const rootOgImage = buildOgImageUrl({
+  lang: "uk",
+  title: "Розробка сайтів і Telegram-ботів під ключ",
+  description:
+    "Зручні сайти та боти, які ведуть клієнта до заявки й покупки. Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.",
+  background: OG_HOME_BACKGROUND,
+});
 
 export const viewport: Viewport = {
   width: "device-width",

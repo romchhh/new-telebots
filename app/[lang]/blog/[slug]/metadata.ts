@@ -12,8 +12,6 @@ export async function generateMetadata({
   const post = getBlogPostBySlug(slug);
   if (!post) return { title: { absolute: 'TeleBots' } };
 
-  const image = post.image.startsWith('http') ? post.image : `${baseUrl}${post.image}`;
-
   return {
     ...generateSEOMetadata({
       title: post.seoTitle ?? post.title,
@@ -23,7 +21,10 @@ export async function generateMetadata({
       lang: 'uk',
       ukOnly: true,
       type: 'article',
-      image,
+      openGraphTitle: post.title,
+      openGraphDescription: post.description,
+      // Локальні обкладинки; зовнішні Unsplash — fallback на home hero в resolveOgBackgroundPath
+      ogBackground: post.image.startsWith('http') ? '/other/og-hero.jpg' : post.image,
       publishedTime: post.publishedAt,
       modifiedTime: post.updatedAt,
     }),

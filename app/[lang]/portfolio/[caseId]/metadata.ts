@@ -3,6 +3,7 @@ import { cases } from '@/components/cases';
 import { Language } from '@/components/translations';
 import { isFlagshipCase, isLightCase } from '@/lib/portfolioCases';
 import { getCaseStudyLastmod } from '@/lib/sitemapDates';
+import { getCaseOgHero } from '@/lib/ogHeroCopy';
 import {
   buildCaseSeoDescription,
   buildCaseSeoKeywords,
@@ -44,14 +45,11 @@ export async function generateMetadata(params: {
   const title = caseData.title;
 
   const description = buildCaseSeoDescription(caseData, lang);
-  const ogDescription =
-    caseData.subtitle?.trim() ||
-    (caseData.results && caseData.results.length > 0
-      ? `${description} ${caseData.results
-          .slice(0, 2)
-          .map((result: { value: string; label: string }) => `${result.value} ${result.label}`)
-          .join('. ')}`
-      : description);
+  const heroOg = getCaseOgHero(lang, params.caseId, {
+    title: caseData.title,
+    subtitle: caseData.subtitle,
+    description: caseData.description,
+  });
   const url = `${baseUrl}/${lang}/portfolio/${params.caseId}`;
   const keywords = buildCaseSeoKeywords(caseData, lang);
   const hreflangLangs = SITE_LANGUAGES.filter((siteLang) =>
@@ -67,8 +65,9 @@ export async function generateMetadata(params: {
       url,
       lang,
       caseId: params.caseId,
-      openGraphTitle: title,
-      openGraphDescription: ogDescription,
+      openGraphTitle: heroOg.title,
+      openGraphDescription: heroOg.description,
+      ogBackground: caseData.mainImage,
       publishedTime: CASE_ARTICLE_PUBLISHED,
       modifiedTime: getCaseStudyLastmod(params.caseId),
       hreflangLangs: hreflangLangs.length > 0 ? hreflangLangs : ['uk'],

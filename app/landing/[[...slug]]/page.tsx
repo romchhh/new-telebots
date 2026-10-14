@@ -22,6 +22,7 @@ export async function generateMetadata({
     title: copy.h1,
     description: copy.lead,
     lang: 'uk',
+    background: '/other/hero-background.webp',
   });
   return {
     title: { absolute: `${copy.h1} | TeleBots` },

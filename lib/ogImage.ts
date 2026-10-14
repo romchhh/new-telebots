@@ -4,14 +4,10 @@ import { siteUrl } from '@/lib/site';
 export const OG_IMAGE_WIDTH = 1200;
 export const OG_IMAGE_HEIGHT = 630;
 
-/** Короткий бейдж на прев’ю (під бренд) — усі мови сайту */
-export const OG_BADGE_BY_LANG: Record<Language, string> = {
-  uk: 'Сайти · Telegram-боти · E-commerce',
-  en: 'Websites · Telegram bots · E-commerce',
-  pl: 'Strony · Boty Telegram · E-commerce',
-  ru: 'Сайты · Telegram-боты · E-commerce',
-};
+/** Hero головної (webp → jpg для Satori). */
+export const OG_HOME_BACKGROUND = '/other/og-hero.jpg';
 
+/** Fallback = текст hero головної (якщо сторінка не передала свої). */
 export const OG_DEFAULT_TITLE_BY_LANG: Record<Language, string> = {
   uk: 'Розробка сайтів і Telegram-ботів під ключ',
   en: 'Website & Telegram bot development end to end',
@@ -20,10 +16,25 @@ export const OG_DEFAULT_TITLE_BY_LANG: Record<Language, string> = {
 };
 
 export const OG_DEFAULT_DESCRIPTION_BY_LANG: Record<Language, string> = {
-  uk: '200+ проєктів · консультація · старт від 24 год',
-  en: '200+ projects · free consult · start in 24h',
-  pl: '200+ projektów · konsultacja · start w 24h',
-  ru: '200+ проектов · консультация · старт от 24 ч',
+  uk: 'Зручні сайти та боти, які ведуть клієнта до заявки й покупки. Повний цикл: месенджери, веб, e-commerce, дані, бренд і UI/UX. Одна команда — без зайвих підрядників.',
+  en: 'Websites and bots that turn visitors into leads and sales. Full cycle: messengers, web, e-commerce, data, brand & UI/UX. One team — no extra middlemen.',
+  pl: 'Strony i boty, które prowadzą klienta od wizyty do zakupu. Pełny cykl: komunikatory, web, e-commerce, dane, branding i UI/UX. Jeden zespół — bez pośredników.',
+  ru: 'Удобные сайты и боты, которые ведут клиента к заявке и к покупке. Полный цикл: мессенджеры, веб, e-commerce, данные, бренд и UI/UX. Одна команда — без лишних подрядчиков.',
+};
+
+/** Дозволені корені шляхів у /public для фону OG. */
+const ALLOWED_BG_PREFIXES = [
+  '/other/',
+  '/services/',
+  '/portfolio/',
+  '/offer/',
+  '/blog/',
+] as const;
+
+/** WebP / інші формати, які Satori не їсть — підміняємо на jpg-еквівалент. */
+const BG_ALIASES: Record<string, string> = {
+  '/other/hero-background.webp': OG_HOME_BACKGROUND,
+  '/other/hero-background.jpg': OG_HOME_BACKGROUND,
 };
 
 function cleanTitle(title: string): string {
@@ -45,23 +56,53 @@ function cleanDescription(description: string, maxLength = 120): string {
     .trim();
 }
 
+/** Нормалізує шлях до файлу в public для OG-фону. */
+export function resolveOgBackgroundPath(input?: string | null): string {
+  if (!input) return OG_HOME_BACKGROUND;
+
+  let path = input.trim();
+  if (path.startsWith(siteUrl)) {
+    path = path.slice(siteUrl.length);
+  }
+  if (!path.startsWith('/')) path = `/${path}`;
+  path = path.split('?')[0].split('#')[0];
+
+  if (path.includes('..') || path.includes('\\')) return OG_HOME_BACKGROUND;
+
+  const aliased = BG_ALIASES[path] || path;
+  if (!ALLOWED_BG_PREFIXES.some((prefix) => aliased.startsWith(prefix))) {
+    return OG_HOME_BACKGROUND;
+  }
+
+  const ext = aliased.split('.').pop()?.toLowerCase();
+  if (!ext || !['jpg', 'jpeg', 'png', 'webp'].includes(ext)) {
+    return OG_HOME_BACKGROUND;
+  }
+
+  return aliased;
+}
+
 export type BuildOgImageUrlOptions = {
   title?: string;
   description?: string;
   lang?: Language;
+  /** Шлях до hero-фото сторінки (наприклад `/services/services-websites.jpg`). */
+  background?: string;
 };
 
-/** Абсолютний URL динамічного OG-прев’ю з текстом поверх hero. */
+/** Абсолютний URL динамічного OG-прев’ю з текстом поверх hero сторінки. */
 export function buildOgImageUrl(options: BuildOgImageUrlOptions = {}): string {
   const lang = options.lang ?? 'uk';
   const title = cleanTitle(options.title || '') || OG_DEFAULT_TITLE_BY_LANG[lang];
   const description =
     cleanDescription(options.description || '') || OG_DEFAULT_DESCRIPTION_BY_LANG[lang];
+  const background = resolveOgBackgroundPath(options.background);
 
   const params = new URLSearchParams({
     title: title.slice(0, 140),
     description: description.slice(0, 160),
     lang,
+    bg: background,
   });
 
   return `${siteUrl}/api/og?${params.toString()}`;
