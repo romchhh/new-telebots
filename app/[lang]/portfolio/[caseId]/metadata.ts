@@ -45,10 +45,13 @@ export async function generateMetadata(params: {
 
   const description = buildCaseSeoDescription(caseData, lang);
   const ogDescription =
-    caseData.results && caseData.results.length > 0
-      ? `${description} ${caseData.results.slice(0, 2).map((result: { value: string; label: string }) => `${result.value} ${result.label}`).join('. ')}`
-      : description;
-  const image = `${baseUrl}${caseData.mainImage}`;
+    caseData.subtitle?.trim() ||
+    (caseData.results && caseData.results.length > 0
+      ? `${description} ${caseData.results
+          .slice(0, 2)
+          .map((result: { value: string; label: string }) => `${result.value} ${result.label}`)
+          .join('. ')}`
+      : description);
   const url = `${baseUrl}/${lang}/portfolio/${params.caseId}`;
   const keywords = buildCaseSeoKeywords(caseData, lang);
   const hreflangLangs = SITE_LANGUAGES.filter((siteLang) =>
@@ -60,11 +63,11 @@ export async function generateMetadata(params: {
     ...generateSEOMetadata({
       title,
       description,
-      image,
       type: 'article',
       url,
       lang,
       caseId: params.caseId,
+      openGraphTitle: title,
       openGraphDescription: ogDescription,
       publishedTime: CASE_ARTICLE_PUBLISHED,
       modifiedTime: getCaseStudyLastmod(params.caseId),

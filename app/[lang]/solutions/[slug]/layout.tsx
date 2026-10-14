@@ -3,7 +3,6 @@ import { Language } from '@/components/translations';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo';
 import { siteUrl as baseUrl, SITE_LANGUAGES } from '@/lib/site';
 import {
-  SEO_LANDING_IMAGE,
   SEO_LANDING_SLUGS,
   getSeoLanding,
   isSeoLandingSlug,
@@ -36,9 +35,10 @@ export async function generateMetadata({
     title: page.metaTitle,
     description: page.metaDescription,
     keywords: page.keywords,
-    image: `${baseUrl}${SEO_LANDING_IMAGE[slug]}`,
     url: `${baseUrl}/${lang}/solutions/${slug}`,
     lang,
+    openGraphTitle: page.h1 || page.metaTitle,
+    openGraphDescription: page.metaDescription,
   });
 }
 

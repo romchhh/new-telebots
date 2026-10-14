@@ -1,6 +1,7 @@
 import { Language } from '@/components/translations';
 import { cases } from '@/components/cases';
 import { legal } from '@/lib/legal';
+import { buildOgImageUrl, OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from '@/lib/ogImage';
 import { getCaseStudyLastmod } from '@/lib/sitemapDates';
 import { isFlagshipCase } from '@/lib/portfolioCaseTiers';
 import { siteUrl, SITE_LANGUAGES, DEFAULT_SITE_LANGUAGE, type SiteLanguage } from '@/lib/site';
@@ -220,7 +221,6 @@ export function generateMetadata(config: SEOConfig) {
     title,
     description,
     keywords,
-    image = `${baseUrl}/other/about-hero.png`,
     type = 'website',
     url,
     lang = 'uk',
@@ -242,6 +242,11 @@ export function generateMetadata(config: SEOConfig) {
   const ogDescription = openGraphDescription
     ? trimDescriptionForMeta(openGraphDescription)
     : metaDescription;
+  const ogImage = buildOgImageUrl({
+    title: openGraphTitle || title,
+    description: openGraphDescription || description,
+    lang,
+  });
 
   const hreflangLanguages = buildHreflangLanguages(pathSuffix, {
     ukOnly,
@@ -272,9 +277,9 @@ export function generateMetadata(config: SEOConfig) {
       siteName: 'TeleBots',
       images: [
         {
-          url: image,
-          width: 1200,
-          height: 630,
+          url: ogImage,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
           alt: ogTitle,
         },
       ],
@@ -284,7 +289,7 @@ export function generateMetadata(config: SEOConfig) {
       card: 'summary_large_image',
       title: ogTitle,
       description: ogDescription,
-      images: [image],
+      images: [ogImage],
       creator: '@telebotsnowayrm',
       site: '@telebotsnowayrm',
     },

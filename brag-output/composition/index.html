@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="uk" data-resolution="landscape">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1920, height=1080" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Montserrat:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #0a0a0a;
+      }
+      #root {
+        position: relative;
+        width: 1920px;
+        height: 1080px;
+        background: #0a0a0a;
+        font-family: Manrope, ui-sans-serif, system-ui, sans-serif;
+        color: #ffffff;
+      }
+      .clip {
+        position: absolute;
+        inset: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      .scene {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 96px 120px;
+      }
+      .display {
+        font-family: Montserrat, Manrope, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        line-height: 0.92;
+      }
+      .brand {
+        color: #f472b6;
+      }
+      .wordmark {
+        font-family: Montserrat, sans-serif;
+        font-weight: 800;
+        font-size: 28px;
+        letter-spacing: -0.04em;
+        text-transform: lowercase;
+      }
+      .wordmark span {
+        color: #f472b6;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(1100px 700px at 78% 18%, rgba(244, 114, 182, 0.22), transparent 58%),
+          linear-gradient(180deg, #141414 0%, #0a0a0a 55%, #050505 100%);
+      }
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.55), transparent 60%);
+      }
+      .hook-line {
+        font-size: 92px;
+        max-width: 16ch;
+      }
+      .hook-line.sub {
+        margin-top: 18px;
+        font-size: 78px;
+      }
+      .hero-title {
+        position: relative;
+        z-index: 1;
+        font-size: 72px;
+        max-width: 14ch;
+      }
+      .hero-tag {
+        position: relative;
+        z-index: 1;
+        margin-top: 28px;
+        max-width: 28ch;
+        font-size: 28px;
+        line-height: 1.35;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.84);
+        text-transform: none;
+        letter-spacing: -0.01em;
+      }
+      .top-mark {
+        position: absolute;
+        top: 56px;
+        left: 120px;
+        z-index: 2;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+        width: 100%;
+      }
+      .stat {
+        border: 1px solid rgba(244, 114, 182, 0.28);
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 28px;
+        padding: 48px 40px;
+        min-height: 280px;
+      }
+      .stat-value {
+        font-family: Montserrat, sans-serif;
+        font-weight: 900;
+        font-size: 96px;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .stat-label {
+        margin-top: 18px;
+        font-size: 24px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .soft {
+        background: #fdf2f8;
+        color: #171717;
+      }
+      .soft .eyebrow {
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #d22572;
+        margin-bottom: 28px;
+      }
+      .soft-title {
+        font-family: Montserrat, sans-serif;
+        font-weight: 900;
+        font-size: 56px;
+        letter-spacing: -0.03em;
+        text-transform: uppercase;
+        line-height: 1;
+        margin-bottom: 40px;
+      }
+      .pills {
+        display: flex;
+        gap: 18px;
+      }
+      .pill {
+        flex: 1;
+        border-radius: 999px;
+        background: #ffffff;
+        border: 1px solid #e4d2d8;
+        padding: 28px 32px;
+        font-family: Montserrat, sans-serif;
+        font-weight: 800;
+        font-size: 28px;
+        letter-spacing: -0.02em;
+        text-align: center;
+      }
+      .soft-sub {
+        margin-top: 36px;
+        font-size: 24px;
+        font-weight: 600;
+        color: rgba(23, 23, 23, 0.62);
+      }
+      .outro {
+        align-items: center;
+        text-align: center;
+      }
+      .outro-logo {
+        width: 280px;
+        height: auto;
+        margin-bottom: 36px;
+      }
+      .outro-line {
+        font-family: Montserrat, sans-serif;
+        font-weight: 800;
+        font-size: 48px;
+        letter-spacing: -0.03em;
+      }
+      .outro-url {
+        margin-top: 22px;
+        font-size: 28px;
+        font-weight: 700;
+        color: #f472b6;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="20"
+      data-width="1920"
+      data-height="1080"
+    >
+      <audio
+        id="music"
+        src="assets/music/happy-beats-business-moves-vol-9-by-ende-dot-app.mp3"
+        data-start="0"
+        data-duration="20"
+        data-track-index="10"
+        data-volume="0.28"
+        data-fade-in="0.4"
+        data-fade-out="1.2"
+      ></audio>
+
+      <audio
+        id="sfx1"
+        src="assets/sfx/select_008.ogg"
+        data-start="0.35"
+        data-duration="0.8"
+        data-track-index="11"
+        data-volume="0.22"
+      ></audio>
+      <audio
+        id="sfx2"
+        src="assets/sfx/click_002.ogg"
+        data-start="1.35"
+        data-duration="0.6"
+        data-track-index="11"
+        data-volume="0.18"
+      ></audio>
+      <audio
+        id="sfx3"
+        src="assets/sfx/switch_004.ogg"
+        data-start="7.7"
+        data-duration="0.7"
+        data-track-index="11"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="sfx4"
+        src="assets/sfx/switch_005.ogg"
+        data-start="8.55"
+        data-duration="0.7"
+        data-track-index="11"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="sfx5"
+        src="assets/sfx/switch_006.ogg"
+        data-start="9.4"
+        data-duration="0.7"
+        data-track-index="11"
+        data-volume="0.2"
+      ></audio>
+      <audio
+        id="sfx6"
+        src="assets/sfx/bong_001.ogg"
+        data-start="17.25"
+        data-duration="1.2"
+        data-track-index="11"
+        data-volume="0.24"
+      ></audio>
+
+      <!-- Scene 1: Hook 0-3 -->
+      <section id="scene1" class="clip scene" data-start="0" data-duration="3" data-track-index="0">
+        <p id="hook1" class="display hook-line">Бот бере заявку</p>
+        <p id="hook2" class="display hook-line sub brand">навіть о 3 ночі</p>
+      </section>
+
+      <!-- Scene 2: Reveal 3-7.5 -->
+      <section id="scene2" class="clip scene" data-start="3" data-duration="4.5" data-track-index="1">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="top-mark wordmark">telebots<span>.</span></div>
+        <h1 id="heroTitle" class="display hero-title">Розробка сайтів і Telegram-ботів під ключ</h1>
+        <p id="heroTag" class="hero-tag">
+          Зручні сайти та боти, які ведуть клієнта до заявки й покупки.
+        </p>
+      </section>
+
+      <!-- Scene 3: Proof 7.5-12.5 -->
+      <section id="scene3" class="clip scene" data-start="7.5" data-duration="5" data-track-index="2">
+        <div class="stats">
+          <article id="stat1" class="stat">
+            <div class="stat-value brand">200+</div>
+            <div class="stat-label">реалізованих проєктів</div>
+          </article>
+          <article id="stat2" class="stat">
+            <div class="stat-value">4+</div>
+            <div class="stat-label">роки оптимізації</div>
+          </article>
+          <article id="stat3" class="stat">
+            <div class="stat-value">24 год</div>
+            <div class="stat-label">швидкий старт</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Scene 4: Stack 12.5-17 -->
+      <section id="scene4" class="clip scene soft" data-start="12.5" data-duration="4.5" data-track-index="3">
+        <p class="eyebrow">одна команда · повний цикл</p>
+        <h2 class="soft-title">Що запускаємо</h2>
+        <div class="pills">
+          <div id="pill1" class="pill">Чат-боти</div>
+          <div id="pill2" class="pill">Сайти</div>
+          <div id="pill3" class="pill">E-commerce</div>
+        </div>
+        <p class="soft-sub">CRM · оплати · Next.js · підтримка після запуску</p>
+      </section>
+
+      <!-- Scene 5: Outro 17-20 -->
+      <section id="scene5" class="clip scene outro" data-start="17" data-duration="3" data-track-index="4">
+        <img id="logo" class="outro-logo" src="assets/img/logo.png" alt="TeleBots" />
+        <p id="outroLine" class="outro-line">Заявка → бот → оплата.</p>
+        <p id="outroUrl" class="outro-url">telebots.site</p>
+      </section>
+    </div>
+
+    <script>
+      window.__timelines = window.__timelines || {};
+      const tl = gsap.timeline({ paused: true });
+
+      // Scene 1
+      tl.fromTo("#hook1", { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.55 }, 0.15);
+      tl.fromTo("#hook2", { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 0.5 }, 1.05);
+      tl.to("#hook1", { opacity: 0, y: -18, duration: 0.28 }, 2.65);
+      tl.to("#hook2", { opacity: 0, y: -18, duration: 0.28 }, 2.7);
+
+      // Scene 2
+      tl.fromTo("#heroTitle", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.65 }, 3.15);
+      tl.fromTo("#heroTag", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.55 }, 3.75);
+      tl.to("#heroTitle", { opacity: 0, y: -16, duration: 0.3 }, 7.15);
+      tl.to("#heroTag", { opacity: 0, y: -12, duration: 0.28 }, 7.2);
+
+      // Scene 3
+      tl.fromTo("#stat1", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45 }, 7.65);
+      tl.fromTo("#stat2", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45 }, 8.5);
+      tl.fromTo("#stat3", { opacity: 0, y: 30, scale: 0.96 }, { opacity: 1, y: 0, scale: 1, duration: 0.45 }, 9.35);
+      tl.to(["#stat1", "#stat2", "#stat3"], { opacity: 0, y: -14, duration: 0.28 }, 12.15);
+
+      // Scene 4
+      tl.fromTo("#pill1", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.4 }, 12.7);
+      tl.fromTo("#pill2", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.4 }, 13.15);
+      tl.fromTo("#pill3", { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.4 }, 13.6);
+      tl.to(["#pill1", "#pill2", "#pill3"], { opacity: 0, duration: 0.25 }, 16.7);
+
+      // Scene 5
+      tl.fromTo("#logo", { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.45 }, 17.15);
+      tl.fromTo("#outroLine", { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4 }, 17.55);
+      tl.fromTo("#outroUrl", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35 }, 17.95);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

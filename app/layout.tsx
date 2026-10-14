@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
+import { buildOgImageUrl, OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from "@/lib/ogImage";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
+
+const rootOgImage = buildOgImageUrl({ lang: "uk" });
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -49,11 +52,10 @@ export const metadata: Metadata = {
       "Telegram-боти від $100, лендінги від $150, e-commerce від $400. 200+ проєктів, консультація, старт від 24 год.",
     images: [
       {
-        url: `${siteUrl}/other/about-hero.png`,
-        width: 1200,
-        height: 630,
-        alt: "TeleBots - Professional Digital Solutions",
-        type: "image/png",
+        url: rootOgImage,
+        width: OG_IMAGE_WIDTH,
+        height: OG_IMAGE_HEIGHT,
+        alt: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
       },
     ],
   },
@@ -62,7 +64,7 @@ export const metadata: Metadata = {
     title: "TeleBots — розробка Telegram-ботів і сайтів під ключ",
     description:
       "Telegram-боти від $100, лендінги від $150, e-commerce від $400. 200+ проєктів, консультація, старт від 24 год.",
-    images: [`${siteUrl}/other/about-hero.png`],
+    images: [rootOgImage],
     creator: "@telebotsnowayrm",
     site: "@telebotsnowayrm",
   },
