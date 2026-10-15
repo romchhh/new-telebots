@@ -268,4 +268,85 @@ export const PL_SERVICE_LONGFORM: Record<ServiceSeoSlug, ServiceLongFormBundle> 
       ],
     },
   },
+  apps: {
+    audienceSection: {
+      title: 'Tworzenie aplikacji pasuje',
+      titleAccent: 'jeśli:',
+      items: [
+        'Potrzebujesz aplikacji na iOS i Android z jednym backendem',
+        'Startujesz MVP: katalog, konto, leady lub płatności',
+        'Chcesz push, auth i analitykę od pierwszego releasu',
+        'Planujesz publikację w App Store i Google Play',
+        'Potrzebujesz integracji z CRM, płatnościami, API strony lub bota',
+        'Szukasz zespołu od briefu i prototypu do releasu w store’ach',
+      ],
+    },
+    aboutParagraphs: [
+      'Aplikacja mobilna to kanał, który zawsze jest w kieszeni klienta: push, szybki dostęp do konta, płatności bez zbędnych kart przeglądarki. Budujemy MVP, by sprawdzić hipotezę — nie rok „idealnego” produktu.',
+      'Typowy stack: React Native lub Flutter na iOS i Android z jednego kodu; moduły natywne gdy trzeba. Backend, panel i analityka idą w tym samym cyklu co ekrany.',
+      'Po releasie pomagamy z update’ami, moderacją store’ów i nowymi funkcjami — nie znikamy po przekazaniu.',
+    ],
+    whatWeDoTitle: 'Co obejmuje tworzenie aplikacji',
+    whatWeDoItems: [
+      {
+        title: 'MVP do walidacji hipotezy',
+        body: 'Kluczowe ekrany, auth, podstawowa analityka. Szybka ścieżka do TestFlight / testów wewnętrznych Play.',
+      },
+      {
+        title: 'Aplikacja produktowa',
+        body: 'Katalog, konto osobiste, płatności, CRM/API, panel treści i role użytkowników.',
+      },
+      {
+        title: 'Push i retencja',
+        body: 'Firebase / APNs: powiadomienia transakcyjne i marketingowe z segmentacją.',
+      },
+      {
+        title: 'Publikacja w store’ach',
+        body: 'Buildy, metadane, screeny i pomoc przy review App Store i Google Play.',
+      },
+      {
+        title: 'Integracje',
+        body: 'Płatności, Twoja strona, bot Telegram, CRM — wspólna logika zamówień i statusów.',
+      },
+      {
+        title: 'Wsparcie po releasie',
+        body: 'Update’y SDK, drobne funkcje, monitoring crashy i kolejne release’y.',
+      },
+    ],
+    techTitle: 'Technologie',
+    techLines: [
+      'React Native lub Flutter — cross-platform iOS/Android',
+      'Swift / Kotlin — moduły natywne w razie potrzeby',
+      'Node.js / Nest / Firebase — backend i realtime',
+      'CI/CD: TestFlight, Play Console, GitHub Actions',
+    ],
+    faqTitle: 'Częste pytania',
+    faq: [
+      {
+        question: 'Ile kosztuje aplikacja?',
+        answer: priceFaq,
+      },
+      {
+        question: 'React Native, Flutter czy native?',
+        answer:
+          'Dla większości biznesowych MVP polecamy cross-platform: szybciej i taniej utrzymać jeden kod. Native — gdy potrzebne głębokie API systemowe lub UX pod platformę.',
+      },
+      {
+        question: 'Jak długo trwa MVP?',
+        answer:
+          'Typowo 4–8 tygodni w zależności od ekranów i integracji. Termin ustalamy po briefie.',
+      },
+      {
+        question: 'Czy publikujecie w App Store i Google Play?',
+        answer:
+          'Tak. Pomagamy z kontami deweloperskimi, buildami, metadanymi i moderacją.',
+      },
+      {
+        question: 'Czy można zacząć od designu?',
+        answer:
+          'Tak. UI/UX w Figma osobno lub razem z developmentem — mniej poprawek po starcie kodu.',
+      },
+    ],
+  },
+
 };

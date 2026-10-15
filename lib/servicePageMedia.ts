@@ -38,6 +38,15 @@ export const SERVICE_PAGE_MEDIA: Record<ServiceId, ServicePageMedia> = {
     ],
     wide: '/other/about-hero.png',
   },
+  apps: {
+    feature: '/other/workspace-laptop-phone.jpg',
+    strip: [
+      '/services/services-apps.jpg',
+      '/other/archive-iphone.jpg',
+      '/services/services-mobile-showcase.png',
+    ],
+    wide: '/other/workspace-laptop-phone.jpg',
+  },
 };
 
 export function getServicePageMedia(serviceId: ServiceId): ServicePageMedia {

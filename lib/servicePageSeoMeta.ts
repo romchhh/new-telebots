@@ -6,6 +6,7 @@ import type { ServiceId } from '@/app/[lang]/services/[serviceId]/metadata';
  * chatbots — «чат боти купити» + ціна Telegram
  * websites — «розробка сайтів під ключ» + вилка лендінг/магазин
  * design — «дизайн логотипу» + UI/UX у Figma
+ * apps — «розробка додатків» iOS/Android
  * Бренд у title не пишемо: його додає withBrandTitle().
  */
 export type ServicePageSeoCopy = {
@@ -48,6 +49,16 @@ export const SERVICE_PAGE_META: Record<Language, Record<ServiceId, ServicePageSe
       openGraphDescription:
         'Логотип, палітра, шрифти й екрани сайту. Далі їх можна віддати в розробку без здогадок.',
     },
+    apps: {
+      title: 'Розробка додатків для iOS і Android',
+      description:
+        'Розробка мобільних додатків під iOS і Android: MVP від кількох тижнів, оплата, пуші, кабінет і публікація в App Store та Google Play.',
+      keywords:
+        'розробка додатків, мобільний додаток iOS, додаток Android, React Native, Flutter, MVP додаток, TeleBots',
+      openGraphTitle: 'Додатки для iOS і Android',
+      openGraphDescription:
+        'MVP, каталог, кабінет, оплата й пуші. Після брифу називаємо стек, строк і бюджет.',
+    },
   },
   en: {
     chatbots: {
@@ -79,6 +90,16 @@ export const SERVICE_PAGE_META: Record<Language, Record<ServiceId, ServicePageSe
       openGraphTitle: 'Logo and layouts in Figma',
       openGraphDescription:
         'Logo, colors, type, and screens. Ready to hand to development without guesswork.',
+    },
+    apps: {
+      title: 'iOS and Android app development',
+      description:
+        'Mobile apps for iOS and Android: MVP in a few weeks, payments, push, account and App Store / Google Play publishing.',
+      keywords:
+        'mobile app development, iOS app, Android app, React Native, Flutter, MVP app, TeleBots',
+      openGraphTitle: 'Apps for iOS and Android',
+      openGraphDescription:
+        'MVP, catalog, account, payments and push. After a brief we name stack, timeline and budget.',
     },
   },
   pl: {
@@ -112,6 +133,16 @@ export const SERVICE_PAGE_META: Record<Language, Record<ServiceId, ServicePageSe
       openGraphDescription:
         'Logo, kolory, fonty i ekrany. Da się je oddać do developmentu bez domysłów.',
     },
+    apps: {
+      title: 'Tworzenie aplikacji na iOS i Android',
+      description:
+        'Aplikacje mobilne na iOS i Android: MVP w kilka tygodni, płatności, push, konto oraz publikacja w App Store i Google Play.',
+      keywords:
+        'aplikacja mobilna, aplikacja iOS, aplikacja Android, React Native, Flutter, MVP aplikacji, TeleBots',
+      openGraphTitle: 'Aplikacje na iOS i Android',
+      openGraphDescription:
+        'MVP, katalog, konto, płatności i push. Po briefie podajemy stack, termin i budżet.',
+    },
   },
   ru: {
     chatbots: {
@@ -143,6 +174,16 @@ export const SERVICE_PAGE_META: Record<Language, Record<ServiceId, ServicePageSe
       openGraphTitle: 'Логотип и макеты в Figma',
       openGraphDescription:
         'Логотип, палитра, шрифты и экраны сайта. Их можно отдать в разработку без догадок.',
+    },
+    apps: {
+      title: 'Разработка приложений для iOS и Android',
+      description:
+        'Мобильные приложения под iOS и Android: MVP от нескольких недель, оплата, пуши, кабинет и публикация в App Store и Google Play.',
+      keywords:
+        'разработка приложений, мобильное приложение iOS, приложение Android, React Native, Flutter, MVP приложение, TeleBots',
+      openGraphTitle: 'Приложения для iOS и Android',
+      openGraphDescription:
+        'MVP, каталог, кабинет, оплата и пуши. После брифа называем стек, срок и бюджет.',
     },
   },
 };

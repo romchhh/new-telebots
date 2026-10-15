@@ -160,7 +160,7 @@ export default function PricingPageClient({ lang }: { lang: Language }) {
               <p className="text-lg text-gray-800 leading-relaxed font-semibold mb-6">{p.intro}</p>
               <p className="text-lg text-gray-700 leading-relaxed mb-10">{p.introSecondary}</p>
 
-              <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-5">
+              <div className="mb-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5">
                 {PRICING_GALLERY_IMAGES.map((src, index) => {
                   const section = p.sections[index];
                   const label = section

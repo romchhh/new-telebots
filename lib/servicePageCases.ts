@@ -24,6 +24,16 @@ const FEATURED_CASE_IDS: Record<ServiceId, string[]> = {
     'emvi-digital',
     'royal-academy',
   ],
+  apps: [
+    'carbit',
+    'flix-market',
+    'applum-bot',
+    'smart-bodycourse-bot',
+    'emaro-autocare',
+    'chars-kyiv',
+    'toptrendshop',
+    'nieznany-piekarz',
+  ],
   websites: [
     'emaro-autocare',
     'flix-market',
@@ -78,8 +88,8 @@ export function getServicePageCases(lang: Language, serviceId: ServiceId): Servi
   const category = serviceId === 'chatbots' ? 'chatbots' : 'websites';
   for (const card of all) {
     if (used.has(card.id)) continue;
-    if (serviceId === 'design') {
-      if (card.category !== 'websites') continue;
+    if (serviceId === 'design' || serviceId === 'apps') {
+      if (card.category !== 'websites' && card.category !== 'chatbots') continue;
     } else if (card.category !== category) {
       continue;
     }

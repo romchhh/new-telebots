@@ -1,6 +1,6 @@
 import type { ServiceAudienceCopy } from '@/components/ServiceAudienceSection';
 
-export type ServiceSeoSlug = 'chatbots' | 'websites' | 'design';
+export type ServiceSeoSlug = 'chatbots' | 'websites' | 'design' | 'apps';
 
 export type ServiceRichBlock = { title: string; body: string };
 

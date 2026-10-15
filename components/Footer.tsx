@@ -113,6 +113,11 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                   </Link>
                 </li>
                 <li>
+                  <Link href={`/${currentLanguage}/services/apps`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {t.services.appsPage.title}
+                  </Link>
+                </li>
+                <li>
                   <Link href={`/${currentLanguage}/solutions/chatbots-buy`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {currentLanguage === 'en'
                       ? 'Buy chatbots'

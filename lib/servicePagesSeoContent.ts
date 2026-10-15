@@ -15,6 +15,13 @@ const BY_LANG: Record<Language, Record<ServiceSeoSlug, ServiceLongFormBundle>> =
 };
 
 export function getServiceSeoLongForm(lang: Language, serviceId: string): ServiceLongFormBundle | null {
-  if (serviceId !== 'chatbots' && serviceId !== 'websites' && serviceId !== 'design') return null;
+  if (
+    serviceId !== 'chatbots' &&
+    serviceId !== 'websites' &&
+    serviceId !== 'design' &&
+    serviceId !== 'apps'
+  ) {
+    return null;
+  }
   return BY_LANG[lang][serviceId as ServiceSeoSlug];
 }

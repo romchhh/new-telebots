@@ -272,4 +272,85 @@ export const EN_SERVICE_LONGFORM: Record<ServiceSeoSlug, ServiceLongFormBundle> 
       ],
     },
   },
+  apps: {
+    audienceSection: {
+      title: 'App development is a fit',
+      titleAccent: 'if you:',
+      items: [
+        'Need an iOS and Android app with one backend',
+        'Are launching an MVP: catalog, account, leads or payments',
+        'Want push, auth and analytics from the first release',
+        'Plan App Store and Google Play publishing',
+        'Need CRM, payments, site or bot API integrations',
+        'Want a team from brief and prototype to store release',
+      ],
+    },
+    aboutParagraphs: [
+      'A mobile app is the channel that stays in the customer’s pocket: push, quick account access, payments without extra browser tabs. We ship MVPs to validate ideas — not year-long “perfect” products.',
+      'Typical stack: React Native or Flutter for iOS and Android from one codebase; native modules when needed. Backend, admin and analytics ship in the same cycle as the screens.',
+      'After release we stay for updates, store review help and new features — we do not disappear after handoff.',
+    ],
+    whatWeDoTitle: 'What app development includes',
+    whatWeDoItems: [
+      {
+        title: 'MVP to validate the idea',
+        body: 'Key screens, auth, basic analytics. A fast path to TestFlight / Play internal testing.',
+      },
+      {
+        title: 'Product app',
+        body: 'Catalog, personal account, payments, CRM/API, content admin and user roles.',
+      },
+      {
+        title: 'Push and retention',
+        body: 'Firebase / APNs: transactional and marketing notifications with segmentation.',
+      },
+      {
+        title: 'Store publishing',
+        body: 'Builds, metadata, screenshots, and help with App Store and Google Play review.',
+      },
+      {
+        title: 'Integrations',
+        body: 'Payments, your site, Telegram bot, CRM — shared order and status logic.',
+      },
+      {
+        title: 'Post-launch support',
+        body: 'SDK updates, small features, crash monitoring and regular releases.',
+      },
+    ],
+    techTitle: 'Technologies',
+    techLines: [
+      'React Native or Flutter — cross-platform iOS/Android',
+      'Swift / Kotlin — native modules when needed',
+      'Node.js / Nest / Firebase — backend and realtime',
+      'CI/CD: TestFlight, Play Console, GitHub Actions',
+    ],
+    faqTitle: 'FAQ',
+    faq: [
+      {
+        question: 'How much does an app cost?',
+        answer: priceFaq,
+      },
+      {
+        question: 'React Native, Flutter, or native?',
+        answer:
+          'For most business MVPs we recommend cross-platform: faster and cheaper to maintain one codebase. Native when you need deep system APIs or platform-specific UX.',
+      },
+      {
+        question: 'How long does an MVP take?',
+        answer:
+          'Typically 4–8 weeks depending on screens and integrations. Timeline is fixed after the brief.',
+      },
+      {
+        question: 'Do you publish to App Store and Google Play?',
+        answer:
+          'Yes. We help with developer accounts, builds, metadata and review.',
+      },
+      {
+        question: 'Can we start with design only?',
+        answer:
+          'Yes. UI/UX in Figma can be scoped alone or with development — fewer rewrites after coding starts.',
+      },
+    ],
+  },
+
 };

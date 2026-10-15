@@ -44,6 +44,17 @@ const COPY: Record<Language, Record<ServiceId, PhotoStripCopy>> = {
       featureAlt: 'Робочий стіл дизайнера з макетами',
       wideAlt: 'Дизайн-процес TeleBots',
     },
+    apps: {
+      title: 'Як виглядає робота над додатком',
+      lead: 'Екрани телефону, пуші й збірки — від прототипу в Figma до релізу в App Store і Google Play.',
+      alts: [
+        'Мобільний додаток на екрані телефону',
+        'Робоче місце під час розробки додатку',
+        'Інтерфейс додатку на мобільному пристрої',
+      ],
+      featureAlt: 'Ноутбук і телефон під час розробки мобільного додатку',
+      wideAlt: 'Розробка мобільного додатку TeleBots',
+    },
   },
   en: {
     websites: {
@@ -78,6 +89,17 @@ const COPY: Record<Language, Record<ServiceId, PhotoStripCopy>> = {
       ],
       featureAlt: 'Designer desk with interface mockups',
       wideAlt: 'TeleBots design process',
+    },
+    apps: {
+      title: 'What the app build looks like',
+      lead: 'Phone screens, push and builds — from a Figma prototype to App Store and Google Play release.',
+      alts: [
+        'Mobile app on a phone screen',
+        'Workspace during app development',
+        'App interface on a mobile device',
+      ],
+      featureAlt: 'Laptop and phone during mobile app development',
+      wideAlt: 'TeleBots mobile app development',
     },
   },
   pl: {
@@ -114,6 +136,17 @@ const COPY: Record<Language, Record<ServiceId, PhotoStripCopy>> = {
       featureAlt: 'Biurko projektanta z makietami',
       wideAlt: 'Proces designu TeleBots',
     },
+    apps: {
+      title: 'Jak wygląda praca nad aplikacją',
+      lead: 'Ekrany telefonu, push i buildy — od prototypu w Figma do releasu w App Store i Google Play.',
+      alts: [
+        'Aplikacja mobilna na ekranie telefonu',
+        'Stanowisko podczas tworzenia aplikacji',
+        'Interfejs aplikacji na urządzeniu mobilnym',
+      ],
+      featureAlt: 'Laptop i telefon podczas tworzenia aplikacji mobilnej',
+      wideAlt: 'Tworzenie aplikacji mobilnej TeleBots',
+    },
   },
   ru: {
     websites: {
@@ -148,6 +181,17 @@ const COPY: Record<Language, Record<ServiceId, PhotoStripCopy>> = {
       ],
       featureAlt: 'Рабочий стол дизайнера с макетами',
       wideAlt: 'Дизайн-процесс TeleBots',
+    },
+    apps: {
+      title: 'Как выглядит работа над приложением',
+      lead: 'Экраны телефона, пуши и сборки — от прототипа в Figma до релиза в App Store и Google Play.',
+      alts: [
+        'Мобильное приложение на экране телефона',
+        'Рабочее место во время разработки приложения',
+        'Интерфейс приложения на мобильном устройстве',
+      ],
+      featureAlt: 'Ноутбук и телефон во время разработки мобильного приложения',
+      wideAlt: 'Разработка мобильного приложения TeleBots',
     },
   },
 };

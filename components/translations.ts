@@ -78,6 +78,11 @@ export const translations = {
             body: 'Лого, айдентика та інтерфейси в Figma під конверсію — далі впровадження на сайті й у ботах однією командою.',
             href: 'services/design',
           },
+          {
+            title: 'Мобільні додатки',
+            body: 'iOS і Android під ваш процес: MVP, каталог, кабінет, оплата й пуші — один код або нативні клієнти.',
+            href: 'services/apps',
+          },
         ],
       },
       principles: {
@@ -418,6 +423,48 @@ export const translations = {
           crmTitle: 'Дизайн-системи та передача в розробку',
         },
       },
+      appsPage: {
+        title: 'Додатки',
+        teaserOffer:
+          'iOS і Android під ваш сценарій. MVP від кількох тижнів — назвемо строк і бюджет після брифу.',
+        subtitle: 'Мобільні додатки для iOS і Android: MVP, каталог, кабінет, оплата й пуш-сповіщення.',
+        description:
+          'Робимо додатки, якими користуються щодня: React Native / Flutter або нативні клієнти. Оплата, авторизація, пуші, адмінка й публікація в App Store та Google Play — в одному циклі з дизайном і бекендом.',
+        button: 'Замовити додаток',
+        serviceHero: {
+          tagline: 'Додаток під iOS і Android. Ви описуєте сценарій — ми називаємо стек, строк і бюджет.',
+          title: 'Розробка мобільних додатків',
+          subtitle: '',
+          intro:
+            'MVP, каталог, особистий кабінет, оплата й пуші. Публікація в App Store та Google Play — разом із підтримкою після релізу.',
+          ctaQuestion: 'Обговоримо додаток без зобовʼязань?',
+          ctaQuestionShort: 'Безкоштовно',
+          startDate: { label: 'MVP старт', value: 'від 3 тижнів' },
+          duration: { label: 'типовий MVP', value: '4–8 тижнів' },
+        },
+        audienceSection: {
+          title: 'Цей формат для вас, якщо',
+          titleAccent: 'ви:',
+          items: [
+            'Потрібен додаток для iOS і Android з одним бекендом і спільною логікою',
+            'Запускаєте MVP: каталог, кабінет, заявки або оплата — без зайвих фіч «на потім»',
+            'Хочете пуш-сповіщення, авторизацію та аналітику з першого релізу',
+            'Плануєте публікацію в App Store і Google Play з нашою допомогою',
+            'Потрібні інтеграції з CRM, платежами, API вашого сайту чи бота',
+            'Є дизайн у Figma — або потрібен UI/UX під мобільні екрани з нуля',
+            'Шукаєте команду «під ключ»: від ТЗ і прототипу до релізу в сторах',
+            'Готові розвивати продукт після запуску — оновлення, нові екрани, A/B',
+          ],
+        },
+        descriptionSectionTitle: 'Що входить у розробку додатків від TeleBots',
+        structure: {
+          mainTitle: 'Мобільна розробка для бізнесу',
+          leadGenTitle: 'MVP і продуктові додатки',
+          supportTitle: 'iOS та Android (кросплатформа або натив)',
+          salesTitle: 'Оплата, пуші та особистий кабінет',
+          crmTitle: 'Публікація в сторах і супровід',
+        },
+      },
       serviceLearnMore: 'Дізнатися детальніше',
       servicePagePortfolioTitle: 'Приклади робіт',
       servicePagePortfolioSubtitle:
@@ -592,6 +639,38 @@ export const translations = {
           },
         ],
       },
+      pricingApps: {
+        categoryLabel: 'Додатки',
+        title: 'Тарифні плани на розробку додатків',
+        subtitle: 'iOS і Android: від MVP до продукту з оплатою та пушами',
+        popularBadge: 'Popular',
+        featuresLabel: 'Що входить',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Потрібне індивідуальне рішення?',
+        contactLink: 'Зв\'яжіться з нами',
+        contactSuffix: 'для обговорення проєкту',
+        plans: [
+          {
+            name: 'MVP',
+            price: '$2 000–4 000',
+            description: 'Перший реліз під перевірку гіпотези: ключові екрани, авторизація, базова аналітика.',
+            features: ['iOS + Android (кросплатформа)', '3–6 основних екранів', 'Авторизація', 'Базові пуші', 'Публікація в сторах'],
+          },
+          {
+            name: 'PRODUCT',
+            price: '$4 000–8 000',
+            popular: true,
+            description: 'Продуктовий додаток: кабінет, оплата, CRM/API, адмінка контенту.',
+            features: ['Усе з MVP', 'Оплата в додатку', 'Особистий кабінет', 'Інтеграції API/CRM', 'Адмінка'],
+          },
+          {
+            name: 'CUSTOM',
+            price: 'від $8 000',
+            description: 'Складна логіка, офлайн, карти, нативні модулі, масштаб і командна підтримка.',
+            features: ['Натив / гібрид за ТЗ', 'Складна бізнес-логіка', 'Офлайн і синхронізація', 'CI/CD і моніторинг', 'Супровід після релізу'],
+          },
+        ],
+      },
       servicePageBlocks: {
         whatWeDoTitle: 'Що ми робимо',
         termsTitle: 'Умови співпраці',
@@ -620,6 +699,12 @@ export const translations = {
           terms: ['Оплата: 50% перед стартом, 50% після приймання макетів', 'Термін: лого 3–7 днів, бренд 1–2 тижні, UI/UX залежить від обсягу', '2–3 раунди правок у межах ТЗ включені', 'Файли в потрібних форматах (PNG, SVG, PDF, Figma)', 'Можливість продовжити з нами розробку по вашим макетам'],
           integrations: ['Figma — основне середовище для макетів та прототипів', 'Експорт у формати для розробки та друку', 'Передача стилів і компонентів у код (за потреби)', 'Інтеграція з вашим бренд-гайдом або існуючими матеріалами'],
           tech: ['Figma — прототипування та UI/UX', 'Adobe Illustrator / Photoshop для лого та поліграфії', 'Системний підхід: компоненти, стилі, варіанти для адаптиву']
+        },
+        apps: {
+          whatWeDo: ['Мобільні додатки для iOS та Android', 'MVP і продуктові сценарії: каталог, кабінет, заявки', 'Оплата в додатку та пуш-сповіщення', 'Інтеграції з CRM, API сайту та чат-ботами', 'Публікація в App Store і Google Play', 'Оновлення та підтримка після релізу'],
+          terms: ['Оцінка після брифу: стек, екрани, інтеграції', 'Оплата зазвичай поетапно: аванс, проміжні етапи, реліз', 'Термін MVP типово 4–8 тижнів залежно від обсягу', 'Правки в межах ТЗ без додаткової плати', 'Допомога з акаунтами розробника та модерацією сторів'],
+          integrations: ['Платежі: Stripe, Apple Pay, Google Pay, локальні провайдери', 'Push: Firebase Cloud Messaging / APNs', 'CRM і бекенд: REST/GraphQL, ваші API', 'Аналітика: Firebase, AppMetrica, Amplitude', 'Auth: email, телефон, OAuth'],
+          tech: ['React Native або Flutter для кросплатформи', 'Swift / Kotlin за потреби нативних модулів', 'Node.js / Nest / Firebase як бекенд', 'CI/CD: TestFlight, Play Console, GitHub Actions']
         }
       }
     },
@@ -829,6 +914,11 @@ export const translations = {
             title: 'UI/UX design',
             body: 'Logo, identity and conversion-focused interfaces in Figma — then shipped on sites and bots by one team.',
             href: 'services/design',
+          },
+          {
+            title: 'Mobile apps',
+            body: 'iOS and Android for your workflow: MVP, catalog, account, payments and push — one codebase or native clients.',
+            href: 'services/apps',
           },
         ],
       },
@@ -1170,6 +1260,48 @@ export const translations = {
           crmTitle: 'Design Systems and Developer Handoff',
         },
       },
+      appsPage: {
+        title: 'Apps',
+        teaserOffer:
+          'iOS and Android for your scenario. MVP in a few weeks — we name timeline and budget after a brief.',
+        subtitle: 'Mobile apps for iOS and Android: MVP, catalog, account, payments and push notifications.',
+        description:
+          'We build apps people use daily: React Native / Flutter or native clients. Payments, auth, push, admin and App Store / Google Play release — design and backend in one cycle.',
+        button: 'Order an app',
+        serviceHero: {
+          tagline: 'An iOS and Android app. You describe the flow — we name the stack, timeline and budget.',
+          title: 'Mobile app development',
+          subtitle: '',
+          intro:
+            'MVP, catalog, personal account, payments and push. App Store and Google Play release — with support after launch.',
+          ctaQuestion: 'Shall we discuss your app with no commitment?',
+          ctaQuestionShort: 'Free consultation',
+          startDate: { label: 'MVP start', value: 'from 3 weeks' },
+          duration: { label: 'typical MVP', value: '4–8 weeks' },
+        },
+        audienceSection: {
+          title: 'This is for you if',
+          titleAccent: 'you:',
+          items: [
+            'You need an iOS and Android app with one backend and shared logic',
+            'You are launching an MVP: catalog, account, leads or payments — without extra “later” features',
+            'You want push, auth and analytics from the first release',
+            'You plan App Store and Google Play publishing with our help',
+            'You need CRM, payments, or API links to your site or bot',
+            'You have Figma designs — or need mobile UI/UX from scratch',
+            'You want a turnkey team: brief and prototype through store release',
+            'You are ready to grow the product after launch — updates, new screens, A/B',
+          ],
+        },
+        descriptionSectionTitle: 'What app development from TeleBots includes',
+        structure: {
+          mainTitle: 'Mobile development for business',
+          leadGenTitle: 'MVP and product apps',
+          supportTitle: 'iOS and Android (cross-platform or native)',
+          salesTitle: 'Payments, push and personal account',
+          crmTitle: 'Store publishing and support',
+        },
+      },
       serviceLearnMore: 'Learn more',
       servicePagePortfolioTitle: 'Our work',
       servicePagePortfolioSubtitle:
@@ -1277,6 +1409,38 @@ export const translations = {
           { name: 'UI/UX', price: '500+', description: 'Interface design: Figma prototypes, website or app mockups, responsive, handoff to development.', features: ['Figma prototypes', 'Key screen mockups', 'Responsive (desktop + mobile)', 'Specs for developers'], forWhom: 'Product startups, turnkey sites and apps' }
         ]
       },
+      pricingApps: {
+        categoryLabel: 'Apps',
+        title: 'Pricing plans for app development',
+        subtitle: 'iOS and Android: from MVP to a product with payments and push',
+        popularBadge: 'POPULAR',
+        featuresLabel: "What's included",
+        forWhomLabel: 'For whom',
+        contactNote: 'Need a custom solution?',
+        contactLink: 'Contact us',
+        contactSuffix: 'to discuss your project',
+        plans: [
+          {
+            name: 'MVP',
+            price: '$2,000–4,000',
+            description: 'First release to validate the idea: key screens, auth, basic analytics.',
+            features: ['iOS + Android (cross-platform)', '3–6 core screens', 'Authentication', 'Basic push', 'Store publishing'],
+          },
+          {
+            name: 'PRODUCT',
+            price: '$4,000–8,000',
+            popular: true,
+            description: 'Product app: account, payments, CRM/API, content admin.',
+            features: ['Everything in MVP', 'In-app payments', 'Personal account', 'API/CRM integrations', 'Admin panel'],
+          },
+          {
+            name: 'CUSTOM',
+            price: 'from $8,000',
+            description: 'Complex logic, offline, maps, native modules, scale and ongoing support.',
+            features: ['Native / hybrid per brief', 'Complex business logic', 'Offline and sync', 'CI/CD and monitoring', 'Post-launch support'],
+          },
+        ],
+      },
       servicePageBlocks: {
         whatWeDoTitle: 'What we do',
         termsTitle: 'Terms of cooperation',
@@ -1305,6 +1469,12 @@ export const translations = {
           terms: ['Payment: 50% before start, 50% after approval of deliverables', 'Timeline: logo 3–7 days, brand 1–2 weeks, UI/UX by scope', '2–3 revision rounds within scope included', 'Files in required formats (PNG, SVG, PDF, Figma)', 'Option to continue with us for development from your mockups'],
           integrations: ['Figma — main tool for mockups and prototypes', 'Export for development and print', 'Handoff of styles and components to code when needed', 'Alignment with your brand guide or existing assets'],
           tech: ['Figma — prototyping and UI/UX', 'Adobe Illustrator / Photoshop for logo and print', 'System approach: components, styles, variants for responsive']
+        },
+        apps: {
+          whatWeDo: ['Mobile apps for iOS and Android', 'MVP and product flows: catalog, account, leads', 'In-app payments and push notifications', 'CRM, site API and chatbot integrations', 'App Store and Google Play publishing', 'Updates and support after release'],
+          terms: ['Quote after brief: stack, screens, integrations', 'Payment usually in stages: advance, milestones, release', 'Typical MVP timeline 4–8 weeks depending on scope', 'Revisions within scope at no extra cost', 'Help with developer accounts and store review'],
+          integrations: ['Payments: Stripe, Apple Pay, Google Pay, local providers', 'Push: Firebase Cloud Messaging / APNs', 'CRM and backend: REST/GraphQL, your APIs', 'Analytics: Firebase, AppMetrica, Amplitude', 'Auth: email, phone, OAuth'],
+          tech: ['React Native or Flutter for cross-platform', 'Swift / Kotlin for native modules when needed', 'Node.js / Nest / Firebase as backend', 'CI/CD: TestFlight, Play Console, GitHub Actions']
         }
       }
     },
@@ -1514,6 +1684,11 @@ export const translations = {
             title: 'Design UI/UX',
             body: 'Logo, identyfikacja i interfejsy w Figma pod konwersję — potem wdrożenie na stronie i w botach jednym zespołem.',
             href: 'services/design',
+          },
+          {
+            title: 'Aplikacje mobilne',
+            body: 'iOS i Android pod Twój proces: MVP, katalog, konto, płatności i push — jeden kod lub natywne klienty.',
+            href: 'services/apps',
           },
         ],
       },
@@ -1855,6 +2030,48 @@ export const translations = {
           crmTitle: 'Systemy designu i przekazanie do deweloperów',
         },
       },
+      appsPage: {
+        title: 'Aplikacje',
+        teaserOffer:
+          'iOS i Android pod Twój scenariusz. MVP w kilka tygodni — po briefie podamy termin i budżet.',
+        subtitle: 'Aplikacje mobilne na iOS i Android: MVP, katalog, konto, płatności i powiadomienia push.',
+        description:
+          'Budujemy aplikacje do codziennego użytku: React Native / Flutter lub klienty natywne. Płatności, auth, push, admin oraz publikacja w App Store i Google Play — design i backend w jednym cyklu.',
+        button: 'Zamów aplikację',
+        serviceHero: {
+          tagline: 'Aplikacja na iOS i Android. Opisujesz scenariusz — my podajemy stack, termin i budżet.',
+          title: 'Tworzenie aplikacji mobilnych',
+          subtitle: '',
+          intro:
+            'MVP, katalog, konto osobiste, płatności i push. Publikacja w App Store i Google Play — ze wsparciem po starcie.',
+          ctaQuestion: 'Omówimy aplikację bez zobowiązań?',
+          ctaQuestionShort: 'Konsultacja gratis',
+          startDate: { label: 'start MVP', value: 'od 3 tygodni' },
+          duration: { label: 'typowy MVP', value: '4–8 tygodni' },
+        },
+        audienceSection: {
+          title: 'Ten format jest dla Ciebie, jeśli',
+          titleAccent: 'Ty:',
+          items: [
+            'Potrzebujesz aplikacji na iOS i Android z jednym backendem i wspólną logiką',
+            'Startujesz MVP: katalog, konto, leady lub płatności — bez zbędnych funkcji „na później”',
+            'Chcesz push, auth i analitykę od pierwszego releasu',
+            'Planujesz publikację w App Store i Google Play z naszą pomocą',
+            'Potrzebujesz integracji z CRM, płatnościami, API strony lub bota',
+            'Masz design w Figma — albo potrzebujesz UI/UX mobilnego od zera',
+            'Szukasz zespołu „pod klucz”: od briefu i prototypu do releasu w store’ach',
+            'Jesteś gotów rozwijać produkt po starcie — update’y, nowe ekrany, A/B',
+          ],
+        },
+        descriptionSectionTitle: 'Co obejmuje tworzenie aplikacji w TeleBots',
+        structure: {
+          mainTitle: 'Rozwój mobilny dla biznesu',
+          leadGenTitle: 'MVP i aplikacje produktowe',
+          supportTitle: 'iOS i Android (cross-platform lub native)',
+          salesTitle: 'Płatności, push i konto osobiste',
+          crmTitle: 'Publikacja w store’ach i wsparcie',
+        },
+      },
       serviceLearnMore: 'Dowiedz się więcej',
       servicePagePortfolioTitle: 'Przykłady prac',
       servicePagePortfolioSubtitle:
@@ -1962,6 +2179,38 @@ export const translations = {
           { name: 'UI/UX', price: '500+', description: 'Design interfejsów: prototypy w Figma, makety strony lub aplikacji, responsywność, przekazanie do rozwoju.', features: ['Prototypy w Figma', 'Makety kluczowych ekranów', 'Responsywność (desktop + mobile)', 'Specyfikacja dla deweloperów'], forWhom: 'Startupy z produktem, strony i aplikacje pod klucz' }
         ]
       },
+      pricingApps: {
+        categoryLabel: 'Aplikacje',
+        title: 'Plany cenowe na aplikacje mobilne',
+        subtitle: 'iOS i Android: od MVP do produktu z płatnościami i push',
+        popularBadge: 'POPULARNE',
+        featuresLabel: 'Co wchodzi w skład',
+        forWhomLabel: 'Dla kogo',
+        contactNote: 'Potrzebujesz indywidualnego rozwiązania?',
+        contactLink: 'Skontaktuj się z nami',
+        contactSuffix: 'w celu omówienia projektu',
+        plans: [
+          {
+            name: 'MVP',
+            price: '$2 000–4 000',
+            description: 'Pierwszy release do walidacji hipotezy: kluczowe ekrany, auth, podstawowa analityka.',
+            features: ['iOS + Android (cross-platform)', '3–6 głównych ekranów', 'Autoryzacja', 'Podstawowe push', 'Publikacja w store’ach'],
+          },
+          {
+            name: 'PRODUCT',
+            price: '$4 000–8 000',
+            popular: true,
+            description: 'Aplikacja produktowa: konto, płatności, CRM/API, panel treści.',
+            features: ['Wszystko z MVP', 'Płatności w aplikacji', 'Konto osobiste', 'Integracje API/CRM', 'Panel admina'],
+          },
+          {
+            name: 'CUSTOM',
+            price: 'od $8 000',
+            description: 'Złożona logika, offline, mapy, moduły natywne, skala i wsparcie zespołu.',
+            features: ['Native / hybrid wg briefu', 'Złożona logika biznesowa', 'Offline i synchronizacja', 'CI/CD i monitoring', 'Wsparcie po releasie'],
+          },
+        ],
+      },
       servicePageBlocks: {
         whatWeDoTitle: 'Co robimy',
         termsTitle: 'Warunki współpracy',
@@ -1990,6 +2239,12 @@ export const translations = {
           terms: ['Płatność: 50% przed startem, 50% po akceptacji', 'Czas: logo 3–7 dni, brand 1–2 tyg., UI/UX wg zakresu', '2–3 rundy poprawek w zakresie w cenie', 'Pliki w formatach PNG, SVG, PDF, Figma', 'Możliwość dalszej współpracy przy rozwoju z naszych makiet'],
           integrations: ['Figma — główne narzędzie do makiet i prototypów', 'Eksport do rozwoju i druku', 'Przekazanie stylów i komponentów do kodu', 'Dopasowanie do Twojego brand guide lub materiałów'],
           tech: ['Figma — prototypowanie i UI/UX', 'Adobe Illustrator / Photoshop do logo i druku', 'Podejście systemowe: komponenty, style, warianty']
+        },
+        apps: {
+          whatWeDo: ['Aplikacje mobilne na iOS i Android', 'MVP i scenariusze produktowe: katalog, konto, leady', 'Płatności w aplikacji i powiadomienia push', 'Integracje z CRM, API strony i chatbotami', 'Publikacja w App Store i Google Play', 'Aktualizacje i wsparcie po releasie'],
+          terms: ['Wycena po briefie: stack, ekrany, integracje', 'Płatność zwykle etapami: zaliczka, milestone’y, release', 'Typowy MVP: 4–8 tygodni w zależności od zakresu', 'Poprawki w ramach zakresu w cenie', 'Pomoc z kontami deweloperskimi i moderacją store’ów'],
+          integrations: ['Płatności: Stripe, Apple Pay, Google Pay, lokalni providerzy', 'Push: Firebase Cloud Messaging / APNs', 'CRM i backend: REST/GraphQL, Twoje API', 'Analityka: Firebase, AppMetrica, Amplitude', 'Auth: e-mail, telefon, OAuth'],
+          tech: ['React Native lub Flutter (cross-platform)', 'Swift / Kotlin przy modułach natywnych', 'Node.js / Nest / Firebase jako backend', 'CI/CD: TestFlight, Play Console, GitHub Actions']
         }
       }
     },
@@ -2199,6 +2454,11 @@ export const translations = {
             title: 'Дизайн UI/UX',
             body: 'Лого, айдентика и интерфейсы в Figma под конверсию — дальше внедрение на сайте и в ботах одной командой.',
             href: 'services/design',
+          },
+          {
+            title: 'Мобильные приложения',
+            body: 'iOS и Android под ваш процесс: MVP, каталог, кабинет, оплата и пуши — один код или нативные клиенты.',
+            href: 'services/apps',
           },
         ],
       },
@@ -2540,6 +2800,48 @@ export const translations = {
           crmTitle: 'Дизайн-системы и передача в разработку',
         },
       },
+      appsPage: {
+        title: 'Приложения',
+        teaserOffer:
+          'iOS и Android под ваш сценарий. MVP за несколько недель — после брифа назовём срок и бюджет.',
+        subtitle: 'Мобильные приложения для iOS и Android: MVP, каталог, кабинет, оплата и пуш-уведомления.',
+        description:
+          'Делаем приложения для ежедневного использования: React Native / Flutter или нативные клиенты. Оплата, авторизация, пуши, админка и публикация в App Store и Google Play — дизайн и бэкенд в одном цикле.',
+        button: 'Заказать приложение',
+        serviceHero: {
+          tagline: 'Приложение под iOS и Android. Вы описываете сценарий — мы называем стек, срок и бюджет.',
+          title: 'Разработка мобильных приложений',
+          subtitle: '',
+          intro:
+            'MVP, каталог, личный кабинет, оплата и пуши. Публикация в App Store и Google Play — с поддержкой после релиза.',
+          ctaQuestion: 'Обсудим приложение без обязательств?',
+          ctaQuestionShort: 'Бесплатно',
+          startDate: { label: 'старт MVP', value: 'от 3 недель' },
+          duration: { label: 'типовой MVP', value: '4–8 недель' },
+        },
+        audienceSection: {
+          title: 'Этот формат для вас, если',
+          titleAccent: 'вы:',
+          items: [
+            'Нужно приложение для iOS и Android с одним бэкендом и общей логикой',
+            'Запускаете MVP: каталог, кабинет, заявки или оплата — без лишних фич «на потом»',
+            'Хотите пуши, авторизацию и аналитику с первого релиза',
+            'Планируете публикацию в App Store и Google Play с нашей помощью',
+            'Нужны интеграции с CRM, платежами, API сайта или бота',
+            'Есть дизайн в Figma — или нужен UI/UX под мобильные экраны с нуля',
+            'Ищете команду «под ключ»: от ТЗ и прототипа до релиза в сторах',
+            'Готовы развивать продукт после запуска — обновления, новые экраны, A/B',
+          ],
+        },
+        descriptionSectionTitle: 'Что входит в разработку приложений от TeleBots',
+        structure: {
+          mainTitle: 'Мобильная разработка для бизнеса',
+          leadGenTitle: 'MVP и продуктовые приложения',
+          supportTitle: 'iOS и Android (кроссплатформа или натив)',
+          salesTitle: 'Оплата, пуши и личный кабинет',
+          crmTitle: 'Публикация в сторах и сопровождение',
+        },
+      },
       serviceLearnMore: 'Узнать подробнее',
       servicePagePortfolioTitle: 'Примеры работ',
       servicePagePortfolioSubtitle:
@@ -2647,6 +2949,38 @@ export const translations = {
           { name: 'UI/UX', price: '500+', description: 'Дизайн интерфейсов: прототипы в Figma, макеты сайта или приложения, адаптив, передача в разработку.', features: ['Прототипы в Figma', 'Макеты ключевых экранов', 'Адаптив (desktop + mobile)', 'Спецификация для разработчиков'], forWhom: 'Стартапы с продуктом, сайты и приложения под ключ' }
         ]
       },
+      pricingApps: {
+        categoryLabel: 'Приложения',
+        title: 'Тарифные планы на разработку приложений',
+        subtitle: 'iOS и Android: от MVP до продукта с оплатой и пушами',
+        popularBadge: 'ПОПУЛЯРНЫЙ',
+        featuresLabel: 'Что входит',
+        forWhomLabel: 'Для кого',
+        contactNote: 'Нужно индивидуальное решение?',
+        contactLink: 'Свяжитесь с нами',
+        contactSuffix: 'для обсуждения проекта',
+        plans: [
+          {
+            name: 'MVP',
+            price: '$2 000–4 000',
+            description: 'Первый релиз для проверки гипотезы: ключевые экраны, авторизация, базовая аналитика.',
+            features: ['iOS + Android (кроссплатформа)', '3–6 основных экранов', 'Авторизация', 'Базовые пуши', 'Публикация в сторах'],
+          },
+          {
+            name: 'PRODUCT',
+            price: '$4 000–8 000',
+            popular: true,
+            description: 'Продуктовое приложение: кабинет, оплата, CRM/API, админка контента.',
+            features: ['Всё из MVP', 'Оплата в приложении', 'Личный кабинет', 'Интеграции API/CRM', 'Админка'],
+          },
+          {
+            name: 'CUSTOM',
+            price: 'от $8 000',
+            description: 'Сложная логика, офлайн, карты, нативные модули, масштаб и командная поддержка.',
+            features: ['Натив / гибрид по ТЗ', 'Сложная бизнес-логика', 'Офлайн и синхронизация', 'CI/CD и мониторинг', 'Сопровождение после релиза'],
+          },
+        ],
+      },
       servicePageBlocks: {
         whatWeDoTitle: 'Что мы делаем',
         termsTitle: 'Условия сотрудничества',
@@ -2675,6 +3009,12 @@ export const translations = {
           terms: ['Оплата: 50% перед стартом, 50% после приёмки макетов', 'Сроки: лого 3–7 дней, бренд 1–2 нед., UI/UX по объёму', '2–3 раунда правок в рамках ТЗ включены', 'Файлы в нужных форматах (PNG, SVG, PDF, Figma)', 'Возможность продолжить с нами разработку по вашим макетам'],
           integrations: ['Figma — основная среда для макетов и прототипов', 'Экспорт для разработки и печати', 'Передача стилей и компонентов в код при необходимости', 'Согласование с вашим бренд-гайдом или материалами'],
           tech: ['Figma — прототипирование и UI/UX', 'Adobe Illustrator / Photoshop для лого и полиграфии', 'Системный подход: компоненты, стили, варианты для адаптива']
+        },
+        apps: {
+          whatWeDo: ['Мобильные приложения для iOS и Android', 'MVP и продуктовые сценарии: каталог, кабинет, заявки', 'Оплата в приложении и пуш-уведомления', 'Интеграции с CRM, API сайта и чат-ботами', 'Публикация в App Store и Google Play', 'Обновления и поддержка после релиза'],
+          terms: ['Оценка после брифа: стек, экраны, интеграции', 'Оплата обычно поэтапно: аванс, промежуточные этапы, релиз', 'Срок MVP типично 4–8 недель в зависимости от объёма', 'Правки в рамках ТЗ без доплаты', 'Помощь с аккаунтами разработчика и модерацией сторов'],
+          integrations: ['Платежи: Stripe, Apple Pay, Google Pay, локальные провайдеры', 'Push: Firebase Cloud Messaging / APNs', 'CRM и бэкенд: REST/GraphQL, ваши API', 'Аналитика: Firebase, AppMetrica, Amplitude', 'Auth: email, телефон, OAuth'],
+          tech: ['React Native или Flutter для кроссплатформы', 'Swift / Kotlin при необходимости нативных модулей', 'Node.js / Nest / Firebase как бэкенд', 'CI/CD: TestFlight, Play Console, GitHub Actions']
         }
       }
     },

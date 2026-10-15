@@ -25,6 +25,11 @@ export default function ServicesHubPageClient({ lang }: { lang: Language }) {
       image: '/services/services-design.jpg',
       imagePosition: 'right' as const,
     },
+    {
+      key: 'appsPage' as const,
+      image: '/services/services-apps.jpg',
+      imagePosition: 'left' as const,
+    },
   ];
 
   return (

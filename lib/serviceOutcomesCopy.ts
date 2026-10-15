@@ -2,7 +2,7 @@ import type { Language } from '@/components/translations';
 import type { ServiceOutcomesCopy } from '@/components/ServiceOutcomesSection';
 import type { ServiceId } from '@/app/[lang]/services/[serviceId]/metadata';
 
-const uk: Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy> = {
+const uk: Record<'websites' | 'chatbots' | 'design' | 'apps', ServiceOutcomesCopy> = {
   websites: {
     valueLead: [
       { text: 'Ми робимо не «сайт для галочки», а ' },
@@ -186,9 +186,71 @@ const uk: Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy> = {
       ],
     },
   },
+  apps: {
+    valueLead: [
+      { text: 'Робимо не «ще один екран», а ' },
+      { text: 'мобільний продукт', pink: true },
+      { text: ' під iOS і Android: від MVP до релізу в сторах.' },
+    ],
+    problems: {
+      eyebrow: 'До проєкту',
+      title: 'Які проблеми',
+      titleAccent: 'вирішуємо',
+      items: [
+        {
+          title: 'Немає каналу в телефоні',
+          body: 'Клієнт шукає вас у App Store / Play — а там порожньо або чужий шаблон.',
+          emphasis: 'порожньо',
+        },
+        {
+          title: 'Сайт не замінює додаток',
+          body: 'Пуші, офлайн і швидкий доступ до кабінету на сайті працюють гірше.',
+          emphasis: 'гірше',
+        },
+        {
+          title: 'Два підрядники — два коди',
+          body: 'Окремі iOS і Android команди тягнуть бюджет і розʼїжджають логіку.',
+          emphasis: 'розʼїжджають',
+        },
+        {
+          title: 'Застрягли на MVP',
+          body: 'Є прототип у Figma, але немає команди, яка доведе до сторів.',
+          emphasis: 'до сторів',
+        },
+      ],
+    },
+    benefits: {
+      eyebrow: 'Після запуску',
+      title: 'Яку користь',
+      titleAccent: 'отримує клієнт',
+      items: [
+        {
+          title: 'Один продукт на двох платформах',
+          body: 'React Native / Flutter або натив — спільна логіка й швидші ітерації.',
+          emphasis: 'швидші ітерації',
+        },
+        {
+          title: 'Пуші й утримання',
+          body: 'Нагадування, статуси й акції приходять у телефон, а не губляться в пошті.',
+          emphasis: 'у телефон',
+        },
+        {
+          title: 'Оплата й кабінет',
+          body: 'Замовлення й підписки всередині додатку — менше тертя до покупки.',
+          emphasis: 'менше тертя',
+        },
+        {
+          title: 'Реліз у сторах',
+          body: 'Допомагаємо з акаунтами, збірками й модерацією App Store / Google Play.',
+          emphasis: 'модерацією',
+        },
+      ],
+    },
+  },
+
 };
 
-const en: Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy> = {
+const en: Record<'websites' | 'chatbots' | 'design' | 'apps', ServiceOutcomesCopy> = {
   websites: {
     valueLead: [
       { text: 'We build more than a brochure site — a ' },
@@ -372,9 +434,71 @@ const en: Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy> = {
       ],
     },
   },
+  apps: {
+    valueLead: [
+      { text: 'We build more than another screen — a ' },
+      { text: 'mobile product', pink: true },
+      { text: ' for iOS and Android: from MVP to store release.' },
+    ],
+    problems: {
+      eyebrow: 'Before',
+      title: 'Problems',
+      titleAccent: 'we solve',
+      items: [
+        {
+          title: 'No presence on the phone',
+          body: 'Customers look for you in App Store / Play — and find nothing or a generic template.',
+          emphasis: 'nothing',
+        },
+        {
+          title: 'A website is not an app',
+          body: 'Push, offline and quick account access work worse on the web alone.',
+          emphasis: 'worse',
+        },
+        {
+          title: 'Two vendors, two codebases',
+          body: 'Separate iOS and Android teams inflate budget and drift apart on logic.',
+          emphasis: 'drift apart',
+        },
+        {
+          title: 'Stuck at MVP',
+          body: 'You have Figma prototypes but no team to ship to the stores.',
+          emphasis: 'to the stores',
+        },
+      ],
+    },
+    benefits: {
+      eyebrow: 'After launch',
+      title: 'What the client',
+      titleAccent: 'gets',
+      items: [
+        {
+          title: 'One product, two platforms',
+          body: 'React Native / Flutter or native — shared logic and faster iterations.',
+          emphasis: 'faster iterations',
+        },
+        {
+          title: 'Push and retention',
+          body: 'Reminders, statuses and offers land on the phone, not lost in email.',
+          emphasis: 'on the phone',
+        },
+        {
+          title: 'Payments and account',
+          body: 'Orders and subscriptions inside the app — less friction to buy.',
+          emphasis: 'less friction',
+        },
+        {
+          title: 'Store release',
+          body: 'We help with accounts, builds and App Store / Google Play review.',
+          emphasis: 'review',
+        },
+      ],
+    },
+  },
+
 };
 
-const pl: Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy> = {
+const pl: Record<'websites' | 'chatbots' | 'design' | 'apps', ServiceOutcomesCopy> = {
   websites: {
     valueLead: [
       { text: 'Tworzymy nie stronę „dla show”, lecz ' },
@@ -558,9 +682,71 @@ const pl: Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy> = {
       ],
     },
   },
+  apps: {
+    valueLead: [
+      { text: 'Budujemy nie „kolejny ekran”, lecz ' },
+      { text: 'produkt mobilny', pink: true },
+      { text: ' na iOS i Android: od MVP do releasu w store’ach.' },
+    ],
+    problems: {
+      eyebrow: 'Przed projektem',
+      title: 'Jakie problemy',
+      titleAccent: 'rozwiązujemy',
+      items: [
+        {
+          title: 'Brak kanału w telefonie',
+          body: 'Klient szuka Cię w App Store / Play — a tam pusto albo obcy szablon.',
+          emphasis: 'pusto',
+        },
+        {
+          title: 'Strona nie zastąpi aplikacji',
+          body: 'Push, offline i szybki dostęp do konta na stronie działają gorzej.',
+          emphasis: 'gorzej',
+        },
+        {
+          title: 'Dwa zespoły — dwa kody',
+          body: 'Osobne iOS i Android ciągną budżet i rozjeżdżają logikę.',
+          emphasis: 'rozjeżdżają',
+        },
+        {
+          title: 'Utknięcie na MVP',
+          body: 'Jest prototyp w Figma, ale brak zespołu, który dowiezie do store’ów.',
+          emphasis: 'do store’ów',
+        },
+      ],
+    },
+    benefits: {
+      eyebrow: 'Po starcie',
+      title: 'Jaką korzyść',
+      titleAccent: 'dostaje klient',
+      items: [
+        {
+          title: 'Jeden produkt na dwóch platformach',
+          body: 'React Native / Flutter lub native — wspólna logika i szybsze iteracje.',
+          emphasis: 'szybsze iteracje',
+        },
+        {
+          title: 'Push i retencja',
+          body: 'Przypomnienia, statusy i oferty trafiają do telefonu, nie giną w mailu.',
+          emphasis: 'do telefonu',
+        },
+        {
+          title: 'Płatności i konto',
+          body: 'Zamówienia i subskrypcje w aplikacji — mniej tarcia do zakupu.',
+          emphasis: 'mniej tarcia',
+        },
+        {
+          title: 'Releas w store’ach',
+          body: 'Pomagamy z kontami, buildami i moderacją App Store / Google Play.',
+          emphasis: 'moderacją',
+        },
+      ],
+    },
+  },
+
 };
 
-const ru: Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy> = {
+const ru: Record<'websites' | 'chatbots' | 'design' | 'apps', ServiceOutcomesCopy> = {
   websites: {
     valueLead: [
       { text: 'Мы делаем не «сайт для галочки», а ' },
@@ -744,9 +930,71 @@ const ru: Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy> = {
       ],
     },
   },
+  apps: {
+    valueLead: [
+      { text: 'Делаем не «ещё один экран», а ' },
+      { text: 'мобильный продукт', pink: true },
+      { text: ' под iOS и Android: от MVP до релиза в сторах.' },
+    ],
+    problems: {
+      eyebrow: 'До проекта',
+      title: 'Какие проблемы',
+      titleAccent: 'решаем',
+      items: [
+        {
+          title: 'Нет канала в телефоне',
+          body: 'Клиент ищет вас в App Store / Play — а там пусто или чужой шаблон.',
+          emphasis: 'пусто',
+        },
+        {
+          title: 'Сайт не заменяет приложение',
+          body: 'Пуши, офлайн и быстрый доступ к кабинету на сайте работают хуже.',
+          emphasis: 'хуже',
+        },
+        {
+          title: 'Два подрядчика — два кода',
+          body: 'Отдельные iOS и Android команды тянут бюджет и разъезжают логику.',
+          emphasis: 'разъезжают',
+        },
+        {
+          title: 'Застряли на MVP',
+          body: 'Есть прототип в Figma, но нет команды, которая доведёт до сторов.',
+          emphasis: 'до сторов',
+        },
+      ],
+    },
+    benefits: {
+      eyebrow: 'После запуска',
+      title: 'Какую пользу',
+      titleAccent: 'получает клиент',
+      items: [
+        {
+          title: 'Один продукт на двух платформах',
+          body: 'React Native / Flutter или натив — общая логика и быстрые итерации.',
+          emphasis: 'быстрые итерации',
+        },
+        {
+          title: 'Пуши и удержание',
+          body: 'Напоминания, статусы и акции приходят в телефон, а не теряются в почте.',
+          emphasis: 'в телефон',
+        },
+        {
+          title: 'Оплата и кабинет',
+          body: 'Заказы и подписки внутри приложения — меньше трения до покупки.',
+          emphasis: 'меньше трения',
+        },
+        {
+          title: 'Релиз в сторах',
+          body: 'Помогаем с аккаунтами, сборками и модерацией App Store / Google Play.',
+          emphasis: 'модерацией',
+        },
+      ],
+    },
+  },
+
 };
 
-const byLang: Record<Language, Record<'websites' | 'chatbots' | 'design', ServiceOutcomesCopy>> = {
+const byLang: Record<Language, Record<'websites' | 'chatbots' | 'design' | 'apps', ServiceOutcomesCopy>> = {
   uk,
   en,
   pl,
@@ -757,7 +1005,7 @@ export function getServiceOutcomesCopy(
   lang: Language,
   serviceId: ServiceId
 ): ServiceOutcomesCopy | null {
-  if (serviceId !== 'websites' && serviceId !== 'chatbots' && serviceId !== 'design') {
+  if (serviceId !== 'websites' && serviceId !== 'chatbots' && serviceId !== 'design' && serviceId !== 'apps') {
     return null;
   }
   return byLang[lang]?.[serviceId] ?? byLang.uk[serviceId] ?? null;

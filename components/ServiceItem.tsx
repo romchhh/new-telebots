@@ -7,14 +7,15 @@ import OrderCtaPill from '@/components/OrderCtaPill';
 import { SITE_PX } from '@/lib/siteLayout';
 import { CARD_MEDIA } from '@/lib/siteUi';
 
-const SERVICE_SLUG: Record<'websitesPage' | 'chatbotsPage' | 'designPage', string> = {
+const SERVICE_SLUG: Record<'websitesPage' | 'chatbotsPage' | 'designPage' | 'appsPage', string> = {
   websitesPage: 'websites',
   chatbotsPage: 'chatbots',
   designPage: 'design',
+  appsPage: 'apps',
 };
 
 interface ServiceItemProps {
-  serviceKey: 'websitesPage' | 'chatbotsPage' | 'designPage';
+  serviceKey: 'websitesPage' | 'chatbotsPage' | 'designPage' | 'appsPage';
   image: string;
   imagePosition: 'left' | 'right';
   lang: Language;

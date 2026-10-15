@@ -559,7 +559,7 @@ export function generateServiceSchema(serviceName: string, description: string, 
   return schema;
 }
 
-type ServiceOfferKey = 'websitesPage' | 'chatbotsPage' | 'designPage' | 'parsersPage';
+type ServiceOfferKey = 'websitesPage' | 'chatbotsPage' | 'designPage' | 'appsPage' | 'parsersPage';
 
 const SERVICE_OFFER_CONFIG: Record<
   ServiceOfferKey,
@@ -605,6 +605,18 @@ const SERVICE_OFFER_CONFIG: Record<
       en: 'Design: logo, brand identity, UI/UX',
       pl: 'Design: logo, identyfikacja, UI/UX',
       ru: 'Дизайн: логотип, айдентика, UI/UX',
+    },
+  },
+  appsPage: {
+    slug: 'apps',
+    imagePath: '/services/services-apps.jpg',
+    priceMin: 2000,
+    priceMax: 8000,
+    names: {
+      uk: 'Розробка мобільних додатків (iOS і Android)',
+      en: 'Mobile app development (iOS & Android)',
+      pl: 'Tworzenie aplikacji mobilnych (iOS i Android)',
+      ru: 'Разработка мобильных приложений (iOS и Android)',
     },
   },
   parsersPage: {

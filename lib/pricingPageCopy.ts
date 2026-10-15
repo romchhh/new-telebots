@@ -1,6 +1,6 @@
 import { Language } from '@/components/translations';
 
-export type PricingSectionId = 'websites' | 'chatbots' | 'design';
+export type PricingSectionId = 'websites' | 'chatbots' | 'design' | 'apps';
 
 export interface PricingSectionCopy {
   id: PricingSectionId;
@@ -142,6 +142,21 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
           'Дизайн можна замовити окремо або в пакеті з розробкою сайту чи бота — так узгодження між дизайном і кодом швидше, а правки дешевші на етапі прототипу.',
         ],
       },
+      {
+        id: 'apps',
+        plansNote:
+          'Тарифи на додатки: MVP ($2 000–4 000) — перший реліз; PRODUCT ($4 000–8 000) — кабінет і оплата; CUSTOM (від $8 000) — складна логіка та нативні модулі.',
+        bullets: [
+          'iOS і Android: React Native / Flutter або натив за ТЗ',
+          'MVP з ключовими екранами, авторизацією та базовими пушами',
+          'Оплата в додатку, особистий кабінет, інтеграції API/CRM',
+          'Публікація в App Store і Google Play, супровід після релізу',
+        ],
+        paragraphs: [
+          'Вартість зростає з кількістю екранів, офлайн-режимом, картами, нативними модулями та кількістю зовнішніх інтеграцій. Для перевірки гіпотези стартуємо з MVP і нарощуємо продукт без повного переписування.',
+          'Дизайн у Figma, бекенд і стори можна замовити пакетом — так швидше узгоджуються екрани, API й вимоги модерації.',
+        ],
+      },
     ],
     closingSeo:
       'Якщо ви шукаєте підрядника на розробку сайту під ключ, телеграм-бота з оплатою або редизайн продукту — надішліть опис задачі через форму нижче або замовте безкоштовну консультацію. Ми підкажемо оптимальний стек, орієнтовний бюджет і терміни, щоб ви могли порівняти пропозицію з іншими виконавцями на прозорих умовах. Для великих проєктів можемо підготувати порівняльну таблицю етапів і орієнтовних витрат по кожному модулі.',
@@ -192,6 +207,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       { label: 'Telegram-бот на замовлення', href: '/uk/solutions/telegram-bot-order-price' },
       { label: 'Скільки коштує сайт (блог)', href: '/uk/blog/skilky-koshtuye-sayt' },
       { label: 'Розробка сайтів', href: '/uk/services/websites' },
+      { label: 'Мобільні додатки', href: '/uk/services/apps' },
     ],
   },
   en: {
@@ -289,6 +305,21 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
           'Design can be booked alone or bundled with web/bot delivery for smoother design–dev handoff.',
         ],
       },
+      {
+        id: 'apps',
+        plansNote:
+          'App tiers: MVP ($2,000–4,000) — first release; PRODUCT ($4,000–8,000) — account and payments; CUSTOM (from $8,000) — complex logic and native modules.',
+        bullets: [
+          'iOS and Android: React Native / Flutter or native per brief',
+          'MVP with key screens, auth and basic push',
+          'In-app payments, personal account, API/CRM integrations',
+          'App Store and Google Play publishing, post-launch support',
+        ],
+        paragraphs: [
+          'Cost grows with screen count, offline mode, maps, native modules and external integrations. We start with an MVP to validate the idea, then grow the product without a full rewrite.',
+          'Figma design, backend and store release can be ordered as a package — screens, APIs and review requirements stay aligned.',
+        ],
+      },
     ],
     closingSeo:
       'If you need a turnkey website, a payment-enabled Telegram bot or a product redesign, use the form below or book a free consultation. We will suggest stack, ballpark budget and timeline so you can compare options transparently. For large builds we can break down modules and indicative costs per stage.',
@@ -338,6 +369,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       { label: 'Chatbot development price', href: '/en/solutions/chatbot-development-price' },
       { label: 'Custom Telegram bot cost', href: '/en/solutions/telegram-bot-order-price' },
       { label: 'Website services', href: '/en/services/websites' },
+      { label: 'Mobile apps', href: '/en/services/apps' },
     ],
   },
   pl: {
@@ -435,6 +467,21 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
           'Design można zamówić osobno lub w pakiecie ze stroną lub botem — wtedy przekazanie do kodu jest szybsze i tańsze na etapie prototypu.',
         ],
       },
+      {
+        id: 'apps',
+        plansNote:
+          'Aplikacje: MVP ($2 000–4 000) — pierwszy release; PRODUCT ($4 000–8 000) — konto i płatności; CUSTOM (od $8 000) — złożona logika i moduły natywne.',
+        bullets: [
+          'iOS i Android: React Native / Flutter lub native wg briefu',
+          'MVP z kluczowymi ekranami, auth i podstawowymi push',
+          'Płatności w aplikacji, konto osobiste, integracje API/CRM',
+          'Publikacja w App Store i Google Play, wsparcie po releasie',
+        ],
+        paragraphs: [
+          'Koszt rośnie z liczbą ekranów, trybem offline, mapami, modułami natywnymi i integracjami. Zaczynamy od MVP, potem rozwijamy produkt bez pełnego przepisywania.',
+          'Design w Figma, backend i store’y można zamówić w pakiecie — ekrany, API i wymagania moderacji są spójne.',
+        ],
+      },
     ],
     closingSeo:
       'Szukasz wykonawcy strony pod klucz, bota Telegram z płatnością lub redesignu produktu? Wyślij opis zadania w formularzu lub zamów bezpłatną konsultację. Podpowiemy stack, orientacyjny budżet i terminy przy przejrzystych założeniach. Przy dużych projektach możemy rozłożyć koszty na moduły i etapy.',
@@ -484,6 +531,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       { label: 'Cena rozwoju chatbotów', href: '/pl/solutions/chatbot-development-price' },
       { label: 'Bot Telegram na zamówienie', href: '/pl/solutions/telegram-bot-order-price' },
       { label: 'Strony internetowe', href: '/pl/services/websites' },
+      { label: 'Aplikacje mobilne', href: '/pl/services/apps' },
     ],
   },
   ru: {
@@ -581,6 +629,21 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
           'Дизайн можно заказать отдельно или в пакете с разработкой сайта или бота — так согласование между дизайном и кодом быстрее, а правки дешевле на этапе прототипа.',
         ],
       },
+      {
+        id: 'apps',
+        plansNote:
+          'Тарифы на приложения: MVP ($2 000–4 000) — первый релиз; PRODUCT ($4 000–8 000) — кабинет и оплата; CUSTOM (от $8 000) — сложная логика и нативные модули.',
+        bullets: [
+          'iOS и Android: React Native / Flutter или натив по ТЗ',
+          'MVP с ключевыми экранами, авторизацией и базовыми пушами',
+          'Оплата в приложении, личный кабинет, интеграции API/CRM',
+          'Публикация в App Store и Google Play, сопровождение после релиза',
+        ],
+        paragraphs: [
+          'Стоимость растёт с числом экранов, офлайном, картами, нативными модулями и внешними интеграциями. Для проверки гипотезы стартуем с MVP и наращиваем продукт без полного переписывания.',
+          'Дизайн в Figma, бэкенд и сторы можно заказать пакетом — так быстрее согласовываются экраны, API и требования модерации.',
+        ],
+      },
     ],
     closingSeo:
       'Если вы ищете подрядчика на разработку сайта под ключ, телеграм-бота с оплатой или редизайн продукта — пришлите описание задачи через форму ниже или закажите бесплатную консультацию. Мы подскажем стек, ориентировочный бюджет и сроки на прозрачных условиях. Для крупных проектов можем привести разбивку по модулям и этапам.',
@@ -630,6 +693,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       { label: 'Разработка чат-ботов цена', href: '/ru/solutions/chatbot-development-price' },
       { label: 'Telegram-бот на заказ', href: '/ru/solutions/telegram-bot-order-price' },
       { label: 'Разработка сайтов', href: '/ru/services/websites' },
+      { label: 'Мобильные приложения', href: '/ru/services/apps' },
     ],
   },
 };
