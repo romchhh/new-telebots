@@ -31,8 +31,8 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
   const currentLanguage = currentLang || lang;
   return (
     <footer id="contact" className="border-t border-black/10 bg-white text-black">
-      <div className={`${SITE_PX} py-12 md:py-20`}>
-        <div className="mb-10 grid gap-10 md:mb-16 md:grid-cols-3 md:gap-12">
+      <div className={`${SITE_PX} py-10 md:py-14`}>
+        <div className="mb-8 grid gap-8 md:mb-12 md:grid-cols-3 md:gap-10">
           {/* Brand */}
           <div className="md:col-span-1">
             <Link

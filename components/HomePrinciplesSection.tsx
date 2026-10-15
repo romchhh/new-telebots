@@ -2,7 +2,7 @@ import Link from 'next/link';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import type { Language } from '@/components/translations';
 import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
-import { RADIUS_CARD, RADIUS_SHELL } from '@/lib/siteUi';
+import { RADIUS_CARD, RADIUS_SHELL, SITE_SECTION_Y } from '@/lib/siteUi';
 
 type PrincipleCardCopy = {
   title: string;
@@ -96,7 +96,7 @@ export default function HomePrinciplesSection({
   return (
     <section
       id="about"
-      className={`relative bg-white py-16 sm:py-20 md:py-24 lg:py-28 ${SITE_PX}`}
+      className={`relative bg-white ${SITE_SECTION_Y} ${SITE_PX}`}
       aria-labelledby="home-principles-heading"
     >
       <div

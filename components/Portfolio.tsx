@@ -168,7 +168,7 @@ export default function Portfolio({ onOrderClick }: PortfolioProps) {
       </section>
 
       {/* Кейси */}
-      <section id="portfolio" className={`bg-white py-14 sm:py-16 md:py-20 lg:py-24 ${SITE_PX}`} aria-labelledby="portfolio-grid-heading">
+      <section id="portfolio" className={`bg-white py-10 sm:py-12 md:py-14 lg:py-16 ${SITE_PX}`} aria-labelledby="portfolio-grid-heading">
         <div className={`${SITE_INNER_WIDE} min-w-0`}>
           <div className="mb-10 flex flex-col gap-6 border-b border-neutral-100 pb-8 sm:mb-12 sm:pb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
             <div className="min-w-0 max-w-2xl">

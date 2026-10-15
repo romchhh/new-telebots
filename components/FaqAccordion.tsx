@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { TYPE_DISPLAY_H2 } from '@/lib/siteUi';
 
 export type FaqItem = {
   question: string;
@@ -32,13 +33,7 @@ export default function FaqAccordion({
 
   const list = (
     <>
-      <h2
-        className={
-          variant === 'embedded'
-            ? 'mb-6 text-sm font-bold uppercase tracking-[0.3em] text-white/80'
-            : 'mb-10 text-sm font-bold uppercase tracking-[0.3em] text-white/80'
-        }
-      >
+      <h2 className={`mb-8 text-white sm:mb-10 ${TYPE_DISPLAY_H2}`} style={display}>
         {title}
       </h2>
       <div className="space-y-0">
@@ -91,7 +86,7 @@ export default function FaqAccordion({
   }
 
   return (
-    <section className={`bg-black py-20 text-white md:py-28 ${sectionClassName} ${className}`}>
+    <section className={`bg-black py-12 text-white md:py-16 ${sectionClassName} ${className}`}>
       <div className="mx-auto w-full max-w-4xl">{list}</div>
     </section>
   );

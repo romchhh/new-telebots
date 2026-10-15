@@ -7,8 +7,7 @@ import {
   SERVICE_CARD_SIZE_WIDE,
   SERVICE_CARD_TITLE,
   SERVICE_SECTION_Y,
-  TYPE_EYEBROW,
-  TYPE_SECTION_TITLE,
+  TYPE_DISPLAY_H2,
 } from '@/lib/siteUi';
 
 export type ServiceOutcomeItem = {
@@ -60,21 +59,18 @@ function OutcomesBlock({
     : SERVICE_CARD;
 
   return (
-    <div className={isBenefits ? 'border-t border-neutral-100 pt-16 md:pt-24' : ''}>
-      <p className={`mb-4 ${TYPE_EYEBROW} text-brand`} style={sans}>
-        {copy.eyebrow}
-      </p>
-      <h2
-        className={`max-w-3xl ${TYPE_SECTION_TITLE} text-neutral-900 sm:text-[clamp(1.85rem,4vw,2.65rem)]`}
-        style={display}
-      >
+    <div className={isBenefits ? 'border-t border-neutral-100 pt-8 md:pt-10' : ''}>
+      <h2 className={`max-w-3xl text-neutral-900 ${TYPE_DISPLAY_H2}`} style={display}>
         {copy.title}{' '}
         <span className="text-brand">{copy.titleAccent}</span>
       </h2>
-      <div className={`mt-10 sm:mt-12 ${SERVICE_CARD_GRID}`}>
+      <div className={`mt-6 sm:mt-8 ${SERVICE_CARD_GRID}`}>
         {copy.items.map((item, i) => (
-          <article key={item.title} className={`${SERVICE_CARD_SIZE_WIDE} ${cardShell}`}>
-            <KeyboardKeyBadge n={i + 1} size="md" className="mb-4 sm:mb-5" />
+          <article
+            key={item.title}
+            className={`${SERVICE_CARD_SIZE_WIDE} ${cardShell} transition-colors hover:border-neutral-300`}
+          >
+            <KeyboardKeyBadge n={i + 1} size="md" className="mb-3 sm:mb-4" />
             <h3 className={`${SERVICE_CARD_TITLE} font-bold`} style={display}>
               {item.title}
             </h3>
@@ -94,7 +90,7 @@ export default function ServiceOutcomesSection({ copy }: { copy: ServiceOutcomes
       <div className="mx-auto w-full max-w-[90rem]">
         {copy.valueLead?.length ? (
           <p
-            className="mx-auto mb-14 max-w-3xl text-center text-lg leading-relaxed text-neutral-700 sm:mb-16 sm:text-xl md:text-2xl"
+            className="mx-auto mb-8 max-w-3xl text-center text-lg leading-relaxed text-neutral-700 sm:mb-10 sm:text-xl md:text-2xl"
             style={sans}
           >
             {copy.valueLead.map((part, i) =>

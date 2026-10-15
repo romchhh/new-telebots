@@ -10,6 +10,7 @@ const PRICING = '[повний прайс TeleBots](/uk/pricing)';
 const WEBSITES = '[розробка сайтів під ключ](/uk/services/websites)';
 const SHOP = '[інтернет-магазин під ключ](/uk/services/websites)';
 const BOTS = '[Telegram-боти та чат-боти](/uk/services/chatbots)';
+const APPS = '[мобільні додатки iOS/Android](/uk/services/apps)';
 const DESIGN = '[дизайн UI/UX та брендинг](/uk/services/design)';
 const PORTFOLIO = '[кейси TeleBots](/uk/portfolio)';
 
@@ -508,7 +509,7 @@ export const pricingPosts: BlogPost[] = [
     sections: [
       {
         type: 'p',
-        text: `Дизайн сайту та бренду в 2026 році — це не «красива картинка», а система, яка підвищує довіру, впізнаваність і конверсію. Логотип, фірмовий стиль (айдентика) і UI/UX-макети в Figma закладають основу для [розробки сайту](/uk/services/websites) або [чат-бота](/uk/services/chatbots). У [TeleBots](/uk) ${DESIGN} — 2–3 раунди правок у межах ТЗ. Ціни нижче; точну оцінку — після ${CONSULT} через ${FORM} або ${CONTACT}.`,
+        text: `Дизайн сайту та бренду в 2026 році — це не «красива картинка», а система, яка підвищує довіру, впізнаваність і конверсію. Логотип, фірмовий стиль (айдентика) і UI/UX-макети в Figma закладають основу для [розробки сайту](/uk/services/websites), [чат-бота](/uk/services/chatbots) або ${APPS}. У [TeleBots](/uk) ${DESIGN} — 2–3 раунди правок у межах ТЗ. Ціни нижче; точну оцінку — після ${CONSULT} через ${FORM} або ${CONTACT}.`,
       },
       { type: 'h2', text: 'Тарифи TeleBots на дизайн (2026)' },
       {

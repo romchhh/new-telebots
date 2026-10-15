@@ -10,7 +10,7 @@ interface StatsSectionProps {
 export default function StatsSection({ t }: StatsSectionProps) {
   const [ref, isVisible] = useScrollAnimation();
   return (
-    <section className={`border-y border-black/5 bg-white py-20 text-black md:py-24 ${SITE_PX}`}>
+    <section className={`border-y border-black/5 bg-white py-12 text-black md:py-16 ${SITE_PX}`}>
       <div ref={ref} className={`${SITE_INNER} scroll-animate-up ${isVisible ? 'animate' : ''}`}>
         <div className="mb-12 grid gap-8 md:grid-cols-3 md:gap-12">
           <div>

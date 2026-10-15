@@ -55,7 +55,7 @@ export default function ServicesHubPageClient({ lang }: { lang: Language }) {
       ))}
       <main id="main-content">
         <ServicesHubHero t={t} />
-        <div id="services-list" className="scroll-mt-20 pt-12 md:scroll-mt-24 md:pt-16 lg:pt-24">
+        <div id="services-list" className="scroll-mt-20 pt-8 md:scroll-mt-24 md:pt-10 lg:pt-14">
           {services.map((service) => (
             <ServiceItem
               key={service.key}

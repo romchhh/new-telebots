@@ -29,7 +29,7 @@ export default function ContactFormSection({
   const c = t.contact;
 
   return (
-    <section id={id} className={`py-12 sm:py-16 md:py-20 lg:py-24 ${SITE_PX} ${className}`}>
+    <section id={id} className={`py-10 sm:py-12 md:py-14 lg:py-16 ${SITE_PX} ${className}`}>
       <div className={`${SITE_INNER_WIDE} overflow-hidden ${SHELL_LIGHT} max-sm:rounded-[1.25rem]`}>
         <div className="grid lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.35fr)_minmax(0,1fr)] lg:items-stretch">
           <div className="relative hidden min-h-[280px] overflow-hidden border-b border-neutral-100 bg-white lg:block lg:min-h-0 lg:border-b-0 lg:border-r lg:border-neutral-100 lg:py-10 lg:pl-0 lg:pr-10 xl:py-12 xl:pr-12">

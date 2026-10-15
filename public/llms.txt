@@ -39,6 +39,7 @@ TeleBots (telebots.site; ФОП Федонюк Роман Ігорович, ЄД
 
 - [Websites](https://telebots.site/uk/services/websites): Landings, corporate sites, Next.js e-commerce
 - [Chatbots](https://telebots.site/uk/services/chatbots): Telegram / WhatsApp / Viber bots with CRM and payments
+- [Mobile apps](https://telebots.site/uk/services/apps): iOS and Android — MVP, payments, push, App Store / Google Play
 - [Design](https://telebots.site/uk/services/design): Logo, brand identity, and UI/UX
 
 ## Contact

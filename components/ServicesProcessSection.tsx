@@ -34,9 +34,9 @@ export default function ServicesProcessSection({ t }: ServicesProcessSectionProp
   ];
 
   return (
-    <section className={`bg-white py-24 ${SITE_PX}`}>
+    <section className={`bg-white py-12 md:py-16 ${SITE_PX}`}>
       <div className={SITE_INNER}>
-        <div className={`text-center mb-16 scroll-animate-up ${isVisible ? 'animate' : ''}`} ref={ref}>
+        <div className={`mb-10 text-center scroll-animate-up md:mb-12 ${isVisible ? 'animate' : ''}`} ref={ref}>
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4">
             {t.services.processTitle || 'Як ми працюємо?'}
           </h2>

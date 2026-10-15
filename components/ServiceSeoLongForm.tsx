@@ -10,6 +10,7 @@ import {
   SERVICE_CARD_SIZE,
   SERVICE_CARD_TITLE,
   SERVICE_SECTION_Y,
+  TYPE_DISPLAY_H2,
 } from '@/lib/siteUi';
 
 interface ServiceSeoLongFormProps {
@@ -21,30 +22,10 @@ const shell = 'mx-auto w-full max-w-[90rem]';
 const sectionPad = SITE_PX;
 const sectionY = SERVICE_SECTION_Y;
 
-function SectionTitle({ children, index, dark }: { children: ReactNode; index?: number; dark?: boolean }) {
+function SectionTitle({ children }: { children: ReactNode }) {
   return (
-    <div className="mb-10 text-center md:mb-16">
-      {index !== undefined && (
-        <span
-          className={
-            dark
-              ? 'block text-[5rem] md:text-[8rem] font-light leading-none text-white/[0.08] select-none -mb-5 md:-mb-8'
-              : 'block text-[5rem] md:text-[8rem] font-light leading-none text-gray-100 select-none -mb-5 md:-mb-8'
-          }
-          style={display}
-          aria-hidden
-        >
-          {String(index).padStart(2, '0')}
-        </span>
-      )}
-      <h2
-        className={
-          dark
-            ? 'text-2xl sm:text-4xl lg:text-[3.25rem] font-semibold text-white tracking-tight leading-tight relative z-10'
-            : 'text-2xl sm:text-4xl lg:text-[3.25rem] font-semibold text-black tracking-tight leading-tight relative z-10'
-        }
-        style={display}
-      >
+    <div className="mb-6 sm:mb-8">
+      <h2 className={`text-neutral-900 ${TYPE_DISPLAY_H2}`} style={display}>
         {children}
       </h2>
     </div>
@@ -70,10 +51,9 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
 
   return (
     <>
-      {/* Детальні блоки послуги */}
-      <section className={`${sectionY} ${sectionPad} bg-white border-t border-gray-100`}>
+      <section className={`${sectionY} ${sectionPad} border-t border-gray-100 bg-white`}>
         <div className={shell}>
-          <SectionTitle index={1}>{whatWeDoTitle}</SectionTitle>
+          <SectionTitle>{whatWeDoTitle}</SectionTitle>
           <div className={cardGap}>
             {whatWeDoItems.map((item: ServiceRichBlock, i: number) => (
               <article key={item.title} className={card}>
@@ -89,9 +69,9 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
       </section>
 
       {websitesExtras ? (
-        <section className={`${sectionY} ${sectionPad} bg-white border-t border-gray-100`}>
+        <section className={`${sectionY} ${sectionPad} border-t border-gray-100 bg-white`}>
           <div className={shell}>
-            <SectionTitle index={2}>{websitesExtras.scopeTitle}</SectionTitle>
+            <SectionTitle>{websitesExtras.scopeTitle}</SectionTitle>
             <ul className={cardGap}>
               {websitesExtras.scopeItems.map((line: string, i: number) => (
                 <li key={line} className={card}>
@@ -105,9 +85,9 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
       ) : null}
 
       {designExtras ? (
-        <section className={`${sectionY} ${sectionPad} bg-white border-t border-gray-100`}>
+        <section className={`${sectionY} ${sectionPad} border-t border-gray-100 bg-white`}>
           <div className={shell}>
-            <SectionTitle index={2}>{designExtras.processTitle}</SectionTitle>
+            <SectionTitle>{designExtras.processTitle}</SectionTitle>
             <ol className={cardGap}>
               {designExtras.processItems.map((step: string, i: number) => (
                 <li key={step} className={card}>
@@ -120,9 +100,9 @@ export default function ServiceSeoLongForm({ copy }: ServiceSeoLongFormProps) {
         </section>
       ) : null}
 
-      <section className={`${sectionY} ${sectionPad} bg-white border-t border-gray-100`}>
+      <section className={`${sectionY} ${sectionPad} border-t border-gray-100 bg-white`}>
         <div className={shell}>
-          <SectionTitle index={3}>{techTitle}</SectionTitle>
+          <SectionTitle>{techTitle}</SectionTitle>
           <ul className={cardGap}>
             {techLines.map((line: string, i: number) => (
               <li key={line} className={card}>

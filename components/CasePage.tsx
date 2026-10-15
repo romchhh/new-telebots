@@ -11,11 +11,11 @@ import OrderModal from './OrderModal';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import SuccessMessage from './SuccessMessage';
-import PortfolioCaseCard from '@/components/PortfolioCaseCard';
-import StatPills from '@/components/StatPills';
+import PortfolioShowcaseScroller, {
+  PortfolioShowcaseHeading,
+} from '@/components/PortfolioShowcaseScroller';
 import { sendToTelegram } from '@/lib/telegram';
 import { SITE_PX } from '@/lib/siteLayout';
-import { HORIZONTAL_SCROLL_OVERFLOW } from '@/lib/siteUi';
 import { getCaseStudy, getCaseStudyCopy } from '@/lib/caseStudies';
 import { getPortfolioCards } from '@/lib/portfolioCards';
 
@@ -208,8 +208,22 @@ export default function CasePage({ caseId }: CasePageProps) {
           </div>
 
           {studyCopy?.stats?.length ? (
-            <div className="pb-10 md:pb-14">
-              <StatPills stats={studyCopy.stats} variant="dark" />
+            <div className="border-t border-white/15 pb-10 pt-8 md:pb-14 md:pt-10">
+              <dl className="flex flex-wrap gap-x-8 gap-y-5 sm:gap-x-12 md:gap-x-16">
+                {studyCopy.stats.map((stat) => (
+                  <div key={`${stat.value}-${stat.label}`} className="min-w-[7.5rem] flex-1 sm:min-w-[9rem] sm:flex-none">
+                    <dt className="sr-only">{stat.label}</dt>
+                    <dd>
+                      <p className="text-2xl font-black leading-none text-brand sm:text-3xl md:text-4xl" style={display}>
+                        {stat.value}
+                      </p>
+                      <p className="mt-2 max-w-[12ch] text-sm leading-snug text-white/70 sm:text-base" style={sans}>
+                        {stat.label}
+                      </p>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </div>
           ) : null}
         </div>
@@ -217,7 +231,7 @@ export default function CasePage({ caseId }: CasePageProps) {
 
       {/* CHALLENGE */}
       {studyCopy?.challenge ? (
-        <section className={`border-b border-gray-100 bg-white py-16 md:py-24 ${SITE_PX}`}>
+        <section className={`border-b border-gray-100 bg-white py-10 md:py-14 ${SITE_PX}`}>
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
             <div>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-gray-400 md:text-sm" style={sans}>
@@ -250,7 +264,7 @@ export default function CasePage({ caseId }: CasePageProps) {
 
       {/* SOLUTION */}
       {studyCopy?.solution ? (
-        <section className={`border-b border-gray-100 bg-white py-16 md:py-24 ${SITE_PX}`}>
+        <section className={`border-b border-gray-100 bg-white py-10 md:py-14 ${SITE_PX}`}>
           <div className="mx-auto grid max-w-6xl gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
             <div>
               <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-gray-400 md:text-sm" style={sans}>
@@ -295,7 +309,7 @@ export default function CasePage({ caseId }: CasePageProps) {
 
       {/* OUTCOME */}
       {studyCopy?.outcome ? (
-        <section className={`bg-white py-16 md:py-24 ${SITE_PX}`}>
+        <section className={`bg-white py-10 md:py-14 ${SITE_PX}`}>
           <div className="mx-auto max-w-3xl text-center lg:max-w-4xl">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-gray-400 md:text-sm" style={sans}>
               {studyCopy.outcome.eyebrow}
@@ -322,40 +336,34 @@ export default function CasePage({ caseId }: CasePageProps) {
         </section>
       ) : null}
 
-      {/* RELATED */}
       {related.length > 0 ? (
-        <section className={`border-t border-gray-100 bg-[#0a0a0a] py-16 text-white md:py-24 ${SITE_PX}`}>
-          <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-white/40">RELATED</p>
-              <h2 className="text-2xl font-black md:text-3xl" style={display}>
-                {studyCopy?.relatedTitle ||
-                  copy(validLang, 'Інші кейси', 'Other cases', 'Inne case’y', 'Другие кейсы')}
-              </h2>
-            </div>
-            <Link
-              href={`/${validLang}/portfolio`}
-              className="text-sm font-semibold text-white/70 underline-offset-4 transition-colors hover:text-brand hover:underline"
-            >
-              {studyCopy?.relatedCta ||
-                copy(validLang, 'Усі кейси', 'All cases', 'Wszystkie case’y', 'Все кейсы')}{' '}
-              →
-            </Link>
-          </div>
-          <div className={`-mx-4 px-4 pb-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 ${HORIZONTAL_SCROLL_OVERFLOW}`}>
-            <div className="flex w-max gap-5">
-              {related.map((card) => (
-                <PortfolioCaseCard
-                  key={card.id}
-                  card={card}
-                  lang={validLang}
-                  className="w-[min(82vw,20rem)] shrink-0 sm:w-[22rem]"
-                  sizes="352px"
-                />
-              ))}
-            </div>
-          </div>
-        </section>
+        <PortfolioShowcaseScroller
+          lang={validLang}
+          cards={related}
+          sectionId="related-cases"
+          headingId="related-cases-heading"
+          heading={
+            <PortfolioShowcaseHeading
+              line1={
+                studyCopy?.relatedTitle ||
+                copy(validLang, 'Інші кейси', 'Other cases', 'Inne case’y', 'Другие кейсы')
+              }
+            />
+          }
+          viewAllHref={`/${validLang}/portfolio`}
+          viewAllLabel={
+            studyCopy?.relatedCta ||
+            t.portfolio.viewPortfolio ||
+            copy(validLang, 'Усі кейси', 'All cases', 'Wszystkie case’y', 'Все кейсы')
+          }
+          scrollPrevLabel={t.portfolio.homeScrollPrev ?? 'Previous'}
+          scrollNextLabel={t.portfolio.homeScrollNext ?? 'Next'}
+          categoryCopy={{
+            filterWebsites: t.portfolio.filterWebsites,
+            filterChatbots: t.portfolio.filterChatbots,
+          }}
+          className="border-t border-neutral-100"
+        />
       ) : null}
 
       <SiteCtaBand
@@ -367,7 +375,7 @@ export default function CasePage({ caseId }: CasePageProps) {
         pricingHref={`/${validLang}/pricing`}
         portfolioHref={`/${validLang}/portfolio`}
         onContactClick={() => setIsModalOpen(true)}
-        className="pt-16 md:pt-20"
+        className="pt-10 md:pt-12"
       />
 
       <OrderModal

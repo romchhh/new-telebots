@@ -84,9 +84,9 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
       </div>
 
       {/* Основний блок під цитатою */}
-      <section className={`py-16 md:py-24 lg:py-28 bg-white ${SITE_PX}`}>
-        <div className="max-w-[1600px] mx-auto">
-          <div className="mb-20 md:mb-28 lg:mb-36 min-w-0">
+      <section className={`bg-white py-12 md:py-16 lg:py-20 ${SITE_PX}`}>
+        <div className="mx-auto max-w-[1600px]">
+          <div className="mb-12 min-w-0 md:mb-16 lg:mb-20">
             <div className="flex flex-col gap-10 md:flex-row md:items-stretch md:justify-between md:gap-8 lg:gap-10 xl:gap-12">
               <div className="min-w-0 w-full flex-1 md:min-w-0 md:pr-4 lg:pr-8 xl:pr-10">
                 <AboutHeadline headline={t.about.headline} />
@@ -188,9 +188,9 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
         </div>
       </section>
       
-      <section className={`py-20 md:py-28 lg:py-32 bg-gray-50 ${SITE_PX}`}>
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-16 md:mb-20">
+      <section className={`bg-gray-50 py-12 md:py-16 lg:py-20 ${SITE_PX}`}>
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-10 md:mb-12">
             <p className="max-w-3xl text-2xl font-normal leading-[1.6] text-gray-800 md:text-3xl lg:text-4xl">
               {t.about.pageIntro}
             </p>
@@ -246,10 +246,10 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
         </div>
       </section>
 
-      <section className={`pt-20 md:pt-28 pb-32 bg-white ${SITE_PX}`}>
-        <div className="max-w-[1600px] mx-auto">
-          <div className="mb-20 lg:mb-28">
-            <h2 className="text-sm font-bold text-black tracking-[0.3em] uppercase mb-12">
+      <section className={`bg-white pb-16 pt-12 md:pb-20 md:pt-16 ${SITE_PX}`}>
+        <div className="mx-auto max-w-[1600px]">
+          <div className="mb-12 lg:mb-16">
+            <h2 className="mb-8 text-sm font-bold uppercase tracking-[0.3em] text-black">
               {t.about.howItWorks}
             </h2>
             <div className="space-y-6">
@@ -273,60 +273,72 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
           </div>
 
           {/* Секція Що ми робимо? */}
-          <div className="mb-20 lg:mb-28">
-            <h2 className="text-sm font-bold text-black tracking-[0.3em] uppercase mb-6">
+          <div className="mb-12 lg:mb-16">
+            <h2 className="mb-5 text-sm font-bold uppercase tracking-[0.3em] text-black">
               {t.about.services}
             </h2>
-            <p className="text-xl md:text-2xl text-gray-600 leading-[1.7] mb-12 max-w-2xl">
+            <p className="mb-8 max-w-2xl text-xl leading-[1.7] text-gray-600 md:text-2xl">
               {t.about.servicesDesc}
             </p>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
-              <Link href={`/${lang}/services/websites`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
-                <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
+            <div className="mb-12 grid gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3">
+              <Link href={`/${lang}/services/websites`} className="group block rounded-2xl bg-gray-50 p-6 transition-colors hover:bg-gray-100 md:p-8">
+                <h3 className="mb-4 text-xl font-semibold text-black group-hover:text-gray-800">
                   {t.services.websites}
                 </h3>
-                <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
+                <p className="mb-6 line-clamp-3 text-lg leading-[1.65] text-gray-600">
                   {t.services.websitesDesc}
                 </p>
-                <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
+                <span className="inline-flex items-center gap-2 text-base font-medium uppercase tracking-wider text-black">
                   {t.services.learnMore}
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
               </Link>
-              <Link href={`/${lang}/services/chatbots`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
-                <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
+              <Link href={`/${lang}/services/chatbots`} className="group block rounded-2xl bg-gray-50 p-6 transition-colors hover:bg-gray-100 md:p-8">
+                <h3 className="mb-4 text-xl font-semibold text-black group-hover:text-gray-800">
                   {t.services.chatbots}
                 </h3>
-                <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
+                <p className="mb-6 line-clamp-3 text-lg leading-[1.65] text-gray-600">
                   {t.services.chatbotsDesc}
                 </p>
-                <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
+                <span className="inline-flex items-center gap-2 text-base font-medium uppercase tracking-wider text-black">
                   {t.services.learnMore}
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
               </Link>
-              <Link href={`/${lang}/solutions/data-parsers`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
-                <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
-                  {t.services.parsers}
+              <Link href={`/${lang}/services/apps`} className="group block rounded-2xl bg-gray-50 p-6 transition-colors hover:bg-gray-100 md:p-8">
+                <h3 className="mb-4 text-xl font-semibold text-black group-hover:text-gray-800">
+                  {t.services.appsPage.title}
                 </h3>
-                <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
-                  {t.services.parsersDesc}
+                <p className="mb-6 line-clamp-3 text-lg leading-[1.65] text-gray-600">
+                  {t.services.appsPage.subtitle}
                 </p>
-                <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
+                <span className="inline-flex items-center gap-2 text-base font-medium uppercase tracking-wider text-black">
                   {t.services.learnMore}
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
               </Link>
-              <Link href={`/${lang}/services/design`} className="block p-6 md:p-8 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-colors group">
-                <h3 className="text-xl font-semibold text-black mb-4 group-hover:text-gray-800">
+              <Link href={`/${lang}/services/design`} className="group block rounded-2xl bg-gray-50 p-6 transition-colors hover:bg-gray-100 md:p-8">
+                <h3 className="mb-4 text-xl font-semibold text-black group-hover:text-gray-800">
                   {t.services.designService}
                 </h3>
-                <p className="text-gray-600 text-lg leading-[1.65] mb-6 line-clamp-3">
+                <p className="mb-6 line-clamp-3 text-lg leading-[1.65] text-gray-600">
                   {t.services.designServiceDesc}
                 </p>
-                <span className="text-base font-medium text-black uppercase tracking-wider inline-flex items-center gap-2">
+                <span className="inline-flex items-center gap-2 text-base font-medium uppercase tracking-wider text-black">
                   {t.services.learnMore}
-                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
+                </span>
+              </Link>
+              <Link href={`/${lang}/solutions/data-parsers`} className="group block rounded-2xl bg-gray-50 p-6 transition-colors hover:bg-gray-100 md:p-8">
+                <h3 className="mb-4 text-xl font-semibold text-black group-hover:text-gray-800">
+                  {t.services.parsers}
+                </h3>
+                <p className="mb-6 line-clamp-3 text-lg leading-[1.65] text-gray-600">
+                  {t.services.parsersDesc}
+                </p>
+                <span className="inline-flex items-center gap-2 text-base font-medium uppercase tracking-wider text-black">
+                  {t.services.learnMore}
+                  <span className="transition-transform group-hover:translate-x-1">→</span>
                 </span>
               </Link>
             </div>

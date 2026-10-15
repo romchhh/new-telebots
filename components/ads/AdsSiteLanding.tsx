@@ -1,6 +1,6 @@
 'use client';
 
-import { lazy, Suspense, useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { lazy, Suspense, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight, ChevronDown, Key, Phone, Sparkles, Star } from 'lucide-react';
 import { FaTelegramPlane } from 'react-icons/fa';
@@ -9,6 +9,9 @@ import AboutInfoCards from '@/components/AboutInfoCards';
 import ContactFormSection from '@/components/ContactFormSection';
 import FullBleedHeroImage from '@/components/FullBleedHeroImage';
 import HeroStatsCircle from '@/components/HeroStatsCircle';
+import MobileHorizontalScrollHint, {
+  useHorizontalScrollState,
+} from '@/components/MobileHorizontalScrollHint';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import PortfolioShowcaseScroller, {
   PortfolioShowcaseHeading,
@@ -339,6 +342,16 @@ export default function AdsSiteLanding({ copy }: { copy: AdsSiteLandingCopy }) {
     []
   );
 
+  const offersScrollerRef = useRef<HTMLDivElement>(null);
+  const offersScrollState = useHorizontalScrollState(offersScrollerRef, [ADS_SITE_PRICES.length]);
+  const scrollOffersByCard = (direction: -1 | 1) => {
+    const el = offersScrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>('[data-offer-card]');
+    const step = card ? card.offsetWidth + 16 : Math.min(el.clientWidth * 0.85, 360);
+    el.scrollBy({ left: direction * step, behavior: 'smooth' });
+  };
+
   useEffect(() => {
     captureLeadSource();
     let raf = 0;
@@ -509,7 +522,10 @@ export default function AdsSiteLanding({ copy }: { copy: AdsSiteLandingCopy }) {
               className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-white to-transparent lg:hidden`}
               aria-hidden
             />
-            <div className={`${HORIZONTAL_SCROLL_RAIL} gap-4 pb-3 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0`}>
+            <div
+              ref={offersScrollerRef}
+              className={`${HORIZONTAL_SCROLL_RAIL} gap-4 pb-3 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0`}
+            >
               {ADS_SITE_PRICES.map((row, index) => (
                 <article
                   key={row.type}
@@ -555,6 +571,14 @@ export default function AdsSiteLanding({ copy }: { copy: AdsSiteLandingCopy }) {
                 </article>
               ))}
             </div>
+            <MobileHorizontalScrollHint
+              lang="uk"
+              state={offersScrollState}
+              onPrev={() => scrollOffersByCard(-1)}
+              onNext={() => scrollOffersByCard(1)}
+              prevLabel="Попередні тарифи"
+              nextLabel="Наступні тарифи"
+            />
           </div>
         </section>
 

@@ -33,9 +33,9 @@ export default function SiteCtaBand({
   const openFromShell = useHomeModal();
   const openModal = onContactClick ?? openFromShell;
   return (
-    <section className={`w-full pb-16 md:pb-24 ${SITE_PX} ${className}`}>
+    <section className={`w-full pb-8 md:pb-10 ${SITE_PX} ${className}`}>
       <div
-        className={`${SITE_INNER} relative overflow-hidden ${RADIUS_SHELL} bg-black px-6 py-10 text-white md:px-10 md:py-12`}
+        className={`${SITE_INNER} relative overflow-hidden ${RADIUS_SHELL} bg-black px-6 py-7 text-white md:px-10 md:py-8`}
       >
         <div
           className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-brand/25 blur-3xl"

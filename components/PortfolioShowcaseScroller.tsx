@@ -4,6 +4,9 @@ import { useRef, type ReactNode } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
 import type { Language } from '@/components/translations';
+import MobileHorizontalScrollHint, {
+  useHorizontalScrollState,
+} from '@/components/MobileHorizontalScrollHint';
 import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
 import PortfolioHomeShowcaseCard from '@/components/PortfolioHomeShowcaseCard';
 import {
@@ -18,6 +21,8 @@ import {
   HORIZONTAL_SCROLL_WRAP,
   ICON_ARROW_IN_CIRCLE,
   ICON_ARROW_NAV,
+  SITE_SECTION_Y,
+  TYPE_DISPLAY_H2,
 } from '@/lib/siteUi';
 
 const display = { fontFamily: 'var(--font-display)' };
@@ -62,6 +67,7 @@ export default function PortfolioShowcaseScroller({
   onCardClick,
 }: PortfolioShowcaseScrollerProps) {
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const scrollState = useHorizontalScrollState(scrollerRef, [cards.length]);
 
   const scrollByCard = (direction: -1 | 1) => {
     const el = scrollerRef.current;
@@ -77,11 +83,11 @@ export default function PortfolioShowcaseScroller({
   return (
     <section
       id={sectionId}
-      className={`bg-white py-16 sm:py-20 md:py-24 lg:py-28 ${SITE_PX} ${className}`}
+      className={`bg-white ${SITE_SECTION_Y} ${SITE_PX} ${className}`}
       aria-labelledby={headingId}
     >
       <div className={`${SITE_INNER_WIDE} min-w-0`}>
-        <div className="mb-10 flex min-w-0 flex-col gap-6 sm:mb-12 lg:mb-14 lg:flex-row lg:items-end lg:justify-between lg:gap-8 xl:gap-10">
+        <div className="mb-7 flex min-w-0 flex-col gap-5 sm:mb-8 lg:mb-10 lg:flex-row lg:items-end lg:justify-between lg:gap-8 xl:gap-10">
           <div className="min-w-0 flex-1 lg:max-w-[min(100%,36rem)]">
             <div id={headingId}>{heading}</div>
             {lead ? <div className="mt-4 sm:mt-5">{lead}</div> : null}
@@ -155,6 +161,14 @@ export default function PortfolioShowcaseScroller({
             );
           })}
         </div>
+        <MobileHorizontalScrollHint
+          lang={lang}
+          state={scrollState}
+          onPrev={() => scrollByCard(-1)}
+          onNext={() => scrollByCard(1)}
+          prevLabel={scrollPrevLabel}
+          nextLabel={scrollNextLabel}
+        />
       </div>
     </section>
   );
@@ -171,7 +185,7 @@ export function PortfolioShowcaseHeading({
 }) {
   return (
     <h2
-      className={`text-[clamp(1.65rem,4vw,2.75rem)] font-black uppercase leading-[1.05] tracking-tight text-neutral-900 lg:max-w-[16ch] ${className}`}
+      className={`${TYPE_DISPLAY_H2} text-neutral-900 lg:max-w-[16ch] ${className}`}
       style={display}
     >
       <span className="block lg:inline">{line1}</span>

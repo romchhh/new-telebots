@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PricingPlansGrid from '@/components/PricingPlansGrid';
 import { useHomeModal } from '@/components/HomeModalProvider';
 import { SITE_PX } from '@/lib/siteLayout';
-import { SERVICE_SECTION_Y } from '@/lib/siteUi';
+import { SERVICE_SECTION_Y, TYPE_DISPLAY_H2 } from '@/lib/siteUi';
 
 type Plan = {
   name: string;
@@ -34,7 +34,6 @@ interface PricingTableProps {
   onContactClick?: () => void;
   hideCategoryLabel?: boolean;
   embedded?: boolean;
-  sectionIndex?: number;
   centerHeader?: boolean;
 }
 
@@ -44,7 +43,6 @@ export default function PricingTable({
   onContactClick,
   hideCategoryLabel,
   embedded,
-  sectionIndex,
   centerHeader,
 }: PricingTableProps) {
   const openFromShell = useHomeModal();
@@ -53,12 +51,12 @@ export default function PricingTable({
     ? 'py-8 sm:py-10 px-0'
     : centerHeader
       ? `${SERVICE_SECTION_Y} ${SITE_PX}`
-      : `py-16 sm:py-20 ${SITE_PX}`;
+      : `py-10 sm:py-12 md:py-14 ${SITE_PX}`;
 
   return (
     <section className={`${sectionPad} bg-white`}>
       <div className="mx-auto w-full">
-        <div className={`mb-12 sm:mb-16 ${centerHeader ? 'text-center' : ''}`}>
+        <div className={`mb-8 sm:mb-10 ${centerHeader ? 'text-center' : ''}`}>
           {!hideCategoryLabel && (
             <div className="mb-4 flex items-center gap-4">
               <span className="text-xs font-black uppercase tracking-[0.3em] text-black">
@@ -66,19 +64,10 @@ export default function PricingTable({
               </span>
             </div>
           )}
-          <div className={`relative ${centerHeader ? 'mx-auto max-w-4xl' : ''}`}>
-            {sectionIndex !== undefined && (
-              <span
-                className="-mb-6 block select-none text-[6rem] font-light leading-none text-gray-100 md:-mb-8 md:text-[8rem]"
-                style={{ fontFamily: 'var(--font-sans)' }}
-                aria-hidden
-              >
-                {String(sectionIndex).padStart(2, '0')}
-              </span>
-            )}
+          <div className={centerHeader ? 'mx-auto max-w-4xl' : ''}>
             <h2
-              className="relative z-10 mb-4 text-3xl font-black tracking-tight text-black sm:text-4xl lg:text-5xl"
-              style={{ fontFamily: 'var(--font-sans)' }}
+              className={`mb-4 text-neutral-900 ${TYPE_DISPLAY_H2}`}
+              style={{ fontFamily: 'var(--font-display)' }}
             >
               {pricing.title}
             </h2>

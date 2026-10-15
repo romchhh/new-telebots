@@ -25,6 +25,7 @@ import {
   SERVICE_CARD_SIZE,
   SERVICE_CARD_TITLE,
   SERVICE_SECTION_Y,
+  TYPE_DISPLAY_H2,
 } from '@/lib/siteUi';
 import { BREADCRUMB_HOME, BREADCRUMB_SERVICES } from '@/lib/breadcrumbLabels';
 import type { ServiceLongFormBundle } from '@/lib/servicePagesSeoContent';
@@ -172,15 +173,15 @@ export default function ServicePageClient({
         <div className="mx-auto w-full max-w-[90rem]">
           <ServicePageFeaturePhoto src={pageMedia.feature} alt={photoCopy.featureAlt}>
             {serviceExtended.descriptionSectionTitle ? (
-              <div className="mb-8 md:mb-10">
+              <div className="mb-6 md:mb-8">
                 <h2
-                  className="max-w-4xl text-[clamp(1.75rem,4vw,3rem)] font-black uppercase leading-[1.05] tracking-tight text-neutral-900"
+                  className={`max-w-4xl text-neutral-900 ${TYPE_DISPLAY_H2}`}
                   style={{ fontFamily: 'var(--font-display)' }}
                 >
                   {serviceExtended.descriptionSectionTitle}
                 </h2>
                 <p
-                  className="mt-5 max-w-3xl text-lg leading-relaxed text-neutral-600 md:text-xl"
+                  className="mt-4 max-w-3xl text-base leading-relaxed text-neutral-600 md:text-lg"
                   style={{ fontFamily: 'var(--font-sans)' }}
                 >
                   {service.subtitle}
@@ -188,11 +189,11 @@ export default function ServicePageClient({
               </div>
             ) : null}
             {longForm ? (
-              <div className="space-y-6 md:space-y-7">
+              <div className="space-y-5 md:space-y-6">
                 {longForm.aboutParagraphs.map((paragraph) => (
                   <p
                     key={paragraph.slice(0, 40)}
-                    className="text-lg font-normal leading-relaxed text-gray-700 md:text-xl"
+                    className="text-base font-normal leading-relaxed text-neutral-700 md:text-lg"
                     style={{ fontFamily: 'var(--font-sans)' }}
                   >
                     {paragraph}
@@ -201,7 +202,7 @@ export default function ServicePageClient({
               </div>
             ) : (
               <p
-                className="text-lg font-normal leading-relaxed text-gray-700 md:text-xl"
+                className="text-base font-normal leading-relaxed text-neutral-700 md:text-lg"
                 style={{ fontFamily: 'var(--font-sans)' }}
               >
                 {service.description}
@@ -237,23 +238,16 @@ export default function ServicePageClient({
 
       {blockTitles && blockContent?.whatWeDo?.length ? (
         <section className={`border-t border-gray-100 bg-white ${SERVICE_SECTION_Y} ${SITE_PX}`}>
-          <div className="mx-auto w-full max-w-[90rem] space-y-12 md:space-y-20">
+          <div className="mx-auto w-full max-w-[90rem] space-y-10 md:space-y-14">
             {[
-              { title: blockTitles.whatWeDo, items: blockContent.whatWeDo, index: 5 },
-              { title: blockTitles.terms, items: blockContent.terms || [], index: 6 },
-              { title: blockTitles.integrations, items: blockContent.integrations || [], index: 7 },
-            ].map(({ title: groupTitle, items: groupItems, index }) => (
+              { title: blockTitles.whatWeDo, items: blockContent.whatWeDo },
+              { title: blockTitles.terms, items: blockContent.terms || [] },
+              { title: blockTitles.integrations, items: blockContent.integrations || [] },
+            ].map(({ title: groupTitle, items: groupItems }) => (
               <div key={groupTitle}>
-                <div className="mb-10 text-center md:mb-14">
-                  <span
-                    className="mb-[-1.25rem] block select-none text-[5rem] font-light leading-none text-gray-100 md:mb-[-2rem] md:text-[8rem]"
-                    style={{ fontFamily: 'var(--font-display)' }}
-                    aria-hidden
-                  >
-                    {String(index).padStart(2, '0')}
-                  </span>
+                <div className="mb-6 sm:mb-8">
                   <h2
-                    className="relative z-10 text-[clamp(1.75rem,4vw,3rem)] font-semibold leading-tight tracking-tight text-black"
+                    className={`text-neutral-900 ${TYPE_DISPLAY_H2}`}
                     style={{ fontFamily: 'var(--font-display)' }}
                   >
                     {groupTitle}
@@ -261,11 +255,14 @@ export default function ServicePageClient({
                 </div>
                 <div className={SERVICE_CARD_GRID}>
                   {groupItems.map((item, i) => (
-                    <div key={item} className={`${SERVICE_CARD_SIZE} ${SERVICE_CARD}`}>
+                    <div
+                      key={item}
+                      className={`${SERVICE_CARD_SIZE} ${SERVICE_CARD} transition-colors hover:border-neutral-300 hover:bg-neutral-100/70`}
+                    >
                       <KeyboardKeyBadge
                         symbol={KEYBOARD_BENEFIT_SYMBOLS[i % KEYBOARD_BENEFIT_SYMBOLS.length]}
                         size="md"
-                        className="mb-4 sm:mb-5"
+                        className="mb-3 sm:mb-4"
                       />
                       <p className={SERVICE_CARD_TITLE} style={{ fontFamily: 'var(--font-display)' }}>
                         {item}
@@ -286,7 +283,6 @@ export default function ServicePageClient({
           pricing={t.services[getPricingKey(serviceId)]}
           lang={lang}
           hideCategoryLabel
-          sectionIndex={9}
           centerHeader
         />
       ) : null}
@@ -299,7 +295,7 @@ export default function ServicePageClient({
         portfolioLabel={t.about.homeCta.portfolioLabel}
         pricingHref={`/${lang}/pricing`}
         portfolioHref={`/${lang}/portfolio`}
-        className="pt-16 md:pt-20"
+        className="pt-10 md:pt-12"
       />
 
       <ContactFormSection t={t} lang={lang} serviceName={serviceTitle} className="bg-white" />

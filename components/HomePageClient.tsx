@@ -119,7 +119,7 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
         <main id="main-content">
           {hero}
           <ViewportLazy minHeight="420px">
-            <HomeServicesCarousel copy={t.about.homeServices} lang={lang} linkLabel={t.services.learnMore} />
+            <HomeServicesCarousel copy={t.about.homeServices} lang={lang} />
           </ViewportLazy>
           <ViewportLazy minHeight="520px">
             <PortfolioSection t={t} />

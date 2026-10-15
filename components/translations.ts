@@ -47,6 +47,7 @@ export const translations = {
           'Цифрова присутність і автоматизація під ваші процеси: сайти, боти, дані й дизайн — з чіткою метою, прозорими строками та підтримкою після запуску.',
         prevLabel: 'Попередні послуги',
         nextLabel: 'Наступні послуги',
+        linkLabel: 'Детальніше',
         cards: [
           {
             title: 'Інтернет-магазин',
@@ -884,6 +885,7 @@ export const translations = {
           'Digital presence and automation for your processes: websites, bots, data and design — with a clear goal, transparent timelines and support after launch.',
         prevLabel: 'Previous services',
         nextLabel: 'Next services',
+        linkLabel: 'Details',
         cards: [
           {
             title: 'Online store',
@@ -1654,6 +1656,7 @@ export const translations = {
           'Obecność cyfrowa i automatyzacja pod Twoje procesy: strony, boty, dane i design — z jasnym celem, przejrzystymi terminami i wsparciem po starcie.',
         prevLabel: 'Poprzednie usługi',
         nextLabel: 'Następne usługi',
+        linkLabel: 'Szczegóły',
         cards: [
           {
             title: 'Sklep internetowy',
@@ -2424,6 +2427,7 @@ export const translations = {
           'Цифровое присутствие и автоматизация под ваши процессы: сайты, боты, данные и дизайн — с понятной целью, прозрачными сроками и поддержкой после запуска.',
         prevLabel: 'Предыдущие услуги',
         nextLabel: 'Следующие услуги',
+        linkLabel: 'Подробнее',
         cards: [
           {
             title: 'Интернет-магазин',

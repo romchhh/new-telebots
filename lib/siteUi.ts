@@ -100,21 +100,24 @@ export const SHELL_LIGHT = `${RADIUS_SHELL} border border-neutral-200/90 bg-whit
 /** Другорядні кнопки на світлому фоні (месенджери) */
 export const BTN_GHOST_LIGHT = `${RADIUS_PILL} border border-neutral-200 bg-neutral-50 px-3 py-2.5 text-xs font-semibold text-neutral-800 transition hover:border-brand/40 hover:bg-brand-soft sm:text-sm`;
 
+/** Вертикальні відступи секцій сайту (компактніше) */
+export const SITE_SECTION_Y = 'py-10 sm:py-12 md:py-14 lg:py-16';
+
 /** Секції та картки на сторінках послуг */
-export const SERVICE_SECTION_Y = 'py-20 md:py-28 lg:py-32';
+export const SERVICE_SECTION_Y = 'py-10 md:py-12 lg:py-16';
 
 export const SERVICE_CARD_GRID =
-  'flex w-full flex-wrap justify-center gap-4 sm:gap-6 md:gap-8';
+  'flex w-full flex-wrap justify-center gap-3 sm:gap-5 md:gap-6';
 
 /** 2 колонки на sm, 3 на lg */
 export const SERVICE_CARD_SIZE =
-  'w-full min-w-0 sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-22px)] max-w-[540px]';
+  'w-full min-w-0 sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)] max-w-[540px]';
 
 /** 2 колонки (outcomes, benefits) */
 export const SERVICE_CARD_SIZE_WIDE =
-  'w-full min-w-0 sm:w-[calc(50%-12px)] max-w-[540px]';
+  'w-full min-w-0 sm:w-[calc(50%-10px)] max-w-[540px]';
 
-export const SERVICE_CARD = `${CARD_LIGHT} p-6 sm:p-8 md:p-10 lg:p-11`;
+export const SERVICE_CARD = `${CARD_LIGHT} p-5 sm:p-7 md:p-8 lg:p-9`;
 
 export const SERVICE_CARD_TITLE =
   'text-xl font-semibold leading-snug tracking-tight text-black sm:text-2xl';

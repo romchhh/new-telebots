@@ -60,6 +60,7 @@ TeleBots — digital-студія з України. Одна команда з�
 ## Послуги
 - Сайти та e-commerce (лендинги, корпоративні сайти, інтернет-магазини на Next.js, SEO, аналітика): ${baseUrl}/uk/services/websites
 - Чат-боти (Telegram, WhatsApp, Viber: CRM, оплати, розсилки, AI): ${baseUrl}/uk/services/chatbots
+- Мобільні додатки (iOS і Android: MVP, оплата, пуші, App Store / Google Play): ${baseUrl}/uk/services/apps
 - Дизайн UI/UX (лого, айдентика, макети в Figma, передача в розробку): ${baseUrl}/uk/services/design
 - Усі послуги: ${baseUrl}/uk/services
 - Прозорі тарифи та пакети: ${baseUrl}/uk/pricing

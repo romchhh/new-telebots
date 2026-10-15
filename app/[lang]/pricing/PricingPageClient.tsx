@@ -331,7 +331,7 @@ export default function PricingPageClient({ lang }: { lang: Language }) {
             portfolioLabel={t.about.homeCta.portfolioLabel}
             pricingHref={`/${lang}/services`}
             portfolioHref={`/${lang}/portfolio`}
-            className="pt-16 md:pt-20"
+            className="pt-10 md:pt-12"
           />
 
           <ContactFormSection
