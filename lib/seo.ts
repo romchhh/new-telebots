@@ -609,7 +609,7 @@ const SERVICE_OFFER_CONFIG: Record<
   },
   appsPage: {
     slug: 'apps',
-    imagePath: '/services/services-apps.jpg',
+    imagePath: '/services/services-apps-hero.jpg',
     priceMin: 2000,
     priceMax: 8000,
     names: {

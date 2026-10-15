@@ -12,13 +12,13 @@ export type ServicePageMedia = {
 
 export const SERVICE_PAGE_MEDIA: Record<ServiceId, ServicePageMedia> = {
   websites: {
-    feature: '/other/workspace-laptop-rocks.jpg',
+    feature: '/other/workspace-laptop-rocks-cinematic.jpg',
     strip: [
       '/services/services-websites.jpg',
-      '/other/about-hero-macbook.jpg',
+      '/other/workspace-laptop-code.jpg',
       '/services/services-mobile-showcase.png',
     ],
-    wide: '/other/workspace-code-desk.jpg',
+    wide: '/other/workspace-laptop-code.jpg',
   },
   chatbots: {
     feature: '/other/workspace-laptop-phone.jpg',
@@ -30,22 +30,22 @@ export const SERVICE_PAGE_MEDIA: Record<ServiceId, ServicePageMedia> = {
     wide: '/other/workspace-laptop-phone.jpg',
   },
   design: {
-    feature: '/other/workspace-code-desk.jpg',
+    feature: '/other/workspace-laptop-code.jpg',
     strip: [
       '/services/services-design.jpg',
-      '/other/about-hero-macbook.jpg',
+      '/other/workspace-laptop-rocks-cinematic.jpg',
       '/other/portfolio-hero.jpg',
     ],
     wide: '/other/about-hero.png',
   },
   apps: {
-    feature: '/other/workspace-laptop-phone.jpg',
+    feature: '/other/workspace-laptop-code.jpg',
     strip: [
       '/services/services-apps.jpg',
+      '/other/workspace-laptop-rocks-cinematic.jpg',
       '/other/archive-iphone.jpg',
-      '/services/services-mobile-showcase.png',
     ],
-    wide: '/other/workspace-laptop-phone.jpg',
+    wide: '/other/workspace-laptop-rocks-cinematic.jpg',
   },
 };
 

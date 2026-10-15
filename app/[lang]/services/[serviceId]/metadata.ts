@@ -15,7 +15,7 @@ export const SERVICE_IMAGES: Record<ServiceId, string> = {
   websites: '/services/services-websites.jpg',
   chatbots: '/services/services-chatbots.jpg',
   design: '/services/services-design.jpg',
-  apps: '/services/services-apps.jpg',
+  apps: '/services/services-apps-hero.jpg',
 };
 
 export function getServiceKey(serviceId: string): ServiceId | null {

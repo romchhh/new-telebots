@@ -7,7 +7,7 @@ export const PRICING_GALLERY_IMAGES = [
   '/services/services-websites.jpg',
   '/services/services-chatbots.jpg',
   '/services/services-design.jpg',
-  '/services/services-apps.jpg',
+  '/services/services-apps-hero.jpg',
 ] as const;
 
 /**
@@ -31,7 +31,7 @@ export const PRICING_SECTION_IMAGES: Record<
     secondary: '/other/portfolio-hero.jpg',
   },
   apps: {
-    primary: '/services/services-apps.jpg',
-    secondary: '/other/archive-iphone.jpg',
+    primary: '/services/services-apps-hero.jpg',
+    secondary: '/other/workspace-laptop-rocks-cinematic.jpg',
   },
 };

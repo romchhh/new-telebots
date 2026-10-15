@@ -12,6 +12,7 @@ export const OG_DARK_BACKGROUNDS: Record<string, string> = {
   '/services/services-hero_new.jpg': '/other/og-dark/services-hero_new.jpg',
   '/services/services-parsers.jpg': '/other/og-dark/services-parsers.jpg',
   '/services/services-apps.jpg': '/other/og-dark/services-apps.jpg',
+  '/services/services-apps-hero.jpg': '/other/og-dark/services-apps.jpg',
   '/offer/carcloud.png': '/other/og-dark/carcloud.jpg',
 };
 

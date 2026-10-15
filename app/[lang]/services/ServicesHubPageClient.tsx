@@ -27,7 +27,7 @@ export default function ServicesHubPageClient({ lang }: { lang: Language }) {
     },
     {
       key: 'appsPage' as const,
-      image: '/services/services-apps.jpg',
+      image: '/services/services-apps-hero.jpg',
       imagePosition: 'left' as const,
     },
   ];
