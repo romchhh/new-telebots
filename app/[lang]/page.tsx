@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import HomeBelowFold from '@/components/HomeBelowFold';
 import HomePageClient from '@/components/HomePageClient';
 import HeroImage from '@/components/HeroImage';
 import HeroSectionOverlay from '@/components/HeroSectionOverlay';
@@ -62,12 +63,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         initialLang={lang}
         t={t}
         hero={
-          <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
+          <section className="relative h-[100vh] max-h-[100vh] overflow-hidden bg-black supports-[height:100svh]:h-[100svh] supports-[height:100svh]:max-h-[100svh]">
             <HeroImage alt={t.hero.backgroundImageAlt} />
             <HeroSectionOverlay hero={t.hero} orderLabel={t.modal.title} />
           </section>
         }
-      />
+      >
+        <HomeBelowFold lang={lang} t={t} />
+      </HomePageClient>
     </>
   );
 }

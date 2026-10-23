@@ -55,6 +55,8 @@ export default function PortfolioHomeShowcaseCard({
           src={card.image}
           alt={card.title}
           fill
+          loading="lazy"
+          fetchPriority="low"
           className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
           sizes={sizes}
           quality={85}

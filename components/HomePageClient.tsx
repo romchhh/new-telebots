@@ -4,17 +4,8 @@ import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import { HomeModalProvider } from '@/components/HomeModalProvider';
-import HomeServicesCarousel from '@/components/HomeServicesCarousel';
-import PortfolioSection from '@/components/PortfolioSection';
-import HomePrinciplesSection from '@/components/HomePrinciplesSection';
-import AboutSection from '@/components/AboutSection';
-import SiteCtaBand from '@/components/SiteCtaBand';
-import HomeResourceLinks from '@/components/HomeResourceLinks';
-import ContactFormSection from '@/components/ContactFormSection';
-import FaqAccordion from '@/components/FaqAccordion';
 import Footer from '@/components/Footer';
 import type { Language, SiteCopy } from '@/components/translations';
-import { SITE_PX } from '@/lib/siteLayout';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 
@@ -26,9 +17,11 @@ interface HomePageClientProps {
   t: SiteCopy;
   /** Серверний слот: hero-секція з LCP-зображенням і SSR-заголовком */
   hero: ReactNode;
+  /** Секції під героєм. Рендерить сервер, щоб текст був у HTML, а JS не входив у бандл героя. */
+  children: ReactNode;
 }
 
-export default function HomePageClient({ initialLang, t, hero }: HomePageClientProps) {
+export default function HomePageClient({ initialLang, t, hero, children }: HomePageClientProps) {
   const params = useParams();
   const langParam = params?.lang as string;
 
@@ -41,7 +34,6 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
   }, [validLang]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     let raf = 0;
     const handleScroll = () => {
       cancelAnimationFrame(raf);
@@ -117,34 +109,7 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
 
         <main id="main-content">
           {hero}
-          <HomeServicesCarousel copy={t.about.homeServices} lang={lang} />
-          <PortfolioSection t={t} />
-          <HomePrinciplesSection
-            principles={t.about.principles}
-            lang={lang}
-            allServicesLabel={t.about.services}
-            pricingLabel={t.nav.pricing}
-          />
-          <AboutSection t={t} onOrderClick={openModal} />
-          <SiteCtaBand
-            title={t.about.homeCta.title}
-            text={t.about.homeCta.text}
-            contactLabel={t.about.homeCta.contactLabel}
-            pricingLabel={t.about.homeCta.pricingLabel}
-            portfolioLabel={t.about.homeCta.portfolioLabel}
-            pricingHref={`/${lang}/pricing`}
-            portfolioHref={`/${lang}/portfolio`}
-            onContactClick={openModal}
-          />
-          <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
-          {t.about.faq?.items?.length ? (
-            <FaqAccordion
-              title={t.about.faq.title}
-              items={t.about.faq.items}
-              sectionClassName={SITE_PX}
-            />
-          ) : null}
-          <ContactFormSection t={t} lang={lang} id="home-contact" className="bg-white" />
+          {children}
         </main>
 
         <Footer

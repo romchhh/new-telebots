@@ -3,6 +3,7 @@
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import OrderCtaPill from '@/components/OrderCtaPill';
+import { useHomeModal } from '@/components/HomeModalProvider';
 import AboutInfoCards from '@/components/AboutInfoCards';
 import type { Language } from '@/components/translations';
 import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
@@ -19,6 +20,8 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
   const currentLang = (
     ['uk', 'en', 'pl', 'ru'].includes(langParam) ? langParam : 'uk'
   ) as Language;
+  const openFromShell = useHomeModal();
+  const openOrder = onOrderClick ?? openFromShell;
   return (
     <section className={`relative bg-white pt-0 pb-20 md:pb-28 lg:pb-36 ${SITE_PX}`}>
       <div className={SITE_INNER_WIDE}>
@@ -52,16 +55,7 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
                 {t.about.photoMessage}
               </p>
               <div className="hidden w-full max-w-sm md:block">
-                {onOrderClick ? (
-                  <OrderCtaPill size="sm" label={t.modal.title} onClick={onOrderClick} className="w-full" />
-                ) : (
-                  <OrderCtaPill
-                    size="sm"
-                    label={t.modal.title}
-                    href={`/${currentLang}/contact`}
-                    className="w-full"
-                  />
-                )}
+                <OrderCtaPill size="sm" label={t.modal.title} onClick={openOrder} className="w-full" />
               </div>
             </div>
           </div>
@@ -69,29 +63,19 @@ export default function AboutSection({ t, onOrderClick }: AboutSectionProps) {
 
         {/* Кнопка під фото — тільки mobile */}
         <div className="mb-16 flex justify-center md:hidden">
-          {onOrderClick ? (
-            <OrderCtaPill
-              size="md"
-              label={t.modal.title}
-              onClick={onOrderClick}
-              elevated
-              className="w-full max-w-md"
-            />
-          ) : (
-            <OrderCtaPill
-              size="md"
-              label={t.modal.title}
-              href={`/${currentLang}/contact`}
-              elevated
-              className="w-full max-w-md"
-            />
-          )}
+          <OrderCtaPill
+            size="md"
+            label={t.modal.title}
+            onClick={openOrder}
+            elevated
+            className="w-full max-w-md"
+          />
         </div>
 
         <AboutInfoCards
           copy={t.about.whyUs}
           lang={currentLang}
-          onContactClick={onOrderClick}
+          onContactClick={openOrder}
           contactHref={`/${currentLang}/contact`}
         />
       </div>

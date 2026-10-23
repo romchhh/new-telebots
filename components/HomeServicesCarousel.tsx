@@ -138,8 +138,10 @@ export default function HomeServicesCarousel({ copy, lang }: HomeServicesCarouse
                       <Image
                         src={imageSrc}
                         alt=""
-                        fill
-                        className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      loading="lazy"
+                      fetchPriority="low"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                         sizes="56px"
                         aria-hidden
                       />
