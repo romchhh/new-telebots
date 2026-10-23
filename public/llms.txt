@@ -6,7 +6,7 @@ TeleBots (telebots.site; ФОП Федонюк Роман Ігорович, ЄД
 
 ## Primary pages
 
-- [Home (UK)](https://telebots.site/uk): Main landing — bots, sites, and e-commerce overview
+- [Home (UK)](https://telebots.site/uk): Main landing — services, case studies, principles, FAQ, and contact form in the page HTML
 - [Home (EN)](https://telebots.site/en): English homepage
 - [Home (PL)](https://telebots.site/pl): Polish homepage
 - [Home (RU)](https://telebots.site/ru): Russian homepage

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cases } from '@/components/cases';
+import { SERVICE_IDS } from '@/app/[lang]/services/[serviceId]/metadata';
 import { getFlagshipCaseIds } from '@/lib/portfolioCases';
 import { buildHreflangXmlLinks } from '@/lib/seo';
 import { SEO_LANDING_SLUGS } from '@/lib/seoLandings';
@@ -17,7 +18,7 @@ function escapeXml(str: string): string {
 
 export async function GET() {
   const languages = [...SITE_LANGUAGES];
-  const serviceIds = ['websites', 'chatbots', 'design'];
+  const serviceIds = [...SERVICE_IDS];
 
   const routes: Array<{
     path: string;

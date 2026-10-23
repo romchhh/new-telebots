@@ -1,24 +1,23 @@
 'use client';
 
 import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
-import dynamic from 'next/dynamic';
 import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import { HomeModalProvider } from '@/components/HomeModalProvider';
-import ViewportLazy from '@/components/ViewportLazy';
+import HomeServicesCarousel from '@/components/HomeServicesCarousel';
+import PortfolioSection from '@/components/PortfolioSection';
+import HomePrinciplesSection from '@/components/HomePrinciplesSection';
+import AboutSection from '@/components/AboutSection';
+import SiteCtaBand from '@/components/SiteCtaBand';
 import HomeResourceLinks from '@/components/HomeResourceLinks';
 import ContactFormSection from '@/components/ContactFormSection';
+import FaqAccordion from '@/components/FaqAccordion';
+import Footer from '@/components/Footer';
 import type { Language, SiteCopy } from '@/components/translations';
+import { SITE_PX } from '@/lib/siteLayout';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
 
-// Нижче hero — після LCP, щоб не конкурували з героєм за мережу та main thread
-const AboutSection = dynamic(() => import('@/components/AboutSection'), { ssr: false });
-const PortfolioSection = dynamic(() => import('@/components/PortfolioSection'), { ssr: false });
-const HomeServicesCarousel = dynamic(() => import('@/components/HomeServicesCarousel'), { ssr: false });
-const HomePrinciplesSection = dynamic(() => import('@/components/HomePrinciplesSection'), { ssr: false });
-const SiteCtaBand = dynamic(() => import('@/components/SiteCtaBand'), { ssr: false });
-const Footer = dynamic(() => import('@/components/Footer'), { ssr: false });
 const OrderModal = lazy(() => import('@/components/OrderModal'));
 const SuccessMessage = lazy(() => import('@/components/SuccessMessage'));
 
@@ -118,48 +117,43 @@ export default function HomePageClient({ initialLang, t, hero }: HomePageClientP
 
         <main id="main-content">
           {hero}
-          <ViewportLazy minHeight="420px">
-            <HomeServicesCarousel copy={t.about.homeServices} lang={lang} />
-          </ViewportLazy>
-          <ViewportLazy minHeight="520px">
-            <PortfolioSection t={t} />
-          </ViewportLazy>
-          <ViewportLazy minHeight="360px">
-            <HomePrinciplesSection
-              principles={t.about.principles}
-              lang={lang}
-              allServicesLabel={t.about.services}
-              pricingLabel={t.nav.pricing}
-            />
-          </ViewportLazy>
-          <ViewportLazy minHeight="480px">
-            <AboutSection t={t} onOrderClick={openModal} />
-          </ViewportLazy>
-          <ViewportLazy minHeight="240px">
-            <SiteCtaBand
-              title={t.about.homeCta.title}
-              text={t.about.homeCta.text}
-              contactLabel={t.about.homeCta.contactLabel}
-              pricingLabel={t.about.homeCta.pricingLabel}
-              portfolioLabel={t.about.homeCta.portfolioLabel}
-              pricingHref={`/${lang}/pricing`}
-              portfolioHref={`/${lang}/portfolio`}
-              onContactClick={openModal}
-            />
-          </ViewportLazy>
+          <HomeServicesCarousel copy={t.about.homeServices} lang={lang} />
+          <PortfolioSection t={t} />
+          <HomePrinciplesSection
+            principles={t.about.principles}
+            lang={lang}
+            allServicesLabel={t.about.services}
+            pricingLabel={t.nav.pricing}
+          />
+          <AboutSection t={t} onOrderClick={openModal} />
+          <SiteCtaBand
+            title={t.about.homeCta.title}
+            text={t.about.homeCta.text}
+            contactLabel={t.about.homeCta.contactLabel}
+            pricingLabel={t.about.homeCta.pricingLabel}
+            portfolioLabel={t.about.homeCta.portfolioLabel}
+            pricingHref={`/${lang}/pricing`}
+            portfolioHref={`/${lang}/portfolio`}
+            onContactClick={openModal}
+          />
           <HomeResourceLinks lang={lang} copy={t.about.homeResources} />
+          {t.about.faq?.items?.length ? (
+            <FaqAccordion
+              title={t.about.faq.title}
+              items={t.about.faq.items}
+              sectionClassName={SITE_PX}
+            />
+          ) : null}
           <ContactFormSection t={t} lang={lang} id="home-contact" className="bg-white" />
         </main>
 
-        <ViewportLazy minHeight="320px" rootMargin="800px">
-          <Footer
-            t={t}
-            lang={lang}
-            setLang={handleLangChange}
-            currentLang={lang}
-            onConsultClick={openModal}
-          />
-        </ViewportLazy>
+        <Footer
+          t={t}
+          lang={lang}
+          setLang={handleLangChange}
+          currentLang={lang}
+          onConsultClick={openModal}
+        />
       </div>
 
       <Suspense fallback={null}>

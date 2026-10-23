@@ -98,7 +98,7 @@ ${buildBlogSection()}
 - WhatsApp: +380960908006
 
 ## Основні сторінки
-- Головна: ${baseUrl}/uk
+- Головна: ${baseUrl}/uk (у HTML: послуги, кейси, принципи, FAQ, форма)
 - Про нас: ${baseUrl}/uk/about
 - Що ми робимо?: ${baseUrl}/uk/services
 - Кейси: ${baseUrl}/uk/portfolio
