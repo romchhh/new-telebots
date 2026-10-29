@@ -3,6 +3,7 @@ import type { ServiceId } from '@/app/[lang]/services/[serviceId]/metadata';
 import { SERVICE_KEY_MAP } from '@/app/[lang]/services/[serviceId]/metadata';
 import { getCaseStudyCopy } from '@/lib/caseStudies';
 import { offerPageCopy } from '@/lib/offerPageCopy';
+import { partnershipPageCopy } from '@/lib/partnershipPageCopy';
 import { pricingPageCopy } from '@/lib/pricingPageCopy';
 import { getSeoLanding, type SeoLandingSlug } from '@/lib/seoLandings';
 
@@ -107,6 +108,15 @@ export function getPricingOgHero(lang: Language): OgHeroCopy {
 /** Offer — heroTitle + heroLead. */
 export function getOfferOgHero(lang: Language): OgHeroCopy {
   const p = offerPageCopy[lang];
+  return {
+    title: p.heroTitle,
+    description: p.heroLead,
+  };
+}
+
+/** Partnership — heroTitle + heroLead. */
+export function getPartnershipOgHero(lang: Language): OgHeroCopy {
+  const p = partnershipPageCopy[lang];
   return {
     title: p.heroTitle,
     description: p.heroLead,

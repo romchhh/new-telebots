@@ -104,6 +104,7 @@ ${buildBlogSection()}
 - Кейси: ${baseUrl}/uk/portfolio
 - Блог: ${baseUrl}/uk/blog
 - Ціни: ${baseUrl}/uk/pricing
+- Партнерам (20% комісії): ${baseUrl}/uk/partnership
 - Контакти: ${baseUrl}/uk/contact
 
 ## Для індексації

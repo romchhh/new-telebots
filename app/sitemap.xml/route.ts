@@ -34,6 +34,7 @@ export async function GET() {
     { path: '/contact', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_PAGE_LASTMOD.contact },
     { path: '/pricing', priority: 0.8, changeFrequency: 'monthly', lastmod: SITE_PAGE_LASTMOD.pricing },
     { path: '/offer', priority: 0.85, changeFrequency: 'weekly', lastmod: SITE_PAGE_LASTMOD.offer },
+    { path: '/partnership', priority: 0.85, changeFrequency: 'weekly', lastmod: SITE_PAGE_LASTMOD.partnership },
     { path: '/privacy', priority: 0.3, changeFrequency: 'yearly', lastmod: SITE_PAGE_LASTMOD.legal },
     { path: '/terms', priority: 0.3, changeFrequency: 'yearly', lastmod: SITE_PAGE_LASTMOD.legal },
     { path: '/refund', priority: 0.3, changeFrequency: 'yearly', lastmod: SITE_PAGE_LASTMOD.legal },

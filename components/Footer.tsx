@@ -9,6 +9,7 @@ import { legal } from '@/lib/legal';
 import { SITE_PX } from '@/lib/siteLayout';
 import { BLOG_PATH } from '@/lib/site';
 import { offerPageCopy } from '@/lib/offerPageCopy';
+import { partnershipPageCopy } from '@/lib/partnershipPageCopy';
 
 interface FooterProps {
   t: typeof import('./translations').translations.uk;
@@ -186,6 +187,11 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                 <li>
                   <Link href={`/${currentLanguage}/offer`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {offerPageCopy[currentLanguage].navLabel}
+                  </Link>
+                </li>
+                <li>
+                  <Link href={`/${currentLanguage}/partnership`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                    {partnershipPageCopy[currentLanguage].navLabel}
                   </Link>
                 </li>
                 <li>

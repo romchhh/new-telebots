@@ -89,6 +89,11 @@ function allowIp(ip: string): boolean {
 }
 
 export function isPlausiblePhone(phone: string): boolean {
+  const trimmed = phone.trim();
+  // Партнерська форма: контакт може бути email або Telegram
+  if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) return true;
+  if (/^@?[a-zA-Z][a-zA-Z0-9_]{4,31}$/.test(trimmed)) return true;
+
   const digits = phone.replace(/\D/g, '');
   // UA: 0XX… (10) or 380… (12); also allow intl 10–15
   if (digits.length < 10 || digits.length > 15) return false;

@@ -34,6 +34,7 @@ TeleBots (telebots.site; ФОП Федонюк Роман Ігорович, ЄД
 - [AI chatbots](https://telebots.site/uk/solutions/ai-chatbots): GPT-powered support and sales bots
 - [Data parsers](https://telebots.site/uk/solutions/data-parsers): Scrapers and data collection tools
 - [Site for $200 offer (UK)](https://telebots.site/uk/offer): Free prototype + fixed $200 package
+- [Partner program](https://telebots.site/uk/partnership): 20% commission for SMM, ads, marketers, and agencies
 
 ## Service detail pages
 

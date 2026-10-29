@@ -13,6 +13,7 @@ export const SITE_PAGE_LASTMOD = {
   contact: '2026-10-04',
   pricing: '2026-10-04',
   offer: '2026-10-04',
+  partnership: '2026-10-29',
   serviceDetail: '2026-10-04',
   solution: '2026-10-04',
   caseStudy: '2026-10-04',

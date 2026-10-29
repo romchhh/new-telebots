@@ -11,6 +11,7 @@ export const KNOWN_SITE_ROUTES = [
   'blog',
   'contact',
   'offer',
+  'partnership',
   'portfolio',
   'pricing',
   'privacy',
