@@ -373,18 +373,18 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     ],
   },
   pl: {
-    metaTitle: 'Ceny chatbotów i botów Telegram | od $100',
+    metaTitle: 'Ceny stron www i sklepów internetowych | od $150',
     metaDescription:
-      'Chatbot biznesowy od $100, bot Telegram z płatnościami od $200, landing od $150, sklep od $400. Przejrzyste pakiety LITE/PRO/CUSTOM. Darmowa konsultacja i wycena projektu.',
+      'Landing od $150, strona firmowa od $500, sklep online od $400, chatbot od $100. Przejrzyste pakiety. Darmowa konsultacja i wycena projektu — TeleBots.',
     metaKeywords:
-      'cena bota telegram, koszt chatbota, koszt strony www, landing page cena, sklep internetowy wycena, projektowanie UI UX cena, chatbot dla firmy cena',
-    h1: 'Ceny i orientacyjne koszty',
+      'koszt strony www, landing page cena, sklep internetowy wycena, cena strony internetowej, projektowanie UI UX cena, chatbot dla firmy cena, TeleBots',
+    h1: 'Ceny stron i sklepów internetowych',
     subtitle:
-      'Przejrzyste przedziały cenowe dla stron, botów i designu — widełki pomagają zaplanować budżet; dokładna wycena po briefie i zakresie.',
+      'Przejrzyste przedziały cenowe dla stron, sklepów online, chatbotów i designu — widełki pomagają zaplanować budżet; dokładna wycena po briefie i zakresie.',
     intro:
-      'Na tej stronie zebraliśmy orientacyjne przedziały cenowe dla stron internetowych, botów w komunikatorach oraz projektowania interfejsów. Ostateczna wycena zależy od integracji, języków, poziomu customizacji, terminów i wsparcia po starcie — zakres i cena są zawsze uzgadniane w ofercie przed rozpoczęciem prac.',
+      'Na tej stronie zebraliśmy orientacyjne przedziały cenowe dla stron internetowych, sklepów online, chatbotów oraz projektowania interfejsów. Ostateczna wycena zależy od integracji, języków, poziomu customizacji, terminów i wsparcia po starcie — zakres i cena są zawsze uzgadniane w ofercie przed rozpoczęciem prac.',
     introSecondary:
-      'TeleBots realizuje nowoczesne strony (m.in. Next.js), boty Telegram z płatnościami i CRM, a także UI/UX i branding. Współpracujemy z klientami z Ukrainy i zagranicą; komunikacja po ukraińsku, angielsku, polsku i rosyjsku. Projekty od landingów po rozbudowane e-commerce i wieloetapowe boty z panelami administracyjnymi. Poniżej: strukturalne widełki i czynniki kosztów — przydatne przy zapytaniach typu „ile kosztuje strona internetowa” czy „cena bota Telegram z płatnością”.',
+      'TeleBots realizuje nowoczesne strony i sklepy (m.in. Next.js), chatboty z CRM i płatnościami, a także UI/UX i branding. Współpracujemy z klientami z Ukrainy i zagranicą; komunikacja po ukraińsku, angielsku, polsku i rosyjsku. Projekty od landingów po rozbudowane e-commerce. Poniżej: strukturalne widełki i czynniki kosztów — przydatne przy zapytaniach typu „ile kosztuje strona internetowa” czy „cena sklepu online”.',
     paymentAndEstimate:
       'Płatności zwykle dzielimy na etapy: przed startem i po odbiorze lub sprintami przy większych systemach. Możliwy przelew na działalność jednoosobową, faktura dla firm oraz płatności międzynarodowe po uzgodnieniu. Po krótkim briefie podajemy orientacyjny harmonogram i budżet; często proponujemy fazowy MVP. Kwoty mogą być w USD lub przeliczeniu w PLN według kursu z dnia faktury.',
     plansBlockTitle: 'Skąd biorą się te ceny i co obejmują',
@@ -409,17 +409,17 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     timelineTitle: 'Terminy i fazy',
     timelineParagraphs: [
       'Typowy landing lub niewielka strona firmowa: ok. 2–6 tygodni od zamkniętego zakresu i treści. Średni e-commerce często 6–12 tygodni w zależności od integracji i testów płatności.',
-      'Bot Telegram z płatnością i CRM: prototyp → development → testy na staging → produkcja; większe systemy mogą pracować w sprintach 2-tygodniowych.',
+      'Chatbot z płatnością i CRM: prototyp → development → testy na staging → produkcja; większe systemy mogą pracować w sprintach 2-tygodniowych.',
     ],
     supportTitle: 'Wsparcie i rozwój po starcie',
     supportParagraphs: [
-      'Po wdrożeniu możemy zostać na utrzymaniu: aktualizacje, monitoring, drobne zmiany treści, nowe bloki na stronie lub scenariusze w bocie — pakiet lub stawka godzinowa.',
+      'Po wdrożeniu możemy zostać na utrzymaniu: aktualizacje, monitoring, drobne zmiany treści, nowe bloki na stronie lub scenariusze w chatbocie — pakiet lub stawka godzinowa.',
       'Przy częstych promocjach i testach landingów warto zaplanować budżet kwartalny z góry.',
     ],
     techStackTitle: 'Technologie i jakość',
     techStackParagraphs: [
-      'Do stron używamy m.in. React/Next.js, responsywności, semantyki i optymalizacji wydajności — ważne pod SEO i mobile.',
-      'Boty projektujemy ze stabilnymi webhookami, obsługą błędów płatności i panelem admina dla zespołu.',
+      'Do stron i sklepów używamy m.in. React/Next.js, responsywności, semantyki i optymalizacji wydajności — ważne pod SEO i mobile.',
+      'Chatboty projektujemy ze stabilnymi webhookami, obsługą błędów płatności i panelem admina dla zespołu.',
     ],
     sections: [
       {
@@ -441,16 +441,16 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       {
         id: 'chatbots',
         plansNote:
-          'Taryfy botów (Telegram, WhatsApp, Viber): LITE ($100–200) — pierwsza linia i leady; PRO ($200–300) — płatności, CRM, mailingi; CUSTOM ($300+) — złożona logika, AI i integracje.',
+          'Taryfy chatbotów: LITE ($100–200) — pierwsza linia i leady; PRO ($200–300) — płatności, CRM, mailingi; CUSTOM ($300+) — złożona logika, AI i integracje.',
         bullets: [
           'Scenariusze sprzedaży, supportu, rezerwacji, segmentowane wysyłki',
-          'Płatność w bocie, koszyk, Google Sheets / CRM / wewnętrzne API',
+          'Płatność w chatbocie, koszyk, Google Sheets / CRM / wewnętrzne API',
           'Wielojęzyczność, role administratorów, logowanie rozmów',
           'Opcjonalnie warstwa AI oparta o Twoją bazę wiedzy',
         ],
         paragraphs: [
-          'Prosty bot informacyjny kosztuje mniej niż system z płatnościami, kontami użytkowników i synchronizacją zamówień. Więcej usług zewnętrznych oznacza więcej testów.',
-          'Pomagamy zbudować MVP bota, aby szybko zweryfikować pomysł, a potem rozwijać funkcje bez przepisywania projektu od zera.',
+          'Prosty chatbot informacyjny kosztuje mniej niż system z płatnościami, kontami użytkowników i synchronizacją zamówień. Więcej usług zewnętrznych oznacza więcej testów.',
+          'Pomagamy zbudować MVP chatbota, aby szybko zweryfikować pomysł, a potem rozwijać funkcje bez przepisywania projektu od zera.',
         ],
       },
       {
@@ -484,7 +484,7 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       },
     ],
     closingSeo:
-      'Szukasz wykonawcy strony pod klucz, bota Telegram z płatnością lub redesignu produktu? Wyślij opis zadania w formularzu lub zamów bezpłatną konsultację. Podpowiemy stack, orientacyjny budżet i terminy przy przejrzystych założeniach. Przy dużych projektach możemy rozłożyć koszty na moduły i etapy.',
+      'Szukasz wykonawcy strony pod klucz, sklepu internetowego lub redesignu produktu? Wyślij opis zadania w formularzu lub zamów bezpłatną konsultację. Podpowiemy stack, orientacyjny budżet i terminy przy przejrzystych założeniach. Przy dużych projektach możemy rozłożyć koszty na moduły i etapy.',
     disclaimer:
       'Kwoty na stronie mają charakter orientacyjny i nie stanowią oferty w rozumieniu prawa. Wiążąca cena jest ustalana w ofercie lub umowie po uzgodnieniu zakresu.',
     ctaBanner:
@@ -497,14 +497,14 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
     faqTitle: 'Najczęstsze pytania o ceny',
     faqItems: [
       {
-        question: 'Ile kosztuje chatbot lub bot Telegram dla biznesu?',
-        answer:
-          'Pakiet LITE od $100–200: FAQ, zbieranie leadów, przekazanie do menedżera. PRO z płatnościami, CRM i mailingami — $200–300. CUSTOM (AI, złożona logika, wiele języków) — indywidualnie. Dokładna kwota po bezpłatnym briefie.',
-      },
-      {
         question: 'Ile kosztuje strona lub sklep internetowy?',
         answer:
           'Landing — $150–300, strona firmowa — $500–800, sklep online — od $400. W cenie zwykle layout, podstawowe SEO, panel admina i testy; integracje i dodatkowe języki osobno.',
+      },
+      {
+        question: 'Ile kosztuje chatbot dla biznesu?',
+        answer:
+          'Pakiet LITE od $100–200: FAQ, zbieranie leadów, przekazanie do menedżera. PRO z płatnościami, CRM i mailingami — $200–300. CUSTOM (AI, złożona logika, wiele języków) — indywidualnie. Dokładna kwota po bezpłatnym briefie.',
       },
       {
         question: 'Czy są ukryte opłaty w cenie rozwoju?',
@@ -527,10 +527,9 @@ export const pricingPageCopy: Record<Language, PricingPageCopy> = {
       { label: 'Cena strony internetowej', href: '/pl/solutions/website-development-price' },
       { label: 'Koszt landing page', href: '/pl/solutions/landing-page-price' },
       { label: 'Cena sklepu online', href: '/pl/solutions/online-store-price' },
+      { label: 'Strony internetowe', href: '/pl/services/websites' },
       { label: 'Kup chatboty', href: '/pl/solutions/chatbots-buy' },
       { label: 'Cena rozwoju chatbotów', href: '/pl/solutions/chatbot-development-price' },
-      { label: 'Bot Telegram na zamówienie', href: '/pl/solutions/telegram-bot-order-price' },
-      { label: 'Strony internetowe', href: '/pl/services/websites' },
       { label: 'Aplikacje mobilne', href: '/pl/services/apps' },
     ],
   },

@@ -1622,16 +1622,16 @@ export const translations = {
       consultationWidgetCta: 'Wyślij zapytanie'
     },
     hero: {
-      title: 'Tworzenie stron i botów Telegram pod klucz',
-      subtitle: 'Chatboty, web, parsery, design — od pomysłu do startu',
+      title: 'Tworzenie stron i sklepów internetowych pod klucz',
+      subtitle: 'Strony, e-commerce, chatboty i design — od pomysłu do startu',
       intro:
-        'Pełny cykl: komunikatory, web, e-commerce, dane, branding i UI/UX. Jeden zespół — bez pośredników.',
+        'Pełny cykl: strony firmowe, sklepy online, landingi, chatboty, branding i UI/UX. Jeden zespół — bez pośredników.',
       backgroundImageAlt:
         'Tło strony głównej TeleBots: panorama miasta i wybrzeża o zachodzie słońca',
       ctaQuestion: 'Chcesz wiedzieć więcej?',
       ctaQuestionShort: 'Konsultacja gratis',
       ctaLabelShort: 'Omówmy projekt',
-      tagline: 'Strony i boty, które prowadzą klienta od wizyty do zakupu.',
+      tagline: 'Strony i sklepy, które prowadzą klienta od wizyty do zakupu.',
       viewButton: 'Zobacz',
       startDate: {
         label: 'szybki start',
@@ -1644,16 +1644,16 @@ export const translations = {
     },
     about: {
       title:
-        'TeleBots — strony, chatboty i e-commerce pod klucz: od konsultacji do startu. CRM, płatności, Next.js, 200+ projektów.',
+        'TeleBots — strony, sklepy internetowe i e-commerce pod klucz: od konsultacji do startu. CRM, płatności, Next.js, 200+ projektów.',
       headline: {
-        title: 'O nas — boty i strony dla biznesu',
-        sub: 'Wdrażamy strony, chatboty i sklepy tak, by leady konsekwentnie zmieniały się w płatności.',
+        title: 'O nas — strony i sklepy dla biznesu',
+        sub: 'Wdrażamy strony, sklepy online i chatboty tak, by leady konsekwentnie zmieniały się w płatności.',
         body: 'Zaczynamy od bezpłatnej konsultacji i jasnej wyceny. Jeden zespół od struktury i UI po produkcję. Ponad 200 wdrożeń w 4 lata: Next.js, CRM, płatności, mailingi i AI w razie potrzeby.',
       },
       homeServices: {
         title: 'Rozwój dla biznesu',
         lead:
-          'Obecność cyfrowa i automatyzacja pod Twoje procesy: strony, boty, dane i design — z jasnym celem, przejrzystymi terminami i wsparciem po starcie.',
+          'Obecność cyfrowa pod Twoje procesy: strony, sklepy internetowe, chatboty i design — z jasnym celem, przejrzystymi terminami i wsparciem po starcie.',
         prevLabel: 'Poprzednie usługi',
         nextLabel: 'Następne usługi',
         linkLabel: 'Szczegóły',
@@ -1675,7 +1675,7 @@ export const translations = {
           },
           {
             title: 'Chatboty',
-            body: 'Telegram, WhatsApp lub Viber: płatności, CRM, mailingi i scenariusze sprzedaży. Prosty bot — od 24 h; złożony — etapami.',
+            body: 'Chatboty na stronie i w komunikatorach: leady, CRM, scenariusze sprzedaży. Prosty scenariusz — od 24 h; złożony — etapami.',
             href: 'services/chatbots',
           },
           {
@@ -1685,7 +1685,7 @@ export const translations = {
           },
           {
             title: 'Design UI/UX',
-            body: 'Logo, identyfikacja i interfejsy w Figma pod konwersję — potem wdrożenie na stronie i w botach jednym zespołem.',
+            body: 'Logo, identyfikacja i interfejsy w Figma pod konwersję — potem wdrożenie na stronie i w sklepie jednym zespołem.',
             href: 'services/design',
           },
           {
@@ -1716,14 +1716,14 @@ export const translations = {
       },
       homeResources: {
         title: 'Przydatne materiały',
-        pricing: 'Cennik rozwoju',
-        blogHub: 'Bot Telegram dla biznesu 2026',
-        blogBot: 'Ile kosztuje bot Telegram',
+        pricing: 'Cennik stron i sklepów',
+        blogHub: 'Cena strony www',
+        blogBot: 'Cena sklepu online',
         blogSite: 'Ile kosztuje strona',
       },
       homeCta: {
-        title: 'Potrzebujesz bota, strony lub integracji pod swój proces?',
-        text: 'Krótko opisz zadanie — zaproponujemy scenariusz, termin i orientacyjną cenę.',
+        title: 'Potrzebujesz strony, sklepu lub integracji pod swój proces?',
+        text: 'Krótko opisz zadanie — zaproponujemy zakres, termin i orientacyjną cenę.',
         contactLabel: 'Napisz do nas',
         pricingLabel: 'Ceny i pakiety',
         portfolioLabel: 'Case’y w portfolio',
@@ -1737,39 +1737,39 @@ export const translations = {
         projectsValue: '200+',
         projectsLabel: 'Zrealizowanych projektów',
         projectsBody:
-          'Boty Telegram, chatboty z AI, strony i sklepy. Integrujemy CRM, płatności i analitykę — by leady stawały się sprzedażą.',
+          'Strony, sklepy internetowe, landingi i chatboty. Integrujemy CRM, płatności i analitykę — by leady stawały się sprzedażą.',
         team: 'Jeden zespół od briefu do startu',
         contactLead: 'Razem z Tobą od startu do mety i po niej',
         contactCta: 'Skontaktuj się',
-        ai: 'AI dla botów i efektywności operacyjnej',
-        solutions: 'Strony, boty i design pod klucz',
+        ai: 'AI dla obsługi klientów i efektywności operacyjnej',
+        solutions: 'Strony, sklepy i design pod klucz',
       },
       portfolio: 'Realizacje',
       contact: 'Kontakt',
       contactDesc: 'Prosimy o kontakt w przypadku jakichkolwiek pytań.',
       getInTouch: 'Skontaktuj się',
       services: 'Co robimy?',
-      servicesDesc: '200+ zrealizowanych projektów. 4 lata optymalizacji. Razem z Tobą od startu do mety i nawet po. Realizacja i design w jednym miejscu: boty Telegram i chatboty z AI, strony i sklepy online. Integrujemy CRM, systemy płatności i analitykę, aby zapytania konsekwentnie zamieniały się w leady i sprzedaż.',
+      servicesDesc: '200+ zrealizowanych projektów. 4 lata optymalizacji. Razem z Tobą od startu do mety i nawet po. Realizacja i design w jednym miejscu: strony internetowe, sklepy online, landingi i chatboty. Integrujemy CRM, systemy płatności i analitykę, aby zapytania konsekwentnie zamieniały się w leady i sprzedaż.',
       stats: {
         projects: '200+ zrealizowanych projektów',
         years: '4 lata optymalizacji',
         support: 'Razem z Tobą od startu do mety i nawet po',
-        cta: 'Automatyzuj swój biznes z TeleBots: wdrożymy chatboty i strony pod Twoje cele, zintegrowujemy CRM i systemy płatności oraz ustawimy procesy zgłoszeń tak, aby zapytania zamieniały się w sprzedaż.'
+        cta: 'Rozwijaj biznes z TeleBots: wdrożymy strony i sklepy pod Twoje cele, zintegrowujemy CRM i systemy płatności oraz ustawimy procesy zgłoszeń tak, aby zapytania zamieniały się w sprzedaż.'
       },
       photoMessage:
         'Bezpłatnie omawiamy Twój cel, założenia i budżet. Już na tym etapie dajemy konkretne rekomendacje. Tworzymy specyfikację, wybieramy stack i terminy. Widzisz pełny obraz jeszcze przed startem.',
       founder: {
         role: 'CEO · założyciel TeleBots',
         name: 'Roman Fedoniuk',
-        bio: 'Prowadzę projekty botów, stron i automatyzacji pod cele biznesowe klientów. Od briefu do startu — jasne terminy, przejrzysta cena i produkt, który sprzedaje.',
+        bio: 'Prowadzę projekty stron, sklepów i automatyzacji pod cele biznesowe klientów. Od briefu do startu — jasne terminy, przejrzysta cena i produkt, który sprzedaje.',
         imageAlt: 'Roman Fedoniuk, CEO TeleBots',
       },
       pageTitle: 'O NAS',
-      pageIntro: 'Szukasz rozwiązania dla biznesu lub potrzeb osobistych? Jesteśmy zespołem deweloperów i projektantów: boty Telegram, chatboty, strony, sklepy online, lejki. W zespole mamy projektanta UI/UX: tworzymy logo, identyfikację wizualną, projektowanie stron i aplikacji.',
+      pageIntro: 'Szukasz rozwiązania dla biznesu lub potrzeb osobistych? Jesteśmy zespołem deweloperów i projektantów: strony internetowe, sklepy online, landingi, chatboty i lejki. W zespole mamy projektanta UI/UX: tworzymy logo, identyfikację wizualną, projektowanie stron i aplikacji.',
       quote: 'Każdy projekt to unikalny przypadek, stworzony, aby rozwiązać problem konkretnie dla Twojej sytuacji.',
       weDevelop: 'Rozwijamy:',
       weDevelopServices: {
-        telegramBots: 'Boty Telegram do automatyzacji sprzedaży, obsługi klienta lub zarządzania biznesem.',
+        telegramBots: 'Chatboty do automatyzacji sprzedaży, obsługi klienta lub zbierania leadów.',
         chatbots: 'Chatboty, które pomagają szybko przetwarzać zapytania lub komunikować się z klientami.',
         websites: 'Strony internetowe - od prostych landing page\'ów po złożone platformy.',
         parsers: 'Parsery do zbierania danych z niezbędnych źródeł.',
@@ -1791,7 +1791,7 @@ export const translations = {
       },
       howItWorks: 'Jak to działa?',
       process: {
-        step1: 'Napisz na Telegram, Viber lub WhatsApp, aby złożyć wniosek.',
+        step1: 'Napisz przez formularz, e-mail, WhatsApp lub Telegram, aby złożyć wniosek.',
         step2: 'Przeprowadzimy bezpłatną konsultację, aby określić, które rozwiązanie będzie dla Ciebie najlepsze.',
         step3: 'W razie potrzeby przeprowadzimy pełny audyt Twoich procesów biznesowych, aby zaproponować Ci najlepsze rozwiązanie.',
         step4: 'Uzgadniamy szczegóły i rozpoczynamy pracę.',
@@ -1799,7 +1799,7 @@ export const translations = {
       },
       whatWeCanDo: 'Co możemy zrobić?',
       capabilities: {
-        telegramBot: 'Bot Telegram',
+        telegramBot: 'Chatbot',
         website: 'Strona internetowa',
         chatbot: 'Chatbot z AI',
         ecommerce: 'Sklep internetowy',
@@ -1812,7 +1812,7 @@ export const translations = {
         items: [
           {
             question: 'Jak zacząć pracę nad projektem?',
-            answer: 'Wyślij nam zapytanie poprzez formularz na stronie lub skontaktuj się z nami przez Telegram/WhatsApp. Przeprowadzimy bezpłatną konsultację, aby określić najlepsze rozwiązanie dla Twojego biznesu.'
+            answer: 'Wyślij nam zapytanie poprzez formularz na stronie lub skontaktuj się z nami przez e-mail/WhatsApp. Przeprowadzimy bezpłatną konsultację, aby określić najlepsze rozwiązanie dla Twojego biznesu.'
           },
           {
             question: 'Ile czasu zajmuje rozwój?',
@@ -1820,7 +1820,7 @@ export const translations = {
           },
           {
             question: 'Jakich technologii używacie?',
-            answer: 'Pracujemy z nowoczesnymi technologiami: Python, JavaScript/TypeScript, React, Next.js do tworzenia stron internetowych, Telegram Bot API do botów oraz różne integracje AI dla inteligentnych rozwiązań.'
+            answer: 'Pracujemy z nowoczesnymi technologiami: JavaScript/TypeScript, React, Next.js do tworzenia stron i sklepów, Python/Node.js do chatbotów oraz różne integracje AI dla inteligentnych rozwiązań.'
           },
           {
             question: 'Czy zapewniacie wsparcie po uruchomieniu?',
@@ -1843,13 +1843,13 @@ export const translations = {
     },
     portfolio: {
       recent: 'REALIZACJE',
-      title: 'Przypadki: strony www i boty Telegram',
+      title: 'Przypadki: strony www i sklepy internetowe',
       homeTitleLine1: 'Przypadki rozwoju',
-      homeTitleLine2: 'botów Telegram i stron',
+      homeTitleLine2: 'stron i sklepów online',
       heroIntroLine1: 'Realizacje, które robimy z dumą',
       heroIntroLine2: 'i których nie da się przeoczyć',
       heroIntroDescription:
-        'Boty Telegram, strony i e-commerce z realnym efektem biznesowym — brief, stack i wynik w każdym case.',
+        'Strony, sklepy internetowe i e-commerce z realnym efektem biznesowym — brief, stack i wynik w każdym case.',
       heroBackgroundAlt: 'Atmosferyczne tło strony realizacji TeleBots',
       ctaQuestion: 'Omówimy Twój kolejny projekt?',
       ctaQuestionShort: 'Konsultacja gratis',
@@ -1858,9 +1858,9 @@ export const translations = {
       viewPortfolio: 'Zobacz realizacje',
       homeScrollPrev: 'Poprzednie case’y',
       homeScrollNext: 'Następne case’y',
-      featuredProject: 'Przykładowy projekt — bot Telegram i strona',
+      featuredProject: 'Przykładowy projekt — strona i sklep',
       ecommerce: 'E-Commerce',
-      telegram: 'Bot Telegram',
+      telegram: 'Chatbot',
       website: 'Strona internetowa',
       filterAll: 'Wszystkie projekty',
       filterChatbots: 'Chatboty',
@@ -1870,8 +1870,8 @@ export const translations = {
       emptyText: 'Odświeżamy portfolio. W międzyczasie zobacz usługi lub napisz do nas.',
     },
     services: {
-      passion: 'Boty Telegram, strony i design pod klucz',
-      passionTitle: 'Strony, boty w komunikatorach, e-commerce, parsing i branding',
+      passion: 'Strony, sklepy internetowe i design pod klucz',
+      passionTitle: 'Strony firmowe, e-commerce, landingi, chatboty i branding',
       passionDesc:
         'Projektujemy architekturę, kodujemy i utrzymujemy po starcie. CRM, płatności i analityka — pod Twoje procesy.',
       passionMoreQuestion: 'Opisz swoje cele — zaproponujemy zakres i czas',
@@ -1939,14 +1939,14 @@ export const translations = {
       chatbotsPage: {
         title: 'Chatboty',
         teaserOffer:
-          'Płatności, CRM i mailingi w Telegram, WhatsApp lub Viber. Prosty scenariusz od 24 h; większy — etapami i jasno.',
-        subtitle: 'Boty w Telegram, WhatsApp i Viber: płatności, CRM, mailingi',
+          'Chatboty na stronie i w komunikatorach: leady, CRM, płatności. Prosty scenariusz od 24 h; większy — etapami i jasno.',
+        subtitle: 'Chatboty biznesowe: leady, CRM, płatności i automatyzacja obsługi',
         description:
-          'Bot prowadzi klienta do zakupu: przyjmuje płatność (Mono, WayForPay, LiqPay), zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja w komunikatorze bez utraty osobistego podejścia; w razie potrzeby — odpowiedzi AI. Prosty scenariusz — od 24 h, większy — etapami.',
+          'Chatbot prowadzi klienta do zakupu: zbiera leady, przyjmuje płatność, zapisuje do CRM lub Google Sheets, wysyła potwierdzenia. Automatyzacja komunikacji bez utraty osobistego podejścia; w razie potrzeby — odpowiedzi AI. Prosty scenariusz — od 24 h, większy — etapami.',
         button: 'Zamów rozwój',
         serviceHero: {
-          tagline: 'Bot odpowiada na powtarzalne pytania i przyjmuje zamówienie, kiedy Cię nie ma na czacie.',
-          title: 'Chatboty Telegram od $100',
+          tagline: 'Chatbot odpowiada na powtarzalne pytania i przyjmuje zamówienie, kiedy Cię nie ma.',
+          title: 'Chatboty dla biznesu od $100',
           subtitle: '',
           intro:
             'Lead, płatność, wpis w CRM. Krótki scenariusz w dobę, dłuższy — gdy rozpiszemy kroki.',
@@ -1959,9 +1959,9 @@ export const translations = {
           title: 'Ten format jest dla Ciebie, jeśli',
           titleAccent: 'Ty:',
           items: [
-            'Musisz zautomatyzować pierwsze odpowiedzi i zbieranie leadów w Telegram, WhatsApp lub Viber',
-            'Chcesz przyjmować płatności w komunikatorze i od razu zapisywać zamówienia w CRM lub arkuszu',
-            'Menadżerowie tracą czas na te same pytania — scenariusz bota może to zamknąć',
+            'Musisz zautomatyzować pierwsze odpowiedzi i zbieranie leadów na stronie lub w komunikatorze',
+            'Chcesz przyjmować płatności i od razu zapisywać zamówienia w CRM lub arkuszu',
+            'Menadżerowie tracą czas na te same pytania — scenariusz chatbota może to zamknąć',
             'Potrzebujesz mailingów, przypomnień i statusów zamówienia bez ręcznych tabel',
             'Planujesz katalog, koszyk lub subskrypcje w czacie',
             'Chcesz dołożyć AI do odpowiedzi lub klasyfikacji zgłoszeń',
@@ -1971,11 +1971,11 @@ export const translations = {
         },
         descriptionSectionTitle: 'Co obejmuje rozwój chatbotów',
         structure: {
-          mainTitle: 'Boty Telegram dla biznesu',
-          leadGenTitle: 'Boty do generowania leadów',
-          supportTitle: 'Boty do obsługi klienta',
-          salesTitle: 'Boty do automatyzacji sprzedaży',
-          crmTitle: 'Integracja Telegram z CRM',
+          mainTitle: 'Chatboty dla biznesu',
+          leadGenTitle: 'Chatboty do generowania leadów',
+          supportTitle: 'Chatboty do obsługi klienta',
+          salesTitle: 'Chatboty do automatyzacji sprzedaży',
+          crmTitle: 'Integracja chatbota z CRM',
         },
       },
       parsersPage: {
@@ -2130,7 +2130,7 @@ export const translations = {
         contactSuffix: 'w celu konsultacji',
         plans: [
           { name: 'LITE', price: '100-200', description: 'Idealny dla małych firm, ekspertów lub kawiarni. Bot zastępuje landing lub menedżera na pierwszym etapie.', features: ['Wiadomość powitalna', 'Odpowiedzi na częste pytania', 'Przycisk «Skontaktuj się z menedżerem»', 'Zbieranie zapytań w chacie'], forWhom: 'Biznes lokalny, infobiznes (lejki leczenia)' },
-          { name: 'PRO', price: '200-300', popular: true, description: 'Pełnoprawny instrument roboczy automatyzujący rutynę. Bot sprzedaje, przyjmuje płatności i wprowadza dane do bazy.', features: ['Koszyk produktów', 'Integracja z systemami płatności', 'Automatyczne powiadomienie o nowym zamówieniu', 'Baza klientów w Google Sheets'], forWhom: 'Sklepy w Telegram, salony piękności, dostawa jedzenia' },
+          { name: 'PRO', price: '200-300', popular: true, description: 'Pełnoprawny instrument roboczy automatyzujący rutynę. Chatbot sprzedaje, przyjmuje płatności i wprowadza dane do bazy.', features: ['Koszyk produktów', 'Integracja z systemami płatności', 'Automatyczne powiadomienie o nowym zamówieniu', 'Baza klientów w Google Sheets'], forWhom: 'E-commerce, salony piękności, dostawa jedzenia' },
           { name: 'CUSTOM', price: 'Indywidualnie', description: 'Nie ma tutaj standardów, bo każdy projekt jest unikalny. Rozwój „pod klucz” ze złożoną architekturą.', features: ['GPT-4 do inteligentnych odpowiedzi', 'Wielojęzyczność', 'Głęboka analityka działań użytkowników', 'Praca z dużymi bazami danych'], forWhom: 'Korporacje, startupy, złożone usługi (np. boty do wyszukiwania nieruchomości lub ofert pracy)' }
         ]
       },
@@ -2222,14 +2222,14 @@ export const translations = {
         websites: {
           whatWeDo: ['Landingi i strony z wysoką konwersją', 'Strony firmowe z CMS (panel do treści)', 'Sklepy internetowe z płatnościami, koszykiem i katalogiem', 'Responsywny layout na mobile i tablet', 'Podstawowe i zaawansowane SEO', 'Formularze, chatboty i analityka'],
           terms: ['Płatność zwykle w 2 etapach: zaliczka + po odbiorze', 'Czas: landing 1–2 tyg., strona 2–4 tyg., sklep od 4 tyg.', 'Poprawki w ramach zakresu w cenie', 'Wsparcie i szkolenie po starcie do ustalenia', 'Hosting i domena osobno lub pomożemy dobrać'],
-          integrations: ['Google Analytics, Tag Manager, Search Console', 'Płatności: LiqPay, WayForPay, Mono (dla e-commerce)', 'CRM i e-mail (integracja na życzenie)', 'Telegram / WhatsApp w formularzach', 'Figma — import makiet od Twojego projektanta'],
+          integrations: ['Google Analytics, Tag Manager, Search Console', 'Płatności: LiqPay, WayForPay, Mono (dla e-commerce)', 'CRM i e-mail (integracja na życzenie)', 'WhatsApp / komunikatory w formularzach', 'Figma — import makiet od Twojego projektanta'],
           tech: ['Next.js, React — szybkie i SEO-friendly strony', 'Node.js lub inny backend w razie potrzeby', 'Headless CMS lub własny panel', 'Vercel, Netlify lub Twój hosting']
         },
         chatbots: {
-          whatWeDo: ['Chatboty dla Telegram, Viber, WhatsApp, Facebook Messenger', 'Automatyzacja sprzedaży: katalog, koszyk, płatność w messangerze', 'Zbieranie leadów i zapytań do CRM lub arkuszy', 'Integracje płatności (Mono, LiqPay, WayForPay)', 'Odpowiedzi z AI (GPT) na życzenie', 'Rozsyłki i powiadomienia do klientów'],
-          terms: ['Bezpłatna konsultacja i wycena przed startem', 'Płatność: zaliczka + po odbiorze; duże projekty — etapami', 'Czas: proste boty 1–2 tyg., z płatnościami 2–4 tyg.', 'Szkolenie i przekazanie dostępu w cenie', 'Wsparcie gwarancyjne po starcie (okres do ustalenia)'],
-          integrations: ['Płatności: Mono, LiqPay, WayForPay, Stripe', 'CRM: AmoCRM, HubSpot, Google Sheets', 'Bazy: PostgreSQL, MongoDB, Google Sheets', 'AI: OpenAI GPT do odpowiedzi i klasyfikacji', 'Rozsyłki: wbudowane w bota lub integracje'],
-          tech: ['Python (aiogram) lub Node.js', 'Telegram Bot API, Viber/WhatsApp Business API', 'Bazy danych i kolejki', 'Deploy na VPS lub chmurze']
+          whatWeDo: ['Chatboty na stronie i w komunikatorach (WhatsApp, Messenger i inne)', 'Automatyzacja sprzedaży: katalog, koszyk, płatność w czacie', 'Zbieranie leadów i zapytań do CRM lub arkuszy', 'Integracje płatności (Mono, LiqPay, WayForPay)', 'Odpowiedzi z AI (GPT) na życzenie', 'Rozsyłki i powiadomienia do klientów'],
+          terms: ['Bezpłatna konsultacja i wycena przed startem', 'Płatność: zaliczka + po odbiorze; duże projekty — etapami', 'Czas: proste chatboty 1–2 tyg., z płatnościami 2–4 tyg.', 'Szkolenie i przekazanie dostępu w cenie', 'Wsparcie gwarancyjne po starcie (okres do ustalenia)'],
+          integrations: ['Płatności: Mono, LiqPay, WayForPay, Stripe', 'CRM: AmoCRM, HubSpot, Google Sheets', 'Bazy: PostgreSQL, MongoDB, Google Sheets', 'AI: OpenAI GPT do odpowiedzi i klasyfikacji', 'Rozsyłki: wbudowane w chatbota lub integracje'],
+          tech: ['Python lub Node.js', 'API komunikatorów i widgety na stronie', 'Bazy danych i kolejki', 'Deploy na VPS lub chmurze']
         },
         parsers: {
           whatWeDo: ['Zbieranie danych ze stron, marketplace\'ów, social mediów i API', 'Parsery pod Twój scenariusz: ceny, produkty, ogłoszenia, kontakty', 'Harmonogram uruchomień (cron) i automatyczny eksport', 'Przetwarzanie, czyszczenie i deduplikacja', 'Dostawa do Excel, Google Sheets, bazy lub API', 'Obejście ograniczeń i anti-block gdy potrzeba'],
@@ -2259,7 +2259,7 @@ export const translations = {
       phone: 'Numer telefonu',
       phonePlaceholder: '+48…, +380…, +49…',
       request: 'O projekcie (opcjonalnie)',
-      requestPlaceholder: 'Np. strona, bot Telegram, design…',
+      requestPlaceholder: 'Np. strona, sklep internetowy, design…',
       submit: 'Wyślij zgłoszenie',
       close: 'Zamknij',
       success: 'Dziękujemy! Skontaktujemy się z Tobą wkrótce.',
@@ -2306,7 +2306,7 @@ export const translations = {
     },
     contact: {
       title: 'Zamów rozwój i konsultację',
-      subtitle: 'Zamów bota Telegram lub stronę. Bezpłatna konsultacja, szybka odpowiedź. Zostaw wniosek — skontaktujemy się.',
+      subtitle: 'Zamów stronę, sklep internetowy lub chatbota. Bezpłatna konsultacja, szybka odpowiedź. Zostaw wniosek — skontaktujemy się.',
       cta: 'Wyślij zgłoszenie i otrzymaj bezpłatną konsultację',
       formTitle: 'Skontaktuj się z nami',
       name: 'Twoje imię',
@@ -2350,7 +2350,7 @@ export const translations = {
     },
     blog: {
       title: 'Blog TeleBots',
-      subtitle: 'Artykuły o cenach, stronach www, botach Telegram i automatyzacji',
+      subtitle: 'Artykuły o cenach, stronach www, sklepach internetowych i automatyzacji',
       articlesTitle: 'Artykuły i poradniki',
       articlesSubtitle: 'Aktualizacja 2026: ceny, case studies, SEO i praktyczne wskazówki TeleBots',
       backToBlog: 'Wszystkie artykuły',

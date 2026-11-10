@@ -41,16 +41,16 @@ const BUY_BODY: IntentBody = {
   useCasesTitle: 'Co klienci kupują najczęściej',
   useCases: [
     { title: 'Bot leadowy', text: 'Menu usług, formularz kontaktu, natychmiastowe powiadomienie managera.' },
-    { title: 'Sklep w Telegramie', text: 'Katalog, koszyk, płatność i status zamówienia bez wychodzenia z czatu.' },
+    { title: 'Sprzedaż w czacie', text: 'Katalog, koszyk, płatność i status zamówienia bez wychodzenia z rozmowy.' },
     { title: 'Klub subskrypcyjny', text: 'Płatność za dostęp, automatyczne odnowienie, nadawanie i odbieranie dostępu.' },
-    { title: 'Bot wsparcia', text: 'Odpowiedzi na powtarzalne pytania i przekazanie trudnych spraw człowiekowi.' },
+    { title: 'Chatbot wsparcia', text: 'Odpowiedzi na powtarzalne pytania i przekazanie trudnych spraw człowiekowi.' },
   ],
-  showcaseTitle: 'Boty już przekazane klientom',
-  showcaseIntro: 'Wdrożenia pod klucz: marketplace, sprzedaż z płatnościami i dostęp subskrypcyjny.',
+  showcaseTitle: 'Chatboty już przekazane klientom',
+  showcaseIntro: 'Wdrożenia pod klucz: sprzedaż z płatnościami, leady i automatyzacja obsługi.',
   showcaseCaptions: [
-    'TradeGround — marketplace w Telegramie',
-    'Bot subskrypcji i dostępu',
-    'Sprzedaż z płatnością w czacie',
+    'Chatbot sprzedażowy z płatnością',
+    'Chatbot subskrypcji i dostępu',
+    'Automatyzacja leadów w czacie',
   ],
   stats: [
     { value: '200+', label: 'wdrożonych projektów' },
@@ -143,7 +143,7 @@ const PRICE_BODY: IntentBody = {
   ctaText: 'Wyślemy wycenę z kilkoma wariantami zakresu w ciągu 24 godzin.',
 };
 
-/** „bot Telegram na zamówienie” — zamiar zbudowania nietypowego rozwiązania. */
+/** „chatbot na zamówienie” — zamiar zbudowania nietypowego rozwiązania. */
 const ORDER_BODY: IntentBody = {
   benefitsTitle: 'Czym bot na zamówienie różni się od szablonu',
   benefits: [
@@ -172,12 +172,12 @@ const ORDER_BODY: IntentBody = {
   ],
   useCasesTitle: 'Przykłady botów na zamówienie',
   useCases: [
-    { title: 'Marketplace w Telegramie', text: 'Sprzedawcy, oferty, transakcje, prowizja i spory rozstrzygane w bocie.' },
+    { title: 'Marketplace w czacie', text: 'Sprzedawcy, oferty, transakcje, prowizja i spory rozstrzygane w chatbocie.' },
     { title: 'Usługi z dojazdem', text: 'Zgłoszenie, dobór specjalisty, kalkulacja ceny i status realizacji.' },
-    { title: 'Bot wewnętrzny firmy', text: 'Wnioski pracowników, akceptacje, raporty i powiadomienia dla kierownictwa.' },
-    { title: 'Bot z kontem klienta', text: 'Historia zamówień, saldo, dokumenty i ponowny zakup jednym kliknięciem.' },
+    { title: 'Chatbot wewnętrzny firmy', text: 'Wnioski pracowników, akceptacje, raporty i powiadomienia dla kierownictwa.' },
+    { title: 'Chatbot z kontem klienta', text: 'Historia zamówień, saldo, dokumenty i ponowny zakup jednym kliknięciem.' },
   ],
-  showcaseTitle: 'Boty zbudowane od zera',
+  showcaseTitle: 'Chatboty zbudowane od zera',
   showcaseIntro: 'Nietypowe scenariusze z rolami, kalkulacjami i integracjami pod konkretny biznes.',
   showcaseCaptions: [
     'TradeGround — role, transakcje i prowizja',
@@ -228,12 +228,12 @@ export const PL_CHATBOT_INTENT: Record<ChatbotIntentSlug, SeoLandingCopy> = {
   'chatbots-buy': buildChatbotIntentLanding(
     { ...LABELS, ...BUY_BODY },
     {
-      metaTitle: 'Kup chatboty | Bot Telegram pod klucz od $100',
+      metaTitle: 'Kup chatboty | chatbot biznesowy pod klucz od $100',
       metaDescription:
-        'Kup chatboty biznesowe: Telegram pod klucz od $100. Leady, płatności, CRM, AI. 200+ projektów. Darmowa konsultacja — TeleBots.',
-      keywords: 'kup chatbot, zamów bota telegram, chatbot biznesowy, cena bota telegram, TeleBots',
-      h1: 'Kup chatboty — Telegram pod klucz od $100',
-      intro: 'Nie szablon z konstruktora — działający bot Telegram pod Twój proces.',
+        'Kup chatboty biznesowe pod klucz od $100. Leady, płatności, CRM, AI. 200+ projektów. Darmowa konsultacja — TeleBots.',
+      keywords: 'kup chatbot, chatbot biznesowy, cena chatbota, chatbot na zamówienie, TeleBots',
+      h1: 'Kup chatboty — pod klucz od $100',
+      intro: 'Nie szablon z konstruktora — działający chatbot pod Twój proces sprzedaży i obsługi.',
       lead: 'Szukasz „kup chatboty” — potrzebujesz gotowego narzędzia do leadów bez zespołu dev. Projektujemy, budujemy, wdrażamy i przekazujemy razem z kodem i instrukcją.',
       breadcrumbLabel: 'Kup chatboty',
       faqTitle: 'FAQ: zakup chatbota',
@@ -258,11 +258,11 @@ export const PL_CHATBOT_INTENT: Record<ChatbotIntentSlug, SeoLandingCopy> = {
     {
       metaTitle: 'Rozwój chatbotów cena | od $100',
       metaDescription:
-        'Cena rozwoju chatbotów od $100. Pakiety LITE/PRO/CUSTOM. Telegram z płatnościami, CRM, AI. 200+ projektów.',
-      keywords: 'rozwój chatbotów cena, cena chatbota, koszt bota telegram, TeleBots',
+        'Cena rozwoju chatbotów od $100. Pakiety LITE/PRO/CUSTOM. Płatności, CRM, AI. 200+ projektów — TeleBots.',
+      keywords: 'rozwój chatbotów cena, cena chatbota, koszt chatbota, TeleBots',
       h1: 'Rozwój chatbotów — cena od $100',
       intro: 'Przejrzyste widełki cenowe rozwoju chatbotów.',
-      lead: 'Szukasz ceny rozwoju chatbotów — poniżej to, co realnie kształtuje kwotę, orientacyjne widełki według typu bota i sposób liczenia wyceny.',
+      lead: 'Szukasz ceny rozwoju chatbotów — poniżej to, co realnie kształtuje kwotę, orientacyjne widełki według typu chatbota i sposób liczenia wyceny.',
       breadcrumbLabel: 'Cena rozwoju chatbotów',
       faqTitle: 'FAQ: cena chatbotów',
       faq: [
@@ -288,19 +288,19 @@ export const PL_CHATBOT_INTENT: Record<ChatbotIntentSlug, SeoLandingCopy> = {
   'telegram-bot-order-price': buildChatbotIntentLanding(
     { ...LABELS, ...ORDER_BODY },
     {
-      metaTitle: 'Bot Telegram na zamówienie — koszt od $100',
+      metaTitle: 'Chatbot na zamówienie — koszt od $100',
       metaDescription:
-        'Bot Telegram na zamówienie: koszt od $100, MVP 3–10 dni. Płatności, CRM, AI. 200+ projektów — TeleBots.',
-      keywords: 'bot telegram na zamówienie cena, koszt bota telegram, zamów bota telegram, TeleBots',
-      h1: 'Bot Telegram na zamówienie — koszt od $100',
-      intro: 'Bot Telegram na zamówienie pod Twój biznes — scenariusz prowadzący do leadu lub płatności.',
-      lead: 'Szukasz kosztu bota na zamówienie — poniżej czym rozwój bespoke różni się od gotowców, ile trwa i co wpływa na końcową kwotę.',
-      breadcrumbLabel: 'Bot Telegram na zamówienie',
-      faqTitle: 'FAQ: bot na zamówienie',
+        'Chatbot na zamówienie: koszt od $100, MVP 3–10 dni. Płatności, CRM, AI. 200+ projektów — TeleBots.',
+      keywords: 'chatbot na zamówienie cena, koszt chatbota, zamów chatbota, TeleBots',
+      h1: 'Chatbot na zamówienie — koszt od $100',
+      intro: 'Chatbot na zamówienie pod Twój biznes — scenariusz prowadzący do leadu lub płatności.',
+      lead: 'Szukasz kosztu chatbota na zamówienie — poniżej czym rozwój bespoke różni się od gotowców, ile trwa i co wpływa na końcową kwotę.',
+      breadcrumbLabel: 'Chatbot na zamówienie',
+      faqTitle: 'FAQ: chatbot na zamówienie',
       faq: [
         {
-          question: 'Ile kosztuje bot na zamówienie?',
-          answer: 'Od $100 za prosty bot leadów. Płatności, CRM — od $200–300.',
+          question: 'Ile kosztuje chatbot na zamówienie?',
+          answer: 'Od $100 za prosty chatbot leadów. Płatności, CRM — od $200–300.',
         },
         {
           question: 'Co wpływa na koszt?',
@@ -313,8 +313,8 @@ export const PL_CHATBOT_INTENT: Record<ChatbotIntentSlug, SeoLandingCopy> = {
         },
         ...FAQ_TAIL_PL,
       ],
-      midCtaTitle: 'Potrzebujesz bota na zamówienie?',
-      ctaTitle: 'Zamów bota Telegram — wycena',
+      midCtaTitle: 'Potrzebujesz chatbota na zamówienie?',
+      ctaTitle: 'Zamów chatbota — wycena',
     }
   ),
 };

@@ -22,6 +22,18 @@ export const PARTNERSHIP_SHOWCASE_IDS = [
   'zavadska',
 ] as const;
 
+/** PL: акцент на сторонах і e-commerce, без Telegram-ботів у вітрині. */
+export const PARTNERSHIP_SHOWCASE_IDS_PL = [
+  'emaro-autocare',
+  'newlineschool',
+  'butenko-fit',
+  'flix-market',
+  'nieznany-piekarz',
+  'zavadska',
+  'royal-glow',
+  '13vplus',
+] as const;
+
 export type PartnershipPageCopy = {
   navLabel: string;
   breadcrumb: string;
@@ -357,35 +369,35 @@ const pl: PartnershipPageCopy = {
   breadcrumb: 'Partnerzy',
   metaTitle: 'Program partnerski TeleBots — 20% prowizji',
   metaDescription:
-    'Polecaj TeleBots klientom, którzy potrzebują stron, chatbotów lub automatyzacji. My realizujemy projekt — Ty dostajesz 20% prowizji.',
+    'Polecaj TeleBots klientom, którzy potrzebują stron www, sklepów internetowych lub landingów. My realizujemy projekt — Ty dostajesz 20% prowizji.',
   metaKeywords:
-    'program partnerski TeleBots, prowizja 20%, partnerstwo SMM, target, marketing, agencja digital',
+    'program partnerski TeleBots, prowizja 20%, strony www, sklep internetowy, partnerstwo SMM, target, marketing, agencja digital',
   heroEyebrow: 'Program partnerski TeleBots',
   heroTitle: 'Twoi klienci. Nasze wdrożenia. Twój dodatkowy dochód.',
   heroLead:
-    'Uzupełnij usługi marketingowe stronami, chatbotami i automatyzacją. My realizujemy projekt, a Ty dostajesz prowizję za polecenie.',
+    'Uzupełnij usługi marketingowe stronami www, sklepami internetowymi i landingami. My realizujemy projekt, a Ty dostajesz prowizję za polecenie.',
   commissionValue: '20%',
   commissionLabel: 'Prowizja za każdego poleconego klienta',
   heroCta: 'Zostań partnerem',
   audienceTitle: 'Wzmocnij swoją ofertę',
   audienceLead:
-    'Pracujesz z biznesami? Pomóż klientom osiągać więcej, poszerzaj ofertę i zarabiaj na poleceniach.',
+    'Pracujesz z biznesami? Pomóż klientom osiągać więcej stroną lub sklepem, poszerzaj ofertę i zarabiaj na poleceniach.',
   audienceCards: [
     {
       title: 'Specjaliści SMM',
-      body: 'Strony pod promocję, chatboty do leadów i automatyzacja komunikacji.',
+      body: 'Strony pod promocję, landingi pod kampanie i sklepy, które domykają sprzedaż.',
     },
     {
       title: 'Specjaliści od reklam',
-      body: 'Landingi, strony ofertowe i integracje pod płatny ruch.',
+      body: 'Landingi, strony ofertowe i sklepy pod płatny ruch.',
     },
     {
       title: 'Marketerzy',
-      body: 'Techniczna realizacja strategii, lejki sprzedaży i automatyzacja procesów.',
+      body: 'Techniczna realizacja strategii: strony, e-commerce i lejki sprzedaży.',
     },
     {
       title: 'Agencje digital',
-      body: 'Poszerz listę usług bez własnego zespołu developerskiego.',
+      body: 'Poszerz listę usług o strony i sklepy bez własnego zespołu developerskiego.',
     },
   ],
   servicesTitle: 'Techniczną stronę bierzemy na siebie',
@@ -396,7 +408,7 @@ const pl: PartnershipPageCopy = {
     },
     {
       title: 'Chatboty',
-      body: 'Boty Telegram i automatyzacja komunikacji.',
+      body: 'Chatboty na stronie i w komunikatorach — leady i automatyzacja.',
     },
     {
       title: 'Automatyzacja',
@@ -409,7 +421,7 @@ const pl: PartnershipPageCopy = {
   ],
   casesTitle: 'Co możesz polecać',
   casesLead:
-    'Realne projekty TeleBots — strony pod ruch, e-commerce i boty z automatyzacją. Takie rozwiązania przekazujesz klientom.',
+    'Realne projekty TeleBots — strony pod ruch i sklepy internetowe. Takie rozwiązania przekazujesz klientom.',
   casesLink: 'Całe portfolio',
   cases: [
     {
@@ -434,18 +446,18 @@ const pl: PartnershipPageCopy = {
       result: 'Sklep pod klucz',
     },
     {
-      id: 'applum-bot',
-      niche: 'Usługa · bot Telegram',
-      task: 'Zautomatyzować leady i komunikację z klientami.',
-      solution: 'Bot Telegram ze scenariuszami, CRM i obsługą zapytań.',
-      result: 'Mniej ręcznej pracy — więcej obsłużonych leadów',
+      id: 'emaro-autocare',
+      niche: 'Usługi · strona firmowa',
+      task: 'Pokazać ofertę warsztatu i zbierać zgłoszenia online.',
+      solution: 'Strona firmowa z jasną ofertą, CTA i lokalnym SEO.',
+      result: 'Więcej zapytań bez ręcznego tłumaczenia oferty',
     },
   ],
   stepsTitle: 'Trzy kroki do partnerstwa',
   steps: [
     {
       title: 'Znajdujesz klienta',
-      body: 'Klient potrzebuje strony, bota lub automatyzacji — polecasz TeleBots.',
+      body: 'Klient potrzebuje strony, sklepu lub landingu — polecasz TeleBots.',
     },
     {
       title: 'My realizujemy projekt',
@@ -474,7 +486,7 @@ const pl: PartnershipPageCopy = {
   formName: 'Imię',
   formNamePlaceholder: 'Jak się do Ciebie zwracać',
   formContact: 'Kontakt',
-  formContactPlaceholder: 'Telegram, telefon lub email',
+  formContactPlaceholder: 'Telefon, email lub komunikator',
   formDirection: 'Obszar działalności',
   formDirectionPlaceholder: 'Wybierz opcję',
   formDirections: [
@@ -491,7 +503,7 @@ const pl: PartnershipPageCopy = {
   formSubmit: 'Wyślij wniosek',
   formSending: 'Wysyłamy…',
   formSuccess: 'Wniosek otrzymany. Skontaktujemy się wkrótce.',
-  formError: 'Nie udało się wysłać. Spróbuj ponownie lub napisz na Telegram.',
+  formError: 'Nie udało się wysłać. Spróbuj ponownie lub napisz na e-mail.',
 };
 
 const ru: PartnershipPageCopy = {

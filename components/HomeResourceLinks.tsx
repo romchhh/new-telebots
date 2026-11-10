@@ -67,45 +67,56 @@ export default function HomeResourceLinks({ lang, copy, embedded = false }: Home
         copy.onlineStores ||
         (lang === 'en' ? 'Online stores' : lang === 'pl' ? 'Sklepy online' : lang === 'ru' ? 'Интернет-магазины' : 'Інтернет-магазини'),
     },
-    {
-      href: `/${lang}/solutions/chatbots-buy`,
-      label:
-        lang === 'uk'
-          ? 'Чат-боти купити'
-          : lang === 'en'
-            ? 'Buy chatbots'
-            : lang === 'pl'
-              ? 'Kup chatboty'
-              : 'Чат-боты купить',
-    },
-    {
-      href: `/${lang}/solutions/chatbot-development-price`,
-      label:
-        lang === 'uk'
-          ? 'Розробка чат-ботів ціна'
-          : lang === 'en'
-            ? 'Chatbot development price'
-            : lang === 'pl'
-              ? 'Cena chatbotów'
-              : 'Разработка чат-ботов цена',
-    },
-    {
-      href: `/${lang}/solutions/telegram-bot-order-price`,
-      label:
-        lang === 'uk'
-          ? 'Замовити Telegram-бота: ціна'
-          : lang === 'en'
-            ? 'Order a Telegram bot: price'
-            : lang === 'pl'
-              ? 'Zamów bota Telegram: cena'
-              : 'Заказать Telegram-бота: цена',
-    },
-    {
-      href: `/${lang}/solutions/telegram-bots`,
-      label:
-        copy.telegramBots ||
-        (lang === 'en' ? 'Telegram bot development' : lang === 'pl' ? 'Boty Telegram' : lang === 'ru' ? 'Telegram-боты' : 'Розробка Telegram-ботів'),
-    },
+    ...(lang === 'pl'
+      ? [
+          {
+            href: `/${lang}/solutions/chatbots-buy`,
+            label: 'Kup chatboty',
+          },
+          {
+            href: `/${lang}/solutions/chatbot-development-price`,
+            label: 'Cena chatbotów',
+          },
+        ]
+      : [
+          {
+            href: `/${lang}/solutions/chatbots-buy`,
+            label:
+              lang === 'uk'
+                ? 'Чат-боти купити'
+                : lang === 'en'
+                  ? 'Buy chatbots'
+                  : 'Чат-боты купить',
+          },
+          {
+            href: `/${lang}/solutions/chatbot-development-price`,
+            label:
+              lang === 'uk'
+                ? 'Розробка чат-ботів ціна'
+                : lang === 'en'
+                  ? 'Chatbot development price'
+                  : 'Разработка чат-ботов цена',
+          },
+          {
+            href: `/${lang}/solutions/telegram-bot-order-price`,
+            label:
+              lang === 'uk'
+                ? 'Замовити Telegram-бота: ціна'
+                : lang === 'en'
+                  ? 'Order a Telegram bot: price'
+                  : 'Заказать Telegram-бота: цена',
+          },
+          {
+            href: `/${lang}/solutions/telegram-bots`,
+            label:
+              copy.telegramBots ||
+              (lang === 'en'
+                ? 'Telegram bot development'
+                : lang === 'ru'
+                  ? 'Telegram-боты'
+                  : 'Розробка Telegram-ботів'),
+          },
+        ]),
     ...(lang === 'uk'
       ? [
           {

@@ -18,6 +18,7 @@ import { BREADCRUMB_HOME } from '@/lib/breadcrumbLabels';
 import { getPortfolioCards } from '@/lib/portfolioCards';
 import {
   PARTNERSHIP_SHOWCASE_IDS,
+  PARTNERSHIP_SHOWCASE_IDS_PL,
   partnershipPageCopy,
 } from '@/lib/partnershipPageCopy';
 import { SITE_INNER, SITE_PX } from '@/lib/siteLayout';
@@ -39,7 +40,8 @@ const SERVICE_ICONS = [Globe2, Bot, Workflow, Sparkles] as const;
 export default function PartnershipPageClient({ lang }: { lang: Language }) {
   const p = partnershipPageCopy[lang];
   const portfolioById = new Map(getPortfolioCards(lang).map((card) => [card.id, card]));
-  const showcaseCards = PARTNERSHIP_SHOWCASE_IDS.map((id) => portfolioById.get(id)).filter(
+  const showcaseIds = lang === 'pl' ? PARTNERSHIP_SHOWCASE_IDS_PL : PARTNERSHIP_SHOWCASE_IDS;
+  const showcaseCards = showcaseIds.map((id) => portfolioById.get(id)).filter(
     (card): card is NonNullable<typeof card> => Boolean(card)
   );
 

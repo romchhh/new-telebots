@@ -129,17 +129,23 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
                           : 'Чат-боти купити'}
                   </Link>
                 </li>
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/telegram-bots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'Telegram bots'
-                      : currentLanguage === 'pl'
-                        ? 'Boty Telegram'
+                {currentLanguage !== 'pl' ? (
+                  <li>
+                    <Link href={`/${currentLanguage}/solutions/telegram-bots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                      {currentLanguage === 'en'
+                        ? 'Telegram bots'
                         : currentLanguage === 'ru'
                           ? 'Telegram-боты'
                           : 'Telegram-боти'}
-                  </Link>
-                </li>
+                    </Link>
+                  </li>
+                ) : (
+                  <li>
+                    <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
+                      Chatboty
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <Link href={`/${currentLanguage}/solutions/landing-pages`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
                     {currentLanguage === 'en'

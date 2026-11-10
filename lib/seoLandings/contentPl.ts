@@ -14,17 +14,17 @@ type AllLandings = Record<CoreSeoLandingSlug, SeoLandingCopy>;
 
 export const PL_SEO_LANDINGS: AllLandings = {
   'telegram-bots': {
-    metaTitle: 'Tworzenie botów Telegram pod klucz | od $100',
+    metaTitle: 'Tworzenie chatbotów pod klucz | od $100',
     metaDescription:
-      'Zamów bota Telegram dla biznesu: leady, płatności, CRM, AI. Start od 24h, od $100. 200+ projektów. Bezpłatna konsultacja — TeleBots.',
+      'Zamów chatbota dla biznesu: leady, płatności, CRM, AI. Start od 24h, od $100. 200+ projektów. Bezpłatna konsultacja — TeleBots.',
     keywords:
-      'tworzenie botów telegram, zamówić bota telegram, bot telegram dla biznesu, bot z płatnością, integracja crm telegram, cena bota telegram, TeleBots',
-    h1: 'Tworzenie botów Telegram pod klucz — od $100',
+      'tworzenie chatbotów, zamówić chatbota, chatbot dla biznesu, chatbot z płatnością, integracja crm chatbot, cena chatbota, TeleBots',
+    h1: 'Tworzenie chatbotów pod klucz — od $100',
     intro:
-      'Budujemy boty Telegram, które zbierają zgłoszenia, przyjmują płatności, odpowiadają klientom i łączą się z CRM. Bez zbędnego „kodu dla kodu” — tylko scenariusze, które oszczędzają czas i generują sprzedaż.',
+      'Budujemy chatboty, które zbierają zgłoszenia, przyjmują płatności, odpowiadają klientom i łączą się z CRM. Bez zbędnego „kodu dla kodu” — tylko scenariusze, które oszczędzają czas i generują sprzedaż.',
     lead:
-      'Telegram jest już otwarty u większości Twoich klientów. Bot zdejmuje rutynę z menedżerów: kwalifikuje zapytanie, podaje cennik, przyjmuje płatność i przekazuje „gorący” lead do CRM. Projektujemy dialog pod Twój proces sprzedaży — od prostego bota zgłoszeń po marketplace w komunikatorze.',
-    benefitsTitle: 'Co daje bot w Telegramie',
+      'Chatbot zdejmuje rutynę z menedżerów: kwalifikuje zapytanie, podaje cennik, przyjmuje płatność i przekazuje „gorący” lead do CRM. Projektujemy dialog pod Twój proces sprzedaży — od prostego chatbota zgłoszeń po sprzedaż w czacie.',
+    benefitsTitle: 'Co daje chatbot biznesowy',
     benefits: [
       'Zgłoszenia i kwalifikacja leadów 24/7 bez menedżera na linii',
       'Płatności LiqPay, Fondy, Stripe lub krypto bezpośrednio w czacie',
@@ -36,7 +36,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
     audienceTitle: 'Dla kogo jest ten format',
     audience: [
       'Masz powtarzalne pytania i chcesz zdjąć je z menedżerów',
-      'Potrzebujesz zgłoszeń z Telegram / Instagram / reklam w jednym kanale',
+      'Potrzebujesz zgłoszeń z Instagrama, reklam i strony w jednym kanale',
       'Chcesz przyjmować płatności bez osobnej strony kasowej',
       'Masz CRM i potrzebujesz automatycznej synchronizacji transakcji',
       'Uruchamiasz produkt i potrzebujesz szybkiego MVP w dni, nie miesiące',
@@ -69,7 +69,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       },
       {
         title: 'Sprzedaż w czacie',
-        text: 'Katalog, koszyk, płatność, paragon i status zamówienia — bez wychodzenia z Telegrama.',
+        text: 'Katalog, koszyk, płatność, paragon i status zamówienia — bez wychodzenia z czatu.',
       },
       {
         title: 'Wsparcie i baza wiedzy',
@@ -84,7 +84,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
     showcaseIntro:
       'Poniżej — realne boty, które zrobiliśmy pod klucz: marketplace, subskrypcje z płatnością i automatyzacja dla biznesu.',
     showcaseCaptions: [
-      'TradeGround — marketplace w Telegramie',
+      'Chatbot sprzedażowy z płatnością w czacie',
       'Bot subskrypcji i dostępu do community',
       'Automatyzacja zgłoszeń i procesów w bocie',
     ],
@@ -96,7 +96,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
     ],
     sections: [
       {
-        title: 'Do jakich zadań pasuje bot Telegram',
+        title: 'Do jakich zadań pasuje chatbot',
         paragraphs: [
           'Bot zamyka powtarzalne scenariusze: zapis na usługę, katalog i koszyk, wsparcie klientów, onboarding pracowników, ankiety i wewnętrzne narzędzia firmy.',
           'Jeśli masz już stronę lub Instagram — bot staje się kanałem, w którym klient szybciej zostawia kontakt i dochodzi do płatności bez zbędnych kroków.',
@@ -104,10 +104,10 @@ export const PL_SEO_LANDINGS: AllLandings = {
         ],
       },
       {
-        title: 'Jak tworzymy boty',
+        title: 'Jak tworzymy chatboty',
         paragraphs: [
           'Zaczynamy od scenariusza i celu. Dalej — prototyp dialogu, integracje, testowy start i przekazanie z instrukcją.',
-          'Stack pod zadanie: Node.js / Python, Telegram Bot API, webhooki, bazy danych, płatności i CRM. Typowy MVP — od kilku dni do 2–3 tygodni.',
+          'Stack pod zadanie: Node.js / Python, API komunikatorów i widgety na stronie, webhooki, bazy danych, płatności i CRM. Typowy MVP — od kilku dni do 2–3 tygodni.',
           'Po starcie patrzymy na realne rozmowy: gdzie użytkownicy się gubią, jakie pytania się powtarzają, co warto wynieść do AI lub osobnej gałęzi menu.',
         ],
       },
@@ -122,13 +122,13 @@ export const PL_SEO_LANDINGS: AllLandings = {
     processTitle: 'Etapy pracy',
     processSteps: [
       { title: 'Brief i scenariusz', text: 'Ustalamy cel, kroki dialogu, integracje i kryteria sukcesu.' },
-      { title: 'Rozwój i testy', text: 'Budujemy bota, podłączamy płatności/CRM, sprawdzamy na realnych case’ach.' },
+      { title: 'Rozwój i testy', text: 'Budujemy chatbota, podłączamy płatności/CRM, sprawdzamy na realnych case’ach.' },
       { title: 'Start i wsparcie', text: 'Deploy, instrukcja dla zespołu, poprawki po pierwszych tygodniach użycia.' },
     ],
-    faqTitle: 'Częste pytania o tworzenie botów Telegram',
+    faqTitle: 'Częste pytania o tworzenie chatbotów',
     faq: [
       {
-        question: 'Ile kosztuje stworzenie bota Telegram?',
+        question: 'Ile kosztuje stworzenie chatbota?',
         answer:
           'Prosty bot do zgłoszeń — od $100. Bot z płatnością, CRM i bardziej złożoną logiką — zwykle od $300–800+. Dokładną wycenę dajemy po briefie.',
       },
@@ -153,15 +153,15 @@ export const PL_SEO_LANDINGS: AllLandings = {
           'Tak. Często startujemy od jasnego menu i przycisków, a AI podłączamy w drugim etapie — gdy jest baza pytań i jasne reguły odpowiedzi.',
       },
     ],
-    midCtaTitle: 'Chcesz zobaczyć, jak bot zamknie Twój scenariusz?',
-    midCtaText: 'Napisz 3–5 kroków, które teraz robi menedżer ręcznie — zaproponujemy schemat bota.',
-    ctaTitle: 'Potrzebujesz bota Telegram pod swój proces?',
+    midCtaTitle: 'Chcesz zobaczyć, jak chatbot zamknie Twój scenariusz?',
+    midCtaText: 'Napisz 3–5 kroków, które teraz robi menedżer ręcznie — zaproponujemy schemat chatbota.',
+    ctaTitle: 'Potrzebujesz chatbota pod swój proces?',
     ctaText: 'Krótko opisz zadanie — zaproponujemy scenariusz, termin i orientacyjną cenę.',
     relatedServiceLabel: 'Wszystkie chatboty i integracje',
     pricingLabel: 'Ceny i pakiety',
     portfolioLabel: 'Case’y w portfolio',
     contactLabel: 'Napisz do nas',
-    breadcrumbLabel: 'Boty Telegram',
+    breadcrumbLabel: 'Chatboty',
   },
   'landing-pages': {
     metaTitle: 'Tworzenie landing page pod klucz | od $150',
@@ -179,7 +179,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       'Struktura bloków pod ofertę i obiekcje klienta',
       'Responsywność pod mobile (główny ruch z reklam)',
       'Szybkość i techniczna baza SEO (title, description, headings)',
-      'Formularz zgłoszenia, Telegram/CRM lub integracja z botem',
+      'Formularz zgłoszenia, CRM lub integracja z chatbotem',
       'Podstawowa analityka (GA4 / Meta Pixel w razie potrzeby)',
       'Poprawki po starcie w ramach uzgodnionego zakresu',
     ],
@@ -204,7 +204,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       },
       {
         title: 'Integracje zgłoszeń',
-        text: 'Formularz → Telegram / CRM / Sheets. W razie potrzeby — połączenie z botem.',
+        text: 'Formularz → e-mail / CRM / Sheets. W razie potrzeby — połączenie z chatbotem.',
       },
       {
         title: 'Baza pod wzrost',
@@ -355,7 +355,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
         text: 'Wąski asortyment, jasne filtry, nacisk na zaufanie i dostawę.',
       },
       {
-        title: 'Sklep + Telegram',
+        title: 'Sklep + chatbot',
         text: 'Katalog na stronie, statusy i wsparcie w bocie.',
       },
       {
@@ -431,14 +431,14 @@ export const PL_SEO_LANDINGS: AllLandings = {
     breadcrumbLabel: 'Sklepy internetowe',
   },
   'ai-chatbots': {
-    metaTitle: 'Chatbot AI dla biznesu | Telegram i strona',
+    metaTitle: 'Chatbot AI dla biznesu | strona i komunikatory',
     metaDescription:
-      'Chatbot AI na bazie GPT: odpowiedzi z Twojej bazy wiedzy, kwalifikacja leadów, wsparcie 24/7 w Telegramie lub na stronie. Konsultacja — TeleBots.',
+      'Chatbot AI na bazie GPT: odpowiedzi z Twojej bazy wiedzy, kwalifikacja leadów, wsparcie 24/7 na stronie lub w komunikatorze. Konsultacja — TeleBots.',
     keywords:
-      'chatbot ai, bot chatgpt dla biznesu, bot ai telegram, sieć neuronowa do wsparcia, bot ze sztuczną inteligencją, konsultant ai, TeleBots',
-    h1: 'Chatbot AI dla biznesu — Telegram i strona',
+      'chatbot ai, bot chatgpt dla biznesu, chatbot ai na stronie, sieć neuronowa do wsparcia, bot ze sztuczną inteligencją, konsultant ai, TeleBots',
+    h1: 'Chatbot AI dla biznesu — na stronie i w czacie',
     intro:
-      'Podłączamy AI do Telegrama lub widgetu na stronie: bot odpowiada językiem klienta, opiera się na Twoich dokumentach i przekazuje złożone dialogi menedżerowi.',
+      'Podłączamy AI do widgetu na stronie lub komunikatora: chatbot odpowiada językiem klienta, opiera się na Twoich dokumentach i przekazuje złożone dialogi menedżerowi.',
     lead:
       'AI dobrze działa tam, gdzie jest wiele sformułowań tych samych pytań. Ograniczamy źródła wiedzy, dodajemy reguły „nie wymyślaj” i hybrydę z przyciskami — żeby konwersja pozostała kontrolowana, a odpowiedzi — w granicach Twojej polityki.',
     benefitsTitle: 'Możliwości bota AI',
@@ -447,7 +447,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       'Kwalifikacja leadów i zbieranie kontaktów w wygodnym scenariuszu',
       'Wsparcie w kilku językach bez osobnego zespołu',
       'Eskalacja do człowieka z kontekstem dialogu',
-      'Działa w Telegramie, na stronie lub w obu kanałach',
+      'Działa na stronie, w komunikatorze lub w obu kanałach',
       'Ewidencja dialogów i poprawa promptów po starcie',
     ],
     audienceTitle: 'Dla kogo jest bot AI',
@@ -471,7 +471,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       },
       {
         title: 'Kanał i integracje',
-        text: 'Telegram / strona, CRM, powiadomienia dla zespołu.',
+        text: 'Strona / komunikator, CRM, powiadomienia dla zespołu.',
       },
       {
         title: 'Tuning po starcie',
@@ -530,7 +530,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
     processTitle: 'Jak podłączamy AI',
     processSteps: [
       { title: 'Baza wiedzy', text: 'Zbieramy FAQ, dokumenty, ton komunikacji i tabu.' },
-      { title: 'Scenariusz i integracja', text: 'Kanał (Telegram/strona), CRM, przekazanie leadów.' },
+      { title: 'Scenariusz i integracja', text: 'Kanał (strona/komunikator), CRM, przekazanie leadów.' },
       { title: 'Testy i tuning', text: 'Kontrola jakości, poprawki promptów, monitoring pierwszych tygodni.' },
     ],
     faqTitle: 'Pytania o chatboty AI',
@@ -549,7 +549,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       },
       {
         question: 'Gdzie będzie działał bot?',
-        answer: 'W Telegramie, na stronie (widget) lub w obu kanałach z jedną logiką.',
+        answer: 'Na stronie (widget), w komunikatorze lub w obu kanałach z jedną logiką.',
       },
     ],
     midCtaTitle: 'Masz przykłady pytań klientów?',
@@ -580,7 +580,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       'Parsing ogłoszeń i otwartych baz',
       'Harmonogram uruchomień (codziennie / co godzinę)',
       'Eksport do Excel, Google Sheets, DB, webhook/API',
-      'Powiadomienia w Telegramie o zmianach lub błędach',
+      'Powiadomienia dla zespołu o zmianach lub błędach',
     ],
     audienceTitle: 'Dla kogo jest parser',
     audience: [
@@ -607,7 +607,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
       },
       {
         title: 'Alerty',
-        text: 'Powiadomienia Telegram o awariach lub ważnych zmianach.',
+        text: 'Powiadomienia dla zespołu o awariach lub ważnych zmianach.',
       },
     ],
     useCasesTitle: 'Scenariusze parsingu',
@@ -639,7 +639,7 @@ export const PL_SEO_LANDINGS: AllLandings = {
     stats: [
       { value: 'cron', label: 'harmonogram uruchomień' },
       { value: 'Sheets', label: 'wygodny eksport' },
-      { value: 'alerts', label: 'w Telegramie' },
+      { value: 'alerts', label: 'dla zespołu' },
       { value: 'API', label: 'w razie potrzeby' },
     ],
     sections: [
