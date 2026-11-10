@@ -1,6 +1,6 @@
 import { Language } from '@/components/translations';
 import { cases } from '@/components/cases';
-import { legal } from '@/lib/legal';
+import { getLegalContact, legal } from '@/lib/legal';
 import { buildOgImageUrl, OG_IMAGE_HEIGHT, OG_IMAGE_WIDTH } from '@/lib/ogImage';
 import { getCaseStudyLastmod } from '@/lib/sitemapDates';
 import { isFlagshipCase } from '@/lib/portfolioCaseTiers';
@@ -328,14 +328,15 @@ const ORGANIZATION_SAME_AS = [
   `${baseUrl}/schema/organization`,
 ] as const;
 
-function organizationPostalAddress() {
+function organizationPostalAddress(lang: Language = 'uk') {
+  const contact = getLegalContact(lang);
   return {
     '@type': 'PostalAddress' as const,
-    streetAddress: legal.legalAddress,
-    addressLocality: 'Київ',
-    addressRegion: 'Київ',
-    postalCode: '01000',
-    addressCountry: 'UA',
+    streetAddress: contact.legalAddress,
+    addressLocality: contact.addressLocality,
+    addressRegion: contact.addressRegion,
+    postalCode: contact.postalCode,
+    addressCountry: contact.addressCountry,
   };
 }
 
@@ -347,19 +348,23 @@ function organizationDescription(lang: Language): string {
     return 'TeleBots (telebots.site) is a Kyiv, Ukraine software studio for Telegram bots, websites, landings and e-commerce — CRM, payments and SEO. Not a cybersecurity group. 200+ projects.';
   }
   if (lang === 'pl') {
-    return 'TeleBots (telebots.site) — studio z Kijowa: boty Telegram, strony, landingi i e-commerce, CRM, płatności i SEO. To nie grupa cyberbezpieczeństwa. 200+ projektów.';
+    return 'TeleBots (telebots.site) — studio w Warszawie: strony www, sklepy internetowe, landingi i chatboty, CRM, płatności i SEO. To nie grupa cyberbezpieczeństwa. 200+ projektów.';
   }
   return 'TeleBots (telebots.site) — студия в Киеве: Telegram-боты, сайты, лендинги и e-commerce, CRM, оплата и SEO. Не связана с хакерскими группировками. 200+ проектов.';
 }
 
 export function generateOrganizationSchema(lang: Language = 'uk') {
+  const contact = getLegalContact(lang);
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     '@id': ORGANIZATION_ENTITY_ID,
     name: 'TeleBots',
     legalName: legal.companyName,
-    alternateName: ['TeleBots.site', 'TeleBots Ukraine', 'TeleBots Kyiv'],
+    alternateName:
+      lang === 'pl'
+        ? ['TeleBots.site', 'TeleBots Warszawa', 'TeleBots Poland']
+        : ['TeleBots.site', 'TeleBots Ukraine', 'TeleBots Kyiv'],
     url: baseUrl,
     logo: {
       '@type': 'ImageObject',
@@ -373,7 +378,7 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
       lang === 'en'
         ? 'Ukrainian web and Telegram bot development agency at telebots.site — unrelated to any threat actor or malware group named TeleBots.'
         : lang === 'pl'
-          ? 'Ukraińska agencja tworzenia stron i botów Telegram (telebots.site) — bez związku z grupami cyberprzestępczymi o podobnej nazwie.'
+          ? 'Agencja tworzenia stron i sklepów internetowych (telebots.site) — bez związku z grupami cyberprzestępczymi o podobnej nazwie.'
           : lang === 'ru'
             ? 'Украинская студия разработки сайтов и Telegram-ботов (telebots.site) — не связана с хакерскими группировками под похожим именем.'
             : 'Українська студія розробки сайтів і Telegram-ботів (telebots.site) — не пов’язана з хакерськими угрупованнями під схожою назвою.',
@@ -385,14 +390,14 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
     },
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: legal.phone,
+      telephone: contact.phone,
       contactType: 'customer service',
       email: legal.email,
       areaServed: ['UA', 'US', 'PL', 'EU'],
       availableLanguage: ['uk', 'en', 'pl', 'ru'],
     },
     sameAs: [...ORGANIZATION_SAME_AS],
-    address: organizationPostalAddress(),
+    address: organizationPostalAddress(lang),
     foundingDate: '2020',
     founder: {
       '@type': 'Person',
@@ -422,27 +427,28 @@ export function generateOrganizationSchema(lang: Language = 'uk') {
 }
 
 export function generateLocalBusinessSchema(lang: Language = 'uk') {
+  const contact = getLegalContact(lang);
   return {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
     '@id': `${baseUrl}/#localbusiness`,
     name: 'TeleBots',
     legalName: legal.companyName,
-    alternateName: ['TeleBots.site', 'TeleBots Ukraine'],
+    alternateName: lang === 'pl' ? ['TeleBots.site', 'TeleBots Poland'] : ['TeleBots.site', 'TeleBots Ukraine'],
     image: `${baseUrl}/whitelogo_new.png`,
     logo: `${baseUrl}/whitelogo_new.png`,
     url: `${baseUrl}/${lang}`,
-    telephone: legal.phone,
+    telephone: contact.phone,
     email: legal.email,
     description: organizationDescription(lang),
     parentOrganization: {
       '@id': ORGANIZATION_ENTITY_ID,
     },
-    address: organizationPostalAddress(),
+    address: organizationPostalAddress(lang),
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '50.4501',
-      longitude: '30.5234',
+      latitude: contact.geo.latitude,
+      longitude: contact.geo.longitude,
     },
     priceRange: '$$',
     openingHoursSpecification: {
@@ -746,13 +752,13 @@ export function generateContactPageSchema(lang: Language = 'uk') {
       : lang === 'en'
       ? 'Order website, e-commerce, or Telegram bot development. Free consultation. Remote-friendly.'
       : lang === 'pl'
-      ? 'Zamów stronę, sklep online lub bota Telegram. Bezpłatna konsultacja.'
+      ? 'Zamów stronę www, sklep internetowy lub chatbota. Bezpłatna konsultacja. Warszawa.'
       : 'Заказать разработку сайта, интернет-магазина или телеграм бота. Бесплатная консультация.',
     mainEntity: {
       '@type': 'Organization',
       name: 'TeleBots',
       email: legal.email,
-      telephone: legal.phone,
+      telephone: getLegalContact(lang).phone,
     },
   };
 }

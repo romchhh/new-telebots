@@ -5,7 +5,7 @@ import type { CSSProperties } from 'react';
 import { Instagram, Send } from 'lucide-react';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
-import { legal } from '@/lib/legal';
+import { getLegalContact, legal } from '@/lib/legal';
 import { SITE_PX } from '@/lib/siteLayout';
 import { BLOG_PATH } from '@/lib/site';
 import { offerPageCopy } from '@/lib/offerPageCopy';
@@ -30,6 +30,7 @@ const footerLogoStyle: CSSProperties = {
 
 export default function Footer({ t, lang, setLang, currentLang, onConsultClick }: FooterProps) {
   const currentLanguage = currentLang || lang;
+  const contact = getLegalContact(currentLanguage);
   return (
     <footer id="contact" className="border-t border-black/10 bg-white text-black">
       <div className={`${SITE_PX} py-10 md:py-14`}>
@@ -238,8 +239,8 @@ export default function Footer({ t, lang, setLang, currentLang, onConsultClick }
               </li>
               <li className="text-gray-600 text-sm font-semibold">
                 <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.phone}</span>
-                <a href={`tel:${legal.phoneRaw}`} className="hover:text-brand transition" aria-label={`Phone - ${legal.phone}`}>
-                  {legal.phone}
+                <a href={`tel:${contact.phoneRaw}`} className="hover:text-brand transition" aria-label={`Phone - ${contact.phone}`}>
+                  {contact.phone}
                 </a>
               </li>
               <li className="text-gray-600 text-sm font-semibold">

@@ -2,10 +2,14 @@
 
 import Link from 'next/link';
 import { ArrowUpRight, Globe } from 'lucide-react';
-import { FaTelegramPlane } from 'react-icons/fa';
-import { legal } from '@/lib/legal';
+import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
+import { getLegalContact, legal } from '@/lib/legal';
 import { translations, type Language } from '@/components/translations';
 import { BTN_OUTLINE, CTA_ARROW_CIRCLE, CTA_ARROW_ICON, RADIUS_PILL } from '@/lib/siteUi';
+
+/** Messenger-кнопки завжди на український номер. */
+const UA_WHATSAPP_HREF = `https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`;
+const TELEGRAM_HREF = 'https://t.me/telebotsnowayrm';
 
 type T = (typeof translations)['uk'];
 
@@ -26,6 +30,7 @@ export default function ContactDetailsColumn({
 }: ContactDetailsColumnProps) {
   const isDark = variant === 'dark';
   const c = t.contact;
+  const contact = getLegalContact(lang);
 
   if (layout === 'sidebar') {
     const pillClass = isDark
@@ -47,23 +52,31 @@ export default function ContactDetailsColumn({
         <p className={`text-base leading-relaxed sm:text-lg ${muted}`}>{t.footer.legalAddress}</p>
 
         <div className="mt-8">
-          <a href={`tel:${legal.phoneRaw}`} className={`text-2xl font-bold underline-offset-4 hover:underline sm:text-3xl ${phoneClass}`}>
-            {legal.phone}
+          <a
+            href={`tel:${contact.phoneRaw}`}
+            className={`text-2xl font-bold underline-offset-4 hover:underline sm:text-3xl ${phoneClass}`}
+          >
+            {contact.phone}
           </a>
           <p className={`mt-2 text-sm sm:text-base ${sub}`}>{c.phoneFree}</p>
         </div>
 
-        <a
-          href="https://t.me/telebotsnowayrm"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group mt-10 block"
-        >
-          <span className="text-[clamp(1.35rem,5vw,2.25rem)] font-black text-brand transition group-hover:text-brand-dark sm:text-[clamp(1.65rem,4vw,2.25rem)]">
-            {c.writeUs}
-          </span>
-          <span className={`mt-2 block text-base ${sub}`}>{c.writeUsSub}</span>
-        </a>
+        <div className="mt-10 space-y-5">
+          <a href={TELEGRAM_HREF} target="_blank" rel="noopener noreferrer" className="group block">
+            <span className="inline-flex items-center gap-2.5 text-[clamp(1.35rem,5vw,2.25rem)] font-black text-brand transition group-hover:text-brand-dark sm:text-[clamp(1.65rem,4vw,2.25rem)]">
+              <FaTelegramPlane className="h-6 w-6 shrink-0 sm:h-7 sm:w-7" aria-hidden />
+              {c.writeUs}
+            </span>
+            <span className={`mt-2 block text-base ${sub}`}>{c.writeUsSub}</span>
+          </a>
+          <a href={UA_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="group block">
+            <span className="inline-flex items-center gap-2.5 text-[clamp(1.2rem,4.5vw,1.85rem)] font-black text-brand transition group-hover:text-brand-dark">
+              <FaWhatsapp className="h-6 w-6 shrink-0 sm:h-7 sm:w-7" aria-hidden />
+              {c.whatsapp}
+            </span>
+            <span className={`mt-2 block text-base ${sub}`}>{legal.phone}</span>
+          </a>
+        </div>
 
         <div className="mt-auto pt-12">
           {isDark ? (
@@ -98,7 +111,9 @@ export default function ContactDetailsColumn({
 
   return (
     <div className={className}>
-      <h2 className={`mb-10 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:mb-12 md:text-5xl ${isDark ? 'text-white' : 'text-neutral-900'}`}>
+      <h2
+        className={`mb-10 text-3xl font-black leading-tight tracking-tight sm:text-4xl md:mb-12 md:text-5xl ${isDark ? 'text-white' : 'text-neutral-900'}`}
+      >
         {c.contacts}
       </h2>
       <div className="space-y-8">
@@ -108,18 +123,32 @@ export default function ContactDetailsColumn({
             {t.footer.address}: {t.footer.legalAddress}
           </p>
         </div>
-        <a href={`tel:${legal.phoneRaw}`} className={`block text-2xl font-black transition ${isDark ? 'text-white hover:text-brand-light' : 'text-neutral-900 hover:text-brand'}`}>
-          {legal.phone}
-        </a>
         <a
-          href="https://t.me/telebotsnowayrm"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`flex w-full items-center justify-center gap-3 px-6 py-4 ${RADIUS_PILL} ${isDark ? 'bg-white text-neutral-900 hover:bg-brand-light' : 'bg-neutral-900 text-white hover:bg-neutral-800'}`}
+          href={`tel:${contact.phoneRaw}`}
+          className={`block text-2xl font-black transition ${isDark ? 'text-white hover:text-brand-light' : 'text-neutral-900 hover:text-brand'}`}
         >
-          <FaTelegramPlane className="h-6 w-6" aria-hidden />
-          <span className="font-black tracking-wider">{c.telegram}</span>
+          {contact.phone}
         </a>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a
+            href={TELEGRAM_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex w-full items-center justify-center gap-3 px-6 py-4 ${RADIUS_PILL} ${isDark ? 'bg-white text-neutral-900 hover:bg-brand-light' : 'bg-neutral-900 text-white hover:bg-neutral-800'}`}
+          >
+            <FaTelegramPlane className="h-6 w-6" aria-hidden />
+            <span className="font-black tracking-wider">{c.telegram}</span>
+          </a>
+          <a
+            href={UA_WHATSAPP_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`flex w-full items-center justify-center gap-3 px-6 py-4 ${RADIUS_PILL} ${isDark ? 'bg-white text-neutral-900 hover:bg-brand-light' : 'bg-neutral-900 text-white hover:bg-neutral-800'}`}
+          >
+            <FaWhatsapp className="h-6 w-6" aria-hidden />
+            <span className="font-black tracking-wider">{c.whatsapp}</span>
+          </a>
+        </div>
       </div>
     </div>
   );

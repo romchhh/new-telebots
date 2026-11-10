@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Breadcrumbs from '@/components/Breadcrumbs';
 import StructuredData from '@/components/StructuredData';
 import { translations, type Language } from '@/components/translations';
-import { legal } from '@/lib/legal';
+import { getLegalContact, legal } from '@/lib/legal';
 import {
   legalPagesCopy,
   LEGAL_DOC_PATH,
@@ -28,6 +28,7 @@ export default function LegalDocumentPage({
   lang: Language;
 }) {
   const t = translations[lang];
+  const contact = getLegalContact(lang);
   const copy = legalPagesCopy[lang][doc];
   const path = LEGAL_DOC_PATH[doc];
   const title =
@@ -113,8 +114,8 @@ export default function LegalDocumentPage({
                   </li>
                   <li>
                     {t.footer.phone}:{' '}
-                    <a href={`tel:${legal.phoneRaw}`} className="text-black underline-offset-2 hover:underline">
-                      {legal.phone}
+                    <a href={`tel:${contact.phoneRaw}`} className="text-black underline-offset-2 hover:underline">
+                      {contact.phone}
                     </a>
                   </li>
                   <li>

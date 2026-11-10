@@ -2299,7 +2299,7 @@ export const translations = {
       recipientLabel: 'Odbiorca',
       legalBlockTitle: 'Dane kontaktowe wykonawcy',
       companyName: 'FOP Fedoniuk Roman Ihorowycz',
-      legalAddress: 'Kijów, Ukraina',
+      legalAddress: 'Warszawa, Polska',
       backHome: 'Powrót do strony głównej',
       notFound: 'STRONA NIE ZNALEZIONA',
       notFoundDesc: 'Wygląda na to, że strona, której szukasz, nie istnieje lub została przeniesiona.'
@@ -2333,7 +2333,7 @@ export const translations = {
       attachNote: 'plik trafi na Telegram wraz ze zgłoszeniem',
       consentBefore: 'Klikając «Omów projekt», wyrażasz zgodę na przetwarzanie danych.',
       consentLink: 'Więcej',
-      locationLabel: 'Kijów',
+      locationLabel: 'Warszawa',
       phoneFree: 'Według taryfy operatora',
       writeUs: '@telebotsnowayrm',
       writeUsSub: 'Szczegóły na Telegramie',
