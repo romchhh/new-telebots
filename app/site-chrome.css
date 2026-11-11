@@ -1605,7 +1605,7 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
 .header-veil {
   z-index: 39;
   pointer-events: none;
-  height: clamp(96px, 8.333vw, 160px);
+  height: clamp(88px, 7.5vw, 140px);
   opacity: calc(1 - var(--finale-p, 0));
   position: fixed;
   top: 0;
@@ -1613,58 +1613,30 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
   right: 0
 }
 
+/* Single blur layer — multi-layer backdrop-filter was a major GPU cost */
 .header-veil span {
+  --veil-blur: 12px;
   -webkit-backdrop-filter: blur(var(--veil-blur));
   backdrop-filter: blur(var(--veil-blur));
-  -webkit-mask-image: linear-gradient(to bottom, #000 var(--veil-solid), transparent var(--veil-fade));
-  mask-image: linear-gradient(to bottom, #000 var(--veil-solid), transparent var(--veil-fade));
+  -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 35%, transparent 100%);
   position: absolute;
   inset: 0
 }
 
 @supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))) {
   .header-veil span {
-    -webkit-backdrop-filter: blur(var(--veil-blur))
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .55), transparent)
   }
-}
-
-.header-veil span:first-child {
-  --veil-blur: 2px;
-  --veil-solid: 45%;
-  --veil-fade: 100%
-}
-
-.header-veil span:nth-child(2) {
-  --veil-blur: 6px;
-  --veil-solid: 28%;
-  --veil-fade: 78%
-}
-
-.header-veil span:nth-child(3) {
-  --veil-blur: 14px;
-  --veil-solid: 14%;
-  --veil-fade: 52%
-}
-
-.header-veil span:nth-child(4) {
-  --veil-blur: 28px;
-  --veil-solid: 0%;
-  --veil-fade: 30%
 }
 
 @media (max-width:768px) {
   .header-veil {
-    height: 88px
+    height: 80px
   }
 
-  .header-veil span:nth-child(n+2) {
-    display: none
-  }
-
-  .header-veil span:first-child {
-    --veil-blur: 10px;
-    --veil-solid: 35%;
-    --veil-fade: 100%
+  .header-veil span {
+    --veil-blur: 10px
   }
 }
 

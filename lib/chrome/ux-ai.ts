@@ -1,6 +1,6 @@
 /** Scroll-driven UX+AI drum — ported from site/app. */
 
-const TUNE = { radius: 0.6, blur: 3, fade: 0.85, cardsStart: 0.18 };
+const TUNE = { radius: 0.6, fade: 0.85, cardsStart: 0.18 };
 
 const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
 const range = (v: number, a: number, b: number) => clamp01((v - a) / (b - a));
@@ -27,7 +27,6 @@ export function initUxAi(): () => void {
 
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return () => {};
 
-  const touchUi = matchMedia('(hover: none)').matches;
   const geo = { lx: 0, ly: 0, rx: 0, ry: 0, h: 1000, step: 356 };
   let raf = 0;
 
@@ -100,13 +99,8 @@ export function initUxAi(): () => void {
       const norm = clamp01(Math.abs(angle) / 1.05);
       const opacity = (1 - TUNE.fade * norm ** 2) * (1 - smooth(range(norm, 0.7, 1)));
       card.style.opacity = String(opacity);
-
-      if (touchUi) {
-        card.style.filter = 'none';
-      } else {
-        const blur = Math.round(TUNE.blur * norm ** 1.6 * 2) / 2;
-        card.style.filter = blur < 0.5 ? 'none' : `blur(${blur}px)`;
-      }
+      // No per-frame filter:blur — opacity + transform are enough and far cheaper.
+      if (card.style.filter) card.style.filter = 'none';
     });
   };
 

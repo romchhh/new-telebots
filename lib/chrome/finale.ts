@@ -182,28 +182,27 @@ export function initFinale(): () => void {
     }
 
     const raw = Math.min(1, progressScroll / travel);
-    // Slightly softer ease than classic smoothstep — less “snap” near ends.
+    // Soft ease without 3D perspective/rotateX (cheaper compositing).
     const eased = reduceMotion() ? 0 : raw * raw * (2 - raw);
-    const mobile = vw < 768;
     const y = -Math.min(progressScroll, travel);
 
-    const transform = mobile
-      ? `translate3d(0, ${y}px, 0) scale(${1 - 0.08 * eased})`
-      : `translate3d(0, ${y}px, 0) perspective(1600px) rotateX(${-8 * eased}deg) scale(${1 - 0.07 * eased})`;
+    const transform = `translate3d(0, ${y}px, 0) scale(${1 - 0.06 * eased})`;
     if (cache.transform !== transform) {
       cache.transform = transform;
       content.style.transform = transform;
     }
 
-    const radius = 4 * Math.round((40 * eased) / 4);
+    const radius = 4 * Math.round((32 * eased) / 4);
     if (cache.radius !== radius) {
       cache.radius = radius;
       content.style.borderRadius = `0 0 ${radius}px ${radius}px`;
     }
 
-    const shadowA = (0.16 + eased * 0.36).toFixed(3);
-    const shadowB = (0.08 + eased * 0.26).toFixed(3);
-    const shadow = `0 40px 100px rgba(0,0,0,${shadowA}), 0 12px 36px rgba(0,0,0,${shadowB})`;
+    // Quantize shadow alpha so we don't rewrite boxShadow every frame.
+    const shadowStep = Math.round(eased * 8) / 8;
+    const shadowA = (0.14 + shadowStep * 0.28).toFixed(3);
+    const shadowB = (0.07 + shadowStep * 0.2).toFixed(3);
+    const shadow = `0 28px 72px rgba(0,0,0,${shadowA}), 0 8px 24px rgba(0,0,0,${shadowB})`;
     if (cache.shadow !== shadow) {
       cache.shadow = shadow;
       content.style.boxShadow = shadow;

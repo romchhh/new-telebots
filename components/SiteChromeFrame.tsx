@@ -35,9 +35,6 @@ export default function SiteChromeFrame({
       <div aria-hidden="true" className="navigation-stage" />
       <div aria-hidden="true" className="header-veil">
         <span />
-        <span />
-        <span />
-        <span />
       </div>
       {navigation}
       <SiteChromeBoot />
