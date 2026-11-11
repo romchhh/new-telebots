@@ -55,9 +55,14 @@ export default function HeroSectionOverlay({ hero, orderLabel }: HeroSectionOver
           </div>
         </div>
 
-        <div className="flex min-h-0 shrink-0 flex-col gap-2 sm:gap-5 md:flex-row md:items-end md:justify-end md:gap-8 md:pr-40 lg:gap-10 lg:pr-0">
-          <div className="hero-cta-slot mx-auto w-full md:mx-0 md:ml-auto md:w-auto">
-            <HeroOrderCta label={orderLabel} />
+        <div className="flex min-h-0 w-full min-w-0 shrink-0 flex-col gap-2 sm:gap-5 md:flex-row md:items-end md:justify-end md:gap-8 md:pr-40 lg:gap-10 lg:pr-0">
+          <div className="hero-cta-slot mx-auto md:mx-0 md:ml-auto">
+            <HeroOrderCta
+              label={orderLabel}
+              labelMobile={hero.ctaLabelShort}
+              eyebrow={hero.ctaQuestion}
+              eyebrowMobile={hero.ctaQuestionShort}
+            />
           </div>
         </div>
       </div>

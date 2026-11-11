@@ -278,8 +278,10 @@
   position: relative;
   z-index: 30;
   pointer-events: auto;
-  flex-shrink: 0;
-  max-width: min(100%, 28rem)
+  min-width: 0;
+  width: 100%;
+  max-width: min(100%, 28rem);
+  flex-shrink: 1
 }
 
 .living-button--hero .button-label {
@@ -1425,7 +1427,10 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
     text-align: center;
     align-items: center;
     gap: 48px;
-    padding: 80px 24px 120px
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: clip;
+    padding: 80px 20px 120px
   }
 
   .finale-bottom,
@@ -1437,17 +1442,23 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
     flex: none;
     order: 1;
     align-self: stretch;
+    max-width: 100%;
+    min-width: 0;
     gap: 16px;
     padding-block: 0
   }
 
   .finale-newsletter {
     order: 2;
-    align-self: stretch
+    align-self: stretch;
+    max-width: 100%;
+    min-width: 0
   }
 
   .finale-nav {
-    order: 3
+    order: 3;
+    max-width: 100%;
+    min-width: 0
   }
 
   .finale-socials {
@@ -1459,31 +1470,59 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
   }
 
   .finale-legal {
-    order: 6
+    order: 6;
+    max-width: 100%;
+    min-width: 0
   }
 
   .finale-heading {
-    font-size: 16px
+    font-size: 16px;
+    max-width: 100%;
+    padding-inline: 4px
   }
 
   .finale-email {
-    font-size: clamp(40px, 12vw, 56px)
+    font-size: clamp(1.25rem, 8.4vw, 2.25rem);
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.05
+  }
+
+  .finale-actions {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0
   }
 
   .finale-actions .footer-cta-dock {
-    width: min(290px, 100vw - 48px);
+    width: min(290px, 100%);
+    max-width: 100%;
     height: 90px
+  }
+
+  .finale-actions .button-label {
+    font-size: clamp(1rem, 4.8vw, 1.375rem);
+    padding-inline: 12px;
+    white-space: normal;
+    text-wrap: balance;
+    text-align: center
   }
 
   .newsletter {
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    width: 100%
+    width: 100%;
+    max-width: 100%;
+    min-width: 0
   }
 
   .newsletter-field {
-    width: 100%
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 8px 8px 8px 16px
   }
 
   .newsletter-status {
@@ -1504,20 +1543,23 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
   }
 
   .finale-nav ul {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: clamp(8px, 4.103vw, 16px);
+    row-gap: 10px;
+    column-gap: clamp(10px, 3.5vw, 16px);
+    max-width: 100%;
     display: flex
   }
 
   .finale-nav a {
-    font-size: clamp(16px, 5.128vw, 24px)
+    font-size: clamp(0.9375rem, 4.2vw, 1.25rem)
   }
 
   .finale-socials {
-    flex-flow: row;
+    flex-flow: row wrap;
     justify-content: center;
-    gap: 32px
+    gap: clamp(16px, 5vw, 28px);
+    max-width: 100%
   }
 
   .finale-social-label {
@@ -1531,8 +1573,8 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
 
   .finale-socials .social-icon {
     opacity: 1;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     margin-left: 0;
     transition: none;
     transform: none
@@ -1541,7 +1583,7 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
   .finale-credit {
     text-align: center;
     justify-self: center;
-    max-width: none;
+    max-width: 100%;
     flex-direction: column;
     gap: 16px
   }
@@ -1549,7 +1591,14 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
   .finale-legal {
     justify-self: center;
     text-align: center;
-    align-items: center
+    align-items: center;
+    padding-inline: 4px
+  }
+
+  .finale-legal a,
+  .finale-legal p {
+    max-width: 100%;
+    overflow-wrap: anywhere
   }
 }
 

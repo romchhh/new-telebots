@@ -33,10 +33,10 @@ const SIZE_STYLES: Record<
   { root: string; eyebrow: string; label: string; discSize: 'hero' | 'md' | 'sm' }
 > = {
   hero: {
-    root: `min-w-0 max-w-full ${RADIUS_PILL} pl-5 pr-1.5 py-3 sm:pl-6 sm:pr-2 sm:py-2.5 md:min-w-[min(100%,22rem)] md:max-w-[26rem] md:pl-8 md:pr-3 md:py-3.5 lg:min-w-[24rem] lg:max-w-[28rem] lg:pl-9 lg:py-4`,
+    root: `box-border w-full min-w-0 max-w-full ${RADIUS_PILL} pl-5 pr-1.5 py-3 sm:pl-6 sm:pr-2 sm:py-2.5 md:max-w-[min(100%,26rem)] md:pl-8 md:pr-3 md:py-3.5 lg:max-w-[min(100%,28rem)] lg:pl-9 lg:py-4`,
     eyebrow: 'text-sm leading-tight text-black sm:text-sm md:text-base lg:text-lg',
     label:
-      'text-[clamp(0.875rem,3.6vw,1.0625rem)] font-bold leading-[1.15] sm:text-xl sm:leading-tight md:text-2xl lg:text-3xl xl:text-[2rem]',
+      'text-[clamp(0.8125rem,3.4vw,1.0625rem)] font-bold leading-[1.15] sm:text-xl sm:leading-tight md:text-2xl lg:text-[clamp(1.5rem,2.2vw,1.875rem)] xl:text-[2rem]',
     discSize: 'hero',
   },
   md: {

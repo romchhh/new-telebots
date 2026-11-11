@@ -31,7 +31,7 @@ export default function HeroOrderCta({
       eyebrowMobile={eyebrowMobile}
       elevated
       onClick={() => openModal()}
-      className={`w-full shadow-lg shadow-black/25 ${className ?? ''}`.trim()}
+      className={`w-full max-w-full shadow-lg shadow-black/25 ${className ?? ''}`.trim()}
     />
   );
 }

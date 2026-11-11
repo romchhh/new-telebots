@@ -99,15 +99,15 @@ export default function ServiceHeroSection({
           </div>
         </div>
 
-        <div className="flex min-h-0 shrink-0 flex-col gap-2 sm:gap-5 md:flex-row md:items-end md:justify-end md:gap-8 lg:gap-10">
-          <div className="min-w-0 w-full shrink-0 sm:mb-0 md:w-auto md:ml-auto">
+        <div className="flex min-h-0 w-full min-w-0 shrink-0 flex-col gap-2 sm:gap-5 md:flex-row md:items-end md:justify-end md:gap-8 md:pr-40 lg:gap-10 lg:pr-0">
+          <div className="min-w-0 w-full max-w-[min(100%,28rem)] shrink md:ml-auto">
             <OrderCtaPill
               size="hero"
               eyebrow={hero.ctaQuestion}
               eyebrowMobile={hero.ctaQuestionShort}
               label={orderButtonLabel}
               onClick={openModal}
-              className="w-full max-w-full md:w-auto"
+              className="w-full max-w-full"
             />
           </div>
         </div>
