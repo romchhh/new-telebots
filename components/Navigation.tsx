@@ -1,21 +1,20 @@
 'use client';
 
-import { useState, useEffect, type CSSProperties } from 'react';
+import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { X, ArrowUpRight } from 'lucide-react';
+import { X } from 'lucide-react';
 import LanguageSelector from './LanguageSelector';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { Language } from './translations';
-import { SITE_PX, SITE_INSET_L } from '@/lib/siteLayout';
+import { SITE_INSET_L } from '@/lib/siteLayout';
 import { BLOG_PATH } from '@/lib/site';
+import { closeSiteMenu } from '@/lib/chrome';
 
 interface NavigationProps {
   isScrolled: boolean;
-  /** Завжди непрозорий хедер (блог, білі сторінки) */
   solidHeader?: boolean;
-  /** Прозорий хедер з темним текстом (білий hero до скролу) */
   transparentOnLight?: boolean;
   lang: Language;
   setLang: (lang: Language) => void;
@@ -27,36 +26,54 @@ interface NavigationProps {
 let consultWidgetShownInRuntime = false;
 let consultWidgetDismissedInRuntime = false;
 
-const headerLogoStyle: CSSProperties = {
-  fontSize: 20,
-  fontWeight: 900,
-  fontFamily: "'Arial Black', sans-serif",
-  letterSpacing: '-0.5px',
-  lineHeight: 1,
-};
+function homeLabel(lang: Language) {
+  if (lang === 'en') return 'Home';
+  if (lang === 'pl') return 'Start';
+  if (lang === 'ru') return 'Главная';
+  return 'Головна';
+}
 
-export default function Navigation({ isScrolled, solidHeader = false, transparentOnLight = false, lang, setLang, t, currentLang, onConsultClick }: NavigationProps) {
-  const headerSolid = solidHeader || isScrolled;
-  const headerDark = headerSolid || transparentOnLight;
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+export default function Navigation({
+  isScrolled,
+  solidHeader = false,
+  transparentOnLight = false,
+  lang,
+  setLang,
+  t,
+  currentLang,
+  onConsultClick,
+}: NavigationProps) {
+  const headerSolid = solidHeader || isScrolled || transparentOnLight;
   const [mounted, setMounted] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [showConsultWidget, setShowConsultWidget] = useState(false);
   const currentLanguage = currentLang || lang;
   const showLanguageSelector = currentLanguage !== 'ru';
   const pathname = usePathname();
   const hideConsultWidget = pathname?.includes('/contact');
 
-  const navLinkClass = headerDark
-    ? 'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-black transition-colors hover:text-brand lg:text-[13px]'
-    : 'inline-flex h-12 items-center text-xs font-semibold leading-none tracking-[0.2em] text-white transition-colors hover:text-brand-light lg:text-[13px]';
+  const nav = [
+    { href: `/${currentLanguage}`, label: homeLabel(currentLanguage), id: 'home' },
+    { href: `/${currentLanguage}/services`, label: t.nav.services, id: 'services' },
+    { href: `/${currentLanguage}/portfolio`, label: t.nav.portfolio, id: 'portfolio' },
+    { href: BLOG_PATH, label: t.nav.blog, id: 'blog' },
+    { href: `/${currentLanguage}/pricing`, label: t.nav.pricing, id: 'pricing' },
+    { href: `/${currentLanguage}/contact`, label: t.nav.contact, id: 'contact' },
+  ];
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
+    const shell = document.querySelector('.navigation-shell');
+    if (!shell) return;
+    const sync = () => setMenuOpen(shell.getAttribute('data-menu-phase') !== 'closed');
+    sync();
+    const mo = new MutationObserver(sync);
+    mo.observe(shell, { attributes: true, attributeFilter: ['data-menu-phase'] });
+    return () => mo.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!mounted || !onConsultClick || hideConsultWidget) return;
@@ -64,22 +81,18 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
       setShowConsultWidget(false);
       return;
     }
-
     if (consultWidgetShownInRuntime) {
       setShowConsultWidget(true);
       return;
     }
-
     const reveal = () => {
       if (consultWidgetDismissedInRuntime) return;
       consultWidgetShownInRuntime = true;
       setShowConsultWidget(true);
     };
-
     const onScroll = () => {
       if (window.scrollY > 420) reveal();
     };
-
     window.addEventListener('scroll', onScroll, { passive: true });
     const timer = window.setTimeout(reveal, 14000);
     return () => {
@@ -89,247 +102,131 @@ export default function Navigation({ isScrolled, solidHeader = false, transparen
   }, [mounted, onConsultClick, hideConsultWidget]);
 
   useEffect(() => {
-    if (!isMenuOpen && !showConsultWidget) return;
+    if (!showConsultWidget) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
-      if (isMenuOpen) setIsMenuOpen(false);
-      else if (showConsultWidget) {
-        setShowConsultWidget(false);
-        consultWidgetDismissedInRuntime = true;
-      }
+      const phase = document.querySelector('.navigation-shell')?.getAttribute('data-menu-phase');
+      if (phase && phase !== 'closed') return;
+      setShowConsultWidget(false);
+      consultWidgetDismissedInRuntime = true;
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [isMenuOpen, showConsultWidget]);
+  }, [showConsultWidget]);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.documentElement.style.overflow = '';
-      document.body.style.overflow = '';
-    };
-  }, [isMenuOpen]);
+  const menuLabelOpen =
+    currentLanguage === 'pl' || currentLanguage === 'en' ? 'Menu' : 'Меню';
+  const menuLabelClose =
+    currentLanguage === 'pl'
+      ? 'Zamknij'
+      : currentLanguage === 'en'
+        ? 'Close'
+        : currentLanguage === 'ru'
+          ? 'Закрыть'
+          : 'Закрити';
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        headerSolid
-          ? 'border-b border-black/5 bg-white/95 shadow-sm backdrop-blur-sm'
-          : 'border-b border-transparent bg-transparent'
-      }`}
-    >
-      <div className={`relative flex h-16 items-center justify-between lg:h-20 ${SITE_PX}`}>
-        <Link
-          href={`/${currentLanguage}`}
-          className="relative z-10 inline-flex h-12 flex-shrink-0 items-center transition-opacity hover:opacity-90"
-          aria-label="TeleBots"
-        >
-          <span style={{ ...headerLogoStyle, color: headerDark ? '#000' : '#fff' }}>telebots.</span>
-        </Link>
-
-        <div className="pointer-events-none absolute inset-x-0 hidden justify-center lg:flex">
-          <div className="pointer-events-auto flex items-center gap-7 xl:gap-9">
-            <Link href={`/${currentLanguage}/services`} className={navLinkClass}>
-              {t.nav.services}
-            </Link>
-            <Link href={`/${currentLanguage}/portfolio`} className={navLinkClass}>
-              {t.nav.portfolio}
-            </Link>
-            <Link href={BLOG_PATH} className={navLinkClass}>
-              {t.nav.blog}
-            </Link>
-            <Link href={`/${currentLanguage}/pricing`} className={navLinkClass}>
-              {t.nav.pricing}
-            </Link>
-            <Link href={`/${currentLanguage}/contact`} className={navLinkClass}>
-              {t.nav.contact}
+    <>
+      <div className="navigation-controls" data-header-solid={headerSolid ? 'true' : 'false'}>
+        <header className="site-header flex items-center justify-between">
+          <div className="header-location">
+            <Link
+              aria-label="TeleBots — home"
+              className="brand inline-flex items-center"
+              href={`/${currentLanguage}`}
+            >
+              <span>telebots.</span>
             </Link>
           </div>
-        </div>
-
-        <div className="relative z-10 hidden items-center gap-5 xl:gap-6 lg:flex">
-          {onConsultClick && (
-            <OrderCtaPill
-              size="sm"
-              variant="brand"
-              label={t.nav.consultation}
-              onClick={onConsultClick}
-              className="min-h-12 !py-1.5 !pl-5 !pr-1.5 shadow-none"
-            />
-          )}
-          {showLanguageSelector && (
-            <span
-              className={`inline-flex h-12 items-center border-l pl-5 xl:pl-6 ${
-                headerDark ? 'border-black/15' : 'border-white/25'
-              }`}
-            >
+          <div className="header-actions">
+            {showLanguageSelector ? (
               <LanguageSelector
                 lang={lang}
                 setLang={setLang}
-                isScrolled={headerDark}
+                isScrolled={headerSolid && !menuOpen}
                 currentLang={currentLanguage}
               />
-            </span>
-          )}
-        </div>
-
-        <button
-          onClick={() => {
-            setIsMenuOpen(!isMenuOpen);
-          }}
-          className={`relative z-50 inline-flex h-12 items-center justify-center px-1 font-mono text-xl font-bold tracking-wide transition lg:hidden ${
-            headerDark ? 'text-black hover:text-black/70' : 'text-white hover:text-white/80'
-          }`}
-          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-nav"
-        >
-          <span className="inline-flex items-center">
-            [{isMenuOpen ? 'close' : 'menu'}
-            <ArrowUpRight className="mx-0.5 h-5 w-5 shrink-0" strokeWidth={2.5} aria-hidden />
-            ]
-          </span>
-        </button>
-      </div>
-
-      {mounted && isMenuOpen && createPortal(
-        <div
-          id="mobile-nav"
-          className="fixed inset-0 z-[9999] bg-white lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Menu"
-          style={{ top: 0, left: 0, right: 0, bottom: 0 }}
-          onClick={() => setIsMenuOpen(false)}
-        >
-          <div
-            className={`relative z-[10000] flex h-16 items-center justify-between border-b border-black/5 ${SITE_PX}`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Link
-              href={`/${currentLanguage}`}
-              onClick={() => setIsMenuOpen(false)}
-              className="inline-flex h-12 flex-shrink-0 items-center transition-opacity hover:opacity-90"
-              aria-label="TeleBots"
-            >
-              <span style={{ ...headerLogoStyle, color: '#000' }}>telebots.</span>
-            </Link>
+            ) : null}
             <button
-              onClick={() => setIsMenuOpen(false)}
-              className="inline-flex h-12 items-center justify-center px-1 font-mono text-xl font-bold tracking-wide text-black transition hover:text-black/70"
-              aria-label="Close menu"
+              aria-controls="site-navigation"
+              aria-expanded="false"
+              aria-label={menuLabelOpen}
+              className="menu-toggle"
+              type="button"
             >
-              <span className="inline-flex items-center">
-                [close
-                <ArrowUpRight className="mx-0.5 h-5 w-5 shrink-0" strokeWidth={2.5} aria-hidden />
-                ]
+              <span aria-hidden="true" className="menu-toggle-label">
+                <span data-active="true">{menuLabelOpen}</span>
+                <span>{menuLabelClose}</span>
+              </span>
+              <span aria-hidden="true" className="menu-toggle-disc">
+                <span />
+                <span />
               </span>
             </button>
           </div>
-          <div
-            className={`flex h-[calc(100%-4rem)] w-full flex-col items-center justify-center space-y-6 pt-16 sm:pt-20 ${SITE_PX}`}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <Link
-              href={`/${currentLanguage}/services`}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
-            >
-              {t.nav.services}
-            </Link>
-            <Link
-              href={`/${currentLanguage}/portfolio`}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
-            >
-              {t.nav.portfolio}
-            </Link>
-            <Link
-              href={BLOG_PATH}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
-            >
-              {t.nav.blog}
-            </Link>
-            <Link
-              href={`/${currentLanguage}/pricing`}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
-            >
-              {t.nav.pricing}
-            </Link>
-            <Link
-              href={`/${currentLanguage}/contact`}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-semibold tracking-wider text-black transition hover:text-brand"
-            >
-              {t.nav.contact}
-            </Link>
-            {onConsultClick && (
-              <button
-                type="button"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  onConsultClick();
-                }}
-                className="mt-6 inline-flex items-center gap-3 rounded-full bg-brand px-7 py-3.5 text-sm font-bold uppercase tracking-[0.18em] text-neutral-900 transition hover:bg-brand-light"
-                style={{ fontFamily: 'var(--font-sans)' }}
-              >
-                {t.nav.consultation}
-                <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-white">
-                  <ArrowUpRight className="h-4 w-4" strokeWidth={2.25} aria-hidden />
-                </span>
-              </button>
-            )}
+        </header>
 
-            {showLanguageSelector && (
-              <div className="flex justify-center pt-6">
-                <LanguageSelector lang={lang} setLang={setLang} isMobile={true} isScrolled={true} currentLang={currentLanguage} />
-              </div>
-            )}
-          </div>
-        </div>,
-        document.body
-      )}
-
-      {mounted && showConsultWidget && !isMenuOpen && !hideConsultWidget && onConsultClick && createPortal(
-        <div className={`fixed bottom-4 z-[9998] pb-[env(safe-area-inset-bottom)] sm:bottom-6 ${SITE_INSET_L}`}>
-          <div className="relative w-[280px] sm:w-[300px] rounded-2xl border border-black/10 bg-white/95 backdrop-blur-sm shadow-[0_16px_40px_rgba(0,0,0,0.12)] p-5">
+        <nav
+          aria-label="Main navigation"
+          className="navigation-links"
+          hidden
+          id="site-navigation"
+        >
+          {nav.map((item, i) => (
+            <Link key={item.id} href={item.href} style={{ ['--menu-index' as string]: i }}>
+              {item.label}
+            </Link>
+          ))}
+          {onConsultClick ? (
             <button
               type="button"
+              style={{ ['--menu-index' as string]: nav.length }}
               onClick={() => {
-                setShowConsultWidget(false);
-                consultWidgetDismissedInRuntime = true;
-              }}
-              className="absolute right-2 top-2 h-7 w-7 inline-flex items-center justify-center text-gray-400 hover:text-black transition-colors"
-              aria-label="Close consultation widget"
-            >
-              <X className="w-4 h-4" />
-            </button>
-            <p className="text-base sm:text-lg font-normal text-black pr-7 leading-relaxed">
-              {t.nav.consultationWidgetPrompt}
-            </p>
-            <OrderCtaPill
-              size="sm"
-              variant="dark"
-              label={t.nav.consultationWidgetCta}
-              onClick={() => {
-                setShowConsultWidget(false);
-                consultWidgetDismissedInRuntime = true;
+                closeSiteMenu();
                 onConsultClick();
               }}
-              className="mt-4 w-full"
-            />
-          </div>
-        </div>,
-        document.body
-      )}
-    </nav>
+            >
+              {t.nav.consultation}
+            </button>
+          ) : null}
+        </nav>
+        <span className="sr-only" role="status" />
+      </div>
+
+      {mounted && showConsultWidget && !menuOpen && !hideConsultWidget && onConsultClick
+        ? createPortal(
+            <div className={`fixed bottom-4 z-[9998] pb-[env(safe-area-inset-bottom)] sm:bottom-6 ${SITE_INSET_L}`}>
+              <div className="relative w-[280px] rounded-2xl border border-black/10 bg-white/95 p-5 shadow-[0_16px_40px_rgba(0,0,0,0.12)] backdrop-blur-sm sm:w-[300px]">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setShowConsultWidget(false);
+                    consultWidgetDismissedInRuntime = true;
+                  }}
+                  className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center text-gray-400 transition-colors hover:text-black"
+                  aria-label="Close consultation widget"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+                <p className="pr-7 text-base font-normal leading-relaxed text-black sm:text-lg">
+                  {t.nav.consultationWidgetPrompt}
+                </p>
+                <OrderCtaPill
+                  size="sm"
+                  variant="dark"
+                  label={t.nav.consultationWidgetCta}
+                  onClick={() => {
+                    setShowConsultWidget(false);
+                    consultWidgetDismissedInRuntime = true;
+                    onConsultClick();
+                  }}
+                  className="mt-4 w-full"
+                />
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
+    </>
   );
 }

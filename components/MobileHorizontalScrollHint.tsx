@@ -9,7 +9,7 @@ import {
 import { ChevronLeft, ChevronRight, MoveHorizontal } from 'lucide-react';
 import type { Language } from '@/components/translations';
 import { SITE_PX } from '@/lib/siteLayout';
-import { RADIUS_PILL } from '@/lib/siteUi';
+import { BTN_NAV_CIRCLE } from '@/lib/siteUi';
 
 const SCROLL_HINT: Record<Language, string> = {
   uk: 'Гортайте вліво чи вправо, щоб побачити більше',
@@ -121,7 +121,7 @@ export default function MobileHorizontalScrollHint({
           style={{ fontFamily: 'var(--font-sans)' }}
         >
           <span
-            className={`flex h-8 w-8 shrink-0 items-center justify-center ${RADIUS_PILL} bg-[#f0e6ea] text-brand`}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f0e6ea] text-brand"
             aria-hidden
           >
             <MoveHorizontal className="h-4 w-4" strokeWidth={2.25} />
@@ -135,18 +135,18 @@ export default function MobileHorizontalScrollHint({
             aria-label={prevLabel}
             disabled={!state.canScrollLeft}
             onClick={onPrev}
-            className={`flex h-12 w-12 items-center justify-center ${RADIUS_PILL} border border-neutral-200 bg-white text-neutral-800 shadow-sm transition-colors hover:border-neutral-300 hover:bg-white disabled:cursor-default disabled:opacity-40 sm:h-14 sm:w-14`}
+            className={`${BTN_NAV_CIRCLE} shadow-sm disabled:cursor-default disabled:opacity-40 sm:h-14 sm:w-14`}
           >
-            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.25} aria-hidden />
+            <ChevronLeft className="cta-pill-arrow-icon h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.25} aria-hidden />
           </button>
           <button
             type="button"
             aria-label={nextLabel}
             disabled={!state.canScrollRight}
             onClick={onNext}
-            className={`flex h-12 w-12 items-center justify-center ${RADIUS_PILL} border border-neutral-200 bg-white text-neutral-800 shadow-sm transition-colors hover:border-neutral-300 hover:bg-white disabled:cursor-default disabled:opacity-40 sm:h-14 sm:w-14`}
+            className={`${BTN_NAV_CIRCLE} shadow-sm disabled:cursor-default disabled:opacity-40 sm:h-14 sm:w-14`}
           >
-            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.25} aria-hidden />
+            <ChevronRight className="cta-pill-arrow-icon h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.25} aria-hidden />
           </button>
         </div>
       </div>

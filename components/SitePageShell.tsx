@@ -4,6 +4,7 @@ import { useState, useEffect, lazy, Suspense, type ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SiteChromeFrame from '@/components/SiteChromeFrame';
 import { HomeModalProvider } from '@/components/HomeModalProvider';
 import type { Language, SiteCopy } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
@@ -115,52 +116,54 @@ export default function SitePageShell({
 
   return (
     <HomeModalProvider openModal={openModal}>
-      <div className="min-h-screen bg-white">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-black focus:px-4 focus:py-2 focus:text-white"
-        >
+      <SiteChromeFrame
+        footer={
+          <Footer
+            t={t}
+            lang={lang}
+            setLang={handleLangChange}
+            currentLang={lang}
+            onConsultClick={openModal}
+          />
+        }
+        navigation={
+          <Navigation
+            isScrolled={isScrolled}
+            solidHeader={solidHeader}
+            transparentOnLight={transparentOnLight}
+            lang={lang}
+            setLang={handleLangChange}
+            t={t}
+            currentLang={lang}
+            onConsultClick={openModal}
+          />
+        }
+      >
+        <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <Navigation
-          isScrolled={isScrolled}
-          solidHeader={solidHeader}
-          transparentOnLight={transparentOnLight}
-          lang={lang}
-          setLang={handleLangChange}
-          t={t}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
-        {children}
-        <Footer
-          t={t}
-          lang={lang}
-          setLang={handleLangChange}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
-        {isModalOpen ? (
-          <Suspense fallback={null}>
-            <OrderModal
-              isOpen={isModalOpen}
-              onClose={closeModal}
-              serviceName={modalServiceName || t.modal.title}
-              t={t}
-              onSubmit={handleSubmit}
-            />
-          </Suspense>
-        ) : null}
-        {isSuccessOpen ? (
-          <Suspense fallback={null}>
-            <SuccessMessage
-              isOpen={isSuccessOpen}
-              onClose={() => setIsSuccessOpen(false)}
-              message={successMessage}
-            />
-          </Suspense>
-        ) : null}
-      </div>
+        <div id="main-content">{children}</div>
+      </SiteChromeFrame>
+      {isModalOpen ? (
+        <Suspense fallback={null}>
+          <OrderModal
+            isOpen={isModalOpen}
+            onClose={closeModal}
+            serviceName={modalServiceName || t.modal.title}
+            t={t}
+            onSubmit={handleSubmit}
+          />
+        </Suspense>
+      ) : null}
+      {isSuccessOpen ? (
+        <Suspense fallback={null}>
+          <SuccessMessage
+            isOpen={isSuccessOpen}
+            onClose={() => setIsSuccessOpen(false)}
+            message={successMessage}
+          />
+        </Suspense>
+      ) : null}
     </HomeModalProvider>
   );
 }

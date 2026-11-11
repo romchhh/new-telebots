@@ -17,21 +17,25 @@ export const CTA_ARROW_CIRCLE = {
   hero: 'h-12 w-12 shrink-0 sm:h-12 sm:w-12 md:h-14 md:w-14 lg:h-16 lg:w-16 xl:h-[4.25rem] xl:w-[4.25rem]',
   md: 'h-11 w-11 sm:h-12 sm:w-12 md:h-14 md:w-14',
   sm: 'h-10 w-10 sm:h-11 sm:w-11',
+  xs: 'h-7 w-7 sm:h-8 sm:w-8',
 } as const;
 
 export const CTA_ARROW_ICON = {
   hero: 'h-[1.125rem] w-[1.125rem] sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7',
   md: 'h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6',
   sm: 'h-4 w-4 sm:h-5 sm:w-5',
+  xs: 'h-3.5 w-3.5 sm:h-4 sm:w-4',
 } as const;
 
+const ARROW_DISC = 'cta-pill-arrow-disc';
+
 /** Prev/next у горизонтальних каруселях */
-export const BTN_NAV_CIRCLE = `${RADIUS_PILL} inline-flex h-12 w-12 items-center justify-center border border-neutral-200 bg-white text-neutral-800 transition hover:border-neutral-300 hover:bg-neutral-50`;
+export const BTN_NAV_CIRCLE = `${ARROW_DISC} cta-pill-arrow-disc--light ${RADIUS_PILL} inline-flex h-12 w-12 items-center justify-center border border-neutral-200 bg-white text-neutral-800 transition hover:border-neutral-300 hover:bg-neutral-50`;
 
 /** Окремий круг-CTA (картки, «переглянути все») */
-export const BTN_ARROW_CIRCLE = `${RADIUS_PILL} inline-flex h-11 w-11 items-center justify-center bg-neutral-900 text-white transition-transform group-hover:scale-105 sm:h-12 sm:w-12`;
+export const BTN_ARROW_CIRCLE = `${ARROW_DISC} cta-pill-arrow-disc--dark ${RADIUS_PILL} inline-flex h-11 w-11 items-center justify-center bg-neutral-900 text-white transition-transform group-hover:scale-105 sm:h-12 sm:w-12`;
 
-export const BTN_ARROW_CIRCLE_OUTLINE = `${RADIUS_PILL} inline-flex h-11 w-11 items-center justify-center border border-neutral-300 bg-white transition group-hover:border-neutral-400 group-hover:bg-neutral-50 sm:h-12 sm:w-12`;
+export const BTN_ARROW_CIRCLE_OUTLINE = `${ARROW_DISC} cta-pill-arrow-disc--muted ${RADIUS_PILL} inline-flex h-11 w-11 items-center justify-center border border-neutral-300 bg-white transition group-hover:border-neutral-400 group-hover:bg-neutral-50 sm:h-12 sm:w-12`;
 
 export const ICON_ARROW_IN_CIRCLE = 'h-4 w-4 sm:h-5 sm:w-5';
 export const ICON_ARROW_NAV = 'h-4 w-4';

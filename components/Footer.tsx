@@ -1,15 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import type { CSSProperties } from 'react';
-import { Instagram, Send } from 'lucide-react';
-import OrderCtaPill from '@/components/OrderCtaPill';
+import type { CSSProperties, FormEvent } from 'react';
 import { Language } from './translations';
-import { getLegalContact, legal } from '@/lib/legal';
-import { SITE_PX } from '@/lib/siteLayout';
+import { legal } from '@/lib/legal';
 import { BLOG_PATH } from '@/lib/site';
-import { offerPageCopy } from '@/lib/offerPageCopy';
-import { partnershipPageCopy } from '@/lib/partnershipPageCopy';
+import { sendToTelegram } from '@/lib/telegram';
 
 interface FooterProps {
   t: typeof import('./translations').translations.uk;
@@ -19,292 +15,266 @@ interface FooterProps {
   onConsultClick?: () => void;
 }
 
-const footerLogoStyle: CSSProperties = {
-  fontSize: 20,
-  fontWeight: 900,
-  fontFamily: "'Arial Black', sans-serif",
-  letterSpacing: '-0.5px',
-  lineHeight: 1,
-  color: '#000',
-};
+const SOCIALS = [
+  { label: 'Telegram', href: 'https://t.me/telebotsnowayrm', icon: 'telegram' },
+  { label: 'WhatsApp', href: 'https://wa.me/380960908006', icon: 'whatsapp' },
+  { label: 'Instagram', href: 'https://www.instagram.com/telebotsnowayrm/', icon: 'instagram' },
+  { label: 'Channel', href: 'https://t.me/TeleBotsNowayrmChannel', icon: 'telegram' },
+] as const;
 
-export default function Footer({ t, lang, setLang, currentLang, onConsultClick }: FooterProps) {
+function copy(lang: Language) {
+  if (lang === 'en') {
+    return {
+      home: 'Home',
+      heading: 'Need a site or bot for your process?',
+      discuss: 'Discuss a project',
+      subscribe: 'Subscribe',
+      subscribeTo: 'to the design journal',
+      emailPh: 'Your email',
+      privacy: 'Privacy policy',
+      credit: 'Design & web by TeleBots',
+      navAria: 'Site sections',
+      socialAria: 'Social media and messengers',
+    };
+  }
+  if (lang === 'pl') {
+    return {
+      home: 'Start',
+      heading: 'Potrzebujesz strony lub bota pod swój proces?',
+      discuss: 'Omówmy projekt',
+      subscribe: 'Zapisz się',
+      subscribeTo: 'do dziennika designu',
+      emailPh: 'Twój email',
+      privacy: 'Polityka prywatności',
+      credit: 'Design i web — TeleBots',
+      navAria: 'Sekcje strony',
+      socialAria: 'Social media i messengery',
+    };
+  }
+  if (lang === 'ru') {
+    return {
+      home: 'Главная',
+      heading: 'Нужен сайт или бот под ваш процесс?',
+      discuss: 'Обсудить проект',
+      subscribe: 'Подписаться',
+      subscribeTo: 'на дизайн-журнал',
+      emailPh: 'Ваш email',
+      privacy: 'Политика конфиденциальности',
+      credit: 'Дизайн и разработка — TeleBots',
+      navAria: 'Разделы сайта',
+      socialAria: 'Соцсети и мессенджеры',
+    };
+  }
+  return {
+    home: 'Головна',
+    heading: 'Потрібен сайт або бот під ваш процес?',
+    discuss: 'Обговорити проєкт',
+    subscribe: 'Підписатись',
+    subscribeTo: 'на дизайн-журнал',
+    emailPh: 'Ваш email',
+    privacy: 'Політика конфіденційності',
+    credit: 'Дизайн і розробка — TeleBots',
+    navAria: 'Розділи сайту',
+    socialAria: 'Соцмережі та месенджери',
+  };
+}
+
+export default function Footer({ t, lang, currentLang, onConsultClick }: FooterProps) {
   const currentLanguage = currentLang || lang;
-  const contact = getLegalContact(currentLanguage);
+  const c = copy(currentLanguage);
+
+  const nav = [
+    { href: `/${currentLanguage}`, label: c.home },
+    { href: `/${currentLanguage}/services`, label: t.nav.services },
+    { href: `/${currentLanguage}/portfolio`, label: t.nav.portfolio },
+    { href: BLOG_PATH, label: t.nav.blog },
+    { href: `/${currentLanguage}/contact`, label: t.nav.contact },
+  ];
+
+  const onNewsletter = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    if (String(data.get('website') || '').trim()) return;
+    const email = String(data.get('email') || '').trim();
+    if (!email) return;
+    const status = form.querySelector('#newsletter-status') as HTMLElement | null;
+    if (status) {
+      status.dataset.status = 'loading';
+      status.textContent = '';
+    }
+    const ok = await sendToTelegram({
+      name: 'Newsletter',
+      phone: '—',
+      request: email,
+      service: 'Newsletter subscribe',
+    });
+    if (status) {
+      status.dataset.status = ok ? 'success' : 'error';
+      status.textContent = ok
+        ? currentLanguage === 'en'
+          ? 'Subscribed'
+          : currentLanguage === 'pl'
+            ? 'Zapisano'
+            : currentLanguage === 'ru'
+              ? 'Подписка оформлена'
+              : 'Підписано'
+        : currentLanguage === 'en'
+          ? 'Try again later'
+          : currentLanguage === 'pl'
+            ? 'Spróbuj później'
+            : currentLanguage === 'ru'
+              ? 'Попробуйте позже'
+              : 'Спробуйте пізніше';
+    }
+    if (ok) form.reset();
+  };
+
   return (
-    <footer id="contact" className="border-t border-black/10 bg-white text-black">
-      <div className={`${SITE_PX} py-10 md:py-14`}>
-        <div className="mb-8 grid gap-8 md:mb-12 md:grid-cols-3 md:gap-10">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <Link
-              href={`/${currentLanguage}`}
-              className="mb-5 inline-flex items-center transition-opacity hover:opacity-90"
-              aria-label="TeleBots"
-            >
-              <span style={footerLogoStyle}>telebots.</span>
-            </Link>
-            <p className="max-w-sm text-[15px] font-normal leading-[1.65] text-gray-600 md:text-[16px] lg:text-[17px]">
-              {t.footer.description}
-            </p>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h2 className="mb-4 text-sm font-black tracking-wider text-black md:mb-6">
-              {t.footer.quickLinks}
-            </h2>
-            <nav aria-label="Footer navigation">
-              <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-2 md:flex md:flex-col md:items-start md:gap-0 md:space-y-3">
-                <li>
-                  <Link href={`/${currentLanguage}/about`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.footer.about} - TeleBots`}>
-                    {t.footer.about}
-                  </Link>
+    <footer aria-labelledby="finale-heading" className="site-finale" id="site-footer">
+      <div className="finale-inner">
+        <div className="finale-top" style={{ ['--reveal' as string]: 4 }}>
+          <nav aria-label={c.navAria} className="finale-nav finale-reveal">
+            <ul>
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
                 </li>
-                <li>
-                  <Link href={`/${currentLanguage}/services`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.services} - TeleBots`}>
-                    {t.nav.services}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/services/websites`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {t.services.websitesPage.title}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/website-development-price`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'Website development price'
-                      : currentLanguage === 'pl'
-                        ? 'Cena strony www'
-                        : currentLanguage === 'ru'
-                          ? 'Разработка сайта цена'
-                          : 'Розробка сайту ціна'}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/landing-page-price`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'Landing page cost'
-                      : currentLanguage === 'pl'
-                        ? 'Koszt landing page'
-                        : currentLanguage === 'ru'
-                          ? 'Сколько стоит лендинг'
-                          : 'Скільки коштує лендинг'}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/online-store-price`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'Online store price'
-                      : currentLanguage === 'pl'
-                        ? 'Cena sklepu online'
-                        : currentLanguage === 'ru'
-                          ? 'Цена интернет-магазина'
-                          : 'Ціна інтернет-магазину'}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {t.services.chatbotsPage.title}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/services/design`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {t.services.designPage.title}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/services/apps`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {t.services.appsPage.title}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/chatbots-buy`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'Buy chatbots'
-                      : currentLanguage === 'pl'
-                        ? 'Kup chatboty'
-                        : currentLanguage === 'ru'
-                          ? 'Чат-боты купить'
-                          : 'Чат-боти купити'}
-                  </Link>
-                </li>
-                {currentLanguage !== 'pl' ? (
-                  <li>
-                    <Link href={`/${currentLanguage}/solutions/telegram-bots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                      {currentLanguage === 'en'
-                        ? 'Telegram bots'
-                        : currentLanguage === 'ru'
-                          ? 'Telegram-боты'
-                          : 'Telegram-боти'}
-                    </Link>
-                  </li>
-                ) : (
-                  <li>
-                    <Link href={`/${currentLanguage}/services/chatbots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                      Chatboty
-                    </Link>
-                  </li>
-                )}
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/landing-pages`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'Landing pages'
-                      : currentLanguage === 'pl'
-                        ? 'Landing pages'
-                        : currentLanguage === 'ru'
-                          ? 'Лендинги'
-                          : 'Лендінги'}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/online-stores`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'Online stores'
-                      : currentLanguage === 'pl'
-                        ? 'Sklepy online'
-                        : currentLanguage === 'ru'
-                          ? 'Интернет-магазины'
-                          : 'Інтернет-магазини'}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/ai-chatbots`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'AI chatbots'
-                      : currentLanguage === 'pl'
-                        ? 'Chatboty AI'
-                        : currentLanguage === 'ru'
-                          ? 'AI чат-боты'
-                          : 'AI чат-боти'}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/solutions/data-parsers`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {currentLanguage === 'en'
-                      ? 'Data parsers'
-                      : currentLanguage === 'pl'
-                        ? 'Parsery danych'
-                        : currentLanguage === 'ru'
-                          ? 'Парсеры данных'
-                          : 'Парсери даних'}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/offer`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {offerPageCopy[currentLanguage].navLabel}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/partnership`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap">
-                    {partnershipPageCopy[currentLanguage].navLabel}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/portfolio`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.portfolio} - TeleBots`}>
-                    {t.nav.portfolio}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={BLOG_PATH} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.blog} - TeleBots`}>
-                    {t.nav.blog}
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/${currentLanguage}/contact`} className="text-gray-600 hover:text-brand transition text-sm font-semibold whitespace-nowrap" aria-label={`${t.nav.contact} - TeleBots`}>
-                    {t.nav.contact}
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          {/* Contact / Legal */}
-          <div>
-            <h2 className="mb-4 text-sm font-black tracking-wider text-black md:mb-6">
-              {t.footer.contact}
-            </h2>
-            <ul className="mb-6 space-y-3">
-              <li className="text-gray-600 text-sm font-semibold">
-                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.legalBlockTitle}</span>
-                <span className="block text-xs font-normal text-gray-500 mt-2 mb-0.5">{t.footer.recipientLabel}</span>
-                <span className="text-black">{t.footer.companyName}</span>
-                <span className="block text-gray-600 mt-1 break-all">{t.footer.footerIban}: {legal.iban}</span>
-                <span className="block text-gray-600 mt-1">{t.footer.footerEdrpou}: {legal.edrpou}</span>
-              </li>
-              <li className="text-gray-600 text-sm font-semibold">
-                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.address}</span>
-                <span className="text-black">{t.footer.legalAddress}</span>
-              </li>
-              <li className="text-gray-600 text-sm font-semibold">
-                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.phone}</span>
-                <a href={`tel:${contact.phoneRaw}`} className="hover:text-brand transition" aria-label={`Phone - ${contact.phone}`}>
-                  {contact.phone}
-                </a>
-              </li>
-              <li className="text-gray-600 text-sm font-semibold">
-                <span className="block text-xs font-normal text-gray-500 mb-1">{t.footer.email}</span>
-                <a href={`mailto:${legal.email}`} className="hover:text-brand transition break-all" aria-label={`Email - ${legal.email}`}>
-                  {legal.email}
-                </a>
-              </li>
+              ))}
             </ul>
-            <div className="flex gap-4 pt-2 md:pt-4">
-              <a
-                href="https://www.instagram.com/telebotsnowayrm/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 transition-colors duration-300 hover:text-brand"
-                aria-label="Instagram - TeleBots"
-                title="Instagram"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a
-                href="https://t.me/TeleBotsNowayrmChannel"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 transition-colors duration-300 hover:text-brand"
-                aria-label="Telegram - TeleBots"
-                title="Telegram"
-              >
-                <Send className="h-5 w-5" />
-              </a>
-            </div>
-            {onConsultClick && (
-              <div className="mt-6 w-full max-w-sm md:mt-8">
-                <OrderCtaPill
-                  size="sm"
-                  variant="brand"
-                  label={t.nav.consultation}
-                  onClick={onConsultClick}
-                  className="w-full"
+          </nav>
+          <div className="finale-reveal finale-newsletter">
+            <form aria-busy="false" className="newsletter" onSubmit={onNewsletter}>
+              <label className="newsletter-label" htmlFor="newsletter-email">
+                {c.subscribe}
+                <br />
+                {c.subscribeTo}
+              </label>
+              <div className="newsletter-field">
+                <input
+                  aria-describedby="newsletter-status"
+                  autoComplete="email"
+                  id="newsletter-email"
+                  inputMode="email"
+                  maxLength={120}
+                  name="email"
+                  placeholder={c.emailPh}
+                  required
+                  type="email"
+                  defaultValue=""
                 />
+                <button aria-label={c.subscribe} type="submit">
+                  <svg
+                    aria-hidden="true"
+                    className="tabler-icon tabler-icon-arrow-right"
+                    fill="none"
+                    height={24}
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    width={24}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M5 12l14 0" />
+                    <path d="M13 18l6 -6" />
+                    <path d="M13 6l6 6" />
+                  </svg>
+                </button>
               </div>
-            )}
+              <div aria-hidden="true" className="honeypot">
+                <label>
+                  Website
+                  <input autoComplete="off" name="website" tabIndex={-1} defaultValue="" />
+                </label>
+              </div>
+              <p className="newsletter-status" data-status="idle" id="newsletter-status" role="status" />
+            </form>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col gap-5 border-t border-gray-200 pt-8 md:flex-row md:items-center md:justify-between">
-          <p className="text-center text-sm font-semibold text-gray-500 md:text-left">
-            © 2026 TeleBots. {t.footer.rights}
-          </p>
-          <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:grid-cols-3 md:flex md:flex-wrap md:justify-end md:gap-x-6 md:gap-y-2">
-            <Link href={`/${currentLanguage}/privacy`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
-              {t.footer.privacy}
-            </Link>
-            <Link href={`/${currentLanguage}/terms`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
-              {t.footer.terms}
-            </Link>
-            <Link href={`/${currentLanguage}/refund`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
-              {t.footer.refund}
-            </Link>
-            <Link href={`/${currentLanguage}/pricing`} className="text-gray-500 hover:text-brand transition text-sm font-semibold">
-              {t.footer.pricing}
-            </Link>
+        <div className="finale-center">
+          <h2
+            className="finale-heading finale-reveal"
+            id="finale-heading"
+            style={{ ['--reveal' as string]: 3 }}
+          >
+            {c.heading}
+          </h2>
+          <a
+            className="finale-email finale-reveal"
+            href={`mailto:${legal.email}`}
+            style={{ ['--reveal' as string]: 2 }}
+          >
+            {legal.email}
+          </a>
+          <div className="finale-actions finale-reveal" style={{ ['--reveal' as string]: 1 }}>
+            <div className="footer-cta-dock footer-cta-dock--inline">
+              <div className="cta-anchor">
+                <button
+                  aria-haspopup="dialog"
+                  className="living-button living-button--light"
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                  type="button"
+                  onClick={onConsultClick}
+                >
+                  <span aria-hidden="true" className="button-material">
+                    <div
+                      style={{
+                        position: 'absolute',
+                        isolation: 'isolate',
+                        display: 'block',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        borderRadius: '9999px',
+                        backgroundColor: '#f4f4f6',
+                        inset: 0,
+                      }}
+                    >
+                      <span
+                        style={{
+                          position: 'relative',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      />
+                    </div>
+                  </span>
+                  <span className="button-label">{c.discuss}</span>
+                </button>
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className="finale-bottom" style={{ ['--reveal' as string]: 0 }}>
+          <div className="finale-legal finale-reveal">
+            <p>{t.footer.companyName}</p>
+            <Link href={`/${currentLanguage}/privacy`}>{c.privacy}</Link>
+            <p>
+              © <span>2026</span> TeleBots
+            </p>
+          </div>
+          <ul aria-label={c.socialAria} className="finale-socials finale-reveal">
+            {SOCIALS.map(({ label, href, icon }) => (
+              <li key={`${label}-${href}`}>
+                <a href={href} rel="noopener noreferrer" target="_blank">
+                  <span className="finale-social-label">{label}</span>
+                  <span
+                    aria-hidden="true"
+                    className="social-icon"
+                    style={{ ['--icon' as string]: `url(/images/${icon}.svg)` } as CSSProperties}
+                  />
+                  <span className="sr-only">( new tab )</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="finale-credit finale-reveal">
+            <span>telebots.</span>
+          </p>
         </div>
       </div>
     </footer>

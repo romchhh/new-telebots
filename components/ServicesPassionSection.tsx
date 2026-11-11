@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import CtaArrowDisc from '@/components/CtaArrowDisc';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { useParams, usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
-import { BTN_OUTLINE, CARD_MEDIA, CTA_ARROW_CIRCLE, CTA_ARROW_ICON, RADIUS_PILL } from '@/lib/siteUi';
+import { BTN_OUTLINE, CARD_MEDIA, RADIUS_PILL } from '@/lib/siteUi';
 
 interface ServicesPassionSectionProps {
   t: typeof import('./translations').translations.uk;
@@ -102,11 +102,7 @@ export default function ServicesPassionSection({ t }: ServicesPassionSectionProp
                 <span className="text-sm font-semibold uppercase tracking-[0.1em] text-neutral-900">
                   {t.services.toServices}
                 </span>
-                <span
-                  className={`flex shrink-0 items-center justify-center ${RADIUS_PILL} bg-neutral-900 text-white transition-transform group-hover:scale-105 ${CTA_ARROW_CIRCLE.sm}`}
-                >
-                  <ArrowUpRight className={CTA_ARROW_ICON.sm} strokeWidth={2.25} aria-hidden />
-                </span>
+                <CtaArrowDisc sheen="dark" size="sm" />
               </button>
               <Link href={`/${validLang}/portfolio`} className={`${linkClass} w-full sm:w-auto`}>
                 {t.services.toPortfolio}

@@ -3,7 +3,8 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import CtaArrowDisc from '@/components/CtaArrowDisc';
 import type { Language } from '@/components/translations';
 import MobileHorizontalScrollHint, {
   useHorizontalScrollState,
@@ -11,6 +12,7 @@ import MobileHorizontalScrollHint, {
 import { getHomeServiceCardImage } from '@/lib/homeServicesCardImages';
 import { SITE_PX, SITE_INNER_WIDE } from '@/lib/siteLayout';
 import {
+  BTN_NAV_CIRCLE,
   HORIZONTAL_SCROLL_RAIL,
   HORIZONTAL_SCROLL_WRAP,
   RADIUS_PILL,
@@ -80,17 +82,17 @@ export default function HomeServicesCarousel({ copy, lang }: HomeServicesCarouse
                 type="button"
                 onClick={() => scrollByCard(-1)}
                 aria-label={copy.prevLabel}
-                className={`${RADIUS_PILL} inline-flex h-14 w-14 items-center justify-center border border-neutral-200 bg-white text-neutral-800 transition hover:border-neutral-300 hover:bg-neutral-50`}
+                className={`${BTN_NAV_CIRCLE} h-14 w-14`}
               >
-                <ArrowLeft className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+                <ArrowLeft className="cta-pill-arrow-icon h-5 w-5" strokeWidth={2.25} aria-hidden />
               </button>
               <button
                 type="button"
                 onClick={() => scrollByCard(1)}
                 aria-label={copy.nextLabel}
-                className={`${RADIUS_PILL} inline-flex h-14 w-14 items-center justify-center border border-neutral-200 bg-white text-neutral-800 transition hover:border-neutral-300 hover:bg-neutral-50`}
+                className={`${BTN_NAV_CIRCLE} h-14 w-14`}
               >
-                <ArrowRight className="h-5 w-5" strokeWidth={2.25} aria-hidden />
+                <ArrowRight className="cta-pill-arrow-icon h-5 w-5" strokeWidth={2.25} aria-hidden />
               </button>
             </div>
           </div>
@@ -109,7 +111,7 @@ export default function HomeServicesCarousel({ copy, lang }: HomeServicesCarouse
               <article
                 key={card.title}
                 data-service-card
-                className={`flex w-[min(86vw,21rem)] shrink-0 snap-start flex-col self-stretch ${RADIUS_SHELL} border border-[#e4d2d8] bg-[#f0e6ea] p-7 transition-colors hover:border-[#d9bcc6] hover:bg-[#eadde3] sm:w-[23rem] sm:p-8 md:w-[24.5rem] md:p-9`}
+                className={`flex w-[min(86vw,21rem)] shrink-0 snap-start flex-col self-stretch ${RADIUS_SHELL} border border-neutral-200 bg-neutral-100 p-7 transition-colors hover:border-neutral-300 hover:bg-neutral-50 sm:w-[23rem] sm:p-8 md:w-[24.5rem] md:p-9`}
               >
                 <h3
                   className="text-[clamp(1.85rem,5vw,2.5rem)] font-bold leading-[1.12] text-neutral-900 sm:text-[2.05rem] md:text-[2.25rem] lg:text-[2.5rem]"
@@ -152,11 +154,7 @@ export default function HomeServicesCarousel({ copy, lang }: HomeServicesCarouse
                     >
                       {linkLabel}
                     </span>
-                    <span
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center ${RADIUS_PILL} bg-neutral-900 text-white transition-transform group-hover:scale-105 sm:h-14 sm:w-14`}
-                    >
-                      <ArrowUpRight className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2.25} aria-hidden />
-                    </span>
+                    <CtaArrowDisc sheen="dark" size="md" />
                   </Link>
                 </div>
               </article>

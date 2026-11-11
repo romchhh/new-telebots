@@ -1,24 +1,32 @@
-import { Manrope, Montserrat } from 'next/font/google';
+import { Inter, Inter_Tight, Manrope } from 'next/font/google';
 
 /**
- * Ваги не вказуємо навмисно: сімейства мають варіативні версії,
- * тож Google віддає один файл на сабсет замість окремого файлу на кожну вагу.
+ * Body / UI: Manrope як --font-akt (як у site, доки немає akt.woff2).
+ * Заголовки: Inter Tight → --font-display / --font-montserrat.
+ * Логотип telebots.: Inter → --font-brand.
  */
 
-/** Основний текст / UI та заголовки поза hero */
 export const manrope = Manrope({
   subsets: ['latin', 'cyrillic'],
   display: 'swap',
-  variable: '--font-manrope',
-  preload: false,
-});
-
-/** Hero-секції */
-export const montserrat = Montserrat({
-  subsets: ['latin', 'cyrillic'],
-  display: 'swap',
-  variable: '--font-montserrat',
+  variable: '--font-akt',
   preload: true,
 });
 
-export const fontVariables = `${manrope.variable} ${montserrat.variable}`;
+/** Wordmark «telebots.» */
+export const inter = Inter({
+  subsets: ['latin', 'cyrillic', 'latin-ext'],
+  display: 'swap',
+  variable: '--font-inter',
+  preload: true,
+});
+
+/** Display / headings */
+export const interTight = Inter_Tight({
+  subsets: ['latin', 'cyrillic', 'latin-ext'],
+  display: 'swap',
+  variable: '--font-inter-tight',
+  preload: true,
+});
+
+export const fontVariables = `${manrope.variable} ${inter.variable} ${interTight.variable}`;

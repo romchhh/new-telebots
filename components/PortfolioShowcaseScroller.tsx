@@ -100,7 +100,7 @@ export default function PortfolioShowcaseScroller({
                 aria-label={scrollPrevLabel}
                 className={BTN_NAV_CIRCLE}
               >
-                <ArrowLeft className={ICON_ARROW_NAV} strokeWidth={2.25} aria-hidden />
+                <ArrowLeft className={`cta-pill-arrow-icon ${ICON_ARROW_NAV}`} strokeWidth={2.25} aria-hidden />
               </button>
               <button
                 type="button"
@@ -108,7 +108,7 @@ export default function PortfolioShowcaseScroller({
                 aria-label={scrollNextLabel}
                 className={BTN_NAV_CIRCLE}
               >
-                <ArrowRight className={ICON_ARROW_NAV} strokeWidth={2.25} aria-hidden />
+                <ArrowRight className={`cta-pill-arrow-icon ${ICON_ARROW_NAV}`} strokeWidth={2.25} aria-hidden />
               </button>
             </div>
             {headerAction ?? (showViewAll ? (
@@ -118,7 +118,7 @@ export default function PortfolioShowcaseScroller({
                 </span>
                 <span className={BTN_ARROW_CIRCLE_OUTLINE}>
                   <ArrowUpRight
-                    className={`${ICON_ARROW_IN_CIRCLE} text-neutral-900`}
+                    className={`cta-pill-arrow-icon ${ICON_ARROW_IN_CIRCLE} text-neutral-900`}
                     strokeWidth={2.25}
                     aria-hidden
                   />

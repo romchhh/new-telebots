@@ -2,7 +2,7 @@
 
 import { lazy, Suspense, useEffect, useMemo, useRef, useState, type CSSProperties } from 'react';
 import Image from 'next/image';
-import { ArrowUpRight, ChevronDown, Key, Phone, Sparkles, Star } from 'lucide-react';
+import { ChevronDown, Key, Phone, Sparkles, Star } from 'lucide-react';
 import { FaTelegramPlane } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import AboutInfoCards from '@/components/AboutInfoCards';
@@ -24,9 +24,8 @@ import { sendToTelegram } from '@/lib/telegram';
 import { legal } from '@/lib/legal';
 import { getPortfolioCards } from '@/lib/portfolioCards';
 import { SITE_INNER_WIDE, SITE_PX } from '@/lib/siteLayout';
+import CtaArrowDisc from '@/components/CtaArrowDisc';
 import {
-  CTA_ARROW_CIRCLE,
-  CTA_ARROW_ICON,
   HORIZONTAL_SCROLL_RAIL,
   HORIZONTAL_SCROLL_WRAP,
   RADIUS_CARD,
@@ -54,9 +53,9 @@ const montserrat = { fontFamily: 'var(--font-montserrat)' };
 const sans = { fontFamily: 'var(--font-sans)' };
 const headerLogoStyle: CSSProperties = {
   fontSize: 20,
-  fontWeight: 900,
-  fontFamily: "'Arial Black', sans-serif",
-  letterSpacing: '-0.5px',
+  fontWeight: 700,
+  fontFamily: 'var(--font-brand), Inter, Arial, sans-serif',
+  letterSpacing: '-0.04em',
   lineHeight: 1,
 };
 
@@ -168,9 +167,7 @@ function AdsSiteIncludesSection({ onCta }: { onCta: () => void }) {
                 style={sans}
               >
                 Отримати розрахунок
-                <span className={`inline-flex h-10 w-10 items-center justify-center ${RADIUS_PILL} bg-neutral-900 text-white`}>
-                  <ArrowUpRight className="h-5 w-5" aria-hidden />
-                </span>
+                <CtaArrowDisc sheen="dark" size="sm" />
               </button>
             </div>
 
@@ -443,7 +440,7 @@ export default function AdsSiteLanding({ copy }: { copy: AdsSiteLandingCopy }) {
       </header>
 
       <main id="main-content">
-        <section id="top" className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
+        <section id="top" className="relative h-[100svh] max-h-[100svh] overflow-hidden rounded-b-[28px] bg-black">
           <FullBleedHeroImage
             src="/other/hero-background.webp"
             alt="Фон: панорама міста та узбережжя на заході сонця"
@@ -564,9 +561,7 @@ export default function AdsSiteLanding({ copy }: { copy: AdsSiteLandingCopy }) {
                     <span className="min-w-0 flex-1 truncate text-xs font-bold uppercase tracking-[0.08em] text-neutral-900 sm:text-sm" style={sans}>
                       Порахувати
                     </span>
-                    <span className={`flex shrink-0 items-center justify-center ${RADIUS_PILL} bg-neutral-900 text-white ${CTA_ARROW_CIRCLE.sm}`}>
-                      <ArrowUpRight className={CTA_ARROW_ICON.sm} strokeWidth={2.25} aria-hidden />
-                    </span>
+                    <CtaArrowDisc sheen="dark" size="sm" />
                   </button>
                 </article>
               ))}

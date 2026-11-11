@@ -16,7 +16,13 @@ export default function SiteHtmlShell({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={lang} prefix="og: https://ogp.me/ns#" className={fontVariables}>
+    <html
+      lang={lang}
+      prefix="og: https://ogp.me/ns#"
+      className={fontVariables}
+      /* beforeInteractive ставить --vh/--lvh на html до гідрації */
+      suppressHydrationWarning
+    >
       <head>
         <link rel="icon" href="/other/favicon.png" type="image/png" sizes="any" />
         <link rel="apple-touch-icon" href="/other/favicon.png" />
@@ -34,6 +40,10 @@ export default function SiteHtmlShell({
 
         <link rel="author" href={`${siteUrl}/uk/about`} />
         <link rel="stylesheet" href="/webmcp-agent.css" />
+        <Script id="site-viewport-vars" strategy="beforeInteractive">
+          {`(function(){var r=document.documentElement,h=window.innerHeight,l=window.outerHeight||h;
+r.style.setProperty('--vh',Math.round(h)+'px');r.style.setProperty('--lvh',Math.round(l)+'px');})();`}
+        </Script>
 
         <meta property="instagram:account" content="@telebotsnowayrm" />
         <meta name="pinterest-rich-pin" content="true" />

@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useId, useRef, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { X } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { legal } from '@/lib/legal';
 import { WEBMCP_ORDER } from '@/lib/webmcp';
@@ -11,17 +11,7 @@ import { SUBMIT_ERROR, SUBMITTING } from '@/lib/formMessages';
 import { antiSpamFromFormData, type AntiSpamFields } from '@/lib/antiSpam';
 import FormHoneypot from '@/components/FormHoneypot';
 import type { Language } from '@/components/translations';
-import PhoneNumberField from '@/components/PhoneNumberField';
-import {
-  BTN_BRAND,
-  BTN_GHOST_LIGHT,
-  INPUT_LIGHT,
-  RADIUS_PILL,
-  SHELL_LIGHT,
-  TEXTAREA_LIGHT,
-  TYPE_SECTION_TITLE,
-} from '@/lib/siteUi';
-
+import { defaultDialCode, dialCodesForLang, type DialCode } from '@/lib/phoneDial';
 export type OrderModalSubmitData = {
   name: string;
   phone: string;
@@ -36,10 +26,6 @@ interface OrderModalProps {
   onSubmit: (data: OrderModalSubmitData) => void | Promise<void>;
 }
 
-const fieldClass = INPUT_LIGHT;
-const textareaClass = `${TEXTAREA_LIGHT} min-h-[96px]`;
-const sans = { fontFamily: 'var(--font-sans)' };
-
 export default function OrderModal({ isOpen, onClose, t, onSubmit }: OrderModalProps) {
   const titleId = useId();
   const firstFieldRef = useRef<HTMLInputElement>(null);
@@ -49,9 +35,11 @@ export default function OrderModal({ isOpen, onClose, t, onSubmit }: OrderModalP
   const lang = (['uk', 'en', 'pl', 'ru'].includes(pathname?.split('/')[1] ?? '')
     ? pathname.split('/')[1]
     : 'uk') as Language;
+  const [dialCode, setDialCode] = useState<DialCode>(() => defaultDialCode(lang));
 
   useEffect(() => {
     if (isOpen) {
+      setDialCode(defaultDialCode(lang));
       document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
       const tId = window.setTimeout(() => firstFieldRef.current?.focus(), 40);
@@ -63,10 +51,11 @@ export default function OrderModal({ isOpen, onClose, t, onSubmit }: OrderModalP
     }
     setSending(false);
     setError('');
+    setDialCode(defaultDialCode(lang));
     document.documentElement.style.overflow = '';
     document.body.style.overflow = '';
     return undefined;
-  }, [isOpen]);
+  }, [isOpen, lang]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -85,11 +74,17 @@ export default function OrderModal({ isOpen, onClose, t, onSubmit }: OrderModalP
     setSending(true);
     setError('');
     const formData = new FormData(e.currentTarget);
+    const phoneLocal = String(formData.get('phoneLocal') ?? '').trim();
+    const phone = [dialCode, phoneLocal].filter(Boolean).join(' ').trim();
+    const telegram = String(formData.get('telegram') ?? '').trim();
+    const requestBody = String(formData.get('request') ?? '').trim();
+    const requestParts = [telegram ? `Telegram: ${telegram}` : '', requestBody].filter(Boolean);
+
     try {
       await onSubmit({
         name: formData.get('name') as string,
-        phone: formData.get('phone') as string,
-        request: formData.get('request') as string,
+        phone,
+        request: requestParts.join('\n'),
         ...antiSpamFromFormData(formData),
       });
     } catch {
@@ -100,66 +95,93 @@ export default function OrderModal({ isOpen, onClose, t, onSubmit }: OrderModalP
     setSending(false);
   };
 
+  const c = t.contact;
+
   return (
-    <div className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-4">
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={onClose} aria-hidden />
+    <div className="order-modal-root">
+      <div className="order-modal-scrim" onClick={onClose} aria-hidden />
 
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className={`relative flex max-h-[92svh] w-full max-w-lg flex-col overflow-hidden rounded-t-[1.75rem] sm:rounded-[1.75rem] ${SHELL_LIGHT}`}
+        className="order-modal-panel"
       >
-        <div
-          className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[radial-gradient(circle,rgba(244,114,182,0.15)_0%,transparent_70%)] blur-3xl"
-          aria-hidden
-        />
-
-        <div className="relative flex min-h-0 flex-1 flex-col p-6 md:p-8">
-          <button
-            type="button"
-            onClick={onClose}
-            className={`absolute right-4 top-4 inline-flex h-10 w-10 items-center justify-center ${RADIUS_PILL} border border-neutral-200 bg-white text-neutral-600 transition hover:border-brand/40 hover:text-neutral-900`}
-            aria-label={t.modal.close}
-          >
-            <X className="h-4 w-4" strokeWidth={2.25} />
-          </button>
-
-          <h2 id={titleId} className={`mb-3 pr-10 ${TYPE_SECTION_TITLE} text-neutral-900 md:text-3xl`}>
-            {t.modal.title}
-          </h2>
-          <p className="mb-6 max-w-md text-base leading-relaxed text-neutral-600" style={sans}>
-            {t.modal.lead}
-          </p>
+        <div className="order-modal-scroll">
+          <div className="order-modal-header">
+            <h2 id={titleId}>{t.modal.title}</h2>
+            <button
+              type="button"
+              onClick={onClose}
+              className="close-button"
+              aria-label={t.modal.close}
+            >
+              <X className="h-5 w-5" strokeWidth={2} aria-hidden />
+            </button>
+          </div>
 
           <form
             onSubmit={handleSubmit}
-            className="relative flex min-h-0 flex-1 flex-col"
+            className="contact-form"
             toolname={WEBMCP_ORDER.toolname}
             tooldescription={WEBMCP_ORDER.tooldescription}
           >
             <FormHoneypot />
-            <div className="flex min-h-0 flex-1 flex-col gap-4 overflow-y-auto pr-0.5">
-              <input
-                ref={firstFieldRef}
-                id="order-name"
-                type="text"
-                name="name"
-                required
-                autoComplete="name"
-                placeholder={`${t.modal.namePlaceholder} *`}
-                toolparamdescription={WEBMCP_ORDER.params.name}
-                className={fieldClass}
-                aria-label={t.modal.name}
-              />
+            <div className="form-fields">
+              <label className="input-row" htmlFor="order-name">
+                <span>{t.modal.name}</span>
+                <input
+                  ref={firstFieldRef}
+                  id="order-name"
+                  type="text"
+                  name="name"
+                  required
+                  autoComplete="name"
+                  placeholder={t.modal.namePlaceholder}
+                  toolparamdescription={WEBMCP_ORDER.params.name}
+                  aria-label={t.modal.name}
+                />
+              </label>
 
-              <PhoneNumberField
-                id="order-phone"
-                required
-                placeholder={`${t.modal.phonePlaceholder} *`}
-                ariaLabel={t.modal.phone}
-                toolparamdescription={WEBMCP_ORDER.params.phone}
-              />
+              <label className="input-row phone-row" htmlFor="order-phone-local">
+                <span>{t.modal.phone}</span>
+                <div className="phone-control">
+                  <select
+                    value={dialCode}
+                    onChange={(e) => setDialCode(e.target.value as DialCode)}
+                    aria-label={t.modal.phoneDial}
+                  >
+                    {dialCodesForLang(lang).map((code) => (
+                      <option key={code} value={code}>
+                        {code}
+                      </option>
+                    ))}
+                  </select>
+                  <input
+                    id="order-phone-local"
+                    type="tel"
+                    name="phoneLocal"
+                    required
+                    autoComplete="tel-national"
+                    inputMode="tel"
+                    placeholder={t.modal.phoneLocalPlaceholder}
+                    toolparamdescription={WEBMCP_ORDER.params.phone}
+                    aria-label={t.modal.phone}
+                  />
+                </div>
+              </label>
+
+              <label className="input-row" htmlFor="order-telegram">
+                <span>{t.modal.telegram}</span>
+                <input
+                  id="order-telegram"
+                  type="text"
+                  name="telegram"
+                  autoComplete="off"
+                  placeholder={t.modal.telegramPlaceholder}
+                  aria-label={t.modal.telegram}
+                />
+              </label>
 
               <textarea
                 id="order-request"
@@ -167,47 +189,46 @@ export default function OrderModal({ isOpen, onClose, t, onSubmit }: OrderModalP
                 rows={3}
                 placeholder={t.modal.requestPlaceholder}
                 toolparamdescription={WEBMCP_ORDER.params.request}
-                className={textareaClass}
                 aria-label={t.modal.request}
               />
             </div>
 
-            <div className="mt-5 space-y-4 border-t border-neutral-100 pt-5">
-              {error ? (
-                <p role="alert" className="text-sm font-medium text-red-600">
-                  {error}
-                </p>
-              ) : null}
-              <button type="submit" disabled={sending} className={`w-full ${BTN_BRAND}`}>
-                {sending ? SUBMITTING[lang] : t.modal.submit}
-              </button>
-              <p className="text-[11px] leading-relaxed text-neutral-500 sm:text-xs">
-                {t.contact.consentBefore}{' '}
-                <Link href={`/${lang}/privacy`} className="text-neutral-700 underline underline-offset-2 hover:text-neutral-900">
-                  {t.contact.consentLink}
-                </Link>
+            {error ? (
+              <p role="alert" className="form-error">
+                {error}
               </p>
-              <div className="flex w-full gap-2 pb-1">
-                <a
-                  href="https://t.me/telebotsnowayrm"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 ${BTN_GHOST_LIGHT}`}
-                >
-                  <FaTelegramPlane className="h-4 w-4 shrink-0 text-brand" aria-hidden />
-                  <span className="truncate">Telegram</span>
-                </a>
-                <a
-                  href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex min-w-0 flex-1 items-center justify-center gap-1.5 ${BTN_GHOST_LIGHT}`}
-                >
-                  <FaWhatsapp className="h-4 w-4 shrink-0 text-brand" aria-hidden />
-                  <span className="truncate">WhatsApp</span>
-                </a>
-              </div>
+            ) : null}
+
+            <div className="order-modal-messengers">
+              <a
+                href="https://t.me/telebotsnowayrm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="order-modal-messenger"
+              >
+                <FaTelegramPlane aria-hidden />
+                <span>{c.telegram}</span>
+              </a>
+              <a
+                href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="order-modal-messenger"
+              >
+                <FaWhatsapp aria-hidden />
+                <span>{c.whatsapp}</span>
+              </a>
             </div>
+
+            <button type="submit" disabled={sending} className="submit-button">
+              <span>{sending ? SUBMITTING[lang] : t.modal.submit}</span>
+              {!sending ? <ArrowRight aria-hidden /> : null}
+            </button>
+
+            <p className="form-consent">
+              {c.consentBefore}{' '}
+              <Link href={`/${lang}/privacy`}>{c.consentLink}</Link>
+            </p>
           </form>
         </div>
       </div>

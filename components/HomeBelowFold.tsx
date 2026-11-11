@@ -4,6 +4,7 @@ import FaqAccordion from '@/components/FaqAccordion';
 import HomePrinciplesSection from '@/components/HomePrinciplesSection';
 import HomeResourceLinks from '@/components/HomeResourceLinks';
 import HomeServicesCarousel from '@/components/HomeServicesCarousel';
+import HomeUxAiSection from '@/components/HomeUxAiSection';
 import PortfolioSection from '@/components/PortfolioSection';
 import SiteCtaBand from '@/components/SiteCtaBand';
 import type { Language, SiteCopy } from '@/components/translations';
@@ -15,7 +16,8 @@ const DEFER_PAINT =
 
 export default function HomeBelowFold({ lang, t }: { lang: Language; t: SiteCopy }) {
   return (
-    <>
+    <div>
+      <HomeUxAiSection lang={lang} />
       <div className={DEFER_PAINT}>
         <HomeServicesCarousel copy={t.about.homeServices} lang={lang} />
       </div>
@@ -59,6 +61,6 @@ export default function HomeBelowFold({ lang, t }: { lang: Language; t: SiteCopy
       <div className={DEFER_PAINT}>
         <ContactFormSection t={t} lang={lang} id="home-contact" className="bg-white" />
       </div>
-    </>
+    </div>
   );
 }

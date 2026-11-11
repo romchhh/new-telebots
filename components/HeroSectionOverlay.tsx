@@ -19,7 +19,7 @@ export default function HeroSectionOverlay({ hero, orderLabel }: HeroSectionOver
   const lead = heroLeadText(hero);
 
   return (
-    <>
+    <div className="contents">
       <div className="absolute inset-0 z-10 bg-black/35" aria-hidden />
       <div
         className="absolute inset-0 z-10 bg-gradient-to-t from-black/92 via-black/50 to-black/10"
@@ -55,18 +55,12 @@ export default function HeroSectionOverlay({ hero, orderLabel }: HeroSectionOver
           </div>
         </div>
 
-        <div className="flex min-h-0 shrink-0 flex-col gap-2 max-md:-translate-y-3 sm:gap-5 md:translate-y-0 md:flex-row md:items-end md:justify-end md:gap-8 md:pr-40 lg:gap-10 lg:pr-0">
-          <div className="min-w-0 w-full shrink-0 max-md:mb-1 sm:mb-0 md:w-auto md:ml-auto">
-            <HeroOrderCta
-              eyebrow={hero.ctaQuestion}
-              eyebrowMobile={hero.ctaQuestionShort}
-              label={orderLabel}
-              labelMobile={hero.ctaLabelShort}
-              className="w-full max-w-full md:w-auto"
-            />
+        <div className="flex min-h-0 shrink-0 flex-col gap-2 sm:gap-5 md:flex-row md:items-end md:justify-end md:gap-8 md:pr-40 lg:gap-10 lg:pr-0">
+          <div className="hero-cta-slot mx-auto w-full md:mx-0 md:ml-auto md:w-auto">
+            <HeroOrderCta label={orderLabel} />
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

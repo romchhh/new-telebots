@@ -43,7 +43,7 @@ export default function ServiceHeroSection({
   const openModal = onOrderClick ?? openFromShell;
   const lead = heroLeadText(hero);
   return (
-    <section className="relative h-[100svh] max-h-[100svh] overflow-hidden bg-black">
+    <section className="relative h-[100svh] max-h-[100svh] overflow-hidden rounded-b-[28px] bg-black">
       {heroBackground}
 
       {/* Ті самі шари затемнення, що на головній */}

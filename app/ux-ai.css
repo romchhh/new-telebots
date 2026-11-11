@@ -1,0 +1,194 @@
+/* UX + AI — verbatim from site/app globals.css (.ux-ai block) */
+
+.ux-ai {
+  position: relative;
+  height: calc(var(--lvh) * 4.5);
+}
+
+.ux-ai-stage {
+  height: var(--vh);
+  perspective: min(1200px, 170vw);
+  --pad: clamp(24px, 3.75vw, 72px);
+  --card: clamp(220px, 17.71vw, 340px);
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.ux-ai-intro {
+  z-index: 2;
+  padding: 0 var(--pad);
+  text-align: center;
+  pointer-events: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  inset: 0;
+}
+
+.ux-ai-heading {
+  letter-spacing: -0.07em;
+  margin: 0;
+  font-size: clamp(40px, 4.167vw, 80px);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.ux-ai-plus,
+.ux-ai-word {
+  display: inline-block;
+}
+
+.ux-ai-word {
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.ux-ai-sub {
+  letter-spacing: -0.07em;
+  margin: clamp(24px, 2.083vw, 40px) 0 0;
+  font-size: clamp(24px, 2.5vw, 48px);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.ux-ai-line {
+  will-change: transform, opacity;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .ux-ai-heading {
+    white-space: nowrap;
+  }
+}
+
+.ux-ai-drum {
+  transform-style: preserve-3d;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  inset: 0;
+}
+
+.ux-ai-card {
+  left: calc(50% - var(--card) / 2);
+  top: calc(50% - var(--card) / 2);
+  width: var(--card);
+  height: var(--card);
+  padding: calc(var(--card) * 40 / 340);
+  color: #fff;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  background: #050505;
+  border-radius: 16px;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  position: absolute;
+  overflow: hidden;
+}
+
+.ux-ai-value {
+  font-size: calc(var(--card) * 144 / 340);
+}
+
+.ux-ai-title,
+.ux-ai-value {
+  letter-spacing: -0.07em;
+  margin: 0;
+  line-height: 1;
+}
+
+.ux-ai-title {
+  font-size: calc(var(--card) * 40 / 340);
+  font-weight: 400;
+}
+
+.ux-ai-metric {
+  font-size: calc(var(--card) * 16 / 340);
+  letter-spacing: -0.07em;
+  margin: 0;
+  line-height: 1;
+}
+
+.ux-ai-arrow-box {
+  height: calc(var(--card) * 140 / 340);
+  display: block;
+  position: relative;
+}
+
+.ux-ai-arrow {
+  right: calc(var(--card) * -30 / 340);
+  top: calc(var(--card) * -48 / 340);
+  width: calc(var(--card) * 228 / 340);
+  height: calc(var(--card) * 228 / 340);
+  color: #fff;
+  position: absolute;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ux-ai {
+    height: auto !important;
+  }
+
+  .ux-ai-stage {
+    perspective: none;
+    height: auto;
+    padding: clamp(80px, 8.333vw, 160px) var(--pad);
+    position: relative;
+    overflow: visible;
+  }
+
+  .ux-ai-intro {
+    padding: 0;
+    position: relative;
+    inset: auto;
+  }
+
+  .ux-ai-line,
+  .ux-ai-plus,
+  .ux-ai-word {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .ux-ai-drum {
+    justify-content: center;
+    gap: calc(var(--card) * 16 / 340);
+    flex-wrap: wrap;
+    margin-top: clamp(48px, 5vw, 96px);
+    display: flex;
+    position: relative;
+    inset: auto;
+  }
+
+  .ux-ai-card {
+    position: relative;
+    top: auto;
+    left: auto;
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .ux-ai-stage {
+    height: calc(var(--vh) - 128px);
+    top: 64px;
+  }
+}
+
+.ux-ai h2.ux-ai-heading,
+.ux-ai h3.ux-ai-title,
+.ux-ai .ux-ai-sub,
+.ux-ai .ux-ai-plus {
+  font-family: var(--font-display);
+  font-weight: 500;
+}

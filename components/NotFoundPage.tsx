@@ -4,6 +4,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SiteChromeFrame from '@/components/SiteChromeFrame';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { translations, Language } from '@/components/translations';
 import { useState, useEffect } from 'react';
@@ -96,15 +97,20 @@ export default function NotFoundPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-white text-black">
-      <Navigation
-        isScrolled={isScrolled}
-        lang={lang}
-        setLang={handleLangChange}
-        t={t}
-        currentLang={lang}
-      />
-
+    <SiteChromeFrame
+      className="text-black"
+      footer={<Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />}
+      navigation={
+        <Navigation
+          isScrolled={isScrolled}
+          solidHeader
+          lang={lang}
+          setLang={handleLangChange}
+          t={t}
+          currentLang={lang}
+        />
+      }
+    >
       <main id="main-content">
         <section className={`relative overflow-hidden border-b border-gray-100 pt-28 md:pt-32 ${SITE_PX}`}>
           <div
@@ -208,8 +214,6 @@ export default function NotFoundPage() {
           </div>
         </section>
       </main>
-
-      <Footer t={t} lang={lang} setLang={handleLangChange} currentLang={lang} />
-    </div>
+    </SiteChromeFrame>
   );
 }

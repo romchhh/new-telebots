@@ -48,28 +48,27 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         href="/other/hero-background.webp"
         fetchPriority="high"
       />
-      <StructuredData type="organization" lang={lang} />
-      <StructuredData type="localBusiness" lang={lang} />
-      <StructuredData type="website" lang={lang} />
+      <StructuredData key="sd-org" type="organization" lang={lang} />
+      <StructuredData key="sd-local" type="localBusiness" lang={lang} />
+      <StructuredData key="sd-website" type="website" lang={lang} />
       <StructuredData
+        key="sd-breadcrumb"
         type="breadcrumb"
         lang={lang}
         breadcrumbs={[{ name: BREADCRUMB_HOME[lang], url: `/${lang}` }]}
       />
       {mainPageFAQs.length > 0 ? (
-        <StructuredData type="faq" lang={lang} faqs={mainPageFAQs} />
+        <StructuredData key="sd-faq" type="faq" lang={lang} faqs={mainPageFAQs} />
       ) : null}
-      <HomePageClient
-        initialLang={lang}
-        t={t}
-        hero={
-          <section className="relative h-[100vh] max-h-[100vh] overflow-hidden bg-black supports-[height:100svh]:h-[100svh] supports-[height:100svh]:max-h-[100svh]">
-            <HeroImage alt={t.hero.backgroundImageAlt} />
-            <HeroSectionOverlay hero={t.hero} orderLabel={t.modal.title} />
-          </section>
-        }
-      >
-        <HomeBelowFold lang={lang} t={t} />
+      <HomePageClient initialLang={lang} t={t}>
+        <section
+          key="home-hero"
+          className="home-hero relative h-[100vh] max-h-[100vh] overflow-hidden rounded-b-[28px] bg-black supports-[height:100svh]:h-[100svh] supports-[height:100svh]:max-h-[100svh]"
+        >
+          <HeroImage alt={t.hero.backgroundImageAlt} />
+          <HeroSectionOverlay hero={t.hero} orderLabel={t.contact.submitDiscuss} />
+        </section>
+        <HomeBelowFold key="home-below" lang={lang} t={t} />
       </HomePageClient>
     </>
   );

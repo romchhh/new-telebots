@@ -4,18 +4,19 @@ import OrderCtaPill from '@/components/OrderCtaPill';
 import { useHomeModal } from '@/components/HomeModalProvider';
 
 type HeroOrderCtaProps = {
-  eyebrow: string;
-  eyebrowMobile: string;
+  eyebrow?: string;
+  eyebrowMobile?: string;
   label: string;
-  labelMobile: string;
+  labelMobile?: string;
   className?: string;
 };
 
+/** Герой — біла пігулка TeleBots + чорне коло зі стрілкою */
 export default function HeroOrderCta({
-  eyebrow,
-  eyebrowMobile,
   label,
   labelMobile,
+  eyebrow,
+  eyebrowMobile,
   className,
 }: HeroOrderCtaProps) {
   const openModal = useHomeModal();
@@ -23,12 +24,14 @@ export default function HeroOrderCta({
   return (
     <OrderCtaPill
       size="hero"
-      eyebrow={eyebrow}
-      eyebrowMobile={eyebrowMobile}
+      variant="solid"
       label={label}
       labelMobile={labelMobile}
-      onClick={openModal}
-      className={className}
+      eyebrow={eyebrow}
+      eyebrowMobile={eyebrowMobile}
+      elevated
+      onClick={() => openModal()}
+      className={`w-full shadow-lg shadow-black/25 ${className ?? ''}`.trim()}
     />
   );
 }

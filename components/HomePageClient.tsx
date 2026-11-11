@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import Navigation from '@/components/Navigation';
 import { HomeModalProvider } from '@/components/HomeModalProvider';
 import Footer from '@/components/Footer';
+import SiteChromeFrame from '@/components/SiteChromeFrame';
 import type { Language, SiteCopy } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
@@ -15,13 +16,11 @@ const SuccessMessage = lazy(() => import('@/components/SuccessMessage'));
 interface HomePageClientProps {
   initialLang: Language;
   t: SiteCopy;
-  /** Серверний слот: hero-секція з LCP-зображенням і SSR-заголовком */
-  hero: ReactNode;
-  /** Секції під героєм. Рендерить сервер, щоб текст був у HTML, а JS не входив у бандл героя. */
+  /** Hero + below-fold з сервера (кожен child має key). */
   children: ReactNode;
 }
 
-export default function HomePageClient({ initialLang, t, hero, children }: HomePageClientProps) {
+export default function HomePageClient({ initialLang, t, children }: HomePageClientProps) {
   const params = useParams();
   const langParam = params?.lang as string;
 
@@ -89,58 +88,57 @@ export default function HomePageClient({ initialLang, t, hero, children }: HomeP
 
   return (
     <HomeModalProvider openModal={openModal}>
-      <div className="min-h-screen bg-white">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-black focus:px-4 focus:py-2 focus:text-white"
-          aria-label="Skip to main content"
+      <>
+        <SiteChromeFrame
+          footer={
+            <Footer
+              t={t}
+              lang={lang}
+              setLang={handleLangChange}
+              currentLang={lang}
+              onConsultClick={openModal}
+            />
+          }
+          navigation={
+            <Navigation
+              isScrolled={isScrolled}
+              lang={lang}
+              setLang={handleLangChange}
+              t={t}
+              currentLang={lang}
+              onConsultClick={openModal}
+            />
+          }
         >
-          Skip to main content
-        </a>
+          <>
+            <a href="#main-content" className="skip-link" aria-label="Skip to main content">
+              Skip to main content
+            </a>
+            <main id="main-content">{children}</main>
+          </>
+        </SiteChromeFrame>
 
-        <Navigation
-          isScrolled={isScrolled}
-          lang={lang}
-          setLang={handleLangChange}
-          t={t}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
-
-        <main id="main-content">
-          {hero}
-          {children}
-        </main>
-
-        <Footer
-          t={t}
-          lang={lang}
-          setLang={handleLangChange}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
-      </div>
-
-      <Suspense fallback={null}>
-        {isModalOpen && (
-          <OrderModal
-            isOpen={isModalOpen}
-            onClose={closeModal}
-            serviceName={selectedService}
-            t={t}
-            onSubmit={handleSubmit}
-          />
-        )}
-      </Suspense>
-      <Suspense fallback={null}>
-        {isSuccessOpen && (
-          <SuccessMessage
-            isOpen={isSuccessOpen}
-            onClose={() => setIsSuccessOpen(false)}
-            message={t.modal.success}
-          />
-        )}
-      </Suspense>
+        {isModalOpen ? (
+          <Suspense fallback={null}>
+            <OrderModal
+              isOpen={isModalOpen}
+              onClose={closeModal}
+              serviceName={selectedService}
+              t={t}
+              onSubmit={handleSubmit}
+            />
+          </Suspense>
+        ) : null}
+        {isSuccessOpen ? (
+          <Suspense fallback={null}>
+            <SuccessMessage
+              isOpen={isSuccessOpen}
+              onClose={() => setIsSuccessOpen(false)}
+              message={t.modal.success}
+            />
+          </Suspense>
+        ) : null}
+      </>
     </HomeModalProvider>
   );
 }

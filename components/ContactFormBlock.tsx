@@ -1,25 +1,17 @@
 'use client';
 
-import { useRef, useState, FormEvent } from 'react';
+import { useEffect, useRef, useState, FormEvent } from 'react';
 import Link from 'next/link';
-import { Paperclip } from 'lucide-react';
+import { ArrowRight, Paperclip } from 'lucide-react';
+import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { sendToTelegram } from '@/lib/telegram';
+import { legal } from '@/lib/legal';
 import { antiSpamFromFormData } from '@/lib/antiSpam';
 import FormHoneypot from '@/components/FormHoneypot';
 import { translations, Language } from '@/components/translations';
 import { SUBMIT_ERROR, SUBMITTING } from '@/lib/formMessages';
 import { WEBMCP_CONSULTATION } from '@/lib/webmcp';
-import PhoneNumberField from '@/components/PhoneNumberField';
-import {
-  BTN_BRAND,
-  BTN_BRAND_LG,
-  FORM_HEADLINE,
-  INPUT_DARK,
-  INPUT_LIGHT,
-  RADIUS_PILL,
-  TEXTAREA_DARK,
-  TEXTAREA_LIGHT,
-} from '@/lib/siteUi';
+import { defaultDialCode, dialCodesForLang, type DialCode } from '@/lib/phoneDial';
 
 type T = (typeof translations)['uk'];
 
@@ -30,7 +22,8 @@ interface ContactFormBlockProps {
   className?: string;
   serviceName?: string;
   hideTitle?: boolean;
-  variant?: 'light' | 'dark';
+  /** Kept for call-site compat; form always uses site/app dark card fields */
+  variant?: 'light' | 'dark' | 'site';
 }
 
 export default function ContactFormBlock({
@@ -40,19 +33,24 @@ export default function ContactFormBlock({
   className = '',
   serviceName,
   hideTitle = false,
-  variant = 'light',
 }: ContactFormBlockProps) {
-  const isDark = variant === 'dark';
   const c = t.contact;
+  const m = t.modal;
   const fileRef = useRef<HTMLInputElement>(null);
   const [fileLabel, setFileLabel] = useState('');
   const [formData, setFormData] = useState({
     name: '',
-    phone: '',
+    phoneLocal: '',
+    telegram: '',
     project: '',
   });
+  const [dialCode, setDialCode] = useState<DialCode>(() => defaultDialCode(lang));
   const [sending, setSending] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    setDialCode(defaultDialCode(lang));
+  }, [lang]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setError('');
@@ -65,14 +63,16 @@ export default function ContactFormBlock({
     setSending(true);
     setError('');
 
-    const attachment = fileRef.current?.files?.[0] ?? null;
+    const phone = [dialCode, formData.phoneLocal.trim()].filter(Boolean).join(' ').trim();
+    const telegramLine = formData.telegram.trim() ? `Telegram: ${formData.telegram.trim()}` : '';
+    const projectLines = [telegramLine, formData.project.trim()].filter(Boolean);
 
-    const projectLines = [formData.project].filter(Boolean);
+    const attachment = fileRef.current?.files?.[0] ?? null;
 
     const success = await sendToTelegram(
       {
         name: formData.name,
-        phone: formData.phone,
+        phone,
         project: projectLines.join('\n'),
         ...(serviceName ? { service: serviceName } : {}),
         ...antiSpamFromFormData(new FormData(e.currentTarget)),
@@ -83,7 +83,8 @@ export default function ContactFormBlock({
     setSending(false);
 
     if (success) {
-      setFormData({ name: '', phone: '', project: '' });
+      setFormData({ name: '', phoneLocal: '', telegram: '', project: '' });
+      setDialCode(defaultDialCode(lang));
       setFileLabel('');
       if (fileRef.current) fileRef.current.value = '';
       onSuccess?.();
@@ -92,70 +93,99 @@ export default function ContactFormBlock({
     }
   };
 
-  const inputClass = isDark ? INPUT_DARK : INPUT_LIGHT;
-  const textareaClass = isDark ? TEXTAREA_DARK : TEXTAREA_LIGHT;
-  const fieldClass = `${inputClass} max-sm:px-5 max-sm:py-3.5 max-sm:text-base`;
-  const textareaClassMobile = `${textareaClass} max-sm:min-h-[9.5rem] max-sm:px-5 max-sm:py-4 max-sm:text-base md:min-h-[12rem]`;
-
   return (
     <div className={className}>
       {!hideTitle ? (
-        <h2
-          className={`mb-8 sm:mb-10 md:mb-12 ${FORM_HEADLINE} ${isDark ? 'text-white' : 'text-neutral-900'}`}
-        >
-          {c.formHeadline}{' '}
-          <span className="text-brand">{c.formHeadlineAccent}</span>
-        </h2>
+        <>
+          <h2>
+            {c.formHeadline} <span className="accent">{c.formHeadlineAccent}</span>
+          </h2>
+          <p className="contact-card-lead">{c.formEyebrow}</p>
+        </>
       ) : null}
 
       <form
         onSubmit={handleSubmit}
-        className="relative space-y-5 sm:space-y-6 md:space-y-7"
+        className="contact-form"
         toolname={WEBMCP_CONSULTATION.toolname}
         tooldescription={WEBMCP_CONSULTATION.tooldescription}
       >
         <FormHoneypot />
 
-        <div className="flex flex-col gap-4 sm:gap-5 md:grid md:grid-cols-2 md:gap-6">
-          <input
-            id="contact-name"
-            type="text"
-            name="name"
-            value={formData.name}
+        <div className="form-fields">
+          <label className="input-row" htmlFor="contact-name">
+            <span>{m.name}</span>
+            <input
+              id="contact-name"
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              autoComplete="name"
+              placeholder={m.namePlaceholder}
+              toolparamdescription={WEBMCP_CONSULTATION.params.name}
+              aria-label={m.name}
+            />
+          </label>
+
+          <label className="input-row phone-row" htmlFor="contact-phone-local">
+            <span>{m.phone}</span>
+            <div className="phone-control">
+              <select
+                value={dialCode}
+                onChange={(e) => setDialCode(e.target.value as DialCode)}
+                aria-label={m.phoneDial}
+              >
+                {dialCodesForLang(lang).map((code) => (
+                  <option key={code} value={code}>
+                    {code}
+                  </option>
+                ))}
+              </select>
+              <input
+                id="contact-phone-local"
+                type="tel"
+                name="phoneLocal"
+                value={formData.phoneLocal}
+                onChange={handleChange}
+                required
+                autoComplete="tel-national"
+                inputMode="tel"
+                placeholder={m.phoneLocalPlaceholder}
+                toolparamdescription={WEBMCP_CONSULTATION.params.phone}
+                aria-label={m.phone}
+              />
+            </div>
+          </label>
+
+          <label className="input-row" htmlFor="contact-telegram">
+            <span>{m.telegram}</span>
+            <input
+              id="contact-telegram"
+              type="text"
+              name="telegram"
+              value={formData.telegram}
+              onChange={handleChange}
+              autoComplete="off"
+              placeholder={m.telegramPlaceholder}
+              aria-label={m.telegram}
+            />
+          </label>
+
+          <textarea
+            id="contact-project"
+            name="project"
+            value={formData.project}
             onChange={handleChange}
-            required
-            autoComplete="name"
-            placeholder={`${c.namePlaceholderDark} *`}
-            toolparamdescription={WEBMCP_CONSULTATION.params.name}
-            className={fieldClass}
-            aria-label={c.name}
-          />
-          <PhoneNumberField
-            id="contact-phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-            variant={isDark ? 'dark' : 'light'}
-            placeholder={c.phonePlaceholderDark}
-            ariaLabel={c.phone}
-            toolparamdescription={WEBMCP_CONSULTATION.params.phone}
-            className={fieldClass}
+            rows={3}
+            placeholder={m.requestPlaceholder}
+            toolparamdescription={WEBMCP_CONSULTATION.params.project}
+            aria-label={m.request}
           />
         </div>
 
-        <textarea
-          id="contact-project"
-          name="project"
-          value={formData.project}
-          onChange={handleChange}
-          rows={4}
-          placeholder={c.projectPlaceholderDark}
-          toolparamdescription={WEBMCP_CONSULTATION.params.project}
-          className={textareaClassMobile}
-          aria-label={c.project}
-        />
-
-        <div className="flex flex-col gap-3 pt-0.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3">
+        <div className="attach-row">
           <input
             ref={fileRef}
             type="file"
@@ -166,59 +196,50 @@ export default function ContactFormBlock({
               setFileLabel(file?.name ?? '');
             }}
           />
-          <button
-            type="button"
-            onClick={() => fileRef.current?.click()}
-            className={`inline-flex max-w-full items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.08em] transition sm:gap-3 sm:text-sm md:text-base ${
-              isDark ? 'text-white/55 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'
-            }`}
-          >
-            <span
-              className={`inline-flex h-10 w-10 shrink-0 items-center justify-center sm:h-12 sm:w-12 ${RADIUS_PILL} border-2 ${
-                isDark ? 'border-white/15 bg-white/5' : 'border-neutral-300 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.05)]'
-              }`}
-            >
-              <Paperclip className="h-5 w-5" strokeWidth={2} aria-hidden />
+          <button type="button" onClick={() => fileRef.current?.click()} className="attach-button">
+            <span className="attach-disc" aria-hidden>
+              <Paperclip className="h-5 w-5" strokeWidth={2} />
             </span>
-            <span className="min-w-0 truncate">{c.attachFile}</span>
-            {fileLabel ? (
-              <span className="min-w-0 truncate font-normal normal-case tracking-normal text-neutral-500">
-                {fileLabel}
-              </span>
-            ) : null}
+            <span>{fileLabel || c.attachFile}</span>
           </button>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-neutral-100 pt-5 sm:gap-5 sm:border-0 sm:pt-2 md:flex-row md:items-end md:justify-between md:gap-8">
-          {error ? (
-            <p
-              role="alert"
-              className={`text-sm font-medium md:order-first md:w-full ${isDark ? 'text-red-400' : 'text-red-600'}`}
-            >
-              {error}
-            </p>
-          ) : null}
-          <button
-            type="submit"
-            disabled={sending}
-            className={`order-1 inline-flex w-full shrink-0 items-center justify-center md:order-none md:w-auto md:min-w-[280px] ${
-              isDark ? BTN_BRAND : BTN_BRAND_LG
-            }`}
-          >
-            {sending ? SUBMITTING[lang] : c.submitDiscuss}
-          </button>
-          <p
-            className={`order-2 max-w-lg text-[11px] leading-relaxed sm:text-xs md:order-none ${isDark ? 'text-white/35' : 'text-neutral-500'}`}
-          >
-            {c.consentBefore}{' '}
-            <Link
-              href={`/${lang}/privacy`}
-              className={`underline underline-offset-2 ${isDark ? 'text-white/45 hover:text-white/60' : 'text-neutral-600 hover:text-neutral-800'}`}
-            >
-              {c.consentLink}
-            </Link>
+        {error ? (
+          <p role="alert" className="form-error">
+            {error}
           </p>
+        ) : null}
+
+        <div className="contact-form-messengers">
+          <a
+            href="https://t.me/telebotsnowayrm"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-form-messenger"
+          >
+            <FaTelegramPlane aria-hidden />
+            <span>{c.telegram}</span>
+          </a>
+          <a
+            href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-form-messenger"
+          >
+            <FaWhatsapp aria-hidden />
+            <span>{c.whatsapp}</span>
+          </a>
         </div>
+
+        <button type="submit" disabled={sending} className="submit-button">
+          <span>{sending ? SUBMITTING[lang] : c.submitDiscuss}</span>
+          {!sending ? <ArrowRight aria-hidden /> : null}
+        </button>
+
+        <p className="form-consent">
+          {c.consentBefore}{' '}
+          <Link href={`/${lang}/privacy`}>{c.consentLink}</Link>
+        </p>
       </form>
     </div>
   );

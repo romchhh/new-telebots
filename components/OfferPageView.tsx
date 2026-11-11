@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
+import SiteChromeFrame from '@/components/SiteChromeFrame';
 import OrderModal from '@/components/OrderModal';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import SuccessMessage from '@/components/SuccessMessage';
@@ -136,17 +137,28 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
 
   return (
     <>
-      <div className="min-h-screen bg-white">
-        <Navigation
-          isScrolled={isScrolled}
-          transparentOnLight
-          lang={lang}
-          setLang={handleLangChange}
-          t={t}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
-
+      <SiteChromeFrame
+        footer={
+          <Footer
+            t={t}
+            lang={lang}
+            setLang={handleLangChange}
+            currentLang={lang}
+            onConsultClick={openModal}
+          />
+        }
+        navigation={
+          <Navigation
+            isScrolled={isScrolled}
+            transparentOnLight
+            lang={lang}
+            setLang={handleLangChange}
+            t={t}
+            currentLang={lang}
+            onConsultClick={openModal}
+          />
+        }
+      >
         <main id="main-content">
           {/* 1 · Hero — як solutions */}
           <section className={`relative overflow-hidden border-b border-gray-100 bg-white pt-24 md:pt-28 lg:pt-16 ${SITE_PX}`}>
@@ -532,15 +544,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
             className="pt-16 md:pt-24"
           />
         </main>
-
-        <Footer
-          t={t}
-          lang={lang}
-          setLang={handleLangChange}
-          currentLang={lang}
-          onConsultClick={openModal}
-        />
-      </div>
+      </SiteChromeFrame>
 
       <OrderModal
         isOpen={isModalOpen}

@@ -1,19 +1,20 @@
 'use client';
 
-import Link from 'next/link';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import { useHomeModal } from '@/components/HomeModalProvider';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
-import { RADIUS_PILL, RADIUS_SHELL } from '@/lib/siteUi';
+import { RADIUS_SHELL } from '@/lib/siteUi';
 
 export type SiteCtaBandProps = {
   title: string;
   text: string;
   contactLabel: string;
-  pricingLabel: string;
-  portfolioLabel: string;
-  pricingHref: string;
-  portfolioHref: string;
+  /** @deprecated лишається для сумісності викликів — більше не рендериться */
+  pricingLabel?: string;
+  /** @deprecated лишається для сумісності викликів — більше не рендериться */
+  portfolioLabel?: string;
+  pricingHref?: string;
+  portfolioHref?: string;
   onContactClick?: () => void;
   className?: string;
 };
@@ -23,10 +24,6 @@ export default function SiteCtaBand({
   title,
   text,
   contactLabel,
-  pricingLabel,
-  portfolioLabel,
-  pricingHref,
-  portfolioHref,
   onContactClick,
   className = '',
 }: SiteCtaBandProps) {
@@ -50,26 +47,14 @@ export default function SiteCtaBand({
         <p className="relative mx-auto mb-8 max-w-3xl text-center text-base leading-relaxed text-white/75 md:text-lg">
           {text}
         </p>
-        <div className="relative mx-auto flex w-full max-w-md flex-col gap-3 sm:max-w-none sm:flex-row sm:flex-wrap sm:items-stretch sm:justify-center">
+        <div className="relative mx-auto flex w-full max-w-lg justify-center sm:max-w-xl">
           <OrderCtaPill
-            size="sm"
+            size="hero"
             variant="brand"
             label={contactLabel}
             onClick={openModal}
-            className="w-full sm:w-auto sm:min-w-[14rem]"
+            className="w-full justify-between shadow-none"
           />
-          <Link
-            href={pricingHref}
-            className={`inline-flex w-full items-center justify-center ${RADIUS_PILL} border-2 border-brand bg-transparent px-6 py-3.5 text-center text-sm font-bold uppercase tracking-[0.06em] text-brand transition-colors hover:bg-brand hover:text-neutral-900 sm:w-auto`}
-          >
-            {pricingLabel}
-          </Link>
-          <Link
-            href={portfolioHref}
-            className={`inline-flex w-full items-center justify-center ${RADIUS_PILL} border-2 border-white/40 px-6 py-3.5 text-center text-sm font-bold uppercase tracking-[0.06em] text-white transition-colors hover:border-brand hover:bg-brand/10 sm:w-auto`}
-          >
-            {portfolioLabel}
-          </Link>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import CtaArrowDisc from '@/components/CtaArrowDisc';
 import { getCaseHref } from '@/lib/portfolioCases';
 import type { Language } from '@/components/translations';
 
@@ -83,15 +83,16 @@ export default function PortfolioCaseCard({
           >
             {card.title}
           </h3>
-          <span
-            className={`mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border transition-colors sm:mt-1 sm:h-8 sm:w-8 ${
+          <CtaArrowDisc
+            sheen="muted"
+            size="xs"
+            className="mt-0.5 sm:mt-1"
+            toneClass={
               light
-                ? 'border-neutral-300 text-neutral-900 group-hover:border-brand group-hover:text-brand'
-                : 'border-white/20 text-white group-hover:border-brand group-hover:text-brand'
-            }`}
-          >
-            <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={2.25} aria-hidden />
-          </span>
+                ? 'border border-neutral-300 bg-white text-neutral-900 group-hover:border-brand group-hover:text-brand'
+                : 'border border-white/20 bg-transparent text-white group-hover:border-brand group-hover:text-brand'
+            }
+          />
         </div>
         <p
           className={`mb-2 text-xs leading-snug sm:mb-3 sm:text-sm md:text-base ${
