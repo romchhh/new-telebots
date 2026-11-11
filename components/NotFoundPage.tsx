@@ -10,6 +10,7 @@ import { translations, Language } from '@/components/translations';
 import { useState, useEffect } from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { SITE_PX, SITE_INNER } from '@/lib/siteLayout';
+import { scrollToTopInstant } from '@/lib/scroll';
 
 const display = { fontFamily: 'var(--font-display)' } as const;
 const sans = { fontFamily: 'var(--font-sans)' } as const;
@@ -33,8 +34,8 @@ export default function NotFoundPage() {
   useEffect(() => {
     const checkScroll = () => setIsScrolled(window.scrollY > 50);
     checkScroll();
-    window.scrollTo(0, 0);
-    window.addEventListener('scroll', checkScroll);
+    scrollToTopInstant();
+    window.addEventListener('scroll', checkScroll, { passive: true });
     return () => window.removeEventListener('scroll', checkScroll);
   }, []);
 

@@ -18,6 +18,7 @@ import StatPills from '@/components/StatPills';
 import KeyboardKeyBadge, { KEYBOARD_BENEFIT_SYMBOLS } from '@/components/KeyboardKeyBadge';
 import { translations, Language } from '@/components/translations';
 import { offerPageCopy, OFFER_TELEGRAM_URL } from '@/lib/offerPageCopy';
+import { scrollToTopInstant } from '@/lib/scroll';
 import { sendToTelegram } from '@/lib/telegram';
 import { antiSpamFromFormData } from '@/lib/antiSpam';
 import FormHoneypot from '@/components/FormHoneypot';
@@ -57,7 +58,7 @@ export default function OfferPageClient({ initialLang }: OfferPageClientProps) {
 
   useEffect(() => {
     const checkScroll = () => setIsScrolled(window.scrollY > 50);
-    window.scrollTo(0, 0);
+    scrollToTopInstant();
     window.addEventListener('scroll', checkScroll, { passive: true });
     return () => window.removeEventListener('scroll', checkScroll);
   }, []);

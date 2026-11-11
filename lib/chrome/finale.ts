@@ -1,6 +1,6 @@
 /**
  * Footer (site-finale) reveal-on-scroll, or static stacking on small / tall footers.
- * Ported from site/app.
+ * Ported from site/app — with jump-safe freeze and cheaper per-frame updates.
  */
 
 function reduceMotion() {
@@ -33,6 +33,9 @@ export function initFinale(): () => void {
     opacity: '',
     translate: '',
     finaleP: '',
+    shadow: '',
+    pe: '',
+    transform: '',
     active: false,
   };
 
@@ -60,6 +63,9 @@ export function initFinale(): () => void {
     cache.content = '';
     cache.opacity = '';
     cache.translate = '';
+    cache.shadow = '';
+    cache.pe = '';
+    cache.transform = '';
     holder.style.height = '';
     for (const prop of [
       'position',
@@ -127,7 +133,7 @@ export function initFinale(): () => void {
 
     const pageH = Math.max(pageInner.offsetHeight, vh);
     const start = pageH - vh;
-    const travel = spacer.offsetHeight - overflowTravel;
+    const travel = Math.max(0, spacer.offsetHeight - overflowTravel);
     const progressScroll = scrollY - start;
 
     const inner = finale.querySelector('.finale-inner') as HTMLElement | null;
@@ -148,6 +154,12 @@ export function initFinale(): () => void {
       return;
     }
 
+    // Reserve scroll height BEFORE taking content out of flow — avoids a 1-frame jump.
+    if (cache.pageHeight !== pageH) {
+      cache.pageHeight = pageH;
+      holder.style.height = `${pageH}px`;
+    }
+
     if (!frozen) {
       frozen = true;
       content.style.position = 'fixed';
@@ -160,10 +172,6 @@ export function initFinale(): () => void {
       pageInner.style.position = 'relative';
     }
 
-    if (cache.pageHeight !== pageH) {
-      cache.pageHeight = pageH;
-      holder.style.height = `${pageH}px`;
-    }
     if (cache.vh !== vh) {
       cache.vh = vh;
       content.style.height = `${vh}px`;
@@ -174,25 +182,38 @@ export function initFinale(): () => void {
     }
 
     const raw = Math.min(1, progressScroll / travel);
-    const eased = reduceMotion() ? 0 : raw * raw * (3 - 2 * raw);
+    // Slightly softer ease than classic smoothstep — less “snap” near ends.
+    const eased = reduceMotion() ? 0 : raw * raw * (2 - raw);
     const mobile = vw < 768;
     const y = -Math.min(progressScroll, travel);
 
-    content.style.transform = mobile
-      ? `translate3d(0, ${y}px, 0) scale(${1 - 0.1 * eased})`
-      : `translate3d(0, ${y}px, 0) perspective(1600px) rotateX(${-12 * eased}deg) scale(${1 - 0.09 * eased})`;
+    const transform = mobile
+      ? `translate3d(0, ${y}px, 0) scale(${1 - 0.08 * eased})`
+      : `translate3d(0, ${y}px, 0) perspective(1600px) rotateX(${-8 * eased}deg) scale(${1 - 0.07 * eased})`;
+    if (cache.transform !== transform) {
+      cache.transform = transform;
+      content.style.transform = transform;
+    }
 
-    const radius = 4 * Math.round((48 * eased) / 4);
+    const radius = 4 * Math.round((40 * eased) / 4);
     if (cache.radius !== radius) {
       cache.radius = radius;
       content.style.borderRadius = `0 0 ${radius}px ${radius}px`;
     }
 
-    const shadowA = (0.18 + eased * 0.42).toFixed(3);
-    const shadowB = (0.1 + eased * 0.3).toFixed(3);
-    content.style.boxShadow = `0 40px 100px rgba(0,0,0,${shadowA}), 0 12px 36px rgba(0,0,0,${shadowB})`;
+    const shadowA = (0.16 + eased * 0.36).toFixed(3);
+    const shadowB = (0.08 + eased * 0.26).toFixed(3);
+    const shadow = `0 40px 100px rgba(0,0,0,${shadowA}), 0 12px 36px rgba(0,0,0,${shadowB})`;
+    if (cache.shadow !== shadow) {
+      cache.shadow = shadow;
+      content.style.boxShadow = shadow;
+    }
 
-    content.style.pointerEvents = raw > 0.15 ? 'none' : '';
+    const pe = raw > 0.15 ? 'none' : '';
+    if (cache.pe !== pe) {
+      cache.pe = pe;
+      content.style.pointerEvents = pe;
+    }
     content.inert = raw > 0.5;
 
     const p = raw.toFixed(3);
@@ -204,9 +225,9 @@ export function initFinale(): () => void {
     finale.style.setProperty('--p', p);
 
     if (header) {
-      const fade = Math.min(1, raw / 0.2);
+      const fade = Math.min(1, raw / 0.22);
       const opacity = (1 - fade).toFixed(3);
-      const translate = `0 ${Math.round(-16 * fade)}px`;
+      const translate = `0 ${Math.round(-12 * fade)}px`;
       if (cache.opacity !== opacity) {
         cache.opacity = opacity;
         header.style.opacity = opacity;
@@ -224,9 +245,12 @@ export function initFinale(): () => void {
   };
 
   const onResize = () => {
-    if (innerWidth === vw && Math.abs(innerHeight - vh) < 160) return;
-    vh = innerHeight;
-    vw = innerWidth;
+    const nextW = innerWidth;
+    const nextH = innerHeight;
+    // Ignore URL-bar chrome jitter on mobile; remeasure real orientation/layout changes.
+    if (nextW === vw && Math.abs(nextH - vh) < 80) return;
+    vh = nextH;
+    vw = nextW;
     unfreeze();
     measureMode();
     schedule();
@@ -257,7 +281,7 @@ export function initFinale(): () => void {
   });
 
   window.addEventListener('scroll', schedule, { passive: true });
-  window.addEventListener('resize', onResize);
+  window.addEventListener('resize', onResize, { passive: true });
 
   return () => {
     window.removeEventListener('scroll', schedule);

@@ -9,6 +9,7 @@ import SiteChromeFrame from '@/components/SiteChromeFrame';
 import type { Language, SiteCopy } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
+import { scrollToTopInstant } from '@/lib/scroll';
 
 const OrderModal = lazy(() => import('@/components/OrderModal'));
 const SuccessMessage = lazy(() => import('@/components/SuccessMessage'));
@@ -33,6 +34,7 @@ export default function HomePageClient({ initialLang, t, children }: HomePageCli
   }, [validLang]);
 
   useEffect(() => {
+    scrollToTopInstant();
     let raf = 0;
     const handleScroll = () => {
       cancelAnimationFrame(raf);

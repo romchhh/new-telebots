@@ -9,6 +9,7 @@ import { HomeModalProvider } from '@/components/HomeModalProvider';
 import type { Language, SiteCopy } from '@/components/translations';
 import { sendToTelegram } from '@/lib/telegram';
 import { SUBMIT_ERROR } from '@/lib/formMessages';
+import { scrollToTopInstant } from '@/lib/scroll';
 
 const OrderModal = lazy(() => import('@/components/OrderModal'));
 const SuccessMessage = lazy(() => import('@/components/SuccessMessage'));
@@ -74,7 +75,7 @@ export default function SitePageShell({
       };
     }
 
-    window.scrollTo(0, 0);
+    scrollToTopInstant();
     if (solidHeader) return;
     const onScroll = () => setIsScrolled(window.scrollY > 50);
     onScroll();
