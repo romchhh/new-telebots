@@ -4,10 +4,8 @@ import Link from 'next/link';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import ContactFormWithSuccess from '@/components/ContactFormWithSuccess';
 import type { Language, SiteCopy } from '@/components/translations';
-import { getLegalContact, legal } from '@/lib/legal';
+import { getLegalContact, legal, WHATSAPP_HREF } from '@/lib/legal';
 
-/** Messenger-кнопки завжди на український номер. */
-const UA_WHATSAPP_HREF = `https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`;
 const TELEGRAM_HREF = 'https://t.me/telebotsnowayrm';
 
 type ContactFormSectionProps = {
@@ -55,13 +53,13 @@ export default function ContactFormSection({
             </a>
           </li>
           <li>
-            <a href={UA_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer">
               <span className="contact-label">WhatsApp</span>
               <span className="contact-channel-value">
                 <FaWhatsapp aria-hidden className="h-[0.9em] w-[0.9em]" />
                 {c.whatsapp}
               </span>
-              <span className="contact-channel-meta">{legal.phone}</span>
+              <span className="contact-channel-meta">{legal.whatsapp}</span>
             </a>
           </li>
           <li>

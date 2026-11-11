@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, Paperclip } from 'lucide-react';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
 import { sendToTelegram } from '@/lib/telegram';
-import { legal } from '@/lib/legal';
+import { WHATSAPP_HREF } from '@/lib/legal';
 import { antiSpamFromFormData } from '@/lib/antiSpam';
 import FormHoneypot from '@/components/FormHoneypot';
 import { translations, Language } from '@/components/translations';
@@ -221,7 +221,7 @@ export default function ContactFormBlock({
             <span>{c.telegram}</span>
           </a>
           <a
-            href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
+            href={WHATSAPP_HREF}
             target="_blank"
             rel="noopener noreferrer"
             className="contact-form-messenger"

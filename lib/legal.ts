@@ -20,11 +20,18 @@ export const legal = {
   phone: '+380960908006',
   /** Телефон для посилань (tel:) */
   phoneRaw: '380960908006',
+  /** WhatsApp — завжди польський номер (усі локалі) */
+  whatsapp: '+48 792 776 815',
+  whatsappRaw: '48792776815',
   /** Електронна пошта */
   email: 'roman.fedoniuk@gmail.com',
   /** IBAN для банківських переказів */
   iban: 'UA933220010000026005370092533',
 } as const;
+
+/** Посилання WhatsApp (польський номер) для кнопок / соцмереж. */
+export const WHATSAPP_HREF = `https://api.whatsapp.com/send/?phone=${legal.whatsappRaw}&text&type=phone_number&app_absent=0`;
+export const WHATSAPP_WA_ME = `https://wa.me/${legal.whatsappRaw}`;
 
 const PL_CONTACT = {
   legalAddress: 'Warszawa, Polska',

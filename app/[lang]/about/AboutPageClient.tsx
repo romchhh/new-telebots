@@ -3,7 +3,7 @@ import Image from 'next/image';
 import OrderCtaPill from '@/components/OrderCtaPill';
 import StructuredData from '@/components/StructuredData';
 import { translations, type Language } from '@/components/translations';
-import { legal } from '@/lib/legal';
+import { WHATSAPP_HREF } from '@/lib/legal';
 import { SITE_PX, SITE_CONTAINER, SITE_INNER_WIDE } from '@/lib/siteLayout';
 import AboutHeadline from '@/components/AboutHeadline';
 import AboutServiceTeasers from '@/components/AboutServiceTeasers';
@@ -367,7 +367,7 @@ export default function AboutPageClient({ lang }: { lang: Language }) {
               {t.contact.telegram}
             </a>
             <a
-              href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
+              href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-black text-white px-10 py-5 hover:bg-gray-800 transition-colors rounded-full font-medium text-base md:text-lg uppercase tracking-wider w-full sm:w-auto"

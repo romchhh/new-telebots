@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import type { CSSProperties, FormEvent } from 'react';
 import { Language } from './translations';
-import { legal } from '@/lib/legal';
+import { legal, WHATSAPP_WA_ME } from '@/lib/legal';
 import { BLOG_PATH } from '@/lib/site';
 import { sendToTelegram } from '@/lib/telegram';
 
@@ -17,7 +17,7 @@ interface FooterProps {
 
 const SOCIALS = [
   { label: 'Telegram', href: 'https://t.me/telebotsnowayrm', icon: 'telegram' },
-  { label: 'WhatsApp', href: 'https://wa.me/380960908006', icon: 'whatsapp' },
+  { label: 'WhatsApp', href: WHATSAPP_WA_ME, icon: 'whatsapp' },
   { label: 'Instagram', href: 'https://www.instagram.com/telebotsnowayrm/', icon: 'instagram' },
   { label: 'Channel', href: 'https://t.me/TeleBotsNowayrmChannel', icon: 'telegram' },
 ] as const;

@@ -4,12 +4,10 @@ import Link from 'next/link';
 import CtaArrowDisc from '@/components/CtaArrowDisc';
 import { Globe } from 'lucide-react';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
-import { getLegalContact, legal } from '@/lib/legal';
+import { getLegalContact, legal, WHATSAPP_HREF } from '@/lib/legal';
 import { translations, type Language } from '@/components/translations';
 import { BTN_OUTLINE, RADIUS_PILL } from '@/lib/siteUi';
 
-/** Messenger-кнопки завжди на український номер. */
-const UA_WHATSAPP_HREF = `https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`;
 const TELEGRAM_HREF = 'https://t.me/telebotsnowayrm';
 
 type T = (typeof translations)['uk'];
@@ -70,12 +68,12 @@ export default function ContactDetailsColumn({
             </span>
             <span className={`mt-2 block text-base ${sub}`}>{c.writeUsSub}</span>
           </a>
-          <a href={UA_WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="group block">
+          <a href={WHATSAPP_HREF} target="_blank" rel="noopener noreferrer" className="group block">
             <span className="inline-flex items-center gap-2.5 text-[clamp(1.2rem,4.5vw,1.85rem)] font-black text-brand transition group-hover:text-brand-dark">
               <FaWhatsapp className="h-6 w-6 shrink-0 sm:h-7 sm:w-7" aria-hidden />
               {c.whatsapp}
             </span>
-            <span className={`mt-2 block text-base ${sub}`}>{legal.phone}</span>
+            <span className={`mt-2 block text-base ${sub}`}>{legal.whatsapp}</span>
           </a>
         </div>
 
@@ -137,7 +135,7 @@ export default function ContactDetailsColumn({
             <span className="font-black tracking-wider">{c.telegram}</span>
           </a>
           <a
-            href={UA_WHATSAPP_HREF}
+            href={WHATSAPP_HREF}
             target="_blank"
             rel="noopener noreferrer"
             className={`flex w-full items-center justify-center gap-3 px-6 py-4 ${RADIUS_PILL} ${isDark ? 'bg-white text-neutral-900 hover:bg-brand-light' : 'bg-neutral-900 text-white hover:bg-neutral-800'}`}

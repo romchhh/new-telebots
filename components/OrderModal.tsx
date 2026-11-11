@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ArrowRight, X } from 'lucide-react';
 import { FaTelegramPlane, FaWhatsapp } from 'react-icons/fa';
-import { legal } from '@/lib/legal';
+import { WHATSAPP_HREF } from '@/lib/legal';
 import { WEBMCP_ORDER } from '@/lib/webmcp';
 import { SUBMIT_ERROR, SUBMITTING } from '@/lib/formMessages';
 import { antiSpamFromFormData, type AntiSpamFields } from '@/lib/antiSpam';
@@ -210,7 +210,7 @@ export default function OrderModal({ isOpen, onClose, t, onSubmit }: OrderModalP
                 <span>{c.telegram}</span>
               </a>
               <a
-                href={`https://api.whatsapp.com/send/?phone=${legal.phoneRaw}&text&type=phone_number&app_absent=0`}
+                href={WHATSAPP_HREF}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="order-modal-messenger"

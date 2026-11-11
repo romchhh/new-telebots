@@ -95,7 +95,7 @@ ${buildBlogSection()}
 - Telegram: https://t.me/telebotsnowayrm
 - Email: roman.fedoniuk@gmail.com
 - Телефон: +380960908006
-- WhatsApp: +380960908006
+- WhatsApp: +48 792 776 815
 
 ## Основні сторінки
 - Головна: ${baseUrl}/uk (у HTML: послуги, кейси, принципи, FAQ, форма)
