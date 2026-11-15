@@ -22,6 +22,7 @@ export function initFinale(): () => void {
   let vw = innerWidth;
   let mode = 'reveal';
   let overflowTravel = 0;
+  let finaleDocTop = 0;
   let frozen = false;
   let raf = 0;
   const cache = {
@@ -108,6 +109,8 @@ export function initFinale(): () => void {
     const next = vw < 768 || innerH > 2 * vh ? 'static' : 'reveal';
     overflowTravel = next === 'reveal' ? Math.max(0, Math.ceil(innerH - bandH)) : 0;
     spacer.style.height = overflowTravel ? `${Math.round(bandH) + overflowTravel}px` : '';
+    // Document Y of finale — refreshed on measure, used instead of per-frame getBoundingClientRect.
+    finaleDocTop = Math.round(finale.getBoundingClientRect().top + scrollY);
     if (next !== mode || root.dataset.finaleMode !== next) {
       mode = next;
       root.dataset.finaleMode = next;
@@ -120,13 +123,20 @@ export function initFinale(): () => void {
     if (mode === 'static') {
       unfreeze();
       finale.style.setProperty('--p', '1');
-      const p = Math.max(0, Math.min(1, (vh - finale.getBoundingClientRect().top) / (0.25 * vh)));
-      if (p > 0) root.style.setProperty('--finale-p', p.toFixed(4));
-      else root.style.removeProperty('--finale-p');
+      const top = finaleDocTop - scrollY;
+      const p = Math.max(0, Math.min(1, (vh - top) / (0.25 * vh)));
+      const pKey = p > 0 ? p.toFixed(3) : '';
+      if (cache.finaleP !== pKey) {
+        cache.finaleP = pKey;
+        if (p > 0) root.style.setProperty('--finale-p', pKey);
+        else root.style.removeProperty('--finale-p');
+      }
       setActive(p > 0);
+      // Keep header + veil visible while footer scrolls in (no opacity fade).
       if (header) {
-        header.style.opacity = p > 0 ? String(1 - p) : '';
-        header.inert = p > 0.5;
+        header.style.opacity = '';
+        header.style.translate = '';
+        header.inert = false;
       }
       return;
     }
@@ -223,19 +233,17 @@ export function initFinale(): () => void {
     setActive(raw > 0);
     finale.style.setProperty('--p', p);
 
+    // Header stays visible with veil; only block clicks once footer mostly covers.
     if (header) {
-      const fade = Math.min(1, raw / 0.22);
-      const opacity = (1 - fade).toFixed(3);
-      const translate = `0 ${Math.round(-12 * fade)}px`;
-      if (cache.opacity !== opacity) {
-        cache.opacity = opacity;
-        header.style.opacity = opacity;
+      if (cache.opacity) {
+        cache.opacity = '';
+        header.style.opacity = '';
       }
-      if (cache.translate !== translate) {
-        cache.translate = translate;
-        header.style.translate = translate;
+      if (cache.translate) {
+        cache.translate = '';
+        header.style.translate = '';
       }
-      header.inert = raw > 0.02;
+      header.inert = raw > 0.55;
     }
   };
 

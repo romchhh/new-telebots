@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { servePublicText } from '@/lib/publicTextRoute';
+import { ROBOTS_TXT } from '@/lib/publishedTexts';
 import { CANONICAL_HOST } from '@/lib/site';
 
 /** Staging / alias hosts — never allow crawling even if a request reaches them. */
@@ -10,7 +10,6 @@ const BLOCKED_HOSTS = new Set([
 
 function isBlockedHost(hostname: string): boolean {
   if (BLOCKED_HOSTS.has(hostname)) return true;
-  // Vercel preview deployments
   if (hostname.endsWith('.vercel.app')) return true;
   return false;
 }
@@ -32,5 +31,10 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  return servePublicText('robots.txt');
+  return new NextResponse(ROBOTS_TXT, {
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+    },
+  });
 }

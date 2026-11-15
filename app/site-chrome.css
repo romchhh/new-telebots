@@ -317,6 +317,22 @@
   inset: 0
 }
 
+.button-label--with-disc {
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 10px 0 28px
+}
+
+.button-label--with-disc .button-label-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
+.living-button--light .button-label--with-disc {
+  font-size: clamp(1rem, 2.4vw, 1.375rem)
+}
+
 .living-button:hover .glass-highlight {
   opacity: .65
 }
@@ -1169,105 +1185,48 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
   opacity: .55
 }
 
-.newsletter {
-  align-items: center;
-  gap: 24px;
-  display: flex;
-  position: relative
-}
-
-.newsletter-label {
-  letter-spacing: -.05em;
+.finale-aside-cta {
   color: #fff;
-  flex: none;
-  font-size: 16px;
-  line-height: 1.1
-}
-
-.newsletter-field {
-  background: var(--gray-800);
+  background: #2a2a32;
   border-radius: 999px;
   align-items: center;
-  gap: 8px;
-  width: clamp(300px, 21.875vw, 420px);
-  padding: 8px 8px 8px 24px;
-  transition: box-shadow .25s, background-color .25s;
+  justify-content: space-between;
+  gap: 16px;
+  width: min(100%, clamp(280px, 24vw, 420px));
+  min-height: 64px;
+  padding: 10px 10px 10px 22px;
+  transition: background-color .25s, box-shadow .25s;
   display: flex;
-  box-shadow: inset 0 0 0 1px #0000
+  box-shadow: inset 0 0 0 1px #ffffff14
 }
 
-.newsletter-field:hover {
-  background: #575764
+.finale-aside-cta:hover,
+.finale-aside-cta:focus-visible {
+  background: #3a3a44;
+  box-shadow: inset 0 0 0 1px #f9a8d466
 }
 
-.newsletter-field:focus-within {
-  box-shadow: inset 0 0 0 1px #f9a8d4
-}
-
-.newsletter-field input {
-  color: #fff;
-  letter-spacing: -.03em;
-  background: 0 0;
-  border: 0;
-  outline: 0;
-  flex: 1;
+.finale-aside-cta-copy {
   min-width: 0;
-  height: 48px;
-  padding: 0;
-  font-size: 16px
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  display: flex;
+  text-align: left
 }
 
-.newsletter-field input::placeholder {
-  color: var(--gray-500)
+.finale-aside-cta-label {
+  letter-spacing: -.05em;
+  font-size: clamp(16px, 1.25vw, 20px);
+  line-height: 1.15
 }
 
-.newsletter-field button {
-  width: var(--btn-sm);
-  height: var(--btn-sm);
-  color: #050505;
-  background: #fff;
-  border: 0;
-  border-radius: 50%;
-  flex: none;
-  place-items: center;
-  transition: transform .35s cubic-bezier(.22, 1, .36, 1);
-  display: grid
-}
-
-.newsletter-field button:hover {
-  transform: translate(3px)
-}
-
-.newsletter-field button svg {
-  width: 22px;
-  height: 22px
-}
-
-.newsletter-field button:focus-visible {
-  outline-color: #fff
-}
-
-.newsletter-status {
-  text-align: right;
+.finale-aside-cta-sub {
   color: #aaaab4;
-  margin: 8px 0 0;
-  font-size: 16px;
-  line-height: 1.3;
-  position: absolute;
-  top: 100%;
-  right: 0
-}
-
-.newsletter-status:empty {
-  display: none
-}
-
-.newsletter-status[data-status=error] {
-  color: #ffb4b4
-}
-
-.newsletter-status[data-status=success] {
-  color: #b9f5bc
+  letter-spacing: -.03em;
+  font-size: 14px;
+  line-height: 1.25
 }
 
 .finale-center {
@@ -1509,37 +1468,21 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
     text-align: center
   }
 
-  .newsletter {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+  .finale-actions .button-label--with-disc {
+    padding: 0 8px 0 16px;
+    text-align: left
+  }
+
+  .finale-aside-cta {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box
+  }
+
+  .finale-newsletter {
     width: 100%;
     max-width: 100%;
     min-width: 0
-  }
-
-  .newsletter-field {
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding: 8px 8px 8px 16px
-  }
-
-  .newsletter-status {
-    text-align: left;
-    position: static
-  }
-
-  .site-finale .newsletter-label br {
-    display: none
-  }
-
-  .site-finale .newsletter-field {
-    align-self: stretch
-  }
-
-  .site-finale .newsletter-status {
-    text-align: center
   }
 
   .finale-nav ul {
@@ -1605,38 +1548,52 @@ html[data-finale-active] .site-page-content .living-button[data-ready=true] {
 .header-veil {
   z-index: 39;
   pointer-events: none;
-  height: clamp(88px, 7.5vw, 140px);
-  opacity: calc(1 - var(--finale-p, 0));
+  /* Always visible — do not fade with --finale-p */
+  opacity: 1;
+  height: clamp(112px, 10vw, 180px);
   position: fixed;
   top: 0;
   left: 0;
-  right: 0
+  right: 0;
+  transform: translateZ(0);
+  contain: layout style
 }
 
 /* Single blur layer — multi-layer backdrop-filter was a major GPU cost */
 .header-veil span {
-  --veil-blur: 12px;
-  -webkit-backdrop-filter: blur(var(--veil-blur));
-  backdrop-filter: blur(var(--veil-blur));
-  -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent 100%);
-  mask-image: linear-gradient(to bottom, #000 35%, transparent 100%);
+  --veil-blur: 20px;
+  -webkit-backdrop-filter: blur(var(--veil-blur)) saturate(1.05);
+  backdrop-filter: blur(var(--veil-blur)) saturate(1.05);
+  -webkit-mask-image: linear-gradient(to bottom, #000 42%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 42%, transparent 100%);
   position: absolute;
   inset: 0
 }
 
 @supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))) {
   .header-veil span {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, .55), transparent)
+    background: linear-gradient(to bottom, rgba(255, 255, 255, .62), transparent)
   }
 }
 
 @media (max-width:768px) {
   .header-veil {
-    height: 80px
+    height: 100px
   }
 
   .header-veil span {
-    --veil-blur: 10px
+    --veil-blur: 16px
+  }
+
+  /* Tuck transforms on every scroll feel laggy on mobile */
+  .site-header .header-actions,
+  .site-header .header-location {
+    transition: none
+  }
+
+  .site-header[data-tucked] .header-location,
+  .site-header[data-tucked] .header-actions {
+    transform: none
   }
 }
 

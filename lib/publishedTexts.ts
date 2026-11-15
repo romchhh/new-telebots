@@ -1,0 +1,93 @@
+/** Canonical machine-readable texts (single source; served by app routes + middleware). */
+
+export const ROBOTS_TXT = `# robots.txt for TeleBots
+# https://telebots.site/robots.txt
+
+User-Agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+User-Agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+User-Agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+Sitemap: https://telebots.site/sitemap.xml
+Sitemap: https://telebots.site/blog-sitemap.xml
+
+Host: https://telebots.site
+
+# Last updated: 2026-11-15
+# Content-Signal: https://contentsignals.org/
+`;
+
+export const LLMS_TXT = `# TeleBots
+
+> TeleBots develops Telegram bots, websites, landing pages, and e-commerce under one roof — Next.js, payments, CRM, and AI integrations. 200+ shipped projects; Ukrainian, English, Polish, and Russian.
+
+TeleBots (telebots.site; ФОП Федонюк Роман Ігорович, ЄДРПОУ 3831208275, Kyiv, Ukraine) builds turnkey digital products for business: bots with payments, conversion landings, online stores, and automations. Unrelated to any cybersecurity threat actor that may share a similar name.
+
+## Primary pages
+
+- [Home (UK)](https://telebots.site/uk): Main landing — services, case studies, principles, FAQ, and contact form in the page HTML
+- [Home (EN)](https://telebots.site/en): English homepage
+- [Home (PL)](https://telebots.site/pl): Polish homepage
+- [Home (RU)](https://telebots.site/ru): Russian homepage
+- [Services](https://telebots.site/uk/services): Websites, chatbots, and design services hub
+- [Pricing](https://telebots.site/uk/pricing): Transparent LITE / PRO / CUSTOM pricing
+- [Portfolio](https://telebots.site/uk/portfolio): Case studies of bots and websites
+- [About](https://telebots.site/uk/about): Team, process, and company info
+- [Contact](https://telebots.site/uk/contact): Request a free consultation
+- [Blog (UK)](https://telebots.site/uk/blog): Articles on bots, sites, SEO, and pricing
+
+## Blog hubs (UK)
+
+- [Telegram bot for business 2026](https://telebots.site/uk/blog/telegram-bot-dlya-biznesu-2026): Pillar guide — scenarios, pricing, launch path
+- [How much a Telegram bot costs](https://telebots.site/uk/blog/skilky-koshtuye-telegram-bot): LITE / PRO / CUSTOM pricing
+- [How much a website costs](https://telebots.site/uk/blog/skilky-koshtuye-sayt): Landing, business site, e-commerce ranges
+
+## Solutions (SEO landings)
+
+- [Buy chatbots (UK)](https://telebots.site/uk/solutions/chatbots-buy): High-intent — buy business chatbots from $100
+- [Chatbot development price (UK)](https://telebots.site/uk/solutions/chatbot-development-price): Pricing-focused landing
+- [Custom Telegram bot cost (UK)](https://telebots.site/uk/solutions/telegram-bot-order-price): Order cost and FAQ
+- [Telegram bot development](https://telebots.site/uk/solutions/telegram-bots): Turnkey Telegram bots from $100
+- [Landing page development](https://telebots.site/uk/solutions/landing-pages): Conversion landings from $150
+- [Online store development](https://telebots.site/uk/solutions/online-stores): Custom e-commerce from $400
+- [AI chatbots](https://telebots.site/uk/solutions/ai-chatbots): GPT-powered support and sales bots
+- [Data parsers](https://telebots.site/uk/solutions/data-parsers): Scrapers and data collection tools
+- [Site for $200 offer (UK)](https://telebots.site/uk/offer): Free prototype + fixed $200 package
+- [Partner program](https://telebots.site/uk/partnership): 20% commission for SMM, ads, marketers, and agencies
+
+## Service detail pages
+
+- [Websites](https://telebots.site/uk/services/websites): Landings, corporate sites, Next.js e-commerce
+- [Chatbots](https://telebots.site/uk/services/chatbots): Telegram / WhatsApp / Viber bots with CRM and payments
+- [Mobile apps](https://telebots.site/uk/services/apps): iOS and Android — MVP, payments, push, App Store / Google Play
+- [Design](https://telebots.site/uk/services/design): Logo, brand identity, and UI/UX
+
+## Contact
+
+- [Email](mailto:roman.fedoniuk@gmail.com): roman.fedoniuk@gmail.com
+- [Telegram](https://t.me/telebotsnowayrm): @telebotsnowayrm
+- [Instagram](https://www.instagram.com/telebotsnowayrm/): @telebotsnowayrm
+- [WhatsApp](https://wa.me/48792776815): +48 792 776 815
+
+## Optional
+
+- [Privacy policy](https://telebots.site/uk/privacy): Privacy and data processing
+- [Terms of service](https://telebots.site/uk/terms): Service terms
+- [Refund policy](https://telebots.site/uk/refund): Refunds and returns
+- [RSS feed](https://telebots.site/feed.xml): Blog RSS
+- [Sitemap](https://telebots.site/sitemap.xml): XML sitemap index
+`;

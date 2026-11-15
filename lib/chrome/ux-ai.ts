@@ -27,6 +27,7 @@ export function initUxAi(): () => void {
 
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return () => {};
 
+  const touchUi = matchMedia('(hover: none), (max-width: 767px)').matches;
   const geo = { lx: 0, ly: 0, rx: 0, ry: 0, h: 1000, step: 356 };
   let raf = 0;
 
@@ -93,13 +94,15 @@ export function initUxAi(): () => void {
     cards.forEach((card, i) => {
       const angle = (i * geo.step) / radius - anglePos;
       const y = radius * Math.sin(angle);
-      const z = radius * (Math.cos(angle) - 1);
-      card.style.transform = `translate3d(0, ${y.toFixed(2)}px, ${z.toFixed(2)}px) rotateX(${(-angle).toFixed(4)}rad)`;
+      // Mobile: skip rotateX/Z — 3D transforms were a scroll jank source.
+      const transform = touchUi
+        ? `translate3d(0, ${y.toFixed(1)}px, 0)`
+        : `translate3d(0, ${y.toFixed(2)}px, ${(radius * (Math.cos(angle) - 1)).toFixed(2)}px) rotateX(${(-angle).toFixed(4)}rad)`;
+      card.style.transform = transform;
 
       const norm = clamp01(Math.abs(angle) / 1.05);
       const opacity = (1 - TUNE.fade * norm ** 2) * (1 - smooth(range(norm, 0.7, 1)));
       card.style.opacity = String(opacity);
-      // No per-frame filter:blur — opacity + transform are enough and far cheaper.
       if (card.style.filter) card.style.filter = 'none';
     });
   };

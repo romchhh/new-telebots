@@ -152,6 +152,19 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/:lang(uk|en|pl|ru)',
+        headers: [
+          {
+            key: 'Link',
+            value: `<https://${CANONICAL_HOST}/llms.txt>; rel="alternate"; type="text/markdown", <https://${CANONICAL_HOST}/ai.txt>; rel="describedby"`,
+          },
+          {
+            key: 'Vary',
+            value: 'Accept',
+          },
+        ],
+      },
+      {
         source: '/.well-known/security.txt',
         headers: [
           {

@@ -1,11 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import type { CSSProperties, FormEvent } from 'react';
+import type { CSSProperties } from 'react';
+import CtaArrowDisc from '@/components/CtaArrowDisc';
 import { Language } from './translations';
 import { legal, WHATSAPP_WA_ME } from '@/lib/legal';
 import { BLOG_PATH } from '@/lib/site';
-import { sendToTelegram } from '@/lib/telegram';
 
 interface FooterProps {
   t: typeof import('./translations').translations.uk;
@@ -15,11 +15,13 @@ interface FooterProps {
   onConsultClick?: () => void;
 }
 
+const TELEGRAM_CHANNEL = 'https://t.me/TeleBotsNowayrmChannel';
+
 const SOCIALS = [
   { label: 'Telegram', href: 'https://t.me/telebotsnowayrm', icon: 'telegram' },
   { label: 'WhatsApp', href: WHATSAPP_WA_ME, icon: 'whatsapp' },
   { label: 'Instagram', href: 'https://www.instagram.com/telebotsnowayrm/', icon: 'instagram' },
-  { label: 'Channel', href: 'https://t.me/TeleBotsNowayrmChannel', icon: 'telegram' },
+  { label: 'Channel', href: TELEGRAM_CHANNEL, icon: 'telegram' },
 ] as const;
 
 function copy(lang: Language) {
@@ -28,9 +30,8 @@ function copy(lang: Language) {
       home: 'Home',
       heading: 'Need a site or bot for your process?',
       discuss: 'Discuss a project',
-      subscribe: 'Subscribe',
-      subscribeTo: 'to the design journal',
-      emailPh: 'Your email',
+      channelLabel: 'Telegram channel',
+      channelSub: 'Cases, news, short notes',
       privacy: 'Privacy policy',
       credit: 'Design & web by TeleBots',
       navAria: 'Site sections',
@@ -42,9 +43,8 @@ function copy(lang: Language) {
       home: 'Start',
       heading: 'Potrzebujesz strony lub bota pod swój proces?',
       discuss: 'Omówmy projekt',
-      subscribe: 'Zapisz się',
-      subscribeTo: 'do dziennika designu',
-      emailPh: 'Twój email',
+      channelLabel: 'Kanał Telegram',
+      channelSub: 'Case’y, newsy, krótkie notatki',
       privacy: 'Polityka prywatności',
       credit: 'Design i web — TeleBots',
       navAria: 'Sekcje strony',
@@ -56,9 +56,8 @@ function copy(lang: Language) {
       home: 'Главная',
       heading: 'Нужен сайт или бот под ваш процесс?',
       discuss: 'Обсудить проект',
-      subscribe: 'Подписаться',
-      subscribeTo: 'на дизайн-журнал',
-      emailPh: 'Ваш email',
+      channelLabel: 'Telegram-канал',
+      channelSub: 'Кейсы, новости, короткие заметки',
       privacy: 'Политика конфиденциальности',
       credit: 'Дизайн и разработка — TeleBots',
       navAria: 'Разделы сайта',
@@ -69,9 +68,8 @@ function copy(lang: Language) {
     home: 'Головна',
     heading: 'Потрібен сайт або бот під ваш процес?',
     discuss: 'Обговорити проєкт',
-    subscribe: 'Підписатись',
-    subscribeTo: 'на дизайн-журнал',
-    emailPh: 'Ваш email',
+    channelLabel: 'Telegram-канал',
+    channelSub: 'Кейси, новини, короткі нотатки',
     privacy: 'Політика конфіденційності',
     credit: 'Дизайн і розробка — TeleBots',
     navAria: 'Розділи сайту',
@@ -91,45 +89,6 @@ export default function Footer({ t, lang, currentLang, onConsultClick }: FooterP
     { href: `/${currentLanguage}/contact`, label: t.nav.contact },
   ];
 
-  const onNewsletter = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
-    if (String(data.get('website') || '').trim()) return;
-    const email = String(data.get('email') || '').trim();
-    if (!email) return;
-    const status = form.querySelector('#newsletter-status') as HTMLElement | null;
-    if (status) {
-      status.dataset.status = 'loading';
-      status.textContent = '';
-    }
-    const ok = await sendToTelegram({
-      name: 'Newsletter',
-      phone: '—',
-      request: email,
-      service: 'Newsletter subscribe',
-    });
-    if (status) {
-      status.dataset.status = ok ? 'success' : 'error';
-      status.textContent = ok
-        ? currentLanguage === 'en'
-          ? 'Subscribed'
-          : currentLanguage === 'pl'
-            ? 'Zapisano'
-            : currentLanguage === 'ru'
-              ? 'Подписка оформлена'
-              : 'Підписано'
-        : currentLanguage === 'en'
-          ? 'Try again later'
-          : currentLanguage === 'pl'
-            ? 'Spróbuj później'
-            : currentLanguage === 'ru'
-              ? 'Попробуйте позже'
-              : 'Спробуйте пізніше';
-    }
-    if (ok) form.reset();
-  };
-
   return (
     <footer aria-labelledby="finale-heading" className="site-finale" id="site-footer">
       <div className="finale-inner">
@@ -144,53 +103,22 @@ export default function Footer({ t, lang, currentLang, onConsultClick }: FooterP
             </ul>
           </nav>
           <div className="finale-reveal finale-newsletter">
-            <form aria-busy="false" className="newsletter" onSubmit={onNewsletter}>
-              <label className="newsletter-label" htmlFor="newsletter-email">
-                {c.subscribe}
-                <br />
-                {c.subscribeTo}
-              </label>
-              <div className="newsletter-field">
-                <input
-                  aria-describedby="newsletter-status"
-                  autoComplete="email"
-                  id="newsletter-email"
-                  inputMode="email"
-                  maxLength={120}
-                  name="email"
-                  placeholder={c.emailPh}
-                  required
-                  type="email"
-                  defaultValue=""
-                />
-                <button aria-label={c.subscribe} type="submit">
-                  <svg
-                    aria-hidden="true"
-                    className="tabler-icon tabler-icon-arrow-right"
-                    fill="none"
-                    height={24}
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                    width={24}
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M5 12l14 0" />
-                    <path d="M13 18l6 -6" />
-                    <path d="M13 6l6 6" />
-                  </svg>
-                </button>
-              </div>
-              <div aria-hidden="true" className="honeypot">
-                <label>
-                  Website
-                  <input autoComplete="off" name="website" tabIndex={-1} defaultValue="" />
-                </label>
-              </div>
-              <p className="newsletter-status" data-status="idle" id="newsletter-status" role="status" />
-            </form>
+            <a
+              className="finale-aside-cta group"
+              href={TELEGRAM_CHANNEL}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <span className="finale-aside-cta-copy">
+                <span className="finale-aside-cta-label">{c.channelLabel}</span>
+                <span className="finale-aside-cta-sub">{c.channelSub}</span>
+              </span>
+              <CtaArrowDisc
+                sheen="light"
+                size="md"
+                toneClass="bg-white text-neutral-900"
+              />
+            </a>
           </div>
         </div>
 
@@ -242,7 +170,14 @@ export default function Footer({ t, lang, currentLang, onConsultClick }: FooterP
                       />
                     </div>
                   </span>
-                  <span className="button-label">{c.discuss}</span>
+                  <span className="button-label button-label--with-disc">
+                    <span className="button-label-text">{c.discuss}</span>
+                    <CtaArrowDisc
+                      sheen="dark"
+                      size="md"
+                      toneClass="bg-neutral-900 text-white"
+                    />
+                  </span>
                 </button>
               </div>
             </div>

@@ -1,5 +1,11 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import {
+  agentMarkdownResponse,
+  isLocaleHomePath,
+  prefersMarkdown,
+  withAgentLinkHeaders,
+} from '@/lib/agentDiscovery';
 import { LOCALE_COOKIE_NAME, resolvePreferredLanguage } from '@/lib/locale';
 import { isFlagshipCase, isLightCase, isReservedCaseSlug } from '@/lib/portfolioCaseTiers';
 import { CANONICAL_HOST } from '@/lib/site';
@@ -51,8 +57,10 @@ function getPreferredLanguage(request: NextRequest) {
   );
 }
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+  const accept = request.headers.get('accept');
+  const wantsMarkdown = prefersMarkdown(accept);
 
   if (isAllowedRootPath(pathname)) {
     return NextResponse.next();
@@ -78,6 +86,11 @@ export function middleware(request: NextRequest) {
     url.protocol = 'https:';
     url.hostname = CANONICAL_HOST;
     return permanentRedirect(url);
+  }
+
+  // Agents: Accept: text/markdown on / or /:lang → llms.txt body (not HTML)
+  if (wantsMarkdown && (pathname === '/' || isLocaleHomePath(pathname))) {
+    return agentMarkdownResponse();
   }
 
   if (pathname === '/') {
@@ -171,7 +184,12 @@ export function middleware(request: NextRequest) {
     );
   }
 
-  return withLangHeader(NextResponse.next(), siteLang);
+  const response = withLangHeader(NextResponse.next(), siteLang);
+  // Homepage HTML: advertise machine-readable alternates (RFC 8288)
+  if (isLocaleHomePath(pathname)) {
+    return withAgentLinkHeaders(response);
+  }
+  return response;
 }
 
 export const config = {
